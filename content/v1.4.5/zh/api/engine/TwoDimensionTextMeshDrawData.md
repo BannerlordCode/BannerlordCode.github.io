@@ -8,7 +8,7 @@ description: "TwoDimensionTextMeshDrawData 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public struct TwoDimensionTextMeshDrawData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/TwoDimensionTextMeshDrawData.cs`
+**File:** `TaleWorlds.Engine/TwoDimensionTextMeshDrawData.cs`
 
 ## 概述
 

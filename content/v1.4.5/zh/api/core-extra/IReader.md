@@ -8,7 +8,7 @@ description: "IReader 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public interface IReader`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/IReader.cs`
+**File:** `TaleWorlds.Library/IReader.cs`
 
 ## 概述
 

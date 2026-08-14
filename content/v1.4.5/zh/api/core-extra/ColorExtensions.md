@@ -8,7 +8,7 @@ description: "ColorExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class ColorExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ColorExtensions.cs`
+**File:** `TaleWorlds.Library/ColorExtensions.cs`
 
 ## 概述
 

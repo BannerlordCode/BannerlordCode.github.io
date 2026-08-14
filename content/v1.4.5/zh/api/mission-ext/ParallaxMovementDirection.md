@@ -8,7 +8,7 @@ description: "ParallaxMovementDirection 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum ParallaxMovementDirection`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ParallaxItemBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/ParallaxItemBrushWidget.cs`
 
 ## 概述
 

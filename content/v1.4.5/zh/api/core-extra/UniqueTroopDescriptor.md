@@ -8,7 +8,7 @@ description: "UniqueTroopDescriptor 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct UniqueTroopDescriptor : IComparable<UniqueTroopDescriptor>, IEquatable<UniqueTroopDescriptor>, ISavedStruct`
 **Base:** `IComparable<UniqueTroopDescriptor>`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/UniqueTroopDescriptor.cs`
+**File:** `TaleWorlds.Core/UniqueTroopDescriptor.cs`
 
 ## 概述
 
@@ -23,6 +23,8 @@ description: "UniqueTroopDescriptor 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `UniqueSeed` | `public int UniqueSeed { get; }` |
+| `Invalid` | `public static UniqueTroopDescriptor Invalid { get; }` |
+| `IsValid` | `public bool IsValid { get; }` |
 
 ## 主要方法
 

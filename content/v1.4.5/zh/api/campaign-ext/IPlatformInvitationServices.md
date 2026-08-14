@@ -8,7 +8,7 @@ description: "IPlatformInvitationServices 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public interface IPlatformInvitationServices`
 **Base:** 无
-**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/IPlatformInvitationServices.cs`
+**File:** `TaleWorlds.PlatformService/IPlatformInvitationServices.cs`
 
 ## 概述
 

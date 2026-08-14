@@ -8,7 +8,7 @@ description: "SiegeEngineType 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class SiegeEngineType : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SiegeEngineType.cs`
+**File:** `TaleWorlds.Core/SiegeEngineType.cs`
 
 ## 概述
 

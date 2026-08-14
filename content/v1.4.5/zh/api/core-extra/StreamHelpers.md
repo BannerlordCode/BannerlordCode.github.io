@@ -8,7 +8,7 @@ description: "StreamHelpers 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class StreamHelpers`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SRTHelper.cs`
+**File:** `TaleWorlds.Library/SRTHelper.cs`
 
 ## 概述
 

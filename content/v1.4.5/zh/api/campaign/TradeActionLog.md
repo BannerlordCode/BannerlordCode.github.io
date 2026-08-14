@@ -8,7 +8,7 @@ description: "TradeActionLog 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class TradeActionLog`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CaravansCampaignBehavior.cs`
+**File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/CaravansCampaignBehavior.cs`
 
 ## 概述
 
@@ -17,6 +17,12 @@ description: "TradeActionLog 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.CampaignSystem.CampaignBehaviors` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `ProfitRate` | `public float ProfitRate { get; }` |
 
 ## 主要方法
 

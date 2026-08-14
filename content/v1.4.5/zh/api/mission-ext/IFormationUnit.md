@@ -8,7 +8,7 @@ description: "IFormationUnit 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IFormationUnit`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IFormationUnit.cs`
+**File:** `TaleWorlds.MountAndBlade/IFormationUnit.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IGameNetworkHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IGameNetworkHandler`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IGameNetworkHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/IGameNetworkHandler.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "GenericMissionEvent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GenericMissionEvent : EventBase`
 **Base:** `EventBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/GenericMissionEvent.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/GenericMissionEvent.cs`
 
 ## 概述
 

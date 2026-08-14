@@ -8,7 +8,7 @@ description: "WeakGameEntity 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public struct WeakGameEntity`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/WeakGameEntity.cs`
+**File:** `TaleWorlds.Engine/WeakGameEntity.cs`
 
 ## 概述
 
@@ -23,7 +23,24 @@ description: "WeakGameEntity 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Pointer` | `public UIntPtr Pointer { get; }` |
+| `IsValid` | `public bool IsValid { get; }` |
+| `Name` | `public string Name { get; }` |
+| `Scene` | `public Scene Scene { get; }` |
+| `EntityFlags` | `public EntityFlags EntityFlags { get; }` |
+| `EntityVisibilityFlags` | `public EntityVisibilityFlags EntityVisibilityFlags { get; }` |
+| `BodyFlag` | `public BodyFlags BodyFlag { get; }` |
+| `PhysicsDescBodyFlag` | `public BodyFlags PhysicsDescBodyFlag { get; }` |
+| `Mass` | `public float Mass { get; }` |
+| `CenterOfMass` | `public Vec3 CenterOfMass { get; }` |
+| `GlobalPosition` | `public Vec3 GlobalPosition { get; }` |
+| `Tags` | `public string Tags { get; }` |
+| `ChildCount` | `public int ChildCount { get; }` |
 | `Parent` | `public WeakGameEntity Parent { get; }` |
+| `Root` | `public WeakGameEntity Root { get; }` |
+| `MultiMeshComponentCount` | `public int MultiMeshComponentCount { get; }` |
+| `ClothSimulatorComponentCount` | `public int ClothSimulatorComponentCount { get; }` |
+| `GlobalBoxMax` | `public Vec3 GlobalBoxMax { get; }` |
+| `GlobalBoxMin` | `public Vec3 GlobalBoxMin { get; }` |
 | `Skeleton` | `public Skeleton Skeleton { get; set; }` |
 
 ## 主要方法
@@ -501,17 +518,6 @@ WeakGameEntity weakGameEntity = ...;
 weakGameEntity.CallScriptCallbacks(false);
 ```
 
-### GetScriptCount
-`public int GetScriptCount()`
-
-**用途 / Purpose:** 读取并返回当前对象中 script count 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 WeakGameEntity 实例
-WeakGameEntity weakGameEntity = ...;
-var result = weakGameEntity.GetScriptCount();
-```
-
 ### IsGhostObject
 `public bool IsGhostObject()`
 
@@ -556,17 +562,6 @@ WeakGameEntity weakGameEntity = ...;
 weakGameEntity.SetEntityEnvMapVisibility(false);
 ```
 
-### GetScriptAtIndex
-`public ScriptComponentBehavior GetScriptAtIndex(int index)`
-
-**用途 / Purpose:** 读取并返回当前对象中 script at index 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 WeakGameEntity 实例
-WeakGameEntity weakGameEntity = ...;
-var result = weakGameEntity.GetScriptAtIndex(0);
-```
-
 ### HasScene
 `public bool HasScene()`
 
@@ -609,6 +604,17 @@ var result = weakGameEntity.HasScriptComponent(0);
 // 先通过子系统 API 拿到 WeakGameEntity 实例
 WeakGameEntity weakGameEntity = ...;
 var result = weakGameEntity.GetScriptComponents();
+```
+
+### HasScriptOfType
+`public bool HasScriptOfType(Type t)`
+
+**用途 / Purpose:** 判断当前对象是否已经持有 script of type。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.HasScriptOfType(t);
 ```
 
 ### GetFirstScriptWithNameHash
@@ -1676,6 +1682,17 @@ var result = weakGameEntity.GetBoundingBoxRadius();
 // 先通过子系统 API 拿到 WeakGameEntity 实例
 WeakGameEntity weakGameEntity = ...;
 weakGameEntity.SetBoundingboxDirty();
+```
+
+### ComputeGlobalPhysicsBoundingBoxMinMax
+`public ValueTuple<Vec3, Vec3> ComputeGlobalPhysicsBoundingBoxMinMax()`
+
+**用途 / Purpose:** 调用 ComputeGlobalPhysicsBoundingBoxMinMax 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.ComputeGlobalPhysicsBoundingBoxMinMax();
 ```
 
 ### ComputeGlobalPhysicsBoundingBoxCenter

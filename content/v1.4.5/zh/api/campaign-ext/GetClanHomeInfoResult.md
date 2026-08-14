@@ -8,7 +8,7 @@ description: "GetClanHomeInfoResult 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class GetClanHomeInfoResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetClanHomeInfoResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/GetClanHomeInfoResult.cs`
 
 ## 概述
 

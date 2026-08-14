@@ -8,7 +8,7 @@ description: "AdminMultiplayerOptionInfo 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public class AdminMultiplayerOptionInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/AdminUpdateMultiplayerOptions.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/AdminUpdateMultiplayerOptions.cs`
 
 ## 概述
 

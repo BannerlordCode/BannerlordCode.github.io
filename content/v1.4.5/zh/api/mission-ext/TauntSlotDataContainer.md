@@ -8,7 +8,7 @@ description: "TauntSlotDataContainer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TauntSlotDataContainer : MultiplayerLocalDataContainer<TauntSlotData>`
 **Base:** `MultiplayerLocalDataContainer<TauntSlotData>`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData/TauntSlotDataContainer.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Lobby/LocalData/TauntSlotDataContainer.cs`
 
 ## 概述
 

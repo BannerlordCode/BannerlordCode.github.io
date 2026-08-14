@@ -8,7 +8,7 @@ description: "ICommanderInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface ICommanderInfo : IMissionBehavior`
 **Base:** `IMissionBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ICommanderInfo.cs`
+**File:** `TaleWorlds.MountAndBlade/ICommanderInfo.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MBList2D 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class MBList2D<T> : IMBCollection`
 **Base:** `IMBCollection`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBList2D.cs`
+**File:** `TaleWorlds.Library/MBList2D.cs`
 
 ## 概述
 
@@ -24,6 +24,7 @@ description: "MBList2D 的自动生成类参考。"
 |------|-----------|
 | `Count1` | `public int Count1 { get; }` |
 | `Count2` | `public int Count2 { get; }` |
+| `RawArray` | `public T RawArray { get; set; }` |
 | `this` | `public T this { get; set; }` |
 
 ## 主要方法

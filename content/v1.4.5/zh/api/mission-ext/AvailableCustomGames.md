@@ -8,7 +8,7 @@ description: "AvailableCustomGames 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AvailableCustomGames`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/AvailableCustomGames.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/AvailableCustomGames.cs`
 
 ## 概述
 

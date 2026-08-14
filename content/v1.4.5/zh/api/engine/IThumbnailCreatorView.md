@@ -8,7 +8,7 @@ description: "IThumbnailCreatorView 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IThumbnailCreatorView`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IThumbnailCreatorView.cs`
+**File:** `TaleWorlds.Engine/IThumbnailCreatorView.cs`
 
 ## 概述
 

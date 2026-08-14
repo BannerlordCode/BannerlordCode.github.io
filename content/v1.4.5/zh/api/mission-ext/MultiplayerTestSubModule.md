@@ -8,7 +8,7 @@ description: "MultiplayerTestSubModule 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerTestSubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `bin/TaleWorlds.MountAndBlade.Multiplayer.Test/TaleWorlds.MountAndBlade.Multiplayer.Test/MultiplayerTestSubModule.cs`
+**File:** `TaleWorlds.MountAndBlade.Multiplayer.Test/MultiplayerTestSubModule.cs`
 
 ## 概述
 

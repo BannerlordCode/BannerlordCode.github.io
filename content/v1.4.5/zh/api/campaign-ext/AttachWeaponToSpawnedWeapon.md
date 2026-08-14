@@ -8,7 +8,7 @@ description: "AttachWeaponToSpawnedWeapon 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class AttachWeaponToSpawnedWeapon : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AttachWeaponToSpawnedWeapon.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/AttachWeaponToSpawnedWeapon.cs`
 
 ## 概述
 

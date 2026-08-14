@@ -8,7 +8,7 @@ description: "IMBItem 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBItem`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBItem.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBItem.cs`
 
 ## 概述
 

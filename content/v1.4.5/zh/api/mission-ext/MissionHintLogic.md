@@ -8,7 +8,7 @@ description: "MissionHintLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionHintLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.MissionLogics/MissionHintLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/Missions/MissionLogics/MissionHintLogic.cs`
 
 ## 概述
 
@@ -25,17 +25,6 @@ description: "MissionHintLogic 的自动生成类参考。"
 | `ActiveHint` | `public MissionHint ActiveHint { get; }` |
 
 ## 主要方法
-
-### MissionHintChangedDelegate
-`public delegate void MissionHintChangedDelegate(MissionHint previousHint, MissionHint newHint)`
-
-**用途 / Purpose:** 调用 MissionHintChangedDelegate 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MissionHintLogic 实例
-MissionHintLogic missionHintLogic = ...;
-missionHintLogic.MissionHintChangedDelegate(previousHint, newHint);
-```
 
 ### SetActiveHint
 `public void SetActiveHint(MissionHint hint)`
@@ -57,6 +46,17 @@ missionHintLogic.SetActiveHint(hint);
 // 先通过子系统 API 拿到 MissionHintLogic 实例
 MissionHintLogic missionHintLogic = ...;
 missionHintLogic.Clear();
+```
+
+### MissionHintChangedDelegate
+`public delegate void MissionHintChangedDelegate(MissionHint previousHint, MissionHint newHint)`
+
+**用途 / Purpose:** 调用 MissionHintChangedDelegate 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionHintLogic 实例
+MissionHintLogic missionHintLogic = ...;
+missionHintLogic.MissionHintChangedDelegate(previousHint, newHint);
 ```
 
 ## 使用示例

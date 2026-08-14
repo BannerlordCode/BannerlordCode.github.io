@@ -8,7 +8,7 @@ description: "EventBroadcastFlags 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum EventBroadcastFlags`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameNetwork.cs`
+**File:** `TaleWorlds.MountAndBlade/GameNetwork.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MultiplayerGameType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum MultiplayerGameType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerGameType.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerGameType.cs`
 
 ## 概述
 

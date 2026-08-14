@@ -8,7 +8,7 @@ description: "UnspecifiedDedicatedServerState 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class UnspecifiedDedicatedServerState : GameState`
 **Base:** `GameState`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/UnspecifiedDedicatedServerState.cs`
+**File:** `TaleWorlds.MountAndBlade/UnspecifiedDedicatedServerState.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "SetMissionObjectAnimationPaused 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetMissionObjectAnimationPaused : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetMissionObjectAnimationPaused.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetMissionObjectAnimationPaused.cs`
 
 ## 概述
 

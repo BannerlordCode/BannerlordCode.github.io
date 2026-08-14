@@ -8,7 +8,7 @@ description: "QuestMarkerBrushWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class QuestMarkerBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Quest/QuestMarkerBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Quest/QuestMarkerBrushWidget.cs`
 
 ## 概述
 

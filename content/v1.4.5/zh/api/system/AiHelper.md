@@ -14,7 +14,7 @@ description: "战役 AI 的导航选择门面：按 MobileParty 的陆路/海路
 
 `AiHelper` 为 Campaign AI 比较移动队伍到据点或另一支移动队伍的陆路、海路和陆海混合距离，并通过 `out` 参数返回推荐的 `MobileParty.NavigationType`、距离以及是否从港口出发。
 
-## 心智模型：导航候选计算，不是移动或寻路器
+## 心智模型
 
 这个类没有实例状态，也不创建队伍、设置 AI 行为或推进地图位置。两个公开方法都会先把结果初始化为 `NavigationType.None` 和 `float.MaxValue`，再根据来源队伍的陆路/海路能力调用 [DistanceHelper](../DistanceHelper) 和当前 [MapDistanceModel](../../campaign/MapDistanceModel) 比较候选路线。
 

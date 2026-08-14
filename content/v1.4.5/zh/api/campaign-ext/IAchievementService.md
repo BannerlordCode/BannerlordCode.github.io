@@ -8,7 +8,7 @@ description: "IAchievementService 的自动生成类参考。"
 **Module:** TaleWorlds.AchievementSystem
 **Type:** `public interface IAchievementService`
 **Base:** 无
-**File:** `bin/TaleWorlds.AchievementSystem/TaleWorlds.AchievementSystem/IAchievementService.cs`
+**File:** `TaleWorlds.AchievementSystem/IAchievementService.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "GameKeyMainCategories 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class GameKeyMainCategories`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameKeyMainCategories.cs`
+**File:** `TaleWorlds.MountAndBlade/GameKeyMainCategories.cs`
 
 ## 概述
 

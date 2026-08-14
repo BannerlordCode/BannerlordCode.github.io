@@ -8,7 +8,7 @@ description: "MultiplayerLobbyAfterBattlePopupWidget 的自动生成类参考。
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyAfterBattlePopupWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyAfterBattlePopupWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Lobby/MultiplayerLobbyAfterBattlePopupWidget.cs`
 
 ## 概述
 

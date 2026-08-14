@@ -8,7 +8,7 @@ description: "FolderId 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public struct FolderId : IEquatable<FolderId>`
 **Base:** `IEquatable<FolderId>`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/FolderId.cs`
+**File:** `TaleWorlds.SaveSystem/FolderId.cs`
 
 ## 概述
 

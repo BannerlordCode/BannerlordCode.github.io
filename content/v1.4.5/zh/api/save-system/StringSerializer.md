@@ -8,7 +8,7 @@ description: "StringSerializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class StringSerializer : IBasicTypeSerializer`
 **Base:** `IBasicTypeSerializer`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/StringSerializer.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/StringSerializer.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "AgentStatCalculateModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class AgentStatCalculateModel : MBGameModel<AgentStatCalculateModel>`
 **Base:** `MBGameModel<AgentStatCalculateModel>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentStatCalculateModel.cs`
+**File:** `TaleWorlds.MountAndBlade/AgentStatCalculateModel.cs`
 
 ## 概述
 

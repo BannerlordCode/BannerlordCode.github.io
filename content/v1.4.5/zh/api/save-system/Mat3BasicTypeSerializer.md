@@ -8,7 +8,7 @@ description: "Mat3BasicTypeSerializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class Mat3BasicTypeSerializer : IBasicTypeSerializer`
 **Base:** `IBasicTypeSerializer`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/Mat3BasicTypeSerializer.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/Mat3BasicTypeSerializer.cs`
 
 ## 概述
 

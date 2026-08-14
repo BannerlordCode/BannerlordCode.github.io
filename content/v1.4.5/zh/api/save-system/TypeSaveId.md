@@ -8,7 +8,7 @@ description: "TypeSaveId 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class TypeSaveId : SaveId`
 **Base:** `SaveId`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/TypeSaveId.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/TypeSaveId.cs`
 
 ## 概述
 

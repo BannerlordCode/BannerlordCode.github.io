@@ -8,7 +8,7 @@ description: "AddPrefabComponentToAgentBone 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class AddPrefabComponentToAgentBone : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AddPrefabComponentToAgentBone.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/AddPrefabComponentToAgentBone.cs`
 
 ## 概述
 

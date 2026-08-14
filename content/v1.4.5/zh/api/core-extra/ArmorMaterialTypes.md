@@ -8,7 +8,7 @@ description: "ArmorMaterialTypes 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum ArmorMaterialTypes : sbyte`
 **Base:** `sbyte`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ArmorComponent.cs`
+**File:** `TaleWorlds.Core/ArmorComponent.cs`
 
 ## 概述
 

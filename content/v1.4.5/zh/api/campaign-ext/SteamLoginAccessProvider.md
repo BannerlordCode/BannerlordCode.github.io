@@ -8,7 +8,7 @@ description: "SteamLoginAccessProvider 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class SteamLoginAccessProvider : ILoginAccessProvider`
 **Base:** `ILoginAccessProvider`
-**File:** `bin/TaleWorlds.Diamond.AccessProvider.Steam/TaleWorlds.Diamond.AccessProvider.Steam/SteamLoginAccessProvider.cs`
+**File:** `TaleWorlds.Diamond.AccessProvider.Steam/SteamLoginAccessProvider.cs`
 
 ## 概述
 

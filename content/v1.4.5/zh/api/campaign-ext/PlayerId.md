@@ -8,7 +8,7 @@ description: "PlayerId 的自动生成类参考。"
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public struct PlayerId : IComparable<PlayerId>, IEquatable<PlayerId>`
 **Base:** `IComparable<PlayerId>`
-**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices/PlayerId.cs`
+**File:** `TaleWorlds.PlayerServices/PlayerServices/PlayerId.cs`
 
 ## 概述
 
@@ -22,7 +22,15 @@ description: "PlayerId 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `Id1` | `public ulong Id1 { get; }` |
+| `Id2` | `public ulong Id2 { get; }` |
 | `IsValid` | `public bool IsValid { get; }` |
+| `ProvidedType` | `public PlayerIdProvidedTypes ProvidedType { get; }` |
+| `Part1` | `public ulong Part1 { get; }` |
+| `Part2` | `public ulong Part2 { get; }` |
+| `Part3` | `public ulong Part3 { get; }` |
+| `Part4` | `public ulong Part4 { get; }` |
+| `Empty` | `public static PlayerId Empty { get; }` |
 
 ## 主要方法
 

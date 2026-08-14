@@ -8,7 +8,7 @@ description: "CustomAgentApplyDamageModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomAgentApplyDamageModel : AgentApplyDamageModel`
 **Base:** `AgentApplyDamageModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomAgentApplyDamageModel.cs`
+**File:** `TaleWorlds.MountAndBlade/CustomAgentApplyDamageModel.cs`
 
 ## 概述
 

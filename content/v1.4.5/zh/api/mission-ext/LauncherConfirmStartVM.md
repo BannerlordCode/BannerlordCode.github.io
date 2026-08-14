@@ -8,7 +8,7 @@ description: "LauncherConfirmStartVM 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherConfirmStartVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherConfirmStartVM.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/LauncherConfirmStartVM.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ModuleType 的自动生成类参考。"
 **Module:** TaleWorlds.ModuleManager
 **Type:** `public enum ModuleType`
 **Base:** 无
-**File:** `bin/TaleWorlds.ModuleManager/TaleWorlds.ModuleManager/ModuleType.cs`
+**File:** `TaleWorlds.ModuleManager/ModuleType.cs`
 
 ## 概述
 

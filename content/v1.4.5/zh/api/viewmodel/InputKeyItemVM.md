@@ -8,7 +8,7 @@ description: "InputKeyItemVM 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InputKeyItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Input/InputKeyItemVM.cs`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Input/InputKeyItemVM.cs`
 
 ## 概述
 

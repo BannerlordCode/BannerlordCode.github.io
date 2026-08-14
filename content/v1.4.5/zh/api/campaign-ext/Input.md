@@ -8,7 +8,7 @@ description: "Input 的自动生成类参考。"
 **Module:** TaleWorlds.InputSystem
 **Type:** `public static class Input`
 **Base:** 无
-**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/Input.cs`
+**File:** `TaleWorlds.InputSystem/Input.cs`
 
 ## 概述
 
@@ -25,17 +25,30 @@ description: "Input 的自动生成类参考。"
 | `InputState` | `public static InputState InputState { get; }` |
 | `DebugInput` | `public static IInputContext DebugInput { get; }` |
 | `InputManager` | `public static IInputManager InputManager { get; }` |
+| `Resolution` | `public static Vec2 Resolution { get; }` |
+| `DesktopResolution` | `public static Vec2 DesktopResolution { get; }` |
 | `IsOnScreenKeyboardActive` | `public static bool IsOnScreenKeyboardActive { get; set; }` |
+| `IsMouseActive` | `public static bool IsMouseActive { get; }` |
+| `IsControllerConnected` | `public static bool IsControllerConnected { get; }` |
 | `IsGamepadActive` | `public static bool IsGamepadActive { get; }` |
 | `IsAnyTouchActive` | `public static bool IsAnyTouchActive { get; }` |
-| `ControllerType` | `public static ControllerTypes ControllerType { get; }` |
+| `ControllerType` | `public static Input.ControllerTypes ControllerType { get; }` |
+| `MouseMoveX` | `public static float MouseMoveX { get; }` |
+| `MouseMoveY` | `public static float MouseMoveY { get; }` |
+| `GyroX` | `public static float GyroX { get; }` |
+| `GyroY` | `public static float GyroY { get; }` |
+| `GyroZ` | `public static float GyroZ { get; }` |
+| `MouseSensitivity` | `public static float MouseSensitivity { get; }` |
+| `DeltaMouseScroll` | `public static float DeltaMouseScroll { get; }` |
+| `MousePositionRanged` | `public static Vec2 MousePositionRanged { get; }` |
+| `MousePositionPixel` | `public static Vec2 MousePositionPixel { get; }` |
 | `IsMousePositionUpdated` | `public static bool IsMousePositionUpdated { get; }` |
 | `IsMouseScrollChanged` | `public static bool IsMouseScrollChanged { get; }` |
 
 ## 主要方法
 
 ### IsPlaystation
-`public static bool IsPlaystation(this ControllerTypes controllerType)`
+`public static bool IsPlaystation(this Input.ControllerTypes controllerType)`
 
 **用途 / Purpose:** 判断当前对象是否处于 playstation 状态或条件。
 
@@ -195,7 +208,7 @@ Input.IsControlOrShiftNotDown();
 ```
 
 ### GetPrimaryControllerType
-`public static ControllerTypes GetPrimaryControllerType()`
+`public static Input.ControllerTypes GetPrimaryControllerType()`
 
 **用途 / Purpose:** 读取并返回当前对象中 primary controller type 的结果。
 

@@ -8,7 +8,7 @@ description: "GetFriendListMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class GetFriendListMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetFriendListMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/GetFriendListMessage.cs`
 
 ## 概述
 

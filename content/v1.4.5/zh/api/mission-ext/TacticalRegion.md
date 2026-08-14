@@ -8,7 +8,7 @@ description: "TacticalRegion 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticalRegion : MissionObject`
 **Base:** `MissionObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticalRegion.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticalRegion.cs`
 
 ## 概述
 

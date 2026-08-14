@@ -8,7 +8,7 @@ description: "PsaiMusicEntity 的自动生成类参考。"
 **Module:** psai.Editor
 **Type:** `public abstract class PsaiMusicEntity : ICloneable`
 **Base:** `ICloneable`
-**File:** `bin/TaleWorlds.PSAI/psai.Editor/PsaiMusicEntity.cs`
+**File:** `TaleWorlds.PSAI/Editor/PsaiMusicEntity.cs`
 
 ## 概述
 

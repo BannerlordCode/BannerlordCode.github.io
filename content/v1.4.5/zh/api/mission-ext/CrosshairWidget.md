@@ -8,7 +8,7 @@ description: "CrosshairWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CrosshairWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/CrosshairWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/CrosshairWidget.cs`
 
 ## 概述
 

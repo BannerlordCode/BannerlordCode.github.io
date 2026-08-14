@@ -8,7 +8,7 @@ description: "EpicFriendListService 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class EpicFriendListService : IFriendListService`
 **Base:** `IFriendListService`
-**File:** `bin/TaleWorlds.PlatformService.Epic/TaleWorlds.PlatformService.Epic/EpicFriendListService.cs`
+**File:** `TaleWorlds.PlatformService.Epic/EpicFriendListService.cs`
 
 ## 概述
 

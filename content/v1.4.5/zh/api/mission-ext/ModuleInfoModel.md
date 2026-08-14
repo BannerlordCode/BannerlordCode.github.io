@@ -8,7 +8,7 @@ description: "ModuleInfoModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ModuleInfoModel`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ModuleInfoModel.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ModuleInfoModel.cs`
 
 ## 概述
 
@@ -26,6 +26,7 @@ description: "ModuleInfoModel 的自动生成类参考。"
 | `Name` | `public string Name { get; }` |
 | `Category` | `public ModuleCategory Category { get; }` |
 | `Version` | `public string Version { get; }` |
+| `IsOptional` | `public bool IsOptional { get; }` |
 
 ## 主要方法
 

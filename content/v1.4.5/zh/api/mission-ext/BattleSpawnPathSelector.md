@@ -8,7 +8,7 @@ description: "BattleSpawnPathSelector 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleSpawnPathSelector`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleSpawnPathSelector.cs`
+**File:** `TaleWorlds.MountAndBlade/BattleSpawnPathSelector.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "BattleSpawnPathSelector 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `IsInitialized` | `public bool IsInitialized { get; }` |
+| `InitialPath` | `public Path InitialPath { get; }` |
 
 ## 主要方法
 
@@ -71,13 +72,13 @@ var result = battleSpawnPathSelector.GetReinforcementPathsDataOfSide(side);
 ```
 
 ### FindBestInitialPath
-`public static Path FindBestInitialPath(Mission mission, out float pathPivotOffset, out float pathLength, out bool isPathInverted)`
+`public static Path FindBestInitialPath(Mission mission, out float pivotRatio, out bool isInverted)`
 
 **用途 / Purpose:** 在当前集合/范围内查找满足条件的best initial path。
 
 ```csharp
 // 静态调用，不需要实例
-BattleSpawnPathSelector.FindBestInitialPath(mission, pathPivotOffset, pathLength, isPathInverted);
+BattleSpawnPathSelector.FindBestInitialPath(mission, pivotRatio, isInverted);
 ```
 
 ## 使用示例

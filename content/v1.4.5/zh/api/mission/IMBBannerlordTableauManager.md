@@ -8,7 +8,7 @@ description: "IMBBannerlordTableauManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBBannerlordTableauManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBBannerlordTableauManager.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBBannerlordTableauManager.cs`
 
 ## 概述
 

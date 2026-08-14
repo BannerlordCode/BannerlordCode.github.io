@@ -8,7 +8,7 @@ description: "TeammateColorsExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class TeammateColorsExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TeammateColorsExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/TeammateColorsExtensions.cs`
 
 ## 概述
 

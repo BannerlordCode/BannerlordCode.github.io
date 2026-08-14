@@ -8,7 +8,7 @@ description: "FormationExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class FormationExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/FormationExtensions.cs`
 
 ## 概述
 

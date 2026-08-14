@@ -8,7 +8,7 @@ description: "RequestMaxAllowedPriorityMessage 的自动生成类参考。"
 **Module:** Messages.FromBattleServer
 **Type:** `public class RequestMaxAllowedPriorityMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/RequestMaxAllowedPriorityMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromBattleServer/ToBattleServerManager/RequestMaxAllowedPriorityMessage.cs`
 
 ## 概述
 

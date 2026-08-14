@@ -8,7 +8,7 @@ description: "WaitForSpecialCase 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public class WaitForSpecialCase : CoroutineState`
 **Base:** `CoroutineState`
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/WaitForSpecialCase.cs`
+**File:** `TaleWorlds.Network/WaitForSpecialCase.cs`
 
 ## 概述
 

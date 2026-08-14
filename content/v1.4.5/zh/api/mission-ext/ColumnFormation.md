@@ -8,7 +8,7 @@ description: "ColumnFormation 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ColumnFormation : IFormationArrangement`
 **Base:** `IFormationArrangement`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ColumnFormation.cs`
+**File:** `TaleWorlds.MountAndBlade/ColumnFormation.cs`
 
 ## 概述
 
@@ -24,10 +24,21 @@ description: "ColumnFormation 的自动生成类参考。"
 |------|-----------|
 | `Vanguard` | `public IFormationUnit Vanguard { get; }` |
 | `ColumnCount` | `public int ColumnCount { get; set; }` |
+| `RankCount` | `public int RankCount { get; }` |
 | `VanguardFileIndex` | `public int VanguardFileIndex { get; }` |
+| `DistanceMultiplier` | `public float DistanceMultiplier { get; }` |
+| `IntervalMultiplier` | `public float IntervalMultiplier { get; }` |
 | `Width` | `public float Width { get; set; }` |
 | `FlankWidth` | `public float FlankWidth { get; set; }` |
 | `UnitPositionsOnVanguardFileIndex` | `public List<Vec2> UnitPositionsOnVanguardFileIndex { get; }` |
+| `Depth` | `public float Depth { get; }` |
+| `RankDepth` | `public float RankDepth { get; }` |
+| `MinimumWidth` | `public float MinimumWidth { get; }` |
+| `MaximumWidth` | `public float MaximumWidth { get; }` |
+| `MinimumFlankWidth` | `public float MinimumFlankWidth { get; }` |
+| `IsLoose` | `public bool? IsLoose { get; }` |
+| `UnitCount` | `public int UnitCount { get; }` |
+| `PositionedUnitCount` | `public int PositionedUnitCount { get; }` |
 
 ## 主要方法
 
@@ -557,17 +568,6 @@ var result = columnFormation.GetLocalPositionOfReservedUnitPosition();
 // 先通过子系统 API 拿到 ColumnFormation 实例
 ColumnFormation columnFormation = ...;
 columnFormation.OnTickOccasionallyOfUnit(unit, false);
-```
-
-### OnTickOccasionally
-`public void OnTickOccasionally()`
-
-**用途 / Purpose:** 在 tick occasionally 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 ColumnFormation 实例
-ColumnFormation columnFormation = ...;
-columnFormation.OnTickOccasionally();
 ```
 
 ### GetDirectionChangeTendencyOfUnit

@@ -8,7 +8,7 @@ description: "SetPeerTeam 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetPeerTeam : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetPeerTeam.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetPeerTeam.cs`
 
 ## 概述
 

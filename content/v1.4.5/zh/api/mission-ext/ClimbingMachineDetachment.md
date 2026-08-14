@@ -8,7 +8,7 @@ description: "ClimbingMachineDetachment 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClimbingMachineDetachment : IDetachment`
 **Base:** `IDetachment`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ClimbingMachineDetachment.cs`
+**File:** `TaleWorlds.MountAndBlade/ClimbingMachineDetachment.cs`
 
 ## 概述
 
@@ -22,6 +22,8 @@ description: "ClimbingMachineDetachment 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `UserFormations` | `public MBReadOnlyList<Formation> UserFormations { get; }` |
+| `IsLoose` | `public bool IsLoose { get; }` |
 | `IsActive` | `public bool IsActive { get; }` |
 
 ## 主要方法
@@ -115,14 +117,14 @@ var result = climbingMachineDetachment.GetWeightOfAgentAtNextSlot(newAgents, mat
 ```
 
 ### GetWeightOfAgentAtNextSlot
-`public float? GetWeightOfAgentAtNextSlot(List<(Agent, float)> agentTemplateScores, out Agent match)`
+`public float? GetWeightOfAgentAtNextSlot(List<ValueTuple<Agent, float>> agentTemplateScores, out Agent match)`
 
 **用途 / Purpose:** 读取并返回当前对象中 weight of agent at next slot 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClimbingMachineDetachment 实例
 ClimbingMachineDetachment climbingMachineDetachment = ...;
-var result = climbingMachineDetachment.GetWeightOfAgentAtNextSlot(list<(Agent, 0, match);
+var result = climbingMachineDetachment.GetWeightOfAgentAtNextSlot(list<ValueTuple<Agent, 0, match);
 ```
 
 ### GetWeightOfAgentAtOccupiedSlot

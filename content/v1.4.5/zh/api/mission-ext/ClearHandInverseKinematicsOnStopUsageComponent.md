@@ -8,7 +8,7 @@ description: "ClearHandInverseKinematicsOnStopUsageComponent 的自动生成类�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClearHandInverseKinematicsOnStopUsageComponent : UsableMissionObjectComponent`
 **Base:** `UsableMissionObjectComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ClearHandInverseKinematicsOnStopUsageComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/ClearHandInverseKinematicsOnStopUsageComponent.cs`
 
 ## 概述
 

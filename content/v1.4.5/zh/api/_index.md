@@ -1,63 +1,68 @@
 ---
-title: "API 参考 — 按任务找入口（v1.4.5）"
-description: "以 v1.4.5 的运行时层次、生命周期和崩溃边界组织 Bannerlord API；先选扩展点，再进入具体类型和家族手册。"
+title: "API 参考 — 按任务找入口"
+description: "以模组任务和运行时层次组织 Bannerlord API：先选扩展点，再沿生命周期、事件、Action、Model、Mission 或 UI 依赖链阅读；A–Z 目录只作为补查入口。"
 ---
-# API 参考：按任务找入口（v1.4.5）
+# API 参考：按任务找入口
 
-> 先按任务选入口，再按依赖链阅读类型页。底部模块目录仍保留完整类名查找，但它不能替代心智模型、调用时机和风险说明。
+> 这不是签名墙。先从你要完成的任务进入，再回到具体类型页核对成员、调用时机和风险。类名完整目录保留在各模块索引底部，适合已知类型名后的补查。
 
 ## 开始路径
 
 | 我想做什么 | 第一入口 | 接下来读什么 |
 | --- | --- | --- |
-| 让模组在正确阶段加载 | [MBSubModuleBase](./core/MBSubModuleBase) | [Game](./core/Game) → [CampaignGameStarter](./campaign/CampaignGameStarter) |
-| 在战役中注册行为并监听事件 | [CampaignGameStarter](./campaign/CampaignGameStarter) | [CampaignBehaviorBase](./campaign/CampaignBehaviorBase) → [CampaignEvents](./campaign/CampaignEvents) |
-| 给 Hero 钱、杀人、宣战或改王国 | [Hero](./campaign/Hero) / [GiveGoldAction](./campaign-ext/GiveGoldAction) | [KillCharacterAction](./campaign-ext/KillCharacterAction) / [ChangeKingdomAction](./campaign-ext/ChangeKingdomAction) / [DeclareWarAction](./campaign-ext/DeclareWarAction) |
-| 查询或替换战役计算规则 | [GameModelsManager](./core-extra/GameModelsManager/) | 对应 `*Model` → 注册时机 → 每个消费者的返回契约 |
-| 写 Mission 行为并处理 Agent | [Mission](./mission/Mission) | [MissionBehavior](./mission/MissionBehavior) → [Agent](./mission/Agent) |
-| 保存自定义战役状态 | [CampaignBehaviorBase](./campaign/CampaignBehaviorBase) | [IDataStore](./campaign/IDataStore) → [SaveManager](./save-system/SaveManager) |
-| 注册新的可存档对象类型 | [SaveableTypeDefiner](./save-system/SaveableTypeDefiner) | [SaveManager](./save-system/SaveManager) → Saveable field/property 元数据 |
-| 做 Gauntlet UI | [ScreenManager](./gui/ScreenManager) | [GauntletLayer](./engine/GauntletLayer) → [ViewModel](./core-extra/ViewModel) |
-| 读取本地化文本 | [TextObject](./localization/TextObject) | Localization 模块 → UI 或提示的生命周期 |
+| 让模块在正确阶段加载 | [MBSubModuleBase](./core/MBSubModuleBase/) | [Game](./core-extra/Game/) → [CampaignGameStarter](./campaign-ext/CampaignGameStarter/) |
+| 在战役中注册行为并监听事件 | [CampaignGameStarter](./campaign-ext/CampaignGameStarter/) | [CampaignBehaviorBase](./campaign-ext/CampaignBehaviorBase/) → [CampaignEvents](./campaign-ext/CampaignEvents/) |
+| 改钱、关系、战争或英雄状态 | [CampaignEvents](./campaign-ext/CampaignEvents/) | [Hero](./campaign/Hero/) → [Actions 家族](./campaign-ext/actions/) → 对应 `*Action.Apply` |
+| 给自定义行为加存档字段 | [CampaignBehaviorBase](./campaign-ext/CampaignBehaviorBase/) | [IDataStore](./campaign-ext/IDataStore/) → [SaveManager](./save-system/SaveManager/) |
+| 写 Mission 行为并处理 Agent | [Mission](./mission/Mission/) | [MissionBehavior](./mission/MissionBehavior/) → [MissionLogic](./mission-ext/MissionLogic/) → [Agent](./mission/Agent/) |
+| 查询或替换战役计算公式 | [GameModels](./campaign-ext/GameModels/) | [Models 家族](./campaign-ext/models/) → 对应 `*Model` 的注册与读取 |
+| 做 Gauntlet 界面 | [ScreenManager](./gui/ScreenManager/) | [GauntletLayer](./engine/GauntletLayer/) → [ViewModel](./core-extra/ViewModel/) |
+| 读取本地化文本 | [TextObject](./localization/TextObject/) | [本地化指南](../guide/localization/) |
 
 ## 运行时层次
 
-```
-SubModule → Game → Campaign → (Action / Model / Behavior) → Entity
-                     ↘ Mission → (MissionBehavior / Agent / Team)
-                     ↘ SaveManager（稳定状态）
-             UI / ViewModel 读取 Campaign 或 Mission 状态
-```
+### Foundation / Core：创建、注册和全局边界
 
-- **Foundation / Core：** 创建、注册和全局对象身份；先处理 `MBSubModuleBase`、`Game`、`MBObjectManager` 的生命周期。
-- **Campaign：** 持久世界由实体承载，规则由 Model 计算，世界变更由 Action 协调，Behavior 连接事件与自定义状态。
-- **Mission：** 一次战斗场景拥有自己的 `Mission`、`Agent`、`Team` 和行为集合；场景结束后这些引用不再可靠。
-- **UI：** `ScreenManager` 和 `GauntletLayer` 管屏幕，`ViewModel` 管绑定状态；UI 不是 Campaign 的世界变更入口。
-- **Save：** `SyncData(IDataStore)` 适合 Behavior 自己的状态；新的可达对象类型才进入 `SaveableTypeDefiner` / Attribute 定义链。
+- [Core 模块](./core/) — `MBSubModuleBase`、`Module`、物品身份入口。
+- [Core Extra 模块](./core-extra/) — [Game](./core-extra/Game/)、[InformationManager](./core-extra/InformationManager/)、装备和技能等运行时对象。
+- [System 模块](./system/) — 输入、对象系统和运行库桥接；先看 [架构总览](../architecture/sdk-overview/) 再进入长尾类型。
+- [存档模块](./save-system/) — `SaveManager`、`IDataStore`、`Saveable*` 标注与加载顺序。
 
-## 依赖与防崩边界
+### Campaign：持久世界和规则协调
 
-1. 模块加载阶段只注册类型和 UI；在 `OnGameStart` 或相应 Campaign 生命周期建立后再访问 `Campaign.Current`。
-2. 直接改变 Hero、Settlement、Kingdom 等世界状态前，先找对应 `*Action.Apply`，不要把字段写入当作 Action 的替代。
-3. Model 替换必须注册正确的具体类型，不能返回 `null` 或不兼容的实例；否则 tick 和 UI 消费者都会失败。
-4. Mission 内监听 Agent 离场并在 `OnMissionEnded` 清理；不要把 Agent 或 Mission 存进跨场景 Behavior 状态。
-5. Save 的 local ID、Behavior `StringId`、`SyncData` key 和值类型都是持久协议；改动前先看[崩溃与存档边界](../architecture/crash-boundary)。
+- [Campaign 模块](./campaign/) — `Campaign`、`Hero`、`Clan`、`Kingdom`、`Settlement`、`MobileParty` 等世界实体。
+- [Campaign-Ext 模块](./campaign-ext/) — [CampaignGameStarter](./campaign-ext/CampaignGameStarter/)、[CampaignBehaviorBase](./campaign-ext/CampaignBehaviorBase/)、[CampaignEvents](./campaign-ext/CampaignEvents/)、Actions、Models、名册和内容家族。
+- [Actions 家族](./campaign-ext/actions/) — 通过 `Apply` 改变世界；不要直接写实体字段。
+- [Models 家族](./campaign-ext/models/) — 读取或替换战役计算模型；返回 `null` 或替错模型会在 tick 中崩溃。
 
-## 阅读顺序
+### Mission：战斗场景和 Agent 生命周期
 
-1. 先看[架构总览](../architecture/)和[路线图](../architecture/roadmap)，确定层和任务。
-2. 进入第一入口页，先读心智模型、何时用/不用、依赖和风险。
-3. 需要世界变更时读 Actions 家族和[崩溃边界](../architecture/crash-boundary)；需要计算时读 Models 家族。
-4. 最后用模块目录补查长尾类型，不把字母目录当作理解项目的起点。
+- [Mission 模块](./mission/) — [Mission](./mission/Mission/)、[MissionBehavior](./mission/MissionBehavior/)、[Team](./mission/Team/)、[Formation](./mission/Formation/)。
+- [Mission-Ext 模块](./mission-ext/) — [MissionLogic](./mission-ext/MissionLogic/)、AgentComponent 与场景扩展。
 
-## 完整模块目录
+### UI / Localization：屏幕、绑定和文本
+
+- [GUI 模块](./gui/) — [ScreenManager](./gui/ScreenManager/) 与底层屏幕/输入类型。
+- [Engine 模块](./engine/) — [GauntletLayer](./engine/GauntletLayer/) 与引擎层边界。
+- [ViewModel 模块](./viewmodel/) — ViewModel 生命周期、属性通知和命令绑定。
+- [Localization 模块](./localization/) — [TextObject](./localization/TextObject/) 与文本变量。
+
+## 依赖阅读顺序
+
+1. 先读 [SDK 总览](../architecture/sdk-overview/) 确认你处于 Foundation、Campaign、Mission、UI 还是 Save 层。
+2. 再读 [开发者任务路线图](../architecture/developer-roadmap/) 找到最短扩展链。
+3. 进入入口类型页，先看“心智模型、何时用、何时不要用、风险”。
+4. 需要改变世界时回看 [崩溃与存档边界](../architecture/crash-boundaries/)；它解释为什么事件、Action、Model、Save 不能互换。
+5. 最后用模块索引中的完整目录补查非枢纽类型；目录页不是业务语义的替代品。
+
+## 模块完整目录
 
 - [Campaign](./campaign/) · [Campaign-Ext](./campaign-ext/) · [Core](./core/) · [Core Extra](./core-extra/)
 - [Engine](./engine/) · [GUI](./gui/) · [Localization](./localization/) · [Mission](./mission/) · [Mission-Ext](./mission-ext/)
 - [Save System](./save-system/) · [System](./system/) · [ViewModel](./viewmodel/)
 
-## 导航
+## 参见
 
-- ↑ [v1.4.5 版本首页](../)
-- ↔ [架构总览](../architecture/) · [路线图](../architecture/roadmap) · [崩溃与存档边界](../architecture/crash-boundary)
-- 跨版本： [类对比](../../../versions/)
+- ↑ [版本首页](../../)
+- ↔ [架构总览](../architecture/) · [开发者任务路线图](../architecture/developer-roadmap/) · [崩溃与存档边界](../architecture/crash-boundaries/)
+- ↓ [跨版本类对比](../../../versions/)

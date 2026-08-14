@@ -8,7 +8,7 @@ description: "AddClanAnnouncementMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class AddClanAnnouncementMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/AddClanAnnouncementMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/AddClanAnnouncementMessage.cs`
 
 ## 概述
 

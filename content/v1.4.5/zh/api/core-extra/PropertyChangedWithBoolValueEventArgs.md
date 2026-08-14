@@ -8,7 +8,7 @@ description: "PropertyChangedWithBoolValueEventArgs 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct PropertyChangedWithBoolValueEventArgs`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithBoolValueEventArgs.cs`
+**File:** `TaleWorlds.Library/PropertyChangedWithBoolValueEventArgs.cs`
 
 ## 概述
 
@@ -25,25 +25,11 @@ description: "PropertyChangedWithBoolValueEventArgs 的自动生成类参考。"
 | `PropertyName` | `public string PropertyName { get; }` |
 | `Value` | `public bool Value { get; }` |
 
-## 主要方法
-
-### PropertyChangedWithBoolValueEventArgs
-`public struct PropertyChangedWithBoolValueEventArgs(string propertyName, bool value)`
-
-**用途 / Purpose:** 调用 PropertyChangedWithBoolValueEventArgs 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 PropertyChangedWithBoolValueEventArgs 实例
-PropertyChangedWithBoolValueEventArgs propertyChangedWithBoolValueEventArgs = ...;
-var result = propertyChangedWithBoolValueEventArgs.PropertyChangedWithBoolValueEventArgs("example", false);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-PropertyChangedWithBoolValueEventArgs propertyChangedWithBoolValueEventArgs = ...;
-propertyChangedWithBoolValueEventArgs.PropertyChangedWithBoolValueEventArgs("example", false);
+// 从对应子系统 API 获取实例
+PropertyChangedWithBoolValueEventArgs instance = ...;
 ```
 
 ## 参见

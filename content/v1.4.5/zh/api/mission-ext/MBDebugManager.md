@@ -8,7 +8,7 @@ description: "MBDebugManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBDebugManager : IDebugManager`
 **Base:** `IDebugManager`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBDebugManager.cs`
+**File:** `TaleWorlds.MountAndBlade/MBDebugManager.cs`
 
 ## 概述
 

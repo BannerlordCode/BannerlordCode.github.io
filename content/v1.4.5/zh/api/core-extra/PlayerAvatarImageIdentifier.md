@@ -8,7 +8,7 @@ description: "PlayerAvatarImageIdentifier 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class PlayerAvatarImageIdentifier : ImageIdentifier`
 **Base:** `ImageIdentifier`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core.ImageIdentifiers/PlayerAvatarImageIdentifier.cs`
+**File:** `TaleWorlds.Core/ImageIdentifiers/PlayerAvatarImageIdentifier.cs`
 
 ## 概述
 

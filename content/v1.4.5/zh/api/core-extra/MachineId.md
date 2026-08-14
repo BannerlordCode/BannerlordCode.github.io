@@ -8,7 +8,7 @@ description: "MachineId 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class MachineId`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MachineId.cs`
+**File:** `TaleWorlds.Library/MachineId.cs`
 
 ## 概述
 

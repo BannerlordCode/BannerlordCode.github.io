@@ -8,7 +8,7 @@ description: "TickManager 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public class TickManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/TickManager.cs`
+**File:** `TaleWorlds.Network/TickManager.cs`
 
 ## 概述
 
@@ -20,17 +20,6 @@ description: "TickManager 的自动生成类参考。"
 
 ## 主要方法
 
-### TickDelegate
-`public delegate void TickDelegate()`
-
-**用途 / Purpose:** 在每一帧或每个更新周期内推进delegate的状态。
-
-```csharp
-// 先通过子系统 API 拿到 TickManager 实例
-TickManager tickManager = ...;
-tickManager.TickDelegate();
-```
-
 ### Tick
 `public void Tick()`
 
@@ -40,6 +29,17 @@ tickManager.TickDelegate();
 // 先通过子系统 API 拿到 TickManager 实例
 TickManager tickManager = ...;
 tickManager.Tick();
+```
+
+### TickDelegate
+`public delegate void TickDelegate()`
+
+**用途 / Purpose:** 在每一帧或每个更新周期内推进delegate的状态。
+
+```csharp
+// 先通过子系统 API 拿到 TickManager 实例
+TickManager tickManager = ...;
+tickManager.TickDelegate();
 ```
 
 ## 使用示例

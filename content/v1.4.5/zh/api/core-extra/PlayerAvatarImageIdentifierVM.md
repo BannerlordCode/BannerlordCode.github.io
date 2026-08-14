@@ -8,7 +8,7 @@ description: "PlayerAvatarImageIdentifierVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class PlayerAvatarImageIdentifierVM : ImageIdentifierVM`
 **Base:** `ImageIdentifierVM`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.ImageIdentifiers/PlayerAvatarImageIdentifierVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/ImageIdentifiers/PlayerAvatarImageIdentifierVM.cs`
 
 ## 概述
 

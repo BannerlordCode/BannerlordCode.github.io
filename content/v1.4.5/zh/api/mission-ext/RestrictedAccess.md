@@ -8,7 +8,7 @@ description: "RestrictedAccess 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RestrictedAccess : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RestrictedAccess.cs`
+**File:** `TaleWorlds.MountAndBlade/RestrictedAccess.cs`
 
 ## 概述
 

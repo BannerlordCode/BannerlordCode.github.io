@@ -8,7 +8,7 @@ description: "ContainerDirections 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum ContainerDirections`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/PaginatedScrollablePanel.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/PaginatedScrollablePanel.cs`
 
 ## 概述
 

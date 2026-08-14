@@ -8,7 +8,7 @@ description: "GenericSaveId 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class GenericSaveId : SaveId`
 **Base:** `SaveId`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/GenericSaveId.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/GenericSaveId.cs`
 
 ## 概述
 

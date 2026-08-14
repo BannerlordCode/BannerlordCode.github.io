@@ -8,7 +8,7 @@ description: "LauncherOnlineImageTextureWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherOnlineImageTextureWidget : TextureWidget`
 **Base:** `TextureWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets/LauncherOnlineImageTextureWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/CustomWidgets/LauncherOnlineImageTextureWidget.cs`
 
 ## 概述
 
@@ -22,7 +22,7 @@ description: "LauncherOnlineImageTextureWidget 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `ImageSizePolicy` | `public ImageSizePolicies ImageSizePolicy { get; set; }` |
+| `ImageSizePolicy` | `public LauncherOnlineImageTextureWidget.ImageSizePolicies ImageSizePolicy { get; set; }` |
 | `OnlineImageSourceUrl` | `public string OnlineImageSourceUrl { get; set; }` |
 
 ## 使用示例

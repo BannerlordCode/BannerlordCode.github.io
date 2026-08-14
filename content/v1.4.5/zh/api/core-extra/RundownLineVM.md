@@ -8,7 +8,7 @@ description: "RundownLineVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class RundownLineVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip/RundownLineVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/Information/RundownTooltip/RundownLineVM.cs`
 
 ## 概述
 

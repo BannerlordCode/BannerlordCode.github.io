@@ -8,7 +8,7 @@ description: "BehaviorReserve 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorReserve : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorReserve.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorReserve.cs`
 
 ## 概述
 

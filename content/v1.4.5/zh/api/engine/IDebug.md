@@ -8,7 +8,7 @@ description: "IDebug 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IDebug`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IDebug.cs`
+**File:** `TaleWorlds.Engine/IDebug.cs`
 
 ## 概述
 

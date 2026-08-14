@@ -8,7 +8,7 @@ description: "SaveLoadHeroTableauWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SaveLoadHeroTableauWidget : TextureWidget`
 **Base:** `TextureWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.SaveLoad/SaveLoadHeroTableauWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/SaveLoad/SaveLoadHeroTableauWidget.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "SaveLoadHeroTableauWidget 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `IsVersionCompatible` | `public bool IsVersionCompatible { get; }` |
 | `HeroVisualCode` | `public string HeroVisualCode { get; set; }` |
 | `BannerCode` | `public string BannerCode { get; set; }` |
 

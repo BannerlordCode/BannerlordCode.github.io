@@ -8,7 +8,7 @@ description: "Integer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct Integer`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CompressionInfo.cs`
+**File:** `TaleWorlds.MountAndBlade/CompressionInfo.cs`
 
 ## 概述
 

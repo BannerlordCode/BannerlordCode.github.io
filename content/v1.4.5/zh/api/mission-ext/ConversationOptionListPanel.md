@@ -8,7 +8,7 @@ description: "ConversationOptionListPanel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ConversationOptionListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation/ConversationOptionListPanel.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Conversation/ConversationOptionListPanel.cs`
 
 ## 概述
 

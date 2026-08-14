@@ -8,7 +8,7 @@ description: "NativeOptionData 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public abstract class NativeOptionData : IOptionData`
 **Base:** `IOptionData`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeOptionData.cs`
+**File:** `TaleWorlds.Engine/Options/NativeOptionData.cs`
 
 ## 概述
 
@@ -95,6 +95,17 @@ var result = nativeOptionData.IsNative();
 // 先通过子系统 API 拿到 NativeOptionData 实例
 NativeOptionData nativeOptionData = ...;
 var result = nativeOptionData.IsAction();
+```
+
+### GetIsDisabledAndReasonID
+`public ValueTuple<string, bool> GetIsDisabledAndReasonID()`
+
+**用途 / Purpose:** 读取并返回当前对象中 is disabled and reason i d 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NativeOptionData 实例
+NativeOptionData nativeOptionData = ...;
+var result = nativeOptionData.GetIsDisabledAndReasonID();
 ```
 
 ## 使用示例

@@ -8,7 +8,7 @@ description: "EditDataPolicy 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum EditDataPolicy : sbyte`
 **Base:** `sbyte`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/EditDataPolicy.cs`
+**File:** `TaleWorlds.Engine/EditDataPolicy.cs`
 
 ## 概述
 

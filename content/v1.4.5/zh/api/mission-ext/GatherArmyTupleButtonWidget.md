@@ -8,7 +8,7 @@ description: "GatherArmyTupleButtonWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GatherArmyTupleButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.GatherArmy/GatherArmyTupleButtonWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/GatherArmy/GatherArmyTupleButtonWidget.cs`
 
 ## 概述
 

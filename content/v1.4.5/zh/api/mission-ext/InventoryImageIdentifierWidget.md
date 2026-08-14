@@ -8,7 +8,7 @@ description: "InventoryImageIdentifierWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InventoryImageIdentifierWidget : ImageIdentifierWidget`
 **Base:** `ImageIdentifierWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryImageIdentifierWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Inventory/InventoryImageIdentifierWidget.cs`
 
 ## 概述
 

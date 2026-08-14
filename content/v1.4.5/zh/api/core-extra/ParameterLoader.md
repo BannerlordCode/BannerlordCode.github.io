@@ -8,7 +8,7 @@ description: "ParameterLoader 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class ParameterLoader`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ParameterLoader.cs`
+**File:** `TaleWorlds.Library/ParameterLoader.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "GetOfficialServerProviderNameMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class GetOfficialServerProviderNameMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetOfficialServerProviderNameMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/GetOfficialServerProviderNameMessage.cs`
 
 ## 概述
 

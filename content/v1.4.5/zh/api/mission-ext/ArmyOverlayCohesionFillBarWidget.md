@@ -6,9 +6,9 @@ description: "ArmyOverlayCohesionFillBarWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Menu.Overlay
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class ArmyOverlayCohesionFillBarWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Menu.Overlay/ArmyOverlayCohesionFillBarWidget.cs`
+**Type:** `public class ArmyOverlayCohesionFillBarWidget : FillBarWidget`
+**Base:** `FillBarWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Map/Menu/Overlay/ArmyOverlayCohesionFillBarWidget.cs`
 
 ## 概述
 
@@ -24,19 +24,6 @@ description: "ArmyOverlayCohesionFillBarWidget 的自动生成类参考。"
 |------|-----------|
 | `IsCohesionWarningEnabled` | `public bool IsCohesionWarningEnabled { get; set; }` |
 | `IsArmyLeader` | `public bool IsArmyLeader { get; set; }` |
-
-## 主要方法
-
-### ArmyOverlayCohesionFillBarWidget
-`public class ArmyOverlayCohesionFillBarWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 ArmyOverlayCohesionFillBarWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ArmyOverlayCohesionFillBarWidget 实例
-ArmyOverlayCohesionFillBarWidget armyOverlayCohesionFillBarWidget = ...;
-var result = armyOverlayCohesionFillBarWidget.ArmyOverlayCohesionFillBarWidget(context);
-```
 
 ## 使用示例
 

@@ -8,7 +8,7 @@ description: "SaveableInterfaceAttribute 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveableInterfaceAttribute : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveableInterfaceAttribute.cs`
+**File:** `TaleWorlds.SaveSystem/SaveableInterfaceAttribute.cs`
 
 ## 概述
 

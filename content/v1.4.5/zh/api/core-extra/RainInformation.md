@@ -8,7 +8,7 @@ description: "RainInformation 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct RainInformation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/RainInformation.cs`
+**File:** `TaleWorlds.Library/RainInformation.cs`
 
 ## 概述
 

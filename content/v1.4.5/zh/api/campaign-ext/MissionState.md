@@ -28,7 +28,7 @@ description: "MissionState 是围绕当前 Mission 负责创建、加载、tick�
 - 不要把 `Paused` 当作战役暂停标志；它只会让 `TickMission` 发送零模拟 delta。
 - 不要因为 `OpenNew` 立即返回 Mission 就省略行为或使用过期 initializer record；加载和行为初始化在返回后继续发生。
 
-## 依赖与边界
+## 依赖
 
 ```text
 MissionState.OpenNew

@@ -8,7 +8,7 @@ description: "BehaviorVanguard 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorVanguard : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorVanguard.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorVanguard.cs`
 
 ## 概述
 

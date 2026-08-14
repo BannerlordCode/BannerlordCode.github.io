@@ -8,7 +8,7 @@ description: "HttpPostRequest 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class HttpPostRequest : IHttpRequestTask`
 **Base:** `IHttpRequestTask`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.Http/HttpPostRequest.cs`
+**File:** `TaleWorlds.Library/Http/HttpPostRequest.cs`
 
 ## 概述
 

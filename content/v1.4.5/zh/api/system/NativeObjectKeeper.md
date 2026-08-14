@@ -8,7 +8,7 @@ description: "NativeObjectKeeper 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `internal class NativeObjectKeeper`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/NativeObjectKeeper.cs`
+**File:** `TaleWorlds.DotNet/NativeObjectKeeper.cs`
 
 ## 概述
 

@@ -6,9 +6,9 @@ description: "CompassElementWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class CompassElementWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/CompassElementWidget.cs`
+**Type:** `public class CompassElementWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/CompassElementWidget.cs`
 
 ## 概述
 
@@ -26,19 +26,6 @@ description: "CompassElementWidget 的自动生成类参考。"
 | `Distance` | `public int Distance { get; set; }` |
 | `BannerWidget` | `public Widget BannerWidget { get; set; }` |
 | `FlagWidget` | `public Widget FlagWidget { get; set; }` |
-
-## 主要方法
-
-### CompassElementWidget
-`public class CompassElementWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 CompassElementWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 CompassElementWidget 实例
-CompassElementWidget compassElementWidget = ...;
-var result = compassElementWidget.CompassElementWidget(context);
-```
 
 ## 使用示例
 

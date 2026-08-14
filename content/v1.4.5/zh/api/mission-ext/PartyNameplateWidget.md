@@ -6,9 +6,9 @@ description: "PartyNameplateWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class PartyNameplateWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate/PartyNameplateWidget.cs`
+**Type:** `public class PartyNameplateWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Nameplate/PartyNameplateWidget.cs`
 
 ## 概述
 
@@ -46,19 +46,6 @@ description: "PartyNameplateWidget 的自动生成类参考。"
 | `SpeedIconWidget` | `public Widget SpeedIconWidget { get; set; }` |
 | `ParleyIconWidget` | `public Widget ParleyIconWidget { get; set; }` |
 | `DisorganizedWidget` | `public Widget DisorganizedWidget { get; set; }` |
-
-## 主要方法
-
-### PartyNameplateWidget
-`public class PartyNameplateWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 PartyNameplateWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 PartyNameplateWidget 实例
-PartyNameplateWidget partyNameplateWidget = ...;
-var result = partyNameplateWidget.PartyNameplateWidget(context);
-```
 
 ## 使用示例
 

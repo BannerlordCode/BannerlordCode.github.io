@@ -8,7 +8,7 @@ description: "AttachWeaponToAgent 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class AttachWeaponToAgent : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AttachWeaponToAgent.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/AttachWeaponToAgent.cs`
 
 ## 概述
 

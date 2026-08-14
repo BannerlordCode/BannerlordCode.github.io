@@ -8,7 +8,7 @@ description: "MeleeCollisionReaction 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum MeleeCollisionReaction`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MeleeCollisionReaction.cs`
+**File:** `TaleWorlds.MountAndBlade/MeleeCollisionReaction.cs`
 
 ## 概述
 

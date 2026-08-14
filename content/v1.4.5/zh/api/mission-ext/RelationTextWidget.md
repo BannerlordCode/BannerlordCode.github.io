@@ -6,9 +6,9 @@ description: "RelationTextWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class RelationTextWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/RelationTextWidget.cs`
+**Type:** `public class RelationTextWidget : TextWidget`
+**Base:** `TextWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/RelationTextWidget.cs`
 
 ## 概述
 
@@ -26,19 +26,6 @@ description: "RelationTextWidget 的自动生成类参考。"
 | `ZeroColor` | `public Color ZeroColor { get; set; }` |
 | `PositiveColor` | `public Color PositiveColor { get; set; }` |
 | `NegativeColor` | `public Color NegativeColor { get; set; }` |
-
-## 主要方法
-
-### RelationTextWidget
-`public class RelationTextWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 RelationTextWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 RelationTextWidget 实例
-RelationTextWidget relationTextWidget = ...;
-var result = relationTextWidget.RelationTextWidget(context);
-```
 
 ## 使用示例
 

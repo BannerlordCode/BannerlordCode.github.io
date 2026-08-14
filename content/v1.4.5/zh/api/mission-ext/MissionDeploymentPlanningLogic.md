@@ -8,7 +8,7 @@ description: "MissionDeploymentPlanningLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionDeploymentPlanningLogic : MissionLogic, IMissionDeploymentPlan`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionDeploymentPlanningLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionDeploymentPlanningLogic.cs`
 
 ## 概述
 
@@ -130,6 +130,17 @@ MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
 var result = missionDeploymentPlanningLogic.HasDeploymentBoundaries(team);
 ```
 
+### GetDeploymentBoundaries
+`public virtual MBReadOnlyList<ValueTuple<string, MBList<Vec2>>> GetDeploymentBoundaries(Team team)`
+
+**用途 / Purpose:** 读取并返回当前对象中 deployment boundaries 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetDeploymentBoundaries(team);
+```
+
 ### SupportsReinforcements
 `public virtual bool SupportsReinforcements()`
 
@@ -141,26 +152,15 @@ MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
 var result = missionDeploymentPlanningLogic.SupportsReinforcements();
 ```
 
-### UpdateReinforcementPlan
-`public virtual void UpdateReinforcementPlan(Team team)`
-
-**用途 / Purpose:** 重新计算并更新 reinforcement plan 的最新表示。
-
-```csharp
-// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
-MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
-missionDeploymentPlanningLogic.UpdateReinforcementPlan(team);
-```
-
 ### SupportsNavmesh
-`public virtual bool SupportsNavmesh(Team team)`
+`public virtual bool SupportsNavmesh()`
 
 **用途 / Purpose:** 调用 SupportsNavmesh 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
 MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
-var result = missionDeploymentPlanningLogic.SupportsNavmesh(team);
+var result = missionDeploymentPlanningLogic.SupportsNavmesh();
 ```
 
 ### HasPlayerSpawnFrame

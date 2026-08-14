@@ -6,9 +6,9 @@ description: "ChangeAmountTextWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class ChangeAmountTextWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ChangeAmountTextWidget.cs`
+**Type:** `public class ChangeAmountTextWidget : TextWidget`
+**Base:** `TextWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/ChangeAmountTextWidget.cs`
 
 ## 概述
 
@@ -27,19 +27,6 @@ description: "ChangeAmountTextWidget 的自动生成类参考。"
 | `ShouldBeVisible` | `public bool ShouldBeVisible { get; set; }` |
 | `NegativeBrushName` | `public string NegativeBrushName { get; set; }` |
 | `PositiveBrushName` | `public string PositiveBrushName { get; set; }` |
-
-## 主要方法
-
-### ChangeAmountTextWidget
-`public class ChangeAmountTextWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 ChangeAmountTextWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ChangeAmountTextWidget 实例
-ChangeAmountTextWidget changeAmountTextWidget = ...;
-var result = changeAmountTextWidget.ChangeAmountTextWidget(context);
-```
 
 ## 使用示例
 

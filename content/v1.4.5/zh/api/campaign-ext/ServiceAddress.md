@@ -8,7 +8,7 @@ description: "ServiceAddress 的自动生成类参考。"
 **Module:** TaleWorlds.ServiceDiscovery
 **Type:** `public class ServiceAddress`
 **Base:** 无
-**File:** `bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/ServiceAddress.cs`
+**File:** `TaleWorlds.ServiceDiscovery.Client/ServiceAddress.cs`
 
 ## 概述
 

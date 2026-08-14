@@ -8,7 +8,7 @@ description: "MultiplayerMangonelSpawner 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerMangonelSpawner : MangonelSpawner`
 **Base:** `MangonelSpawner`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Siege/MultiplayerMangonelSpawner.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Siege/MultiplayerMangonelSpawner.cs`
 
 ## 概述
 

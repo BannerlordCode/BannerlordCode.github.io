@@ -8,7 +8,7 @@ description: "IGameEntityComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IGameEntityComponent`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IGameEntityComponent.cs`
+**File:** `TaleWorlds.Engine/IGameEntityComponent.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "Property 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum Property`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemCategory.cs`
+**File:** `TaleWorlds.Core/ItemCategory.cs`
 
 ## 概述
 

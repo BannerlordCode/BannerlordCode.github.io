@@ -8,7 +8,7 @@ description: "PartyPlayerNameplateWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PartyPlayerNameplateWidget : PartyNameplateWidget`
 **Base:** `PartyNameplateWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate/PartyPlayerNameplateWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Nameplate/PartyPlayerNameplateWidget.cs`
 
 ## 概述
 

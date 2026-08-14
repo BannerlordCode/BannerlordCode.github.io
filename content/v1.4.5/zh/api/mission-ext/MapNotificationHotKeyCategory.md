@@ -8,7 +8,7 @@ description: "MapNotificationHotKeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class MapNotificationHotKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MapNotificationHotKeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/MapNotificationHotKeyCategory.cs`
 
 ## 概述
 

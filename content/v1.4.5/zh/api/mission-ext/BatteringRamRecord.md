@@ -8,7 +8,7 @@ description: "BatteringRamRecord 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct BatteringRamRecord : ISynchedMissionObjectReadableRecord`
 **Base:** `ISynchedMissionObjectReadableRecord`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BatteringRam.cs`
+**File:** `TaleWorlds.MountAndBlade/BatteringRam.cs`
 
 ## 概述
 

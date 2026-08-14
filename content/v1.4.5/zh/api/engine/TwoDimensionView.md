@@ -8,7 +8,7 @@ description: "TwoDimensionView 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class TwoDimensionView : View`
 **Base:** `View`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/TwoDimensionView.cs`
+**File:** `TaleWorlds.Engine/TwoDimensionView.cs`
 
 ## 概述
 

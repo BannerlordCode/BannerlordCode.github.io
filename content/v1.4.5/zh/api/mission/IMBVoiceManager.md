@@ -8,7 +8,7 @@ description: "IMBVoiceManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBVoiceManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBVoiceManager.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBVoiceManager.cs`
 
 ## 概述
 

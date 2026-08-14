@@ -8,7 +8,7 @@ description: "Intersection 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public struct Intersection`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Intersection.cs`
+**File:** `TaleWorlds.Engine/Intersection.cs`
 
 ## 概述
 

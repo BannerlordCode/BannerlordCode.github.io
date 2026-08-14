@@ -8,7 +8,7 @@ description: "TradeActionLogPool 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class TradeActionLogPool`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CaravansCampaignBehavior.cs`
+**File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/CaravansCampaignBehavior.cs`
 
 ## 概述
 
@@ -18,10 +18,16 @@ description: "TradeActionLogPool 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.CampaignSystem.CampaignBehaviors` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Size` | `public int Size { get; }` |
+
 ## 主要方法
 
 ### CreateNewLog
-`public TradeActionLog CreateNewLog(Settlement boughtSettlement, int buyPrice, ItemRosterElement itemRosterElement)`
+`public CaravansCampaignBehavior.TradeActionLog CreateNewLog(Settlement boughtSettlement, int buyPrice, ItemRosterElement itemRosterElement)`
 
 **用途 / Purpose:** 构建一个新的 new log 实体并返回给调用方。
 
@@ -32,7 +38,7 @@ var result = tradeActionLogPool.CreateNewLog(boughtSettlement, 0, itemRosterElem
 ```
 
 ### ReleaseLog
-`public void ReleaseLog(TradeActionLog log)`
+`public void ReleaseLog(CaravansCampaignBehavior.TradeActionLog log)`
 
 **用途 / Purpose:** 调用 ReleaseLog 对应的操作。
 

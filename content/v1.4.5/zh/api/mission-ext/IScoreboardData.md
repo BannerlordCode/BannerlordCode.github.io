@@ -8,7 +8,7 @@ description: "IScoreboardData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IScoreboardData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IScoreboardData.cs`
+**File:** `TaleWorlds.MountAndBlade/IScoreboardData.cs`
 
 ## 概述
 

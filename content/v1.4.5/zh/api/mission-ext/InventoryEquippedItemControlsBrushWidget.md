@@ -8,7 +8,7 @@ description: "InventoryEquippedItemControlsBrushWidget 的自动生成类参考�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InventoryEquippedItemControlsBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryEquippedItemControlsBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Inventory/InventoryEquippedItemControlsBrushWidget.cs`
 
 ## 概述
 
@@ -27,17 +27,6 @@ description: "InventoryEquippedItemControlsBrushWidget 的自动生成类参考�
 | `ItemWidget` | `public InventoryItemButtonWidget ItemWidget { get; set; }` |
 
 ## 主要方法
-
-### ButtonClickEventHandler
-`public delegate void ButtonClickEventHandler(Widget itemWidget)`
-
-**用途 / Purpose:** 调用 ButtonClickEventHandler 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 InventoryEquippedItemControlsBrushWidget 实例
-InventoryEquippedItemControlsBrushWidget inventoryEquippedItemControlsBrushWidget = ...;
-inventoryEquippedItemControlsBrushWidget.ButtonClickEventHandler(itemWidget);
-```
 
 ### ShowPanel
 `public void ShowPanel()`
@@ -59,6 +48,17 @@ inventoryEquippedItemControlsBrushWidget.ShowPanel();
 // 先通过子系统 API 拿到 InventoryEquippedItemControlsBrushWidget 实例
 InventoryEquippedItemControlsBrushWidget inventoryEquippedItemControlsBrushWidget = ...;
 inventoryEquippedItemControlsBrushWidget.HidePanel();
+```
+
+### ButtonClickEventHandler
+`public delegate void ButtonClickEventHandler(Widget itemWidget)`
+
+**用途 / Purpose:** 调用 ButtonClickEventHandler 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryEquippedItemControlsBrushWidget 实例
+InventoryEquippedItemControlsBrushWidget inventoryEquippedItemControlsBrushWidget = ...;
+inventoryEquippedItemControlsBrushWidget.ButtonClickEventHandler(itemWidget);
 ```
 
 ## 使用示例

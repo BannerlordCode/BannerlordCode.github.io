@@ -8,7 +8,7 @@ description: "BlendingDestinationFactor 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal enum BlendingDestinationFactor : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/BlendingDestinationFactor.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/BlendingDestinationFactor.cs`
 
 ## 概述
 

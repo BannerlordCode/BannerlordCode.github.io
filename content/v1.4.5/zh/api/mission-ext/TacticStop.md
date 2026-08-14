@@ -8,7 +8,7 @@ description: "TacticStop 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticStop : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticStop.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticStop.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "AcceptJoinPremadeGameRequestMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class AcceptJoinPremadeGameRequestMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/AcceptJoinPremadeGameRequestMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/AcceptJoinPremadeGameRequestMessage.cs`
 
 ## 概述
 

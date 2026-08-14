@@ -8,7 +8,7 @@ description: "BattleMissionAgentInteractionLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleMissionAgentInteractionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic/BattleMissionAgentInteractionLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/Source/Missions/Handlers/Logic/BattleMissionAgentInteractionLogic.cs`
 
 ## 概述
 

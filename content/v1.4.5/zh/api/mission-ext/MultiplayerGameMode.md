@@ -8,7 +8,7 @@ description: "MultiplayerGameMode 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MultiplayerGameMode`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerGameMode.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerGameMode.cs`
 
 ## 概述
 

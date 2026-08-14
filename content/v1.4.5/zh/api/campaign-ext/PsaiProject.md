@@ -8,7 +8,7 @@ description: "PsaiProject 的自动生成类参考。"
 **Module:** psai.Editor
 **Type:** `public class PsaiProject : ICloneable`
 **Base:** `ICloneable`
-**File:** `bin/TaleWorlds.PSAI/psai.Editor/PsaiProject.cs`
+**File:** `TaleWorlds.PSAI/Editor/PsaiProject.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MouseManager 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public static class MouseManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/MouseManager.cs`
+**File:** `TaleWorlds.Engine/MouseManager.cs`
 
 ## 概述
 

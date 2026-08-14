@@ -8,7 +8,7 @@ description: "GameNotificationWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameNotificationWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information/GameNotificationWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Information/GameNotificationWidget.cs`
 
 ## 概述
 
@@ -26,11 +26,9 @@ description: "GameNotificationWidget 的自动生成类参考。"
 | `RampDownInSeconds` | `public float RampDownInSeconds { get; set; }` |
 | `AnnouncerImageIdentifier` | `public ImageIdentifierWidget AnnouncerImageIdentifier { get; set; }` |
 | `NotificationId` | `public int NotificationId { get; set; }` |
-| `NotificationDurationInSeconds` | `public float NotificationDurationInSeconds { get; set; }` |
+| `TotalTime` | `public float TotalTime { get; set; }` |
 | `TextWidget` | `public RichTextWidget TextWidget { get; set; }` |
-| `IsPaused` | `public bool IsPaused { get; set; }` |
-| `MustFadeOutCurrentNotification` | `public bool MustFadeOutCurrentNotification { get; set; }` |
-| `NotificationFadeOutDelayInSeconds` | `public float NotificationFadeOutDelayInSeconds { get; set; }` |
+| `TotalDt` | `public float TotalDt { get; set; }` |
 
 ## 使用示例
 

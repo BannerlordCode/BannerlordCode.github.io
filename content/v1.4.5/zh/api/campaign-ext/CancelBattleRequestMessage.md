@@ -8,7 +8,7 @@ description: "CancelBattleRequestMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class CancelBattleRequestMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/CancelBattleRequestMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/CancelBattleRequestMessage.cs`
 
 ## 概述
 

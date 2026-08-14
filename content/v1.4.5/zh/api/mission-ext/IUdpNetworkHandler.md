@@ -8,7 +8,7 @@ description: "IUdpNetworkHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IUdpNetworkHandler`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IUdpNetworkHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/IUdpNetworkHandler.cs`
 
 ## 概述
 

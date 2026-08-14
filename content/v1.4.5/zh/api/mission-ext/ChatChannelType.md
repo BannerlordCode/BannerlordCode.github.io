@@ -8,7 +8,7 @@ description: "ChatChannelType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum ChatChannelType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ChatChannelType.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ChatChannelType.cs`
 
 ## 概述
 

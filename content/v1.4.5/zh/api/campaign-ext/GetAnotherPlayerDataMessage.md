@@ -8,7 +8,7 @@ description: "GetAnotherPlayerDataMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class GetAnotherPlayerDataMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetAnotherPlayerDataMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/GetAnotherPlayerDataMessage.cs`
 
 ## 概述
 

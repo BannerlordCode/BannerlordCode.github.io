@@ -8,7 +8,7 @@ description: "BattlePlayerStatsSkirmish 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattlePlayerStatsSkirmish : BattlePlayerStatsBase`
 **Base:** `BattlePlayerStatsBase`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BattlePlayerStatsSkirmish.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/BattlePlayerStatsSkirmish.cs`
 
 ## 概述
 

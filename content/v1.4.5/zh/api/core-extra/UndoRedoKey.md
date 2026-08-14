@@ -8,7 +8,7 @@ description: "UndoRedoKey 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `struct UndoRedoKey`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/UndoRedoKey.cs`
+**File:** `TaleWorlds.Core/UndoRedoKey.cs`
 
 ## 概述
 

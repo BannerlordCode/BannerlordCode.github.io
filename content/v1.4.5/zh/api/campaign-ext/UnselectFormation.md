@@ -8,7 +8,7 @@ description: "UnselectFormation 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class UnselectFormation : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/UnselectFormation.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/UnselectFormation.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "DiamondClientApplication 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class DiamondClientApplication`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.ClientApplication/DiamondClientApplication.cs`
+**File:** `TaleWorlds.Diamond/ClientApplication/DiamondClientApplication.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "DiamondClientApplication 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `ApplicationVersion` | `public ApplicationVersion ApplicationVersion { get; }` |
+| `Parameters` | `public ParameterContainer Parameters { get; }` |
 | `ProxyAddressMap` | `public IReadOnlyDictionary<string, string> ProxyAddressMap { get; }` |
 
 ## 主要方法

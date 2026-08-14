@@ -8,7 +8,7 @@ description: "MusicTheme 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum MusicTheme`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MusicTheme.cs`
+**File:** `TaleWorlds.MountAndBlade/MusicTheme.cs`
 
 ## 概述
 

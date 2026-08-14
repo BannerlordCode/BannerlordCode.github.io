@@ -8,7 +8,7 @@ description: "StackArray 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class StackArray`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/StackArray.cs`
+**File:** `TaleWorlds.Core/StackArray.cs`
 
 ## 概述
 
@@ -23,11 +23,12 @@ description: "StackArray 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `this` | `public float this { get; set; }` |
-| `this` | `public float this { get; set; }` |
+| `this` | `public float this { get; }` |
 | `this` | `public int this { get; set; }` |
 | `this` | `public int this { get; set; }` |
 | `this` | `public bool this { get; set; }` |
-| `this` | `public int this { get; set; }` |
+| `this` | `public int this { get; }` |
+| `this` | `public ValueTuple<float, float> this { get; }` |
 | `this` | `public bool this { get; set; }` |
 | `this` | `public bool this { get; set; }` |
 | `this` | `public bool this { get; set; }` |

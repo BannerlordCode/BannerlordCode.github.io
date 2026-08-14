@@ -8,7 +8,7 @@ description: "MBNullParameterException 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MBNullParameterException : MBException`
 **Base:** `MBException`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBNullParameterException.cs`
+**File:** `TaleWorlds.Core/MBNullParameterException.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MissionEquipment 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionEquipment`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionEquipment.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionEquipment.cs`
 
 ## 概述
 
@@ -26,149 +26,6 @@ description: "MissionEquipment 的自动生成类参考。"
 | `this` | `public MissionWeapon this { get; set; }` |
 
 ## 主要方法
-
-### Initialize
-`public void Initialize()`
-
-**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
-
-```csharp
-// 先通过子系统 API 拿到 MissionEquipment 实例
-MissionEquipment missionEquipment = ...;
-missionEquipment.Initialize();
-```
-
-### IsValid
-`public bool IsValid(CachedBool queriedData)`
-
-**用途 / Purpose:** 判断当前对象是否处于 valid 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 MissionEquipment 实例
-MissionEquipment missionEquipment = ...;
-var result = missionEquipment.IsValid(queriedData);
-```
-
-### UpdateAndMarkValid
-`public void UpdateAndMarkValid(CachedBool data, bool value)`
-
-**用途 / Purpose:** 重新计算并更新 and mark valid 的最新表示。
-
-```csharp
-// 先通过子系统 API 拿到 MissionEquipment 实例
-MissionEquipment missionEquipment = ...;
-missionEquipment.UpdateAndMarkValid(data, false);
-```
-
-### GetValue
-`public bool GetValue(CachedBool data)`
-
-**用途 / Purpose:** 读取并返回当前对象中 value 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MissionEquipment 实例
-MissionEquipment missionEquipment = ...;
-var result = missionEquipment.GetValue(data);
-```
-
-### IsValid
-`public bool IsValid(CachedFloat queriedData)`
-
-**用途 / Purpose:** 判断当前对象是否处于 valid 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 MissionEquipment 实例
-MissionEquipment missionEquipment = ...;
-var result = missionEquipment.IsValid(queriedData);
-```
-
-### UpdateAndMarkValid
-`public void UpdateAndMarkValid(CachedFloat data, float value)`
-
-**用途 / Purpose:** 重新计算并更新 and mark valid 的最新表示。
-
-```csharp
-// 先通过子系统 API 拿到 MissionEquipment 实例
-MissionEquipment missionEquipment = ...;
-missionEquipment.UpdateAndMarkValid(data, 0);
-```
-
-### GetValue
-`public float GetValue(CachedFloat data)`
-
-**用途 / Purpose:** 读取并返回当前对象中 value 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MissionEquipment 实例
-MissionEquipment missionEquipment = ...;
-var result = missionEquipment.GetValue(data);
-```
-
-### InvalidateOnWeaponSlotUpdated
-`public void InvalidateOnWeaponSlotUpdated()`
-
-**用途 / Purpose:** 调用 InvalidateOnWeaponSlotUpdated 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MissionEquipment 实例
-MissionEquipment missionEquipment = ...;
-missionEquipment.InvalidateOnWeaponSlotUpdated();
-```
-
-### InvalidateOnWeaponUsageIndexUpdated
-`public void InvalidateOnWeaponUsageIndexUpdated()`
-
-**用途 / Purpose:** 调用 InvalidateOnWeaponUsageIndexUpdated 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MissionEquipment 实例
-MissionEquipment missionEquipment = ...;
-missionEquipment.InvalidateOnWeaponUsageIndexUpdated();
-```
-
-### InvalidateOnWeaponAmmoUpdated
-`public void InvalidateOnWeaponAmmoUpdated()`
-
-**用途 / Purpose:** 调用 InvalidateOnWeaponAmmoUpdated 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MissionEquipment 实例
-MissionEquipment missionEquipment = ...;
-missionEquipment.InvalidateOnWeaponAmmoUpdated();
-```
-
-### InvalidateOnWeaponAmmoAvailabilityChanged
-`public void InvalidateOnWeaponAmmoAvailabilityChanged()`
-
-**用途 / Purpose:** 调用 InvalidateOnWeaponAmmoAvailabilityChanged 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MissionEquipment 实例
-MissionEquipment missionEquipment = ...;
-missionEquipment.InvalidateOnWeaponAmmoAvailabilityChanged();
-```
-
-### InvalidateOnWeaponHitPointsUpdated
-`public void InvalidateOnWeaponHitPointsUpdated()`
-
-**用途 / Purpose:** 调用 InvalidateOnWeaponHitPointsUpdated 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MissionEquipment 实例
-MissionEquipment missionEquipment = ...;
-missionEquipment.InvalidateOnWeaponHitPointsUpdated();
-```
-
-### InvalidateOnWeaponDestroyed
-`public void InvalidateOnWeaponDestroyed()`
-
-**用途 / Purpose:** 调用 InvalidateOnWeaponDestroyed 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MissionEquipment 实例
-MissionEquipment missionEquipment = ...;
-missionEquipment.InvalidateOnWeaponDestroyed();
-```
 
 ### FillFrom
 `public void FillFrom(MissionEquipment sourceEquipment)`
@@ -388,17 +245,6 @@ MissionEquipment missionEquipment = ...;
 var result = missionEquipment.HasAnyWeaponWithFlags(flags);
 ```
 
-### HasAnyWeaponWithItemUsageSetFlags
-`public bool HasAnyWeaponWithItemUsageSetFlags(ItemObject.ItemUsageSetFlags flags)`
-
-**用途 / Purpose:** 判断当前对象是否已经持有 any weapon with item usage set flags。
-
-```csharp
-// 先通过子系统 API 拿到 MissionEquipment 实例
-MissionEquipment missionEquipment = ...;
-var result = missionEquipment.HasAnyWeaponWithItemUsageSetFlags(flags);
-```
-
 ### GetBanner
 `public ItemObject GetBanner()`
 
@@ -487,12 +333,155 @@ MissionEquipment missionEquipment = ...;
 missionEquipment.SetGlossMultipliersOfWeaponsRandomly(0);
 ```
 
+### Initialize
+`public void Initialize()`
+
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.Initialize();
+```
+
+### IsValid
+`public bool IsValid(MissionEquipment.MissionEquipmentCache.CachedBool queriedData)`
+
+**用途 / Purpose:** 判断当前对象是否处于 valid 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.IsValid(queriedData);
+```
+
+### UpdateAndMarkValid
+`public void UpdateAndMarkValid(MissionEquipment.MissionEquipmentCache.CachedBool data, bool value)`
+
+**用途 / Purpose:** 重新计算并更新 and mark valid 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.UpdateAndMarkValid(data, false);
+```
+
+### GetValue
+`public bool GetValue(MissionEquipment.MissionEquipmentCache.CachedBool data)`
+
+**用途 / Purpose:** 读取并返回当前对象中 value 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.GetValue(data);
+```
+
+### IsValid
+`public bool IsValid(MissionEquipment.MissionEquipmentCache.CachedFloat queriedData)`
+
+**用途 / Purpose:** 判断当前对象是否处于 valid 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.IsValid(queriedData);
+```
+
+### UpdateAndMarkValid
+`public void UpdateAndMarkValid(MissionEquipment.MissionEquipmentCache.CachedFloat data, float value)`
+
+**用途 / Purpose:** 重新计算并更新 and mark valid 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.UpdateAndMarkValid(data, 0);
+```
+
+### GetValue
+`public float GetValue(MissionEquipment.MissionEquipmentCache.CachedFloat data)`
+
+**用途 / Purpose:** 读取并返回当前对象中 value 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.GetValue(data);
+```
+
+### InvalidateOnWeaponSlotUpdated
+`public void InvalidateOnWeaponSlotUpdated()`
+
+**用途 / Purpose:** 调用 InvalidateOnWeaponSlotUpdated 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponSlotUpdated();
+```
+
+### InvalidateOnWeaponUsageIndexUpdated
+`public void InvalidateOnWeaponUsageIndexUpdated()`
+
+**用途 / Purpose:** 调用 InvalidateOnWeaponUsageIndexUpdated 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponUsageIndexUpdated();
+```
+
+### InvalidateOnWeaponAmmoUpdated
+`public void InvalidateOnWeaponAmmoUpdated()`
+
+**用途 / Purpose:** 调用 InvalidateOnWeaponAmmoUpdated 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponAmmoUpdated();
+```
+
+### InvalidateOnWeaponAmmoAvailabilityChanged
+`public void InvalidateOnWeaponAmmoAvailabilityChanged()`
+
+**用途 / Purpose:** 调用 InvalidateOnWeaponAmmoAvailabilityChanged 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponAmmoAvailabilityChanged();
+```
+
+### InvalidateOnWeaponHitPointsUpdated
+`public void InvalidateOnWeaponHitPointsUpdated()`
+
+**用途 / Purpose:** 调用 InvalidateOnWeaponHitPointsUpdated 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponHitPointsUpdated();
+```
+
+### InvalidateOnWeaponDestroyed
+`public void InvalidateOnWeaponDestroyed()`
+
+**用途 / Purpose:** 调用 InvalidateOnWeaponDestroyed 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponDestroyed();
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 MissionEquipment missionEquipment = ...;
-missionEquipment.Initialize();
+missionEquipment.FillFrom(sourceEquipment);
 ```
 
 ## 参见

@@ -8,7 +8,7 @@ description: "ILibrarySizeChecker 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `internal interface ILibrarySizeChecker`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ILibrarySizeChecker.cs`
+**File:** `TaleWorlds.DotNet/ILibrarySizeChecker.cs`
 
 ## 概述
 

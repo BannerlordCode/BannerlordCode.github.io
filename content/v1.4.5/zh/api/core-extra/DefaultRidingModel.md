@@ -8,7 +8,7 @@ description: "DefaultRidingModel 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class DefaultRidingModel : RidingModel`
 **Base:** `RidingModel`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/DefaultRidingModel.cs`
+**File:** `TaleWorlds.Core/DefaultRidingModel.cs`
 
 ## 概述
 

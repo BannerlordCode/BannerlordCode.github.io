@@ -8,7 +8,7 @@ description: "IMBTeam 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBTeam`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBTeam.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBTeam.cs`
 
 ## 概述
 

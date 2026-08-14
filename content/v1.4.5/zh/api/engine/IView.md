@@ -8,7 +8,7 @@ description: "IView 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IView`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IView.cs`
+**File:** `TaleWorlds.Engine/IView.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "TextGrammarProcessor 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `public static class TextGrammarProcessor`
 **Base:** 无
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor/TextGrammarProcessor.cs`
+**File:** `TaleWorlds.Localization/TextProcessor/TextGrammarProcessor.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "StackArray10FloatFloatTuple 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct StackArray10FloatFloatTuple`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/StackArray.cs`
+**File:** `TaleWorlds.Core/StackArray.cs`
 
 ## 概述
 
@@ -17,6 +17,12 @@ description: "StackArray10FloatFloatTuple 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `this` | `public ValueTuple<float, float> this { get; }` |
 
 ## 使用示例
 

@@ -8,7 +8,7 @@ description: "ManagedSelectionOptionData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ManagedSelectionOptionData : ManagedOptionData, ISelectionOptionData, IOptionData`
 **Base:** `ManagedOptionData`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options.ManagedOptions/ManagedSelectionOptionData.cs`
+**File:** `TaleWorlds.MountAndBlade/Options/ManagedOptions/ManagedSelectionOptionData.cs`
 
 ## 概述
 
@@ -43,7 +43,7 @@ var result = managedSelectionOptionData.GetSelectableOptionNames();
 ```
 
 ### GetOptionsLimit
-`public static int GetOptionsLimit(TaleWorlds.MountAndBlade.ManagedOptions.ManagedOptionsType optionType)`
+`public static int GetOptionsLimit(ManagedOptions.ManagedOptionsType optionType)`
 
 **用途 / Purpose:** 读取并返回当前对象中 options limit 的结果。
 

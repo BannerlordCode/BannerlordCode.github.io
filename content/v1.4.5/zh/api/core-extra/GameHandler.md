@@ -8,7 +8,7 @@ description: "GameHandler 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class GameHandler : IEntityComponent`
 **Base:** `IEntityComponent`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/GameHandler.cs`
+**File:** `TaleWorlds.Core/GameHandler.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MovementStateEnum 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum MovementStateEnum`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MovementOrder.cs`
+**File:** `TaleWorlds.MountAndBlade/MovementOrder.cs`
 
 ## 概述
 

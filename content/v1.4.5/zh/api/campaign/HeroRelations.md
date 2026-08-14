@@ -8,7 +8,7 @@ description: "HeroRelations 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class HeroRelations`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CharacterRelationManager.cs`
+**File:** `TaleWorlds.CampaignSystem/CharacterRelationManager.cs`
 
 ## 概述
 

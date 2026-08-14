@@ -8,7 +8,7 @@ description: "Common 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class Common`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Common.cs`
+**File:** `TaleWorlds.Library/Common.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "Common 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `PlatformFileHelper` | `public static IPlatformFileHelper PlatformFileHelper { get; set; }` |
+| `ConfigName` | `public static string ConfigName { get; }` |
 | `ParallelOptions` | `public static ParallelOptions ParallelOptions { get; }` |
 
 ## 主要方法

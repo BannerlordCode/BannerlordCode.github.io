@@ -6,9 +6,9 @@ description: "PartyUpgradesContainerWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class PartyUpgradesContainerWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyUpgradesContainerWidget.cs`
+**Type:** `public class PartyUpgradesContainerWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Party/PartyUpgradesContainerWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "PartyUpgradesContainerWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `AnyUpgradeHasRequirement` | `public bool AnyUpgradeHasRequirement { get; set; }` |
-
-## 主要方法
-
-### PartyUpgradesContainerWidget
-`public class PartyUpgradesContainerWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 PartyUpgradesContainerWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 PartyUpgradesContainerWidget 实例
-PartyUpgradesContainerWidget partyUpgradesContainerWidget = ...;
-var result = partyUpgradesContainerWidget.PartyUpgradesContainerWidget(context);
-```
 
 ## 使用示例
 

@@ -8,7 +8,7 @@ description: "Gdi32 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal static class Gdi32`
 **Base:** 无
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/Gdi32.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/Windows/Gdi32.cs`
 
 ## 概述
 

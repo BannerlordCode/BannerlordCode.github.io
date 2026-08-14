@@ -8,7 +8,7 @@ description: "TooltipProperty 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class TooltipProperty : ViewModel, ISerializableObject`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/TooltipProperty.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/Information/TooltipProperty.cs`
 
 ## 概述
 

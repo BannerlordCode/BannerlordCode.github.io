@@ -8,7 +8,7 @@ description: "SailType 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum SailType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SailType.cs`
+**File:** `TaleWorlds.Core/SailType.cs`
 
 ## 概述
 

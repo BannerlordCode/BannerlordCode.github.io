@@ -8,7 +8,7 @@ description: "AccessObjectResult 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class AccessObjectResult`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/AccessObjectResult.cs`
+**File:** `TaleWorlds.Diamond/AccessObjectResult.cs`
 
 ## 概述
 

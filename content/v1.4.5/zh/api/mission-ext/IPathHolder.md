@@ -8,7 +8,7 @@ description: "IPathHolder 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IPathHolder`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IPathHolder.cs`
+**File:** `TaleWorlds.MountAndBlade/IPathHolder.cs`
 
 ## 概述
 

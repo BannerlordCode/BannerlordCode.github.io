@@ -8,7 +8,7 @@ description: "TWSharedMutexWriteLock 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct TWSharedMutexWriteLock : IDisposable`
 **Base:** `IDisposable`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TWSharedMutexWriteLock.cs`
+**File:** `TaleWorlds.Library/TWSharedMutexWriteLock.cs`
 
 ## 概述
 

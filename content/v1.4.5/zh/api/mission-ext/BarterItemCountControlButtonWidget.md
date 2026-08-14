@@ -8,7 +8,7 @@ description: "BarterItemCountControlButtonWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BarterItemCountControlButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Barter/BarterItemCountControlButtonWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Barter/BarterItemCountControlButtonWidget.cs`
 
 ## 概述
 

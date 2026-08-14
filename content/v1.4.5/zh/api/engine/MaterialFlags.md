@@ -8,7 +8,7 @@ description: "MaterialFlags 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum MaterialFlags : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/MaterialFlags.cs`
+**File:** `TaleWorlds.Engine/MaterialFlags.cs`
 
 ## 概述
 

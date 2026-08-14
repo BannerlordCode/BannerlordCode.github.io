@@ -8,7 +8,7 @@ description: "DedicatedServerType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum DedicatedServerType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DedicatedServerType.cs`
+**File:** `TaleWorlds.MountAndBlade/DedicatedServerType.cs`
 
 ## 概述
 

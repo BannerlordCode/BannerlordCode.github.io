@@ -8,7 +8,7 @@ description: "AtmosphereState 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class AtmosphereState`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/AtmosphereState.cs`
+**File:** `TaleWorlds.Core/AtmosphereState.cs`
 
 ## 概述
 

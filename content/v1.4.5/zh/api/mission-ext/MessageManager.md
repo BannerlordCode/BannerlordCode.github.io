@@ -8,7 +8,7 @@ description: "MessageManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MessageManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MessageManager.cs`
+**File:** `TaleWorlds.MountAndBlade/MessageManager.cs`
 
 ## 概述
 

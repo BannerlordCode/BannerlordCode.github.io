@@ -8,7 +8,7 @@ description: "Vec3 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct Vec3`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Vec3.cs`
+**File:** `TaleWorlds.Library/Vec3.cs`
 
 ## 概述
 
@@ -22,14 +22,21 @@ description: "Vec3 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `this` | `public Vec3 this { get; }` |
-| `this` | `public float this { get; set; }` |
+| `X` | `public float X { get; }` |
+| `Y` | `public float Y { get; }` |
+| `Z` | `public float Z { get; }` |
+| `this` | `public float this { get; }` |
+| `Length` | `public float Length { get; }` |
+| `LengthSquared` | `public float LengthSquared { get; }` |
 | `IsValid` | `public bool IsValid { get; }` |
 | `IsValidXYZW` | `public bool IsValidXYZW { get; }` |
 | `IsUnit` | `public bool IsUnit { get; }` |
-| `IsNonZero` | `public bool IsNonZero { get; set; }` |
+| `IsNonZero` | `public bool IsNonZero { get; }` |
 | `AsVec2` | `public Vec2 AsVec2 { get; set; }` |
 | `ToARGB` | `public uint ToARGB { get; }` |
+| `RotationZ` | `public float RotationZ { get; }` |
+| `RotationX` | `public float RotationX { get; }` |
+| `this` | `public Vec3 this { get; }` |
 
 ## 主要方法
 

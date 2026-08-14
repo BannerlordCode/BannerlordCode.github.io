@@ -8,7 +8,7 @@ description: "GameKey 的自动生成类参考。"
 **Module:** TaleWorlds.InputSystem
 **Type:** `public class GameKey`
 **Base:** 无
-**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/GameKey.cs`
+**File:** `TaleWorlds.InputSystem/GameKey.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ChangeUsernameMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class ChangeUsernameMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/ChangeUsernameMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/ChangeUsernameMessage.cs`
 
 ## 概述
 

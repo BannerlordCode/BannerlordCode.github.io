@@ -8,7 +8,7 @@ description: "PlayerGameState 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class PlayerGameState : GameState`
 **Base:** `GameState`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/PlayerGameState.cs`
+**File:** `TaleWorlds.Core/PlayerGameState.cs`
 
 ## 概述
 

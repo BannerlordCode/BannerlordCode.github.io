@@ -8,7 +8,7 @@ description: "CharacterWithActionViewModel 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class CharacterWithActionViewModel : CharacterViewModel`
 **Base:** `CharacterViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection/CharacterWithActionViewModel.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/CharacterWithActionViewModel.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ClanFinancePaymentSliderWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanFinancePaymentSliderWidget : SliderWidget`
 **Base:** `SliderWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan/ClanFinancePaymentSliderWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Clan/ClanFinancePaymentSliderWidget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "SaveContext 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveContext : ISaveContext`
 **Base:** `ISaveContext`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/SaveContext.cs`
+**File:** `TaleWorlds.SaveSystem/Save/SaveContext.cs`
 
 ## 概述
 
@@ -25,66 +25,12 @@ description: "SaveContext 的自动生成类参考。"
 | `RootObject` | `public object RootObject { get; }` |
 | `SaveData` | `public GameData SaveData { get; }` |
 | `DefinitionContext` | `public DefinitionContext DefinitionContext { get; }` |
+| `EnableSaveStatistics` | `public static bool EnableSaveStatistics { get; }` |
 
 ## 主要方法
 
-### ToString
-`public override string ToString()`
-
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
-
-```csharp
-// 先通过子系统 API 拿到 SaveContext 实例
-SaveContext saveContext = ...;
-var result = saveContext.ToString();
-```
-
-### SaveStatistics
-`public struct SaveStatistics(Dictionary<string, (int, int, int, long)> typeStatistics, Dictionary<string, (int, int, int, int, long)> containerStatistics)`
-
-**用途 / Purpose:** 将 statistics 写入持久化存储或流中。
-
-```csharp
-// 先通过子系统 API 拿到 SaveContext 实例
-SaveContext saveContext = ...;
-var result = saveContext.SaveStatistics(dictionary<string, (int, 0, 0, 0, dictionary<string, (int, 0, 0, 0, 0);
-```
-
-### GetContainerSize
-`public long GetContainerSize(string key)`
-
-**用途 / Purpose:** 读取并返回当前对象中 container size 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 SaveContext 实例
-SaveContext saveContext = ...;
-var result = saveContext.GetContainerSize("example");
-```
-
-### GetTypeKeys
-`public List<string> GetTypeKeys()`
-
-**用途 / Purpose:** 读取并返回当前对象中 type keys 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 SaveContext 实例
-SaveContext saveContext = ...;
-var result = saveContext.GetTypeKeys();
-```
-
-### GetContainerKeys
-`public List<string> GetContainerKeys()`
-
-**用途 / Purpose:** 读取并返回当前对象中 container keys 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 SaveContext 实例
-SaveContext saveContext = ...;
-var result = saveContext.GetContainerKeys();
-```
-
 ### GetStatistics
-`public static SaveStatistics GetStatistics()`
+`public static SaveContext.SaveStatistics GetStatistics()`
 
 **用途 / Purpose:** 读取并返回当前对象中 statistics 的结果。
 
@@ -158,12 +104,65 @@ SaveContext saveContext = ...;
 var result = saveContext.Save(target, metaData, errorMessage);
 ```
 
+### GetObjectCounts
+`public ValueTuple<int, int, int, long> GetObjectCounts(string key)`
+
+**用途 / Purpose:** 读取并返回当前对象中 object counts 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveContext 实例
+SaveContext saveContext = ...;
+var result = saveContext.GetObjectCounts("example");
+```
+
+### GetContainerCounts
+`public ValueTuple<int, int, int, int, long> GetContainerCounts(string key)`
+
+**用途 / Purpose:** 读取并返回当前对象中 container counts 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveContext 实例
+SaveContext saveContext = ...;
+var result = saveContext.GetContainerCounts("example");
+```
+
+### GetContainerSize
+`public long GetContainerSize(string key)`
+
+**用途 / Purpose:** 读取并返回当前对象中 container size 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveContext 实例
+SaveContext saveContext = ...;
+var result = saveContext.GetContainerSize("example");
+```
+
+### GetTypeKeys
+`public List<string> GetTypeKeys()`
+
+**用途 / Purpose:** 读取并返回当前对象中 type keys 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveContext 实例
+SaveContext saveContext = ...;
+var result = saveContext.GetTypeKeys();
+```
+
+### GetContainerKeys
+`public List<string> GetContainerKeys()`
+
+**用途 / Purpose:** 读取并返回当前对象中 container keys 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveContext 实例
+SaveContext saveContext = ...;
+var result = saveContext.GetContainerKeys();
+```
+
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-SaveContext saveContext = ...;
-saveContext.ToString();
+SaveContext.GetStatistics();
 ```
 
 ## 参见

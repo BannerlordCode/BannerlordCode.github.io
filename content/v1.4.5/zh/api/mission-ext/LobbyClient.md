@@ -8,7 +8,7 @@ description: "LobbyClient 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LobbyClient : Client<LobbyClient>`
 **Base:** `Client<LobbyClient>`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/LobbyClient.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/LobbyClient.cs`
 
 ## 概述
 
@@ -26,18 +26,30 @@ description: "LobbyClient 的自动生成类参考。"
 | `SupportedFeatures` | `public SupportedFeatures SupportedFeatures { get; }` |
 | `ClanInfo` | `public ClanInfo ClanInfo { get; }` |
 | `ClanHomeInfo` | `public ClanHomeInfo ClanHomeInfo { get; }` |
+| `OwnedCosmetics` | `public IReadOnlyList<string> OwnedCosmetics { get; }` |
+| `UsedCosmetics` | `public IReadOnlyDictionary<string, List<string>> UsedCosmetics { get; }` |
 | `AvailableScenes` | `public AvailableScenes AvailableScenes { get; }` |
+| `PlayerID` | `public PlayerId PlayerID { get; }` |
 | `IsRefreshingPlayerData` | `public bool IsRefreshingPlayerData { get; }` |
-| `CurrentState` | `public State CurrentState { get; }` |
+| `CurrentState` | `public LobbyClient.State CurrentState { get; }` |
 | `AliveCheckTimeInMiliSeconds` | `public override long AliveCheckTimeInMiliSeconds { get; }` |
+| `AtLobby` | `public bool AtLobby { get; }` |
 | `CanPerformLobbyActions` | `public bool CanPerformLobbyActions { get; }` |
+| `Name` | `public string Name { get; }` |
 | `LastBattleServerAddressForClient` | `public string LastBattleServerAddressForClient { get; }` |
 | `LastBattleServerPortForClient` | `public ushort LastBattleServerPortForClient { get; }` |
 | `LastBattleIsOfficial` | `public bool LastBattleIsOfficial { get; }` |
 | `Connected` | `public bool Connected { get; }` |
+| `IsIdle` | `public bool IsIdle { get; }` |
 | `LoggedIn` | `public bool LoggedIn { get; }` |
 | `IsInGame` | `public bool IsInGame { get; }` |
+| `IsHostingCustomGame` | `public bool IsHostingCustomGame { get; }` |
+| `IsMatchmakingAvailable` | `public bool IsMatchmakingAvailable { get; }` |
 | `IsAbleToSearchForGame` | `public bool IsAbleToSearchForGame { get; }` |
+| `PartySystemAvailable` | `public bool PartySystemAvailable { get; }` |
+| `IsCustomBattleAvailable` | `public bool IsCustomBattleAvailable { get; }` |
+| `LoadedUnofficialModules` | `public IReadOnlyList<ModuleInfoModel> LoadedUnofficialModules { get; }` |
+| `HasUnofficialModulesLoaded` | `public bool HasUnofficialModulesLoaded { get; }` |
 | `HasUserGeneratedContentPrivilege` | `public bool HasUserGeneratedContentPrivilege { get; }` |
 | `IsPartyLeader` | `public bool IsPartyLeader { get; }` |
 | `IsClanLeader` | `public bool IsClanLeader { get; }` |
@@ -53,7 +65,9 @@ description: "LobbyClient 的自动生成类参考。"
 | `PlayerInfosInClan` | `public List<ClanPlayerInfo> PlayerInfosInClan { get; }` |
 | `FriendInfos` | `public FriendInfo FriendInfos { get; }` |
 | `IsInParty` | `public bool IsInParty { get; }` |
+| `IsPartyFull` | `public bool IsPartyFull { get; }` |
 | `CurrentMatchId` | `public string CurrentMatchId { get; }` |
+| `IsInClan` | `public bool IsInClan { get; }` |
 | `IsPartyInvitationPopupActive` | `public bool IsPartyInvitationPopupActive { get; }` |
 | `IsPartyJoinRequestPopupActive` | `public bool IsPartyJoinRequestPopupActive { get; }` |
 | `CanInvitePlayers` | `public bool CanInvitePlayers { get; }` |
@@ -86,7 +100,7 @@ lobbyClient.SetLoadedModules("example");
 ```
 
 ### GetCustomGameServerList
-`public async Task<AvailableCustomGames> GetCustomGameServerList()`
+`public Task<AvailableCustomGames> GetCustomGameServerList()`
 
 **用途 / Purpose:** 读取并返回当前对象中 custom game server list 的结果。
 
@@ -119,7 +133,7 @@ lobbyClient.QuitFromMatchmakerGame();
 ```
 
 ### RequestJoinCustomGame
-`public async Task<bool> RequestJoinCustomGame(CustomBattleId serverId, string password, bool isJoinAsAdmin = false)`
+`public Task<bool> RequestJoinCustomGame(CustomBattleId serverId, string password, bool isJoinAsAdmin = false)`
 
 **用途 / Purpose:** 调用 RequestJoinCustomGame 对应的操作。
 
@@ -130,7 +144,7 @@ var result = lobbyClient.RequestJoinCustomGame(serverId, "example", false);
 ```
 
 ### RequestJoinPlayerParty
-`public async Task<bool> RequestJoinPlayerParty(PlayerId targetPlayer, bool inviteRequest)`
+`public Task<bool> RequestJoinPlayerParty(PlayerId targetPlayer, bool inviteRequest)`
 
 **用途 / Purpose:** 调用 RequestJoinPlayerParty 对应的操作。
 
@@ -163,7 +177,7 @@ lobbyClient.FindGame();
 ```
 
 ### FindCustomGame
-`public async Task<bool> FindCustomGame(string selectedCustomGameTypes, bool? hasCrossplayPrivilege, string region)`
+`public Task<bool> FindCustomGame(string selectedCustomGameTypes, bool? hasCrossplayPrivilege, string region)`
 
 **用途 / Purpose:** 在当前集合/范围内查找满足条件的custom game。
 
@@ -174,7 +188,7 @@ var result = lobbyClient.FindCustomGame("example", false, "example");
 ```
 
 ### Connect
-`public async Task<LobbyClientConnectResult> Connect(ILobbyClientSessionHandler lobbyClientSessionHandler, ILoginAccessProvider lobbyClientLoginAccessProvider, string overridenUserName, bool hasUserGeneratedContentPrivilege, PlatformInitParams initParams, Func<Task<bool>> preLoginTask)`
+`public Task<LobbyClientConnectResult> Connect(ILobbyClientSessionHandler lobbyClientSessionHandler, ILoginAccessProvider lobbyClientLoginAccessProvider, string overridenUserName, bool hasUserGeneratedContentPrivilege, PlatformInitParams initParams, Func<Task<bool>> preLoginTask)`
 
 **用途 / Purpose:** 调用 Connect 对应的操作。
 
@@ -394,7 +408,7 @@ lobbyClient.KickFromClan(playerId);
 ```
 
 ### ClanNameExists
-`public async Task<CheckClanParameterValidResult> ClanNameExists(string clanName)`
+`public Task<CheckClanParameterValidResult> ClanNameExists(string clanName)`
 
 **用途 / Purpose:** 调用 ClanNameExists 对应的操作。
 
@@ -405,7 +419,7 @@ var result = lobbyClient.ClanNameExists("example");
 ```
 
 ### ClanTagExists
-`public async Task<CheckClanParameterValidResult> ClanTagExists(string clanTag)`
+`public Task<CheckClanParameterValidResult> ClanTagExists(string clanTag)`
 
 **用途 / Purpose:** 调用 ClanTagExists 对应的操作。
 
@@ -416,7 +430,7 @@ var result = lobbyClient.ClanTagExists("example");
 ```
 
 ### GetClanHomeInfo
-`public async Task<ClanHomeInfo> GetClanHomeInfo()`
+`public Task<ClanHomeInfo> GetClanHomeInfo()`
 
 **用途 / Purpose:** 读取并返回当前对象中 clan home info 的结果。
 
@@ -424,6 +438,17 @@ var result = lobbyClient.ClanTagExists("example");
 // 先通过子系统 API 拿到 LobbyClient 实例
 LobbyClient lobbyClient = ...;
 var result = lobbyClient.GetClanHomeInfo();
+```
+
+### JoinChannel
+`public void JoinChannel(ChatChannelType channel)`
+
+**用途 / Purpose:** 把若干channel连接成一个整体。
+
+```csharp
+// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.JoinChannel(channel);
 ```
 
 ### AssignAsClanOfficer
@@ -448,8 +473,19 @@ LobbyClient lobbyClient = ...;
 lobbyClient.RemoveClanOfficerRoleForPlayer(playerId);
 ```
 
+### LeaveChannel
+`public void LeaveChannel(ChatChannelType channel)`
+
+**用途 / Purpose:** 调用 LeaveChannel 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.LeaveChannel(channel);
+```
+
 ### GetClanLeaderboardInfo
-`public async Task<ClanLeaderboardInfo> GetClanLeaderboardInfo()`
+`public Task<ClanLeaderboardInfo> GetClanLeaderboardInfo()`
 
 **用途 / Purpose:** 读取并返回当前对象中 clan leaderboard info 的结果。
 
@@ -460,7 +496,7 @@ var result = lobbyClient.GetClanLeaderboardInfo();
 ```
 
 ### GetPlayerClanInfo
-`public async Task<ClanInfo> GetPlayerClanInfo(PlayerId playerId)`
+`public Task<ClanInfo> GetPlayerClanInfo(PlayerId playerId)`
 
 **用途 / Purpose:** 读取并返回当前对象中 player clan info 的结果。
 
@@ -482,7 +518,7 @@ lobbyClient.SendClanMessage("example");
 ```
 
 ### GetPremadeGameList
-`public async Task<PremadeGameList> GetPremadeGameList()`
+`public Task<PremadeGameList> GetPremadeGameList()`
 
 **用途 / Purpose:** 读取并返回当前对象中 premade game list 的结果。
 
@@ -493,7 +529,7 @@ var result = lobbyClient.GetPremadeGameList();
 ```
 
 ### GetAvailableScenes
-`public async Task<AvailableScenes> GetAvailableScenes()`
+`public Task<AvailableScenes> GetAvailableScenes()`
 
 **用途 / Purpose:** 读取并返回当前对象中 available scenes 的结果。
 
@@ -504,7 +540,7 @@ var result = lobbyClient.GetAvailableScenes();
 ```
 
 ### GetLobbyNews
-`public async Task<PublishedLobbyNewsArticle > GetLobbyNews()`
+`public Task<PublishedLobbyNewsArticle > GetLobbyNews()`
 
 **用途 / Purpose:** 读取并返回当前对象中 lobby news 的结果。
 
@@ -603,7 +639,7 @@ lobbyClient.InviteToClan(invitedPlayerId, false);
 ```
 
 ### CreatePremadeGame
-`public async void CreatePremadeGame(string name, string gameType, string mapName, string factionA, string factionB, string password, PremadeGameType premadeGameType)`
+`public void CreatePremadeGame(string name, string gameType, string mapName, string factionA, string factionB, string password, PremadeGameType premadeGameType)`
 
 **用途 / Purpose:** 构建一个新的 premade game 实体并返回给调用方。
 
@@ -735,7 +771,7 @@ lobbyClient.ChangeSigil("example");
 ```
 
 ### InviteToPlatformSession
-`public async Task<bool> InviteToPlatformSession(PlayerId playerId)`
+`public Task<bool> InviteToPlatformSession(PlayerId playerId)`
 
 **用途 / Purpose:** 调用 InviteToPlatformSession 对应的操作。
 
@@ -746,7 +782,7 @@ var result = lobbyClient.InviteToPlatformSession(playerId);
 ```
 
 ### EndCustomGame
-`public async void EndCustomGame()`
+`public void EndCustomGame()`
 
 **用途 / Purpose:** 调用 EndCustomGame 对应的操作。
 
@@ -757,7 +793,7 @@ lobbyClient.EndCustomGame();
 ```
 
 ### RegisterCustomGame
-`public async void RegisterCustomGame(string gameModule, string gameType, string serverName, int maxPlayerCount, string map, string uniqueMapId, string gamePassword, string adminPassword, int port)`
+`public void RegisterCustomGame(string gameModule, string gameType, string serverName, int maxPlayerCount, string map, string uniqueMapId, string gamePassword, string adminPassword, int port)`
 
 **用途 / Purpose:** 将custom game注册到当前系统，以便后续监听或分发。
 
@@ -845,7 +881,7 @@ lobbyClient.UpdateCharacter(bodyProperties, false);
 ```
 
 ### UpdateShownBadgeId
-`public async Task<bool> UpdateShownBadgeId(string shownBadgeId)`
+`public Task<bool> UpdateShownBadgeId(string shownBadgeId)`
 
 **用途 / Purpose:** 重新计算并更新 shown badge id 的最新表示。
 
@@ -856,7 +892,7 @@ var result = lobbyClient.UpdateShownBadgeId("example");
 ```
 
 ### GetAnotherPlayerState
-`public async Task<AnotherPlayerData> GetAnotherPlayerState(PlayerId playerId)`
+`public Task<AnotherPlayerData> GetAnotherPlayerState(PlayerId playerId)`
 
 **用途 / Purpose:** 读取并返回当前对象中 another player state 的结果。
 
@@ -867,7 +903,7 @@ var result = lobbyClient.GetAnotherPlayerState(playerId);
 ```
 
 ### GetAnotherPlayerData
-`public async Task<PlayerData> GetAnotherPlayerData(PlayerId playerID)`
+`public Task<PlayerData> GetAnotherPlayerData(PlayerId playerID)`
 
 **用途 / Purpose:** 读取并返回当前对象中 another player data 的结果。
 
@@ -878,7 +914,7 @@ var result = lobbyClient.GetAnotherPlayerData(playerID);
 ```
 
 ### GetPlayerCountInQueue
-`public async Task<MatchmakingQueueStats> GetPlayerCountInQueue()`
+`public Task<MatchmakingQueueStats> GetPlayerCountInQueue()`
 
 **用途 / Purpose:** 读取并返回当前对象中 player count in queue 的结果。
 
@@ -888,8 +924,19 @@ LobbyClient lobbyClient = ...;
 var result = lobbyClient.GetPlayerCountInQueue();
 ```
 
+### GetOtherPlayersState
+`public Task<List<ValueTuple<PlayerId, AnotherPlayerData>>> GetOtherPlayersState(List<PlayerId> players)`
+
+**用途 / Purpose:** 读取并返回当前对象中 other players state 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetOtherPlayersState(players);
+```
+
 ### GetMatchmakingWaitTimes
-`public async Task<MatchmakingWaitTimeStats> GetMatchmakingWaitTimes()`
+`public Task<MatchmakingWaitTimeStats> GetMatchmakingWaitTimes()`
 
 **用途 / Purpose:** 读取并返回当前对象中 matchmaking wait times 的结果。
 
@@ -900,7 +947,7 @@ var result = lobbyClient.GetMatchmakingWaitTimes();
 ```
 
 ### GetPlayerBadges
-`public async Task<Badge > GetPlayerBadges()`
+`public Task<Badge > GetPlayerBadges()`
 
 **用途 / Purpose:** 读取并返回当前对象中 player badges 的结果。
 
@@ -911,7 +958,7 @@ var result = lobbyClient.GetPlayerBadges();
 ```
 
 ### GetPlayerStats
-`public async Task<PlayerStatsBase > GetPlayerStats(PlayerId playerID)`
+`public Task<PlayerStatsBase > GetPlayerStats(PlayerId playerID)`
 
 **用途 / Purpose:** 读取并返回当前对象中 player stats 的结果。
 
@@ -922,7 +969,7 @@ var result = lobbyClient.GetPlayerStats(playerID);
 ```
 
 ### GetGameTypeRankInfo
-`public async Task<GameTypeRankInfo > GetGameTypeRankInfo(PlayerId playerID)`
+`public Task<GameTypeRankInfo > GetGameTypeRankInfo(PlayerId playerID)`
 
 **用途 / Purpose:** 读取并返回当前对象中 game type rank info 的结果。
 
@@ -933,7 +980,7 @@ var result = lobbyClient.GetGameTypeRankInfo(playerID);
 ```
 
 ### GetRankedLeaderboardCount
-`public async Task<int> GetRankedLeaderboardCount(string gameType)`
+`public Task<int> GetRankedLeaderboardCount(string gameType)`
 
 **用途 / Purpose:** 读取并返回当前对象中 ranked leaderboard count 的结果。
 
@@ -944,7 +991,7 @@ var result = lobbyClient.GetRankedLeaderboardCount("example");
 ```
 
 ### GetRankedLeaderboard
-`public async Task<PlayerLeaderboardData > GetRankedLeaderboard(string gameType, int startIndex, int count)`
+`public Task<PlayerLeaderboardData > GetRankedLeaderboard(string gameType, int startIndex, int count)`
 
 **用途 / Purpose:** 读取并返回当前对象中 ranked leaderboard 的结果。
 
@@ -963,6 +1010,17 @@ var result = lobbyClient.GetRankedLeaderboard("example", 0, 0);
 // 先通过子系统 API 拿到 LobbyClient 实例
 LobbyClient lobbyClient = ...;
 lobbyClient.SendCreateClanMessage("example", "example", "example", "example");
+```
+
+### CanLogin
+`public Task<bool> CanLogin()`
+
+**用途 / Purpose:** 检查当前对象是否满足 login 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.CanLogin();
 ```
 
 ### GetFriendList
@@ -1043,7 +1101,7 @@ lobbyClient.AddFriendByUsernameAndId("example", 0, false);
 ```
 
 ### DoesPlayerWithUsernameAndIdExist
-`public async Task<bool> DoesPlayerWithUsernameAndIdExist(string username, int userId)`
+`public Task<bool> DoesPlayerWithUsernameAndIdExist(string username, int userId)`
 
 **用途 / Purpose:** 判断player with username and id exist这一条件在当前对象上是否成立。
 
@@ -1076,18 +1134,40 @@ var result = lobbyClient.IsPlayerClanOfficer(playerID);
 ```
 
 ### UpdateUsedCosmeticItems
-`public async Task<bool> UpdateUsedCosmeticItems(Dictionary<string, List<(string cosmeticId, bool isEquipped)>> usedCosmetics)`
+`public Task<bool> UpdateUsedCosmeticItems( { "cosmeticId", "isEquipped" })`
 
 **用途 / Purpose:** 重新计算并更新 used cosmetic items 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
 LobbyClient lobbyClient = ...;
-var result = lobbyClient.UpdateUsedCosmeticItems(dictionary<string, cosmeticId, false);
+var result = lobbyClient.UpdateUsedCosmeticItems("cosmeticId", });
+```
+
+### BuyCosmetic
+`public Task<ValueTuple<bool, int>> BuyCosmetic(string cosmeticId)`
+
+**用途 / Purpose:** 调用 BuyCosmetic 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.BuyCosmetic("example");
+```
+
+### GetCosmeticsInfo
+`public Task<ValueTuple<bool, List<string>, Dictionary<string, List<string>>>> GetCosmeticsInfo()`
+
+**用途 / Purpose:** 读取并返回当前对象中 cosmetics info 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetCosmeticsInfo();
 ```
 
 ### GetDedicatedCustomServerAuthToken
-`public async Task<string> GetDedicatedCustomServerAuthToken()`
+`public Task<string> GetDedicatedCustomServerAuthToken()`
 
 **用途 / Purpose:** 读取并返回当前对象中 dedicated custom server auth token 的结果。
 
@@ -1098,7 +1178,7 @@ var result = lobbyClient.GetDedicatedCustomServerAuthToken();
 ```
 
 ### GetOfficialServerProviderName
-`public async Task<string> GetOfficialServerProviderName()`
+`public Task<string> GetOfficialServerProviderName()`
 
 **用途 / Purpose:** 读取并返回当前对象中 official server provider name 的结果。
 
@@ -1109,7 +1189,7 @@ var result = lobbyClient.GetOfficialServerProviderName();
 ```
 
 ### GetPlayerBannerlordID
-`public async Task<string> GetPlayerBannerlordID(PlayerId playerId)`
+`public Task<string> GetPlayerBannerlordID(PlayerId playerId)`
 
 **用途 / Purpose:** 读取并返回当前对象中 player bannerlord i d 的结果。
 
@@ -1131,7 +1211,7 @@ var result = lobbyClient.IsKnownPlayer(playerID);
 ```
 
 ### GetPingToServer
-`public async Task<long> GetPingToServer(string IpAddress)`
+`public Task<long> GetPingToServer(string IpAddress)`
 
 **用途 / Purpose:** 读取并返回当前对象中 ping to server 的结果。
 
@@ -1142,7 +1222,7 @@ var result = lobbyClient.GetPingToServer("example");
 ```
 
 ### SendPSPlayerJoinedToPlayerSessionMessage
-`public async Task<bool> SendPSPlayerJoinedToPlayerSessionMessage(ulong inviterPlayerId)`
+`public Task<bool> SendPSPlayerJoinedToPlayerSessionMessage(ulong inviterPlayerId)`
 
 **用途 / Purpose:** 调用 SendPSPlayerJoinedToPlayerSessionMessage 对应的操作。
 
@@ -1153,7 +1233,7 @@ var result = lobbyClient.SendPSPlayerJoinedToPlayerSessionMessage(0);
 ```
 
 ### SendPlatformPlayerJoinedToPlayerSessionMessage
-`public async Task<bool> SendPlatformPlayerJoinedToPlayerSessionMessage(PlayerId inviterPlayerId)`
+`public Task<bool> SendPlatformPlayerJoinedToPlayerSessionMessage(PlayerId inviterPlayerId)`
 
 **用途 / Purpose:** 调用 SendPlatformPlayerJoinedToPlayerSessionMessage 对应的操作。
 

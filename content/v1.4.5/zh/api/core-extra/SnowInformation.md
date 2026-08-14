@@ -8,7 +8,7 @@ description: "SnowInformation 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct SnowInformation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SnowInformation.cs`
+**File:** `TaleWorlds.Library/SnowInformation.cs`
 
 ## 概述
 

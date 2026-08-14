@@ -8,7 +8,7 @@ description: "Win64_Shipping_Client 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class Win64_Shipping_Client`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/VirtualFolders.cs`
+**File:** `TaleWorlds.Library/VirtualFolders.cs`
 
 ## 概述
 
@@ -18,22 +18,11 @@ description: "Win64_Shipping_Client 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要方法
-
-### GetFileContent
-`public static string GetFileContent(string filePath, Type type = null)`
-
-**用途 / Purpose:** 读取并返回当前对象中 file content 的结果。
-
-```csharp
-// 静态调用，不需要实例
-Win64_Shipping_Client.GetFileContent("example", null);
-```
-
 ## 使用示例
 
 ```csharp
-Win64_Shipping_Client.GetFileContent("example", null);
+// 从对应子系统 API 获取实例
+Win64_Shipping_Client instance = ...;
 ```
 
 ## 参见

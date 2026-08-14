@@ -8,7 +8,7 @@ description: "IAudioPlaybackLayerChannel 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `internal interface IAudioPlaybackLayerChannel`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/IAudioPlaybackLayerChannel.cs`
+**File:** `TaleWorlds.PSAI/net/IAudioPlaybackLayerChannel.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "SallyOutMissionNotificationsHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SallyOutMissionNotificationsHandler`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SallyOutMissionNotificationsHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/SallyOutMissionNotificationsHandler.cs`
 
 ## 概述
 

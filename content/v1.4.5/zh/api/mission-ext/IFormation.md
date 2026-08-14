@@ -8,7 +8,7 @@ description: "IFormation 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IFormation`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IFormation.cs`
+**File:** `TaleWorlds.MountAndBlade/IFormation.cs`
 
 ## 概述
 

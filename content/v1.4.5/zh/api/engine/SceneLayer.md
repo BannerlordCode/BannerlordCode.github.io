@@ -8,7 +8,7 @@ description: "SceneLayer 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class SceneLayer : ScreenLayer`
 **Base:** `ScreenLayer`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Screens/SceneLayer.cs`
+**File:** `TaleWorlds.Engine/Screens/SceneLayer.cs`
 
 ## 概述
 
@@ -24,6 +24,7 @@ description: "SceneLayer 的自动生成类参考。"
 |------|-----------|
 | `ClearSceneOnFinalize` | `public bool ClearSceneOnFinalize { get; }` |
 | `AutoToggleSceneView` | `public bool AutoToggleSceneView { get; }` |
+| `SceneView` | `public SceneView SceneView { get; }` |
 
 ## 主要方法
 

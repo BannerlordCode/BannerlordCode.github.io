@@ -8,7 +8,7 @@ description: "ILocatable 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal interface ILocatable<T>`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Map/ILocatable.cs`
+**File:** `TaleWorlds.CampaignSystem/Map/ILocatable.cs`
 
 ## 概述
 

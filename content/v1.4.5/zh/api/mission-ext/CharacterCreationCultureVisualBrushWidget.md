@@ -8,7 +8,7 @@ description: "CharacterCreationCultureVisualBrushWidget 的自动生成类参考
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterCreationCultureVisualBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation.Culture/CharacterCreationCultureVisualBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/CharacterCreation/Culture/CharacterCreationCultureVisualBrushWidget.cs`
 
 ## 概述
 

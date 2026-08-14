@@ -8,7 +8,7 @@ description: "HealthDropData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class HealthDropData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/AgentHealthWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/AgentHealthWidget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "StackArray8ThrowingPoint 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct StackArray8ThrowingPoint`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/StonePile.cs`
+**File:** `TaleWorlds.MountAndBlade/StonePile.cs`
 
 ## 概述
 
@@ -22,7 +22,7 @@ description: "StackArray8ThrowingPoint 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `this` | `public ThrowingPoint this { get; }` |
+| `this` | `public StonePile.ThrowingPoint this { get; }` |
 
 ## 使用示例
 

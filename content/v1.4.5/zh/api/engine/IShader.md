@@ -8,7 +8,7 @@ description: "IShader 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IShader`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IShader.cs`
+**File:** `TaleWorlds.Engine/IShader.cs`
 
 ## 概述
 

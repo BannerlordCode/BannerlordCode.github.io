@@ -8,7 +8,7 @@ description: "CrushThroughState 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum CrushThroughState : byte`
 **Base:** `byte`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CrushThroughState.cs`
+**File:** `TaleWorlds.MountAndBlade/CrushThroughState.cs`
 
 ## 概述
 

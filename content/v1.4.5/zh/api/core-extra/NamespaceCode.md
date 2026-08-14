@@ -8,7 +8,7 @@ description: "NamespaceCode 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class NamespaceCode`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/NamespaceCode.cs`
+**File:** `TaleWorlds.Library/CodeGeneration/NamespaceCode.cs`
 
 ## 概述
 

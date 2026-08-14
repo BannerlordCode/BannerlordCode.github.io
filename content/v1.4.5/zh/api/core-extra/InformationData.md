@@ -8,7 +8,7 @@ description: "InformationData 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class InformationData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/InformationData.cs`
+**File:** `TaleWorlds.Core/InformationData.cs`
 
 ## 概述
 

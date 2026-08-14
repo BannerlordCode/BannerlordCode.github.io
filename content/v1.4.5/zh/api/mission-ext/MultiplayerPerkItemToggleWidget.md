@@ -8,7 +8,7 @@ description: "MultiplayerPerkItemToggleWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerPerkItemToggleWidget : ToggleButtonWidget`
 **Base:** `ToggleButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Perks/MultiplayerPerkItemToggleWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Perks/MultiplayerPerkItemToggleWidget.cs`
 
 ## 概述
 

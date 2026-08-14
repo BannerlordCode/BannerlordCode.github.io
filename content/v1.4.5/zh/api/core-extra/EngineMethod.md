@@ -8,7 +8,7 @@ description: "EngineMethod 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class EngineMethod : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/EngineMethod.cs`
+**File:** `TaleWorlds.Library/EngineMethod.cs`
 
 ## 概述
 

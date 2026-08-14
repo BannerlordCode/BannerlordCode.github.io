@@ -8,7 +8,7 @@ description: "HttpHelper 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class HttpHelper`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/HttpHelper.cs`
+**File:** `TaleWorlds.Library/HttpHelper.cs`
 
 ## 概述
 

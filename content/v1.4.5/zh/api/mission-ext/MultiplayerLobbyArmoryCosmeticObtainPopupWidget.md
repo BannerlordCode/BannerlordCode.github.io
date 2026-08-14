@@ -6,9 +6,9 @@ description: "MultiplayerLobbyArmoryCosmeticObtainPopupWidget 的自动生成类
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class MultiplayerLobbyArmoryCosmeticObtainPopupWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerLobbyArmoryCosmeticObtainPopupWidget.cs`
+**Type:** `public class MultiplayerLobbyArmoryCosmeticObtainPopupWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Lobby/Armory/MultiplayerLobbyArmoryCosmeticObtainPopupWidget.cs`
 
 ## 概述
 
@@ -30,19 +30,6 @@ description: "MultiplayerLobbyArmoryCosmeticObtainPopupWidget 的自动生成类
 | `ResultFailedIconWidget` | `public Widget ResultFailedIconWidget { get; set; }` |
 | `ResultTextWidget` | `public TextWidget ResultTextWidget { get; set; }` |
 | `LoadingAnimationWidget` | `public Widget LoadingAnimationWidget { get; set; }` |
-
-## 主要方法
-
-### MultiplayerLobbyArmoryCosmeticObtainPopupWidget
-`public class MultiplayerLobbyArmoryCosmeticObtainPopupWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 MultiplayerLobbyArmoryCosmeticObtainPopupWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerLobbyArmoryCosmeticObtainPopupWidget 实例
-MultiplayerLobbyArmoryCosmeticObtainPopupWidget multiplayerLobbyArmoryCosmeticObtainPopupWidget = ...;
-var result = multiplayerLobbyArmoryCosmeticObtainPopupWidget.MultiplayerLobbyArmoryCosmeticObtainPopupWidget(context);
-```
 
 ## 使用示例
 

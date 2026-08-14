@@ -8,7 +8,7 @@ description: "AgentVictoryLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentVictoryLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/AgentVictoryLogic.cs`
 
 ## 概述
 
@@ -22,32 +22,12 @@ description: "AgentVictoryLogic 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `CheerActionGroup` | `public AgentVictoryLogic.CheerActionGroupEnum CheerActionGroup { get; }` |
+| `CheerReactionTimerData` | `public AgentVictoryLogic.CheerReactionTimeSettings CheerReactionTimerData { get; }` |
 | `GotOrderRecently` | `public bool GotOrderRecently { get; }` |
 | `IsCheeringPaused` | `public bool IsCheeringPaused { get; }` |
 
 ## 主要方法
-
-### CheerReactionTimeSettings
-`public struct CheerReactionTimeSettings(float minDuration, float maxDuration)`
-
-**用途 / Purpose:** 调用 CheerReactionTimeSettings 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 AgentVictoryLogic 实例
-AgentVictoryLogic agentVictoryLogic = ...;
-var result = agentVictoryLogic.CheerReactionTimeSettings(0, 0);
-```
-
-### OrderReceived
-`public void OrderReceived()`
-
-**用途 / Purpose:** 调用 OrderReceived 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 AgentVictoryLogic 实例
-AgentVictoryLogic agentVictoryLogic = ...;
-agentVictoryLogic.OrderReceived();
-```
 
 ### AfterStart
 `public override void AfterStart()`
@@ -61,14 +41,14 @@ agentVictoryLogic.AfterStart();
 ```
 
 ### SetCheerActionGroup
-`public void SetCheerActionGroup(CheerActionGroupEnum cheerActionGroup = CheerActionGroupEnum.None)`
+`public void SetCheerActionGroup(AgentVictoryLogic.CheerActionGroupEnum cheerActionGroup = AgentVictoryLogic.CheerActionGroupEnum.None)`
 
 **用途 / Purpose:** 为 cheer action group 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVictoryLogic 实例
 AgentVictoryLogic agentVictoryLogic = ...;
-agentVictoryLogic.SetCheerActionGroup(cheerActionGroupEnum.None);
+agentVictoryLogic.SetCheerActionGroup(agentVictoryLogic.CheerActionGroupEnum.None);
 ```
 
 ### SetCheerReactionTimerSettings
@@ -146,6 +126,17 @@ agentVictoryLogic.SetTimersOfVictoryReactionsOnRetreat(side);
 // 先通过子系统 API 拿到 AgentVictoryLogic 实例
 AgentVictoryLogic agentVictoryLogic = ...;
 agentVictoryLogic.SetTimersOfVictoryReactionsOnTournamentVictoryForAgent(agent, 0, 0);
+```
+
+### OrderReceived
+`public void OrderReceived()`
+
+**用途 / Purpose:** 调用 OrderReceived 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVictoryLogic 实例
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.OrderReceived();
 ```
 
 ## 使用示例

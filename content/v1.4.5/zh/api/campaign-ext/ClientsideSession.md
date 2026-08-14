@@ -8,7 +8,7 @@ description: "ClientsideSession 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public abstract class ClientsideSession : NetworkSession`
 **Base:** `NetworkSession`
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/ClientsideSession.cs`
+**File:** `TaleWorlds.Network/ClientsideSession.cs`
 
 ## 概述
 

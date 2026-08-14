@@ -8,7 +8,7 @@ description: "MultiplayerMissionMarkerListPanel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerMissionMarkerListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMarker/MultiplayerMissionMarkerListPanel.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/FlagMarker/MultiplayerMissionMarkerListPanel.cs`
 
 ## 概述
 

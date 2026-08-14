@@ -8,7 +8,7 @@ description: "PartyUpgradeCostRichTextWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PartyUpgradeCostRichTextWidget : RichTextWidget`
 **Base:** `RichTextWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyUpgradeCostRichTextWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Party/PartyUpgradeCostRichTextWidget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ScoreboardHotKeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class ScoreboardHotKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ScoreboardHotKeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/ScoreboardHotKeyCategory.cs`
 
 ## 概述
 

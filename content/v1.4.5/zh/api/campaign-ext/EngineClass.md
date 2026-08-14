@@ -8,7 +8,7 @@ description: "EngineClass 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public class EngineClass : EngineBaseClass`
 **Base:** `EngineBaseClass`
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/EngineClass.cs`
+**File:** `TaleWorlds.DotNet/EngineClass.cs`
 
 ## 概述
 

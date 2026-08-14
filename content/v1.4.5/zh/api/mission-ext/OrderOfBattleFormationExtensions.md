@@ -8,7 +8,7 @@ description: "OrderOfBattleFormationExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class OrderOfBattleFormationExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/OrderOfBattleFormationExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/OrderOfBattleFormationExtensions.cs`
 
 ## 概述
 
@@ -21,7 +21,7 @@ description: "OrderOfBattleFormationExtensions 的自动生成类参考。"
 ## 主要方法
 
 ### Refresh
-`public static void Refresh(this Formation formation)`
+`public unsafe static void Refresh(this Formation formation)`
 
 **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 

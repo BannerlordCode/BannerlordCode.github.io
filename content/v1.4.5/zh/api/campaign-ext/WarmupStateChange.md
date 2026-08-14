@@ -8,7 +8,7 @@ description: "WarmupStateChange 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class WarmupStateChange : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/WarmupStateChange.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/WarmupStateChange.cs`
 
 ## 概述
 

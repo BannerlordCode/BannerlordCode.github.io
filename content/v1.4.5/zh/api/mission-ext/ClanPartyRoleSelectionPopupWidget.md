@@ -8,7 +8,7 @@ description: "ClanPartyRoleSelectionPopupWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanPartyRoleSelectionPopupWidget : AutoClosePopupWidget`
 **Base:** `AutoClosePopupWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan/ClanPartyRoleSelectionPopupWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Clan/ClanPartyRoleSelectionPopupWidget.cs`
 
 ## 概述
 

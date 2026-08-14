@@ -8,7 +8,7 @@ description: "ConversationNameButtonWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ConversationNameButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation/ConversationNameButtonWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Conversation/ConversationNameButtonWidget.cs`
 
 ## 概述
 

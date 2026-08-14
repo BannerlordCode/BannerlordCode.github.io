@@ -8,7 +8,7 @@ description: "LibraryInterfaceBase 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `internal class LibraryInterfaceBase : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/LibraryInterfaceBase.cs`
+**File:** `TaleWorlds.DotNet/LibraryInterfaceBase.cs`
 
 ## 概述
 

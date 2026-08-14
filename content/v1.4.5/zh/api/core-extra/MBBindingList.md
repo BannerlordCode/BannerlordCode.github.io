@@ -8,7 +8,7 @@ description: "MBBindingList 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class MBBindingList<T> : Collection<T>, IMBBindingList, IList, ICollection, IEnumerable`
 **Base:** `Collection<T>`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBBindingList.cs`
+**File:** `TaleWorlds.Library/MBBindingList.cs`
 
 ## 概述
 

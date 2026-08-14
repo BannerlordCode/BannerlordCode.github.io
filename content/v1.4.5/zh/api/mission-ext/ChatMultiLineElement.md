@@ -8,7 +8,7 @@ description: "ChatMultiLineElement 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct ChatMultiLineElement`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat/ChatLogItemWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Chat/ChatLogItemWidget.cs`
 
 ## 概述
 
@@ -18,25 +18,11 @@ description: "ChatMultiLineElement 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要方法
-
-### ChatMultiLineElement
-`public struct ChatMultiLineElement(string line, int identModifier)`
-
-**用途 / Purpose:** 调用 ChatMultiLineElement 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ChatMultiLineElement 实例
-ChatMultiLineElement chatMultiLineElement = ...;
-var result = chatMultiLineElement.ChatMultiLineElement("example", 0);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-ChatMultiLineElement chatMultiLineElement = ...;
-chatMultiLineElement.ChatMultiLineElement("example", 0);
+// 从对应子系统 API 获取实例
+ChatMultiLineElement instance = ...;
 ```
 
 ## 参见

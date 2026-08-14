@@ -8,7 +8,7 @@ description: "TWXmlLoadException 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class TWXmlLoadException : TWException`
 **Base:** `TWException`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TWXmlLoadException.cs`
+**File:** `TaleWorlds.Library/TWXmlLoadException.cs`
 
 ## 概述
 

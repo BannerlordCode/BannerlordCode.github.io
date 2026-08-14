@@ -6,9 +6,9 @@ description: "OrderOfBattleHeroButtonWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class OrderOfBattleHeroButtonWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle/OrderOfBattleHeroButtonWidget.cs`
+**Type:** `public class OrderOfBattleHeroButtonWidget : ButtonWidget`
+**Base:** `ButtonWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/OrderOfBattle/OrderOfBattleHeroButtonWidget.cs`
 
 ## 概述
 
@@ -25,19 +25,6 @@ description: "OrderOfBattleHeroButtonWidget 的自动生成类参考。"
 | `IsMainHero` | `public bool IsMainHero { get; set; }` |
 | `MainHeroHueFactor` | `public int MainHeroHueFactor { get; set; }` |
 | `CanMainHeroAcceptEvents` | `public bool CanMainHeroAcceptEvents { get; set; }` |
-
-## 主要方法
-
-### OrderOfBattleHeroButtonWidget
-`public class OrderOfBattleHeroButtonWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 OrderOfBattleHeroButtonWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 OrderOfBattleHeroButtonWidget 实例
-OrderOfBattleHeroButtonWidget orderOfBattleHeroButtonWidget = ...;
-var result = orderOfBattleHeroButtonWidget.OrderOfBattleHeroButtonWidget(context);
-```
 
 ## 使用示例
 

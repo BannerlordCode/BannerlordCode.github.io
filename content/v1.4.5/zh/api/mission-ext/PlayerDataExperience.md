@@ -8,7 +8,7 @@ description: "PlayerDataExperience 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct PlayerDataExperience`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerDataExperience.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerDataExperience.cs`
 
 ## 概述
 
@@ -23,6 +23,9 @@ description: "PlayerDataExperience 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Experience` | `public int Experience { get; }` |
+| `Level` | `public int Level { get; }` |
+| `ExperienceToNextLevel` | `public int ExperienceToNextLevel { get; }` |
+| `ExperienceInCurrentLevel` | `public int ExperienceInCurrentLevel { get; }` |
 
 ## 主要方法
 

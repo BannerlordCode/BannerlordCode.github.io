@@ -8,7 +8,7 @@ description: "RequestTroopIndexChange 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class RequestTroopIndexChange : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/RequestTroopIndexChange.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/RequestTroopIndexChange.cs`
 
 ## 概述
 

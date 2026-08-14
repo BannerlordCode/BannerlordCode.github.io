@@ -8,7 +8,7 @@ description: "StringReader 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class StringReader : IReader`
 **Base:** `IReader`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/StringReader.cs`
+**File:** `TaleWorlds.Library/StringReader.cs`
 
 ## 概述
 

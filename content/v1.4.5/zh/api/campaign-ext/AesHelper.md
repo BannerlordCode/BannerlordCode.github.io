@@ -8,7 +8,7 @@ description: "AesHelper 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public static class AesHelper`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/AesHelper.cs`
+**File:** `TaleWorlds.Diamond/AesHelper.cs`
 
 ## 概述
 

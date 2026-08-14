@@ -8,7 +8,7 @@ description: "Logik 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `internal class Logik`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/Logik.cs`
+**File:** `TaleWorlds.PSAI/net/Logik.cs`
 
 ## 概述
 

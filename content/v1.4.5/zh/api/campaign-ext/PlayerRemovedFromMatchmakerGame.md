@@ -8,7 +8,7 @@ description: "PlayerRemovedFromMatchmakerGame 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class PlayerRemovedFromMatchmakerGame : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayerRemovedFromMatchmakerGame.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/PlayerRemovedFromMatchmakerGame.cs`
 
 ## 概述
 

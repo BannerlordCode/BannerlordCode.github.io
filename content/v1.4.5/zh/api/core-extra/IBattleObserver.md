@@ -8,7 +8,7 @@ description: "IBattleObserver 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface IBattleObserver`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IBattleObserver.cs`
+**File:** `TaleWorlds.Core/IBattleObserver.cs`
 
 ## 概述
 

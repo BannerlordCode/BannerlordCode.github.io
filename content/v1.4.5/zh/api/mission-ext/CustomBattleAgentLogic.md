@@ -8,7 +8,7 @@ description: "CustomBattleAgentLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleAgentLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleAgentLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/CustomBattleAgentLogic.cs`
 
 ## 概述
 

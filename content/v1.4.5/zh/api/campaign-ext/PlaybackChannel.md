@@ -8,7 +8,7 @@ description: "PlaybackChannel 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `public class PlaybackChannel`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/PlaybackChannel.cs`
+**File:** `TaleWorlds.PSAI/net/PlaybackChannel.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "Scene 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class Scene : NativeObject`
 **Base:** `NativeObject`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Scene.cs`
+**File:** `TaleWorlds.Engine/Scene.cs`
 
 ## 概述
 
@@ -22,8 +22,13 @@ description: "Scene 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `RootEntityCount` | `public int RootEntityCount { get; }` |
+| `HasTerrainHeightmap` | `public bool HasTerrainHeightmap { get; }` |
+| `ContainsTerrain` | `public bool ContainsTerrain { get; }` |
 | `TimeOfDay` | `public float TimeOfDay { get; set; }` |
 | `IsDayTime` | `public bool IsDayTime { get; }` |
+| `IsAtmosphereIndoor` | `public bool IsAtmosphereIndoor { get; }` |
+| `LastFinalRenderCameraPosition` | `public Vec3 LastFinalRenderCameraPosition { get; }` |
 | `LastFinalRenderCameraFrame` | `public MatrixFrame LastFinalRenderCameraFrame { get; }` |
 | `TimeSpeed` | `public float TimeSpeed { get; set; }` |
 
@@ -2152,14 +2157,14 @@ scene.FinishSceneSounds();
 ```
 
 ### BoxCastOnlyForCamera
-`public bool BoxCastOnlyForCamera(Vec3 boxPoints, in Vec3 centerPoint, bool castSupportRay, in Vec3 supportRaycastPoint, in Vec3 dir, float distance, WeakGameEntity ignoredEntity, out float collisionDistance, out Vec3 closestPoint, out WeakGameEntity collidedEntity, BodyFlags excludedBodyFlags = BodyFlags.CameraCollisionRayCastExludeFlags | BodyFlags.DontCollideWithCamera)`
+`public bool BoxCastOnlyForCamera(Vec3 boxPoints, in Vec3 centerPoint, bool castSupportRay, in Vec3 supportRaycastPoint, in Vec3 dir, float distance, WeakGameEntity ignoredEntity, out float collisionDistance, out Vec3 closestPoint, out WeakGameEntity collidedEntity, BodyFlags excludedBodyFlags = BodyFlags.Disabled | BodyFlags.Dynamic | BodyFlags.Ladder | BodyFlags.OnlyCollideWithRaycast | BodyFlags.AILimiter | BodyFlags.Barrier | BodyFlags.Barrier3D | BodyFlags.Ragdoll | BodyFlags.RagdollLimiter | BodyFlags.DroppedItem | BodyFlags.DoNotCollideWithRaycast | BodyFlags.DontCollideWithCamera | BodyFlags.WaterBody | BodyFlags.AgentOnly | BodyFlags.MissileOnly | BodyFlags.StealthBox)`
 
 **用途 / Purpose:** 调用 BoxCastOnlyForCamera 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
 Scene scene = ...;
-var result = scene.BoxCastOnlyForCamera(boxPoints, centerPoint, false, supportRaycastPoint, dir, 0, ignoredEntity, collisionDistance, closestPoint, collidedEntity, bodyFlags.DontCollideWithCamera);
+var result = scene.BoxCastOnlyForCamera(boxPoints, centerPoint, false, supportRaycastPoint, dir, 0, ignoredEntity, collisionDistance, closestPoint, collidedEntity, bodyFlags.StealthBox);
 ```
 
 ### BoxCast
@@ -2358,17 +2363,6 @@ scene.MarkFacesWithIdAsLadder(0, false);
 // 先通过子系统 API 拿到 Scene 实例
 Scene scene = ...;
 var result = scene.SetAbilityOfFacesWithId(0, false);
-```
-
-### SetBlockerDirectionForFacesWithId
-`public void SetBlockerDirectionForFacesWithId(int faceGroupId, float rotation)`
-
-**用途 / Purpose:** 为 blocker direction for faces with id 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Scene 实例
-Scene scene = ...;
-scene.SetBlockerDirectionForFacesWithId(0, 0);
 ```
 
 ### SwapFaceConnectionsWithID
@@ -3108,17 +3102,6 @@ Scene scene = ...;
 scene.SetUsesDeleteLaterSystem(false);
 ```
 
-### HandleCurrentFrameTickEntities
-`public void HandleCurrentFrameTickEntities()`
-
-**用途 / Purpose:** 响应 current frame tick entities 事件，执行对应的处理逻辑。
-
-```csharp
-// 先通过子系统 API 拿到 Scene 实例
-Scene scene = ...;
-scene.HandleCurrentFrameTickEntities();
-```
-
 ### ClearCurrentFrameTickEntities
 `public void ClearCurrentFrameTickEntities()`
 
@@ -3128,17 +3111,6 @@ scene.HandleCurrentFrameTickEntities();
 // 先通过子系统 API 拿到 Scene 实例
 Scene scene = ...;
 scene.ClearCurrentFrameTickEntities();
-```
-
-### SetUseAdvancedWaterRendering
-`public void SetUseAdvancedWaterRendering(bool value)`
-
-**用途 / Purpose:** 为 use advanced water rendering 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Scene 实例
-Scene scene = ...;
-scene.SetUseAdvancedWaterRendering(false);
 ```
 
 ### FindClosestExitPositionForPositionOnABoundaryFace

@@ -8,7 +8,7 @@ description: "SteamAvatarService 的自动生成类参考。"
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public class SteamAvatarService : ApiAvatarServiceBase`
 **Base:** `ApiAvatarServiceBase`
-**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/SteamAvatarService.cs`
+**File:** `TaleWorlds.PlayerServices/PlayerServices/Avatar/SteamAvatarService.cs`
 
 ## 概述
 
@@ -22,8 +22,8 @@ description: "SteamAvatarService 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `response` | `public SteamPlayers response { get; set; }` |
-| `players` | `public SteamPlayerSummary players { get; set; }` |
+| `response` | `public SteamAvatarService.SteamPlayers response { get; set; }` |
+| `players` | `public SteamAvatarService.SteamPlayerSummary players { get; set; }` |
 | `avatar` | `public string avatar { get; set; }` |
 | `avatarfull` | `public string avatarfull { get; set; }` |
 | `avatarmedium` | `public string avatarmedium { get; set; }` |

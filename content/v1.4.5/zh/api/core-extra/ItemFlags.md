@@ -8,7 +8,7 @@ description: "ItemFlags 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum ItemFlags : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemFlags.cs`
+**File:** `TaleWorlds.Core/ItemFlags.cs`
 
 ## 概述
 

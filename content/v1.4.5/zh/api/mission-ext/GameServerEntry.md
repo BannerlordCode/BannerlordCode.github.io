@@ -8,7 +8,7 @@ description: "GameServerEntry 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameServerEntry`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/GameServerEntry.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/GameServerEntry.cs`
 
 ## 概述
 

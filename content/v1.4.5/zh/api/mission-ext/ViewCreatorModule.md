@@ -8,7 +8,7 @@ description: "ViewCreatorModule 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ViewCreatorModule : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ViewCreatorModule.cs`
+**File:** `TaleWorlds.MountAndBlade/ViewCreatorModule.cs`
 
 ## 概述
 

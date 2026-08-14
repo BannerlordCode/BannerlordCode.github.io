@@ -8,7 +8,7 @@ description: "MonsterExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MonsterExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MonsterExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/MonsterExtensions.cs`
 
 ## 概述
 

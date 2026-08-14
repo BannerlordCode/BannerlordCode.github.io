@@ -8,7 +8,7 @@ description: "MessageContract 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public abstract class MessageContract`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/MessageContract.cs`
+**File:** `TaleWorlds.Network/MessageContract.cs`
 
 ## 概述
 
@@ -17,6 +17,12 @@ description: "MessageContract 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.Network` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `MessageId` | `public byte MessageId { get; }` |
 
 ## 主要方法
 

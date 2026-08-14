@@ -6,9 +6,9 @@ description: "ScoreboardGainedSkillsListPanel 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class ScoreboardGainedSkillsListPanel`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardGainedSkillsListPanel.cs`
+**Type:** `public class ScoreboardGainedSkillsListPanel : ListPanel`
+**Base:** `ListPanel`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Scoreboard/ScoreboardGainedSkillsListPanel.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "ScoreboardGainedSkillsListPanel 的自动生成类参考。"
 先从命名空间 `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### ScoreboardGainedSkillsListPanel
-`public class ScoreboardGainedSkillsListPanel(UIContext context)`
-
-**用途 / Purpose:** 调用 ScoreboardGainedSkillsListPanel 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ScoreboardGainedSkillsListPanel 实例
-ScoreboardGainedSkillsListPanel scoreboardGainedSkillsListPanel = ...;
-var result = scoreboardGainedSkillsListPanel.ScoreboardGainedSkillsListPanel(context);
-```
 
 ### SetCurrentUnit
 `public void SetCurrentUnit(ScoreboardSkillItemHoverToggleWidget unit)`
@@ -47,7 +36,7 @@ scoreboardGainedSkillsListPanel.SetCurrentUnit(unit);
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 ScoreboardGainedSkillsListPanel scoreboardGainedSkillsListPanel = ...;
-scoreboardGainedSkillsListPanel.ScoreboardGainedSkillsListPanel(context);
+scoreboardGainedSkillsListPanel.SetCurrentUnit(unit);
 ```
 
 ## 参见

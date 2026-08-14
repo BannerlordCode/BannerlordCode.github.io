@@ -8,7 +8,7 @@ description: "CraftingWeaponTypeIconWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CraftingWeaponTypeIconWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftingWeaponTypeIconWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Crafting/CraftingWeaponTypeIconWidget.cs`
 
 ## 概述
 

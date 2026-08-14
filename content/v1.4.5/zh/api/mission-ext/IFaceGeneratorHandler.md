@@ -8,7 +8,7 @@ description: "IFaceGeneratorHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IFaceGeneratorHandler`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IFaceGeneratorHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/IFaceGeneratorHandler.cs`
 
 ## 概述
 

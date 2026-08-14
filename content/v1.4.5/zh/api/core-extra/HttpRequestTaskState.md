@@ -8,7 +8,7 @@ description: "HttpRequestTaskState 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum HttpRequestTaskState`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.Http/HttpRequestTaskState.cs`
+**File:** `TaleWorlds.Library/Http/HttpRequestTaskState.cs`
 
 ## 概述
 

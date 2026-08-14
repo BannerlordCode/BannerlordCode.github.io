@@ -8,7 +8,7 @@ description: "BehaviorFireFromInfantryCover 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorFireFromInfantryCover : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorFireFromInfantryCover.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorFireFromInfantryCover.cs`
 
 ## 概述
 

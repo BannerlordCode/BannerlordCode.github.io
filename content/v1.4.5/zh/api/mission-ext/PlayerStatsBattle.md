@@ -8,7 +8,7 @@ description: "PlayerStatsBattle 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerStatsBattle : PlayerStatsBase`
 **Base:** `PlayerStatsBase`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsBattle.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerStatsBattle.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IAgentOriginBase 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface IAgentOriginBase`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IAgentOriginBase.cs`
+**File:** `TaleWorlds.Core/IAgentOriginBase.cs`
 
 ## 概述
 

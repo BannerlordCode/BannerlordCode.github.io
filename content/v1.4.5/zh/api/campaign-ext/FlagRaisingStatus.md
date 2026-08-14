@@ -8,7 +8,7 @@ description: "FlagRaisingStatus 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class FlagRaisingStatus : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/FlagRaisingStatus.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/FlagRaisingStatus.cs`
 
 ## 概述
 

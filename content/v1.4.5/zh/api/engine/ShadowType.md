@@ -8,7 +8,7 @@ description: "ShadowType 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum ShadowType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Light.cs`
+**File:** `TaleWorlds.Engine/Light.cs`
 
 ## 概述
 

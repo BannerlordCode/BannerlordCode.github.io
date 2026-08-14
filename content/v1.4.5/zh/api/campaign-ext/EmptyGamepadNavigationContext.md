@@ -8,7 +8,7 @@ description: "EmptyGamepadNavigationContext 的自动生成类参考。"
 **Module:** (global)
 **Type:** `public class EmptyGamepadNavigationContext : IGamepadNavigationContext`
 **Base:** `IGamepadNavigationContext`
-**File:** `bin/TaleWorlds.GauntletUI/EmptyGamepadNavigationContext.cs`
+**File:** `TaleWorlds.GauntletUI/EmptyGamepadNavigationContext.cs`
 
 ## 概述
 

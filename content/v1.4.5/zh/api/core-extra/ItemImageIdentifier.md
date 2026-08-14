@@ -8,7 +8,7 @@ description: "ItemImageIdentifier 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class ItemImageIdentifier : ImageIdentifier`
 **Base:** `ImageIdentifier`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core.ImageIdentifiers/ItemImageIdentifier.cs`
+**File:** `TaleWorlds.Core/ImageIdentifiers/ItemImageIdentifier.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "FloatBasicTypeSerializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class FloatBasicTypeSerializer : IBasicTypeSerializer`
 **Base:** `IBasicTypeSerializer`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/FloatBasicTypeSerializer.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/FloatBasicTypeSerializer.cs`
 
 ## 概述
 

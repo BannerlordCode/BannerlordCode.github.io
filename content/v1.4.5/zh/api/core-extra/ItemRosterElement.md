@@ -8,7 +8,7 @@ description: "ItemRosterElement 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct ItemRosterElement : ISerializableObject, ISavedStruct`
 **Base:** `ISerializableObject`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemRosterElement.cs`
+**File:** `TaleWorlds.Core/ItemRosterElement.cs`
 
 ## 概述
 
@@ -22,8 +22,10 @@ description: "ItemRosterElement 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `Invalid` | `public static ItemRosterElement Invalid { get; }` |
 | `EquipmentElement` | `public EquipmentElement EquipmentElement { get; }` |
 | `Amount` | `public int Amount { get; set; }` |
+| `IsEmpty` | `public bool IsEmpty { get; }` |
 
 ## 主要方法
 

@@ -8,7 +8,7 @@ description: "SettlementOverlayWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SettlementOverlayWidget : OverlayBaseWidget`
 **Base:** `OverlayBaseWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay/SettlementOverlayWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Menu/Overlay/SettlementOverlayWidget.cs`
 
 ## 概述
 

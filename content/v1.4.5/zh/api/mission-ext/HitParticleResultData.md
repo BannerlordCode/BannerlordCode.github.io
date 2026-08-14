@@ -8,7 +8,7 @@ description: "HitParticleResultData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct HitParticleResultData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HitParticleResultData.cs`
+**File:** `TaleWorlds.MountAndBlade/HitParticleResultData.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MultiplayerIntermissionCultureItemAdded 的自动生成类参考�
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class MultiplayerIntermissionCultureItemAdded : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/MultiplayerIntermissionCultureItemAdded.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/MultiplayerIntermissionCultureItemAdded.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "StrikeMagnitudeCalculationModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class StrikeMagnitudeCalculationModel : MBGameModel<StrikeMagnitudeCalculationModel>`
 **Base:** `MBGameModel<StrikeMagnitudeCalculationModel>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/StrikeMagnitudeCalculationModel.cs`
+**File:** `TaleWorlds.MountAndBlade/ComponentInterfaces/StrikeMagnitudeCalculationModel.cs`
 
 ## 概述
 
@@ -51,17 +51,6 @@ var result = strikeMagnitudeCalculationModel.CalculateStrikeMagnitudeForSwing(at
 // 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例
 StrikeMagnitudeCalculationModel strikeMagnitudeCalculationModel = ...;
 var result = strikeMagnitudeCalculationModel.CalculateStrikeMagnitudeForThrust(attackInformation, collisionData, weapon, 0, 0, false);
-```
-
-### CalculateBaseBlowMagnitudeForPassiveUsage
-`public abstract float CalculateBaseBlowMagnitudeForPassiveUsage(in AttackInformation attackInformation, in AttackCollisionData collisionData, float extraLinearSpeed)`
-
-**用途 / Purpose:** 计算base blow magnitude for passive usage的当前值或结果。
-
-```csharp
-// 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例
-StrikeMagnitudeCalculationModel strikeMagnitudeCalculationModel = ...;
-var result = strikeMagnitudeCalculationModel.CalculateBaseBlowMagnitudeForPassiveUsage(attackInformation, collisionData, 0);
 ```
 
 ### ComputeRawDamage

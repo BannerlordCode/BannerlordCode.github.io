@@ -8,7 +8,7 @@ description: "MultiplayerOptionsExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MultiplayerOptionsExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerOptionsExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerOptionsExtensions.cs`
 
 ## 概述
 

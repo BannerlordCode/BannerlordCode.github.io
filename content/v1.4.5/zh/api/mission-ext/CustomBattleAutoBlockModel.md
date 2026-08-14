@@ -8,7 +8,7 @@ description: "CustomBattleAutoBlockModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleAutoBlockModel : AutoBlockModel`
 **Base:** `AutoBlockModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleAutoBlockModel.cs`
+**File:** `TaleWorlds.MountAndBlade/CustomBattleAutoBlockModel.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "BasicBattleAgentOrigin 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BasicBattleAgentOrigin : IAgentOriginBase`
 **Base:** `IAgentOriginBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BasicBattleAgentOrigin.cs`
+**File:** `TaleWorlds.MountAndBlade/BasicBattleAgentOrigin.cs`
 
 ## 概述
 

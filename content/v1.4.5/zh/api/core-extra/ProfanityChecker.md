@@ -8,7 +8,7 @@ description: "ProfanityChecker 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class ProfanityChecker`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ProfanityChecker.cs`
+**File:** `TaleWorlds.Library/ProfanityChecker.cs`
 
 ## 概述
 
@@ -32,7 +32,7 @@ var result = profanityChecker.IsProfane("example");
 ```
 
 ### ContainsProfanity
-`public bool ContainsProfanity(string text, ProfanityChechkerType checkType)`
+`public bool ContainsProfanity(string text, ProfanityChecker.ProfanityChechkerType checkType)`
 
 **用途 / Purpose:** 检查当前对象是否含有profanity。
 

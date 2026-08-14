@@ -8,7 +8,7 @@ description: "PixelFormatDescriptorPixelTypes 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal enum PixelFormatDescriptorPixelTypes : sbyte`
 **Base:** `sbyte`
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/PixelFormatDescriptorPixelTypes.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/Windows/PixelFormatDescriptorPixelTypes.cs`
 
 ## 概述
 

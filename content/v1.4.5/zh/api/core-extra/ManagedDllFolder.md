@@ -8,7 +8,7 @@ description: "ManagedDllFolder 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class ManagedDllFolder`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ManagedDllFolder.cs`
+**File:** `TaleWorlds.Library/ManagedDllFolder.cs`
 
 ## 概述
 

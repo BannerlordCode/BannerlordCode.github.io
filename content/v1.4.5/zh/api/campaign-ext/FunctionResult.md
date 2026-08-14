@@ -8,7 +8,7 @@ description: "FunctionResult 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class FunctionResult`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/FunctionResult.cs`
+**File:** `TaleWorlds.Diamond/FunctionResult.cs`
 
 ## 概述
 

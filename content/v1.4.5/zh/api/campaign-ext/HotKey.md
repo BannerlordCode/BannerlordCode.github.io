@@ -8,7 +8,7 @@ description: "HotKey 的自动生成类参考。"
 **Module:** TaleWorlds.InputSystem
 **Type:** `public class HotKey`
 **Base:** 无
-**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/HotKey.cs`
+**File:** `TaleWorlds.InputSystem/HotKey.cs`
 
 ## 概述
 
@@ -28,7 +28,7 @@ description: "HotKey 的自动生成类参考。"
 ## 主要方法
 
 ### HasModifier
-`public bool HasModifier(Modifiers modifier)`
+`public bool HasModifier(HotKey.Modifiers modifier)`
 
 **用途 / Purpose:** 判断当前对象是否已经持有 modifier。
 

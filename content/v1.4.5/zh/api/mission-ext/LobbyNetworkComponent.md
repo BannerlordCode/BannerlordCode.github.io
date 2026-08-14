@@ -8,7 +8,7 @@ description: "LobbyNetworkComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LobbyNetworkComponent : UdpNetworkComponent`
 **Base:** `UdpNetworkComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/LobbyNetworkComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/LobbyNetworkComponent.cs`
 
 ## 概述
 

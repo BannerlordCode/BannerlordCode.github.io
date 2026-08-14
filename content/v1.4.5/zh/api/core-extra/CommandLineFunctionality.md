@@ -8,7 +8,7 @@ description: "CommandLineFunctionality 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class CommandLineFunctionality`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/CommandLineFunctionality.cs`
+**File:** `TaleWorlds.Library/CommandLineFunctionality.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "CommandLineFunctionality 的自动生成类参考。"
 先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### Call
-`public string Call(List<string> objects)`
-
-**用途 / Purpose:** 调用 Call 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 CommandLineFunctionality 实例
-CommandLineFunctionality commandLineFunctionality = ...;
-var result = commandLineFunctionality.Call(objects);
-```
 
 ### CollectCommandLineFunctions
 `public static List<string> CollectCommandLineFunctions()`
@@ -71,12 +60,21 @@ CommandLineFunctionality.CallFunction("example", "example", found);
 CommandLineFunctionality.CallFunction("example", argList, found);
 ```
 
+### Call
+`public string Call(List<string> objects)`
+
+**用途 / Purpose:** 调用 Call 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CommandLineFunctionality 实例
+CommandLineFunctionality commandLineFunctionality = ...;
+var result = commandLineFunctionality.Call(objects);
+```
+
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-CommandLineFunctionality commandLineFunctionality = ...;
-commandLineFunctionality.Call(objects);
+CommandLineFunctionality.CollectCommandLineFunctions();
 ```
 
 ## 参见

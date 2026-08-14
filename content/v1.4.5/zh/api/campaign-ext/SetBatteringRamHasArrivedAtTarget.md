@@ -8,7 +8,7 @@ description: "SetBatteringRamHasArrivedAtTarget 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetBatteringRamHasArrivedAtTarget : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetBatteringRamHasArrivedAtTarget.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetBatteringRamHasArrivedAtTarget.cs`
 
 ## 概述
 

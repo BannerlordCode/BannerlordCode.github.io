@@ -8,7 +8,7 @@ description: "Error 的自动生成类参考。"
 **Module:** TaleWorlds.LinQuick
 **Type:** `internal static class Error`
 **Base:** 无
-**File:** `bin/TaleWorlds.LinQuick/TaleWorlds.LinQuick/Error.cs`
+**File:** `TaleWorlds.LinQuick/Error.cs`
 
 ## 概述
 

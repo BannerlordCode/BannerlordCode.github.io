@@ -8,7 +8,7 @@ description: "IConnectionInformation 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public interface IConnectionInformation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/IConnectionInformation.cs`
+**File:** `TaleWorlds.Diamond/IConnectionInformation.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "VisualShipFactory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class VisualShipFactory`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/VisualShipFactory.cs`
+**File:** `TaleWorlds.MountAndBlade/VisualShipFactory.cs`
 
 ## 概述
 
@@ -41,7 +41,7 @@ VisualShipFactory.DeregisterVisualShipCache();
 ```
 
 ### CreateVisualShip
-`public static GameEntity CreateVisualShip(string shipPrefab, Scene scene, List<ShipVisualSlotInfo> upgrades, int shipSeed, float hitPointRatio, uint sailColor1 = uint.MaxValue, uint sailColor2 = uint.MaxValue, bool createPhysics = false)`
+`public static GameEntity CreateVisualShip(string shipPrefab, Scene scene, List<ShipVisualSlotInfo> upgrades, int shipSeed, float hitPointRatio, uint sailColor1 = 4294967295U, uint sailColor2 = 4294967295U, bool createPhysics = false)`
 
 **用途 / Purpose:** 构建一个新的 visual ship 实体并返回给调用方。
 
@@ -51,7 +51,7 @@ VisualShipFactory.CreateVisualShip("example", scene, upgrades, 0, 0, 0, 0, false
 ```
 
 ### CreateVisualShipForCampaign
-`public static GameEntity CreateVisualShipForCampaign(string shipPrefab, Scene scene, List<ShipVisualSlotInfo> upgrades, int shipSeed, string shipCustomSailPatternId, uint sailColor1 = uint.MaxValue, uint sailColor2 = uint.MaxValue)`
+`public static GameEntity CreateVisualShipForCampaign(string shipPrefab, Scene scene, List<ShipVisualSlotInfo> upgrades, int shipSeed, string shipCustomSailPatternId, uint sailColor1 = 4294967295U, uint sailColor2 = 4294967295U)`
 
 **用途 / Purpose:** 构建一个新的 visual ship for campaign 实体并返回给调用方。
 

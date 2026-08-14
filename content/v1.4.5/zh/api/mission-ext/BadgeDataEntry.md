@@ -8,7 +8,7 @@ description: "BadgeDataEntry 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BadgeDataEntry`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BadgeDataEntry.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/BadgeDataEntry.cs`
 
 ## 概述
 
@@ -29,20 +29,30 @@ description: "BadgeDataEntry 的自动生成类参考。"
 
 ## 主要方法
 
+### ToDictionary
+`public static Dictionary<ValueTuple<PlayerId, string, string>, int> ToDictionary(List<BadgeDataEntry> entries)`
+
+**用途 / Purpose:** 调用 ToDictionary 对应的操作。
+
+```csharp
+// 静态调用，不需要实例
+BadgeDataEntry.ToDictionary(entries);
+```
+
 ### ToList
-`public static List<BadgeDataEntry> ToList(Dictionary<(PlayerId, string, string), int> dictionary)`
+`public static List<BadgeDataEntry> ToList(Dictionary<ValueTuple<PlayerId, string, string>, int> dictionary)`
 
 **用途 / Purpose:** 调用 ToList 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
-BadgeDataEntry.ToList(dictionary<(PlayerId, "example", "example", 0);
+BadgeDataEntry.ToList(dictionary<ValueTuple<PlayerId, "example", "example", 0);
 ```
 
 ## 使用示例
 
 ```csharp
-BadgeDataEntry.ToList(dictionary<(PlayerId, "example", "example", 0);
+BadgeDataEntry.ToDictionary(entries);
 ```
 
 ## 参见

@@ -8,7 +8,7 @@ description: "PlayerStatsBase 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerStatsBase`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsBase.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerStatsBase.cs`
 
 ## 概述
 
@@ -29,6 +29,7 @@ description: "PlayerStatsBase 的自动生成类参考。"
 | `WinCount` | `public int WinCount { get; set; }` |
 | `LoseCount` | `public int LoseCount { get; set; }` |
 | `ForfeitCount` | `public int ForfeitCount { get; set; }` |
+| `AverageKillPerDeath` | `public float AverageKillPerDeath { get; set; }` |
 | `GameType` | `public string GameType { get; set; }` |
 
 ## 主要方法

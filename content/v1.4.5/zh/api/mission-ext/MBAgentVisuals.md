@@ -8,7 +8,7 @@ description: "MBAgentVisuals 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class MBAgentVisuals : NativeObject`
 **Base:** `NativeObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBAgentVisuals.cs`
+**File:** `TaleWorlds.MountAndBlade/MBAgentVisuals.cs`
 
 ## 概述
 
@@ -415,14 +415,14 @@ mBAgentVisuals.SetLodAtlasShadingIndex(0, false, 0, 0);
 ```
 
 ### ClearVisualComponents
-`public void ClearVisualComponents(bool removeSkeleton, bool removeLabel = true)`
+`public void ClearVisualComponents(bool removeSkeleton)`
 
 **用途 / Purpose:** 清空当前对象中的visual components。
 
 ```csharp
 // 先通过子系统 API 拿到 MBAgentVisuals 实例
 MBAgentVisuals mBAgentVisuals = ...;
-mBAgentVisuals.ClearVisualComponents(false, false);
+mBAgentVisuals.ClearVisualComponents(false);
 ```
 
 ### LazyUpdateAgentRendererData

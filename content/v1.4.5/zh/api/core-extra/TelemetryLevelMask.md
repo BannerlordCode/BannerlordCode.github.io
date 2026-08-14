@@ -8,7 +8,7 @@ description: "TelemetryLevelMask 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum TelemetryLevelMask : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TelemetryLevelMask.cs`
+**File:** `TaleWorlds.Library/TelemetryLevelMask.cs`
 
 ## 概述
 

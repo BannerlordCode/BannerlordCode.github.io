@@ -8,7 +8,7 @@ description: "MultiplayerLocalDataManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLocalDataManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby/MultiplayerLocalDataManager.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Lobby/MultiplayerLocalDataManager.cs`
 
 ## 概述
 
@@ -50,7 +50,7 @@ MultiplayerLocalDataManager.FinalizeManager();
 ```
 
 ### Tick
-`public async void Tick(float dt)`
+`public void Tick(float dt)`
 
 **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 

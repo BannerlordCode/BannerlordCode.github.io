@@ -8,7 +8,7 @@ description: "UnitSpawnPrioritizations 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum UnitSpawnPrioritizations`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/UnitSpawnPrioritizations.cs`
+**File:** `TaleWorlds.Core/UnitSpawnPrioritizations.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "WeaponComponentData 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class WeaponComponentData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/WeaponComponentData.cs`
+**File:** `TaleWorlds.Core/WeaponComponentData.cs`
 
 ## 概述
 
@@ -22,7 +22,7 @@ description: "WeaponComponentData 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `WeaponTier` | `public WeaponTiers WeaponTier { get; }` |
+| `WeaponTier` | `public WeaponComponentData.WeaponTiers WeaponTier { get; }` |
 | `WeaponDescriptionId` | `public string WeaponDescriptionId { get; }` |
 | `BodyArmor` | `public int BodyArmor { get; }` |
 | `PhysicsMaterial` | `public string PhysicsMaterial { get; }` |
@@ -42,6 +42,7 @@ description: "WeaponComponentData 的自动生成类参考。"
 | `Accuracy` | `public int Accuracy { get; }` |
 | `WeaponClass` | `public WeaponClass WeaponClass { get; }` |
 | `AmmoClass` | `public WeaponClass AmmoClass { get; }` |
+| `MissileDamage` | `public int MissileDamage { get; }` |
 | `TotalInertia` | `public float TotalInertia { get; }` |
 | `CenterOfMass` | `public float CenterOfMass { get; }` |
 | `CenterOfMass3D` | `public Vec3 CenterOfMass3D { get; }` |
@@ -56,16 +57,23 @@ description: "WeaponComponentData 的自动生成类参考。"
 | `Frame` | `public MatrixFrame Frame { get; }` |
 | `RotationSpeed` | `public Vec3 RotationSpeed { get; }` |
 | `ReloadPhaseCount` | `public short ReloadPhaseCount { get; }` |
+| `IsMeleeWeapon` | `public bool IsMeleeWeapon { get; }` |
+| `IsRangedWeapon` | `public bool IsRangedWeapon { get; }` |
+| `IsPolearm` | `public bool IsPolearm { get; }` |
+| `IsConsumable` | `public bool IsConsumable { get; }` |
 | `IsAmmo` | `public bool IsAmmo { get; }` |
 | `IsShield` | `public bool IsShield { get; }` |
+| `IsTwoHanded` | `public bool IsTwoHanded { get; }` |
 | `IsOneHanded` | `public bool IsOneHanded { get; }` |
+| `IsBow` | `public bool IsBow { get; }` |
 | `IsCrossBow` | `public bool IsCrossBow { get; }` |
+| `RelevantSkill` | `public SkillObject RelevantSkill { get; }` |
 | `CanHitMultipleTargets` | `public bool CanHitMultipleTargets { get; }` |
 
 ## 主要方法
 
 ### Init
-`public void Init(string weaponUsageName, string physicsMaterial, string itemUsage, DamageTypes thrustDamageType, DamageTypes swingDamageType, int bodyArmor, int weaponLength, float weaponBalance, float inertia, float centerOfMass, int handling, float swingDamageFactor, float thrustDamageFactor, short maxDataValue, string passBySoundCode, int accuracy, int missileSpeed, MatrixFrame stickingFrame, WeaponClass ammoClass, float sweetSpot, int swingSpeed, int swingDamage, int thrustSpeed, int thrustDamage, Vec3 rotationSpeed, WeaponTiers tier, short reloadPhaseCount)`
+`public void Init(string weaponUsageName, string physicsMaterial, string itemUsage, DamageTypes thrustDamageType, DamageTypes swingDamageType, int bodyArmor, int weaponLength, float weaponBalance, float inertia, float centerOfMass, int handling, float swingDamageFactor, float thrustDamageFactor, short maxDataValue, string passBySoundCode, int accuracy, int missileSpeed, MatrixFrame stickingFrame, WeaponClass ammoClass, float sweetSpot, int swingSpeed, int swingDamage, int thrustSpeed, int thrustDamage, Vec3 rotationSpeed, WeaponComponentData.WeaponTiers tier, short reloadPhaseCount)`
 
 **用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 

@@ -8,7 +8,7 @@ description: "MenuOverlayContextList 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal enum MenuOverlayContextList`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay/GameMenuOverlay.cs`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/Overlay/GameMenuOverlay.cs`
 
 ## 概述
 

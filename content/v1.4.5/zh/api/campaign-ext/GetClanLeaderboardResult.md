@@ -8,7 +8,7 @@ description: "GetClanLeaderboardResult 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class GetClanLeaderboardResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetClanLeaderboardResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/GetClanLeaderboardResult.cs`
 
 ## 概述
 

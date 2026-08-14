@@ -8,7 +8,7 @@ description: "LordsHallFightMissionController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LordsHallFightMissionController : MissionLogic, IMissionAgentSpawnLogic, IMissionBehavior`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions.Handlers/LordsHallFightMissionController.cs`
+**File:** `TaleWorlds.MountAndBlade/Source/Missions/Handlers/LordsHallFightMissionController.cs`
 
 ## 概述
 
@@ -22,109 +22,15 @@ description: "LordsHallFightMissionController 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `TroopSpawningActive` | `public bool TroopSpawningActive { get; }` |
+| `NumberOfActiveTroops` | `public int NumberOfActiveTroops { get; }` |
+| `AreaList` | `public IEnumerable<FightAreaMarker> AreaList { get; }` |
+| `ArcherUsablePoints` | `public IEnumerable<LordsHallFightMissionController.AreaEntityData> ArcherUsablePoints { get; }` |
+| `InfantryUsablePoints` | `public IEnumerable<LordsHallFightMissionController.AreaEntityData> InfantryUsablePoints { get; }` |
 | `UserAgent` | `public Agent UserAgent { get; }` |
-| `PlayerSide` | `public BattleSideEnum PlayerSide { get; }` |
+| `InUse` | `public bool InUse { get; }` |
 
 ## 主要方法
-
-### SpawnTroops
-`public void SpawnTroops(Dictionary<int, Dictionary<int, AreaData>> areaMarkerDictionary, int spawnCount)`
-
-**用途 / Purpose:** 调用 SpawnTroops 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
-LordsHallFightMissionController lordsHallFightMissionController = ...;
-lordsHallFightMissionController.SpawnTroops(dictionary<int, dictionary<int, areaMarkerDictionary, 0);
-```
-
-### SpawnTroops
-`public void SpawnTroops(int spawnCount, bool isReinforcement)`
-
-**用途 / Purpose:** 调用 SpawnTroops 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
-LordsHallFightMissionController lordsHallFightMissionController = ...;
-lordsHallFightMissionController.SpawnTroops(0, false);
-```
-
-### SetSpawnTroops
-`public void SetSpawnTroops(bool spawnTroops)`
-
-**用途 / Purpose:** 为 spawn troops 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
-LordsHallFightMissionController lordsHallFightMissionController = ...;
-lordsHallFightMissionController.SetSpawnTroops(false);
-```
-
-### GetAllTroops
-`public IEnumerable<IAgentOriginBase> GetAllTroops()`
-
-**用途 / Purpose:** 读取并返回当前对象中 all troops 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
-LordsHallFightMissionController lordsHallFightMissionController = ...;
-var result = lordsHallFightMissionController.GetAllTroops();
-```
-
-### GetAvailableMachines
-`public IEnumerable<AreaEntityData> GetAvailableMachines(bool isArcher)`
-
-**用途 / Purpose:** 读取并返回当前对象中 available machines 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
-LordsHallFightMissionController lordsHallFightMissionController = ...;
-var result = lordsHallFightMissionController.GetAvailableMachines(false);
-```
-
-### AddAreaMarker
-`public void AddAreaMarker(FightAreaMarker marker)`
-
-**用途 / Purpose:** 将 area marker 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
-LordsHallFightMissionController lordsHallFightMissionController = ...;
-lordsHallFightMissionController.AddAreaMarker(marker);
-```
-
-### FindAgentMachine
-`public AreaEntityData FindAgentMachine(Agent agent)`
-
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的agent machine。
-
-```csharp
-// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
-LordsHallFightMissionController lordsHallFightMissionController = ...;
-var result = lordsHallFightMissionController.FindAgentMachine(agent);
-```
-
-### AssignAgent
-`public void AssignAgent(Agent agent)`
-
-**用途 / Purpose:** 调用 AssignAgent 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
-LordsHallFightMissionController lordsHallFightMissionController = ...;
-lordsHallFightMissionController.AssignAgent(agent);
-```
-
-### StopUse
-`public void StopUse()`
-
-**用途 / Purpose:** 停止use流程或状态机。
-
-```csharp
-// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
-LordsHallFightMissionController lordsHallFightMissionController = ...;
-lordsHallFightMissionController.StopUse();
-```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
@@ -215,14 +121,14 @@ var result = lordsHallFightMissionController.IsSideSpawnEnabled(side);
 ```
 
 ### GetReinforcementInterval
-`public float GetReinforcementInterval(BattleSideEnum side = BattleSideEnum.None)`
+`public float GetReinforcementInterval()`
 
 **用途 / Purpose:** 读取并返回当前对象中 reinforcement interval 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LordsHallFightMissionController 实例
 LordsHallFightMissionController lordsHallFightMissionController = ...;
-var result = lordsHallFightMissionController.GetReinforcementInterval(battleSideEnum.None);
+var result = lordsHallFightMissionController.GetReinforcementInterval();
 ```
 
 ### IsSideDepleted
@@ -267,6 +173,105 @@ var result = lordsHallFightMissionController.GetAllTroopsForSide(side);
 // 先通过子系统 API 拿到 LordsHallFightMissionController 实例
 LordsHallFightMissionController lordsHallFightMissionController = ...;
 var result = lordsHallFightMissionController.GetSpawnHorses(side);
+```
+
+### SpawnTroops
+`public void SpawnTroops(Dictionary<int, Dictionary<int, LordsHallFightMissionController.AreaData>> areaMarkerDictionary, int spawnCount)`
+
+**用途 / Purpose:** 调用 SpawnTroops 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.SpawnTroops(dictionary<int, dictionary<int, areaMarkerDictionary, 0);
+```
+
+### SpawnTroops
+`public void SpawnTroops(int spawnCount, bool isReinforcement)`
+
+**用途 / Purpose:** 调用 SpawnTroops 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.SpawnTroops(0, false);
+```
+
+### SetSpawnTroops
+`public void SetSpawnTroops(bool spawnTroops)`
+
+**用途 / Purpose:** 为 spawn troops 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.SetSpawnTroops(false);
+```
+
+### GetAllTroops
+`public IEnumerable<IAgentOriginBase> GetAllTroops()`
+
+**用途 / Purpose:** 读取并返回当前对象中 all troops 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.GetAllTroops();
+```
+
+### GetAvailableMachines
+`public IEnumerable<LordsHallFightMissionController.AreaEntityData> GetAvailableMachines(bool isArcher)`
+
+**用途 / Purpose:** 读取并返回当前对象中 available machines 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.GetAvailableMachines(false);
+```
+
+### AddAreaMarker
+`public void AddAreaMarker(FightAreaMarker marker)`
+
+**用途 / Purpose:** 将 area marker 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.AddAreaMarker(marker);
+```
+
+### FindAgentMachine
+`public LordsHallFightMissionController.AreaEntityData FindAgentMachine(Agent agent)`
+
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的agent machine。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.FindAgentMachine(agent);
+```
+
+### AssignAgent
+`public void AssignAgent(Agent agent)`
+
+**用途 / Purpose:** 调用 AssignAgent 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.AssignAgent(agent);
+```
+
+### StopUse
+`public void StopUse()`
+
+**用途 / Purpose:** 停止use流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.StopUse();
 ```
 
 ## 使用示例

@@ -8,7 +8,7 @@ description: "ServerNotification 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ServerNotification`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ServerNotification.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ServerNotification.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "CachedFloat 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum CachedFloat`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionEquipment.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionEquipment.cs`
 
 ## 概述
 

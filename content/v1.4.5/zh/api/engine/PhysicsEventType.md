@@ -8,7 +8,7 @@ description: "PhysicsEventType 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum PhysicsEventType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/PhysicsEventType.cs`
+**File:** `TaleWorlds.Engine/PhysicsEventType.cs`
 
 ## 概述
 

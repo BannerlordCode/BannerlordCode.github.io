@@ -8,7 +8,7 @@ description: "GameTextHelper 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class GameTextHelper`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/GameTexts.cs`
+**File:** `TaleWorlds.Core/GameTexts.cs`
 
 ## 概述
 
@@ -21,7 +21,7 @@ description: "GameTextHelper 的自动生成类参考。"
 ## 主要方法
 
 ### Variation
-`public GameTextHelper Variation(string text, params object propertiesAndWeights)`
+`public GameTexts.GameTextHelper Variation(string text, params object propertiesAndWeights)`
 
 **用途 / Purpose:** 调用 Variation 对应的操作。
 

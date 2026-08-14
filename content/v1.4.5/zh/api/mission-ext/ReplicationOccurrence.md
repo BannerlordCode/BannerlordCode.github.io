@@ -8,7 +8,7 @@ description: "ReplicationOccurrence 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum ReplicationOccurrence`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerOptionsProperty.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerOptionsProperty.cs`
 
 ## 概述
 

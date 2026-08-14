@@ -8,7 +8,7 @@ description: "NewsItem 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct NewsItem`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.NewsManager/NewsItem.cs`
+**File:** `TaleWorlds.Library/NewsManager/NewsItem.cs`
 
 ## 概述
 

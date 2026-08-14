@@ -6,9 +6,9 @@ description: "NumericUpDownWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class NumericUpDownWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/NumericUpDownWidget.cs`
+**Type:** `public class NumericUpDownWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/NumericUpDownWidget.cs`
 
 ## 概述
 
@@ -30,19 +30,6 @@ description: "NumericUpDownWidget 的自动生成类参考。"
 | `TextWidget` | `public TextWidget TextWidget { get; set; }` |
 | `UpButton` | `public ButtonWidget UpButton { get; set; }` |
 | `DownButton` | `public ButtonWidget DownButton { get; set; }` |
-
-## 主要方法
-
-### NumericUpDownWidget
-`public class NumericUpDownWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 NumericUpDownWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 NumericUpDownWidget 实例
-NumericUpDownWidget numericUpDownWidget = ...;
-var result = numericUpDownWidget.NumericUpDownWidget(context);
-```
 
 ## 使用示例
 

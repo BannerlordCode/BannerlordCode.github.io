@@ -8,7 +8,7 @@ description: "ManagedObject 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public abstract class ManagedObject`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedObject.cs`
+**File:** `TaleWorlds.DotNet/ManagedObject.cs`
 
 ## 概述
 

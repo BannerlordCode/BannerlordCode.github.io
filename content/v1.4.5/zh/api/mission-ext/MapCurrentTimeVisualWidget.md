@@ -8,7 +8,7 @@ description: "MapCurrentTimeVisualWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapCurrentTimeVisualWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar/MapCurrentTimeVisualWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Map/MapBar/MapCurrentTimeVisualWidget.cs`
 
 ## 概述
 

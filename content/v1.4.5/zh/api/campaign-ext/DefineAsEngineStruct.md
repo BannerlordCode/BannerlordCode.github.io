@@ -8,7 +8,7 @@ description: "DefineAsEngineStruct 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public class DefineAsEngineStruct : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/DefineAsEngineStruct.cs`
+**File:** `TaleWorlds.DotNet/DefineAsEngineStruct.cs`
 
 ## 概述
 

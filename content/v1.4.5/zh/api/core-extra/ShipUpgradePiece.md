@@ -8,7 +8,7 @@ description: "ShipUpgradePiece 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class ShipUpgradePiece : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ShipUpgradePiece.cs`
+**File:** `TaleWorlds.Core/ShipUpgradePiece.cs`
 
 ## 概述
 
@@ -24,6 +24,7 @@ description: "ShipUpgradePiece 的自动生成类参考。"
 |------|-----------|
 | `Name` | `public TextObject Name { get; }` |
 | `Description` | `public TextObject Description { get; }` |
+| `TargetSlots` | `public MBReadOnlyList<ShipSlot> TargetSlots { get; }` |
 | `LightValue` | `public int LightValue { get; }` |
 | `MediumValue` | `public int MediumValue { get; }` |
 | `HeavyValue` | `public int HeavyValue { get; }` |

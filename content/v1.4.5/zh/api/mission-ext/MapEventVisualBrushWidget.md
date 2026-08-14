@@ -6,9 +6,9 @@ description: "MapEventVisualBrushWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class MapEventVisualBrushWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map/MapEventVisualBrushWidget.cs`
+**Type:** `public class MapEventVisualBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Map/MapEventVisualBrushWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "MapEventVisualBrushWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `MapEventType` | `public int MapEventType { get; set; }` |
-
-## 主要方法
-
-### MapEventVisualBrushWidget
-`public class MapEventVisualBrushWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 MapEventVisualBrushWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventVisualBrushWidget 实例
-MapEventVisualBrushWidget mapEventVisualBrushWidget = ...;
-var result = mapEventVisualBrushWidget.MapEventVisualBrushWidget(context);
-```
 
 ## 使用示例
 

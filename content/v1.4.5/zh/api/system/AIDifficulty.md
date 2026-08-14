@@ -14,7 +14,7 @@ description: "BoardGameHelper 的内嵌棋盘游戏 AI 难度枚举：把 Easy�
 
 `AIDifficulty` 是棋盘游戏结算向技能成长系统传递的离散难度标签。它只描述本次棋盘游戏对手的难度，不读取或修改全局战斗 AI 选项，也不是一个可配置的难度模型。
 
-## 心智模型：结算输入，不是设置项
+## 心智模型
 
 源码把它声明为 `BoardGameHelper.AIDifficulty` 的嵌套枚举，成员只有 `Easy`、`Normal`、`Hard` 和 `NumTypes`。真正消费它的是 `SkillLevelingManager.OnBoardGameWonAgainstLord(Hero, BoardGameHelper.AIDifficulty, bool)`；默认技能管理器按这个值选择棋盘游戏胜利的技能经验分支。
 
@@ -59,7 +59,7 @@ public static void ReportNormalBoardGameWin()
 
 这段调用会进入技能成长流程，不能用来“查询当前难度”。如果只是显示棋盘游戏设置，应回到棋盘游戏界面自己的状态；如果要计算战斗 AI 倍率，应使用 [Campaign](../../campaign/Campaign)、`CampaignOptions` 和相应的 `DifficultyModel`。
 
-## 依赖与边界
+## 依赖
 
 - `BoardGameHelper` 声明这个嵌套枚举，但它不保存当前棋盘游戏实例或胜负状态；相关类型页：[BoardGameHelper](../BoardGameHelper)。
 - [SkillLevelingManager](../../campaign/SkillLevelingManager) 接收枚举并把胜利转换为技能成长；默认分支实现见 [DefaultSkillLevelingManager](../../campaign/DefaultSkillLevelingManager)。

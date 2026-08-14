@@ -8,7 +8,7 @@ description: "IQueryData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IQueryData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IQueryData.cs`
+**File:** `TaleWorlds.MountAndBlade/IQueryData.cs`
 
 ## 概述
 

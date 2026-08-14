@@ -8,7 +8,7 @@ description: "MissionSiegeWeapon 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MissionSiegeWeapon : IMissionSiegeWeapon`
 **Base:** `IMissionSiegeWeapon`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MissionSiegeWeapon.cs`
+**File:** `TaleWorlds.Core/MissionSiegeWeapon.cs`
 
 ## 概述
 
@@ -17,6 +17,16 @@ description: "MissionSiegeWeapon 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Index` | `public int Index { get; }` |
+| `Type` | `public SiegeEngineType Type { get; }` |
+| `Health` | `public float Health { get; }` |
+| `InitialHealth` | `public float InitialHealth { get; }` |
+| `MaxHealth` | `public float MaxHealth { get; }` |
 
 ## 主要方法
 

@@ -8,7 +8,7 @@ description: "ClientWantsToConnectCustomGameMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class ClientWantsToConnectCustomGameMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/ClientWantsToConnectCustomGameMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/ClientWantsToConnectCustomGameMessage.cs`
 
 ## 概述
 

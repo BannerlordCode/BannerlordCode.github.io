@@ -8,7 +8,7 @@ description: "EmptyInputManager 的自动生成类参考。"
 **Module:** TaleWorlds.InputSystem
 **Type:** `internal class EmptyInputManager : IInputManager`
 **Base:** `IInputManager`
-**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/EmptyInputManager.cs`
+**File:** `TaleWorlds.InputSystem/EmptyInputManager.cs`
 
 ## 概述
 

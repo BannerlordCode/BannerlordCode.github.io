@@ -8,7 +8,7 @@ description: "IConfig 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IConfig`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IConfig.cs`
+**File:** `TaleWorlds.Engine/IConfig.cs`
 
 ## 概述
 

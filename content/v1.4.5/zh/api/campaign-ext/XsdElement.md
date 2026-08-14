@@ -8,7 +8,7 @@ description: "XsdElement 的自动生成类参考。"
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public struct XsdElement`
 **Base:** 无
-**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/XmlResource.cs`
+**File:** `TaleWorlds.ObjectSystem/XmlResource.cs`
 
 ## 概述
 
@@ -18,25 +18,11 @@ description: "XsdElement 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.ObjectSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要方法
-
-### XsdElement
-`public struct XsdElement(string xPath, bool alwaysPreferMerge)`
-
-**用途 / Purpose:** 调用 XsdElement 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 XsdElement 实例
-XsdElement xsdElement = ...;
-var result = xsdElement.XsdElement("example", false);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-XsdElement xsdElement = ...;
-xsdElement.XsdElement("example", false);
+// 从对应子系统 API 获取实例
+XsdElement instance = ...;
 ```
 
 ## 参见

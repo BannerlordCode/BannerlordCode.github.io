@@ -8,7 +8,7 @@ description: "GetRankedLeaderboardMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class GetRankedLeaderboardMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetRankedLeaderboardMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/GetRankedLeaderboardMessage.cs`
 
 ## 概述
 

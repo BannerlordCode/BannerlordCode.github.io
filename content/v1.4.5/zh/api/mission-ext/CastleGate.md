@@ -8,7 +8,7 @@ description: "CastleGate 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CastleGate : UsableMachine, IPointDefendable, ICastleKeyPosition, ITargetable`
 **Base:** `UsableMachine`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CastleGate.cs`
+**File:** `TaleWorlds.MountAndBlade/CastleGate.cs`
 
 ## 概述
 
@@ -24,11 +24,14 @@ description: "CastleGate 的自动生成类参考。"
 |------|-----------|
 | `MiddlePosition` | `public TacticalPosition MiddlePosition { get; }` |
 | `WaitPosition` | `public TacticalPosition WaitPosition { get; }` |
-| `State` | `public GateState State { get; }` |
+| `FocusableObjectType` | `public override FocusableObjectType FocusableObjectType { get; }` |
+| `State` | `public CastleGate.GateState State { get; }` |
 | `IsGateOpen` | `public bool IsGateOpen { get; set; }` |
-| `AttackerSiegeWeapon` | `public IPrimarySiegeWeapon AttackerSiegeWeapon { get; }` |
-| `DefencePoints` | `public IEnumerable<DefencePoint> DefencePoints { get; }` |
+| `AttackerSiegeWeapon` | `public IPrimarySiegeWeapon AttackerSiegeWeapon { get; set; }` |
+| `DefencePoints` | `public IEnumerable<DefencePoint> DefencePoints { get; set; }` |
 | `DefenseSide` | `public FormationAI.BehaviorSide DefenseSide { get; }` |
+| `MiddleFrame` | `public WorldFrame MiddleFrame { get; }` |
+| `DefenseWaitFrame` | `public WorldFrame DefenseWaitFrame { get; }` |
 
 ## 主要方法
 
@@ -154,7 +157,7 @@ castleGate.SetAutoOpenState(false);
 ```
 
 ### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
 **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
@@ -239,6 +242,17 @@ var result = castleGate.IsDestructable();
 // 先通过子系统 API 拿到 CastleGate 实例
 CastleGate castleGate = ...;
 var result = castleGate.Entity();
+```
+
+### ComputeGlobalPhysicsBoundingBoxMinMax
+`public ValueTuple<Vec3, Vec3> ComputeGlobalPhysicsBoundingBoxMinMax()`
+
+**用途 / Purpose:** 调用 ComputeGlobalPhysicsBoundingBoxMinMax 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CastleGate 实例
+CastleGate castleGate = ...;
+var result = castleGate.ComputeGlobalPhysicsBoundingBoxMinMax();
 ```
 
 ### GetTargetingOffset

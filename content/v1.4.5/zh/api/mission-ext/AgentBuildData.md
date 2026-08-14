@@ -8,7 +8,7 @@ description: "AgentBuildData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentBuildData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentBuildData.cs`
+**File:** `TaleWorlds.MountAndBlade/AgentBuildData.cs`
 
 ## 概述
 
@@ -23,7 +23,28 @@ description: "AgentBuildData 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `AgentData` | `public AgentData AgentData { get; }` |
+| `AgentCharacter` | `public BasicCharacterObject AgentCharacter { get; }` |
+| `AgentMonster` | `public Monster AgentMonster { get; }` |
+| `AgentOverridenSpawnEquipment` | `public Equipment AgentOverridenSpawnEquipment { get; }` |
 | `AgentOverridenSpawnMissionEquipment` | `public MissionEquipment AgentOverridenSpawnMissionEquipment { get; }` |
+| `AgentEquipmentSeed` | `public int AgentEquipmentSeed { get; }` |
+| `AgentNoHorses` | `public bool AgentNoHorses { get; }` |
+| `AgentMountKey` | `public string AgentMountKey { get; }` |
+| `AgentNoWeapons` | `public bool AgentNoWeapons { get; }` |
+| `AgentNoArmor` | `public bool AgentNoArmor { get; }` |
+| `AgentFixedEquipment` | `public bool AgentFixedEquipment { get; }` |
+| `AgentCivilianEquipment` | `public bool AgentCivilianEquipment { get; }` |
+| `AgentClothingColor1` | `public uint AgentClothingColor1 { get; }` |
+| `AgentClothingColor2` | `public uint AgentClothingColor2 { get; }` |
+| `BodyPropertiesOverriden` | `public bool BodyPropertiesOverriden { get; }` |
+| `AgentBodyProperties` | `public BodyProperties AgentBodyProperties { get; }` |
+| `AgeOverriden` | `public bool AgeOverriden { get; }` |
+| `AgentAge` | `public int AgentAge { get; }` |
+| `PrepareImmediately` | `public bool PrepareImmediately { get; }` |
+| `GenderOverriden` | `public bool GenderOverriden { get; }` |
+| `AgentIsFemale` | `public bool AgentIsFemale { get; }` |
+| `AgentRace` | `public int AgentRace { get; }` |
+| `AgentOrigin` | `public IAgentOriginBase AgentOrigin { get; }` |
 | `AgentController` | `public AgentControllerType AgentController { get; }` |
 | `AgentTeam` | `public Team AgentTeam { get; }` |
 | `AgentIsReinforcement` | `public bool AgentIsReinforcement { get; }` |

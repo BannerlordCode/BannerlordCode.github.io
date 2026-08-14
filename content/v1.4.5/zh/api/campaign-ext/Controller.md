@@ -8,7 +8,7 @@ description: "Controller 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public static class Controller`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/Controller.cs`
+**File:** `TaleWorlds.DotNet/Controller.cs`
 
 ## 概述
 

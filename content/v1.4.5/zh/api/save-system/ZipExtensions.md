@@ -8,7 +8,7 @@ description: "ZipExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal static class ZipExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/ZipExtensions.cs`
+**File:** `TaleWorlds.SaveSystem/ZipExtensions.cs`
 
 ## 概述
 
@@ -31,7 +31,7 @@ ZipExtensions.FillFrom(entry, 0);
 ```
 
 ### FillFrom
-`public static void FillFrom(this ZipArchiveEntry entry, TaleWorlds.Library.BinaryWriter writer)`
+`public static void FillFrom(this ZipArchiveEntry entry, BinaryWriter writer)`
 
 **用途 / Purpose:** 调用 FillFrom 对应的操作。
 
@@ -41,7 +41,7 @@ ZipExtensions.FillFrom(entry, writer);
 ```
 
 ### GetBinaryReader
-`public static TaleWorlds.Library.BinaryReader GetBinaryReader(this ZipArchiveEntry entry)`
+`public static BinaryReader GetBinaryReader(this ZipArchiveEntry entry)`
 
 **用途 / Purpose:** 读取并返回当前对象中 binary reader 的结果。
 

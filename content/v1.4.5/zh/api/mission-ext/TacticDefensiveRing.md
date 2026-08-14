@@ -8,7 +8,7 @@ description: "TacticDefensiveRing 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticDefensiveRing : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticDefensiveRing.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticDefensiveRing.cs`
 
 ## 概述
 

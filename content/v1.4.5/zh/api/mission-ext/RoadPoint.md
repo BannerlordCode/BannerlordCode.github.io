@@ -8,7 +8,7 @@ description: "RoadPoint 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RoadPoint : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RoadPoint.cs`
+**File:** `TaleWorlds.MountAndBlade/RoadPoint.cs`
 
 ## 概述
 

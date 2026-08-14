@@ -8,7 +8,7 @@ description: "IMBAgentVisuals 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBAgentVisuals`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBAgentVisuals.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBAgentVisuals.cs`
 
 ## 概述
 

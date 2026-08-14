@@ -8,7 +8,7 @@ description: "BehaviorShootFromCliff 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorShootFromCliff : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorShootFromCliff.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorShootFromCliff.cs`
 
 ## 概述
 

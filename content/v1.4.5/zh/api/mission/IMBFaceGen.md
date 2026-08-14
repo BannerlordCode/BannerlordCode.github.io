@@ -8,7 +8,7 @@ description: "IMBFaceGen 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBFaceGen`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBFaceGen.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBFaceGen.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "PixelFormatDescriptor 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal struct PixelFormatDescriptor`
 **Base:** 无
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/PixelFormatDescriptor.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/Windows/PixelFormatDescriptor.cs`
 
 ## 概述
 

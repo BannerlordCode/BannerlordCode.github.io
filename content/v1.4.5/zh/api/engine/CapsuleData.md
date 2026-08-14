@@ -8,7 +8,7 @@ description: "CapsuleData 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public struct CapsuleData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/CapsuleData.cs`
+**File:** `TaleWorlds.Engine/CapsuleData.cs`
 
 ## 概述
 
@@ -25,6 +25,19 @@ description: "CapsuleData 的自动生成类参考。"
 | `P1` | `public Vec3 P1 { get; set; }` |
 | `P2` | `public Vec3 P2 { get; set; }` |
 | `Radius` | `public float Radius { get; set; }` |
+
+## 主要方法
+
+### GetBoxMinMax
+`public ValueTuple<Vec3, Vec3> GetBoxMinMax()`
+
+**用途 / Purpose:** 读取并返回当前对象中 box min max 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CapsuleData 实例
+CapsuleData capsuleData = ...;
+var result = capsuleData.GetBoxMinMax();
+```
 
 ## 使用示例
 

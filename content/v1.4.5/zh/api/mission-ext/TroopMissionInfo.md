@@ -8,7 +8,7 @@ description: "TroopMissionInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TroopMissionInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TroopMissionInfo.cs`
+**File:** `TaleWorlds.MountAndBlade/TroopMissionInfo.cs`
 
 ## 概述
 

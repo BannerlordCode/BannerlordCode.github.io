@@ -8,7 +8,7 @@ description: "Dimensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum Dimensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Widgets/DimensionSyncWidget.cs`
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/MountAndBlade/GauntletUI/Widgets/DimensionSyncWidget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ChatRoomInformationForClient 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ChatRoomInformationForClient`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ChatRoomInformationForClient.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ChatRoomInformationForClient.cs`
 
 ## 概述
 

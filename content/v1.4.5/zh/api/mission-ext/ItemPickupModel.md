@@ -8,7 +8,7 @@ description: "ItemPickupModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class ItemPickupModel : MBGameModel<ItemPickupModel>`
 **Base:** `MBGameModel<ItemPickupModel>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/ItemPickupModel.cs`
+**File:** `TaleWorlds.MountAndBlade/ComponentInterfaces/ItemPickupModel.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "BaseSynchedMissionObjectReadableRecord 的自动生成类参考。
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct BaseSynchedMissionObjectReadableRecord`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BaseSynchedMissionObjectReadableRecord.cs`
+**File:** `TaleWorlds.MountAndBlade/BaseSynchedMissionObjectReadableRecord.cs`
 
 ## 概述
 
@@ -61,6 +61,16 @@ var result = baseSynchedMissionObjectReadableRecord.ReadFromNetwork(bufferReadVa
 // 先通过子系统 API 拿到 BaseSynchedMissionObjectReadableRecord 实例
 BaseSynchedMissionObjectReadableRecord baseSynchedMissionObjectReadableRecord = ...;
 baseSynchedMissionObjectReadableRecord.SetSetVisibilityExcludeParents(false);
+```
+
+### CreateFromNetworkWithTypeIndex
+`public static ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> CreateFromNetworkWithTypeIndex(int typeIndex)`
+
+**用途 / Purpose:** 构建一个新的 from network with type index 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+BaseSynchedMissionObjectReadableRecord.CreateFromNetworkWithTypeIndex(0);
 ```
 
 ## 使用示例

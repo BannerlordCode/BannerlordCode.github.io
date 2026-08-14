@@ -8,7 +8,7 @@ description: "Vec2iBasicTypeSerializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class Vec2iBasicTypeSerializer : IBasicTypeSerializer`
 **Base:** `IBasicTypeSerializer`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/Vec2iBasicTypeSerializer.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/Vec2iBasicTypeSerializer.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "PsaiPlayMode 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `public enum PsaiPlayMode`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/PsaiPlayMode.cs`
+**File:** `TaleWorlds.PSAI/net/PsaiPlayMode.cs`
 
 ## 概述
 

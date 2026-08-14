@@ -8,7 +8,7 @@ description: "HumanWalkingMovementMode 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum HumanWalkingMovementMode`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HumanWalkingMovementMode.cs`
+**File:** `TaleWorlds.MountAndBlade/HumanWalkingMovementMode.cs`
 
 ## 概述
 

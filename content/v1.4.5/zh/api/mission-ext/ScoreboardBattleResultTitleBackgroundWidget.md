@@ -8,7 +8,7 @@ description: "ScoreboardBattleResultTitleBackgroundWidget 的自动生成类参�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ScoreboardBattleResultTitleBackgroundWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardBattleResultTitleBackgroundWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Scoreboard/ScoreboardBattleResultTitleBackgroundWidget.cs`
 
 ## 概述
 

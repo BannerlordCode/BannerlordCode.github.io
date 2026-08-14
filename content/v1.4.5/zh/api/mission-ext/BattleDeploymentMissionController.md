@@ -8,7 +8,7 @@ description: "BattleDeploymentMissionController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleDeploymentMissionController : DeploymentMissionController`
 **Base:** `DeploymentMissionController`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleDeploymentMissionController.cs`
+**File:** `TaleWorlds.MountAndBlade/BattleDeploymentMissionController.cs`
 
 ## 概述
 

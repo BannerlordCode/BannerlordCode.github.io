@@ -8,7 +8,7 @@ description: "AttribueMask 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal enum AttribueMask : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/AttribueMask.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/AttribueMask.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "Mobility 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum Mobility : sbyte`
 **Base:** `sbyte`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/GameEntity.cs`
+**File:** `TaleWorlds.Engine/GameEntity.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "PlayerDisconnectedFromLobbyMessage 的自动生成类参考。"
 **Module:** Messages.FromCustomBattleServerManager
 **Type:** `public class PlayerDisconnectedFromLobbyMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServerManager.ToCustomBattleServer/PlayerDisconnectedFromLobbyMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromCustomBattleServerManager/ToCustomBattleServer/PlayerDisconnectedFromLobbyMessage.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "AgentSetFormation 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class AgentSetFormation : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AgentSetFormation.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/AgentSetFormation.cs`
 
 ## 概述
 

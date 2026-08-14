@@ -8,7 +8,7 @@ description: "PlayerNotEligibleInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerNotEligibleInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerNotEligibleInfo.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerNotEligibleInfo.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ServerInfoMessageExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ServerInfoMessageExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ServerInfoMessageExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ServerInfoMessageExtensions.cs`
 
 ## 概述
 

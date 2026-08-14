@@ -8,7 +8,7 @@ description: "MultiplayerLobbyClassFilterClassItemWidget 的自动生成类参�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyClassFilterClassItemWidget : ToggleStateButtonWidget`
 **Base:** `ToggleStateButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerLobbyClassFilterClassItemWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Lobby/Armory/MultiplayerLobbyClassFilterClassItemWidget.cs`
 
 ## 概述
 

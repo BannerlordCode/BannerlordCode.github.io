@@ -8,7 +8,7 @@ description: "CosmeticsManagerHelper 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class CosmeticsManagerHelper`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CosmeticsManagerHelper.cs`
+**File:** `TaleWorlds.MountAndBlade/CosmeticsManagerHelper.cs`
 
 ## 概述
 

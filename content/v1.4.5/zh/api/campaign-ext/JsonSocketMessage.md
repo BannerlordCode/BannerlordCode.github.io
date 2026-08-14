@@ -8,7 +8,7 @@ description: "JsonSocketMessage 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public class JsonSocketMessage`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/JsonSocketMessage.cs`
+**File:** `TaleWorlds.Network/JsonSocketMessage.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "JsonSocketMessage 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `MessageInfo` | `public MessageInfo MessageInfo { get; }` |
+| `SocketMessageTypeId` | `public string SocketMessageTypeId { get; }` |
 
 ## 主要方法
 

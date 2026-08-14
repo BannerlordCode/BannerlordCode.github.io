@@ -8,7 +8,7 @@ description: "StringPairItemVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class StringPairItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Generic/StringPairItemVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/Generic/StringPairItemVM.cs`
 
 ## 概述
 

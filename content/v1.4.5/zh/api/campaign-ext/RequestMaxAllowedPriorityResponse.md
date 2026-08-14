@@ -8,7 +8,7 @@ description: "RequestMaxAllowedPriorityResponse 的自动生成类参考。"
 **Module:** Messages.FromBattleServerManager
 **Type:** `public class RequestMaxAllowedPriorityResponse : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServerManager.ToBattleServer/RequestMaxAllowedPriorityResponse.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromBattleServerManager/ToBattleServer/RequestMaxAllowedPriorityResponse.cs`
 
 ## 概述
 

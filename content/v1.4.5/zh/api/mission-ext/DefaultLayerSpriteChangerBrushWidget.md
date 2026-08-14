@@ -8,7 +8,7 @@ description: "DefaultLayerSpriteChangerBrushWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultLayerSpriteChangerBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/DefaultLayerSpriteChangerBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/DefaultLayerSpriteChangerBrushWidget.cs`
 
 ## 概述
 

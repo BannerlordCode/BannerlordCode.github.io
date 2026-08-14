@@ -8,7 +8,7 @@ description: "AgentCapsuleData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct AgentCapsuleData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentCapsuleData.cs`
+**File:** `TaleWorlds.MountAndBlade/AgentCapsuleData.cs`
 
 ## 概述
 

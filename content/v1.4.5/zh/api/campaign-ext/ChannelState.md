@@ -8,7 +8,7 @@ description: "ChannelState 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `internal enum ChannelState`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/ChannelState.cs`
+**File:** `TaleWorlds.PSAI/net/ChannelState.cs`
 
 ## 概述
 

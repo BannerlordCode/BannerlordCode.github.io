@@ -8,7 +8,7 @@ description: "ServiceAddressManager 的自动生成类参考。"
 **Module:** TaleWorlds.ServiceDiscovery
 **Type:** `public static class ServiceAddressManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/ServiceAddressManager.cs`
+**File:** `TaleWorlds.ServiceDiscovery.Client/ServiceAddressManager.cs`
 
 ## 概述
 

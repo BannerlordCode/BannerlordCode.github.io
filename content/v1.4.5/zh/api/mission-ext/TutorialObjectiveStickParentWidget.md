@@ -8,7 +8,7 @@ description: "TutorialObjectiveStickParentWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TutorialObjectiveStickParentWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial/TutorialObjectiveStickParentWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Tutorial/TutorialObjectiveStickParentWidget.cs`
 
 ## 概述
 
@@ -22,13 +22,13 @@ description: "TutorialObjectiveStickParentWidget 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `StickMiddle` | `public Widget StickMiddle { get; set; }` |
+| `MovementType` | `public int MovementType { get; set; }` |
 | `IsCompleted` | `public bool IsCompleted { get; }` |
 | `AnimTime` | `public float AnimTime { get; }` |
 | `Direction` | `public Vec2 Direction { get; }` |
-| `AnimType` | `public AnimTypes AnimType { get; }` |
+| `AnimType` | `public TutorialObjectiveStickParentWidget.StickAnimStage.AnimTypes AnimType { get; }` |
 | `WidgetToManipulate` | `public Widget WidgetToManipulate { get; }` |
-| `StickMiddle` | `public Widget StickMiddle { get; set; }` |
-| `MovementType` | `public int MovementType { get; set; }` |
 
 ## 主要方法
 

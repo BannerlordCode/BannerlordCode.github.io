@@ -8,7 +8,7 @@ description: "IOnSpawnPerkEffect 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IOnSpawnPerkEffect`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IOnSpawnPerkEffect.cs`
+**File:** `TaleWorlds.MountAndBlade/IOnSpawnPerkEffect.cs`
 
 ## 概述
 

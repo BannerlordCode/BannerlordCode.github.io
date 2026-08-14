@@ -8,7 +8,7 @@ description: "TestActivityService 的自动生成类参考。"
 **Module:** TaleWorlds.ActivitySystem
 **Type:** `public class TestActivityService : IActivityService`
 **Base:** `IActivityService`
-**File:** `bin/TaleWorlds.ActivitySystem/TaleWorlds.ActivitySystem/TestActivityService.cs`
+**File:** `TaleWorlds.ActivitySystem/TestActivityService.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ForceMode 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum ForceMode : sbyte`
 **Base:** `sbyte`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/GameEntityPhysicsExtensions.cs`
+**File:** `TaleWorlds.Engine/GameEntityPhysicsExtensions.cs`
 
 ## 概述
 

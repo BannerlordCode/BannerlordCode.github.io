@@ -8,7 +8,7 @@ description: "MissionBattleSchedulerClientComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionBattleSchedulerClientComponent : MissionLobbyComponent`
 **Base:** `MissionLobbyComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionBattleSchedulerClientComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionBattleSchedulerClientComponent.cs`
 
 ## 概述
 

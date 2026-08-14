@@ -8,7 +8,7 @@ description: "MPRandomOnSpawnPerkEffect 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MPRandomOnSpawnPerkEffect : MPOnSpawnPerkEffectBase`
 **Base:** `MPOnSpawnPerkEffectBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPRandomOnSpawnPerkEffect.cs`
+**File:** `TaleWorlds.MountAndBlade/MPRandomOnSpawnPerkEffect.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MaterialProperty 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct MaterialProperty`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/HorseComponent.cs`
+**File:** `TaleWorlds.Core/HorseComponent.cs`
 
 ## 概述
 
@@ -24,25 +24,11 @@ description: "MaterialProperty 的自动生成类参考。"
 |------|-----------|
 | `Name` | `public string Name { get; }` |
 
-## 主要方法
-
-### MaterialProperty
-`public struct MaterialProperty(string name)`
-
-**用途 / Purpose:** 调用 MaterialProperty 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MaterialProperty 实例
-MaterialProperty materialProperty = ...;
-var result = materialProperty.MaterialProperty("example");
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-MaterialProperty materialProperty = ...;
-materialProperty.MaterialProperty("example");
+// 从对应子系统 API 获取实例
+MaterialProperty instance = ...;
 ```
 
 ## 参见

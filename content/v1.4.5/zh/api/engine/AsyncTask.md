@@ -8,7 +8,7 @@ description: "AsyncTask 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class AsyncTask : NativeObject, ITask`
 **Base:** `NativeObject`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/AsyncTask.cs`
+**File:** `TaleWorlds.Engine/AsyncTask.cs`
 
 ## 概述
 

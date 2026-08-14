@@ -8,7 +8,7 @@ description: "ThreadedClientConnectedTask 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `internal sealed class ThreadedClientConnectedTask : ThreadedClientTask`
 **Base:** `ThreadedClientTask`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/ThreadedClientConnectedTask.cs`
+**File:** `TaleWorlds.Diamond/ThreadedClientConnectedTask.cs`
 
 ## 概述
 

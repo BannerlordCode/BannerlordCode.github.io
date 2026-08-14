@@ -8,7 +8,7 @@ description: "SteamPlatformServices 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class SteamPlatformServices : IPlatformServices`
 **Base:** `IPlatformServices`
-**File:** `bin/TaleWorlds.PlatformService.Steam/TaleWorlds.PlatformService.Steam/SteamPlatformServices.cs`
+**File:** `TaleWorlds.PlatformService.Steam/SteamPlatformServices.cs`
 
 ## 概述
 

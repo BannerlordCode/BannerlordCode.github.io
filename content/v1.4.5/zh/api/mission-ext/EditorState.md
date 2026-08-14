@@ -8,7 +8,7 @@ description: "EditorState 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EditorState : GameState`
 **Base:** `GameState`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/EditorState.cs`
+**File:** `TaleWorlds.MountAndBlade/EditorState.cs`
 
 ## 概述
 

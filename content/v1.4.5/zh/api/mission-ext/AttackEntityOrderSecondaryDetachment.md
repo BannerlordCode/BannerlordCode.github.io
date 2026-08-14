@@ -8,7 +8,7 @@ description: "AttackEntityOrderSecondaryDetachment 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AttackEntityOrderSecondaryDetachment`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AttackEntityOrderSecondaryDetachment.cs`
+**File:** `TaleWorlds.MountAndBlade/AttackEntityOrderSecondaryDetachment.cs`
 
 ## 概述
 

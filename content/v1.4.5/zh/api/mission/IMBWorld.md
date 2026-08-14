@@ -8,7 +8,7 @@ description: "IMBWorld 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBWorld`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBWorld.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBWorld.cs`
 
 ## 概述
 

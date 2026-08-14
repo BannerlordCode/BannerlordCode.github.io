@@ -8,7 +8,7 @@ description: "BatteringRam 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BatteringRam : SiegeWeapon, IPathHolder, IPrimarySiegeWeapon, IMoveableSiegeWeapon, ISpawnable`
 **Base:** `SiegeWeapon`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BatteringRam.cs`
+**File:** `TaleWorlds.MountAndBlade/BatteringRam.cs`
 
 ## 概述
 
@@ -22,26 +22,23 @@ description: "BatteringRam 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `MovementComponent` | `public SiegeWeaponMovementComponent MovementComponent { get; }` |
+| `WeaponSide` | `public FormationAI.BehaviorSide WeaponSide { get; }` |
+| `PathEntity` | `public string PathEntity { get; }` |
+| `EditorGhostEntityMove` | `public bool EditorGhostEntityMove { get; set; }` |
+| `State` | `public BatteringRam.RamState State { get; set; }` |
+| `TargetCastlePosition` | `public MissionObject TargetCastlePosition { get; }` |
+| `SiegeWeaponPriority` | `public float SiegeWeaponPriority { get; }` |
+| `OverTheWallNavMeshID` | `public int OverTheWallNavMeshID { get; }` |
+| `HoldLadders` | `public bool HoldLadders { get; }` |
+| `SendLadders` | `public bool SendLadders { get; set; }` |
+| `HasArrivedAtTarget` | `public bool HasArrivedAtTarget { get; set; }` |
+| `IsDeactivated` | `public override bool IsDeactivated { get; }` |
 | `HasArrivedAtTarget` | `public bool HasArrivedAtTarget { get; }` |
 | `State` | `public int State { get; }` |
 | `TotalDistanceTraveled` | `public float TotalDistanceTraveled { get; }` |
-| `MovementComponent` | `public SiegeWeaponMovementComponent MovementComponent { get; }` |
-| `State` | `public RamState State { get; set; }` |
-| `HasArrivedAtTarget` | `public bool HasArrivedAtTarget { get; set; }` |
-| `IsDeactivated` | `public override bool IsDeactivated { get; }` |
 
 ## 主要方法
-
-### ReadFromNetwork
-`public bool ReadFromNetwork(ref bool bufferReadValid)`
-
-**用途 / Purpose:** 从当前实例读取from network相关数据。
-
-```csharp
-// 先通过子系统 API 拿到 BatteringRam 实例
-BatteringRam batteringRam = ...;
-var result = batteringRam.ReadFromNetwork(bufferReadValid);
-```
 
 ### HasCompletedAction
 `public bool HasCompletedAction()`
@@ -88,7 +85,7 @@ var result = batteringRam.GetInitialFrame();
 ```
 
 ### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
 **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
@@ -220,14 +217,14 @@ batteringRam.AssignParametersFromSpawner("example", "example", 0, 0, 0, 0, 0, 0,
 ```
 
 ### OnAfterReadFromNetwork
-`public override void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
+`public override void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
 **用途 / Purpose:** 在 after read from network 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
 BatteringRam batteringRam = ...;
-batteringRam.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
+batteringRam.OnAfterReadFromNetwork(valueTuple<BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
 ```
 
 ### GetNavmeshFaceIds
@@ -241,12 +238,23 @@ BatteringRam batteringRam = ...;
 var result = batteringRam.GetNavmeshFaceIds(navmeshFaceIds);
 ```
 
+### ReadFromNetwork
+`public bool ReadFromNetwork(ref bool bufferReadValid)`
+
+**用途 / Purpose:** 从当前实例读取from network相关数据。
+
+```csharp
+// 先通过子系统 API 拿到 BatteringRam 实例
+BatteringRam batteringRam = ...;
+var result = batteringRam.ReadFromNetwork(bufferReadValid);
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 BatteringRam batteringRam = ...;
-batteringRam.ReadFromNetwork(bufferReadValid);
+batteringRam.HasCompletedAction();
 ```
 
 ## 参见

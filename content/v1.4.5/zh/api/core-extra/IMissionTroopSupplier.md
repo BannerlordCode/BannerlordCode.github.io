@@ -8,7 +8,7 @@ description: "IMissionTroopSupplier 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface IMissionTroopSupplier`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IMissionTroopSupplier.cs`
+**File:** `TaleWorlds.Core/IMissionTroopSupplier.cs`
 
 ## 概述
 

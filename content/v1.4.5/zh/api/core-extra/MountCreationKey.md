@@ -8,7 +8,7 @@ description: "MountCreationKey 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MountCreationKey`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MountCreationKey.cs`
+**File:** `TaleWorlds.Core/MountCreationKey.cs`
 
 ## 概述
 

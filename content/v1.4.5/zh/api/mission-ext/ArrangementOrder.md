@@ -8,7 +8,7 @@ description: "ArrangementOrder 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct ArrangementOrder`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ArrangementOrder.cs`
+**File:** `TaleWorlds.MountAndBlade/ArrangementOrder.cs`
 
 ## 概述
 
@@ -18,10 +18,16 @@ description: "ArrangementOrder 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `OrderType` | `public OrderType OrderType { get; }` |
+
 ## 主要方法
 
 ### GetUnitSpacingOf
-`public static int GetUnitSpacingOf(ArrangementOrderEnum a)`
+`public static int GetUnitSpacingOf(ArrangementOrder.ArrangementOrderEnum a)`
 
 **用途 / Purpose:** 读取并返回当前对象中 unit spacing of 的结果。
 
@@ -31,7 +37,7 @@ ArrangementOrder.GetUnitSpacingOf(a);
 ```
 
 ### GetUnitLooseness
-`public static bool GetUnitLooseness(ArrangementOrderEnum a)`
+`public static bool GetUnitLooseness(ArrangementOrder.ArrangementOrderEnum a)`
 
 **用途 / Purpose:** 读取并返回当前对象中 unit looseness 的结果。
 
@@ -63,7 +69,7 @@ var result = arrangementOrder.GetArrangement(formation);
 ```
 
 ### OnApply
-`public void OnApply(Formation formation)`
+`public unsafe void OnApply(Formation formation)`
 
 **用途 / Purpose:** 在 apply 事件触发时调用此回调。
 
@@ -85,7 +91,7 @@ arrangementOrder.SoftUpdate(formation);
 ```
 
 ### GetShieldDirectionOfUnit
-`public static Agent.UsageDirection GetShieldDirectionOfUnit(Formation formation, Agent unit, ArrangementOrderEnum orderEnum)`
+`public static Agent.UsageDirection GetShieldDirectionOfUnit(Formation formation, Agent unit, ArrangementOrder.ArrangementOrderEnum orderEnum)`
 
 **用途 / Purpose:** 读取并返回当前对象中 shield direction of unit 的结果。
 
@@ -128,7 +134,7 @@ arrangementOrder.RearrangeAux(formation, false);
 ```
 
 ### TransposeLineFormation
-`public static void TransposeLineFormation(Formation formation)`
+`public unsafe static void TransposeLineFormation(Formation formation)`
 
 **用途 / Purpose:** 调用 TransposeLineFormation 对应的操作。
 
@@ -160,7 +166,7 @@ arrangementOrder.TickOccasionally(formation);
 ```
 
 ### GetNativeEnum
-`public ArrangementOrderEnum GetNativeEnum()`
+`public ArrangementOrder.ArrangementOrderEnum GetNativeEnum()`
 
 **用途 / Purpose:** 读取并返回当前对象中 native enum 的结果。
 
@@ -204,7 +210,7 @@ arrangementOrder.OnOrderPositionChanged(formation, previousOrderPosition);
 ```
 
 ### GetArrangementOrderDefensiveness
-`public static int GetArrangementOrderDefensiveness(ArrangementOrderEnum orderEnum)`
+`public static int GetArrangementOrderDefensiveness(ArrangementOrder.ArrangementOrderEnum orderEnum)`
 
 **用途 / Purpose:** 读取并返回当前对象中 arrangement order defensiveness 的结果。
 
@@ -214,7 +220,7 @@ ArrangementOrder.GetArrangementOrderDefensiveness(orderEnum);
 ```
 
 ### GetArrangementOrderDefensivenessChange
-`public static int GetArrangementOrderDefensivenessChange(ArrangementOrderEnum previousOrderEnum, ArrangementOrderEnum nextOrderEnum)`
+`public static int GetArrangementOrderDefensivenessChange(ArrangementOrder.ArrangementOrderEnum previousOrderEnum, ArrangementOrder.ArrangementOrderEnum nextOrderEnum)`
 
 **用途 / Purpose:** 读取并返回当前对象中 arrangement order defensiveness change 的结果。
 

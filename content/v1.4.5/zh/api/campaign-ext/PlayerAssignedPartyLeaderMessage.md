@@ -8,7 +8,7 @@ description: "PlayerAssignedPartyLeaderMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class PlayerAssignedPartyLeaderMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayerAssignedPartyLeaderMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/PlayerAssignedPartyLeaderMessage.cs`
 
 ## 概述
 

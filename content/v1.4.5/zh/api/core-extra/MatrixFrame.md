@@ -8,7 +8,7 @@ description: "MatrixFrame 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct MatrixFrame`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MatrixFrame.cs`
+**File:** `TaleWorlds.Library/MatrixFrame.cs`
 
 ## 概述
 
@@ -22,10 +22,12 @@ description: "MatrixFrame 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `Identity` | `public static MatrixFrame Identity { get; }` |
+| `Zero` | `public static MatrixFrame Zero { get; }` |
 | `IsIdentity` | `public bool IsIdentity { get; }` |
 | `IsZero` | `public bool IsZero { get; }` |
-| `this` | `public Vec3 this { get; set; }` |
-| `this` | `public float this { get; set; }` |
+| `this` | `public Vec3 this { get; }` |
+| `this` | `public float this { get; }` |
 
 ## 主要方法
 
@@ -352,17 +354,6 @@ MatrixFrame.CenterFrameOfTwoPoints(p1, p2, upVector);
 // 先通过子系统 API 拿到 MatrixFrame 实例
 MatrixFrame matrixFrame = ...;
 matrixFrame.Fill();
-```
-
-### Filled
-`public MatrixFrame Filled()`
-
-**用途 / Purpose:** 调用 Filled 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MatrixFrame 实例
-MatrixFrame matrixFrame = ...;
-var result = matrixFrame.Filled();
 ```
 
 ## 使用示例

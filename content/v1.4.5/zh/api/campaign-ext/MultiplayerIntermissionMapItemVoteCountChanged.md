@@ -8,7 +8,7 @@ description: "MultiplayerIntermissionMapItemVoteCountChanged 的自动生成类�
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class MultiplayerIntermissionMapItemVoteCountChanged : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/MultiplayerIntermissionMapItemVoteCountChanged.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/MultiplayerIntermissionMapItemVoteCountChanged.cs`
 
 ## 概述
 

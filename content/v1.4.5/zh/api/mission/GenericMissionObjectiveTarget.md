@@ -8,7 +8,7 @@ description: "GenericMissionObjectiveTarget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal class GenericMissionObjectiveTarget<T> : MissionObjectiveTarget<T>`
 **Base:** `MissionObjectiveTarget<T>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Objectives/GenericMissionObjectiveTarget.cs`
+**File:** `TaleWorlds.MountAndBlade/Missions/Objectives/GenericMissionObjectiveTarget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "LoginBanReason 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public enum LoginBanReason`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/LoginBanReason.cs`
+**File:** `TaleWorlds.Diamond/LoginBanReason.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "NativeScriptComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class NativeScriptComponent : ScriptComponent`
 **Base:** `ScriptComponent`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/NativeScriptComponent.cs`
+**File:** `TaleWorlds.Engine/NativeScriptComponent.cs`
 
 ## 概述
 

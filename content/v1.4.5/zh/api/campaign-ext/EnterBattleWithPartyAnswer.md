@@ -8,7 +8,7 @@ description: "EnterBattleWithPartyAnswer 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class EnterBattleWithPartyAnswer : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/EnterBattleWithPartyAnswer.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/EnterBattleWithPartyAnswer.cs`
 
 ## 概述
 

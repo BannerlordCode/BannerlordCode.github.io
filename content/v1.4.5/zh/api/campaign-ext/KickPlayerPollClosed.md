@@ -8,7 +8,7 @@ description: "KickPlayerPollClosed 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class KickPlayerPollClosed : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/KickPlayerPollClosed.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/KickPlayerPollClosed.cs`
 
 ## 概述
 

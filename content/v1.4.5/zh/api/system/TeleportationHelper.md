@@ -66,7 +66,7 @@ if (hero.IsTraveling)
 
 这段代码只读取 Campaign behavior 当前的倒计时。它不会推进时间或强制到达；behavior 的 hourly tick 与 delayed-teleport model 才拥有这个生命周期。
 
-## 依赖与所有权
+## 依赖
 
 - [Campaign](../../campaign/Campaign) 是解析 `ITeleportationCampaignBehavior` 的 service locator。
 - [ITeleportationCampaignBehavior](../../campaign/ITeleportationCampaignBehavior) 持有到达时间和目标信息的公开查询契约。

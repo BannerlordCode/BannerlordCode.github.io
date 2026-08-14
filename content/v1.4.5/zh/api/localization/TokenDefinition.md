@@ -8,7 +8,7 @@ description: "TokenDefinition 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class TokenDefinition`
 **Base:** 无
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor/TokenDefinition.cs`
+**File:** `TaleWorlds.Localization/TextProcessor/TokenDefinition.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "RemoveClanAnnouncementMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class RemoveClanAnnouncementMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/RemoveClanAnnouncementMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/RemoveClanAnnouncementMessage.cs`
 
 ## 概述
 

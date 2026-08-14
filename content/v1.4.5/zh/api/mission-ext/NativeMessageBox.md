@@ -8,7 +8,7 @@ description: "NativeMessageBox 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class NativeMessageBox`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/NativeMessageBox.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/NativeMessageBox.cs`
 
 ## 概述
 
@@ -21,19 +21,19 @@ description: "NativeMessageBox 的自动生成类参考。"
 ## 主要方法
 
 ### Show
-`public static Result Show(string text, string caption = "Message", Buttons buttons = Buttons.OK, Icon icon = Icon.None)`
+`public static NativeMessageBox.Result Show(string text, string caption = "Message", NativeMessageBox.Buttons buttons = NativeMessageBox.Buttons.OK, NativeMessageBox.Icon icon = NativeMessageBox.Icon.None)`
 
 **用途 / Purpose:** 显示当前对象对应的界面或元素。
 
 ```csharp
 // 静态调用，不需要实例
-NativeMessageBox.Show("example", "example", buttons.OK, icon.None);
+NativeMessageBox.Show("example", "example", nativeMessageBox.Buttons.OK, nativeMessageBox.Icon.None);
 ```
 
 ## 使用示例
 
 ```csharp
-NativeMessageBox.Show("example", "example", buttons.OK, icon.None);
+NativeMessageBox.Show("example", "example", nativeMessageBox.Buttons.OK, nativeMessageBox.Icon.None);
 ```
 
 ## 参见

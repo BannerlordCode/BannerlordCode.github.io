@@ -8,7 +8,7 @@ description: "BehaviorShootFromCastleWalls 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorShootFromCastleWalls : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorShootFromCastleWalls.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorShootFromCastleWalls.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "BehaviorShootFromCastleWalls 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `ArcherPosition` | `public GameEntity ArcherPosition { get; set; }` |
+| `NavmeshlessTargetPositionPenalty` | `public override float NavmeshlessTargetPositionPenalty { get; }` |
 
 ## 主要方法
 

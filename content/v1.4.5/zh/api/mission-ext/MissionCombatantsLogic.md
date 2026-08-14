@@ -8,7 +8,7 @@ description: "MissionCombatantsLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionCombatantsLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionCombatantsLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionCombatantsLogic.cs`
 
 ## 概述
 
@@ -82,13 +82,13 @@ var result = missionCombatantsLogic.GetAllCombatants();
 ```
 
 ### SupportsAllyTeamOnPlayerSide
-`public static bool SupportsAllyTeamOnPlayerSide(IEnumerable<IBattleCombatant> playerSideBattleCombatants, IBattleCombatant playerBattleCombatant, bool isPlayerSergeant, bool isNavalLandHybridMission, out IBattleCombatant allyCombatant)`
+`public static bool SupportsAllyTeamOnPlayerSide(IEnumerable<IBattleCombatant> playerSideBattleCombatants, IBattleCombatant playerBattleCombatant, bool isPlayerSergeant, out IBattleCombatant allyCombatant)`
 
 **用途 / Purpose:** 调用 SupportsAllyTeamOnPlayerSide 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
-MissionCombatantsLogic.SupportsAllyTeamOnPlayerSide(playerSideBattleCombatants, playerBattleCombatant, false, false, allyCombatant);
+MissionCombatantsLogic.SupportsAllyTeamOnPlayerSide(playerSideBattleCombatants, playerBattleCombatant, false, allyCombatant);
 ```
 
 ## 使用示例

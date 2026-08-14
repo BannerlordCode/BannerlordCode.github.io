@@ -1,0 +1,53 @@
+---
+title: "DefaultBuildingScoreCalculationModel"
+description: "DefaultBuildingScoreCalculationModel 的自动生成类参考。"
+---
+# DefaultBuildingScoreCalculationModel
+
+**Namespace:** TaleWorlds.CampaignSystem.GameComponents
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class DefaultBuildingScoreCalculationModel : BuildingScoreCalculationModel`
+**Base:** `BuildingScoreCalculationModel`
+**File:** `TaleWorlds.CampaignSystem/GameComponents/DefaultBuildingScoreCalculationModel.cs`
+
+## 概述
+
+`DefaultBuildingScoreCalculationModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultBuildingScoreCalculationModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要方法
+
+### GetNextDailyBuilding
+`public override Building GetNextDailyBuilding(Town town)`
+
+**用途 / Purpose:** 读取并返回当前对象中 next daily building 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBuildingScoreCalculationModel 实例
+DefaultBuildingScoreCalculationModel defaultBuildingScoreCalculationModel = ...;
+var result = defaultBuildingScoreCalculationModel.GetNextDailyBuilding(town);
+```
+
+### GetNextBuilding
+`public override Building GetNextBuilding(Town town)`
+
+**用途 / Purpose:** 读取并返回当前对象中 next building 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBuildingScoreCalculationModel 实例
+DefaultBuildingScoreCalculationModel defaultBuildingScoreCalculationModel = ...;
+var result = defaultBuildingScoreCalculationModel.GetNextBuilding(town);
+```
+
+## 使用示例
+
+```csharp
+Game.Current.ReplaceModel<DefaultBuildingScoreCalculationModel>(new MyDefaultBuildingScoreCalculationModel());
+```
+
+## 参见
+
+- [本区域目录](../)

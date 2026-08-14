@@ -8,7 +8,7 @@ description: "GameKeyDefinition 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum GameKeyDefinition`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameKeyDefinition.cs`
+**File:** `TaleWorlds.MountAndBlade/GameKeyDefinition.cs`
 
 ## 概述
 

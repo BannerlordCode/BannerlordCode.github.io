@@ -8,7 +8,7 @@ description: "IFaceGen 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface IFaceGen`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IFaceGen.cs`
+**File:** `TaleWorlds.Core/IFaceGen.cs`
 
 ## 概述
 

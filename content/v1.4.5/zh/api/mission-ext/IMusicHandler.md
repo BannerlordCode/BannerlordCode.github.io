@@ -8,7 +8,7 @@ description: "IMusicHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IMusicHandler`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMusicHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/IMusicHandler.cs`
 
 ## 概述
 

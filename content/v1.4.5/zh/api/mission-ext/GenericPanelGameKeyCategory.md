@@ -8,7 +8,7 @@ description: "GenericPanelGameKeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GenericPanelGameKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GenericPanelGameKeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/GenericPanelGameKeyCategory.cs`
 
 ## 概述
 

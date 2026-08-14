@@ -8,7 +8,7 @@ description: "CrashInformation 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public static class CrashInformation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/CrashInformationCollector.cs`
+**File:** `TaleWorlds.Engine/CrashInformationCollector.cs`
 
 ## 概述
 

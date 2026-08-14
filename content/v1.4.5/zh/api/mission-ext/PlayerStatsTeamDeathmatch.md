@@ -8,7 +8,7 @@ description: "PlayerStatsTeamDeathmatch 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerStatsTeamDeathmatch : PlayerStatsBase`
 **Base:** `PlayerStatsBase`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsTeamDeathmatch.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerStatsTeamDeathmatch.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "PlayerStatsTeamDeathmatch 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Score` | `public int Score { get; set; }` |
+| `AverageScore` | `public float AverageScore { get; }` |
 
 ## 主要方法
 

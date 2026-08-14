@@ -8,7 +8,7 @@ description: "EntityVisibilityFlags 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum EntityVisibilityFlags : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/EntityVisibilityFlags.cs`
+**File:** `TaleWorlds.Engine/EntityVisibilityFlags.cs`
 
 ## 概述
 

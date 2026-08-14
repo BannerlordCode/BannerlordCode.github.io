@@ -8,7 +8,7 @@ description: "DefaultSiegeEngineCalculationModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultSiegeEngineCalculationModel : MissionSiegeEngineCalculationModel`
 **Base:** `MissionSiegeEngineCalculationModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/DefaultSiegeEngineCalculationModel.cs`
+**File:** `TaleWorlds.MountAndBlade/ComponentInterfaces/DefaultSiegeEngineCalculationModel.cs`
 
 ## 概述
 

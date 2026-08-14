@@ -8,7 +8,7 @@ description: "TauntUsageSet 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class TauntUsageSet`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TauntUsageManager.cs`
+**File:** `TaleWorlds.Core/TauntUsageManager.cs`
 
 ## 概述
 
@@ -21,7 +21,7 @@ description: "TauntUsageSet 的自动生成类参考。"
 ## 主要方法
 
 ### AddUsage
-`public void AddUsage(TauntUsage usage)`
+`public void AddUsage(TauntUsageManager.TauntUsage usage)`
 
 **用途 / Purpose:** 将 usage 添加到当前容器或状态中。
 
@@ -32,7 +32,7 @@ tauntUsageSet.AddUsage(usage);
 ```
 
 ### GetUsages
-`public MBReadOnlyList<TauntUsage> GetUsages()`
+`public MBReadOnlyList<TauntUsageManager.TauntUsage> GetUsages()`
 
 **用途 / Purpose:** 读取并返回当前对象中 usages 的结果。
 

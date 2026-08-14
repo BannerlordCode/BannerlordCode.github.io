@@ -8,7 +8,7 @@ description: "MBTestRun 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBTestRun`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBTestRun.cs`
+**File:** `TaleWorlds.MountAndBlade/MBTestRun.cs`
 
 ## 概述
 

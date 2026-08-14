@@ -8,7 +8,7 @@ description: "ConfigurationManager 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class ConfigurationManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ConfigurationManager.cs`
+**File:** `TaleWorlds.Library/ConfigurationManager.cs`
 
 ## 概述
 

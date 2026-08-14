@@ -8,7 +8,7 @@ description: "ClassCode 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class ClassCode`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/ClassCode.cs`
+**File:** `TaleWorlds.Library/CodeGeneration/ClassCode.cs`
 
 ## 概述
 

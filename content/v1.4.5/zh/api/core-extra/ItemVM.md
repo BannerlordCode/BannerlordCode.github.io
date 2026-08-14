@@ -8,7 +8,7 @@ description: "ItemVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class ItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection/ItemVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/ItemVM.cs`
 
 ## 概述
 

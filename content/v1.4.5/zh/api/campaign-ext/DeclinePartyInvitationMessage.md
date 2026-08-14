@@ -8,7 +8,7 @@ description: "DeclinePartyInvitationMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class DeclinePartyInvitationMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/DeclinePartyInvitationMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/DeclinePartyInvitationMessage.cs`
 
 ## 概述
 

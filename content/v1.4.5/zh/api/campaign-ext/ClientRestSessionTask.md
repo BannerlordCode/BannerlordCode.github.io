@@ -8,7 +8,7 @@ description: "ClientRestSessionTask 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `internal class ClientRestSessionTask`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/ClientRestSessionTask.cs`
+**File:** `TaleWorlds.Diamond/Rest/ClientRestSessionTask.cs`
 
 ## 概述
 
@@ -54,7 +54,7 @@ clientRestSessionTask.Tick();
 ```
 
 ### WaitUntilFinished
-`public async Task WaitUntilFinished()`
+`public Task WaitUntilFinished()`
 
 **用途 / Purpose:** 暂停当前流程，直到until finished条件满足。
 

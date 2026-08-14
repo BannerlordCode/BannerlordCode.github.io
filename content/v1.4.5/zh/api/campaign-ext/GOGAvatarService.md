@@ -8,7 +8,7 @@ description: "GOGAvatarService 的自动生成类参考。"
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public class GOGAvatarService : IAvatarService`
 **Base:** `IAvatarService`
-**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/GOGAvatarService.cs`
+**File:** `TaleWorlds.PlayerServices/PlayerServices/Avatar/GOGAvatarService.cs`
 
 ## 概述
 

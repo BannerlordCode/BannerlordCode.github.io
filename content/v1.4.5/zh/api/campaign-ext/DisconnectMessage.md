@@ -8,7 +8,7 @@ description: "DisconnectMessage 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class DisconnectMessage : RestRequestMessage`
 **Base:** `RestRequestMessage`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/DisconnectMessage.cs`
+**File:** `TaleWorlds.Diamond/Rest/DisconnectMessage.cs`
 
 ## 概述
 

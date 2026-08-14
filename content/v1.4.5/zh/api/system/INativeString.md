@@ -8,7 +8,7 @@ description: "INativeString 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `internal interface INativeString`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/INativeString.cs`
+**File:** `TaleWorlds.DotNet/INativeString.cs`
 
 ## 概述
 

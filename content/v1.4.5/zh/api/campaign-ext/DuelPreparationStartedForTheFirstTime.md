@@ -8,7 +8,7 @@ description: "DuelPreparationStartedForTheFirstTime 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class DuelPreparationStartedForTheFirstTime : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/DuelPreparationStartedForTheFirstTime.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/DuelPreparationStartedForTheFirstTime.cs`
 
 ## 概述
 

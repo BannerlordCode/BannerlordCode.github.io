@@ -8,7 +8,7 @@ description: "UintBasicTypeSerializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class UintBasicTypeSerializer : IBasicTypeSerializer`
 **Base:** `IBasicTypeSerializer`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/UintBasicTypeSerializer.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/UintBasicTypeSerializer.cs`
 
 ## 概述
 

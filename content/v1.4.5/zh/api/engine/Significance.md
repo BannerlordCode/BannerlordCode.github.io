@@ -8,7 +8,7 @@ description: "Significance 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum Significance`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Highlights.cs`
+**File:** `TaleWorlds.Engine/Highlights.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "HandleMissileCollisionReaction 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class HandleMissileCollisionReaction : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/HandleMissileCollisionReaction.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/HandleMissileCollisionReaction.cs`
 
 ## 概述
 

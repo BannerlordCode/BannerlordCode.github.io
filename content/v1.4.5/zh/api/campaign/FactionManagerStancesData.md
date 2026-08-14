@@ -8,7 +8,7 @@ description: "FactionManagerStancesData 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class FactionManagerStancesData`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/FactionManagerStancesData.cs`
+**File:** `TaleWorlds.CampaignSystem/FactionManagerStancesData.cs`
 
 ## 概述
 
@@ -19,6 +19,17 @@ description: "FactionManagerStancesData 的自动生成类参考。"
 把 `FactionManagerStancesData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
+
+### GetStanceLinks
+`public Dictionary<ValueTuple<IFaction, IFaction>, StanceLink>.ValueCollection GetStanceLinks()`
+
+**用途 / Purpose:** 读取并返回当前对象中 stance links 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FactionManagerStancesData 实例
+FactionManagerStancesData factionManagerStancesData = ...;
+var result = factionManagerStancesData.GetStanceLinks();
+```
 
 ### AddStance
 `public void AddStance(StanceLink stance)`

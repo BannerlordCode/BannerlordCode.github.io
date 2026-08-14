@@ -6,9 +6,9 @@ description: "DevelopmentQueueVisualIconWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class DevelopmentQueueVisualIconWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/DevelopmentQueueVisualIconWidget.cs`
+**Type:** `public class DevelopmentQueueVisualIconWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Menu/TownManagement/DevelopmentQueueVisualIconWidget.cs`
 
 ## 概述
 
@@ -25,19 +25,6 @@ description: "DevelopmentQueueVisualIconWidget 的自动生成类参考。"
 | `QueueIndex` | `public int QueueIndex { get; set; }` |
 | `QueueIconWidget` | `public Widget QueueIconWidget { get; set; }` |
 | `InProgressIconWidget` | `public BrushWidget InProgressIconWidget { get; set; }` |
-
-## 主要方法
-
-### DevelopmentQueueVisualIconWidget
-`public class DevelopmentQueueVisualIconWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 DevelopmentQueueVisualIconWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 DevelopmentQueueVisualIconWidget 实例
-DevelopmentQueueVisualIconWidget developmentQueueVisualIconWidget = ...;
-var result = developmentQueueVisualIconWidget.DevelopmentQueueVisualIconWidget(context);
-```
 
 ## 使用示例
 

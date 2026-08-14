@@ -8,7 +8,7 @@ description: "SunInformation 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct SunInformation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SunInformation.cs`
+**File:** `TaleWorlds.Library/SunInformation.cs`
 
 ## 概述
 

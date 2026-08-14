@@ -8,7 +8,7 @@ description: "BannerlordTableauManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class BannerlordTableauManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BannerlordTableauManager.cs`
+**File:** `TaleWorlds.MountAndBlade/BannerlordTableauManager.cs`
 
 ## 概述
 
@@ -18,18 +18,13 @@ description: "BannerlordTableauManager 的自动生成类参考。"
 
 把 `BannerlordTableauManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `TableauCharacterScenes` | `public static Scene TableauCharacterScenes { get; }` |
+
 ## 主要方法
-
-### RequestCharacterTableauSetupDelegate
-`public delegate void RequestCharacterTableauSetupDelegate(int characterCodeId, Scene scene, GameEntity poseEntity)`
-
-**用途 / Purpose:** 调用 RequestCharacterTableauSetupDelegate 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 BannerlordTableauManager 实例
-BannerlordTableauManager bannerlordTableauManager = ...;
-bannerlordTableauManager.RequestCharacterTableauSetupDelegate(0, scene, poseEntity);
-```
 
 ### RequestCharacterTableauRender
 `public static void RequestCharacterTableauRender(int characterCodeId, string path, GameEntity poseEntity, Camera cameraObject, int tableauType)`
@@ -69,6 +64,17 @@ BannerlordTableauManager.InitializeCharacterTableauRenderSystem();
 ```csharp
 // 静态调用，不需要实例
 BannerlordTableauManager.GetNumberOfPendingTableauRequests();
+```
+
+### RequestCharacterTableauSetupDelegate
+`public delegate void RequestCharacterTableauSetupDelegate(int characterCodeId, Scene scene, GameEntity poseEntity)`
+
+**用途 / Purpose:** 调用 RequestCharacterTableauSetupDelegate 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BannerlordTableauManager 实例
+BannerlordTableauManager bannerlordTableauManager = ...;
+bannerlordTableauManager.RequestCharacterTableauSetupDelegate(0, scene, poseEntity);
 ```
 
 ## 使用示例

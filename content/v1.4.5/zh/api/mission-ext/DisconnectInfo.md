@@ -8,7 +8,7 @@ description: "DisconnectInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DisconnectInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/DisconnectInfo.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/DisconnectInfo.cs`
 
 ## 概述
 

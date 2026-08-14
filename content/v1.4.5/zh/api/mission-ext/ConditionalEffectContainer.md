@@ -8,7 +8,7 @@ description: "ConditionalEffectContainer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ConditionalEffectContainer : List<MPConditionalEffect>`
 **Base:** `List<MPConditionalEffect>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPConditionalEffect.cs`
+**File:** `TaleWorlds.MountAndBlade/MPConditionalEffect.cs`
 
 ## 概述
 

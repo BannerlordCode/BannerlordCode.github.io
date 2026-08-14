@@ -8,7 +8,7 @@ description: "BehaviorAdvance 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class BehaviorAdvance : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorAdvance.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorAdvance.cs`
 
 ## 概述
 

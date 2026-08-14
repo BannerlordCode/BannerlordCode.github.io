@@ -8,7 +8,7 @@ description: "NativeSelectionOptionData 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class NativeSelectionOptionData : NativeOptionData, ISelectionOptionData, IOptionData`
 **Base:** `NativeOptionData`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeSelectionOptionData.cs`
+**File:** `TaleWorlds.Engine/Options/NativeSelectionOptionData.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "TcpSocket 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `internal class TcpSocket`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/TcpSocket.cs`
+**File:** `TaleWorlds.Network/TcpSocket.cs`
 
 ## 概述
 

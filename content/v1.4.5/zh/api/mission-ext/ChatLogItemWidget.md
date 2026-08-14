@@ -8,7 +8,7 @@ description: "ChatLogItemWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ChatLogItemWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat/ChatLogItemWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Chat/ChatLogItemWidget.cs`
 
 ## 概述
 
@@ -26,19 +26,6 @@ description: "ChatLogItemWidget 的自动生成类参考。"
 | `CollapsableWidget` | `public ChatCollapsableListPanel CollapsableWidget { get; set; }` |
 | `ChatLine` | `public string ChatLine { get; set; }` |
 | `ChatLogWidget` | `public ChatLogWidget ChatLogWidget { get; set; }` |
-
-## 主要方法
-
-### ChatMultiLineElement
-`public struct ChatMultiLineElement(string line, int identModifier)`
-
-**用途 / Purpose:** 调用 ChatMultiLineElement 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ChatLogItemWidget 实例
-ChatLogItemWidget chatLogItemWidget = ...;
-var result = chatLogItemWidget.ChatMultiLineElement("example", 0);
-```
 
 ## 使用示例
 

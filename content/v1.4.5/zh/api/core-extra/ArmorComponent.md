@@ -8,7 +8,7 @@ description: "ArmorComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class ArmorComponent : ItemComponent`
 **Base:** `ItemComponent`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ArmorComponent.cs`
+**File:** `TaleWorlds.Core/ArmorComponent.cs`
 
 ## 概述
 
@@ -31,17 +31,17 @@ description: "ArmorComponent 的自动生成类参考。"
 | `ChargeBonus` | `public int ChargeBonus { get; }` |
 | `FamilyType` | `public int FamilyType { get; }` |
 | `MultiMeshHasGenderVariations` | `public bool MultiMeshHasGenderVariations { get; }` |
-| `MaterialType` | `public ArmorMaterialTypes MaterialType { get; }` |
+| `MaterialType` | `public ArmorComponent.ArmorMaterialTypes MaterialType { get; }` |
 | `MeshesMask` | `public SkinMask MeshesMask { get; }` |
-| `BodyMeshType` | `public BodyMeshTypes BodyMeshType { get; }` |
-| `BodyDeformType` | `public BodyDeformTypes BodyDeformType { get; }` |
-| `HairCoverType` | `public HairCoverTypes HairCoverType { get; }` |
-| `BeardCoverType` | `public BeardCoverTypes BeardCoverType { get; }` |
-| `ManeCoverType` | `public HorseHarnessCoverTypes ManeCoverType { get; }` |
-| `TailCoverType` | `public HorseTailCoverTypes TailCoverType { get; }` |
+| `BodyMeshType` | `public ArmorComponent.BodyMeshTypes BodyMeshType { get; }` |
+| `BodyDeformType` | `public ArmorComponent.BodyDeformTypes BodyDeformType { get; }` |
+| `HairCoverType` | `public ArmorComponent.HairCoverTypes HairCoverType { get; }` |
+| `BeardCoverType` | `public ArmorComponent.BeardCoverTypes BeardCoverType { get; }` |
+| `ManeCoverType` | `public ArmorComponent.HorseHarnessCoverTypes ManeCoverType { get; }` |
+| `TailCoverType` | `public ArmorComponent.HorseTailCoverTypes TailCoverType { get; }` |
 | `StealthFactor` | `public int StealthFactor { get; }` |
 | `ReinsMesh` | `public string ReinsMesh { get; }` |
-| `IsNoSlim` | `public bool IsNoSlim { get; }` |
+| `ReinsRopeMesh` | `public string ReinsRopeMesh { get; }` |
 
 ## 主要方法
 

@@ -8,7 +8,7 @@ description: "JoinPremadeGameAnswerMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class JoinPremadeGameAnswerMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/JoinPremadeGameAnswerMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/JoinPremadeGameAnswerMessage.cs`
 
 ## 概述
 

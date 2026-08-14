@@ -8,7 +8,7 @@ description: "SelectAllFormations 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class SelectAllFormations : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/SelectAllFormations.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/SelectAllFormations.cs`
 
 ## 概述
 

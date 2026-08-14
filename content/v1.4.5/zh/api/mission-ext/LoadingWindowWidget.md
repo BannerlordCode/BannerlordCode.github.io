@@ -8,7 +8,7 @@ description: "LoadingWindowWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LoadingWindowWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Loading/LoadingWindowWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Loading/LoadingWindowWidget.cs`
 
 ## 概述
 

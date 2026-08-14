@@ -8,7 +8,7 @@ description: "CultureVoteServer 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class CultureVoteServer : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/CultureVoteServer.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/CultureVoteServer.cs`
 
 ## 概述
 

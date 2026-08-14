@@ -8,7 +8,7 @@ description: "FaceGenerationParams 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FaceGenerationParams`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FaceGenerationParams.cs`
+**File:** `TaleWorlds.MountAndBlade/FaceGenerationParams.cs`
 
 ## 概述
 

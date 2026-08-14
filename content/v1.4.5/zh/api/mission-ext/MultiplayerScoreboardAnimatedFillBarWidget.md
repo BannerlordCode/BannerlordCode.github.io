@@ -8,7 +8,7 @@ description: "MultiplayerScoreboardAnimatedFillBarWidget 的自动生成类参�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerScoreboardAnimatedFillBarWidget : FillBarWidget`
 **Base:** `FillBarWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard/MultiplayerScoreboardAnimatedFillBarWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Scoreboard/MultiplayerScoreboardAnimatedFillBarWidget.cs`
 
 ## 概述
 
@@ -24,31 +24,21 @@ description: "MultiplayerScoreboardAnimatedFillBarWidget 的自动生成类参�
 |------|-----------|
 | `IsStartRequested` | `public bool IsStartRequested { get; set; }` |
 | `AnimationDelay` | `public float AnimationDelay { get; set; }` |
-| `AnimationFillSpeed` | `public float AnimationFillSpeed { get; set; }` |
+| `AnimationDuration` | `public float AnimationDuration { get; set; }` |
 | `TimesOfFullFill` | `public int TimesOfFullFill { get; set; }` |
+| `ChangeOverlayWidget` | `public Widget ChangeOverlayWidget { get; set; }` |
 
 ## 主要方法
 
-### FullFillFinishedHandler
-`public delegate void FullFillFinishedHandler(bool isPositive)`
-
-**用途 / Purpose:** 调用 FullFillFinishedHandler 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerScoreboardAnimatedFillBarWidget 实例
-MultiplayerScoreboardAnimatedFillBarWidget multiplayerScoreboardAnimatedFillBarWidget = ...;
-multiplayerScoreboardAnimatedFillBarWidget.FullFillFinishedHandler(false);
-```
-
 ### StartAnimation
-`public void StartAnimation(float animationDelay = 0f)`
+`public void StartAnimation()`
 
 **用途 / Purpose:** 启动animation流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerScoreboardAnimatedFillBarWidget 实例
 MultiplayerScoreboardAnimatedFillBarWidget multiplayerScoreboardAnimatedFillBarWidget = ...;
-multiplayerScoreboardAnimatedFillBarWidget.StartAnimation(0);
+multiplayerScoreboardAnimatedFillBarWidget.StartAnimation();
 ```
 
 ### Reset
@@ -60,6 +50,17 @@ multiplayerScoreboardAnimatedFillBarWidget.StartAnimation(0);
 // 先通过子系统 API 拿到 MultiplayerScoreboardAnimatedFillBarWidget 实例
 MultiplayerScoreboardAnimatedFillBarWidget multiplayerScoreboardAnimatedFillBarWidget = ...;
 multiplayerScoreboardAnimatedFillBarWidget.Reset();
+```
+
+### FullFillFinishedHandler
+`public delegate void FullFillFinishedHandler()`
+
+**用途 / Purpose:** 调用 FullFillFinishedHandler 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerScoreboardAnimatedFillBarWidget 实例
+MultiplayerScoreboardAnimatedFillBarWidget multiplayerScoreboardAnimatedFillBarWidget = ...;
+multiplayerScoreboardAnimatedFillBarWidget.FullFillFinishedHandler();
 ```
 
 ## 使用示例

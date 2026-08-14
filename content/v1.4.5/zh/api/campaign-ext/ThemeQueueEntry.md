@@ -8,7 +8,7 @@ description: "ThemeQueueEntry 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `internal class ThemeQueueEntry : ICloneable`
 **Base:** `ICloneable`
-**File:** `bin/TaleWorlds.PSAI/psai.net/ThemeQueueEntry.cs`
+**File:** `TaleWorlds.PSAI/net/ThemeQueueEntry.cs`
 
 ## 概述
 

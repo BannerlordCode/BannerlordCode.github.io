@@ -8,7 +8,7 @@ description: "PhysicsMaterialFlags 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum PhysicsMaterialFlags : byte`
 **Base:** `byte`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/PhysicsMaterialFlags.cs`
+**File:** `TaleWorlds.Engine/PhysicsMaterialFlags.cs`
 
 ## 概述
 

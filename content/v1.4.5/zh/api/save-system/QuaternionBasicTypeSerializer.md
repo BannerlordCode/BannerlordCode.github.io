@@ -8,7 +8,7 @@ description: "QuaternionBasicTypeSerializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class QuaternionBasicTypeSerializer : IBasicTypeSerializer`
 **Base:** `IBasicTypeSerializer`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/QuaternionBasicTypeSerializer.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/QuaternionBasicTypeSerializer.cs`
 
 ## 概述
 

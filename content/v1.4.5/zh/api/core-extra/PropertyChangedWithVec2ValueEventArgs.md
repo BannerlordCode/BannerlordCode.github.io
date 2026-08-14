@@ -8,7 +8,7 @@ description: "PropertyChangedWithVec2ValueEventArgs 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct PropertyChangedWithVec2ValueEventArgs`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithVec2ValueEventArgs.cs`
+**File:** `TaleWorlds.Library/PropertyChangedWithVec2ValueEventArgs.cs`
 
 ## 概述
 
@@ -25,25 +25,11 @@ description: "PropertyChangedWithVec2ValueEventArgs 的自动生成类参考。"
 | `PropertyName` | `public string PropertyName { get; }` |
 | `Value` | `public Vec2 Value { get; }` |
 
-## 主要方法
-
-### PropertyChangedWithVec2ValueEventArgs
-`public struct PropertyChangedWithVec2ValueEventArgs(string propertyName, Vec2 value)`
-
-**用途 / Purpose:** 调用 PropertyChangedWithVec2ValueEventArgs 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 PropertyChangedWithVec2ValueEventArgs 实例
-PropertyChangedWithVec2ValueEventArgs propertyChangedWithVec2ValueEventArgs = ...;
-var result = propertyChangedWithVec2ValueEventArgs.PropertyChangedWithVec2ValueEventArgs("example", value);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-PropertyChangedWithVec2ValueEventArgs propertyChangedWithVec2ValueEventArgs = ...;
-propertyChangedWithVec2ValueEventArgs.PropertyChangedWithVec2ValueEventArgs("example", value);
+// 从对应子系统 API 获取实例
+PropertyChangedWithVec2ValueEventArgs instance = ...;
 ```
 
 ## 参见

@@ -8,7 +8,7 @@ description: "JournalLogIndex 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `enum JournalLogIndex`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Quests/QuestItemSortControllerVM.cs`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Quests/QuestItemSortControllerVM.cs`
 
 ## 概述
 

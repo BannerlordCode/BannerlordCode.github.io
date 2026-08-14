@@ -8,7 +8,7 @@ description: "InventoryEquippedItemSlotWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InventoryEquippedItemSlotWidget : InventoryItemButtonWidget`
 **Base:** `InventoryItemButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryEquippedItemSlotWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Inventory/InventoryEquippedItemSlotWidget.cs`
 
 ## 概述
 

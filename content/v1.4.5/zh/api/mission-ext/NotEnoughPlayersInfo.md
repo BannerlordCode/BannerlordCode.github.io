@@ -8,7 +8,7 @@ description: "NotEnoughPlayersInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class NotEnoughPlayersInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/NotEnoughPlayersInfo.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/NotEnoughPlayersInfo.cs`
 
 ## 概述
 

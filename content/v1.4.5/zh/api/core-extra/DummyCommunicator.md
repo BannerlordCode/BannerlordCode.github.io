@@ -8,7 +8,7 @@ description: "DummyCommunicator 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class DummyCommunicator : ICommunicator`
 **Base:** `ICommunicator`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/DummyCommunicator.cs`
+**File:** `TaleWorlds.Core/DummyCommunicator.cs`
 
 ## 概述
 
@@ -23,6 +23,9 @@ description: "DummyCommunicator 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `VirtualPlayer` | `public VirtualPlayer VirtualPlayer { get; }` |
+| `IsNetworkActive` | `public bool IsNetworkActive { get; }` |
+| `IsConnectionActive` | `public bool IsConnectionActive { get; set; }` |
+| `IsServerPeer` | `public bool IsServerPeer { get; set; }` |
 | `IsSynchronized` | `public bool IsSynchronized { get; set; }` |
 
 ## 主要方法

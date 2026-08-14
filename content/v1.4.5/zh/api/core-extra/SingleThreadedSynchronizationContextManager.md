@@ -8,7 +8,7 @@ description: "SingleThreadedSynchronizationContextManager 的自动生成类参�
 **Module:** TaleWorlds.Library
 **Type:** `public static class SingleThreadedSynchronizationContextManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SingleThreadedSynchronizationContextManager.cs`
+**File:** `TaleWorlds.Library/SingleThreadedSynchronizationContextManager.cs`
 
 ## 概述
 

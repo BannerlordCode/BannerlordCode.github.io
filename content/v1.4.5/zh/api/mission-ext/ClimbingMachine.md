@@ -8,7 +8,7 @@ description: "ClimbingMachine 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClimbingMachine : UsableMachine`
 **Base:** `UsableMachine`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Usables/ClimbingMachine.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Usables/ClimbingMachine.cs`
 
 ## 概述
 
@@ -17,6 +17,12 @@ description: "ClimbingMachine 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.MountAndBlade.Objects.Usables` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `SinkingReferenceOffset` | `public override float SinkingReferenceOffset { get; }` |
 
 ## 主要方法
 
@@ -43,7 +49,7 @@ var result = climbingMachine.GetDescriptionText(gameEntity);
 ```
 
 ### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
 **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
@@ -62,17 +68,6 @@ var result = climbingMachine.GetTickRequirement();
 // 先通过子系统 API 拿到 ClimbingMachine 实例
 ClimbingMachine climbingMachine = ...;
 climbingMachine.OnDeploymentFinished();
-```
-
-### OnMissionEnded
-`public override void OnMissionEnded()`
-
-**用途 / Purpose:** 在 mission ended 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 ClimbingMachine 实例
-ClimbingMachine climbingMachine = ...;
-climbingMachine.OnMissionEnded();
 ```
 
 ## 使用示例

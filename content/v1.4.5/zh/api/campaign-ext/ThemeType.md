@@ -8,7 +8,7 @@ description: "ThemeType 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `public enum ThemeType`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/ThemeType.cs`
+**File:** `TaleWorlds.PSAI/net/ThemeType.cs`
 
 ## 概述
 

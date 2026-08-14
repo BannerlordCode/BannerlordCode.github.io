@@ -8,7 +8,7 @@ description: "CustomBattleId 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct CustomBattleId`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/CustomBattleId.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/CustomBattleId.cs`
 
 ## 概述
 

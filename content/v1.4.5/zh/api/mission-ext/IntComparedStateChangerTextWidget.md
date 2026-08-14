@@ -8,7 +8,7 @@ description: "IntComparedStateChangerTextWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class IntComparedStateChangerTextWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/IntComparedStateChangerTextWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/IntComparedStateChangerTextWidget.cs`
 
 ## 概述
 
@@ -22,7 +22,7 @@ description: "IntComparedStateChangerTextWidget 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `ComparisonType` | `public ComparisonTypes ComparisonType { get; set; }` |
+| `ComparisonType` | `public IntComparedStateChangerTextWidget.ComparisonTypes ComparisonType { get; set; }` |
 | `FirstValue` | `public int FirstValue { get; set; }` |
 | `SecondValue` | `public int SecondValue { get; set; }` |
 | `TrueState` | `public string TrueState { get; set; }` |

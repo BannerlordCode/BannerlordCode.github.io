@@ -8,7 +8,7 @@ description: "OrderCircleActionSelectorParentWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderCircleActionSelectorParentWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order/OrderCircleActionSelectorParentWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Order/OrderCircleActionSelectorParentWidget.cs`
 
 ## 概述
 

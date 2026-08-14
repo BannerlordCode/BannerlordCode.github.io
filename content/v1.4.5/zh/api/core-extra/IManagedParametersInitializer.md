@@ -8,7 +8,7 @@ description: "IManagedParametersInitializer 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface IManagedParametersInitializer`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IManagedParametersInitializer.cs`
+**File:** `TaleWorlds.Core/IManagedParametersInitializer.cs`
 
 ## 概述
 

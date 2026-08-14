@@ -8,7 +8,7 @@ description: "CallbackStringBufferManager 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public static class CallbackStringBufferManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/CallbackStringBufferManager.cs`
+**File:** `TaleWorlds.DotNet/CallbackStringBufferManager.cs`
 
 ## 概述
 
@@ -17,6 +17,17 @@ description: "CallbackStringBufferManager 的自动生成类参考。"
 ## 心智模型
 
 把 `CallbackStringBufferManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `StringBuffer0` | `public static byte StringBuffer0 { get; }` |
+| `StringBuffer1` | `public static byte StringBuffer1 { get; }` |
+| `StringBuffer2` | `public static byte StringBuffer2 { get; }` |
+| `StringBuffer3` | `public static byte StringBuffer3 { get; }` |
+| `StringBuffer4` | `public static byte StringBuffer4 { get; }` |
+| `StringBuffer5` | `public static byte StringBuffer5 { get; }` |
 
 ## 使用示例
 

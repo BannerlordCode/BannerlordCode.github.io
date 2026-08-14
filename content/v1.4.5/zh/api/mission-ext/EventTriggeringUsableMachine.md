@@ -8,7 +8,7 @@ description: "EventTriggeringUsableMachine 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EventTriggeringUsableMachine : UsableMachine`
 **Base:** `UsableMachine`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Usables/EventTriggeringUsableMachine.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Usables/EventTriggeringUsableMachine.cs`
 
 ## 概述
 
@@ -17,6 +17,13 @@ description: "EventTriggeringUsableMachine 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.MountAndBlade.Objects.Usables` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `ActionText` | `public TextObject ActionText { get; }` |
+| `DescriptionText` | `public TextObject DescriptionText { get; }` |
 
 ## 主要方法
 

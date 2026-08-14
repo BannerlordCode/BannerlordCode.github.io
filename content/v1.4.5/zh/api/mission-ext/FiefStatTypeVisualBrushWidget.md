@@ -6,9 +6,9 @@ description: "FiefStatTypeVisualBrushWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class FiefStatTypeVisualBrushWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/FiefStatTypeVisualBrushWidget.cs`
+**Type:** `public class FiefStatTypeVisualBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/FiefStatTypeVisualBrushWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "FiefStatTypeVisualBrushWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Type` | `public int Type { get; set; }` |
-
-## 主要方法
-
-### FiefStatTypeVisualBrushWidget
-`public class FiefStatTypeVisualBrushWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 FiefStatTypeVisualBrushWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 FiefStatTypeVisualBrushWidget 实例
-FiefStatTypeVisualBrushWidget fiefStatTypeVisualBrushWidget = ...;
-var result = fiefStatTypeVisualBrushWidget.FiefStatTypeVisualBrushWidget(context);
-```
 
 ## 使用示例
 

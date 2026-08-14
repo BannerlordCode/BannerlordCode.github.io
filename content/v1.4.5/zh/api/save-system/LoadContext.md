@@ -8,7 +8,7 @@ description: "LoadContext 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class LoadContext`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/LoadContext.cs`
+**File:** `TaleWorlds.SaveSystem/Load/LoadContext.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "LoadContext 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `EnableLoadStatistics` | `public static bool EnableLoadStatistics { get; }` |
 | `RootObject` | `public object RootObject { get; }` |
 | `DefinitionContext` | `public DefinitionContext DefinitionContext { get; }` |
 | `Driver` | `public ISaveDriver Driver { get; }` |

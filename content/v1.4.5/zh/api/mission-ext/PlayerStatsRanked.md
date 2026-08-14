@@ -8,7 +8,7 @@ description: "PlayerStatsRanked 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerStatsRanked : PlayerStatsBase`
 **Base:** `PlayerStatsBase`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsRanked.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerStatsRanked.cs`
 
 ## 概述
 

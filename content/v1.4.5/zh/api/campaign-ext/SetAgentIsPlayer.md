@@ -8,7 +8,7 @@ description: "SetAgentIsPlayer 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetAgentIsPlayer : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetAgentIsPlayer.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetAgentIsPlayer.cs`
 
 ## 概述
 

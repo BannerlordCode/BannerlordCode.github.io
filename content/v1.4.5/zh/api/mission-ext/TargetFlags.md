@@ -8,7 +8,7 @@ description: "TargetFlags 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum TargetFlags`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TargetFlags.cs`
+**File:** `TaleWorlds.MountAndBlade/TargetFlags.cs`
 
 ## 概述
 

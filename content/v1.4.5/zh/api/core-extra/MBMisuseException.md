@@ -8,7 +8,7 @@ description: "MBMisuseException 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MBMisuseException : MBException`
 **Base:** `MBException`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBMisuseException.cs`
+**File:** `TaleWorlds.Core/MBMisuseException.cs`
 
 ## 概述
 

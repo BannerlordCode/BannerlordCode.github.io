@@ -8,7 +8,7 @@ description: "GameTextVariation 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct GameTextVariation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/GameText.cs`
+**File:** `TaleWorlds.Core/GameText.cs`
 
 ## 概述
 

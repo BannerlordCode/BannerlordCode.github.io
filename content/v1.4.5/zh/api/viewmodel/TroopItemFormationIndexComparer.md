@@ -8,7 +8,7 @@ description: "TroopItemFormationIndexComparer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `class TroopItemFormationIndexComparer : IComparer<OrderTroopItemVM>`
 **Base:** `IComparer<OrderTroopItemVM>`
-**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/MissionOrderTroopControllerVM.cs`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Order/MissionOrderTroopControllerVM.cs`
 
 ## 概述
 

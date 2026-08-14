@@ -8,7 +8,7 @@ description: "GetDedicatedCustomServerAuthTokenMessageResult 的自动生成类�
 **Module:** Messages.FromLobbyServer
 **Type:** `public class GetDedicatedCustomServerAuthTokenMessageResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetDedicatedCustomServerAuthTokenMessageResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/GetDedicatedCustomServerAuthTokenMessageResult.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ConversationPersuasionProgressRichTextWidget 的自动生成类参
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ConversationPersuasionProgressRichTextWidget : RichTextWidget`
 **Base:** `RichTextWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation/ConversationPersuasionProgressRichTextWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Conversation/ConversationPersuasionProgressRichTextWidget.cs`
 
 ## 概述
 

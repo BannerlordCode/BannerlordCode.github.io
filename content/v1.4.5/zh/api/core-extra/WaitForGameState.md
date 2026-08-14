@@ -8,7 +8,7 @@ description: "WaitForGameState 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class WaitForGameState : CoroutineState`
 **Base:** `CoroutineState`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/WaitForGameState.cs`
+**File:** `TaleWorlds.Core/WaitForGameState.cs`
 
 ## 概述
 

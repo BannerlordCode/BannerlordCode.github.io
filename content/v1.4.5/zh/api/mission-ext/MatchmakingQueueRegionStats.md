@@ -8,7 +8,7 @@ description: "MatchmakingQueueRegionStats 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MatchmakingQueueRegionStats`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MatchmakingQueueRegionStats.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/MatchmakingQueueRegionStats.cs`
 
 ## 概述
 
@@ -23,7 +23,7 @@ description: "MatchmakingQueueRegionStats 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Region` | `public string Region { get; set; }` |
-| `TotalCount` | `public int TotalCount { get; set; }` |
+| `TotalCount` | `public int TotalCount { get; }` |
 | `MaxWaitTime` | `public int MaxWaitTime { get; set; }` |
 | `MinWaitTime` | `public int MinWaitTime { get; set; }` |
 | `MedianWaitTime` | `public int MedianWaitTime { get; set; }` |

@@ -28,7 +28,7 @@ TownPassageProps 是 npc_passage 标签下的子集。UsablePoints 会从普通�
 - 不要在战役行为中自己构造 handler，也不要把它当全局 spawn manager；索引属于一个场景/Mission。
 - 不要把 UsablePoints 当存档数据，也不要把已结束 Mission 的 Agent 或 LocationCharacter 传回来。
 
-## 依赖与边界
+## 依赖
 
 任务工厂 -> MissionState.OpenNew -> Mission 行为中的 MissionAgentHandler -> 标签索引和成对点位 -> LocationCharacter/Agent 生成 -> OnEndMission 清空索引。
 

@@ -8,7 +8,7 @@ description: "ServerPerformanceStateReplicationMessage 的自动生成类参考�
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class ServerPerformanceStateReplicationMessage : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/ServerPerformanceStateReplicationMessage.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/ServerPerformanceStateReplicationMessage.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "WeaponData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct WeaponData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/WeaponData.cs`
+**File:** `TaleWorlds.MountAndBlade/WeaponData.cs`
 
 ## 概述
 

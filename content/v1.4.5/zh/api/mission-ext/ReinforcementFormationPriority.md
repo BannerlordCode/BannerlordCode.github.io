@@ -8,7 +8,7 @@ description: "ReinforcementFormationPriority 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum ReinforcementFormationPriority`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionReinforcementsHelper.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionReinforcementsHelper.cs`
 
 ## 概述
 

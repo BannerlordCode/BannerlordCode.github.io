@@ -8,7 +8,7 @@ description: "LangaugeMarkerExpression 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class LangaugeMarkerExpression : TextExpression`
 **Base:** `TextExpression`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/LangaugeMarkerExpression.cs`
+**File:** `TaleWorlds.Localization/Expressions/LangaugeMarkerExpression.cs`
 
 ## 概述
 

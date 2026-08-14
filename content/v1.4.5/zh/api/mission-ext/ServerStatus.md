@@ -8,7 +8,7 @@ description: "ServerStatus 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ServerStatus`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ServerStatus.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ServerStatus.cs`
 
 ## 概述
 

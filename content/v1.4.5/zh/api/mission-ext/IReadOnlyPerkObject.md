@@ -8,7 +8,7 @@ description: "IReadOnlyPerkObject 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IReadOnlyPerkObject`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IReadOnlyPerkObject.cs`
+**File:** `TaleWorlds.MountAndBlade/IReadOnlyPerkObject.cs`
 
 ## 概述
 

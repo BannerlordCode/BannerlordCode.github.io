@@ -8,7 +8,7 @@ description: "SallyOutReinforcementSpawnTimer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SallyOutReinforcementSpawnTimer : ICustomReinforcementSpawnTimer`
 **Base:** `ICustomReinforcementSpawnTimer`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SallyOutReinforcementSpawnTimer.cs`
+**File:** `TaleWorlds.MountAndBlade/SallyOutReinforcementSpawnTimer.cs`
 
 ## 概述
 

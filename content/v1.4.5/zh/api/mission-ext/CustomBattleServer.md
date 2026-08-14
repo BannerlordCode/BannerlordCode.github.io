@@ -8,7 +8,7 @@ description: "CustomBattleServer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleServer : Client<CustomBattleServer>`
 **Base:** `Client<CustomBattleServer>`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/CustomBattleServer.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/CustomBattleServer.cs`
 
 ## 概述
 
@@ -22,9 +22,11 @@ description: "CustomBattleServer 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `Finished` | `public bool Finished { get; }` |
 | `IsRegistered` | `public bool IsRegistered { get; }` |
+| `IsPlaying` | `public bool IsPlaying { get; }` |
 | `Connected` | `public bool Connected { get; }` |
-| `CurrentState` | `public State CurrentState { get; }` |
+| `CurrentState` | `public CustomBattleServer.State CurrentState { get; }` |
 | `IsIdle` | `public bool IsIdle { get; }` |
 | `CustomGameType` | `public string CustomGameType { get; }` |
 | `CustomGameScene` | `public string CustomGameScene { get; }` |
@@ -111,7 +113,7 @@ customBattleServer.ResponseCustomGameClientConnection(playerJoinData);
 ```
 
 ### RegisterGame
-`public async Task RegisterGame(string gameModule, string gameType, string serverName, int maxPlayerCount, string scene, string uniqueSceneId, int port, string region, string gamePassword, string adminPassword, int permission)`
+`public Task RegisterGame(string gameModule, string gameType, string serverName, int maxPlayerCount, string scene, string uniqueSceneId, int port, string region, string gamePassword, string adminPassword, int permission)`
 
 **用途 / Purpose:** 将game注册到当前系统，以便后续监听或分发。
 
@@ -122,7 +124,7 @@ var result = customBattleServer.RegisterGame("example", "example", "example", 0,
 ```
 
 ### RegisterGame
-`public async Task RegisterGame(int gameDefinitionId, string gameModule, string gameType, string serverName, int maxPlayerCount, string scene, string uniqueSceneId, int port, string region, string gamePassword, string adminPassword, int permission, string overriddenIP)`
+`public Task RegisterGame(int gameDefinitionId, string gameModule, string gameType, string serverName, int maxPlayerCount, string scene, string uniqueSceneId, int port, string region, string gamePassword, string adminPassword, int permission, string overriddenIP)`
 
 **用途 / Purpose:** 将game注册到当前系统，以便后续监听或分发。
 

@@ -8,7 +8,7 @@ description: "RecordMissionLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RecordMissionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RecordMissionLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/RecordMissionLogic.cs`
 
 ## 概述
 

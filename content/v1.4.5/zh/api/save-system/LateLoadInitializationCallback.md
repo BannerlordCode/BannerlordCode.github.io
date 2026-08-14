@@ -8,7 +8,7 @@ description: "LateLoadInitializationCallback 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class LateLoadInitializationCallback : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/LateLoadInitializationCallback.cs`
+**File:** `TaleWorlds.SaveSystem/LateLoadInitializationCallback.cs`
 
 ## 概述
 

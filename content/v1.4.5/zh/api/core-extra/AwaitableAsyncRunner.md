@@ -8,7 +8,7 @@ description: "AwaitableAsyncRunner 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public abstract class AwaitableAsyncRunner`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/AwaitableAsyncRunner.cs`
+**File:** `TaleWorlds.Library/AwaitableAsyncRunner.cs`
 
 ## 概述
 

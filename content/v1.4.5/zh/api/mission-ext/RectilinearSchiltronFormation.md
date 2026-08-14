@@ -8,7 +8,7 @@ description: "RectilinearSchiltronFormation 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RectilinearSchiltronFormation : SquareFormation`
 **Base:** `SquareFormation`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RectilinearSchiltronFormation.cs`
+**File:** `TaleWorlds.MountAndBlade/RectilinearSchiltronFormation.cs`
 
 ## 概述
 

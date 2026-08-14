@@ -8,7 +8,7 @@ description: "ISaveDriver 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public interface ISaveDriver`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/ISaveDriver.cs`
+**File:** `TaleWorlds.SaveSystem/ISaveDriver.cs`
 
 ## 概述
 

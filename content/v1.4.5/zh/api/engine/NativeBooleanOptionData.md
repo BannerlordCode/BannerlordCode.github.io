@@ -8,7 +8,7 @@ description: "NativeBooleanOptionData 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class NativeBooleanOptionData : NativeOptionData, IBooleanOptionData, IOptionData`
 **Base:** `NativeOptionData`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeBooleanOptionData.cs`
+**File:** `TaleWorlds.Engine/Options/NativeBooleanOptionData.cs`
 
 ## 概述
 

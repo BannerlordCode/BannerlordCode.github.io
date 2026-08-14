@@ -8,7 +8,7 @@ description: "CompressionBasic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class CompressionBasic`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CompressionBasic.cs`
+**File:** `TaleWorlds.MountAndBlade/CompressionBasic.cs`
 
 ## 概述
 

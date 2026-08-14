@@ -8,7 +8,7 @@ description: "FriendlyDamageKickPlayerResponseMessage 的自动生成类参考�
 **Module:** Messages.FromBattleServerManager
 **Type:** `public class FriendlyDamageKickPlayerResponseMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServerManager.ToBattleServer/FriendlyDamageKickPlayerResponseMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromBattleServerManager/ToBattleServer/FriendlyDamageKickPlayerResponseMessage.cs`
 
 ## 概述
 

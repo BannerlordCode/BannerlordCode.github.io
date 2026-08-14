@@ -8,7 +8,7 @@ description: "AgentMovementLockedState 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum AgentMovementLockedState`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentMovementLockedState.cs`
+**File:** `TaleWorlds.MountAndBlade/AgentMovementLockedState.cs`
 
 ## 概述
 

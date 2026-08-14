@@ -8,7 +8,7 @@ description: "ArrayType 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal enum ArrayType : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/ArrayType.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/ArrayType.cs`
 
 ## 概述
 

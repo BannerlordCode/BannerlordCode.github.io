@@ -8,7 +8,7 @@ description: "SetMissionObjectAnimationChannelParameter 的自动生成类参考
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetMissionObjectAnimationChannelParameter : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetMissionObjectAnimationChannelParameter.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetMissionObjectAnimationChannelParameter.cs`
 
 ## 概述
 

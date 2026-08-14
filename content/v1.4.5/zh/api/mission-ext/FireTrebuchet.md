@@ -8,7 +8,7 @@ description: "FireTrebuchet 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FireTrebuchet : Trebuchet`
 **Base:** `Trebuchet`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Siege/FireTrebuchet.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Siege/FireTrebuchet.cs`
 
 ## 概述
 

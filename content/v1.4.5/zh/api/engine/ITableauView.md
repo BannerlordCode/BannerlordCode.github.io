@@ -8,7 +8,7 @@ description: "ITableauView 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface ITableauView`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ITableauView.cs`
+**File:** `TaleWorlds.Engine/ITableauView.cs`
 
 ## 概述
 

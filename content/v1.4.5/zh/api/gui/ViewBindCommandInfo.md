@@ -8,7 +8,7 @@ description: "ViewBindCommandInfo 的自动生成类参考。"
 **Module:** TaleWorlds.GauntletUI
 **Type:** `internal struct ViewBindCommandInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.GauntletUI.Data/TaleWorlds.GauntletUI.Data/ViewBindCommandInfo.cs`
+**File:** `TaleWorlds.GauntletUI.Data/ViewBindCommandInfo.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "TimeInformation 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct TimeInformation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TimeInformation.cs`
+**File:** `TaleWorlds.Library/TimeInformation.cs`
 
 ## 概述
 

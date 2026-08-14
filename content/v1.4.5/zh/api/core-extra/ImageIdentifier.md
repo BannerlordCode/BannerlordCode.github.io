@@ -8,7 +8,7 @@ description: "ImageIdentifier 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class ImageIdentifier`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core.ImageIdentifiers/ImageIdentifier.cs`
+**File:** `TaleWorlds.Core/ImageIdentifiers/ImageIdentifier.cs`
 
 ## 概述
 

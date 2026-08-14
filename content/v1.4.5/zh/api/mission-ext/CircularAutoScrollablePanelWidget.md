@@ -8,7 +8,7 @@ description: "CircularAutoScrollablePanelWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CircularAutoScrollablePanelWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/CircularAutoScrollablePanelWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/CircularAutoScrollablePanelWidget.cs`
 
 ## 概述
 
@@ -29,7 +29,7 @@ description: "CircularAutoScrollablePanelWidget 的自动生成类参考。"
 | `IdleTime` | `public float IdleTime { get; set; }` |
 | `AutoScrollWhenSelected` | `public bool AutoScrollWhenSelected { get; set; }` |
 | `AutoScroll` | `public bool AutoScroll { get; set; }` |
-| `ScrollType` | `public ScrollMovementType ScrollType { get; set; }` |
+| `ScrollType` | `public CircularAutoScrollablePanelWidget.ScrollMovementType ScrollType { get; set; }` |
 | `ShouldResetImmediately` | `public bool ShouldResetImmediately { get; set; }` |
 
 ## 主要方法

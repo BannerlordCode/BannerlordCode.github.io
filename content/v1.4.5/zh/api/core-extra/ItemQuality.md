@@ -8,7 +8,7 @@ description: "ItemQuality 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum ItemQuality`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemQuality.cs`
+**File:** `TaleWorlds.Core/ItemQuality.cs`
 
 ## 概述
 

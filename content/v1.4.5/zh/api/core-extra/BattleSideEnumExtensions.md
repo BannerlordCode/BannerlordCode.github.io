@@ -8,7 +8,7 @@ description: "BattleSideEnumExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public static class BattleSideEnumExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BattleSideEnumExtensions.cs`
+**File:** `TaleWorlds.Core/BattleSideEnumExtensions.cs`
 
 ## 概述
 

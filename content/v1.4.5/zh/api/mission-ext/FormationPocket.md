@@ -8,7 +8,7 @@ description: "FormationPocket 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FormationPocket`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationPocket.cs`
+**File:** `TaleWorlds.MountAndBlade/FormationPocket.cs`
 
 ## 概述
 

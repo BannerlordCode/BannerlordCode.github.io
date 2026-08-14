@@ -8,7 +8,7 @@ description: "CompositeComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class CompositeComponent : GameEntityComponent`
 **Base:** `GameEntityComponent`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/CompositeComponent.cs`
+**File:** `TaleWorlds.Engine/CompositeComponent.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "CompositeComponent 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `IsValid` | `public bool IsValid { get; }` |
 | `Frame` | `public MatrixFrame Frame { get; set; }` |
 | `VectorUserData` | `public Vec3 VectorUserData { get; set; }` |
 

@@ -89,7 +89,7 @@ if (Hero.MainHero != null && MobileParty.MainParty != null)
 
 原版 behavior 会先安排 incident 前置条件，并在可能没有候选时检查结果。自定义 incident 在解引用默认结果前也应执行同样的检查。
 
-## 依赖与所有权
+## 依赖
 
 - [MobileParty](../../campaign/MobileParty) 提供用于计算索引的 `MainParty` seeded-random 实现。
 - [MBRandom](../../core-extra/MBRandom) 记录 engine 随机辅助 API；本类具体调用的是 party 扩展，而不是进程级全局随机方法。

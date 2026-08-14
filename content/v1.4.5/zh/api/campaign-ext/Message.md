@@ -8,7 +8,7 @@ description: "Message 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class Message`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/Message.cs`
+**File:** `TaleWorlds.Diamond/Message.cs`
 
 ## 概述
 

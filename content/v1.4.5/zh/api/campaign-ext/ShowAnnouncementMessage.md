@@ -8,7 +8,7 @@ description: "ShowAnnouncementMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class ShowAnnouncementMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/ShowAnnouncementMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/ShowAnnouncementMessage.cs`
 
 ## 概述
 

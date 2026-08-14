@@ -8,7 +8,7 @@ description: "CreateClanAnswerMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class CreateClanAnswerMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/CreateClanAnswerMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/CreateClanAnswerMessage.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "RoundStateExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class RoundStateExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RoundStateExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/RoundStateExtensions.cs`
 
 ## 概述
 

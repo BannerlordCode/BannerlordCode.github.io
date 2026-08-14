@@ -8,7 +8,7 @@ description: "ApplicationPlatform 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class ApplicationPlatform`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ApplicationPlatform.cs`
+**File:** `TaleWorlds.Library/ApplicationPlatform.cs`
 
 ## 概述
 

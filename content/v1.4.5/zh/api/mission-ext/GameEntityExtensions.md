@@ -8,7 +8,7 @@ description: "GameEntityExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class GameEntityExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameEntityExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/GameEntityExtensions.cs`
 
 ## 概述
 

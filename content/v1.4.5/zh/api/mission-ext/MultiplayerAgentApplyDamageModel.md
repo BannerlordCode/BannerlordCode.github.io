@@ -8,7 +8,7 @@ description: "MultiplayerAgentApplyDamageModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerAgentApplyDamageModel : AgentApplyDamageModel`
 **Base:** `AgentApplyDamageModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerAgentApplyDamageModel.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerAgentApplyDamageModel.cs`
 
 ## 概述
 

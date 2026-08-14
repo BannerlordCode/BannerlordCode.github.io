@@ -8,7 +8,7 @@ description: "SkillType 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum SkillType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SkillType.cs`
+**File:** `TaleWorlds.Core/SkillType.cs`
 
 ## 概述
 

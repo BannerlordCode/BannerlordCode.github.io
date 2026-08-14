@@ -8,7 +8,7 @@ description: "WidgetContainer 的自动生成类参考。"
 **Module:** TaleWorlds.GauntletUI
 **Type:** `internal class WidgetContainer`
 **Base:** 无
-**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/WidgetContainer.cs`
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/WidgetContainer.cs`
 
 ## 概述
 

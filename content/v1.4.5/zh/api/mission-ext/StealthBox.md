@@ -8,7 +8,7 @@ description: "StealthBox 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class StealthBox : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/StealthBox.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/StealthBox.cs`
 
 ## 概述
 

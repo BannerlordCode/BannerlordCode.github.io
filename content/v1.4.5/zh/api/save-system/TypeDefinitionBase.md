@@ -8,7 +8,7 @@ description: "TypeDefinitionBase 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class TypeDefinitionBase`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/TypeDefinitionBase.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/TypeDefinitionBase.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "AgentSetTeam 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class AgentSetTeam : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AgentSetTeam.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/AgentSetTeam.cs`
 
 ## 概述
 

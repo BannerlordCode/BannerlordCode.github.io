@@ -8,7 +8,7 @@ description: "RequestStopUsingObject 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class RequestStopUsingObject : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/RequestStopUsingObject.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/RequestStopUsingObject.cs`
 
 ## 概述
 

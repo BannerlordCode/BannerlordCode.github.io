@@ -8,7 +8,7 @@ description: "IPlatformModuleExtension 的自动生成类参考。"
 **Module:** TaleWorlds.ModuleManager
 **Type:** `public interface IPlatformModuleExtension`
 **Base:** 无
-**File:** `bin/TaleWorlds.ModuleManager/TaleWorlds.ModuleManager/IPlatformModuleExtension.cs`
+**File:** `TaleWorlds.ModuleManager/IPlatformModuleExtension.cs`
 
 ## 概述
 

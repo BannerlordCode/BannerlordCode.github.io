@@ -8,7 +8,7 @@ description: "PsaiCore 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `public class PsaiCore`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/PsaiCore.cs`
+**File:** `TaleWorlds.PSAI/net/PsaiCore.cs`
 
 ## 概述
 

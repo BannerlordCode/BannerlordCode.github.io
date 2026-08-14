@@ -8,7 +8,7 @@ description: "Path 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class Path : NativeObject`
 **Base:** `NativeObject`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Path.cs`
+**File:** `TaleWorlds.Engine/Path.cs`
 
 ## 概述
 
@@ -17,6 +17,13 @@ description: "Path 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.Engine` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `NumberOfPoints` | `public int NumberOfPoints { get; }` |
+| `TotalDistance` | `public float TotalDistance { get; }` |
 
 ## 主要方法
 

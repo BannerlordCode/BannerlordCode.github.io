@@ -8,7 +8,7 @@ description: "NativeString 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public sealed class NativeString : NativeObject`
 **Base:** `NativeObject`
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/NativeString.cs`
+**File:** `TaleWorlds.DotNet/NativeString.cs`
 
 ## 概述
 

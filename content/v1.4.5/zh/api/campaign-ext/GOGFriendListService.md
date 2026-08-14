@@ -8,7 +8,7 @@ description: "GOGFriendListService 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class GOGFriendListService : IFriendListService`
 **Base:** `IFriendListService`
-**File:** `bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/GOGFriendListService.cs`
+**File:** `TaleWorlds.PlatformService.GOG/GOGFriendListService.cs`
 
 ## 概述
 

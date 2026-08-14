@@ -8,7 +8,7 @@ description: "StonePileRecord 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct StonePileRecord : ISynchedMissionObjectReadableRecord`
 **Base:** `ISynchedMissionObjectReadableRecord`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/StonePile.cs`
+**File:** `TaleWorlds.MountAndBlade/StonePile.cs`
 
 ## 概述
 

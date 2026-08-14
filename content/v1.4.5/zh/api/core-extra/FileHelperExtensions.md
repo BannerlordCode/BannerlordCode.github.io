@@ -8,7 +8,7 @@ description: "FileHelperExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class FileHelperExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/FileHelperExtensions.cs`
+**File:** `TaleWorlds.Library/FileHelperExtensions.cs`
 
 ## 概述
 
@@ -31,7 +31,7 @@ FileHelperExtensions.Load(document, path);
 ```
 
 ### LoadAsync
-`public static async Task LoadAsync(this XmlDocument document, PlatformFilePath path)`
+`public static Task LoadAsync(this XmlDocument document, PlatformFilePath path)`
 
 **用途 / Purpose:** 从持久化存储或流中读取 async。
 
@@ -51,7 +51,7 @@ FileHelperExtensions.Save(document, path);
 ```
 
 ### SaveAsync
-`public static async Task SaveAsync(this XmlDocument document, PlatformFilePath path)`
+`public static Task SaveAsync(this XmlDocument document, PlatformFilePath path)`
 
 **用途 / Purpose:** 将 async 写入持久化存储或流中。
 

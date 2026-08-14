@@ -8,7 +8,7 @@ description: "PropertyBasedTooltipWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PropertyBasedTooltipWidget : TooltipWidget`
 **Base:** `TooltipWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information/PropertyBasedTooltipWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Information/PropertyBasedTooltipWidget.cs`
 
 ## 概述
 

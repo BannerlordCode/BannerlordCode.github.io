@@ -8,7 +8,7 @@ description: "RestResponseMessage 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class RestResponseMessage : RestData`
 **Base:** `RestData`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/RestResponseMessage.cs`
+**File:** `TaleWorlds.Diamond/Rest/RestResponseMessage.cs`
 
 ## 概述
 

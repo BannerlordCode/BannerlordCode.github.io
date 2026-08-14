@@ -8,7 +8,7 @@ description: "MathF 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class MathF`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MathF.cs`
+**File:** `TaleWorlds.Library/MathF.cs`
 
 ## 概述
 
@@ -210,16 +210,6 @@ MathF.AngleClamp(0);
 MathF.Lerp(0, 0, 0, 0);
 ```
 
-### Lerp
-`public static float Lerp(float valueFrom, float valueTo, int amount, float minimumDifference = 1E-05f)`
-
-**用途 / Purpose:** 调用 Lerp 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Lerp(0, 0, 0, 0);
-```
-
 ### AngleLerp
 `public static float AngleLerp(float angleFrom, float angleTo, float amount, float minimumDifference = 1E-05f)`
 
@@ -378,6 +368,16 @@ MathF.Max(0, 0);
 ```csharp
 // 静态调用，不需要实例
 MathF.Max(0, 0);
+```
+
+### MinMax
+`public static ValueTuple<float, float> MinMax(float a, float b)`
+
+**用途 / Purpose:** 调用 MinMax 对应的操作。
+
+```csharp
+// 静态调用，不需要实例
+MathF.MinMax(0, 0);
 ```
 
 ### Max

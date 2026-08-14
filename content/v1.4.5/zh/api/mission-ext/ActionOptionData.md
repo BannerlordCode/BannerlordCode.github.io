@@ -8,7 +8,7 @@ description: "ActionOptionData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ActionOptionData : IOptionData`
 **Base:** `IOptionData`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options/ActionOptionData.cs`
+**File:** `TaleWorlds.MountAndBlade/Options/ActionOptionData.cs`
 
 ## 概述
 
@@ -101,6 +101,17 @@ actionOptionData.SetValue(0);
 // 先通过子系统 API 拿到 ActionOptionData 实例
 ActionOptionData actionOptionData = ...;
 var result = actionOptionData.IsAction();
+```
+
+### GetIsDisabledAndReasonID
+`public ValueTuple<string, bool> GetIsDisabledAndReasonID()`
+
+**用途 / Purpose:** 读取并返回当前对象中 is disabled and reason i d 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ActionOptionData 实例
+ActionOptionData actionOptionData = ...;
+var result = actionOptionData.GetIsDisabledAndReasonID();
 ```
 
 ## 使用示例

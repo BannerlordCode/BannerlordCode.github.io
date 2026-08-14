@@ -8,7 +8,7 @@ description: "ArithmeticExpression 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class ArithmeticExpression : NumeralExpression`
 **Base:** `NumeralExpression`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/ArithmeticExpression.cs`
+**File:** `TaleWorlds.Localization/Expressions/ArithmeticExpression.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "FogInformation 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct FogInformation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/FogInformation.cs`
+**File:** `TaleWorlds.Library/FogInformation.cs`
 
 ## 概述
 

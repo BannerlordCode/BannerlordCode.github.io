@@ -6,9 +6,9 @@ description: "TauntCircleActionSelectorWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class TauntCircleActionSelectorWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/TauntCircleActionSelectorWidget.cs`
+**Type:** `public class TauntCircleActionSelectorWidget : CircleActionSelectorWidget`
+**Base:** `CircleActionSelectorWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Lobby/Armory/TauntCircleActionSelectorWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "TauntCircleActionSelectorWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `FallbackNavigationWidget` | `public Widget FallbackNavigationWidget { get; set; }` |
-
-## 主要方法
-
-### TauntCircleActionSelectorWidget
-`public class TauntCircleActionSelectorWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 TauntCircleActionSelectorWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 TauntCircleActionSelectorWidget 实例
-TauntCircleActionSelectorWidget tauntCircleActionSelectorWidget = ...;
-var result = tauntCircleActionSelectorWidget.TauntCircleActionSelectorWidget(context);
-```
 
 ## 使用示例
 

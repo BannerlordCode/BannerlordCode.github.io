@@ -8,7 +8,7 @@ description: "IDebugManager 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public interface IDebugManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/IDebugManager.cs`
+**File:** `TaleWorlds.Library/IDebugManager.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ModuleNetworkData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ModuleNetworkData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ModuleNetworkData.cs`
+**File:** `TaleWorlds.MountAndBlade/ModuleNetworkData.cs`
 
 ## 概述
 

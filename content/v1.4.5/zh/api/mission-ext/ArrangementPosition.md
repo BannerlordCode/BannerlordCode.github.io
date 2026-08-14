@@ -8,7 +8,7 @@ description: "ArrangementPosition 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct ArrangementPosition`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/FormationArrangementModel.cs`
+**File:** `TaleWorlds.MountAndBlade/ComponentInterfaces/FormationArrangementModel.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "ArrangementPosition 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `IsValid` | `public bool IsValid { get; }` |
+| `Invalid` | `public static FormationArrangementModel.ArrangementPosition Invalid { get; }` |
 
 ## 使用示例
 

@@ -8,7 +8,7 @@ description: "ActionIndexCache 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `struct ActionIndexCache : IEquatable<ActionIndexCache>`
 **Base:** `IEquatable<ActionIndexCache>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ActionIndexCache.cs`
+**File:** `TaleWorlds.MountAndBlade/ActionIndexCache.cs`
 
 ## 概述
 

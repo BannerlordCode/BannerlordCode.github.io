@@ -8,7 +8,7 @@ description: "MBNetwork 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public static class MBNetwork`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBNetwork.cs`
+**File:** `TaleWorlds.Core/MBNetwork.cs`
 
 ## 概述
 

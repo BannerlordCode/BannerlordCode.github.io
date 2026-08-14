@@ -8,7 +8,7 @@ description: "TabControlWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TabControlWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TabControlWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/TabControlWidget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MBMouseButtonState 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum MBMouseButtonState`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/MBMouseButtonState.cs`
+**File:** `TaleWorlds.Engine/MBMouseButtonState.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ScoreboardAnimatedTextWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ScoreboardAnimatedTextWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ScoreboardAnimatedTextWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/ScoreboardAnimatedTextWidget.cs`
 
 ## 概述
 

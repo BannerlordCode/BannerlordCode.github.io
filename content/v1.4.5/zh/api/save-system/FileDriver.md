@@ -8,7 +8,7 @@ description: "FileDriver 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class FileDriver : ISaveDriver`
 **Base:** `ISaveDriver`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/FileDriver.cs`
+**File:** `TaleWorlds.SaveSystem/FileDriver.cs`
 
 ## 概述
 

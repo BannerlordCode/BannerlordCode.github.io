@@ -8,7 +8,7 @@ description: "ISoundEvent 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface ISoundEvent`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ISoundEvent.cs`
+**File:** `TaleWorlds.Engine/ISoundEvent.cs`
 
 ## 概述
 

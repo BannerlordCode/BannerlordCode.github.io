@@ -8,7 +8,7 @@ description: "ServerMessage 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class ServerMessage : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/ServerMessage.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/ServerMessage.cs`
 
 ## 概述
 

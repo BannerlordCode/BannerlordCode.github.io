@@ -8,7 +8,7 @@ description: "AutoHideZeroTextWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AutoHideZeroTextWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/AutoHideZeroTextWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/AutoHideZeroTextWidget.cs`
 
 ## 概述
 

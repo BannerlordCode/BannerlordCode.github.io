@@ -8,7 +8,7 @@ description: "IPrimarySiegeWeapon 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IPrimarySiegeWeapon`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IPrimarySiegeWeapon.cs`
+**File:** `TaleWorlds.MountAndBlade/IPrimarySiegeWeapon.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ConditionGroupType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum ConditionGroupType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/ConditionGroupType.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/MultiplayerBadges/ConditionGroupType.cs`
 
 ## 概述
 

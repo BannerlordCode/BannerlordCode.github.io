@@ -8,7 +8,7 @@ description: "ClothingCosmeticElement 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClothingCosmeticElement : CosmeticElement`
 **Base:** `CosmeticElement`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes/ClothingCosmeticElement.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Cosmetics/CosmeticTypes/ClothingCosmeticElement.cs`
 
 ## 概述
 

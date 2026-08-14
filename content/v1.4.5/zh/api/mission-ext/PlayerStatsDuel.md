@@ -8,7 +8,7 @@ description: "PlayerStatsDuel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerStatsDuel : PlayerStatsBase`
 **Base:** `PlayerStatsBase`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsDuel.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerStatsDuel.cs`
 
 ## 概述
 

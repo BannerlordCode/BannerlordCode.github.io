@@ -8,7 +8,7 @@ description: "BuildInfo 的自动生成类参考。"
 **Module:** (global)
 **Type:** `public static class BuildInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/BuildInfo.cs`
+**File:** `TaleWorlds.Library/BuildInfo.cs`
 
 ## 概述
 

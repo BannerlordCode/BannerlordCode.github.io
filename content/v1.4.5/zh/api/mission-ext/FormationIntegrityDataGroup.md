@@ -8,7 +8,7 @@ description: "FormationIntegrityDataGroup 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FormationIntegrityDataGroup`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Formation.cs`
+**File:** `TaleWorlds.MountAndBlade/Formation.cs`
 
 ## 概述
 
@@ -18,25 +18,11 @@ description: "FormationIntegrityDataGroup 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要方法
-
-### FormationIntegrityDataGroup
-`public struct FormationIntegrityDataGroup(Vec2 averageVelocityExcludeFarAgents, float deviationOfPositionsExcludeFarAgents, float maxDeviationOfPositionExcludeFarAgents, float averageMaxUnlimitedSpeedExcludeFarAgents)`
-
-**用途 / Purpose:** 将ion integrity data group格式化为适合显示或存储的字符串。
-
-```csharp
-// 先通过子系统 API 拿到 FormationIntegrityDataGroup 实例
-FormationIntegrityDataGroup formationIntegrityDataGroup = ...;
-var result = formationIntegrityDataGroup.FormationIntegrityDataGroup(averageVelocityExcludeFarAgents, 0, 0, 0);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-FormationIntegrityDataGroup formationIntegrityDataGroup = ...;
-formationIntegrityDataGroup.FormationIntegrityDataGroup(averageVelocityExcludeFarAgents, 0, 0, 0);
+// 从对应子系统 API 获取实例
+FormationIntegrityDataGroup instance = ...;
 ```
 
 ## 参见

@@ -8,7 +8,7 @@ description: "PerSecondEventData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PerSecondEventData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Network/DebugNetworkEventStatistics.cs`
+**File:** `TaleWorlds.MountAndBlade/Network/DebugNetworkEventStatistics.cs`
 
 ## 概述
 

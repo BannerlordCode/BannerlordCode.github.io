@@ -8,7 +8,7 @@ description: "PixelFormatDescriptorLayerTypes 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal enum PixelFormatDescriptorLayerTypes : sbyte`
 **Base:** `sbyte`
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/PixelFormatDescriptorLayerTypes.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/Windows/PixelFormatDescriptorLayerTypes.cs`
 
 ## 概述
 

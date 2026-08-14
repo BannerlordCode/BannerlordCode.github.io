@@ -8,7 +8,7 @@ description: "RundownTooltipVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class RundownTooltipVM : TooltipBaseVM`
 **Base:** `TooltipBaseVM`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip/RundownTooltipVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/Information/RundownTooltip/RundownTooltipVM.cs`
 
 ## 概述
 
@@ -22,7 +22,7 @@ description: "RundownTooltipVM 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `IsInitializedProperly` | `public bool IsInitializedProperly { get; set; }` |
+| `IsInitializedProperly` | `public bool IsInitializedProperly { get; }` |
 | `Lines` | `public MBBindingList<RundownLineVM> Lines { get; set; }` |
 | `TitleText` | `public string TitleText { get; set; }` |
 | `ExpectedChangeText` | `public string ExpectedChangeText { get; set; }` |

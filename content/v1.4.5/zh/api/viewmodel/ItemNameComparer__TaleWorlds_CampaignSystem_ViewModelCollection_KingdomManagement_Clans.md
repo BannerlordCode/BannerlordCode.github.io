@@ -6,9 +6,9 @@ description: "ItemNameComparer 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `public class ItemNameComparer : ItemComparerBase`
-**Base:** `ItemComparerBase`
-**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans/KingdomClanSortControllerVM.cs`
+**Type:** `public class ItemNameComparer : KingdomClanSortControllerVM.ItemComparerBase`
+**Base:** `KingdomClanSortControllerVM.ItemComparerBase`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/KingdomManagement/Clans/KingdomClanSortControllerVM.cs`
 
 ## 概述
 

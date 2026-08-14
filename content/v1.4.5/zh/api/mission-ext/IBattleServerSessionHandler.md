@@ -8,7 +8,7 @@ description: "IBattleServerSessionHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IBattleServerSessionHandler`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/IBattleServerSessionHandler.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/IBattleServerSessionHandler.cs`
 
 ## 概述
 

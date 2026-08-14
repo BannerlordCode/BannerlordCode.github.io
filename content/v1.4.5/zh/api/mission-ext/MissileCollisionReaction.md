@@ -8,7 +8,7 @@ description: "MissileCollisionReaction 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum MissileCollisionReaction`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Mission.cs`
+**File:** `TaleWorlds.MountAndBlade/Mission.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MBArrayList 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class MBArrayList<T> : IMBCollection, ICollection, IEnumerable, IEnumerable<T>`
 **Base:** `IMBCollection`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBArrayList.cs`
+**File:** `TaleWorlds.Library/MBArrayList.cs`
 
 ## 概述
 
@@ -23,6 +23,10 @@ description: "MBArrayList 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Count` | `public int Count { get; }` |
+| `Capacity` | `public int Capacity { get; }` |
+| `RawArray` | `public T RawArray { get; set; }` |
+| `IsSynchronized` | `public bool IsSynchronized { get; set; }` |
+| `SyncRoot` | `public object SyncRoot { get; set; }` |
 | `this` | `public T this { get; set; }` |
 
 ## 主要方法

@@ -6,9 +6,9 @@ description: "ScoreboardBattleRewardsWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class ScoreboardBattleRewardsWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardBattleRewardsWidget.cs`
+**Type:** `public class ScoreboardBattleRewardsWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Scoreboard/ScoreboardBattleRewardsWidget.cs`
 
 ## 概述
 
@@ -27,17 +27,6 @@ description: "ScoreboardBattleRewardsWidget 的自动生成类参考。"
 | `ItemContainer` | `public Widget ItemContainer { get; set; }` |
 
 ## 主要方法
-
-### ScoreboardBattleRewardsWidget
-`public class ScoreboardBattleRewardsWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 ScoreboardBattleRewardsWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ScoreboardBattleRewardsWidget 实例
-ScoreboardBattleRewardsWidget scoreboardBattleRewardsWidget = ...;
-var result = scoreboardBattleRewardsWidget.ScoreboardBattleRewardsWidget(context);
-```
 
 ### StartAnimation
 `public void StartAnimation()`

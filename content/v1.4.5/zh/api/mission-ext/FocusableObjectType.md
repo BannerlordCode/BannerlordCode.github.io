@@ -8,7 +8,7 @@ description: "FocusableObjectType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum FocusableObjectType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FocusableObjectType.cs`
+**File:** `TaleWorlds.MountAndBlade/FocusableObjectType.cs`
 
 ## 概述
 

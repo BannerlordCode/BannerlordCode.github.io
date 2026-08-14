@@ -8,7 +8,7 @@ description: "DecisionSupportStrengthListPanel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DecisionSupportStrengthListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/DecisionSupportStrengthListPanel.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Kingdom/DecisionSupportStrengthListPanel.cs`
 
 ## 概述
 

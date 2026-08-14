@@ -8,7 +8,7 @@ description: "BinaryReader 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class BinaryReader : IReader`
 **Base:** `IReader`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/BinaryReader.cs`
+**File:** `TaleWorlds.Library/BinaryReader.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "BinaryReader 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Data` | `public byte Data { get; }` |
+| `UnreadByteCount` | `public int UnreadByteCount { get; }` |
 
 ## 主要方法
 

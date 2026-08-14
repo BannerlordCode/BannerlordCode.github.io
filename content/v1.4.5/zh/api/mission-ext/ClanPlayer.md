@@ -8,7 +8,7 @@ description: "ClanPlayer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanPlayer`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ClanPlayer.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ClanPlayer.cs`
 
 ## 概述
 

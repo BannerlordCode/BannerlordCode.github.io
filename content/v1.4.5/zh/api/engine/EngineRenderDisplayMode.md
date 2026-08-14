@@ -8,7 +8,7 @@ description: "EngineRenderDisplayMode 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum EngineRenderDisplayMode`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Utilities.cs`
+**File:** `TaleWorlds.Engine/Utilities.cs`
 
 ## 概述
 

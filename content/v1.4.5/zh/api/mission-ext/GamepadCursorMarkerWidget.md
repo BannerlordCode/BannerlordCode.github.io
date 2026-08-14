@@ -8,7 +8,7 @@ description: "GamepadCursorMarkerWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GamepadCursorMarkerWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/GamepadCursorMarkerWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/GamepadCursorMarkerWidget.cs`
 
 ## 概述
 

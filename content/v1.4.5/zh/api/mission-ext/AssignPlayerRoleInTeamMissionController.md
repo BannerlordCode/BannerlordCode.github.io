@@ -8,7 +8,7 @@ description: "AssignPlayerRoleInTeamMissionController 的自动生成类参考�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AssignPlayerRoleInTeamMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AssignPlayerRoleInTeamMissionController.cs`
+**File:** `TaleWorlds.MountAndBlade/AssignPlayerRoleInTeamMissionController.cs`
 
 ## 概述
 

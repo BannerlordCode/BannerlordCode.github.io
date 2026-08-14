@@ -8,7 +8,7 @@ description: "SiegeWeaponController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeWeaponController`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeWeaponController.cs`
+**File:** `TaleWorlds.MountAndBlade/SiegeWeaponController.cs`
 
 ## 概述
 
@@ -17,6 +17,12 @@ description: "SiegeWeaponController 的自动生成类参考。"
 ## 心智模型
 
 把 `SiegeWeaponController` 当作一个 Controller 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `SelectedWeapons` | `public MBReadOnlyList<SiegeWeapon> SelectedWeapons { get; }` |
 
 ## 主要方法
 

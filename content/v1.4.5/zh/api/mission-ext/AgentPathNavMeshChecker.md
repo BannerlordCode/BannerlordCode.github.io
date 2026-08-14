@@ -8,7 +8,7 @@ description: "AgentPathNavMeshChecker 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentPathNavMeshChecker`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Objects.Siege/AgentPathNavMeshChecker.cs`
+**File:** `TaleWorlds.MountAndBlade/Source/Objects/Siege/AgentPathNavMeshChecker.cs`
 
 ## 概述
 

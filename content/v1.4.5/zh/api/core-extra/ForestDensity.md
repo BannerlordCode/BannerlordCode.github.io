@@ -8,7 +8,7 @@ description: "ForestDensity 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum ForestDensity`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ForestDensity.cs`
+**File:** `TaleWorlds.Core/ForestDensity.cs`
 
 ## 概述
 

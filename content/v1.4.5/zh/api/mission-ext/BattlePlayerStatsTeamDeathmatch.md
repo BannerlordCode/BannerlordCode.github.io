@@ -8,7 +8,7 @@ description: "BattlePlayerStatsTeamDeathmatch 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattlePlayerStatsTeamDeathmatch : BattlePlayerStatsBase`
 **Base:** `BattlePlayerStatsBase`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BattlePlayerStatsTeamDeathmatch.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/BattlePlayerStatsTeamDeathmatch.cs`
 
 ## 概述
 

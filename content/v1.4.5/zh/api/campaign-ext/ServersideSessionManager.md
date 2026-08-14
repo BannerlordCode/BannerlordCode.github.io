@@ -8,7 +8,7 @@ description: "ServersideSessionManager 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public abstract class ServersideSessionManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/ServersideSessionManager.cs`
+**File:** `TaleWorlds.Network/ServersideSessionManager.cs`
 
 ## 概述
 
@@ -27,14 +27,14 @@ description: "ServersideSessionManager 的自动生成类参考。"
 ## 主要方法
 
 ### Activate
-`public void Activate(ushort port, ThreadType threadType = ThreadType.Single, int readWriteThreadCount = 1)`
+`public void Activate(ushort port, ServersideSessionManager.ThreadType threadType = ServersideSessionManager.ThreadType.Single, int readWriteThreadCount = 1)`
 
 **用途 / Purpose:** 激活当前对象对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 ServersideSessionManager 实例
 ServersideSessionManager serversideSessionManager = ...;
-serversideSessionManager.Activate(0, threadType.Single, 0);
+serversideSessionManager.Activate(0, serversideSessionManager.ThreadType.Single, 0);
 ```
 
 ### GetPeer

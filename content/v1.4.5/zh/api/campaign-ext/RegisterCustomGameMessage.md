@@ -8,7 +8,7 @@ description: "RegisterCustomGameMessage 的自动生成类参考。"
 **Module:** Messages.FromCustomBattleServer
 **Type:** `public class RegisterCustomGameMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/RegisterCustomGameMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromCustomBattleServer/ToCustomBattleServerManager/RegisterCustomGameMessage.cs`
 
 ## 概述
 

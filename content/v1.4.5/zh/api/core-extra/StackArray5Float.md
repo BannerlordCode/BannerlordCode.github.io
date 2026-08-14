@@ -8,7 +8,7 @@ description: "StackArray5Float 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct StackArray5Float`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/StackArray.cs`
+**File:** `TaleWorlds.Core/StackArray.cs`
 
 ## 概述
 
@@ -22,7 +22,7 @@ description: "StackArray5Float 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `this` | `public float this { get; set; }` |
+| `this` | `public float this { get; }` |
 
 ## 使用示例
 

@@ -8,7 +8,7 @@ description: "RoundStateChange 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class RoundStateChange : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RoundStateChange.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/RoundStateChange.cs`
 
 ## 概述
 

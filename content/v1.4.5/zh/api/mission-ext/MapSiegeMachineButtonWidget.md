@@ -6,9 +6,9 @@ description: "MapSiegeMachineButtonWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class MapSiegeMachineButtonWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege/MapSiegeMachineButtonWidget.cs`
+**Type:** `public class MapSiegeMachineButtonWidget : ButtonWidget`
+**Base:** `ButtonWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Map/Siege/MapSiegeMachineButtonWidget.cs`
 
 ## 概述
 
@@ -25,19 +25,6 @@ description: "MapSiegeMachineButtonWidget 的自动生成类参考。"
 | `ColoredImageWidget` | `public Widget ColoredImageWidget { get; set; }` |
 | `IsDeploymentTarget` | `public bool IsDeploymentTarget { get; set; }` |
 | `MachineID` | `public string MachineID { get; set; }` |
-
-## 主要方法
-
-### MapSiegeMachineButtonWidget
-`public class MapSiegeMachineButtonWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 MapSiegeMachineButtonWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapSiegeMachineButtonWidget 实例
-MapSiegeMachineButtonWidget mapSiegeMachineButtonWidget = ...;
-var result = mapSiegeMachineButtonWidget.MapSiegeMachineButtonWidget(context);
-```
 
 ## 使用示例
 

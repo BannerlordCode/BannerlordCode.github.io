@@ -8,7 +8,7 @@ description: "SiegeWeaponMovementComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeWeaponMovementComponent : UsableMissionObjectComponent`
 **Base:** `UsableMissionObjectComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeWeaponMovementComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/SiegeWeaponMovementComponent.cs`
 
 ## 概述
 

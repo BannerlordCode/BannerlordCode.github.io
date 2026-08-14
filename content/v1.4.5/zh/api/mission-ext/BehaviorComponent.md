@@ -8,7 +8,7 @@ description: "BehaviorComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class BehaviorComponent`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorComponent.cs`
 
 ## 概述
 

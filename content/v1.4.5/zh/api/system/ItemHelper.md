@@ -114,7 +114,7 @@ if (Hero.MainHero != null)
 
 `ItemMenuVM` 和 `TooltipRefresherCollection` 遵循同样的分离：先选择 usage 和 modifier，再向 `ItemHelper` 请求文本。helper 不比较 `damageText` 字符串，也不修改装备 element。
 
-## 依赖与所有权
+## 依赖
 
 - [ItemObject](../../core-extra/ItemObject) 持有物品类型、primary weapon 和 weapon usage 列表。
 - [WeaponComponentData](../../core-extra/WeaponComponentData) 持有 weapon description ID、类别、伤害类型和 modified damage 计算。

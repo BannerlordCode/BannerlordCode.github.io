@@ -8,7 +8,7 @@ description: "AsyncRunner 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public abstract class AsyncRunner`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/AsyncRunner.cs`
+**File:** `TaleWorlds.Library/AsyncRunner.cs`
 
 ## 概述
 

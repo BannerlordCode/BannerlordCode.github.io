@@ -8,7 +8,7 @@ description: "PublishedLobbyNewsArticle 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PublishedLobbyNewsArticle`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PublishedLobbyNewsArticle.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PublishedLobbyNewsArticle.cs`
 
 ## 概述
 

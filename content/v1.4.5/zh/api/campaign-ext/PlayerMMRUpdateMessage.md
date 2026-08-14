@@ -8,7 +8,7 @@ description: "PlayerMMRUpdateMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class PlayerMMRUpdateMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayerMMRUpdateMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/PlayerMMRUpdateMessage.cs`
 
 ## 概述
 

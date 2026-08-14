@@ -8,7 +8,7 @@ description: "FunctionCall 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class FunctionCall : TextExpression`
 **Base:** `TextExpression`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/FunctionCall.cs`
+**File:** `TaleWorlds.Localization/Expressions/FunctionCall.cs`
 
 ## 概述
 

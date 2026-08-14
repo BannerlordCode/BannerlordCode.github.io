@@ -8,7 +8,7 @@ description: "CraftingItemViewModel 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class CraftingItemViewModel : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection/CraftingItemViewModel.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/CraftingItemViewModel.cs`
 
 ## 概述
 

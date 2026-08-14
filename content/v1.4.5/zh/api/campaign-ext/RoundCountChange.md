@@ -8,7 +8,7 @@ description: "RoundCountChange 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class RoundCountChange : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RoundCountChange.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/RoundCountChange.cs`
 
 ## 概述
 

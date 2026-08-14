@@ -8,7 +8,7 @@ description: "AnnouncementType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum AnnouncementType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/AnnouncementType.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/AnnouncementType.cs`
 
 ## 概述
 

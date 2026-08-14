@@ -8,7 +8,7 @@ description: "NotificationType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum NotificationType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/NotificationType.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/NotificationType.cs`
 
 ## 概述
 

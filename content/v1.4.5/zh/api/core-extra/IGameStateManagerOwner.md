@@ -8,7 +8,7 @@ description: "IGameStateManagerOwner 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface IGameStateManagerOwner`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IGameStateManagerOwner.cs`
+**File:** `TaleWorlds.Core/IGameStateManagerOwner.cs`
 
 ## 概述
 

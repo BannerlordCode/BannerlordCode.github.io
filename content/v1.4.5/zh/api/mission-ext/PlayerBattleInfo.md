@@ -8,7 +8,7 @@ description: "PlayerBattleInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerBattleInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerBattleInfo.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerBattleInfo.cs`
 
 ## 概述
 
@@ -25,8 +25,11 @@ description: "PlayerBattleInfo 的自动生成类参考。"
 | `PlayerId` | `public PlayerId PlayerId { get; set; }` |
 | `Name` | `public string Name { get; set; }` |
 | `TeamNo` | `public int TeamNo { get; set; }` |
+| `Fled` | `public bool Fled { get; }` |
+| `Disconnected` | `public bool Disconnected { get; set; }` |
 | `JoinType` | `public BattleJoinType JoinType { get; set; }` |
 | `PeerIndex` | `public int PeerIndex { get; set; }` |
+| `CurrentState` | `public PlayerBattleInfo.State CurrentState { get; }` |
 
 ## 主要方法
 

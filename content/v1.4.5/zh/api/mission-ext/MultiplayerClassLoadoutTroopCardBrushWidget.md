@@ -8,7 +8,7 @@ description: "MultiplayerClassLoadoutTroopCardBrushWidget 的自动生成类参�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerClassLoadoutTroopCardBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout/MultiplayerClassLoadoutTroopCardBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/ClassLoadout/MultiplayerClassLoadoutTroopCardBrushWidget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ICompositeComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface ICompositeComponent`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ICompositeComponent.cs`
+**File:** `TaleWorlds.Engine/ICompositeComponent.cs`
 
 ## 概述
 

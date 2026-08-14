@@ -8,7 +8,7 @@ description: "TwoDimensionDrawData 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal struct TwoDimensionDrawData`
 **Base:** 无
-**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TwoDimensionDrawData.cs`
+**File:** `TaleWorlds.TwoDimension/TwoDimensionDrawData.cs`
 
 ## 概述
 

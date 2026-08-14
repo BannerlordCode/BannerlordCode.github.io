@@ -8,7 +8,7 @@ description: "AnimFlags 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum AnimFlags : ulong`
 **Base:** `ulong`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AnimFlags.cs`
+**File:** `TaleWorlds.MountAndBlade/AnimFlags.cs`
 
 ## 概述
 

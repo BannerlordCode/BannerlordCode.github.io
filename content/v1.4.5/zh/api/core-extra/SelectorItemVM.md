@@ -8,7 +8,7 @@ description: "SelectorItemVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class SelectorItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Selector/SelectorItemVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/Selector/SelectorItemVM.cs`
 
 ## 概述
 

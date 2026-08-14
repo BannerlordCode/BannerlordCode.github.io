@@ -8,7 +8,7 @@ description: "MapAtmosphereProbe 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapAtmosphereProbe : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MapAtmosphereProbe.cs`
+**File:** `TaleWorlds.MountAndBlade/MapAtmosphereProbe.cs`
 
 ## 概述
 

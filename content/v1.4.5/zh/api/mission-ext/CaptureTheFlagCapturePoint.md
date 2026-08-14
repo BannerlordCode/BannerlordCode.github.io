@@ -8,7 +8,7 @@ description: "CaptureTheFlagCapturePoint 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CaptureTheFlagCapturePoint`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CaptureTheFlagCapturePoint.cs`
+**File:** `TaleWorlds.MountAndBlade/CaptureTheFlagCapturePoint.cs`
 
 ## 概述
 

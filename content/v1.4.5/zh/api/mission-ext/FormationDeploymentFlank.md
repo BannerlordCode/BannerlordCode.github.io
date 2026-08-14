@@ -8,7 +8,7 @@ description: "FormationDeploymentFlank 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum FormationDeploymentFlank`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationDeploymentFlank.cs`
+**File:** `TaleWorlds.MountAndBlade/FormationDeploymentFlank.cs`
 
 ## 概述
 

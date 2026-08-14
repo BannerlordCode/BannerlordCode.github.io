@@ -8,7 +8,7 @@ description: "SyncPlayerMuteState 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SyncPlayerMuteState : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SyncPlayerMuteState.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SyncPlayerMuteState.cs`
 
 ## 概述
 

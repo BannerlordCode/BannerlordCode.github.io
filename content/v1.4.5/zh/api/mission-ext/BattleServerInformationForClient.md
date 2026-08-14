@@ -8,7 +8,7 @@ description: "BattleServerInformationForClient 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct BattleServerInformationForClient`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BattleServerInformationForClient.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/BattleServerInformationForClient.cs`
 
 ## 概述
 

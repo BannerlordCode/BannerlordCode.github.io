@@ -8,7 +8,7 @@ description: "ReplayMissionLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ReplayMissionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ReplayMissionLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/ReplayMissionLogic.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "FormationArrangementModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class FormationArrangementModel : MBGameModel<FormationArrangementModel>`
 **Base:** `MBGameModel<FormationArrangementModel>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/FormationArrangementModel.cs`
+**File:** `TaleWorlds.MountAndBlade/ComponentInterfaces/FormationArrangementModel.cs`
 
 ## 概述
 
@@ -23,11 +23,12 @@ description: "FormationArrangementModel 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `IsValid` | `public bool IsValid { get; }` |
+| `Invalid` | `public static FormationArrangementModel.ArrangementPosition Invalid { get; }` |
 
 ## 主要方法
 
 ### GetBannerBearerPositions
-`public abstract List<ArrangementPosition> GetBannerBearerPositions(Formation formation, int maxCount)`
+`public abstract List<FormationArrangementModel.ArrangementPosition> GetBannerBearerPositions(Formation formation, int maxCount)`
 
 **用途 / Purpose:** 读取并返回当前对象中 banner bearer positions 的结果。
 

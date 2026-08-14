@@ -8,7 +8,7 @@ description: "Platform 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum Platform`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Platform.cs`
+**File:** `TaleWorlds.Library/Platform.cs`
 
 ## 概述
 

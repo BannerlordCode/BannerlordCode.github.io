@@ -8,7 +8,7 @@ description: "IntersectionDetails 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum IntersectionDetails : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IntersectionDetails.cs`
+**File:** `TaleWorlds.Engine/IntersectionDetails.cs`
 
 ## 概述
 

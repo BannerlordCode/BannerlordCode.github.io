@@ -8,7 +8,7 @@ description: "BannerColorVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class BannerColorVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.BannerEditor/BannerColorVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/BannerEditor/BannerColorVM.cs`
 
 ## 概述
 
@@ -22,8 +22,8 @@ description: "BannerColorVM 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `ColorID` | `public int ColorID { get; set; }` |
-| `Color` | `public uint Color { get; set; }` |
+| `ColorID` | `public int ColorID { get; }` |
+| `Color` | `public uint Color { get; }` |
 | `ColorAsStr` | `public string ColorAsStr { get; set; }` |
 | `IsSelected` | `public bool IsSelected { get; set; }` |
 

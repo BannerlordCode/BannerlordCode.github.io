@@ -8,7 +8,7 @@ description: "TestAchievementService 的自动生成类参考。"
 **Module:** TaleWorlds.AchievementSystem
 **Type:** `public class TestAchievementService : IAchievementService`
 **Base:** `IAchievementService`
-**File:** `bin/TaleWorlds.AchievementSystem/TaleWorlds.AchievementSystem/TestAchievementService.cs`
+**File:** `TaleWorlds.AchievementSystem/TestAchievementService.cs`
 
 ## 概述
 

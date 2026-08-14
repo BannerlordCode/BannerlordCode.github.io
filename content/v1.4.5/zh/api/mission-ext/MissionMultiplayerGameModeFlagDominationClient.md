@@ -8,7 +8,7 @@ description: "MissionMultiplayerGameModeFlagDominationClient 的自动生成类�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerGameModeFlagDominationClient : MissionMultiplayerGameModeBaseClient, ICommanderInfo, IMissionBehavior`
 **Base:** `MissionMultiplayerGameModeBaseClient`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerGameModeFlagDominationClient.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionMultiplayerGameModeFlagDominationClient.cs`
 
 ## 概述
 
@@ -22,7 +22,13 @@ description: "MissionMultiplayerGameModeFlagDominationClient 的自动生成类�
 
 | Name | Signature |
 |------|-----------|
+| `IsGameModeUsingGold` | `public override bool IsGameModeUsingGold { get; }` |
+| `IsGameModeTactical` | `public override bool IsGameModeTactical { get; }` |
+| `IsGameModeUsingRoundCountdown` | `public override bool IsGameModeUsingRoundCountdown { get; }` |
+| `GameType` | `public override MultiplayerGameType GameType { get; }` |
+| `IsGameModeUsingCasualGold` | `public override bool IsGameModeUsingCasualGold { get; }` |
 | `AllCapturePoints` | `public IEnumerable<FlagCapturePoint> AllCapturePoints { get; }` |
+| `AreMoralesIndependent` | `public bool AreMoralesIndependent { get; }` |
 
 ## 主要方法
 

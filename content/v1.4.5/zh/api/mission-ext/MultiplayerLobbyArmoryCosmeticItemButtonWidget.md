@@ -8,7 +8,7 @@ description: "MultiplayerLobbyArmoryCosmeticItemButtonWidget 的自动生成类�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyArmoryCosmeticItemButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerLobbyArmoryCosmeticItemButtonWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Lobby/Armory/MultiplayerLobbyArmoryCosmeticItemButtonWidget.cs`
 
 ## 概述
 

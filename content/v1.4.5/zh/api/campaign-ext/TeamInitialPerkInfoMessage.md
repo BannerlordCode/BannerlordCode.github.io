@@ -8,7 +8,7 @@ description: "TeamInitialPerkInfoMessage 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class TeamInitialPerkInfoMessage : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/TeamInitialPerkInfoMessage.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/TeamInitialPerkInfoMessage.cs`
 
 ## 概述
 

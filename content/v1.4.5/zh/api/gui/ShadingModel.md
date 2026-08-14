@@ -8,7 +8,7 @@ description: "ShadingModel 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal enum ShadingModel : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/ShadingModel.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/ShadingModel.cs`
 
 ## 概述
 

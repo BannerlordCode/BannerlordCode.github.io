@@ -8,7 +8,7 @@ description: "ChangePlayerCharacterAction 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ChangePlayerCharacterAction`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/ChangePlayerCharacterAction.cs`
+**File:** `TaleWorlds.CampaignSystem/Actions/ChangePlayerCharacterAction.cs`
 
 ## 概述
 

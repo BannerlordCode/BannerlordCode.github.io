@@ -8,7 +8,7 @@ description: "TacticalDecision 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct TacticalDecision`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticalDecision.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticalDecision.cs`
 
 ## 概述
 

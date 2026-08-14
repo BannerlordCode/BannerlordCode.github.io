@@ -8,7 +8,7 @@ description: "MissionSiegeEngineCalculationModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionSiegeEngineCalculationModel : MBGameModel<MissionSiegeEngineCalculationModel>`
 **Base:** `MBGameModel<MissionSiegeEngineCalculationModel>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/MissionSiegeEngineCalculationModel.cs`
+**File:** `TaleWorlds.MountAndBlade/ComponentInterfaces/MissionSiegeEngineCalculationModel.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "PsaiTimer 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `internal class PsaiTimer`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/PsaiTimer.cs`
+**File:** `TaleWorlds.PSAI/net/PsaiTimer.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "WebSocketMessage 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public class WebSocketMessage`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/WebSocketMessage.cs`
+**File:** `TaleWorlds.Network/WebSocketMessage.cs`
 
 ## 概述
 

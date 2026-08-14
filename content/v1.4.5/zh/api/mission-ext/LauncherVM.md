@@ -8,7 +8,7 @@ description: "LauncherVM 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherVM.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/LauncherVM.cs`
 
 ## 概述
 
@@ -23,7 +23,7 @@ description: "LauncherVM 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `GameTypeArgument` | `public string GameTypeArgument { get; }` |
-| `ContinueGameArgument` | `public string ContinueGameArgument { get; set; }` |
+| `ContinueGameArgument` | `public string ContinueGameArgument { get; }` |
 | `IsSingleplayer` | `public bool IsSingleplayer { get; set; }` |
 | `IsMultiplayer` | `public bool IsMultiplayer { get; set; }` |
 | `IsDigitalCompanion` | `public bool IsDigitalCompanion { get; set; }` |

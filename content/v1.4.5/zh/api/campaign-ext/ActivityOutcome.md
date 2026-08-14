@@ -8,7 +8,7 @@ description: "ActivityOutcome 的自动生成类参考。"
 **Module:** TaleWorlds.ActivitySystem
 **Type:** `public enum ActivityOutcome`
 **Base:** 无
-**File:** `bin/TaleWorlds.ActivitySystem/TaleWorlds.ActivitySystem/ActivityOutcome.cs`
+**File:** `TaleWorlds.ActivitySystem/ActivityOutcome.cs`
 
 ## 概述
 

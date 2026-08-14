@@ -8,7 +8,7 @@ description: "ApplicationHealthChecker 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class ApplicationHealthChecker`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ApplicationHealthChecker.cs`
+**File:** `TaleWorlds.Engine/ApplicationHealthChecker.cs`
 
 ## 概述
 

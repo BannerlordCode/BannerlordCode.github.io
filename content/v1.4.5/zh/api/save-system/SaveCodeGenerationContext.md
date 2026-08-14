@@ -8,7 +8,7 @@ description: "SaveCodeGenerationContext 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveCodeGenerationContext`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/SaveCodeGenerationContext.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/SaveCodeGenerationContext.cs`
 
 ## 概述
 

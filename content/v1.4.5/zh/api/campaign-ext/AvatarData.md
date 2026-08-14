@@ -8,7 +8,7 @@ description: "AvatarData 的自动生成类参考。"
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public class AvatarData`
 **Base:** 无
-**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/AvatarData.cs`
+**File:** `TaleWorlds.PlayerServices/PlayerServices/Avatar/AvatarData.cs`
 
 ## 概述
 
@@ -25,8 +25,8 @@ description: "AvatarData 的自动生成类参考。"
 | `Image` | `public byte Image { get; }` |
 | `Width` | `public uint Width { get; }` |
 | `Height` | `public uint Height { get; }` |
-| `Type` | `public ImageType Type { get; }` |
-| `Status` | `public DataStatus Status { get; }` |
+| `Type` | `public AvatarData.ImageType Type { get; }` |
+| `Status` | `public AvatarData.DataStatus Status { get; }` |
 
 ## 主要方法
 

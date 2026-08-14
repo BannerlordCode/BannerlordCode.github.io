@@ -8,7 +8,7 @@ description: "IMissionSiegeWeapon 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface IMissionSiegeWeapon`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IMissionSiegeWeapon.cs`
+**File:** `TaleWorlds.Core/IMissionSiegeWeapon.cs`
 
 ## 概述
 

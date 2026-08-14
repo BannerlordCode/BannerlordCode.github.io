@@ -8,7 +8,7 @@ description: "ContainerDefinition 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class ContainerDefinition : TypeDefinitionBase`
 **Base:** `TypeDefinitionBase`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/ContainerDefinition.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/ContainerDefinition.cs`
 
 ## 概述
 

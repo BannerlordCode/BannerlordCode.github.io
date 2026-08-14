@@ -8,7 +8,7 @@ description: "WeaponDescription 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class WeaponDescription : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/WeaponDescription.cs`
+**File:** `TaleWorlds.Core/WeaponDescription.cs`
 
 ## 概述
 
@@ -27,6 +27,7 @@ description: "WeaponDescription 的自动生成类参考。"
 | `ItemUsageFeatures` | `public string ItemUsageFeatures { get; }` |
 | `RotatedInHand` | `public bool RotatedInHand { get; }` |
 | `IsHiddenFromUI` | `public bool IsHiddenFromUI { get; set; }` |
+| `AvailablePieces` | `public MBReadOnlyList<CraftingPiece> AvailablePieces { get; }` |
 
 ## 主要方法
 

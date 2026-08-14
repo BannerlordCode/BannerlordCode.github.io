@@ -8,7 +8,7 @@ description: "OptionValueType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum OptionValueType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerOptions.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerOptions.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "AgentFlag 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum AgentFlag : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/AgentFlag.cs`
+**File:** `TaleWorlds.Core/AgentFlag.cs`
 
 ## 概述
 

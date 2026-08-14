@@ -8,7 +8,7 @@ description: "WeaponComponentDataExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public static class WeaponComponentDataExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/WeaponComponentDataExtensions.cs`
+**File:** `TaleWorlds.Core/WeaponComponentDataExtensions.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "BehaviorUseMurderHole 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorUseMurderHole : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorUseMurderHole.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorUseMurderHole.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "CosmeticItemInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CosmeticItemInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/CosmeticItemInfo.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/CosmeticItemInfo.cs`
 
 ## 概述
 

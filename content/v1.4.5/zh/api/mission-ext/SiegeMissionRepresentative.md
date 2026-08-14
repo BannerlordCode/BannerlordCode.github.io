@@ -8,7 +8,7 @@ description: "SiegeMissionRepresentative 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeMissionRepresentative : MissionRepresentativeBase`
 **Base:** `MissionRepresentativeBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionRepresentatives/SiegeMissionRepresentative.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionRepresentatives/SiegeMissionRepresentative.cs`
 
 ## 概述
 

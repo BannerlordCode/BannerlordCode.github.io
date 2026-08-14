@@ -8,7 +8,7 @@ description: "StrikeType 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum StrikeType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/StrikeType.cs`
+**File:** `TaleWorlds.Core/StrikeType.cs`
 
 ## 概述
 

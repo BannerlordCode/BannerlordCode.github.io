@@ -8,7 +8,7 @@ description: "HotKeyManager 的自动生成类参考。"
 **Module:** TaleWorlds.InputSystem
 **Type:** `public static class HotKeyManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/HotKeyManager.cs`
+**File:** `TaleWorlds.InputSystem/HotKeyManager.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "HotKeyManager 的自动生成类参考。"
 把 `HotKeyManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
-
-### OnKeybindsChangedEvent
-`public delegate void OnKeybindsChangedEvent()`
-
-**用途 / Purpose:** 在 keybinds changed event 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 HotKeyManager 实例
-HotKeyManager hotKeyManager = ...;
-hotKeyManager.OnKeybindsChangedEvent();
-```
 
 ### GetHotKeyId
 `public static string GetHotKeyId(string categoryName, string hotKeyId)`
@@ -92,23 +81,23 @@ HotKeyManager.Initialize(savePath, false);
 ```
 
 ### RegisterInitialContexts
-`public static void RegisterInitialContexts(IEnumerable<GameKeyContext> contexts)`
+`public static void RegisterInitialContexts(IEnumerable<GameKeyContext> contexts, bool loadKeys)`
 
 **用途 / Purpose:** 将initial contexts注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 静态调用，不需要实例
-HotKeyManager.RegisterInitialContexts(contexts);
+HotKeyManager.RegisterInitialContexts(contexts, false);
 ```
 
 ### RegisterContext
-`public static void RegisterContext(GameKeyContext context, bool ignoreSerialize = false)`
+`public static void RegisterContext(GameKeyContext context, bool ignoreSerialize = false, bool loadKeys = false)`
 
 **用途 / Purpose:** 将context注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 静态调用，不需要实例
-HotKeyManager.RegisterContext(context, false);
+HotKeyManager.RegisterContext(context, false, false);
 ```
 
 ### ShouldNotifyDocumentVersionDifferent
@@ -131,14 +120,35 @@ HotKeyManager.ShouldNotifyDocumentVersionDifferent();
 HotKeyManager.Reset();
 ```
 
-### MarkForSave
-`public static void MarkForSave()`
+### LoadAsync
+`public static void LoadAsync()`
 
-**用途 / Purpose:** 调用 MarkForSave 对应的操作。
+**用途 / Purpose:** 从持久化存储或流中读取 async。
 
 ```csharp
 // 静态调用，不需要实例
-HotKeyManager.MarkForSave();
+HotKeyManager.LoadAsync();
+```
+
+### SaveAsync
+`public static void SaveAsync(bool throwEvent)`
+
+**用途 / Purpose:** 将 async 写入持久化存储或流中。
+
+```csharp
+// 静态调用，不需要实例
+HotKeyManager.SaveAsync(false);
+```
+
+### OnKeybindsChangedEvent
+`public delegate void OnKeybindsChangedEvent()`
+
+**用途 / Purpose:** 在 keybinds changed event 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HotKeyManager 实例
+HotKeyManager hotKeyManager = ...;
+hotKeyManager.OnKeybindsChangedEvent();
 ```
 
 ## 使用示例

@@ -8,7 +8,7 @@ description: "BarterItemCountTextWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BarterItemCountTextWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Barter/BarterItemCountTextWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Barter/BarterItemCountTextWidget.cs`
 
 ## 概述
 

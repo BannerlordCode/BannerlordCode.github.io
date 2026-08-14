@@ -8,7 +8,7 @@ description: "WedgeFormation 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class WedgeFormation : LineFormation`
 **Base:** `LineFormation`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/WedgeFormation.cs`
+**File:** `TaleWorlds.MountAndBlade/WedgeFormation.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MultiplayerGameTypes 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MultiplayerGameTypes`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerGameTypes.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerGameTypes.cs`
 
 ## 概述
 

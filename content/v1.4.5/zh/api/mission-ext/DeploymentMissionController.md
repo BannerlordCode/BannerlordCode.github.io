@@ -8,7 +8,7 @@ description: "DeploymentMissionController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class DeploymentMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DeploymentMissionController.cs`
+**File:** `TaleWorlds.MountAndBlade/DeploymentMissionController.cs`
 
 ## 概述
 

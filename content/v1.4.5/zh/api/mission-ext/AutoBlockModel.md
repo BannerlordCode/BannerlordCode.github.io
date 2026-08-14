@@ -8,7 +8,7 @@ description: "AutoBlockModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class AutoBlockModel : MBGameModel<AutoBlockModel>`
 **Base:** `MBGameModel<AutoBlockModel>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/AutoBlockModel.cs`
+**File:** `TaleWorlds.MountAndBlade/ComponentInterfaces/AutoBlockModel.cs`
 
 ## 概述
 

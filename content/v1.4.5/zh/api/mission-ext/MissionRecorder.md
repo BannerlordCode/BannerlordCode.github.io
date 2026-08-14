@@ -8,7 +8,7 @@ description: "MissionRecorder 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionRecorder`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionRecorder.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionRecorder.cs`
 
 ## 概述
 

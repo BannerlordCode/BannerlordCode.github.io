@@ -8,7 +8,7 @@ description: "ArrangementOrderEnum 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum ArrangementOrderEnum`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ArrangementOrder.cs`
+**File:** `TaleWorlds.MountAndBlade/ArrangementOrder.cs`
 
 ## 概述
 

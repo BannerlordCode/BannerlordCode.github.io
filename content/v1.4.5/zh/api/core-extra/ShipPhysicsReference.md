@@ -8,7 +8,7 @@ description: "ShipPhysicsReference 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class ShipPhysicsReference : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ShipPhysicsReference.cs`
+**File:** `TaleWorlds.Core/ShipPhysicsReference.cs`
 
 ## 概述
 

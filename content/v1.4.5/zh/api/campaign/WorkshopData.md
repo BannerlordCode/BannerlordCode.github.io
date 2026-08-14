@@ -8,7 +8,7 @@ description: "WorkshopData 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class WorkshopData`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/WorkshopsCampaignBehavior.cs`
+**File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/WorkshopsCampaignBehavior.cs`
 
 ## 概述
 

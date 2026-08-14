@@ -8,7 +8,7 @@ description: "SyncPerksForCurrentlySelectedTroop 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SyncPerksForCurrentlySelectedTroop : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SyncPerksForCurrentlySelectedTroop.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SyncPerksForCurrentlySelectedTroop.cs`
 
 ## 概述
 

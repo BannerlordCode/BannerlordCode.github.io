@@ -8,7 +8,7 @@ description: "NativeObjectPointer 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `internal struct NativeObjectPointer`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/NativeObjectPointer.cs`
+**File:** `TaleWorlds.DotNet/NativeObjectPointer.cs`
 
 ## 概述
 

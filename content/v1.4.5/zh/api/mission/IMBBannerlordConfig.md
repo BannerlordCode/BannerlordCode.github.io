@@ -8,7 +8,7 @@ description: "IMBBannerlordConfig 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBBannerlordConfig`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBBannerlordConfig.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBBannerlordConfig.cs`
 
 ## 概述
 

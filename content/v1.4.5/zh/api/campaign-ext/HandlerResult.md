@@ -8,7 +8,7 @@ description: "HandlerResult 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class HandlerResult`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/HandlerResult.cs`
+**File:** `TaleWorlds.Diamond/HandlerResult.cs`
 
 ## 概述
 

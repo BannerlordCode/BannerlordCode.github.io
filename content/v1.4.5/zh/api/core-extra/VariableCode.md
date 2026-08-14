@@ -8,7 +8,7 @@ description: "VariableCode 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class VariableCode`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/VariableCode.cs`
+**File:** `TaleWorlds.Library/CodeGeneration/VariableCode.cs`
 
 ## 概述
 

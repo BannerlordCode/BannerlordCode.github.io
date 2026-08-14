@@ -8,7 +8,7 @@ description: "ReinforcementFormationData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ReinforcementFormationData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionReinforcementsHelper.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionReinforcementsHelper.cs`
 
 ## 概述
 
@@ -54,7 +54,7 @@ var result = reinforcementFormationData.IsInitialized(0);
 ```
 
 ### GetPriority
-`public ReinforcementFormationPriority GetPriority(FormationClass troopClass)`
+`public MissionReinforcementsHelper.ReinforcementFormationPriority GetPriority(FormationClass troopClass)`
 
 **用途 / Purpose:** 读取并返回当前对象中 priority 的结果。
 

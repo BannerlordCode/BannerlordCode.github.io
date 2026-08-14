@@ -8,7 +8,7 @@ description: "MBSoundTrack 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct MBSoundTrack`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBSoundTrack.cs`
+**File:** `TaleWorlds.MountAndBlade/MBSoundTrack.cs`
 
 ## 概述
 

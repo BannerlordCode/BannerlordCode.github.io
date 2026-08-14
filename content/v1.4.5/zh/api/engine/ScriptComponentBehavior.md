@@ -8,7 +8,7 @@ description: "ScriptComponentBehavior 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public abstract class ScriptComponentBehavior : DotNetObject`
 **Base:** `DotNetObject`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ScriptComponentBehavior.cs`
+**File:** `TaleWorlds.Engine/ScriptComponentBehavior.cs`
 
 ## 概述
 
@@ -22,13 +22,14 @@ description: "ScriptComponentBehavior 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `GameEntity` | `public WeakGameEntity GameEntity { get; }` |
 | `ScriptComponent` | `public ManagedScriptComponent ScriptComponent { get; }` |
 | `Scene` | `public Scene Scene { get; }` |
 
 ## 主要方法
 
 ### SetScriptComponentToTick
-`public void SetScriptComponentToTick(TickRequirement tickReq)`
+`public void SetScriptComponentToTick(ScriptComponentBehavior.TickRequirement tickReq)`
 
 **用途 / Purpose:** 为 script component to tick 赋新值，并同步更新对象内部状态。
 
@@ -39,7 +40,7 @@ scriptComponentBehavior.SetScriptComponentToTick(tickReq);
 ```
 
 ### SetScriptComponentToTickMT
-`public void SetScriptComponentToTickMT(TickRequirement value)`
+`public void SetScriptComponentToTickMT(ScriptComponentBehavior.TickRequirement value)`
 
 **用途 / Purpose:** 为 script component to tick m t 赋新值，并同步更新对象内部状态。
 
@@ -50,7 +51,7 @@ scriptComponentBehavior.SetScriptComponentToTickMT(value);
 ```
 
 ### GetTickRequirement
-`public virtual TickRequirement GetTickRequirement()`
+`public virtual ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
 **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 

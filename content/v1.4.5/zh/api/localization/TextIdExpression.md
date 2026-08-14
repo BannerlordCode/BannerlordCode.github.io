@@ -8,7 +8,7 @@ description: "TextIdExpression 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class TextIdExpression : TextExpression`
 **Base:** `TextExpression`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/TextIdExpression.cs`
+**File:** `TaleWorlds.Localization/Expressions/TextIdExpression.cs`
 
 ## 概述
 

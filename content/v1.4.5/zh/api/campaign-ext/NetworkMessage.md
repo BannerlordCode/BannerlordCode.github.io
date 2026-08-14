@@ -8,7 +8,7 @@ description: "NetworkMessage 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public class NetworkMessage : INetworkMessageWriter, INetworkMessageReader`
 **Base:** `INetworkMessageWriter`
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/NetworkMessage.cs`
+**File:** `TaleWorlds.Network/NetworkMessage.cs`
 
 ## 概述
 

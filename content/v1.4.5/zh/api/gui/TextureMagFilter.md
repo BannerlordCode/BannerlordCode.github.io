@@ -8,7 +8,7 @@ description: "TextureMagFilter 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal enum TextureMagFilter`
 **Base:** 无
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/TextureMagFilter.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/TextureMagFilter.cs`
 
 ## 概述
 

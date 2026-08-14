@@ -8,7 +8,7 @@ description: "GameBadgeTracker 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class GameBadgeTracker`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/GameBadgeTracker.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/MultiplayerBadges/GameBadgeTracker.cs`
 
 ## 概述
 

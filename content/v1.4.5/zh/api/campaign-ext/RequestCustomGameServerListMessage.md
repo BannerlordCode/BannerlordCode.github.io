@@ -8,7 +8,7 @@ description: "RequestCustomGameServerListMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class RequestCustomGameServerListMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/RequestCustomGameServerListMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/RequestCustomGameServerListMessage.cs`
 
 ## 概述
 

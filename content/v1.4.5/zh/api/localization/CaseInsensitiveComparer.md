@@ -8,7 +8,7 @@ description: "CaseInsensitiveComparer 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class CaseInsensitiveComparer : IEqualityComparer<string>`
 **Base:** `IEqualityComparer<string>`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor/CaseInsensitiveComparer.cs`
+**File:** `TaleWorlds.Localization/TextProcessor/CaseInsensitiveComparer.cs`
 
 ## 概述
 

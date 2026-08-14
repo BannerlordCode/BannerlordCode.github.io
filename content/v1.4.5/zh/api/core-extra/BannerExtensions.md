@@ -8,7 +8,7 @@ description: "BannerExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public static class BannerExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BannerExtensions.cs`
+**File:** `TaleWorlds.Core/BannerExtensions.cs`
 
 ## 概述
 

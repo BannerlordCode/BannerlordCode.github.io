@@ -8,7 +8,7 @@ description: "ThreadedClientCantConnectTask 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `internal sealed class ThreadedClientCantConnectTask : ThreadedClientTask`
 **Base:** `ThreadedClientTask`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/ThreadedClientCantConnectTask.cs`
+**File:** `TaleWorlds.Diamond/ThreadedClientCantConnectTask.cs`
 
 ## 概述
 

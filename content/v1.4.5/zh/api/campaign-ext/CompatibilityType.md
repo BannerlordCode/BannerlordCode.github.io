@@ -8,7 +8,7 @@ description: "CompatibilityType 的自动生成类参考。"
 **Module:** psai.Editor
 **Type:** `public enum CompatibilityType`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.Editor/CompatibilityType.cs`
+**File:** `TaleWorlds.PSAI/Editor/CompatibilityType.cs`
 
 ## 概述
 

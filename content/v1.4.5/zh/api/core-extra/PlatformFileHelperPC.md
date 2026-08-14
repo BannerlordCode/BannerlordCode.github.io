@@ -8,7 +8,7 @@ description: "PlatformFileHelperPC 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class PlatformFileHelperPC : IPlatformFileHelper`
 **Base:** `IPlatformFileHelper`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PlatformFileHelperPC.cs`
+**File:** `TaleWorlds.Library/PlatformFileHelperPC.cs`
 
 ## 概述
 
@@ -98,7 +98,7 @@ var result = platformFileHelperPC.FileExists(path);
 ```
 
 ### GetFileContentStringAsync
-`public async Task<string> GetFileContentStringAsync(PlatformFilePath path)`
+`public Task<string> GetFileContentStringAsync(PlatformFilePath path)`
 
 **用途 / Purpose:** 读取并返回当前对象中 file content string async 的结果。
 

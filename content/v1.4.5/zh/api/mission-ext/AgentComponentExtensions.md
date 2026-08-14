@@ -8,7 +8,7 @@ description: "AgentComponentExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class AgentComponentExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentComponentExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/AgentComponentExtensions.cs`
 
 ## 概述
 

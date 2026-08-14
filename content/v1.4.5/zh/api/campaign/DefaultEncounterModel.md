@@ -20,7 +20,7 @@ description: "Bannerlord 1.4.5 的默认 EncounterModel 实现：遭遇阈值、
 
 默认实现会随战役模型列表安装，并通过 `Campaign.Current.Models.EncounterModel` 读取。模组若继承它，应只改动明确需要改变的一条规则，并继承其余实现。若直接实现 [`EncounterModel`](../EncounterModel)，则必须实现所有抽象成员，并保留相同的生命周期契约。
 
-## 依赖与数据流
+## 依赖
 
 该模型由 [`GameModels`](../GameModels) 组装，并通过 `Campaign.Current.Models.EncounterModel` 查询。[`StartBattleAction`](../../campaign-ext/StartBattleAction) 将真实的 `PartyBase` 和 [`MapEvent.BattleTypes`](../BattleTypes) 传入模型；随后由所选组件或 [`MapEventManager`](../MapEventManager) 路径创建并注册活动的 [`MapEvent`](../MapEvent)。[`PlayerEncounter`](../PlayerEncounter) 在把战役遭遇状态接到菜单和 Mission 入口时读取这个事件。
 

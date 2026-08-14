@@ -8,7 +8,7 @@ description: "ModuleInfoModelExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ModuleInfoModelExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ModuleInfoModelExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ModuleInfoModelExtensions.cs`
 
 ## 概述
 

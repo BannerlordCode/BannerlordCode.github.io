@@ -8,7 +8,7 @@ description: "TerrainType 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum TerrainType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TerrainType.cs`
+**File:** `TaleWorlds.Core/TerrainType.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "SteamAchievementService 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class SteamAchievementService : IAchievementService`
 **Base:** `IAchievementService`
-**File:** `bin/TaleWorlds.PlatformService.Steam/TaleWorlds.PlatformService.Steam/SteamAchievementService.cs`
+**File:** `TaleWorlds.PlatformService.Steam/SteamAchievementService.cs`
 
 ## 概述
 

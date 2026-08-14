@@ -8,7 +8,7 @@ description: "MultiplayerMessageFilter 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum MultiplayerMessageFilter : ulong`
 **Base:** `ulong`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerMessageFilter.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerMessageFilter.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IMBBindingList 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public interface IMBBindingList : IList, ICollection, IEnumerable`
 **Base:** `IList`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/IMBBindingList.cs`
+**File:** `TaleWorlds.Library/IMBBindingList.cs`
 
 ## 概述
 

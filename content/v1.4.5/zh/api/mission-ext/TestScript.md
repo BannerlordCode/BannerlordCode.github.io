@@ -8,7 +8,7 @@ description: "TestScript 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TestScript : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TestScript.cs`
+**File:** `TaleWorlds.MountAndBlade/TestScript.cs`
 
 ## 概述
 
@@ -31,7 +31,7 @@ TestScript.GetIntegerFromStringEnd("example");
 ```
 
 ### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
 **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 

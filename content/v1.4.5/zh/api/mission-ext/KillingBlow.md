@@ -8,7 +8,7 @@ description: "KillingBlow 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct KillingBlow`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/KillingBlow.cs`
+**File:** `TaleWorlds.MountAndBlade/KillingBlow.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "KillingBlow 的自动生成类参考。"
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### KillingBlow
-`public struct KillingBlow(Blow b, Vec3 ragdollImpulsePoint, Vec3 ragdollImpulseAmount, int deathAction, int weaponItemKind, Agent.KillInfo overrideKillInfo = Agent.KillInfo.Invalid)`
-
-**用途 / Purpose:** 调用 KillingBlow 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 KillingBlow 实例
-KillingBlow killingBlow = ...;
-var result = killingBlow.KillingBlow(b, ragdollImpulsePoint, ragdollImpulseAmount, 0, 0, agent.KillInfo.Invalid);
-```
 
 ### IsHeadShot
 `public bool IsHeadShot()`
@@ -47,7 +36,7 @@ var result = killingBlow.IsHeadShot();
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 KillingBlow killingBlow = ...;
-killingBlow.KillingBlow(b, ragdollImpulsePoint, ragdollImpulseAmount, 0, 0, agent.KillInfo.Invalid);
+killingBlow.IsHeadShot();
 ```
 
 ## 参见

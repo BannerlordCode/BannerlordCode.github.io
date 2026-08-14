@@ -6,9 +6,9 @@ description: "ItemOwnerComparer 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `public class ItemOwnerComparer : ItemComparerBase`
-**Base:** `ItemComparerBase`
-**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements/KingdomSettlementSortControllerVM.cs`
+**Type:** `public class ItemOwnerComparer : KingdomSettlementSortControllerVM.ItemComparerBase`
+**Base:** `KingdomSettlementSortControllerVM.ItemComparerBase`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/KingdomManagement/Settlements/KingdomSettlementSortControllerVM.cs`
 
 ## 概述
 

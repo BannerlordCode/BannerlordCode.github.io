@@ -8,7 +8,7 @@ description: "ClanFriendListService 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanFriendListService : IFriendListService`
 **Base:** `IFriendListService`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ClanFriendListService.cs`
+**File:** `TaleWorlds.MountAndBlade/ClanFriendListService.cs`
 
 ## 概述
 
@@ -21,7 +21,7 @@ description: "ClanFriendListService 的自动生成类参考。"
 ## 主要方法
 
 ### GetUserWithName
-`public async Task<PlayerId> GetUserWithName(string name)`
+`public Task<PlayerId> GetUserWithName(string name)`
 
 **用途 / Purpose:** 读取并返回当前对象中 user with name 的结果。
 

@@ -8,7 +8,7 @@ description: "GameNotificationVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class GameNotificationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/GameNotificationVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/Information/GameNotificationVM.cs`
 
 ## 概述
 
@@ -25,10 +25,9 @@ description: "GameNotificationVM 的自动生成类参考。"
 | `CurrentNotification` | `public GameNotificationItemVM CurrentNotification { get; set; }` |
 | `GotNotification` | `public bool GotNotification { get; set; }` |
 | `NotificationId` | `public int NotificationId { get; set; }` |
-| `CurrentNotificationDurationInSeconds` | `public float CurrentNotificationDurationInSeconds { get; set; }` |
+| `TotalTime` | `public float TotalTime { get; set; }` |
+| `Timer` | `public float Timer { get; set; }` |
 | `IsPaused` | `public bool IsPaused { get; set; }` |
-| `MustFadeOutCurrentNotification` | `public bool MustFadeOutCurrentNotification { get; set; }` |
-| `CurrentNotificationFadeOutDelayInSeconds` | `public float CurrentNotificationFadeOutDelayInSeconds { get; set; }` |
 
 ## 主要方法
 
@@ -63,6 +62,17 @@ gameNotificationVM.SkipCurrentNotification();
 // 先通过子系统 API 拿到 GameNotificationVM 实例
 GameNotificationVM gameNotificationVM = ...;
 gameNotificationVM.ClearNotifications();
+```
+
+### Tick
+`public void Tick(float dt)`
+
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 GameNotificationVM 实例
+GameNotificationVM gameNotificationVM = ...;
+gameNotificationVM.Tick(0);
 ```
 
 ### AddDialogNotification

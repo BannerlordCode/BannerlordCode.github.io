@@ -8,7 +8,7 @@ description: "ISynchedMissionObjectReadableRecord 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface ISynchedMissionObjectReadableRecord`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ISynchedMissionObjectReadableRecord.cs`
+**File:** `TaleWorlds.MountAndBlade/ISynchedMissionObjectReadableRecord.cs`
 
 ## 概述
 

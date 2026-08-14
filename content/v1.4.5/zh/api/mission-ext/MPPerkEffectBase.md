@@ -8,7 +8,7 @@ description: "MPPerkEffectBase 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MPPerkEffectBase`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkEffectBase.cs`
+**File:** `TaleWorlds.MountAndBlade/MPPerkEffectBase.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "MPPerkEffectBase 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `IsTickRequired` | `public virtual bool IsTickRequired { get; set; }` |
 | `IsDisabledInWarmup` | `public bool IsDisabledInWarmup { get; set; }` |
 
 ## 主要方法
@@ -247,14 +248,14 @@ var result = mPPerkEffectBase.GetIsTeamRewardedOnDeath();
 ```
 
 ### CalculateRewardedGoldOnDeath
-`public virtual void CalculateRewardedGoldOnDeath(Agent agent, List<(MissionPeer, int)> teamMembers)`
+`public virtual void CalculateRewardedGoldOnDeath(Agent agent, List<ValueTuple<MissionPeer, int>> teamMembers)`
 
 **用途 / Purpose:** 计算rewarded gold on death的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
 MPPerkEffectBase mPPerkEffectBase = ...;
-mPPerkEffectBase.CalculateRewardedGoldOnDeath(agent, list<(MissionPeer, 0);
+mPPerkEffectBase.CalculateRewardedGoldOnDeath(agent, list<ValueTuple<MissionPeer, 0);
 ```
 
 ### GetDrivenPropertyBonus

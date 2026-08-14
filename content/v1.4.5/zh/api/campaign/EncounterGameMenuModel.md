@@ -30,7 +30,7 @@ description: "基于 v1.4.5 源码说明 EncounterGameMenuModel 的获取方式�
 
 不要用它创建或终结 [MapEvent](../MapEvent)、移动 party side、结束攻城或宣和。状态变更应使用 [StartBattleAction](../../campaign-ext/StartBattleAction)、PlayerEncounter 方法、攻城系统，或带原因的 campaign [Actions](../../campaign-ext/MakePeaceAction)。也不要在 `Campaign.Current` 与 `Campaign.Current.Models` 尚不存在时调用它。
 
-## 依赖与调用链
+## 依赖
 
 | 关系 | 源码确认的含义 |
 |------|----------------|

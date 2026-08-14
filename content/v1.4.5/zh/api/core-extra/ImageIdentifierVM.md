@@ -8,7 +8,7 @@ description: "ImageIdentifierVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class ImageIdentifierVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.ImageIdentifiers/ImageIdentifierVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/ImageIdentifiers/ImageIdentifierVM.cs`
 
 ## 概述
 
@@ -26,6 +26,7 @@ description: "ImageIdentifierVM 的自动生成类参考。"
 | `AdditionalArgs` | `public string AdditionalArgs { get; set; }` |
 | `TextureProviderName` | `public string TextureProviderName { get; set; }` |
 | `IsEmpty` | `public bool IsEmpty { get; }` |
+| `IsValid` | `public bool IsValid { get; }` |
 
 ## 主要方法
 

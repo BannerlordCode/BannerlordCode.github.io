@@ -8,7 +8,7 @@ description: "IVehicleHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IVehicleHandler : IMissionBehavior`
 **Base:** `IMissionBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IVehicleHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/IVehicleHandler.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "GraphLinePointVM 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class GraphLinePointVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.Graph/GraphLinePointVM.cs`
+**File:** `TaleWorlds.Library/Graph/GraphLinePointVM.cs`
 
 ## 概述
 

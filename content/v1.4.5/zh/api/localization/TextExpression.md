@@ -8,7 +8,7 @@ description: "TextExpression 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal abstract class TextExpression`
 **Base:** 无
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/TextExpression.cs`
+**File:** `TaleWorlds.Localization/Expressions/TextExpression.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ScriptedMovementComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ScriptedMovementComponent : AgentComponent`
 **Base:** `AgentComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.AI.AgentComponents/ScriptedMovementComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/AI/AgentComponents/ScriptedMovementComponent.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "GenericMissionObjectiveTargetBuilder 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct GenericMissionObjectiveTargetBuilder<T>`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Objectives/MissionObjective.cs`
+**File:** `TaleWorlds.MountAndBlade/Missions/Objectives/MissionObjective.cs`
 
 ## 概述
 
@@ -21,7 +21,7 @@ description: "GenericMissionObjectiveTargetBuilder 的自动生成类参考。"
 ## 主要方法
 
 ### SetIsActiveCallback
-`public GenericMissionObjectiveTargetBuilder<T> SetIsActiveCallback(Func<T, bool> callback)`
+`public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetIsActiveCallback(Func<T, bool> callback)`
 
 **用途 / Purpose:** 为 is active callback 赋新值，并同步更新对象内部状态。
 
@@ -32,7 +32,7 @@ var result = genericMissionObjectiveTargetBuilder.SetIsActiveCallback(func<T, fa
 ```
 
 ### SetGetGlobalPositionCallback
-`public GenericMissionObjectiveTargetBuilder<T> SetGetGlobalPositionCallback(Func<T, Vec3> callback)`
+`public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetGetGlobalPositionCallback(Func<T, Vec3> callback)`
 
 **用途 / Purpose:** 为 get global position callback 赋新值，并同步更新对象内部状态。
 
@@ -43,7 +43,7 @@ var result = genericMissionObjectiveTargetBuilder.SetGetGlobalPositionCallback(f
 ```
 
 ### SetGetNameCallback
-`public GenericMissionObjectiveTargetBuilder<T> SetGetNameCallback(Func<T, TextObject> callback)`
+`public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetGetNameCallback(Func<T, TextObject> callback)`
 
 **用途 / Purpose:** 为 get name callback 赋新值，并同步更新对象内部状态。
 

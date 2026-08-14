@@ -8,7 +8,7 @@ description: "AnotherPlayerData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AnotherPlayerData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/AnotherPlayerData.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/AnotherPlayerData.cs`
 
 ## 概述
 

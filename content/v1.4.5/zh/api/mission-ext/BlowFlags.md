@@ -8,7 +8,7 @@ description: "BlowFlags 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum BlowFlags`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BlowFlags.cs`
+**File:** `TaleWorlds.MountAndBlade/BlowFlags.cs`
 
 ## 概述
 

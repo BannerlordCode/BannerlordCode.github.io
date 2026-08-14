@@ -8,7 +8,7 @@ description: "BattleInitializedMessage 的自动生成类参考。"
 **Module:** Messages.FromBattleServer
 **Type:** `public class BattleInitializedMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/BattleInitializedMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromBattleServer/ToBattleServerManager/BattleInitializedMessage.cs`
 
 ## 概述
 

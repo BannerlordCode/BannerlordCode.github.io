@@ -8,7 +8,7 @@ description: "ManagedObjectOwner 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `internal class ManagedObjectOwner`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedObjectOwner.cs`
+**File:** `TaleWorlds.DotNet/ManagedObjectOwner.cs`
 
 ## 概述
 

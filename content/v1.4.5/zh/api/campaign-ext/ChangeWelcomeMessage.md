@@ -8,7 +8,7 @@ description: "ChangeWelcomeMessage 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class ChangeWelcomeMessage : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/ChangeWelcomeMessage.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/ChangeWelcomeMessage.cs`
 
 ## 概述
 

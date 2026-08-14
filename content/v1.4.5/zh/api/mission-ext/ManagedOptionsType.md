@@ -8,7 +8,7 @@ description: "ManagedOptionsType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum ManagedOptionsType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ManagedOptions.cs`
+**File:** `TaleWorlds.MountAndBlade/ManagedOptions.cs`
 
 ## 概述
 

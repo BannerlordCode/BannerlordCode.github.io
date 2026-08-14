@@ -8,7 +8,7 @@ description: "MangonelAI 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class MangonelAI : RangedSiegeWeaponAi`
 **Base:** `RangedSiegeWeaponAi`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MangonelAI.cs`
+**File:** `TaleWorlds.MountAndBlade/MangonelAI.cs`
 
 ## 概述
 

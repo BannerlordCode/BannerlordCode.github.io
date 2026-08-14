@@ -8,7 +8,7 @@ description: "MissionBehaviorType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum MissionBehaviorType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionBehaviorType.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionBehaviorType.cs`
 
 ## 概述
 

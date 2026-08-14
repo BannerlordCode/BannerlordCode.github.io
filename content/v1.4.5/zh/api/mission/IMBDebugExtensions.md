@@ -8,7 +8,7 @@ description: "IMBDebugExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBDebugExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBDebugExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBDebugExtensions.cs`
 
 ## 概述
 

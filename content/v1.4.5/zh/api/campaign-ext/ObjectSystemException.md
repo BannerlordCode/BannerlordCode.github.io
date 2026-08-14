@@ -8,7 +8,7 @@ description: "ObjectSystemException 的自动生成类参考。"
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public class ObjectSystemException : Exception`
 **Base:** `Exception`
-**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/ObjectSystemException.cs`
+**File:** `TaleWorlds.ObjectSystem/ObjectSystemException.cs`
 
 ## 概述
 

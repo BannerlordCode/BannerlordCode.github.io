@@ -8,7 +8,7 @@ description: "MultiplayerArmoryCosmeticsSectionWidget 的自动生成类参考�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerArmoryCosmeticsSectionWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerArmoryCosmeticsSectionWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Lobby/Armory/MultiplayerArmoryCosmeticsSectionWidget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "NavigationPath 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class NavigationPath : ISerializable`
 **Base:** `ISerializable`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/NavigationPath.cs`
+**File:** `TaleWorlds.Library/NavigationPath.cs`
 
 ## 概述
 
@@ -24,6 +24,7 @@ description: "NavigationPath 的自动生成类参考。"
 |------|-----------|
 | `PathPoints` | `public Vec2 PathPoints { get; }` |
 | `Size` | `public int Size { get; set; }` |
+| `this` | `public Vec2 this { get; }` |
 
 ## 主要方法
 

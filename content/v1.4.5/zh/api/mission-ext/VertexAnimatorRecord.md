@@ -8,7 +8,7 @@ description: "VertexAnimatorRecord 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct VertexAnimatorRecord : ISynchedMissionObjectReadableRecord`
 **Base:** `ISynchedMissionObjectReadableRecord`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/VertexAnimator.cs`
+**File:** `TaleWorlds.MountAndBlade/VertexAnimator.cs`
 
 ## 概述
 

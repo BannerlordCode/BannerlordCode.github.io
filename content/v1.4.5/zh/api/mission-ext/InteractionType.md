@@ -8,7 +8,7 @@ description: "InteractionType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum InteractionType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/InteractionType.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/InteractionType.cs`
 
 ## 概述
 

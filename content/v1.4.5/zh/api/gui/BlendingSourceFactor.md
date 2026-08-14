@@ -8,7 +8,7 @@ description: "BlendingSourceFactor 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal enum BlendingSourceFactor : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/BlendingSourceFactor.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/BlendingSourceFactor.cs`
 
 ## 概述
 

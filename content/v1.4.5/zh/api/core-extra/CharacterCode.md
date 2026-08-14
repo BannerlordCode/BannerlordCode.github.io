@@ -8,7 +8,7 @@ description: "CharacterCode 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class CharacterCode`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/CharacterCode.cs`
+**File:** `TaleWorlds.Core/CharacterCode.cs`
 
 ## 概述
 
@@ -22,10 +22,13 @@ description: "CharacterCode 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `IsEmpty` | `public bool IsEmpty { get; }` |
 | `EquipmentCode` | `public string EquipmentCode { get; }` |
 | `Code` | `public string Code { get; }` |
 | `IsFemale` | `public bool IsFemale { get; }` |
 | `IsHero` | `public bool IsHero { get; }` |
+| `FaceDirtAmount` | `public float FaceDirtAmount { get; set; }` |
+| `Banner` | `public Banner Banner { get; set; }` |
 | `FormationClass` | `public FormationClass FormationClass { get; set; }` |
 | `Color1` | `public uint Color1 { get; }` |
 | `Color2` | `public uint Color2 { get; }` |

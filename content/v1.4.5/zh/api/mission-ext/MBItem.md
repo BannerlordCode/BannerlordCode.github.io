@@ -8,7 +8,7 @@ description: "MBItem 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBItem`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBItem.cs`
+**File:** `TaleWorlds.MountAndBlade/MBItem.cs`
 
 ## 概述
 

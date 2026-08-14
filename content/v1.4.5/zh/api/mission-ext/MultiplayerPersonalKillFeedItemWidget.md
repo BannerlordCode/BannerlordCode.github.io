@@ -8,7 +8,7 @@ description: "MultiplayerPersonalKillFeedItemWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerPersonalKillFeedItemWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.KillFeed/MultiplayerPersonalKillFeedItemWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/KillFeed/MultiplayerPersonalKillFeedItemWidget.cs`
 
 ## 概述
 
@@ -27,7 +27,7 @@ description: "MultiplayerPersonalKillFeedItemWidget 的自动生成类参考。"
 | `AmountTextWidget` | `public TextWidget AmountTextWidget { get; set; }` |
 | `MessageTextWidget` | `public RichTextWidget MessageTextWidget { get; set; }` |
 | `FadeInTime` | `public float FadeInTime { get; set; }` |
-| `StayTime` | `public float StayTime { get; }` |
+| `StayTime` | `public float StayTime { get; set; }` |
 | `FadeOutTime` | `public float FadeOutTime { get; }` |
 | `TimeSinceCreation` | `public float TimeSinceCreation { get; }` |
 | `IsDamage` | `public bool IsDamage { get; set; }` |

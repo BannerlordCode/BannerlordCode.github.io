@@ -8,7 +8,7 @@ description: "BurstMissionObjectParticles 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class BurstMissionObjectParticles : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/BurstMissionObjectParticles.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/BurstMissionObjectParticles.cs`
 
 ## 概述
 

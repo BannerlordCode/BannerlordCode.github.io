@@ -8,7 +8,7 @@ description: "RangedSiegeWeaponRecord 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct RangedSiegeWeaponRecord : ISynchedMissionObjectReadableRecord`
 **Base:** `ISynchedMissionObjectReadableRecord`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RangedSiegeWeapon.cs`
+**File:** `TaleWorlds.MountAndBlade/RangedSiegeWeapon.cs`
 
 ## 概述
 

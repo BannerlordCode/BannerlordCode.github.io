@@ -8,7 +8,7 @@ description: "ContainerLoadData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class ContainerLoadData`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/ContainerLoadData.cs`
+**File:** `TaleWorlds.SaveSystem/Load/ContainerLoadData.cs`
 
 ## 概述
 
@@ -22,6 +22,10 @@ description: "ContainerLoadData 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `Id` | `public int Id { get; }` |
+| `Target` | `public object Target { get; }` |
+| `Context` | `public LoadContext Context { get; }` |
+| `TypeDefinition` | `public ContainerDefinition TypeDefinition { get; }` |
 | `ContainerHeaderLoadData` | `public ContainerHeaderLoadData ContainerHeaderLoadData { get; }` |
 
 ## 主要方法

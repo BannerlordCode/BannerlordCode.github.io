@@ -8,7 +8,7 @@ description: "Hitter 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class Hitter`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Agent.cs`
+**File:** `TaleWorlds.MountAndBlade/Agent.cs`
 
 ## 概述
 

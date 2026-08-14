@@ -8,7 +8,7 @@ description: "CommonAIComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CommonAIComponent : AgentComponent`
 **Base:** `AgentComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CommonAIComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/CommonAIComponent.cs`
 
 ## 概述
 
@@ -25,6 +25,8 @@ description: "CommonAIComponent 的自动生成类参考。"
 | `IsPanicked` | `public bool IsPanicked { get; }` |
 | `IsRetreating` | `public bool IsRetreating { get; }` |
 | `ReservedRiderAgentIndex` | `public int ReservedRiderAgentIndex { get; }` |
+| `InitialMorale` | `public float InitialMorale { get; set; }` |
+| `RecoveryMorale` | `public float RecoveryMorale { get; set; }` |
 | `Morale` | `public float Morale { get; set; }` |
 
 ## 主要方法

@@ -8,7 +8,7 @@ description: "Key 的自动生成类参考。"
 **Module:** TaleWorlds.InputSystem
 **Type:** `public class Key`
 **Base:** 无
-**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/Key.cs`
+**File:** `TaleWorlds.InputSystem/Key.cs`
 
 ## 概述
 
@@ -135,7 +135,7 @@ Key.IsDpadInput(key);
 ```
 
 ### GetInputType
-`public static InputType GetInputType(InputKey key)`
+`public static Key.InputType GetInputType(InputKey key)`
 
 **用途 / Purpose:** 读取并返回当前对象中 input type 的结果。
 

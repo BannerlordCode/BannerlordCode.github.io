@@ -8,7 +8,7 @@ description: "IconBrushWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class IconBrushWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/IconBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/IconBrushWidget.cs`
 
 ## 概述
 

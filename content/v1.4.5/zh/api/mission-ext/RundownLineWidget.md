@@ -8,7 +8,7 @@ description: "RundownLineWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RundownLineWidget : ListPanel`
 **Base:** `ListPanel`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information.RundownTooltip/RundownLineWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Information/RundownTooltip/RundownLineWidget.cs`
 
 ## 概述
 

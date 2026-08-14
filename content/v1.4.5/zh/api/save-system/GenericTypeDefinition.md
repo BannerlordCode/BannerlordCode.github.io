@@ -8,7 +8,7 @@ description: "GenericTypeDefinition 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class GenericTypeDefinition : TypeDefinition`
 **Base:** `TypeDefinition`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/GenericTypeDefinition.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/GenericTypeDefinition.cs`
 
 ## 概述
 

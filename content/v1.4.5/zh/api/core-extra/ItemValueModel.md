@@ -8,7 +8,7 @@ description: "ItemValueModel 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class ItemValueModel : MBGameModel<ItemValueModel>`
 **Base:** `MBGameModel<ItemValueModel>`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemValueModel.cs`
+**File:** `TaleWorlds.Core/ItemValueModel.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "OrderItemButtonWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderItemButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order/OrderItemButtonWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Order/OrderItemButtonWidget.cs`
 
 ## 概述
 

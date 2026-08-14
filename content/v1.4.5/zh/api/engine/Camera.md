@@ -8,7 +8,7 @@ description: "Camera 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class Camera : NativeObject`
 **Base:** `NativeObject`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Camera.cs`
+**File:** `TaleWorlds.Engine/Camera.cs`
 
 ## 概述
 
@@ -24,7 +24,11 @@ description: "Camera 的自动生成类参考。"
 |------|-----------|
 | `Entity` | `public GameEntity Entity { get; set; }` |
 | `Position` | `public Vec3 Position { get; set; }` |
+| `Direction` | `public Vec3 Direction { get; }` |
 | `Frame` | `public MatrixFrame Frame { get; set; }` |
+| `Near` | `public float Near { get; }` |
+| `Far` | `public float Far { get; }` |
+| `HorizontalFov` | `public float HorizontalFov { get; }` |
 
 ## 主要方法
 

@@ -8,7 +8,7 @@ description: "PartyFormationDropdownWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PartyFormationDropdownWidget : DropdownWidget`
 **Base:** `DropdownWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyFormationDropdownWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Party/PartyFormationDropdownWidget.cs`
 
 ## 概述
 

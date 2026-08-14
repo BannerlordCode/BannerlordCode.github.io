@@ -8,7 +8,7 @@ description: "BannerIconGroup 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class BannerIconGroup`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BannerIconGroup.cs`
+**File:** `TaleWorlds.Core/BannerIconGroup.cs`
 
 ## 概述
 

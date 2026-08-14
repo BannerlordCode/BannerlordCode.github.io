@@ -8,7 +8,7 @@ description: "IViewModel 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public interface IViewModel : INotifyPropertyChanged`
 **Base:** `INotifyPropertyChanged`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/IViewModel.cs`
+**File:** `TaleWorlds.Library/IViewModel.cs`
 
 ## 概述
 

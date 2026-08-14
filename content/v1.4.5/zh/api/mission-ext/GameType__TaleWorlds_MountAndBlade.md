@@ -8,7 +8,7 @@ description: "GameType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum GameType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBCommon.cs`
+**File:** `TaleWorlds.MountAndBlade/MBCommon.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IMBMapScene 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBMapScene`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBMapScene.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBMapScene.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "TroopType 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum TroopType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TroopType.cs`
+**File:** `TaleWorlds.Core/TroopType.cs`
 
 ## 概述
 

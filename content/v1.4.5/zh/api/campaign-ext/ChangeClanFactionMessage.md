@@ -8,7 +8,7 @@ description: "ChangeClanFactionMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class ChangeClanFactionMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/ChangeClanFactionMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/ChangeClanFactionMessage.cs`
 
 ## 概述
 

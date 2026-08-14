@@ -8,7 +8,7 @@ description: "IInformationDataHolder 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface IInformationDataHolder`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IInformationDataHolder.cs`
+**File:** `TaleWorlds.Core/IInformationDataHolder.cs`
 
 ## 概述
 

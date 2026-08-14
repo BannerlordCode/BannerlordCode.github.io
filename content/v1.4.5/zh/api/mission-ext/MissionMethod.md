@@ -8,7 +8,7 @@ description: "MissionMethod 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMethod : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMethod.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionMethod.cs`
 
 ## 概述
 

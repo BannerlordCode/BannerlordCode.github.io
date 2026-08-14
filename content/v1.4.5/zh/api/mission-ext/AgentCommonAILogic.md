@@ -8,7 +8,7 @@ description: "AgentCommonAILogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentCommonAILogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentCommonAILogic.cs`
+**File:** `TaleWorlds.MountAndBlade/AgentCommonAILogic.cs`
 
 ## 概述
 

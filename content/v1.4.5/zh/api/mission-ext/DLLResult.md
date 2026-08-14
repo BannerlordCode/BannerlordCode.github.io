@@ -8,7 +8,7 @@ description: "DLLResult 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DLLResult`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/DLLResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/DLLResult.cs`
 
 ## 概述
 

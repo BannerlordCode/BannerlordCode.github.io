@@ -8,7 +8,7 @@ description: "HairCoverTypes 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum HairCoverTypes`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ArmorComponent.cs`
+**File:** `TaleWorlds.Core/ArmorComponent.cs`
 
 ## 概述
 

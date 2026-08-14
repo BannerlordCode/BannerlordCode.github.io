@@ -8,7 +8,7 @@ description: "GameAxisKey 的自动生成类参考。"
 **Module:** TaleWorlds.InputSystem
 **Type:** `public class GameAxisKey`
 **Base:** 无
-**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/GameAxisKey.cs`
+**File:** `TaleWorlds.InputSystem/GameAxisKey.cs`
 
 ## 概述
 
@@ -27,7 +27,7 @@ description: "GameAxisKey 的自动生成类参考。"
 | `DefaultAxisKey` | `public Key DefaultAxisKey { get; }` |
 | `PositiveKey` | `public GameKey PositiveKey { get; }` |
 | `NegativeKey` | `public GameKey NegativeKey { get; }` |
-| `Type` | `public AxisType Type { get; }` |
+| `Type` | `public GameAxisKey.AxisType Type { get; }` |
 
 ## 主要方法
 

@@ -8,7 +8,7 @@ description: "Managed 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public static class Managed`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/Managed.cs`
+**File:** `TaleWorlds.DotNet/Managed.cs`
 
 ## 概述
 
@@ -18,40 +18,13 @@ description: "Managed 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.DotNet` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `ManagedCallbacksDll` | `public static string ManagedCallbacksDll { get; }` |
+
 ## 主要方法
-
-### PassManagedInitializeMethodPointerDelegate
-`public delegate void PassManagedInitializeMethodPointerDelegate( Delegate initalizer)`
-
-**用途 / Purpose:** 调用 PassManagedInitializeMethodPointerDelegate 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Managed 实例
-Managed managed = ...;
-managed.PassManagedInitializeMethodPointerDelegate(initalizer);
-```
-
-### PassManagedCallbackMethodPointersDelegate
-`public delegate void PassManagedCallbackMethodPointersDelegate( Delegate methodDelegate)`
-
-**用途 / Purpose:** 调用 PassManagedCallbackMethodPointersDelegate 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Managed 实例
-Managed managed = ...;
-managed.PassManagedCallbackMethodPointersDelegate(methodDelegate);
-```
-
-### InitializerDelegate
-`public delegate void InitializerDelegate(Delegate argument)`
-
-**用途 / Purpose:** 为 r delegate 初始化必要的资源、状态或绑定。
-
-```csharp
-// 先通过子系统 API 拿到 Managed 实例
-Managed managed = ...;
-managed.InitializerDelegate(argument);
-```
 
 ### GetStackTraceStr
 `public static string GetStackTraceStr(int skipCount = 0)`
@@ -163,12 +136,43 @@ Managed.AddTypes(dictionary<string, types);
 Managed.ShowDotNetVersion(strings);
 ```
 
+### PassManagedInitializeMethodPointerDelegate
+`public delegate void PassManagedInitializeMethodPointerDelegate( Delegate initalizer)`
+
+**用途 / Purpose:** 调用 PassManagedInitializeMethodPointerDelegate 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Managed 实例
+Managed managed = ...;
+managed.PassManagedInitializeMethodPointerDelegate(initalizer);
+```
+
+### PassManagedCallbackMethodPointersDelegate
+`public delegate void PassManagedCallbackMethodPointersDelegate( Delegate methodDelegate)`
+
+**用途 / Purpose:** 调用 PassManagedCallbackMethodPointersDelegate 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Managed 实例
+Managed managed = ...;
+managed.PassManagedCallbackMethodPointersDelegate(methodDelegate);
+```
+
+### InitializerDelegate
+`public delegate void InitializerDelegate(Delegate argument)`
+
+**用途 / Purpose:** 为 r delegate 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 Managed 实例
+Managed managed = ...;
+managed.InitializerDelegate(argument);
+```
+
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-Managed managed = ...;
-managed.PassManagedInitializeMethodPointerDelegate(initalizer);
+Managed.GetStackTraceStr(0);
 ```
 
 ## 参见

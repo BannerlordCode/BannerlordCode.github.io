@@ -8,7 +8,7 @@ description: "AutoClosePopupClosingWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AutoClosePopupClosingWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/AutoClosePopupClosingWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Menu/TownManagement/AutoClosePopupClosingWidget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "SetChatFilterListsMessage 的自动生成类参考。"
 **Module:** Messages.FromCustomBattleServerManager
 **Type:** `public class SetChatFilterListsMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServerManager.ToCustomBattleServer/SetChatFilterListsMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromCustomBattleServerManager/ToCustomBattleServer/SetChatFilterListsMessage.cs`
 
 ## 概述
 

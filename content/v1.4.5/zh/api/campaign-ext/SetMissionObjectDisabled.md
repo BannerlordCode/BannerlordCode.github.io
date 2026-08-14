@@ -8,7 +8,7 @@ description: "SetMissionObjectDisabled 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetMissionObjectDisabled : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetMissionObjectDisabled.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetMissionObjectDisabled.cs`
 
 ## 概述
 

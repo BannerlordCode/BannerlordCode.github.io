@@ -8,7 +8,7 @@ description: "TextFlags 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum TextFlags`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/TextFlags.cs`
+**File:** `TaleWorlds.Engine/TextFlags.cs`
 
 ## 概述
 

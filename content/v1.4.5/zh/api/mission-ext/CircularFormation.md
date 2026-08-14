@@ -8,7 +8,7 @@ description: "CircularFormation 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CircularFormation : LineFormation`
 **Base:** `LineFormation`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CircularFormation.cs`
+**File:** `TaleWorlds.MountAndBlade/CircularFormation.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "CircularFormation 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Width` | `public override float Width { get; set; }` |
+| `Depth` | `public override float Depth { get; }` |
 | `MinimumWidth` | `public override float MinimumWidth { get; }` |
 | `MaximumWidth` | `public override float MaximumWidth { get; }` |
 

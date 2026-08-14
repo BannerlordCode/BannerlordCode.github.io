@@ -8,7 +8,7 @@ description: "TacticHoldChokePoint 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticHoldChokePoint : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticHoldChokePoint.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticHoldChokePoint.cs`
 
 ## 概述
 

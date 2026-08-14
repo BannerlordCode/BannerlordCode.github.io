@@ -8,7 +8,7 @@ description: "Opengl32 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal static class Opengl32`
 **Base:** 无
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/Opengl32.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/Opengl32.cs`
 
 ## 概述
 
@@ -598,16 +598,6 @@ Opengl32.wglGetProcAddress("example");
 ```csharp
 // 静态调用，不需要实例
 Opengl32.wglDeleteContext(hglrc);
-```
-
-### wglGetCurrentContext
-`public static extern IntPtr wglGetCurrentContext()`
-
-**用途 / Purpose:** 调用 wglGetCurrentContext 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-Opengl32.wglGetCurrentContext();
 ```
 
 ## 使用示例

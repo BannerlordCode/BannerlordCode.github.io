@@ -8,7 +8,7 @@ description: "EditClanAnnouncementMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class EditClanAnnouncementMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/EditClanAnnouncementMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/EditClanAnnouncementMessage.cs`
 
 ## 概述
 

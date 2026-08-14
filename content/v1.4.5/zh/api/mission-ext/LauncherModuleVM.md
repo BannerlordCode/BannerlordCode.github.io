@@ -8,7 +8,7 @@ description: "LauncherModuleVM 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherModuleVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherModuleVM.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/LauncherModuleVM.cs`
 
 ## 概述
 

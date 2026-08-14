@@ -8,7 +8,7 @@ description: "FormationClassExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public static class FormationClassExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/FormationClassExtensions.cs`
+**File:** `TaleWorlds.Core/FormationClassExtensions.cs`
 
 ## 概述
 

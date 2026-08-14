@@ -8,7 +8,7 @@ description: "BlowWeaponRecord 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct BlowWeaponRecord`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BlowWeaponRecord.cs`
+**File:** `TaleWorlds.MountAndBlade/BlowWeaponRecord.cs`
 
 ## 概述
 
@@ -22,7 +22,9 @@ description: "BlowWeaponRecord 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `IsMissile` | `public bool IsMissile { get; }` |
 | `IsShield` | `public bool IsShield { get; }` |
+| `IsRanged` | `public bool IsRanged { get; }` |
 | `IsAmmo` | `public bool IsAmmo { get; }` |
 
 ## 主要方法

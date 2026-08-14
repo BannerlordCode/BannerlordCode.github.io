@@ -8,7 +8,7 @@ description: "MBSaveLoad 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public static class MBSaveLoad`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBSaveLoad.cs`
+**File:** `TaleWorlds.Core/MBSaveLoad.cs`
 
 ## 概述
 
@@ -22,8 +22,11 @@ description: "MBSaveLoad 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `ModuleVersionSeperator` | `public static char ModuleVersionSeperator { get; }` |
+| `ModuleCodeSeperator` | `public static char ModuleCodeSeperator { get; }` |
 | `LastLoadedGameVersion` | `public static ApplicationVersion LastLoadedGameVersion { get; }` |
 | `CurrentVersion` | `public static ApplicationVersion CurrentVersion { get; }` |
+| `IsUpdatingGameVersion` | `public static bool IsUpdatingGameVersion { get; }` |
 | `NumberOfCurrentSaves` | `public static int NumberOfCurrentSaves { get; }` |
 | `ActiveSaveSlotName` | `public static string ActiveSaveSlotName { get; }` |
 
@@ -90,33 +93,33 @@ MBSaveLoad.GetSaveFileWithName("example");
 ```
 
 ### QuickSaveCurrentGame
-`public static void QuickSaveCurrentGame(CampaignSaveMetaDataArgs campaignMetaData, Action<(SaveResult, string)> onSaveCompleted)`
+`public static void QuickSaveCurrentGame(CampaignSaveMetaDataArgs campaignMetaData, Action<ValueTuple<SaveResult, string>> onSaveCompleted)`
 
 **用途 / Purpose:** 调用 QuickSaveCurrentGame 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
-MBSaveLoad.QuickSaveCurrentGame(campaignMetaData, action<(SaveResult, "example");
+MBSaveLoad.QuickSaveCurrentGame(campaignMetaData, action<ValueTuple<SaveResult, "example");
 ```
 
 ### AutoSaveCurrentGame
-`public static void AutoSaveCurrentGame(CampaignSaveMetaDataArgs campaignMetaData, Action<(SaveResult, string)> onSaveCompleted)`
+`public static void AutoSaveCurrentGame(CampaignSaveMetaDataArgs campaignMetaData, Action<ValueTuple<SaveResult, string>> onSaveCompleted)`
 
 **用途 / Purpose:** 调用 AutoSaveCurrentGame 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
-MBSaveLoad.AutoSaveCurrentGame(campaignMetaData, action<(SaveResult, "example");
+MBSaveLoad.AutoSaveCurrentGame(campaignMetaData, action<ValueTuple<SaveResult, "example");
 ```
 
 ### SaveAsCurrentGame
-`public static void SaveAsCurrentGame(CampaignSaveMetaDataArgs campaignMetaData, string saveName, Action<(SaveResult, string)> onSaveCompleted)`
+`public static void SaveAsCurrentGame(CampaignSaveMetaDataArgs campaignMetaData, string saveName, Action<ValueTuple<SaveResult, string>> onSaveCompleted)`
 
 **用途 / Purpose:** 将 as current game 写入持久化存储或流中。
 
 ```csharp
 // 静态调用，不需要实例
-MBSaveLoad.SaveAsCurrentGame(campaignMetaData, "example", action<(SaveResult, "example");
+MBSaveLoad.SaveAsCurrentGame(campaignMetaData, "example", action<ValueTuple<SaveResult, "example");
 ```
 
 ### DeleteSaveGame

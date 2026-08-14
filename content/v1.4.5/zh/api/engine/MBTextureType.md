@@ -8,7 +8,7 @@ description: "MBTextureType 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum MBTextureType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Material.cs`
+**File:** `TaleWorlds.Engine/Material.cs`
 
 ## 概述
 

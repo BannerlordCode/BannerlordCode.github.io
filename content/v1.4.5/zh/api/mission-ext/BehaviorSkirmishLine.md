@@ -8,7 +8,7 @@ description: "BehaviorSkirmishLine 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorSkirmishLine : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorSkirmishLine.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorSkirmishLine.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "CompassMarker 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CompassMarker`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CompassMarker.cs`
+**File:** `TaleWorlds.MountAndBlade/CompassMarker.cs`
 
 ## 概述
 

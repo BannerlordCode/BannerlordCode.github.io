@@ -8,7 +8,7 @@ description: "ICastleKeyPosition 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface ICastleKeyPosition`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ICastleKeyPosition.cs`
+**File:** `TaleWorlds.MountAndBlade/ICastleKeyPosition.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ServerPerformanceState 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public enum ServerPerformanceState`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/ServerPerformanceState.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/ServerPerformanceState.cs`
 
 ## 概述
 

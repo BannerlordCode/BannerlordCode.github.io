@@ -8,7 +8,7 @@ description: "MeshBuilder 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class MeshBuilder`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/MeshBuilder.cs`
+**File:** `TaleWorlds.Engine/MeshBuilder.cs`
 
 ## 概述
 
@@ -54,7 +54,7 @@ meshBuilder.Clear();
 ```
 
 ### Finalize
-`public Mesh Finalize()`
+`public new Mesh Finalize()`
 
 **用途 / Purpose:** 在垃圾回收时执行清理工作（通常用于释放非托管资源）。
 

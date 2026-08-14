@@ -8,7 +8,7 @@ description: "CustomBattleServerFinishingMessage 的自动生成类参考。"
 **Module:** Messages.FromCustomBattleServer
 **Type:** `public class CustomBattleServerFinishingMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/CustomBattleServerFinishingMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromCustomBattleServer/ToCustomBattleServerManager/CustomBattleServerFinishingMessage.cs`
 
 ## 概述
 

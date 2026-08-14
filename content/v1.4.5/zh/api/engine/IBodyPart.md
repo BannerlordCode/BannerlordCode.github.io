@@ -8,7 +8,7 @@ description: "IBodyPart 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IBodyPart`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IBodyPart.cs`
+**File:** `TaleWorlds.Engine/IBodyPart.cs`
 
 ## 概述
 

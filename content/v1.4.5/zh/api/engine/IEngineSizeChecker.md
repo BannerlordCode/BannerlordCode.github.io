@@ -8,7 +8,7 @@ description: "IEngineSizeChecker 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IEngineSizeChecker`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IEngineSizeChecker.cs`
+**File:** `TaleWorlds.Engine/IEngineSizeChecker.cs`
 
 ## 概述
 

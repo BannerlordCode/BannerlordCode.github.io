@@ -8,7 +8,7 @@ description: "BladeData 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class BladeData : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BladeData.cs`
+**File:** `TaleWorlds.Core/BladeData.cs`
 
 ## 概述
 

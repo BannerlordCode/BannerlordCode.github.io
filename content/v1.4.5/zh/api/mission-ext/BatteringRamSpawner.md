@@ -8,7 +8,7 @@ description: "BatteringRamSpawner 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BatteringRamSpawner : SpawnerBase`
 **Base:** `SpawnerBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Siege/BatteringRamSpawner.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Siege/BatteringRamSpawner.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "BannerComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class BannerComponent : WeaponComponent`
 **Base:** `WeaponComponent`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BannerComponent.cs`
+**File:** `TaleWorlds.Core/BannerComponent.cs`
 
 ## 概述
 

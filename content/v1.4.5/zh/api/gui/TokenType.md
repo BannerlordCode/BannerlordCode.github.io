@@ -8,7 +8,7 @@ description: "TokenType 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public enum TokenType`
 **Base:** 无
-**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextToken.cs`
+**File:** `TaleWorlds.TwoDimension/TextToken.cs`
 
 ## 概述
 

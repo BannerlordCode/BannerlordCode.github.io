@@ -8,7 +8,7 @@ description: "PlayerInvitedToPartyMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class PlayerInvitedToPartyMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayerInvitedToPartyMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/PlayerInvitedToPartyMessage.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "LocatorGrid 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class LocatorGrid<T>`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Map/LocatorGrid.cs`
+**File:** `TaleWorlds.CampaignSystem/Map/LocatorGrid.cs`
 
 ## 概述
 

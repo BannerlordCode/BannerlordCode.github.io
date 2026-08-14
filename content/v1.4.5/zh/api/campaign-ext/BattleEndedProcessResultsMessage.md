@@ -8,7 +8,7 @@ description: "BattleEndedProcessResultsMessage 的自动生成类参考。"
 **Module:** Messages.BattleServerManager
 **Type:** `public class BattleEndedProcessResultsMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.BattleServerManager.BattleServerManager/BattleEndedProcessResultsMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/BattleServerManager/BattleServerManager/BattleEndedProcessResultsMessage.cs`
 
 ## 概述
 
@@ -26,6 +26,7 @@ description: "BattleEndedProcessResultsMessage 的自动生成类参考。"
 | `BadgeDateEntries` | `public List<BadgeDataEntry> BadgeDateEntries { get; }` |
 | `BattleGameType` | `public string BattleGameType { get; }` |
 | `Region` | `public string Region { get; }` |
+| `PlayersForResults` | `public List<ValueTuple<PlayerBattleInfo, bool, bool>> PlayersForResults { get; }` |
 
 ## 使用示例
 

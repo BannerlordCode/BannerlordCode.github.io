@@ -6,9 +6,9 @@ description: "MapNotificationItemWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Notification
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class MapNotificationItemWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Notification/MapNotificationItemWidget.cs`
+**Type:** `public class MapNotificationItemWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Map/Notification/MapNotificationItemWidget.cs`
 
 ## 概述
 
@@ -36,19 +36,6 @@ description: "MapNotificationItemWidget 的自动生成类参考。"
 | `NotificationTextContainerWidget` | `public Widget NotificationTextContainerWidget { get; set; }` |
 | `NotificationDescriptionText` | `public RichTextWidget NotificationDescriptionText { get; set; }` |
 | `RemoveButtonVisualWidget` | `public InputKeyVisualWidget RemoveButtonVisualWidget { get; set; }` |
-
-## 主要方法
-
-### MapNotificationItemWidget
-`public class MapNotificationItemWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 MapNotificationItemWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapNotificationItemWidget 实例
-MapNotificationItemWidget mapNotificationItemWidget = ...;
-var result = mapNotificationItemWidget.MapNotificationItemWidget(context);
-```
 
 ## 使用示例
 

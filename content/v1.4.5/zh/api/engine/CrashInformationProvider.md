@@ -8,7 +8,7 @@ description: "CrashInformationProvider 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class CrashInformationProvider : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/CrashInformationCollector.cs`
+**File:** `TaleWorlds.Engine/CrashInformationCollector.cs`
 
 ## 概述
 

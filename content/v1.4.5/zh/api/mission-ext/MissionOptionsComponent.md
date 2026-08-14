@@ -8,7 +8,7 @@ description: "MissionOptionsComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionOptionsComponent : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/MissionOptionsComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/Source/Missions/MissionOptionsComponent.cs`
 
 ## 概述
 

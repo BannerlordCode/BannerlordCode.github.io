@@ -8,7 +8,7 @@ description: "AmmoBarrelBase 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class AmmoBarrelBase : UsableMachine`
 **Base:** `UsableMachine`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Usables/AmmoBarrelBase.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Usables/AmmoBarrelBase.cs`
 
 ## 概述
 
@@ -54,7 +54,7 @@ var result = ammoBarrelBase.GetDescriptionText(gameEntity);
 ```
 
 ### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
 **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 

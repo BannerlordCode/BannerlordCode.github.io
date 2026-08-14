@@ -8,7 +8,7 @@ description: "Target 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal enum Target : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/Target.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/Target.cs`
 
 ## 概述
 

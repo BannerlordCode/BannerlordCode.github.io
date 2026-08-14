@@ -8,7 +8,7 @@ description: "SiegeSpawnFrameBehavior 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeSpawnFrameBehavior : SpawnFrameBehaviorBase`
 **Base:** `SpawnFrameBehaviorBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeSpawnFrameBehavior.cs`
+**File:** `TaleWorlds.MountAndBlade/SiegeSpawnFrameBehavior.cs`
 
 ## 概述
 

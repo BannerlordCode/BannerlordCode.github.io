@@ -8,7 +8,7 @@ description: "ServerStatusMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class ServerStatusMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/ServerStatusMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/ServerStatusMessage.cs`
 
 ## 概述
 

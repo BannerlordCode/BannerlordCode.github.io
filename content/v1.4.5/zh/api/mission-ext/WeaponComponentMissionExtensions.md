@@ -8,7 +8,7 @@ description: "WeaponComponentMissionExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class WeaponComponentMissionExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/WeaponComponentMissionExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/WeaponComponentMissionExtensions.cs`
 
 ## 概述
 

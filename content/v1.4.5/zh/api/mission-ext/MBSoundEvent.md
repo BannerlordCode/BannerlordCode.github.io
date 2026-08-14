@@ -8,7 +8,7 @@ description: "MBSoundEvent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBSoundEvent`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBSoundEvent.cs`
+**File:** `TaleWorlds.MountAndBlade/MBSoundEvent.cs`
 
 ## 概述
 

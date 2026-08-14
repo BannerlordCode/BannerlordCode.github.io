@@ -8,7 +8,7 @@ description: "IMonsterMissionData 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface IMonsterMissionData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IMonsterMissionData.cs`
+**File:** `TaleWorlds.Core/IMonsterMissionData.cs`
 
 ## 概述
 

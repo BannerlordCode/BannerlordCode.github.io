@@ -8,7 +8,7 @@ description: "InputLayout 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum InputLayout`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/InputLayout.cs`
+**File:** `TaleWorlds.Engine/InputLayout.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "SiegeMissionPreparationHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeMissionPreparationHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeMissionPreparationHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/SiegeMissionPreparationHandler.cs`
 
 ## 概述
 

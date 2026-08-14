@@ -8,7 +8,7 @@ description: "ItemCollectionElementViewModel 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class ItemCollectionElementViewModel : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection/ItemCollectionElementViewModel.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/ItemCollectionElementViewModel.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "CancelCheering 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class CancelCheering : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/CancelCheering.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/CancelCheering.cs`
 
 ## 概述
 

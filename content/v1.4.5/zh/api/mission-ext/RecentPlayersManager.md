@@ -8,7 +8,7 @@ description: "RecentPlayersManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class RecentPlayersManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/RecentPlayersManager.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/RecentPlayersManager.cs`
 
 ## 概述
 
@@ -22,13 +22,14 @@ description: "RecentPlayersManager 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `RecentPlayers` | `public static MBReadOnlyList<RecentPlayerInfo> RecentPlayers { get; }` |
 | `Score` | `public int Score { get; }` |
-| `ProcessType` | `public InteractionProcessType ProcessType { get; }` |
+| `ProcessType` | `public RecentPlayersManager.InteractionTypeInfo.InteractionProcessType ProcessType { get; }` |
 
 ## 主要方法
 
 ### Initialize
-`public static async void Initialize()`
+`public static void Initialize()`
 
 **用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
@@ -38,7 +39,7 @@ RecentPlayersManager.Initialize();
 ```
 
 ### GetRecentPlayerInfos
-`public static async Task<MBReadOnlyList<RecentPlayerInfo>> GetRecentPlayerInfos()`
+`public static Task<MBReadOnlyList<RecentPlayerInfo>> GetRecentPlayerInfos()`
 
 **用途 / Purpose:** 读取并返回当前对象中 recent player infos 的结果。
 

@@ -8,7 +8,7 @@ description: "MultiplayerIntermissionCultureItemVoteCountChanged 的自动生成
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class MultiplayerIntermissionCultureItemVoteCountChanged : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/MultiplayerIntermissionCultureItemVoteCountChanged.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/MultiplayerIntermissionCultureItemVoteCountChanged.cs`
 
 ## 概述
 

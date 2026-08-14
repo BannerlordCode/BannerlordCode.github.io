@@ -8,7 +8,7 @@ description: "IParallelDriver 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public interface IParallelDriver`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/IParallelDriver.cs`
+**File:** `TaleWorlds.Library/IParallelDriver.cs`
 
 ## 概述
 

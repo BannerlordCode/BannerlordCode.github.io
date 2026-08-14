@@ -8,7 +8,7 @@ description: "SpawnerPermissionField 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SpawnerPermissionField : EditorVisibleScriptComponentVariable`
 **Base:** `EditorVisibleScriptComponentVariable`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Siege/SpawnerBase.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Siege/SpawnerBase.cs`
 
 ## 概述
 

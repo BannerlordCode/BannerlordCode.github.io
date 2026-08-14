@@ -8,7 +8,7 @@ description: "SetAgentHealth 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetAgentHealth : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetAgentHealth.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetAgentHealth.cs`
 
 ## 概述
 

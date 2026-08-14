@@ -8,7 +8,7 @@ description: "BehaviorHorseArcherSkirmish 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorHorseArcherSkirmish : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorHorseArcherSkirmish.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorHorseArcherSkirmish.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IDecal 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IDecal`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IDecal.cs`
+**File:** `TaleWorlds.Engine/IDecal.cs`
 
 ## 概述
 

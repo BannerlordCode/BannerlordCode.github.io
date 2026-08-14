@@ -8,7 +8,7 @@ description: "LoadCallbackInitializator 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class LoadCallbackInitializator`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/LoadCallbackInitializator.cs`
+**File:** `TaleWorlds.SaveSystem/Load/LoadCallbackInitializator.cs`
 
 ## 概述
 

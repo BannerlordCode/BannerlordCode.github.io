@@ -8,7 +8,7 @@ description: "IClothSimulatorComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IClothSimulatorComponent`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IClothSimulatorComponent.cs`
+**File:** `TaleWorlds.Engine/IClothSimulatorComponent.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "TutorialScreenWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TutorialScreenWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial/TutorialScreenWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Tutorial/TutorialScreenWidget.cs`
 
 ## 概述
 

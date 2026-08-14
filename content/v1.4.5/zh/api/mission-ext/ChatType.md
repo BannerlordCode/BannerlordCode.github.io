@@ -8,7 +8,7 @@ description: "ChatType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum ChatType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ChatType.cs`
+**File:** `TaleWorlds.MountAndBlade/ChatType.cs`
 
 ## 概述
 

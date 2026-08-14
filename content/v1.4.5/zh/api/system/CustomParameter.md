@@ -8,7 +8,7 @@ description: "CustomParameter 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `internal class CustomParameter<T> : DotNetObject`
 **Base:** `DotNetObject`
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/CustomParameter.cs`
+**File:** `TaleWorlds.DotNet/CustomParameter.cs`
 
 ## 概述
 

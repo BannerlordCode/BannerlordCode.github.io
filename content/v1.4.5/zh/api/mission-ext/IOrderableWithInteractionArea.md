@@ -8,7 +8,7 @@ description: "IOrderableWithInteractionArea 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IOrderableWithInteractionArea : IOrderable`
 **Base:** `IOrderable`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IOrderableWithInteractionArea.cs`
+**File:** `TaleWorlds.MountAndBlade/IOrderableWithInteractionArea.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "SegmentInfo 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `public class SegmentInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/SegmentInfo.cs`
+**File:** `TaleWorlds.PSAI/net/SegmentInfo.cs`
 
 ## 概述
 

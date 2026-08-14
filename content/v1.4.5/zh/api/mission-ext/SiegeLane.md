@@ -8,7 +8,7 @@ description: "SiegeLane 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeLane`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeLane.cs`
+**File:** `TaleWorlds.MountAndBlade/SiegeLane.cs`
 
 ## 概述
 
@@ -22,7 +22,7 @@ description: "SiegeLane 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `LaneState` | `public LaneStateEnum LaneState { get; }` |
+| `LaneState` | `public SiegeLane.LaneStateEnum LaneState { get; }` |
 | `LaneSide` | `public FormationAI.BehaviorSide LaneSide { get; }` |
 | `PrimarySiegeWeapons` | `public List<IPrimarySiegeWeapon> PrimarySiegeWeapons { get; }` |
 | `IsOpen` | `public bool IsOpen { get; }` |
@@ -57,7 +57,7 @@ var result = siegeLane.GetLastAssignedFormation(0);
 ```
 
 ### SetLaneState
-`public void SetLaneState(LaneStateEnum newLaneState)`
+`public void SetLaneState(SiegeLane.LaneStateEnum newLaneState)`
 
 **用途 / Purpose:** 为 lane state 赋新值，并同步更新对象内部状态。
 
@@ -101,7 +101,7 @@ var result = siegeLane.CalculateLaneCapacity();
 ```
 
 ### GetDefenseState
-`public LaneDefenseStates GetDefenseState()`
+`public SiegeLane.LaneDefenseStates GetDefenseState()`
 
 **用途 / Purpose:** 读取并返回当前对象中 defense state 的结果。
 

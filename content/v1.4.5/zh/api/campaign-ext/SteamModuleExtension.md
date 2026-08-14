@@ -8,7 +8,7 @@ description: "SteamModuleExtension 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class SteamModuleExtension : IPlatformModuleExtension`
 **Base:** `IPlatformModuleExtension`
-**File:** `bin/TaleWorlds.PlatformService.Steam/TaleWorlds.PlatformService.Steam/SteamModuleExtension.cs`
+**File:** `TaleWorlds.PlatformService.Steam/SteamModuleExtension.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MultiplayerRoundController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerRoundController : MissionNetwork, IRoundComponent, IMissionBehavior`
 **Base:** `MissionNetwork`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerRoundController.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerRoundController.cs`
 
 ## 概述
 
@@ -27,7 +27,9 @@ description: "MultiplayerRoundController 的自动生成类参考。"
 | `RoundEndReason` | `public RoundEndReason RoundEndReason { get; set; }` |
 | `IsMatchEnding` | `public bool IsMatchEnding { get; }` |
 | `LastRoundEndRemainingTime` | `public float LastRoundEndRemainingTime { get; }` |
+| `RemainingRoundTime` | `public float RemainingRoundTime { get; }` |
 | `CurrentRoundState` | `public MultiplayerRoundState CurrentRoundState { get; }` |
+| `IsRoundInProgress` | `public bool IsRoundInProgress { get; }` |
 
 ## 主要方法
 

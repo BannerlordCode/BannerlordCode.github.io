@@ -8,7 +8,7 @@ description: "VisibilityMaskFlags 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum VisibilityMaskFlags : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/VisibilityMaskFlags.cs`
+**File:** `TaleWorlds.Engine/VisibilityMaskFlags.cs`
 
 ## 概述
 

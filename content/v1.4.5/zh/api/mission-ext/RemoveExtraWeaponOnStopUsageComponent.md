@@ -8,7 +8,7 @@ description: "RemoveExtraWeaponOnStopUsageComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RemoveExtraWeaponOnStopUsageComponent : UsableMissionObjectComponent`
 **Base:** `UsableMissionObjectComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Usables/RemoveExtraWeaponOnStopUsageComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Usables/RemoveExtraWeaponOnStopUsageComponent.cs`
 
 ## 概述
 

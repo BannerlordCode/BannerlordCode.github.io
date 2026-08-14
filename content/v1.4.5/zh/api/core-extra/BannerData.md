@@ -8,7 +8,7 @@ description: "BannerData 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class BannerData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BannerData.cs`
+**File:** `TaleWorlds.Core/BannerData.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "BannerData 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `LocalVersion` | `public int LocalVersion { get; set; }` |
 | `MeshId` | `public int MeshId { get; set; }` |
 | `ColorId` | `public int ColorId { get; set; }` |
 | `ColorId2` | `public int ColorId2 { get; set; }` |
@@ -30,6 +31,7 @@ description: "BannerData 的自动生成类参考。"
 | `DrawStroke` | `public bool DrawStroke { get; set; }` |
 | `Mirror` | `public bool Mirror { get; set; }` |
 | `RotationValue` | `public float RotationValue { get; set; }` |
+| `Rotation` | `public float Rotation { get; }` |
 
 ## 主要方法
 

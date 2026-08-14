@@ -8,7 +8,7 @@ description: "PermaMuteList 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class PermaMuteList`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PermaMuteList.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PermaMuteList.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "PermaMuteList 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `HasMutedPlayersLoaded` | `public static bool HasMutedPlayersLoaded { get; }` |
+| `MutedPlayers` | `public static IReadOnlyList<ValueTuple<string, string>> MutedPlayers { get; }` |
 
 ## 主要方法
 
@@ -37,7 +38,7 @@ PermaMuteList.SetPermanentMuteAvailableCallback(getPermanentMuteAvailable);
 ```
 
 ### LoadMutedPlayers
-`public static async Task LoadMutedPlayers(PlayerId currentPlayerId)`
+`public static Task LoadMutedPlayers(PlayerId currentPlayerId)`
 
 **用途 / Purpose:** 从持久化存储或流中读取 muted players。
 
@@ -47,7 +48,7 @@ PermaMuteList.LoadMutedPlayers(currentPlayerId);
 ```
 
 ### SaveMutedPlayers
-`public static async void SaveMutedPlayers()`
+`public static void SaveMutedPlayers()`
 
 **用途 / Purpose:** 将 muted players 写入持久化存储或流中。
 

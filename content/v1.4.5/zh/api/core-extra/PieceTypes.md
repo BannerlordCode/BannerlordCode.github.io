@@ -8,7 +8,7 @@ description: "PieceTypes 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum PieceTypes`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/CraftingPiece.cs`
+**File:** `TaleWorlds.Core/CraftingPiece.cs`
 
 ## 概述
 

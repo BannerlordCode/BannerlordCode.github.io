@@ -8,7 +8,7 @@ description: "BattleEndLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleEndLogic : MissionLogic, IBattleEndLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleEndLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/BattleEndLogic.cs`
 
 ## 概述
 
@@ -24,6 +24,7 @@ description: "BattleEndLogic 的自动生成类参考。"
 |------|-----------|
 | `PlayerVictory` | `public bool PlayerVictory { get; }` |
 | `EnemyVictory` | `public bool EnemyVictory { get; }` |
+| `IsEnemySideRetreating` | `public bool IsEnemySideRetreating { get; set; }` |
 
 ## 主要方法
 
@@ -83,7 +84,7 @@ battleEndLogic.ChangeCanCheckForEndCondition(false);
 ```
 
 ### TryExit
-`public ExitResult TryExit()`
+`public BattleEndLogic.ExitResult TryExit()`
 
 **用途 / Purpose:** 尝试获取 exit 的值，通常通过 out 参数返回是否成功。
 

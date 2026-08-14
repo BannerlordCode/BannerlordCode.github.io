@@ -8,7 +8,7 @@ description: "TableauView 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class TableauView : SceneView`
 **Base:** `SceneView`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/TableauView.cs`
+**File:** `TaleWorlds.Engine/TableauView.cs`
 
 ## 概述
 

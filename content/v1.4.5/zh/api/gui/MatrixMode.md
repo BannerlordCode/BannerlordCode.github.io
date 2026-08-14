@@ -8,7 +8,7 @@ description: "MatrixMode 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal enum MatrixMode : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/MatrixMode.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/MatrixMode.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "FriendListServiceType 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public enum FriendListServiceType`
 **Base:** 无
-**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/FriendListServiceType.cs`
+**File:** `TaleWorlds.PlatformService/FriendListServiceType.cs`
 
 ## 概述
 

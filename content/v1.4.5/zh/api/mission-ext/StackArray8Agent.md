@@ -8,7 +8,7 @@ description: "StackArray8Agent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct StackArray8Agent`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Agent.cs`
+**File:** `TaleWorlds.MountAndBlade/Agent.cs`
 
 ## 概述
 
@@ -22,7 +22,7 @@ description: "StackArray8Agent 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `this` | `public Agent this { get; set; }` |
+| `this` | `public Agent this { get; }` |
 
 ## 使用示例
 

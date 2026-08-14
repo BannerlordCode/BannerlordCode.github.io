@@ -8,7 +8,7 @@ description: "MBNetworkPeer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal class MBNetworkPeer : DotNetObject`
 **Base:** `DotNetObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBNetworkPeer.cs`
+**File:** `TaleWorlds.MountAndBlade/MBNetworkPeer.cs`
 
 ## 概述
 

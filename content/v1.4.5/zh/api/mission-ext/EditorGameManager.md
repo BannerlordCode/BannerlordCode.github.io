@@ -8,7 +8,7 @@ description: "EditorGameManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EditorGameManager : MBGameManager`
 **Base:** `MBGameManager`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/EditorGameManager.cs`
+**File:** `TaleWorlds.MountAndBlade/EditorGameManager.cs`
 
 ## 概述
 

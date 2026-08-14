@@ -8,7 +8,7 @@ description: "FiringFocus 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum FiringFocus`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RangedSiegeWeapon.cs`
+**File:** `TaleWorlds.MountAndBlade/RangedSiegeWeapon.cs`
 
 ## 概述
 

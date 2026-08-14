@@ -1,6 +1,6 @@
 ---
 title: "SaveManager"
-description: "存档管线的静态协调器：建立类型定义上下文、序列化根对象图，并将保存或加载交给 ISaveDriver。"
+description: "TaleWorlds.SaveSystem 的静态执行总管：建立 DefinitionContext，调用 SaveContext/LoadContext，并把结果交给 ISaveDriver。"
 ---
 # SaveManager
 
@@ -8,127 +8,93 @@ description: "存档管线的静态协调器：建立类型定义上下文、序
 **Module:** `TaleWorlds.SaveSystem`  
 **Type:** `public static class SaveManager`  
 **Base:** `System.Object`  
-**Source:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveManager.cs`
+**Source:** `TaleWorlds.SaveSystem/SaveManager.cs`
 
-## 一句话职责
+## 概述
 
-`SaveManager` 协调一次完整的存档或读档：收集当前程序集的保存定义、让上下文遍历根对象图，再由 `ISaveDriver` 持久化或读取数据。它不是可继承的 mod 服务，也不是给每个 Behavior 主动调用的“保存按钮”。
+`SaveManager` 是保存系统的流程总管，不是存档文件名管理器，也不是 Behavior 状态的替代 API。它负责：
 
-## 心智模型：谁拥有哪一层
+- 通过 `InitializeGlobalDefinitionContext` 收集当前程序集中的保存定义并记录定义错误；
+- 用 `Save(object target, MetaData metaData, string saveName, ISaveDriver driver)` 创建 `SaveContext`，收集对象图，再交给驱动写文件；
+- 用 `Load(string saveName, ISaveDriver driver, bool loadAsLateInitialize)` 创建 `LoadContext`，恢复根对象并返回 `LoadResult`；
+- 暴露 `CheckSaveableTypes()`、`LoadMetaData()` 和 `.sav` 扩展名等诊断/协议入口。
 
-把流程分成四层，才能知道代码应放在哪里：
+大多数 mod 不应直接替换游戏的 `ISaveDriver` 或手动调用底层上下文。mod 应先正确完成 [SaveableTypeDefiner](../SaveableTypeDefiner/)、字段/属性 Attribute，以及 [IDataStore](../../campaign-ext/IDataStore/) 的 Behavior 注册，让游戏已有的保存入口处理它们。
 
-1. **定义层。** `InitializeGlobalDefinitionContext()` 创建全局 `DefinitionContext` 并调用 `FillWithCurrentTypes()`。该扫描会实例化当前加载程序集中的非抽象 [SaveableTypeDefiner](../SaveableTypeDefiner)，先初始化每个 definer，再依次填入基本类型、类、结构、接口、枚举、根类、泛型结构、泛型类和容器定义；**容器定义完成后**才执行冲突解析器定义。
-2. **对象图层。** `Save(target, ...)` 用已验证的定义构造 `SaveContext`，从 `target` 收集可保存成员和引用；`Load(...)` 则为本次操作新建定义上下文及 `LoadContext`，恢复根对象。
-3. **存储层。** `ISaveDriver` 负责名称、元数据和字节数据的实际读写。`SaveManager` 将版本 1、`MetaData` 和 `SaveData` 交给它，并把成功、失败或仍在进行的状态包装为 `SaveOutput`。
-4. **战役 Behavior 层。** [CampaignBehaviorManager](../../campaign/CampaignBehaviorManager) 在 `OnBeforeSave` 清空临时记录后，逐个调用 [CampaignBehaviorBase](../../campaign/CampaignBehaviorBase) 的 `SyncData(IDataStore)`；加载时再按 Behavior 的 `StringId` 回填。这才是普通战役 mod 保存私有状态的入口。
+## 心智模型
 
-因此，**需要保存一个战役功能的小状态时**，注册 `CampaignBehaviorBase` 并使用 [IDataStore](../../campaign/IDataStore)。**需要让一个新的可达对象类型进入对象图时**，再实现 `SaveableTypeDefiner`、为成员添加 `SaveableFieldAttribute` 或 `SaveablePropertyAttribute`，并稳定保留 ID。**不应使用 `SaveManager`** 来在事件回调里自行读写战役存档；安全替代是让游戏的战役保存流程调用你的 Behavior。
+保存有四层：
 
-## 依赖图
+1. 类型定义层：`DefinitionContext.FillWithCurrentTypes()` 读取 definers，失败时保存直接产生 `SaveOutput` 错误。
+2. 对象图层：`SaveContext.Save` 从 `target` 收集成员和引用。
+3. 文件驱动层：`ISaveDriver.Save` 把 `SaveData` 写入实际存储，可能异步返回。
+4. 恢复层：`LoadContext.Load` 读取 `LoadData`，再按定义还原根对象；如果使用 late initialize，会返回回调初始化器。
 
-```mermaid
-graph TD
-    DEF[SaveableTypeDefiner] --> CTX[DefinitionContext]
-    FIELD[SaveableFieldAttribute] --> CTX
-    PROP[SaveablePropertyAttribute] --> CTX
-    CTX --> SM[SaveManager]
-    SM --> SAVE[SaveContext]
-    SM --> LOAD[LoadContext]
-    SAVE --> DRIVER[ISaveDriver]
-    LOAD --> DRIVER
-    EVENTS[CampaignEvents.OnBeforeSaveEvent] --> CBM[CampaignBehaviorManager]
-    CBM --> BEHAVIOR[CampaignBehaviorBase.SyncData]
-    BEHAVIOR --> STORE[IDataStore]
-    CBM --> SAVE
-```
+`SaveManager` 在保存期间把 `_isLoading` 设为 false，在加载期间设为 true，并设置当前 `OperatingVersion`。这些是保存系统内部的阶段状态，不是 mod 业务逻辑的“暂停开关”。
 
-- **类型定义：** [SaveableTypeDefiner](../SaveableTypeDefiner) 提供类型/容器的保存 ID；[SaveableFieldAttribute](../SaveableFieldAttribute) 和 [SaveablePropertyAttribute](../SaveablePropertyAttribute) 为每个字段或属性携带 `LocalSaveId`。
-- **战役桥接：** [CampaignBehaviorBase](../../campaign/CampaignBehaviorBase)、[CampaignBehaviorManager](../../campaign/CampaignBehaviorManager)、[IDataStore](../../campaign/IDataStore) 与 [CampaignEvents](../../campaign/CampaignEvents) 将 Behavior 状态送入战役根对象图。
-- **同模块：** [SaveContext](../SaveContext)、[LoadContext](../LoadContext)、[ISaveDriver](../ISaveDriver)、[SaveOutput](../SaveOutput) 和 [LoadResult](../LoadResult) 分别代表收集、恢复、I/O 与结果。
+## 关键成员
 
-## 关键成员与时机
+| 成员 | 作用 |
+| --- | --- |
+| `SaveFileExtension` | 固定为 `"sav"` |
+| `InitializeGlobalDefinitionContext()` | 创建并填充全局定义上下文，输出定义错误 |
+| `CheckSaveableTypes()` | 扫描带 Saveable Attribute 但当前上下文尚无定义的字段/属性类型 |
+| `Save(...)` | 构建 `SaveContext`，调用驱动保存，返回 `SaveOutput` |
+| `LoadMetaData(...)` | 只让驱动读取存档元数据 |
+| `Load(...)` | 构建 `LoadContext` 并返回 `LoadResult` |
+| `ShouldResolveConflicts()` | 反映当前是否在加载流程中，供冲突解析逻辑判断 |
 
-### 初始化与检查：`InitializeGlobalDefinitionContext`、`CheckSaveableTypes`
+## 真实示例：验证、保存与加载
 
-`InitializeGlobalDefinitionContext()` 替换全局定义上下文并打印发现的定义错误。`Save(...)` 若尚未初始化会自行调用它；若上下文已有错误，保存不会开始对象图遍历，而是将每条错误转换为 `SaveError` 并返回失败的 `SaveOutput`。
-
-`CheckSaveableTypes()` 是发布前诊断入口，但有严格的时机前提：必须在 `InitializeGlobalDefinitionContext()`（或宿主执行等价的存档系统初始化）完成后调用。它在扫描已加载程序集的实例字段和属性时会直接解引用全局 `_definitionContext`；定义上下文尚不存在时提前调用可能触发 null-reference。`Save(...)` 有缺少上下文时的延迟初始化分支，但 `CheckSaveableTypes()` 没有，因此不要把这个诊断当作启动早期探针。上下文初始化完成后，带 `SaveableFieldAttribute` 或 `SaveablePropertyAttribute`、其类型尚无定义、不是接口且有 `FullName` 的类型会被返回，并按 `Type` 去重。它**不只检查值类型**：标注字段的自定义 `LedgerState` 引用类型与 `int` 一样，若当前定义上下文不了解它，也会出现在结果中。这个结果指出“成员声明了要保存，但定义层不知道如何保存”的缺口；它不会自动注册类型，也不能修复重复的 ID。
-
-`SaveableTypeDefiner` 的 `saveBaseId + saveId` 共同形成类型 ID；字段和属性各自的 `LocalSaveId` 也属于长期数据协议。发布后的 ID、键名或字段类型变动会使旧档解释成另一份数据，不能把它们当作可随意重排的实现细节。
-
-### 保存：`Save`
-
-`Save` 先将加载标志置为 false，并暂存 `MetaData` 中的应用版本。定义无误时它创建 `SaveContext`；只有 `saveContext.Save(target, metaData, out errorMessage)` 成功，才调用 `driver.Save(saveName, 1, metaData, saveContext.SaveData)`。
-
-驱动返回 `Task<SaveResultWithMessage>`。若任务已完成，`Save` 会在自身的 `try/catch` 内读取 `task.Result`：非成功结果成为失败的 `SaveOutput`，而同步调用 `driver.Save(...)` 或这次立即读取 `Result` 抛出的异常会转换为 `GeneralFailure`。若任务尚未完成，`Save` 返回 continuing 的 `SaveOutput`；其 `ContinueWith` 之后直接读取 `t.Result.SaveResult`，没有额外的 fault 处理。因此，**返回后才 fault 的任务不会被这段 `Save` 的 catch 转换为 `GeneralFailure`**，而可能留下 faulted continuation 或未能正常填入结果。continuing 既不表示文件已落盘，也不表示异步失败已经被安全归档。操作返回前 `OperatingVersion` 会复位为空，所以它不是 mod 的版本迁移存储位。
-
-### 加载：`LoadMetaData`、`Load`、`ShouldResolveConflicts`
-
-`LoadMetaData` 仅委托驱动读取元数据，不会构造根对象。`Load` 在每次调用时新建并填充 `DefinitionContext`，读取 `LoadData`，再执行 `LoadContext.Load`。默认重载传入 `loadAsLateInitialize: false`；传入 true 时，成功结果附带 `LoadCallbackInitializator`，由宿主在合适阶段执行延迟初始化回调。
-
-加载开始到返回结果之间，`ShouldResolveConflicts()` 会反映内部 `_isLoading`。这是给保存系统冲突解析使用的阶段信号，不是世界已经稳定、也不是 mod 可以对恢复中的对象执行副作用的许可。
-
-## 真实接入示例：让战役流程保存 Behavior
-
-以下示例不直接调用 `SaveManager.Save`。它按游戏的真实接入形状：`MBSubModuleBase.InitializeGameStarter` 取得 `CampaignGameStarter`，将 Behavior 加入启动器；随后 `CampaignBehaviorManager` 注册事件，并在保存前调用 `SyncData`。键使用带模块前缀且版本化的稳定名称。
+这是源码中 `SaveManager` 的实际公共调用形状。`ISaveDriver` 和 `MetaData` 通常由游戏的存档层提供；mod 不应伪造一个驱动来绕过游戏存档 UI。
 
 ```csharp
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.Core;
-using TaleWorlds.MountAndBlade;
+SaveManager.InitializeGlobalDefinitionContext();
+List<Type> missingTypes = SaveManager.CheckSaveableTypes();
 
-public sealed class DailyLedgerBehavior : CampaignBehaviorBase
+SaveOutput saveResult = SaveManager.Save(
+    Campaign.Current,
+    campaignMetaData,
+    "my_campaign_slot",
+    saveDriver);
+
+if (saveResult != null && saveResult.Successful)
 {
-    private int _observedDays;
-
-    public override void RegisterEvents()
+    LoadResult loadResult = SaveManager.Load("my_campaign_slot", saveDriver);
+    if (loadResult != null && loadResult.Successful)
     {
-        CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, OnDailyTick);
-    }
-
-    public override void SyncData(IDataStore dataStore)
-    {
-        dataStore.SyncData("ExampleMod.DailyLedger.ObservedDays.v1", ref _observedDays);
-    }
-
-    private void OnDailyTick()
-    {
-        _observedDays++;
-    }
-}
-
-public sealed class ExampleModSubModule : MBSubModuleBase
-{
-    protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
-    {
-        if (gameStarterObject is CampaignGameStarter campaignStarter)
-        {
-            campaignStarter.AddBehavior(new DailyLedgerBehavior());
-        }
+        Campaign loadedCampaign = (Campaign)loadResult.RootObject;
     }
 }
 ```
 
-`CampaignBehaviorDataStore` 保存时将每个 Behavior 的 `SyncData` 值放入以 `StringId` 分组的记录；加载时以同一 `StringId` 查找并回填。因而 Behavior 的构造方式和存储 key 都要稳定，且不要手动多次调用 `RegisterEvents()`。
+上例的关键不是在 Behavior 中主动保存，而是保证 `Campaign.Current` 的对象图和所有 mod 类型都有定义。若只新增 Behavior 字段，使用 [IDataStore](../../campaign-ext/IDataStore/)；若新增可被多个对象引用的类，再为该类加 Attribute 与 definer。
 
-`SyncData` 接受泛型值并不代表任意对象图可序列化。上例只有 `int`，已有基本类型定义。若将字段改为自定义类、包含自定义元素的容器，或含有不可恢复的运行时句柄，必须先保证所有可达类型和容器都有定义、成员 ID 不冲突、引用在加载后仍有有效所有者。委托、UI 对象、任务、线程、临时缓存和仅在 Mission 存在的对象不应进入战役存档。
+## 加载阶段与晚初始化
 
-## 崩溃与坏档边界
+`Load` 默认使用 `loadAsLateInitialize: false`。传入 `true` 时，成功结果会附带 `LoadCallbackInitializator`，由调用方在合适的游戏阶段执行延后的 `[LoadInitializationCallback]`。这与 [MBObjectBase](../../campaign-ext/MBObjectBase/) 的 `OnBeforeLoad`、`PreAfterLoad`、`AfterLoad` 配合；不要在 `Load` 返回的第一刻假设所有派生系统都已经完成最终初始化。
 
-- **缺定义不是可忽略警告。** 全局定义错误会使 `Save` 直接失败；Attribute 只标识成员，不能替代 [SaveableTypeDefiner](../SaveableTypeDefiner) 对新类型或容器的定义。
-- **ID、key 与类型是兼容性契约。** 重用 `saveBaseId`/局部 ID、改写已发布的 `LocalSaveId`，或更改 `SyncData` 的稳定 key 和值类型，都会导致旧档读取错误、字段错位或无法恢复。
-- **异步失败不一定被包装。** 已完成任务的 `Result` 读取和同步 `driver.Save` 调用受 `Save` 内部 catch 保护；但 continuing 任务在返回后 fault 时，`SaveOutput` 的 continuation 直接访问 `t.Result`，不由该 catch 转换为 `GeneralFailure`。不可只凭 continuing 就覆盖旧档、退出依赖该档的流程或宣称成功；宿主还必须按驱动的任务结果处理异步故障。
-- **加载回调前不要改变世界。** late initialization 允许宿主推迟回调。恢复过程中创建/删除 Hero、Party、Settlement 或再次注册事件，会把不完整的引用和副作用写回后续状态。
-- **不要借 `OnBeforeSave` 造对象图。** 该事件适合整理已有的标量状态；真正持久化仍应在 `SyncData` 中完成，复杂对象的定义应在保存开始前已可发现。
-- **不要绕过战役保存入口。** 随机的 `ISaveDriver`、人工拼接 `MetaData` 或从事件中直接保存 `Campaign.Current` 会脱离游戏的顺序和 UI 管理，容易产生竞态或与当前保存重叠。
+`LoadMetaData` 只询问驱动，不会恢复 `RootObject`。`Save` 可能返回 continuing 状态，因为 `ISaveDriver.Save` 可以异步完成；调用者应根据 `SaveOutput`/驱动结果处理，而不是立即假定文件已落盘。
 
-## 版本注记
+## 风险与坏档边界
 
-本文依据 v1.4.5 源码。该版本的公开流程包含全局定义初始化、缺失类型检查、异步驱动结果、`LoadMetaData` 和可选 late initialization。跨版本发布时应重新检查实际源码与自己的保存协议；不要仅凭同名方法推断旧版 ID、类型定义或加载顺序兼容。
+- **定义错误会阻止保存。** `InitializeGlobalDefinitionContext` 收集的错误会让 `Save` 返回失败结果；检查 [SaveableTypeDefiner](../SaveableTypeDefiner/) 和所有容器/成员定义，不要用 try/catch 把错误吞掉后继续发布。
+- **驱动不是定义层。** `ISaveDriver` 只负责元数据/数据存取；它不会修复重复 `LocalSaveId`、未知类型或不兼容字段。
+- **保存是异步边界。** `ISaveDriver.Save` 返回 `Task<SaveResultWithMessage>`；保存结果可能是 continuing 或失败。不要在结果成功前覆盖旧档或退出关键状态。
+- **加载不兼容要显式处理。** `LoadResult` 失败、根对象为空或旧类型不匹配时，不要把半加载对象送入战役 tick。
+- **不要把阶段状态当游戏状态。** `ShouldResolveConflicts()` 只是当前加载标志；`OperatingVersion` 也不是给 mod 保存自己的版本字段的替代品。
+- **错误的 late initialization。** 在回调初始化器执行前访问依赖对象，会产生 null 或顺序相关错误；将派生引用恢复放在明确的 `AfterLoad`/加载完成事件之后。
 
-## 导航
+## 跨版本提示
 
-- ↑ Parent：[存档系统索引](../)
-- ↔ Sibling：[SaveableTypeDefiner](../SaveableTypeDefiner) · [SaveableFieldAttribute](../SaveableFieldAttribute) · [SaveablePropertyAttribute](../SaveablePropertyAttribute) · [SaveContext](../SaveContext) · [LoadContext](../LoadContext)
-- Related：[CampaignBehaviorBase](../../campaign/CampaignBehaviorBase) · [CampaignBehaviorManager](../../campaign/CampaignBehaviorManager) · [IDataStore](../../campaign/IDataStore) · [CampaignEvents](../../campaign/CampaignEvents)
+1.3.15 与 1.4.5 都提供 `.sav`、定义上下文、`Save`、`LoadMetaData`、`Load` 和 late initialize 参数。内部实现和官方类型定义会增长；跨版本 mod 必须保持自己的 type ID、member ID、key 和字段类型兼容，而不能依赖官方类型表的绝对编号。
+
+## 依赖关系
+
+- 定义：[SaveableTypeDefiner](../SaveableTypeDefiner/)、[SaveableFieldAttribute](../SaveableFieldAttribute/)、[SaveablePropertyAttribute](../SaveablePropertyAttribute/)。
+- Behavior：[IDataStore](../../campaign-ext/IDataStore/) 是 Behavior 私有状态的正确入口。
+- 对象身份：[MBObjectManager](../../campaign-ext/MBObjectManager/) 与 [MBObjectBase](../../campaign-ext/MBObjectBase/) 提供可恢复对象引用。
+- 战役根：[Campaign](../../campaign/Campaign/) 及其行为数据构成常见 `target` 对象图。
+
+- 父级：[save-system API](./)
+- 同级：[SaveableTypeDefiner](../SaveableTypeDefiner/) · [SaveableFieldAttribute](../SaveableFieldAttribute/)

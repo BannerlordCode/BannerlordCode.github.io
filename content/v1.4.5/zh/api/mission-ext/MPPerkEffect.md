@@ -8,7 +8,7 @@ description: "MPPerkEffect 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MPPerkEffect : MPPerkEffectBase`
 **Base:** `MPPerkEffectBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkEffect.cs`
+**File:** `TaleWorlds.MountAndBlade/MPPerkEffect.cs`
 
 ## 概述
 

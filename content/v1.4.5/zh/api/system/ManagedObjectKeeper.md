@@ -8,7 +8,7 @@ description: "ManagedObjectKeeper 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `internal class ManagedObjectKeeper`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedObjectKeeper.cs`
+**File:** `TaleWorlds.DotNet/ManagedObjectKeeper.cs`
 
 ## 概述
 

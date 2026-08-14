@@ -8,7 +8,7 @@ description: "IClient 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public interface IClient`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/IClient.cs`
+**File:** `TaleWorlds.Diamond/IClient.cs`
 
 ## 概述
 

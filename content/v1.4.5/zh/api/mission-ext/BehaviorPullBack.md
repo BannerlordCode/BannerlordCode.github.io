@@ -8,7 +8,7 @@ description: "BehaviorPullBack 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorPullBack : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorPullBack.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorPullBack.cs`
 
 ## 概述
 

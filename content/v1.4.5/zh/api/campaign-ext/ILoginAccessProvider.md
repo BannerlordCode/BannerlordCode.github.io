@@ -8,7 +8,7 @@ description: "ILoginAccessProvider 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public interface ILoginAccessProvider`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/ILoginAccessProvider.cs`
+**File:** `TaleWorlds.Diamond/ILoginAccessProvider.cs`
 
 ## 概述
 

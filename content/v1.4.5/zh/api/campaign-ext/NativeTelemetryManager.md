@@ -8,7 +8,7 @@ description: "NativeTelemetryManager 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public class NativeTelemetryManager : ITelemetryManager`
 **Base:** `ITelemetryManager`
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/NativeTelemetryManager.cs`
+**File:** `TaleWorlds.DotNet/NativeTelemetryManager.cs`
 
 ## 概述
 

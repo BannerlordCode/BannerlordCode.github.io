@@ -8,7 +8,7 @@ description: "DictionaryByType 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class DictionaryByType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.EventSystem/DictionaryByType.cs`
+**File:** `TaleWorlds.Library/EventSystem/DictionaryByType.cs`
 
 ## 概述
 

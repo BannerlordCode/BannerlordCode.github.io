@@ -8,7 +8,7 @@ description: "ArchiveDeserializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class ArchiveDeserializer`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/ArchiveDeserializer.cs`
+**File:** `TaleWorlds.SaveSystem/ArchiveDeserializer.cs`
 
 ## 概述
 

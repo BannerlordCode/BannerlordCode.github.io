@@ -8,7 +8,7 @@ description: "CosmeticType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum CosmeticType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics/CosmeticsManager.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Cosmetics/CosmeticsManager.cs`
 
 ## 概述
 

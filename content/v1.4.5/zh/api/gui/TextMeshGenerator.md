@@ -8,7 +8,7 @@ description: "TextMeshGenerator 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal class TextMeshGenerator`
 **Base:** 无
-**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextMeshGenerator.cs`
+**File:** `TaleWorlds.TwoDimension/TextMeshGenerator.cs`
 
 ## 概述
 

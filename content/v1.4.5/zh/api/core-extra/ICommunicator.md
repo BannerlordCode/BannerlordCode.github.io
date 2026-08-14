@@ -8,7 +8,7 @@ description: "ICommunicator 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface ICommunicator`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ICommunicator.cs`
+**File:** `TaleWorlds.Core/ICommunicator.cs`
 
 ## 概述
 

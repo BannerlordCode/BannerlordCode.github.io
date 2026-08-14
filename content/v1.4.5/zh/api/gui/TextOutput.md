@@ -8,7 +8,7 @@ description: "TextOutput 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal class TextOutput`
 **Base:** 无
-**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextOutput.cs`
+**File:** `TaleWorlds.TwoDimension/TextOutput.cs`
 
 ## 概述
 
@@ -24,9 +24,11 @@ description: "TextOutput 的自动生成类参考。"
 |------|-----------|
 | `TextHeight` | `public float TextHeight { get; }` |
 | `TotalLineScale` | `public float TotalLineScale { get; }` |
+| `LastLineWidth` | `public float LastLineWidth { get; }` |
 | `MaxLineHeight` | `public float MaxLineHeight { get; }` |
 | `MaxLineWidth` | `public float MaxLineWidth { get; }` |
 | `MaxLineScale` | `public float MaxLineScale { get; }` |
+| `LineCount` | `public int LineCount { get; }` |
 | `Tokens` | `public IEnumerable<TextTokenOutput> Tokens { get; }` |
 | `TokensWithNewLines` | `public IEnumerable<TextTokenOutput> TokensWithNewLines { get; }` |
 

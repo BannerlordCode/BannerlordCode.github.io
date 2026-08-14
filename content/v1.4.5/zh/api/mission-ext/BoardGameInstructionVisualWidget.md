@@ -8,7 +8,7 @@ description: "BoardGameInstructionVisualWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BoardGameInstructionVisualWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.BoardGame/BoardGameInstructionVisualWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/BoardGame/BoardGameInstructionVisualWidget.cs`
 
 ## 概述
 

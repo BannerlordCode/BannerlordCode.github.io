@@ -8,7 +8,7 @@ description: "IMissionTeam 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface IMissionTeam`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IMissionTeam.cs`
+**File:** `TaleWorlds.Core/IMissionTeam.cs`
 
 ## 概述
 

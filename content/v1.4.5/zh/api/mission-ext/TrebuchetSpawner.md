@@ -8,7 +8,7 @@ description: "TrebuchetSpawner 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TrebuchetSpawner : SpawnerBase`
 **Base:** `SpawnerBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TrebuchetSpawner.cs`
+**File:** `TaleWorlds.MountAndBlade/TrebuchetSpawner.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ApplyOrder 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class ApplyOrder : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/ApplyOrder.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/ApplyOrder.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "Follower 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `public struct Follower`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/Follower.cs`
+**File:** `TaleWorlds.PSAI/net/Follower.cs`
 
 ## 概述
 

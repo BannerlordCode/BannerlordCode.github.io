@@ -8,7 +8,7 @@ description: "MultiplayerLobbyArmoryCosmeticItemBrushWidget 的自动生成类�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyArmoryCosmeticItemBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerLobbyArmoryCosmeticItemBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Lobby/Armory/MultiplayerLobbyArmoryCosmeticItemBrushWidget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IUtil 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IUtil`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IUtil.cs`
+**File:** `TaleWorlds.Engine/IUtil.cs`
 
 ## 概述
 

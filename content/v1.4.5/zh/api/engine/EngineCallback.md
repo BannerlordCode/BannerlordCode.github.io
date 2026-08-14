@@ -8,7 +8,7 @@ description: "EngineCallback 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class EngineCallback : ManagedFromNativeCallback`
 **Base:** `ManagedFromNativeCallback`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/EngineCallback.cs`
+**File:** `TaleWorlds.Engine/EngineCallback.cs`
 
 ## 概述
 

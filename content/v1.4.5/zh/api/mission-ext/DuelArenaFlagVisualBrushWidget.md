@@ -6,9 +6,9 @@ description: "DuelArenaFlagVisualBrushWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class DuelArenaFlagVisualBrushWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD/DuelArenaFlagVisualBrushWidget.cs`
+**Type:** `public class DuelArenaFlagVisualBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/HUD/DuelArenaFlagVisualBrushWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "DuelArenaFlagVisualBrushWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `ArenaType` | `public int ArenaType { get; set; }` |
-
-## 主要方法
-
-### DuelArenaFlagVisualBrushWidget
-`public class DuelArenaFlagVisualBrushWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 DuelArenaFlagVisualBrushWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 DuelArenaFlagVisualBrushWidget 实例
-DuelArenaFlagVisualBrushWidget duelArenaFlagVisualBrushWidget = ...;
-var result = duelArenaFlagVisualBrushWidget.DuelArenaFlagVisualBrushWidget(context);
-```
 
 ## 使用示例
 

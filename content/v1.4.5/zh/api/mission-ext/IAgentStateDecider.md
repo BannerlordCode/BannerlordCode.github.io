@@ -8,7 +8,7 @@ description: "IAgentStateDecider 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IAgentStateDecider : IMissionBehavior`
 **Base:** `IMissionBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IAgentStateDecider.cs`
+**File:** `TaleWorlds.MountAndBlade/IAgentStateDecider.cs`
 
 ## 概述
 

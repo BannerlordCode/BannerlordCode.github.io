@@ -8,7 +8,7 @@ description: "LauncherDebugManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherDebugManager : IDebugManager`
 **Base:** `IDebugManager`
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherDebugManager.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/LauncherDebugManager.cs`
 
 ## 概述
 

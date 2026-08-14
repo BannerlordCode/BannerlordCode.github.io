@@ -8,7 +8,7 @@ description: "DefaultParallelDriver 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public sealed class DefaultParallelDriver : IParallelDriver`
 **Base:** `IParallelDriver`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/DefaultParallelDriver.cs`
+**File:** `TaleWorlds.Library/DefaultParallelDriver.cs`
 
 ## 概述
 
@@ -40,17 +40,6 @@ defaultParallelDriver.For(0, 0, body, 0);
 // 先通过子系统 API 拿到 DefaultParallelDriver 实例
 DefaultParallelDriver defaultParallelDriver = ...;
 defaultParallelDriver.ForWithoutRenderThread(0, 0, body, 0);
-```
-
-### ForWithoutRenderThreadDt
-`public void ForWithoutRenderThreadDt(int fromInclusive, int toExclusive, float deltaTime, TWParallel.ParallelForWithDtAuxPredicate body, int grainSize)`
-
-**用途 / Purpose:** 调用 ForWithoutRenderThreadDt 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 DefaultParallelDriver 实例
-DefaultParallelDriver defaultParallelDriver = ...;
-defaultParallelDriver.ForWithoutRenderThreadDt(0, 0, 0, body, 0);
 ```
 
 ### For

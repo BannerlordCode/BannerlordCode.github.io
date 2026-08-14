@@ -8,7 +8,7 @@ description: "FFASpawnFrameBehavior 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FFASpawnFrameBehavior : SpawnFrameBehaviorBase`
 **Base:** `SpawnFrameBehaviorBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FFASpawnFrameBehavior.cs`
+**File:** `TaleWorlds.MountAndBlade/FFASpawnFrameBehavior.cs`
 
 ## 概述
 

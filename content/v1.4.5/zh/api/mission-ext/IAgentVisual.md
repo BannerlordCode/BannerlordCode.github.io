@@ -8,7 +8,7 @@ description: "IAgentVisual 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IAgentVisual`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IAgentVisual.cs`
+**File:** `TaleWorlds.MountAndBlade/IAgentVisual.cs`
 
 ## 概述
 

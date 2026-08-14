@@ -8,7 +8,7 @@ description: "SaveableBasicTypeDefiner 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveableBasicTypeDefiner : SaveableTypeDefiner`
 **Base:** `SaveableTypeDefiner`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveableBasicTypeDefiner.cs`
+**File:** `TaleWorlds.SaveSystem/SaveableBasicTypeDefiner.cs`
 
 ## 概述
 

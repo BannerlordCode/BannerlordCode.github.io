@@ -8,7 +8,7 @@ description: "MBCanNotCreatePresumedObjectException 的自动生成类参考。"
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public class MBCanNotCreatePresumedObjectException : ObjectSystemException`
 **Base:** `ObjectSystemException`
-**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBCanNotCreatePresumedObjectException.cs`
+**File:** `TaleWorlds.ObjectSystem/MBCanNotCreatePresumedObjectException.cs`
 
 ## 概述
 

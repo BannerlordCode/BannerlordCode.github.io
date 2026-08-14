@@ -8,7 +8,7 @@ description: "RequestToSpawnAsBot 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class RequestToSpawnAsBot : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/RequestToSpawnAsBot.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/RequestToSpawnAsBot.cs`
 
 ## 概述
 

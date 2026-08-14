@@ -8,7 +8,7 @@ description: "IInput 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IInput`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IInput.cs`
+**File:** `TaleWorlds.Engine/IInput.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MultiplayerGeneralKillFeedItemWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerGeneralKillFeedItemWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.KillFeed/MultiplayerGeneralKillFeedItemWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/KillFeed/MultiplayerGeneralKillFeedItemWidget.cs`
 
 ## 概述
 

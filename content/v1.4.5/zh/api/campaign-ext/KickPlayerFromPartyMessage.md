@@ -8,7 +8,7 @@ description: "KickPlayerFromPartyMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class KickPlayerFromPartyMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/KickPlayerFromPartyMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/KickPlayerFromPartyMessage.cs`
 
 ## 概述
 

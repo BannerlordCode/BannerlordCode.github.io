@@ -8,7 +8,7 @@ description: "PollCancelled 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class PollCancelled : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/PollCancelled.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/PollCancelled.cs`
 
 ## 概述
 

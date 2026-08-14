@@ -8,7 +8,7 @@ description: "SubModuleInfo 的自动生成类参考。"
 **Module:** TaleWorlds.ModuleManager
 **Type:** `public class SubModuleInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.ModuleManager/TaleWorlds.ModuleManager/SubModuleInfo.cs`
+**File:** `TaleWorlds.ModuleManager/SubModuleInfo.cs`
 
 ## 概述
 

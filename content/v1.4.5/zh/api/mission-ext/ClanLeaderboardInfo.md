@@ -8,7 +8,7 @@ description: "ClanLeaderboardInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanLeaderboardInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ClanLeaderboardInfo.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ClanLeaderboardInfo.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MissionCustomGameClientComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionCustomGameClientComponent : MissionLobbyComponent`
 **Base:** `MissionLobbyComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionCustomGameClientComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionCustomGameClientComponent.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "Ballista 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class Ballista : RangedSiegeWeapon, ISpawnable`
 **Base:** `RangedSiegeWeapon`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Ballista.cs`
+**File:** `TaleWorlds.MountAndBlade/Ballista.cs`
 
 ## 概述
 
@@ -17,6 +17,15 @@ description: "Ballista 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `DirectionRestriction` | `public override float DirectionRestriction { get; }` |
+| `CanShootAtPointCheckingOffset` | `public override Vec3 CanShootAtPointCheckingOffset { get; }` |
+| `MultipleProjectileId` | `public override string MultipleProjectileId { get; }` |
+| `MultipleProjectileFlyingId` | `public override string MultipleProjectileFlyingId { get; }` |
 
 ## 主要方法
 
@@ -54,7 +63,7 @@ var result = ballista.CreateAIBehaviorObject();
 ```
 
 ### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
 **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 

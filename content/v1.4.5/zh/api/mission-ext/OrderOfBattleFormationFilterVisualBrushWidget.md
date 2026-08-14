@@ -8,7 +8,7 @@ description: "OrderOfBattleFormationFilterVisualBrushWidget 的自动生成类�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderOfBattleFormationFilterVisualBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle/OrderOfBattleFormationFilterVisualBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/OrderOfBattle/OrderOfBattleFormationFilterVisualBrushWidget.cs`
 
 ## 概述
 

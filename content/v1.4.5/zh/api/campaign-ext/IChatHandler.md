@@ -8,7 +8,7 @@ description: "IChatHandler 的自动生成类参考。"
 **Module:** (global)
 **Type:** `public interface IChatHandler`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/IChatHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/IChatHandler.cs`
 
 ## 概述
 

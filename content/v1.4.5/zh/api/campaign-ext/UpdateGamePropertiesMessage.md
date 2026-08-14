@@ -8,7 +8,7 @@ description: "UpdateGamePropertiesMessage 的自动生成类参考。"
 **Module:** Messages.FromCustomBattleServer
 **Type:** `public class UpdateGamePropertiesMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/UpdateGamePropertiesMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromCustomBattleServer/ToCustomBattleServerManager/UpdateGamePropertiesMessage.cs`
 
 ## 概述
 

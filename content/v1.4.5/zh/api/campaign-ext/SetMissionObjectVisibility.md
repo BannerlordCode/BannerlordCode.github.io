@@ -8,7 +8,7 @@ description: "SetMissionObjectVisibility 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetMissionObjectVisibility : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetMissionObjectVisibility.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetMissionObjectVisibility.cs`
 
 ## 概述
 

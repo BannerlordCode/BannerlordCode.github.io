@@ -8,7 +8,7 @@ description: "ModuleInfo 的自动生成类参考。"
 **Module:** TaleWorlds.ModuleManager
 **Type:** `public class ModuleInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.ModuleManager/TaleWorlds.ModuleManager/ModuleInfo.cs`
+**File:** `TaleWorlds.ModuleManager/ModuleInfo.cs`
 
 ## 概述
 
@@ -25,7 +25,9 @@ description: "ModuleInfo 的自动生成类参考。"
 | `IsSelected` | `public bool IsSelected { get; }` |
 | `Id` | `public string Id { get; }` |
 | `Name` | `public string Name { get; }` |
+| `IsOfficial` | `public bool IsOfficial { get; }` |
 | `IsDefault` | `public bool IsDefault { get; }` |
+| `IsRequiredOfficial` | `public bool IsRequiredOfficial { get; }` |
 | `IsActive` | `public bool IsActive { get; }` |
 | `Version` | `public ApplicationVersion Version { get; }` |
 | `RequiredBaseVersion` | `public ApplicationVersion RequiredBaseVersion { get; }` |
@@ -33,6 +35,7 @@ description: "ModuleInfo 的自动生成类参考。"
 | `FolderPath` | `public string FolderPath { get; }` |
 | `Type` | `public ModuleType Type { get; }` |
 | `HasMultiplayerCategory` | `public bool HasMultiplayerCategory { get; }` |
+| `IsNative` | `public bool IsNative { get; }` |
 
 ## 主要方法
 

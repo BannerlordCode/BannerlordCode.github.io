@@ -8,7 +8,7 @@ description: "CreatePremadeGameMessageResult 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class CreatePremadeGameMessageResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/CreatePremadeGameMessageResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/CreatePremadeGameMessageResult.cs`
 
 ## 概述
 

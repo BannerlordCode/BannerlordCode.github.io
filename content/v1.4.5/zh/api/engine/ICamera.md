@@ -8,7 +8,7 @@ description: "ICamera 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface ICamera`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ICamera.cs`
+**File:** `TaleWorlds.Engine/ICamera.cs`
 
 ## 概述
 

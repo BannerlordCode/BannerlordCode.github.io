@@ -8,7 +8,7 @@ description: "OrderOfBattleFormationClassBrushWidget 的自动生成类参考。
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderOfBattleFormationClassBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle/OrderOfBattleFormationClassBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/OrderOfBattle/OrderOfBattleFormationClassBrushWidget.cs`
 
 ## 概述
 

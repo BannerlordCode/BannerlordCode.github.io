@@ -8,7 +8,7 @@ description: "PsaiInfo 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `public struct PsaiInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/PsaiInfo.cs`
+**File:** `TaleWorlds.PSAI/net/PsaiInfo.cs`
 
 ## 概述
 

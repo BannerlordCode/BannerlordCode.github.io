@@ -8,7 +8,7 @@ description: "TacticDefendCastle 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticDefendCastle : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticDefendCastle.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticDefendCastle.cs`
 
 ## 概述
 
@@ -22,7 +22,7 @@ description: "TacticDefendCastle 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `CurrentTacticState` | `public TacticState CurrentTacticState { get; }` |
+| `CurrentTacticState` | `public TacticDefendCastle.TacticState CurrentTacticState { get; }` |
 
 ## 主要方法
 

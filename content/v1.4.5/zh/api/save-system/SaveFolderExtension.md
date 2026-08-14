@@ -8,7 +8,7 @@ description: "SaveFolderExtension 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public enum SaveFolderExtension : byte`
 **Base:** `byte`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveFolderExtension.cs`
+**File:** `TaleWorlds.SaveSystem/SaveFolderExtension.cs`
 
 ## 概述
 

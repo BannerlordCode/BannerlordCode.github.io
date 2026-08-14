@@ -8,7 +8,7 @@ description: "ClanStats 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanStats`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ClanStats.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ClanStats.cs`
 
 ## 概述
 

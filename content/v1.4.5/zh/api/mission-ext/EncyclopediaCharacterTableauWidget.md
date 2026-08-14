@@ -8,7 +8,7 @@ description: "EncyclopediaCharacterTableauWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EncyclopediaCharacterTableauWidget : CharacterTableauWidget`
 **Base:** `CharacterTableauWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia/EncyclopediaCharacterTableauWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Encyclopedia/EncyclopediaCharacterTableauWidget.cs`
 
 ## 概述
 

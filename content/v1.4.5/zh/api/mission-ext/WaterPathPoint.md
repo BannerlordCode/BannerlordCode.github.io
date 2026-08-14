@@ -8,7 +8,7 @@ description: "WaterPathPoint 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class WaterPathPoint : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/WaterPathPoint.cs`
+**File:** `TaleWorlds.MountAndBlade/WaterPathPoint.cs`
 
 ## 概述
 

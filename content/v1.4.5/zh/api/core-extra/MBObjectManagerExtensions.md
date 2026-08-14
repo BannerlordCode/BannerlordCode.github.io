@@ -8,7 +8,7 @@ description: "MBObjectManagerExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public static class MBObjectManagerExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBObjectManagerExtensions.cs`
+**File:** `TaleWorlds.Core/MBObjectManagerExtensions.cs`
 
 ## 概述
 

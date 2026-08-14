@@ -8,7 +8,7 @@ description: "CraftingPieceImageIdentifier 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class CraftingPieceImageIdentifier : ImageIdentifier`
 **Base:** `ImageIdentifier`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core.ImageIdentifiers/CraftingPieceImageIdentifier.cs`
+**File:** `TaleWorlds.Core/ImageIdentifiers/CraftingPieceImageIdentifier.cs`
 
 ## 概述
 

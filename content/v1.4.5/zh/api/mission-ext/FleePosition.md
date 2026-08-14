@@ -8,7 +8,7 @@ description: "FleePosition 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FleePosition : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FleePosition.cs`
+**File:** `TaleWorlds.MountAndBlade/FleePosition.cs`
 
 ## 概述
 

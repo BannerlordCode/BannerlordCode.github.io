@@ -8,7 +8,7 @@ description: "RangedSiegeWeapon 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class RangedSiegeWeapon : SiegeWeapon`
 **Base:** `SiegeWeapon`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RangedSiegeWeapon.cs`
+**File:** `TaleWorlds.MountAndBlade/RangedSiegeWeapon.cs`
 
 ## 概述
 
@@ -22,40 +22,29 @@ description: "RangedSiegeWeapon 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `MultipleFireProjectileId` | `public virtual string MultipleFireProjectileId { get; }` |
+| `MultipleFireProjectileFlyingId` | `public virtual string MultipleFireProjectileFlyingId { get; }` |
+| `MultipleProjectileId` | `public virtual string MultipleProjectileId { get; }` |
+| `MultipleProjectileFlyingId` | `public virtual string MultipleProjectileFlyingId { get; }` |
+| `SingleFireProjectileId` | `public virtual string SingleFireProjectileId { get; }` |
+| `SingleFireProjectileFlyingId` | `public virtual string SingleFireProjectileFlyingId { get; }` |
+| `SingleProjectileId` | `public virtual string SingleProjectileId { get; }` |
+| `SingleProjectileFlyingId` | `public virtual string SingleProjectileFlyingId { get; }` |
+| `State` | `public RangedSiegeWeapon.WeaponState State { get; set; }` |
+| `CanShootAtPointCheckingOffset` | `public virtual Vec3 CanShootAtPointCheckingOffset { get; }` |
+| `CameraHolder` | `public GameEntity CameraHolder { get; }` |
+| `AmmoCount` | `public int AmmoCount { get; set; }` |
+| `DirectionRestriction` | `public virtual float DirectionRestriction { get; }` |
+| `PlayerForceUse` | `public bool PlayerForceUse { get; }` |
+| `ProjectileEntityCurrentGlobalPosition` | `public virtual Vec3 ProjectileEntityCurrentGlobalPosition { get; }` |
+| `Side` | `public override BattleSideEnum Side { get; }` |
 | `State` | `public int State { get; }` |
 | `TargetDirection` | `public float TargetDirection { get; }` |
 | `TargetReleaseAngle` | `public float TargetReleaseAngle { get; }` |
 | `AmmoCount` | `public int AmmoCount { get; }` |
 | `ProjectileIndex` | `public int ProjectileIndex { get; }` |
-| `State` | `public WeaponState State { get; set; }` |
-| `CameraHolder` | `public GameEntity CameraHolder { get; }` |
-| `AmmoCount` | `public int AmmoCount { get; set; }` |
-| `PlayerForceUse` | `public bool PlayerForceUse { get; }` |
-| `Side` | `public override BattleSideEnum Side { get; }` |
 
 ## 主要方法
-
-### ReadFromNetwork
-`public bool ReadFromNetwork(ref bool bufferReadValid)`
-
-**用途 / Purpose:** 从当前实例读取from network相关数据。
-
-```csharp
-// 先通过子系统 API 拿到 RangedSiegeWeapon 实例
-RangedSiegeWeapon rangedSiegeWeapon = ...;
-var result = rangedSiegeWeapon.ReadFromNetwork(bufferReadValid);
-```
-
-### OnSiegeWeaponReloadDone
-`public delegate void OnSiegeWeaponReloadDone()`
-
-**用途 / Purpose:** 在 siege weapon reload done 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 RangedSiegeWeapon 实例
-RangedSiegeWeapon rangedSiegeWeapon = ...;
-rangedSiegeWeapon.OnSiegeWeaponReloadDone();
-```
 
 ### SetAmmo
 `public virtual void SetAmmo(int ammoLeft)`
@@ -124,7 +113,7 @@ var result = rangedSiegeWeapon.GetBestPointAlternativeTo(standingPoint, agent);
 ```
 
 ### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
 **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
@@ -288,26 +277,26 @@ RangedSiegeWeapon rangedSiegeWeapon = ...;
 var result = rangedSiegeWeapon.GetSiegeEngineType();
 ```
 
+### CanShootAtBox
+`public bool CanShootAtBox(Vec3 boxMin, Vec3 boxMax, uint attempts = 5U)`
+
+**用途 / Purpose:** 检查当前对象是否满足 shoot at box 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 RangedSiegeWeapon 实例
+RangedSiegeWeapon rangedSiegeWeapon = ...;
+var result = rangedSiegeWeapon.CanShootAtBox(boxMin, boxMax, 0);
+```
+
 ### CanShootAtThreat
-`public bool CanShootAtThreat(Threat threat, int attemptCount = 5)`
+`public bool CanShootAtThreat(Threat threat)`
 
 **用途 / Purpose:** 检查当前对象是否满足 shoot at threat 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
 RangedSiegeWeapon rangedSiegeWeapon = ...;
-var result = rangedSiegeWeapon.CanShootAtThreat(threat, 0);
-```
-
-### CanShootAtAgent
-`public bool CanShootAtAgent(Agent agent, int attemptCount = 5)`
-
-**用途 / Purpose:** 检查当前对象是否满足 shoot at agent 的前置条件。
-
-```csharp
-// 先通过子系统 API 拿到 RangedSiegeWeapon 实例
-RangedSiegeWeapon rangedSiegeWeapon = ...;
-var result = rangedSiegeWeapon.CanShootAtAgent(agent, 0);
+var result = rangedSiegeWeapon.CanShootAtThreat(threat);
 ```
 
 ### GetEstimatedTargetMovementVector
@@ -319,6 +308,17 @@ var result = rangedSiegeWeapon.CanShootAtAgent(agent, 0);
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
 RangedSiegeWeapon rangedSiegeWeapon = ...;
 var result = rangedSiegeWeapon.GetEstimatedTargetMovementVector(targetCurrentPosition, targetVelocity);
+```
+
+### CanShootAtAgent
+`public bool CanShootAtAgent(Agent agent)`
+
+**用途 / Purpose:** 检查当前对象是否满足 shoot at agent 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 RangedSiegeWeapon 实例
+RangedSiegeWeapon rangedSiegeWeapon = ...;
+var result = rangedSiegeWeapon.CanShootAtAgent(agent);
 ```
 
 ### CanShootAtPoint
@@ -355,14 +355,14 @@ var result = rangedSiegeWeapon.ProcessTargetValue(0, flags);
 ```
 
 ### OnAfterReadFromNetwork
-`public override void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
+`public override void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
 **用途 / Purpose:** 在 after read from network 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
 RangedSiegeWeapon rangedSiegeWeapon = ...;
-rangedSiegeWeapon.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
+rangedSiegeWeapon.OnAfterReadFromNetwork(valueTuple<BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
 ```
 
 ### GetGlobalVelocity
@@ -398,15 +398,26 @@ RangedSiegeWeapon rangedSiegeWeapon = ...;
 rangedSiegeWeapon.OnShipCaptured(newDefaultSide);
 ```
 
-### OnDeploymentFinished
-`public override void OnDeploymentFinished()`
+### ReadFromNetwork
+`public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
+**用途 / Purpose:** 从当前实例读取from network相关数据。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
 RangedSiegeWeapon rangedSiegeWeapon = ...;
-rangedSiegeWeapon.OnDeploymentFinished();
+var result = rangedSiegeWeapon.ReadFromNetwork(bufferReadValid);
+```
+
+### OnSiegeWeaponReloadDone
+`public delegate void OnSiegeWeaponReloadDone()`
+
+**用途 / Purpose:** 在 siege weapon reload done 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 RangedSiegeWeapon 实例
+RangedSiegeWeapon rangedSiegeWeapon = ...;
+rangedSiegeWeapon.OnSiegeWeaponReloadDone();
 ```
 
 ## 使用示例

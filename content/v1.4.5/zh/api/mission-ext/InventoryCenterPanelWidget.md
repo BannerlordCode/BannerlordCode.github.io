@@ -8,7 +8,7 @@ description: "InventoryCenterPanelWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InventoryCenterPanelWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryCenterPanelWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Inventory/InventoryCenterPanelWidget.cs`
 
 ## 概述
 

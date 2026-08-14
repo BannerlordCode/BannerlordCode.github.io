@@ -8,7 +8,7 @@ description: "MBRandom 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public static class MBRandom`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBRandom.cs`
+**File:** `TaleWorlds.Core/MBRandom.cs`
 
 ## 概述
 
@@ -22,7 +22,10 @@ description: "MBRandom 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `RandomFloat` | `public static float RandomFloat { get; }` |
 | `RandomFloatNormal` | `public static float RandomFloatNormal { get; }` |
+| `NondeterministicRandomFloat` | `public static float NondeterministicRandomFloat { get; }` |
+| `NondeterministicRandomInt` | `public static int NondeterministicRandomInt { get; }` |
 
 ## 主要方法
 

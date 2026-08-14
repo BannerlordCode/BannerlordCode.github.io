@@ -8,7 +8,7 @@ description: "HttpGetRequest 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class HttpGetRequest : IHttpRequestTask`
 **Base:** `IHttpRequestTask`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.Http/HttpGetRequest.cs`
+**File:** `TaleWorlds.Library/Http/HttpGetRequest.cs`
 
 ## 概述
 

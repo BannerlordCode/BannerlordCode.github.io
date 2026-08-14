@@ -8,7 +8,7 @@ description: "InputKey 的自动生成类参考。"
 **Module:** TaleWorlds.InputSystem
 **Type:** `public enum InputKey`
 **Base:** 无
-**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/InputKey.cs`
+**File:** `TaleWorlds.InputSystem/InputKey.cs`
 
 ## 概述
 

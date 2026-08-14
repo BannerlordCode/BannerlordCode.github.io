@@ -8,7 +8,7 @@ description: "IConflictResolver 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public interface IConflictResolver`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Resolvers/IConflictResolver.cs`
+**File:** `TaleWorlds.SaveSystem/Resolvers/IConflictResolver.cs`
 
 ## 概述
 

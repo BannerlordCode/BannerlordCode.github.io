@@ -8,7 +8,7 @@ description: "VillageTypeVisualIconBrushWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class VillageTypeVisualIconBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Menu.TownManagement/VillageTypeVisualIconBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Map/Menu/TownManagement/VillageTypeVisualIconBrushWidget.cs`
 
 ## 概述
 

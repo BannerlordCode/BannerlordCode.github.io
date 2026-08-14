@@ -8,7 +8,7 @@ description: "SettlementOverlayWallIconBrushWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SettlementOverlayWallIconBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay/SettlementOverlayWallIconBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Menu/Overlay/SettlementOverlayWallIconBrushWidget.cs`
 
 ## 概述
 

@@ -6,9 +6,9 @@ description: "MapParleyAnimationParentBrushWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Parley
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class MapParleyAnimationParentBrushWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Parley/MapParleyAnimationParentBrushWidget.cs`
+**Type:** `public class MapParleyAnimationParentBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Map/Parley/MapParleyAnimationParentBrushWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "MapParleyAnimationParentBrushWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `AnimationDuration` | `public float AnimationDuration { get; set; }` |
-
-## 主要方法
-
-### MapParleyAnimationParentBrushWidget
-`public class MapParleyAnimationParentBrushWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 MapParleyAnimationParentBrushWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapParleyAnimationParentBrushWidget 实例
-MapParleyAnimationParentBrushWidget mapParleyAnimationParentBrushWidget = ...;
-var result = mapParleyAnimationParentBrushWidget.MapParleyAnimationParentBrushWidget(context);
-```
 
 ## 使用示例
 

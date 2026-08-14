@@ -8,7 +8,7 @@ description: "ApplyWeatherEffectsModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class ApplyWeatherEffectsModel : MBGameModel<ApplyWeatherEffectsModel>`
 **Base:** `MBGameModel<ApplyWeatherEffectsModel>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/ApplyWeatherEffectsModel.cs`
+**File:** `TaleWorlds.MountAndBlade/ComponentInterfaces/ApplyWeatherEffectsModel.cs`
 
 ## 概述
 

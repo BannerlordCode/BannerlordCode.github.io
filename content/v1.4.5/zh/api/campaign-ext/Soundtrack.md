@@ -8,7 +8,7 @@ description: "Soundtrack 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `public class Soundtrack`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/Soundtrack.cs`
+**File:** `TaleWorlds.PSAI/net/Soundtrack.cs`
 
 ## 概述
 

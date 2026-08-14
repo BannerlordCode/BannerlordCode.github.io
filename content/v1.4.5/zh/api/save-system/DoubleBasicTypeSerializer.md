@@ -8,7 +8,7 @@ description: "DoubleBasicTypeSerializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class DoubleBasicTypeSerializer : IBasicTypeSerializer`
 **Base:** `IBasicTypeSerializer`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/DoubleBasicTypeSerializer.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/DoubleBasicTypeSerializer.cs`
 
 ## 概述
 

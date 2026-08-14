@@ -8,7 +8,7 @@ description: "PeerVisualsHolder 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PeerVisualsHolder`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/PeerVisualsHolder.cs`
+**File:** `TaleWorlds.MountAndBlade/PeerVisualsHolder.cs`
 
 ## 概述
 

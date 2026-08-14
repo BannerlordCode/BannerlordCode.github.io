@@ -8,7 +8,7 @@ description: "ClanFinanceTextWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanFinanceTextWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan/ClanFinanceTextWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Clan/ClanFinanceTextWidget.cs`
 
 ## 概述
 

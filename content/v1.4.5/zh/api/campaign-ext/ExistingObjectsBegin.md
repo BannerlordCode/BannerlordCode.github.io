@@ -8,7 +8,7 @@ description: "ExistingObjectsBegin 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class ExistingObjectsBegin : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/ExistingObjectsBegin.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/ExistingObjectsBegin.cs`
 
 ## 概述
 

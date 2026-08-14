@@ -8,7 +8,7 @@ description: "FormationSceneSpawnEntry 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FormationSceneSpawnEntry`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationSceneSpawnEntry.cs`
+**File:** `TaleWorlds.MountAndBlade/FormationSceneSpawnEntry.cs`
 
 ## 概述
 
@@ -18,25 +18,11 @@ description: "FormationSceneSpawnEntry 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要方法
-
-### FormationSceneSpawnEntry
-`public struct FormationSceneSpawnEntry(FormationClass formationClass, GameEntity spawnEntity, GameEntity reinforcementSpawnEntity)`
-
-**用途 / Purpose:** 将ion scene spawn entry格式化为适合显示或存储的字符串。
-
-```csharp
-// 先通过子系统 API 拿到 FormationSceneSpawnEntry 实例
-FormationSceneSpawnEntry formationSceneSpawnEntry = ...;
-var result = formationSceneSpawnEntry.FormationSceneSpawnEntry(formationClass, spawnEntity, reinforcementSpawnEntity);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-FormationSceneSpawnEntry formationSceneSpawnEntry = ...;
-formationSceneSpawnEntry.FormationSceneSpawnEntry(formationClass, spawnEntity, reinforcementSpawnEntity);
+// 从对应子系统 API 获取实例
+FormationSceneSpawnEntry instance = ...;
 ```
 
 ## 参见

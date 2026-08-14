@@ -8,7 +8,7 @@ description: "CommunityClient 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CommunityClient`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CommunityClient.cs`
+**File:** `TaleWorlds.MountAndBlade/CommunityClient.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "Timer 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class Timer`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/Timer.cs`
+**File:** `TaleWorlds.Core/Timer.cs`
 
 ## 概述
 
@@ -22,8 +22,8 @@ description: "Timer 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `StartTime` | `public float StartTime { get; }` |
-| `Duration` | `public float Duration { get; }` |
+| `StartTime` | `public float StartTime { get; set; }` |
+| `Duration` | `public float Duration { get; set; }` |
 | `PreviousDeltaTime` | `public float PreviousDeltaTime { get; }` |
 
 ## 主要方法

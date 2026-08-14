@@ -8,7 +8,7 @@ description: "TooltipTriggerVM 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class TooltipTriggerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.Information/TooltipTriggerVM.cs`
+**File:** `TaleWorlds.Library/Information/TooltipTriggerVM.cs`
 
 ## 概述
 

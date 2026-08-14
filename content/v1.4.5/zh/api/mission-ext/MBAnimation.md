@@ -8,7 +8,7 @@ description: "MBAnimation 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct MBAnimation`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBAnimation.cs`
+**File:** `TaleWorlds.MountAndBlade/MBAnimation.cs`
 
 ## 概述
 
@@ -163,7 +163,7 @@ MBAnimation.GetAnimationBlendInPeriod(0);
 ```
 
 ### GetAnimationBlendsWithActionIndex
-`public static ActionIndexCache GetAnimationBlendsWithActionIndex(string animationName)`
+`public static int GetAnimationBlendsWithActionIndex(string animationName)`
 
 **用途 / Purpose:** 读取并返回当前对象中 animation blends with action index 的结果。
 
@@ -173,7 +173,7 @@ MBAnimation.GetAnimationBlendsWithActionIndex("example");
 ```
 
 ### GetAnimationBlendsWithActionIndex
-`public static ActionIndexCache GetAnimationBlendsWithActionIndex(int animationIndex)`
+`public static float GetAnimationBlendsWithActionIndex(int animationIndex)`
 
 **用途 / Purpose:** 读取并返回当前对象中 animation blends with action index 的结果。
 

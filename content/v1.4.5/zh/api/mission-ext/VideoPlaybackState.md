@@ -8,7 +8,7 @@ description: "VideoPlaybackState 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class VideoPlaybackState : GameState`
 **Base:** `GameState`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/VideoPlaybackState.cs`
+**File:** `TaleWorlds.MountAndBlade/VideoPlaybackState.cs`
 
 ## 概述
 

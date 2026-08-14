@@ -8,7 +8,7 @@ description: "MatchHistoryData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MatchHistoryData : MultiplayerLocalData`
 **Base:** `MultiplayerLocalData`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData/MatchHistoryData.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Lobby/LocalData/MatchHistoryData.cs`
 
 ## 概述
 

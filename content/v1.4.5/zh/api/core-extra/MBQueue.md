@@ -8,7 +8,7 @@ description: "MBQueue 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class MBQueue<T> : MBReadOnlyQueue<T>, IMBCollection`
 **Base:** `MBReadOnlyQueue<T>`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBQueue.cs`
+**File:** `TaleWorlds.Library/MBQueue.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "DeploymentPoint 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DeploymentPoint : SynchedMissionObject`
 **Base:** `SynchedMissionObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DeploymentPoint.cs`
+**File:** `TaleWorlds.MountAndBlade/DeploymentPoint.cs`
 
 ## 概述
 
@@ -24,8 +24,11 @@ description: "DeploymentPoint 的自动生成类参考。"
 |------|-----------|
 | `DeploymentTargetPosition` | `public Vec3 DeploymentTargetPosition { get; }` |
 | `AssociatedWallSegment` | `public WallSegment AssociatedWallSegment { get; }` |
+| `DeployableWeapons` | `public IEnumerable<SynchedMissionObject> DeployableWeapons { get; }` |
+| `IsDeployed` | `public bool IsDeployed { get; }` |
 | `DeployedWeapon` | `public SynchedMissionObject DeployedWeapon { get; }` |
 | `DisbandedWeapon` | `public SynchedMissionObject DisbandedWeapon { get; }` |
+| `DeployableWeaponTypes` | `public IEnumerable<Type> DeployableWeaponTypes { get; }` |
 
 ## 主要方法
 
@@ -52,7 +55,7 @@ var result = deploymentPoint.GetDeploymentOrigin();
 ```
 
 ### GetDeploymentPointState
-`public DeploymentPointState GetDeploymentPointState()`
+`public DeploymentPoint.DeploymentPointState GetDeploymentPointState()`
 
 **用途 / Purpose:** 读取并返回当前对象中 deployment point state 的结果。
 
@@ -63,7 +66,7 @@ var result = deploymentPoint.GetDeploymentPointState();
 ```
 
 ### GetDeploymentPointType
-`public DeploymentPointType GetDeploymentPointType()`
+`public DeploymentPoint.DeploymentPointType GetDeploymentPointType()`
 
 **用途 / Purpose:** 读取并返回当前对象中 deployment point type 的结果。
 

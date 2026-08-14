@@ -8,7 +8,7 @@ description: "InventoryTupleExtensionControlsWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InventoryTupleExtensionControlsWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryTupleExtensionControlsWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Inventory/InventoryTupleExtensionControlsWidget.cs`
 
 ## 概述
 

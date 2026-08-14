@@ -8,7 +8,7 @@ description: "VirtualKeyCode 的自动生成类参考。"
 **Module:** TaleWorlds.InputSystem
 **Type:** `public enum VirtualKeyCode`
 **Base:** 无
-**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/VirtualKeyCode.cs`
+**File:** `TaleWorlds.InputSystem/VirtualKeyCode.cs`
 
 ## 概述
 

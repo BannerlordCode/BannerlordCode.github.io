@@ -8,7 +8,7 @@ description: "TacticRangedHarrassmentOffensive 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticRangedHarrassmentOffensive : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticRangedHarrassmentOffensive.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticRangedHarrassmentOffensive.cs`
 
 ## 概述
 

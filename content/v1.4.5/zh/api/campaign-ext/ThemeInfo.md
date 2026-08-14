@@ -8,7 +8,7 @@ description: "ThemeInfo 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `public class ThemeInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/ThemeInfo.cs`
+**File:** `TaleWorlds.PSAI/net/ThemeInfo.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "BehaviorValues 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct BehaviorValues`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HumanAIComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/HumanAIComponent.cs`
 
 ## 概述
 

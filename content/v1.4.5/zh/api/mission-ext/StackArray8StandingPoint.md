@@ -8,7 +8,7 @@ description: "StackArray8StandingPoint 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct StackArray8StandingPoint`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/StandingPoint.cs`
+**File:** `TaleWorlds.MountAndBlade/StandingPoint.cs`
 
 ## 概述
 

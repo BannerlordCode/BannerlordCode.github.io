@@ -8,7 +8,7 @@ description: "DwmBlurBehind 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal struct DwmBlurBehind`
 **Base:** 无
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/DwmBlurBehind.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/Windows/DwmBlurBehind.cs`
 
 ## 概述
 

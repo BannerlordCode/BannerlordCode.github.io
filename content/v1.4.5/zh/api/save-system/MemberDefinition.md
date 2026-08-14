@@ -8,7 +8,7 @@ description: "MemberDefinition 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public abstract class MemberDefinition`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/MemberDefinition.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/MemberDefinition.cs`
 
 ## 概述
 

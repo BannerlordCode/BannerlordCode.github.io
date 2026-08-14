@@ -8,7 +8,7 @@ description: "IEditorMissionTester 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IEditorMissionTester`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IEditorMissionTester.cs`
+**File:** `TaleWorlds.MountAndBlade/IEditorMissionTester.cs`
 
 ## 概述
 

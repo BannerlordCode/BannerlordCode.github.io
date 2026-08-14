@@ -8,7 +8,7 @@ description: "BannerState 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum BannerState`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BannerBearerLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/BannerBearerLogic.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "LoginMessage 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class LoginMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/LoginMessage.cs`
+**File:** `TaleWorlds.Diamond/LoginMessage.cs`
 
 ## 概述
 

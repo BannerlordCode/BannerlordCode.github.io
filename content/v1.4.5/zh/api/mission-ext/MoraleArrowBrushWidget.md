@@ -8,7 +8,7 @@ description: "MoraleArrowBrushWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MoraleArrowBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD/MoraleArrowBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/HUD/MoraleArrowBrushWidget.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "MoraleArrowBrushWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `LeftSideArrow` | `public bool LeftSideArrow { get; set; }` |
+| `BaseHorizontalExtendRange` | `public float BaseHorizontalExtendRange { get; set; }` |
 | `AreMoralesIndependent` | `public bool AreMoralesIndependent { get; set; }` |
 
 ## 主要方法

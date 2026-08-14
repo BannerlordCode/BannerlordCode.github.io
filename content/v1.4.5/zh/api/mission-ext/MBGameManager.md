@@ -1,178 +1,210 @@
 ---
 title: "MBGameManager"
-description: "Mount & Blade 游戏会话的加载、SubModule 生命周期分发和安全结束协调器：解释 Current、GameLoadingState、MissionState 与 IsEnding 的实际时序。"
+description: "引擎拥有的游戏总管：创建并持有 Game、按固定顺序把加载/启动/读档/结束各阶段广播给每个已加载模块的 SubModule，是单人战役与战斗启动流程的总指挥。"
 ---
 # MBGameManager
 
-| 元数据 | 值 |
-|---|---|
-| Namespace | `TaleWorlds.MountAndBlade` |
-| Module | `TaleWorlds.MountAndBlade` |
-| Type | `public abstract class MBGameManager : GameManagerBase` |
-| Base | [`GameManagerBase`](../../core-extra/GameManagerBase) |
-| 源文件 | `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBGameManager.cs` |
-
-**Namespace:** `TaleWorlds.MountAndBlade`
-
-**Module:** `TaleWorlds.MountAndBlade`
-
-**Type:** `public abstract class MBGameManager : GameManagerBase`
-
-**Base:** [`GameManagerBase`](../../core-extra/GameManagerBase)
-
-**Source:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBGameManager.cs`
+**Namespace:** TaleWorlds.MountAndBlade  
+**Module:** TaleWorlds.MountAndBlade  
+**Type:** `public abstract class MBGameManager : GameManagerBase`  
+**Base:** `GameManagerBase`  
+**源文件路径：** `TaleWorlds.MountAndBlade/MBGameManager.cs`（v1.3.15；v1.4.5 同一路径）
 
 ## 概述
 
-`MBGameManager` 把具体游戏模式的加载器接入引擎状态机，向所有已加载的 SubModule 分发生命周期回调，并在有 Mission 时以正确顺序收束整个游戏会话。它掌握会话级 `Current`、加载完成闩锁与结束闩锁的交接时机，而非供任意模组直接实例化的业务服务。
+`MBGameManager` 是引擎在游戏进程启动时创建、并全程持有的**总管（bootstrap 层）**。它本身几乎不“做事”，核心职责是：创建 `Game` 对象，然后按一套固定顺序，把“开始游戏 / 模块注册 / 初始化 / 新游戏创建 / 读档 / 结束”等生命周期事件**逐个广播给所有已加载模块的 `MBSubModuleBase`**。单人战役使用的真实实例是 `SandBoxGameManager`（`MBGameManager` 的子类），由 SandBox / StoryMode 的 SubModule 调用静态方法 `MBGameManager.StartNewGame` 推入加载状态机后产生。模组开发者的所有扩展，最终都经由这些广播钩子进入游戏，而不是直接与 `MBGameManager` 打交道。
 
-## ↑ 父级导航
+## 心智模型
 
-- [任务与 Mount & Blade 扩展索引](../)
-- [版本首页](../../../)
+把 `MBGameManager` 理解为**“加载流程的总调度”：它是一台事件广播机，而不是一个你继承或调用的业务对象**。
 
-## ↔ 同级导航
+- **谁创建 / 谁持有它**：引擎（更准确地说是 SandBox 的 `SandBoxGameManager` 等具体子类），通过 `MBGameManager.StartNewGame(new SandBoxGameManager(...))` 建立。其引用同时被存进 `GameManagerBase.Current`，并通过静态属性 `MBGameManager.Current` 暴露给任何已有游戏上下文的代码。
+- **所在层**：Foundation / bootstrap 层。它位于 `Game`、`Campaign`、各 `MBSubModuleBase` 之下，是整个进程生命周期的起点。
+- **它真正在做什么**：每一个 `On*` / `Register*` / `Begin*` 重写方法体里，几乎都是同一行逻辑——`foreach (MBSubModuleBase item in Module.CurrentModule.CollectSubModules()) item.XXX(...)`。也就是说，MBGameManager 的主要任务是**把阶段事件扇出给所有 SubModule**，少数方法（`OnGameStart`、`OnGameInitializationFinished`）还会顺手做一点引擎级初始化（设置 `MonsterMissionDataCreator`、注册 `MissionGameModels`、`SkeletonScale` 骨骼索引等）。
+- **你与它的关系**：模组几乎永远**不要**继承、实例化或 `new` 它。你只会在两种情况下“碰到”它：`MBGameManager.Current`（读取 `IsEnding` / `IsLoaded` 等全局状态）和 `MBGameManager.EndGame()`（请求退出游戏）。真正的扩展入口是 `MBSubModuleBase` 的各加载阶段，以及通过 `CampaignGameStarter.AddBehavior` 注册 `CampaignBehaviorBase`。
 
-- [GameLoadingState](../GameLoadingState) - 驱动加载步骤并最终调用 `OnLoadFinished` 的状态。
-- [MultiplayerSubModule](../MultiplayerSubModule) - 使用同一 SubModule 生命周期的多人模式入口之一。
-- [CustomBattleSubModule](../CustomBattleSubModule) - 另一个以 SubModule 参与游戏启动的模式入口。
+## 何时用 / 何时不要用
 
-## 心智模型：会话总线，不是模组服务容器
+**不要用 `MBGameManager` 的场景（也是绝大多数模组需求）：**
 
-`MBGameManager` 位于三个层级交会处：具体游戏模式的加载实现位于下方，[`GameManagerBase`](../../core-extra/GameManagerBase) 的 `Game`、组件和静态 `Current` 位于上方；[`Module`](../../core/Module) 持有所有已加载的 [`MBSubModuleBase`](../../core/MBSubModuleBase)，[`GameStateManager`](../../core-extra/GameStateManager) 则持有当前的状态栈。
+- 想在新游戏里加一个战役逻辑 → 不要碰 `MBGameManager`，在 `MBSubModuleBase.InitializeGameStarter` 里把行为 `AddBehavior` 到 `CampaignGameStarter`（见下方示例）。
+- 想监听“游戏开始 / 读档完成 / 游戏结束” → 在 `MBSubModuleBase` 的 `OnGameStart` / `OnGameLoaded` / `OnGameEnd` 等阶段钩子里写，而不是重写 `MBGameManager` 的方法。
+- 想主动结束游戏（如某个 UI 按钮或剧情触发）→ 调用静态方法 `MBGameManager.EndGame()`，而不是 `new` 一个管理器或手动清理状态。
 
-```text
-SandBoxGameManager / MultiplayerGameManager / EditorGameManager
-                         |
-                         v
-                  MBGameManager.Current
-                         |
-      +------------------+------------------+
-      |                                     |
-GameLoadingState -> Game / GameStateManager  Module.CurrentModule
-                                              |
-                                    CollectSubModules()
-                                              |
-                                      MBSubModuleBase hooks
-```
-
-具体管理器由游戏或官方模式代码构造；其基类构造函数会立刻把它写入 `GameManagerBase.Current`，而 `MBGameManager.Current` 只是该静态值的强制转换视图。它不是由模组创建、缓存或替换的全局服务。加载完成前，`GameLoadingState` 每 tick 调用该管理器的 `DoLoadingForGameManager()`；完成后才调用 `OnLoadFinished()`，由后者或基类实现把 `IsLoaded` 置为真。
+**正确替代总结：** 模组对启动/加载流程的“入口”只有 `MBSubModuleBase` 的各加载阶段方法；对世界数据的“入口”是 `Game.Current` / `Campaign.Current`；对行为的“入口”是 `CampaignGameStarter.AddBehavior`。`MBGameManager` 自身是引擎内部调度，不属于模组扩展面。
 
 ## 依赖关系
 
-- [`GameManagerBase`](../../core-extra/GameManagerBase) 提供静态 `Current`、`Game`、组件容器和基础加载步骤。
-- [`Module`](../../core/Module) 通过 `CollectSubModules()` 提供实际接收回调的 [`MBSubModuleBase`](../../core/MBSubModuleBase) 实例。
-- [`GameLoadingState`](../GameLoadingState) 驱动派生加载器，[`GameStateManager`](../../core-extra/GameStateManager) 持有加载与结束期间改写的状态栈。
-- [`MissionState`](../../campaign-ext/MissionState) 在 Mission 结束后读取 `IsEnding`，决定清空整个栈还是只弹出任务状态。
+**上游（MBGameManager 依赖 / 被其广播驱动）：**
 
-### 何时使用，何时不要用
+- [MBSubModuleBase](../../core/MBSubModuleBase/) — 所有加载阶段事件的实际接收方；模组扩展的唯一入口。
+- [GameManagerBase](../../core-extra/)（Core 基类，bucket 索引）— `MBGameManager` 的基类，持有 `Current`、组件系统与加载步骤状态机。
+- `Module.CurrentModule`（`TaleWorlds.MountAndBlade.Module`，见 [mission-ext 目录](../)）— 提供 `CollectSubModules()`，阶段广播就是遍历它。
 
-- 在 [`MBSubModuleBase`](../../core/MBSubModuleBase) 的真实生命周期钩子中注册类型、模型、Behavior 或观察游戏开始/结束；`MBGameManager` 会把对应回调送达那里。
-- 仅在引擎已经创建会话后读取 `MBGameManager.Current`，并把它当作可消失的会话级引用。需要任务对象时使用 [`Mission.Current`](../../mission/Mission)，需要状态栈时使用 `Game.Current.GameStateManager`。
-- 不要从普通模组代码 `new` 派生的 `MBGameManager`，也不要手工调用 `BeginGameStart`、`OnGameStart`、`OnGameEnd` 等分发方法。这样会改写全局 `Current`，或令同一个 SubModule 收到重复且失序的初始化/清理通知。
-- 不要把 `EndGame()` 当作“关当前 Mission”的通用 API。正常任务结束应由 Mission 自己的结束路径处理；它会改写整个游戏状态栈。
+**下游（MBGameManager 创建 / 驱动 / 传入的对象）：**
 
-## 创建、持有与生命周期
+- [Game](../../core-extra/Game/) — 在 `DoLoadingForGameManager` 中通过 `Game.CreateGame(...)` 创建，并贯穿全程。
+- [Campaign](../../campaign/Campaign/) — 单人战役的 `GameType`，由 `SandBoxGameManager` 的 `CampaignCreatorDelegate` 产生。
+- [CampaignGameStarter](../../campaign-ext/CampaignGameStarter/) 与 [IGameStarter](../../core-extra/IGameStarter/) — 在 `InitializeGameStarter` 阶段传入每个 SubModule，是注册 `CampaignBehaviorBase` 的载体。
+- `MissionGameModels` — `OnGameStart` 时通过 `Game.Current.AddGameModelsManager<MissionGameModels>(gameStarter.Models)` 注入战斗模型表。
 
-### 从模式选择到加载完成
+**存档 / 读档钩子：**
 
-公开的 `StartNewGame(MBGameManager gameLoader)` 是游戏模式切换的入口，不是“创建一个新战役”的捷径。它的固定行为如下：
+- `OnGameLoaded` / `OnAfterGameLoaded` / `OnLoadFinished` 构成读档路径（仅加载存档时触发），最终由 [SaveManager](../../save-system/SaveManager/) 的读档流程驱动；`OnLoadFinished` 置位 `IsLoaded = true`。
 
-1. 调用 `Module.CurrentModule.OnBeforeGameStart(gameLoader)`；该方法先向所有已加载 SubModule 调用 `OnBeforeGameStart(manager, disabledModules)`，再根据列表停用请求停用的模块。
-2. 通过 `GameStateManager.Current.CreateState<GameLoadingState>()` 创建加载状态，把 `gameLoader` 交给 `SetLoadingParameters`，并用 `CleanAndPushState` 清空旧状态栈后压入它。
-3. `GameLoadingState.OnTick` 重复调用 `gameLoader.DoLoadingForGameManager()`；返回完成后，将 `GameStateManager.Current` 切换为 `Game.Current.GameStateManager`，再调用 `gameLoader.OnLoadFinished()`。
+## 风险
 
-官方 Sandbox 的真实入口就是 `SandBoxSubModule.StartGame`：它构造 `new SandBoxGameManager(loadResult)` 并传给 `MBGameManager.StartNewGame(...)`。`SandBoxGameManager` 在自己的加载步骤中加载模块数据、创建或载入 `Campaign`、等待每个 SubModule 的 `DoLoading(Game.Current)`，最后把状态推到角色创建、地图等界面。模组通常应参与其中的 SubModule 钩子，而不是复制该启动链。
+- **引擎独占的生命周期**：`MBGameManager` 的实例由引擎创建并写入 `GameManagerBase.Current`。任何 `new SandBoxGameManager(...)` / `new MBGameManager(...)` 都不会接入加载状态机，只会得到一个游离对象，其阶段回调永远不会被调用。
+- **加载顺序敏感**：各阶段严格按序广播（`RegisterSubModuleObjects` → `RegisterSubModuleTypes` → `AfterRegisterSubModuleObjects` → `InitializeGameStarter` → `OnGameInitializationFinished` → `OnNewCampaignStart` → `OnNewGameCreated` → `OnGameStart`；读档路径为 `OnGameLoaded` → `OnAfterGameLoaded` → `OnLoadFinished`）。在 `InitializeGameStarter` 之前 `Campaign.Current` 可能尚未就绪，过早访问世界对象会得到 `null` 或抛异常；通过 `AddBehavior` 注册行为应放在 `InitializeGameStarter`，而不是更早的 `Register*` 阶段。
+- **不要在错误阶段写世界状态**：在 `OnGameInitializationFinished` 之前 `Game.Current.ObjectManager` 等可能未完全填充；读档时 `OnNewGameCreated` 不会触发（它是新游戏专属），读档逻辑必须放在 `OnGameLoaded` / `OnAfterGameLoaded`。
+- **存档一致性**：在 `OnGameLoaded` / `OnAfterGameLoaded` 里修改 `Campaign` 数据要小心，此时存档已反序列化，不当的赋值可能破坏读档的一致性或与 [SaveManager](../../save-system/SaveManager/) 的版本校验冲突。
+- **`EndGame()` 是异步的**：`MBGameManager.EndGame()` 为 `async void`，会等待当前任务结束、弹出 Mission 状态再清理。重复调用受 `CheckAndSetEnding()` 的原子标志保护（已结束时返回 `false`），但你自己也不应在 `OnGameEnd` 里再发起重入式加载。
+- **不要在 `OnGameEnd` 之后持有 `Game` / `MBGameManager` 引用**：基类 `OnGameEnd` 会把 `Current` 与 `Game` 置空，之后访问 `MBGameManager.Current` / `Game.Current` 会得到 `null`。
 
-### 分发给 MBSubModuleBase 的真实行为
+## 成员说明
 
-下列覆写均按 `Module.CurrentModule.CollectSubModules()` 返回的顺序遍历并逐个转发，管理器不吞异常、不做重试，也不为模组提供隔离：
+下面按主题分组。每个方法都是 `MBGameManager` 在加载/运行流程中**由引擎调用**的重写点；它们几乎都只是把同一事件扇出给所有 SubModule。
 
-| 管理器阶段 | 发送到每个 `MBSubModuleBase` 的钩子 | 适合放置的工作 |
-|---|---|---|
-| `BeginGameStart` | `BeginGameStart(game)` | 游戏启动已开始，但不要假定全部对象已注册。 |
-| `OnNewCampaignStart` | `OnCampaignStart(game, starterObject)` | 为新的 Campaign 连接 Campaign 专用服务。 |
-| `InitializeSubModuleGameObjects` | `InitializeSubModuleGameObjects(game)` | 配置 SubModule 自己的游戏对象。 |
-| `RegisterSubModuleTypes` | `RegisterSubModuleTypes()` | 先登记序列化/对象类型，不能依赖尚未装载的对象。 |
-| `RegisterSubModuleObjects` / `AfterRegisterSubModuleObjects` | 同名钩子，带 `isSavedCampaign` | 注册 XML 对象，再做依赖已注册对象的后处理。 |
-| `InitializeGameStarter` | `InitializeGameStarter(game, starter)` | 向 starter 添加 Model、Behavior 等启动内容。 |
-| 初始化完成 / 新建 / 读档 | `OnGameInitializationFinished`、`OnAfterGameInitializationFinished`、`OnNewGameCreated`、`OnGameLoaded`、`OnAfterGameLoaded` | 选择与新档或读档相符的恢复工作。 |
-| `OnGameStart` | `OnGameStart(game, gameStarter)` | 管理器先创建 `MonsterMissionDataCreator`，随后分发；之后安装 `MissionGameModels` 并绑定怪物骨骼查询委托。 |
-| `OnGameEnd` | `OnGameEnd(game)` | 先分发，再恢复被禁模块、清除 `MissionGameModels`，最后由基类清空 `Current` 和 `Game`。 |
+### 创建与启动（引擎调用，模组不要碰）
 
-`OnGameInitializationFinished` 还有一个不属于 SubModule 的副作用：它遍历 `Game.Current.ObjectManager` 的 `SkeletonScale`，根据骨骼名计算并写入骨骼索引。因此它不是可安全重复调用的“通知”。
+**`StartNewGame(MBGameManager gameLoader)`**（静态）— 启动新游戏的入口。先调用 `Module.CurrentModule.OnBeforeGameStart(gameLoader)`，再创建一个 `GameLoadingState` 并 `CleanAndPushState` 进状态机。由 SandBox / StoryMode / CustomBattle 的 SubModule 调用（例如 `new SandBoxGameManager(loadResult)`）；模组不应直接调用。
 
-## 关键成员与结束时机
+**`EndGame()`**（静态，`async void`）— 请求结束并退出当前游戏。会轮询等待管理器加载完成，逐层 `PopState` 退出 `MissionState`（必要时先 `EndMission()`），最后清理所有游戏状态。引擎、原生 UI（如地图界面的退出按钮、游戏结束界面）以及平台邀请回调都会调用它。
 
-### `Current`、`IsLoaded` 与 `IsEnding`
+**`CheckAndSetEnding()`** — 线程安全地尝试置位“正在结束”标志，返回是否成功置位（已结束时返回 `false`）。`EndGame()` 用它做幂等保护；你可以用 `MBGameManager.Current.IsEnding` 只读地判断状态，不要用返回值做业务锁。
 
-- `Current` 返回 `(MBGameManager)GameManagerBase.Current`。在任何管理器构造期间都会被改写；`OnGameEnd` 的基类收尾会置空它。因此静态字段初始化器、模组加载期和异步延续中都不能假定它非空或仍指向同一会话。
-- `IsLoaded` 由管理器控制，只能在派生类中写入。基类的 `OnLoadFinished()` 会设为 `true`；`SandBoxGameManager` 在完成其额外 UI/读档收尾后同样设为 `true`。它表示加载管线已交棒，**不**表示当前 Mission 存在。
-- `IsEnding` 初始为 `false`，一旦 `CheckAndSetEnding()` 成功便保持为 `true`，直到该管理器实例被销毁。它是“本会话正在结束”的一次性闩锁，不是暂停标志，也不能被重置来开始另一局。
+### 模块加载阶段广播（核心机制）
 
-### `CheckAndSetEnding()`：只保证一次闩锁
+**`BeginGameStart(Game game)`** — 游戏即将正式开始（进入主菜单 / 角色创建之前）时由加载状态机调用；对 `CollectSubModules()` 每个 SubModule 调 `BeginGameStart(game)`。仅广播，不创建对象；此时 `Game.Current` 已存在但战役世界尚未完全初始化。
 
-此方法在私有锁上检查并设置 `IsEnding`：第一个调用者得到 `true`，其后的调用者得到 `false`。这避免两个 `EndGame` 延续同时开始清理；但它只保护这个布尔值，**不**让 `Mission`、`Game` 或 `GameStateManager` 变成线程安全对象。
+**`RegisterSubModuleObjects(bool isSavedCampaign)`** — 广播给每个 SubModule 的 `RegisterSubModuleObjects`，用于注册需要在游戏对象系统里登记的对象。`isSavedCampaign` 标识当前是读档还是新游戏。
 
-不要从后台线程触发结束流程，也不要在等待 `EndGame` 的同时自行 `PopState` 或 `CleanStates`。`EndGame` 是 `async void`，调用方不能 await 它；锁外的状态栈与 Mission 操作仍必须留在引擎预期的游戏线程和生命周期内。
+**`RegisterSubModuleTypes()`** — 广播 `RegisterSubModuleTypes`，用于注册类型（通常不是你日常扩展的地方）。
 
-### `EndGame()`：先让加载落地，再处理 Mission
+**`AfterRegisterSubModuleObjects(bool isSavedCampaign)`** — 在 `RegisterSubModuleObjects` 之后广播，给 SubModule 一个“对象已登记完”的二次钩子。
 
-`EndGame()` 的实际流程不是立即销毁对象：
+**`InitializeGameStarter(Game game, IGameStarter starterObject)`** — **这是模组注册战役行为最关键的位置**。引擎把 `IGameStarter`（单人战役下实际是 `CampaignGameStarter`）广播给每个 SubModule；你应在 `MBSubModuleBase.InitializeGameStarter` 里把它转型为 `CampaignGameStarter` 并 `AddBehavior(...)`。新游戏与读档两条路径都会经过这里。
 
-1. 只要存在 `Current` 且 `IsLoaded` 为假，就每 100 ms 等待加载完成；管理器消失也会停止等待。
-2. 如果已有管理器且 `CheckAndSetEnding()` 失败，或 `Game.Current.GameStateManager` 为 `null`，直接返回。
-3. 若 `Mission.Current` 非空但顶部状态不是 [`MissionState`](../../campaign-ext/MissionState)，持续 `PopState()`，直到到达该 Mission 的状态。
-4. 顶部是 `MissionState` 时，对其 `CurrentMission.EndMission()`，随后每 1 ms 等待 `Mission.Current` 变为 `null`；没有 MissionState 时才直接 `CleanStates()`。
+**`OnGameInitializationFinished(Game game)`** — 游戏初始化完成时广播；同时 MBGameManager 会遍历 `Game.Current.ObjectManager` 里的 `SkeletonScale`，预计算并设置骨骼索引（`SetBoneIndices`）。属于引擎级收尾，模组一般只做轻量收尾。
 
-这正好解释了 [`MissionState`](../../campaign-ext/MissionState) 的收尾分支：Mission 进入 `Over` 后，若 `MBGameManager.Current.IsEnding` 为真，它调用 `CleanStates()`；否则只 `PopState()` 返回上一状态。直接清空状态或在 Mission 仍活动时另开新会话，会绕过这条协调链。
+**`OnAfterGameInitializationFinished(Game game, object initializerObject)`** — `OnGameInitializationFinished` 之后的二次广播，给 SubModule 一个“初始化已彻底完成”的钩子。
 
-平台邀请和平台请求多人模式也经由作业调用 `MBGameManager.Current.OnSessionInvitationAccepted(...)` 或 `OnPlatformRequestedMultiplayer()`；默认实现分别在邀请类型不是 `None` 时、或无条件时调用 `EndGame()`。覆写时若不保留等价的结束路径，平台切换可能留下活动状态或 Mission。
+### 战役 / 新游戏阶段
 
-## 真实的 SubModule 与状态转换示例
+**`OnNewCampaignStart(Game game, object starterObject)`** — 新战役开始（角色创建完成后）时广播给每个 SubModule 的 `OnCampaignStart(game, starterObject)`。`starterObject` 是战役的起始参数（如 `CampaignGameStarter`）。
 
-下面是官方 `SandBoxSubModule` 的实际启动入口；这是一段游戏模式代码，不是要求普通模组复制的构造模式：
+**`OnNewGameCreated(Game game, object initializerObject)`** — 新游戏对象创建完成时广播；**仅新游戏触发，读档不会触发**。适合做只在全新战役里一次的初始化。
+
+**`OnGameStart(Game game, IGameStarter gameStarter)`** — 游戏真正开始（菜单 / 角色创建之后）时广播给每个 SubModule 的 `OnGameStart`。MBGameManager 自己在这里做：设置 `Game.Current.MonsterMissionDataCreator`、用 `gameStarter.Models` 注册 `MissionGameModels`、把 `Monster.GetBoneIndexWithId` 等回调接到 `MBActionSet`。此时 `Campaign.Current` 已可用，是最常用的“游戏已就绪”钩子。
+
+### 读档阶段（仅加载存档时）
+
+**`OnGameLoaded(Game game, object initializerObject)`** — 存档反序列化完成后广播给每个 SubModule 的 `OnGameLoaded`。读档专属，新游戏不走这里。
+
+**`OnAfterGameLoaded(Game game)`** — `OnGameLoaded` 之后的二次广播，给 SubModule 一个“读档已彻底完成”的钩子。
+
+**`OnLoadFinished()`** — 整个加载流程结束时的收尾，置位 `IsLoaded = true`。`SandBoxGameManager` 的重写还会在此切换到菜单窗口或角色创建（新游戏），或推进到地图状态（读档）。
+
+### 结束阶段
+
+**`OnGameEnd(Game game)`** — 游戏结束时广播给每个 SubModule 的 `OnGameEnd`，随后调 `Module.CurrentModule.OnGameEnd()`、清空 `MissionGameModels`，并最终由基类把 `Current` 与 `Game` 置空。注意此调用之后不要再持有 `Game` 引用。
+
+### 平台回调
+
+**`OnSessionInvitationAccepted(SessionInvitationType targetGameType)`** — 平台层接受联机邀请时由 `OnSessionInvitationAcceptedJob` 调用（经 `MBGameManager.Current`）；若 `targetGameType != None` 则直接 `EndGame()`。通常无需重写。
+
+**`OnPlatformRequestedMultiplayer()`** — 平台请求进入多人模式时调用，默认直接 `EndGame()`。通常无需重写。
+
+### 状态访问（模组可能读取）
+
+**`Current`**（静态属性，`MBGameManager`）— 返回当前活跃的管理器（即 `GameManagerBase.Current` 转型）。在任意已有游戏上下文的代码里读取全局状态用，例如 `MBGameManager.Current.IsEnding`。
+
+**`IsEnding`**（`bool`，只读）— 是否正在结束游戏。`EndGame()` 流程中由 `CheckAndSetEnding()` 置位；只读使用即可。
+
+**`IsLoaded`**（`bool`，受保护 set）— 加载流程是否已完成（`OnLoadFinished` 时置 `true`）。可用于判断“游戏世界是否真正就绪”。
+
+## 最小真实示例
+
+### 示例 1：通过 SubModule 在 `InitializeGameStarter` 注册战役行为（标准扩展入口）
+
+这是模组向战役世界注入自己逻辑的标准方式。引擎在加载流程中调用 `MBSubModuleBase.InitializeGameStarter`，而 `MBGameManager` 正是这一广播的来源；你在这里把 `IGameStarter` 转型为 `CampaignGameStarter` 并 `AddBehavior`：
 
 ```csharp
-private void StartGame(LoadResult loadResult)
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+namespace MyMod
 {
-    MBGameManager.StartNewGame(new SandBoxGameManager(loadResult));
-    MouseManager.ShowCursor(false);
+    public class MySubModule : MBSubModuleBase
+    {
+        // 模块加载的最早钩子；此时 Game 还不存在，只做轻量注册
+        protected internal override void OnSubModuleLoad()
+        {
+        }
+
+        // 引擎通过 MBGameManager 在加载流程中调用此方法：
+        // 这是注册 CampaignBehaviorBase 的正确位置
+        protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+        {
+            // gameStarterObject 在新游戏与读档两条路径都会被传入
+            CampaignGameStarter starter = (CampaignGameStarter)gameStarterObject;
+            starter.AddBehavior(new MyCampaignBehavior());
+        }
+
+        // 游戏真正开始（菜单/角色创建之后）时调用；此时 Campaign.Current 已可用
+        protected internal override void OnGameStart(Game game, IGameStarter gameStarterObject)
+        {
+            Campaign campaign = game.GameType as Campaign;
+            if (campaign != null)
+            {
+                Hero mainHero = campaign.MainHero;
+                // 例如在这里根据主英雄做一次性初始化
+            }
+        }
+    }
 }
 ```
 
-`StartNewGame` 随即把 [`GameLoadingState`](../GameLoadingState) 压为根状态。读档路径完成后，`SandBoxGameManager.OnLoadFinished` 再通过真实的 `Game.Current.GameStateManager` 创建并压入 `MapState`；新档则转向角色创建或过场状态。这个路径说明状态迁移由游戏加载器拥有，而不是由任意 SubModule 随意清栈。
+### 示例 2：在已有上下文中读取管理器状态 / 请求退出游戏
 
-普通 SubModule 参与注册时，官方 Sandbox 使用的是下列真实获取路径：
+在行为、UI 回调或其他已有 `Game` 的代码里，通过 `MBGameManager.Current` 读取全局状态，或用 `MBGameManager.EndGame()` 请求退出：
 
 ```csharp
-public override void RegisterSubModuleObjects(bool isSavedCampaign)
+// 在已有 Game 的上下文中（如某个 CampaignBehaviorBase 或 UI 回调里）读取当前管理器
+MBGameManager manager = MBGameManager.Current;
+if (manager != null && !manager.IsEnding)
 {
-    Campaign.Current.SandBoxManager.InitializeSandboxXMLs(isSavedCampaign);
+    Game game = Game.Current;
+    bool fullyLoaded = manager.IsLoaded;
 }
 
-public override void AfterRegisterSubModuleObjects(bool isSavedCampaign)
-{
-    Campaign.Current.SandBoxManager.InitializeCharactersAfterLoad(isSavedCampaign);
-}
+// 由 UI/平台触发退出当前游戏；引擎与大量原生界面都这样调用
+MBGameManager.EndGame();
 ```
 
-这两个钩子由 manager 的 `RegisterSubModuleObjects` 和 `AfterRegisterSubModuleObjects` 依序分发。它们依赖 `Campaign.Current` 与先前已注册的对象，因而不能挪到 `OnSubModuleLoad`，也不应自行构造 manager。`OnGameEnd` 期间 `Current` 仍可读取；基类调用在所有 SubModule 收到结束回调之后才会把它置空。
+## 跨版本提示
 
-## 风险与排查
+- v1.3.15 与 v1.4.5 的 `MBGameManager` 公开成员完全一致：`StartNewGame`、`EndGame`、`Current`、`IsEnding`、`IsLoaded`，以及全部 `On*` / `Register*` / `Begin*` 阶段广播方法的签名与语义均未变化。
+- 真实子类方面：v1.3.15 已有 `SandBoxGameManager`、`MultiplayerGameManager`、`CustomGameManager`、`EditorGameManager`；v1.4.5 额外包含 `EditorSceneMissionManager` 等编辑器用途子类，对模组扩展面无影响。
+- 模组侧永远只用 `MBSubModuleBase` 阶段 + `CampaignGameStarter.AddBehavior` 接入，这一模式在两个版本间稳定。
 
-- **重复结束：** 自行调用 `EndGame()` 后又直接清栈，或覆写平台回调却不走受控结束，会与 `MissionState` 的结束 tick 竞争。用 `IsEnding` 只作观察；不要把它当作自行清理的许可。
-- **静态初始化：** 在字段初始化器、`OnSubModuleLoad` 或线程延续中抓取 `Current`，可能得到 `null`、旧管理器，或刚被另一派生实例替换的管理器。只在相应游戏阶段即时读取并空值检查。
-- **加载时误判：** `IsLoaded == false` 时 `EndGame()` 会等待；若你的覆写没有在加载收尾正确设定它，结束请求会长期悬挂。派生加载器应保证其 `OnLoadFinished` 最终调用基类或设置该属性。
-- **Mission 与状态栈错配：** `Mission.Current` 存在但栈顶不是 `MissionState` 时，引擎会不断弹栈寻找它。模组若插入自定义状态，必须有可正常弹出的父子关系，不能让持久状态阻断此路径。
-- **回调异常：** 生命周期分发是逐项直接调用；任一 SubModule 的异常会中断本次管理器阶段，后续模块与引擎收尾都可能未执行。把注册依赖放在正确阶段，并让清理代码可处理部分初始化。
+## 参见
 
-## 相关类型
+**↑ Parent**
 
-- [MBSubModuleBase](../../core/MBSubModuleBase) - 模组真正覆写的生命周期端点。
-- [GameManagerBase](../../core-extra/GameManagerBase) - `Current`、`Game`、组件与加载步骤状态机的父类。
-- [Module](../../core/Module) - 持有并收集激活 SubModule，同时实现 `OnBeforeGameStart` 的停用处理。
-- [GameStateManager](../../core-extra/GameStateManager) - `GameLoadingState`、`MissionState` 与状态栈操作的所有者。
-- [Mission](../../mission/Mission) - `Mission.Current` 的实际任务对象；不是游戏会话本身。
-- [MissionState](../../campaign-ext/MissionState) - 将 Mission 的 `Over` 状态接回 `CleanStates` 或 `PopState` 的状态。
-- [SandBoxGameManager](../../campaign-ext/SandBoxGameManager) - 具体 Campaign 加载器与真实派生示例。
+- [API 参考](../../) — 本版本 API 总目录
+- [mission-ext 目录](../) — 战斗扩展类目录（MBGameManager 所在 bucket）
+
+**↔ Sibling（同属启动/世界层的关键类型）**
+
+- [MBSubModuleBase](../../core/MBSubModuleBase/) — 模组加载阶段扩展的唯一入口，所有阶段的接收方
+- [Game](../../core-extra/Game/) — MBGameManager 创建并持有的游戏对象
+- [MBObjectManager](../../campaign-ext/MBObjectManager/) — 游戏对象注册系统（加载阶段被引用）
+
+**相关类型**
+
+- [Campaign](../../campaign/Campaign/) — 单人战役世界（`GameType`）
+- [CampaignGameStarter](../../campaign-ext/CampaignGameStarter/) — `AddBehavior` 注册战役行为的载体
+- [IGameStarter](../../core-extra/IGameStarter/) — `InitializeGameStarter` 阶段传入的起始器接口
+- [SaveManager](../../save-system/SaveManager/) — 读档流程如何驱动 `OnGameLoaded` / `OnLoadFinished`

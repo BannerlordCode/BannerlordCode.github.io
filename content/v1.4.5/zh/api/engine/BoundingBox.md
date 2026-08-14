@@ -8,7 +8,7 @@ description: "BoundingBox 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public struct BoundingBox`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/BoundingBox.cs`
+**File:** `TaleWorlds.Engine/BoundingBox.cs`
 
 ## 概述
 
@@ -22,7 +22,8 @@ description: "BoundingBox 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `this` | `public Vec3 this { get; set; }` |
+| `this` | `public Vec3 this { get; }` |
+| `this` | `public Vec3 this { get; }` |
 
 ## 主要方法
 
@@ -60,7 +61,7 @@ boundingBox.RecomputeRadius();
 ```
 
 ### GetTransformedTipPointsToParent
-`public TransformedBoundingBoxPointsContainer GetTransformedTipPointsToParent(in MatrixFrame parentFrame)`
+`public BoundingBox.TransformedBoundingBoxPointsContainer GetTransformedTipPointsToParent(in MatrixFrame parentFrame)`
 
 **用途 / Purpose:** 读取并返回当前对象中 transformed tip points to parent 的结果。
 
@@ -71,7 +72,7 @@ var result = boundingBox.GetTransformedTipPointsToParent(parentFrame);
 ```
 
 ### GetTransformedTipPointsToChild
-`public TransformedBoundingBoxPointsContainer GetTransformedTipPointsToChild(in MatrixFrame childFrame)`
+`public BoundingBox.TransformedBoundingBoxPointsContainer GetTransformedTipPointsToChild(in MatrixFrame childFrame)`
 
 **用途 / Purpose:** 读取并返回当前对象中 transformed tip points to child 的结果。
 
@@ -165,6 +166,17 @@ BoundingBox.GetLongestHalfDimensionOfBoundingBox(boundingBox);
 // 先通过子系统 API 拿到 BoundingBox 实例
 BoundingBox boundingBox = ...;
 boundingBox.RenderBoundingBox();
+```
+
+### ComputeTransformedMinMax
+`public ValueTuple<Vec3, Vec3> ComputeTransformedMinMax()`
+
+**用途 / Purpose:** 调用 ComputeTransformedMinMax 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoundingBox 实例
+BoundingBox boundingBox = ...;
+var result = boundingBox.ComputeTransformedMinMax();
 ```
 
 ## 使用示例

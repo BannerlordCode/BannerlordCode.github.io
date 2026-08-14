@@ -8,7 +8,7 @@ description: "ISpawnable 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface ISpawnable`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Siege/ISpawnable.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Siege/ISpawnable.cs`
 
 ## 概述
 

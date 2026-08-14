@@ -8,7 +8,7 @@ description: "SpawnWeaponAsDropFromAgent 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SpawnWeaponAsDropFromAgent : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SpawnWeaponAsDropFromAgent.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SpawnWeaponAsDropFromAgent.cs`
 
 ## 概述
 

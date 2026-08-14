@@ -8,7 +8,7 @@ description: "MissionMultiplayerDuel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerDuel : MissionMultiplayerGameModeBase`
 **Base:** `MissionMultiplayerGameModeBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerDuel.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionMultiplayerDuel.cs`
 
 ## 概述
 
@@ -22,9 +22,10 @@ description: "MissionMultiplayerDuel 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `DuelingAgent` | `public Agent DuelingAgent { get; }` |
-| `MountAgent` | `public Agent MountAgent { get; }` |
-| `KillCountInDuel` | `public int KillCountInDuel { get; }` |
+| `IsGameModeHidingAllAgentVisuals` | `public override bool IsGameModeHidingAllAgentVisuals { get; }` |
+| `IsGameModeUsingOpposingTeams` | `public override bool IsGameModeUsingOpposingTeams { get; }` |
+| `RequesterPeer` | `public MissionPeer RequesterPeer { get; }` |
+| `RequesteePeer` | `public MissionPeer RequesteePeer { get; }` |
 | `DuelAreaIndex` | `public int DuelAreaIndex { get; }` |
 | `DuelAreaTroopType` | `public TroopType DuelAreaTroopType { get; }` |
 | `Timer` | `public MissionTime Timer { get; }` |
@@ -33,151 +34,11 @@ description: "MissionMultiplayerDuel 的自动生成类参考。"
 | `ChallengeEnded` | `public bool ChallengeEnded { get; }` |
 | `ChallengeWinnerPeer` | `public MissionPeer ChallengeWinnerPeer { get; }` |
 | `ChallengeLoserPeer` | `public MissionPeer ChallengeLoserPeer { get; }` |
+| `DuelingAgent` | `public Agent DuelingAgent { get; }` |
+| `MountAgent` | `public Agent MountAgent { get; }` |
+| `KillCountInDuel` | `public int KillCountInDuel { get; }` |
 
 ## 主要方法
-
-### OnDuelPreparation
-`public void OnDuelPreparation(Team duelingTeam)`
-
-**用途 / Purpose:** 在 duel preparation 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
-MissionMultiplayerDuel missionMultiplayerDuel = ...;
-missionMultiplayerDuel.OnDuelPreparation(duelingTeam);
-```
-
-### OnDuelEnded
-`public void OnDuelEnded()`
-
-**用途 / Purpose:** 在 duel ended 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
-MissionMultiplayerDuel missionMultiplayerDuel = ...;
-missionMultiplayerDuel.OnDuelEnded();
-```
-
-### IncreaseWinCount
-`public void IncreaseWinCount()`
-
-**用途 / Purpose:** 调用 IncreaseWinCount 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
-MissionMultiplayerDuel missionMultiplayerDuel = ...;
-missionMultiplayerDuel.IncreaseWinCount();
-```
-
-### SetAgents
-`public void SetAgents(Agent agent)`
-
-**用途 / Purpose:** 为 agents 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
-MissionMultiplayerDuel missionMultiplayerDuel = ...;
-missionMultiplayerDuel.SetAgents(agent);
-```
-
-### OnDuelPreparation
-`public void OnDuelPreparation(Team duelTeam)`
-
-**用途 / Purpose:** 在 duel preparation 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
-MissionMultiplayerDuel missionMultiplayerDuel = ...;
-missionMultiplayerDuel.OnDuelPreparation(duelTeam);
-```
-
-### OnDuelStarted
-`public void OnDuelStarted()`
-
-**用途 / Purpose:** 在 duel started 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
-MissionMultiplayerDuel missionMultiplayerDuel = ...;
-missionMultiplayerDuel.OnDuelStarted();
-```
-
-### OnDuelEnding
-`public void OnDuelEnding()`
-
-**用途 / Purpose:** 在 duel ending 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
-MissionMultiplayerDuel missionMultiplayerDuel = ...;
-missionMultiplayerDuel.OnDuelEnding();
-```
-
-### OnDuelEnded
-`public void OnDuelEnded()`
-
-**用途 / Purpose:** 在 duel ended 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
-MissionMultiplayerDuel missionMultiplayerDuel = ...;
-missionMultiplayerDuel.OnDuelEnded();
-```
-
-### OnAgentBuild
-`public void OnAgentBuild(Agent agent)`
-
-**用途 / Purpose:** 在 agent build 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
-MissionMultiplayerDuel missionMultiplayerDuel = ...;
-missionMultiplayerDuel.OnAgentBuild(agent);
-```
-
-### IsDuelStillValid
-`public bool IsDuelStillValid(bool doNotCheckAgent = false)`
-
-**用途 / Purpose:** 判断当前对象是否处于 duel still valid 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
-MissionMultiplayerDuel missionMultiplayerDuel = ...;
-var result = missionMultiplayerDuel.IsDuelStillValid(false);
-```
-
-### IsPeerInThisDuel
-`public bool IsPeerInThisDuel(MissionPeer peer)`
-
-**用途 / Purpose:** 判断当前对象是否处于 peer in this duel 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
-MissionMultiplayerDuel missionMultiplayerDuel = ...;
-var result = missionMultiplayerDuel.IsPeerInThisDuel(peer);
-```
-
-### UpdateDuelAreaIndex
-`public void UpdateDuelAreaIndex(KeyValuePair<int, TroopType> duelAreaPair)`
-
-**用途 / Purpose:** 重新计算并更新 duel area index 的最新表示。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
-MissionMultiplayerDuel missionMultiplayerDuel = ...;
-missionMultiplayerDuel.UpdateDuelAreaIndex(keyValuePair<int, duelAreaPair);
-```
-
-### OnDuelEndedDelegate
-`public delegate void OnDuelEndedDelegate(MissionPeer winnerPeer, TroopType troopType)`
-
-**用途 / Purpose:** 在 duel ended delegate 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
-MissionMultiplayerDuel missionMultiplayerDuel = ...;
-missionMultiplayerDuel.OnDuelEndedDelegate(winnerPeer, troopType);
-```
 
 ### GetMissionType
 `public override MultiplayerGameType GetMissionType()`
@@ -300,12 +161,155 @@ MissionMultiplayerDuel missionMultiplayerDuel = ...;
 missionMultiplayerDuel.OnAgentBuild(agent, banner);
 ```
 
+### OnDuelPreparation
+`public void OnDuelPreparation(Team duelTeam)`
+
+**用途 / Purpose:** 在 duel preparation 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnDuelPreparation(duelTeam);
+```
+
+### OnDuelStarted
+`public void OnDuelStarted()`
+
+**用途 / Purpose:** 在 duel started 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnDuelStarted();
+```
+
+### OnDuelEnding
+`public void OnDuelEnding()`
+
+**用途 / Purpose:** 在 duel ending 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnDuelEnding();
+```
+
+### OnDuelEnded
+`public void OnDuelEnded()`
+
+**用途 / Purpose:** 在 duel ended 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnDuelEnded();
+```
+
+### OnAgentBuild
+`public void OnAgentBuild(Agent agent)`
+
+**用途 / Purpose:** 在 agent build 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnAgentBuild(agent);
+```
+
+### IsDuelStillValid
+`public bool IsDuelStillValid(bool doNotCheckAgent = false)`
+
+**用途 / Purpose:** 判断当前对象是否处于 duel still valid 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+var result = missionMultiplayerDuel.IsDuelStillValid(false);
+```
+
+### IsPeerInThisDuel
+`public bool IsPeerInThisDuel(MissionPeer peer)`
+
+**用途 / Purpose:** 判断当前对象是否处于 peer in this duel 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+var result = missionMultiplayerDuel.IsPeerInThisDuel(peer);
+```
+
+### UpdateDuelAreaIndex
+`public void UpdateDuelAreaIndex(KeyValuePair<int, TroopType> duelAreaPair)`
+
+**用途 / Purpose:** 重新计算并更新 duel area index 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.UpdateDuelAreaIndex(keyValuePair<int, duelAreaPair);
+```
+
+### OnDuelPreparation
+`public void OnDuelPreparation(Team duelingTeam)`
+
+**用途 / Purpose:** 在 duel preparation 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnDuelPreparation(duelingTeam);
+```
+
+### OnDuelEnded
+`public void OnDuelEnded()`
+
+**用途 / Purpose:** 在 duel ended 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnDuelEnded();
+```
+
+### IncreaseWinCount
+`public void IncreaseWinCount()`
+
+**用途 / Purpose:** 调用 IncreaseWinCount 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.IncreaseWinCount();
+```
+
+### SetAgents
+`public void SetAgents(Agent agent)`
+
+**用途 / Purpose:** 为 agents 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.SetAgents(agent);
+```
+
+### OnDuelEndedDelegate
+`public delegate void OnDuelEndedDelegate(MissionPeer winnerPeer, TroopType troopType)`
+
+**用途 / Purpose:** 在 duel ended delegate 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerDuel 实例
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnDuelEndedDelegate(winnerPeer, troopType);
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 MissionMultiplayerDuel missionMultiplayerDuel = ...;
-missionMultiplayerDuel.OnDuelPreparation(duelingTeam);
+missionMultiplayerDuel.GetMissionType();
 ```
 
 ## 参见

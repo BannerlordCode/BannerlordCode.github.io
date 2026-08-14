@@ -8,7 +8,7 @@ description: "CreatePremadeGameMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class CreatePremadeGameMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/CreatePremadeGameMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/CreatePremadeGameMessage.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ICameraModeLogic 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface ICameraModeLogic`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ICameraModeLogic.cs`
+**File:** `TaleWorlds.Core/ICameraModeLogic.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MBTextParser 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class MBTextParser`
 **Base:** 无
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor/MBTextParser.cs`
+**File:** `TaleWorlds.Localization/TextProcessor/MBTextParser.cs`
 
 ## 概述
 

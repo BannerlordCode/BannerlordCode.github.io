@@ -8,7 +8,7 @@ description: "DeclinePartyJoinRequestMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class DeclinePartyJoinRequestMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/DeclinePartyJoinRequestMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/DeclinePartyJoinRequestMessage.cs`
 
 ## 概述
 

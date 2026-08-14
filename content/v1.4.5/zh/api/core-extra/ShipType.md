@@ -8,7 +8,7 @@ description: "ShipType 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum ShipType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ShipHull.cs`
+**File:** `TaleWorlds.Core/ShipHull.cs`
 
 ## 概述
 

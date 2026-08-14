@@ -8,7 +8,7 @@ description: "DynamicBodyProperties 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct DynamicBodyProperties`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/DynamicBodyProperties.cs`
+**File:** `TaleWorlds.Core/DynamicBodyProperties.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "DynamicBodyProperties 的自动生成类参考。"
 先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### DynamicBodyProperties
-`public struct DynamicBodyProperties(float age, float weight, float build)`
-
-**用途 / Purpose:** 调用 DynamicBodyProperties 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 DynamicBodyProperties 实例
-DynamicBodyProperties dynamicBodyProperties = ...;
-var result = dynamicBodyProperties.DynamicBodyProperties(0, 0, 0);
-```
 
 ### Equals
 `public bool Equals(DynamicBodyProperties other)`
@@ -80,7 +69,7 @@ var result = dynamicBodyProperties.ToString();
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 DynamicBodyProperties dynamicBodyProperties = ...;
-dynamicBodyProperties.DynamicBodyProperties(0, 0, 0);
+dynamicBodyProperties.Equals(other);
 ```
 
 ## 参见

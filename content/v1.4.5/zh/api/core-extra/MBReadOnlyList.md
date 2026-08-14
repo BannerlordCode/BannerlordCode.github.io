@@ -8,7 +8,7 @@ description: "MBReadOnlyList 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class MBReadOnlyList<T> : List<T>`
 **Base:** `List<T>`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBReadOnlyList.cs`
+**File:** `TaleWorlds.Library/MBReadOnlyList.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "INetworkSerializable 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public interface INetworkSerializable`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/INetworkSerializable.cs`
+**File:** `TaleWorlds.Network/INetworkSerializable.cs`
 
 ## 概述
 

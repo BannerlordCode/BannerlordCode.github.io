@@ -8,7 +8,7 @@ description: "MultiSelectionInquiryData 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MultiSelectionInquiryData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MultiSelectionInquiryData.cs`
+**File:** `TaleWorlds.Core/MultiSelectionInquiryData.cs`
 
 ## 概述
 

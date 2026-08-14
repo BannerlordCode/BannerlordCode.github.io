@@ -8,7 +8,7 @@ description: "LauncherDragWindowAreaWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherDragWindowAreaWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets/LauncherDragWindowAreaWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/CustomWidgets/LauncherDragWindowAreaWidget.cs`
 
 ## 概述
 

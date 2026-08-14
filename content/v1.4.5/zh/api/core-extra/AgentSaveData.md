@@ -8,7 +8,7 @@ description: "AgentSaveData 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct AgentSaveData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/AgentSaveData.cs`
+**File:** `TaleWorlds.Core/AgentSaveData.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "AgentSaveData 的自动生成类参考。"
 把 `AgentSaveData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
-
-### AgentSaveData
-`public struct AgentSaveData(string characterStringId, MatrixFrame spawnFrame, string agentSpawnPointTags, int agentSeed)`
-
-**用途 / Purpose:** 调用 AgentSaveData 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 AgentSaveData 实例
-AgentSaveData agentSaveData = ...;
-var result = agentSaveData.AgentSaveData("example", spawnFrame, "example", 0);
-```
 
 ### UpdateSpawnFrame
 `public void UpdateSpawnFrame(MatrixFrame spawnFrame)`

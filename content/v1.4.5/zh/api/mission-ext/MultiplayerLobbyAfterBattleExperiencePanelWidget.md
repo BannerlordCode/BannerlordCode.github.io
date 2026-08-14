@@ -8,7 +8,7 @@ description: "MultiplayerLobbyAfterBattleExperiencePanelWidget 的自动生成�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyAfterBattleExperiencePanelWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyAfterBattleExperiencePanelWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Lobby/MultiplayerLobbyAfterBattleExperiencePanelWidget.cs`
 
 ## 概述
 
@@ -31,14 +31,14 @@ description: "MultiplayerLobbyAfterBattleExperiencePanelWidget 的自动生成�
 ## 主要方法
 
 ### StartAnimation
-`public void StartAnimation(float animationDelay)`
+`public void StartAnimation()`
 
 **用途 / Purpose:** 启动animation流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerLobbyAfterBattleExperiencePanelWidget 实例
 MultiplayerLobbyAfterBattleExperiencePanelWidget multiplayerLobbyAfterBattleExperiencePanelWidget = ...;
-multiplayerLobbyAfterBattleExperiencePanelWidget.StartAnimation(0);
+multiplayerLobbyAfterBattleExperiencePanelWidget.StartAnimation();
 ```
 
 ### Reset

@@ -8,7 +8,7 @@ description: "SetSiegeLadderState 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetSiegeLadderState : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetSiegeLadderState.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetSiegeLadderState.cs`
 
 ## 概述
 

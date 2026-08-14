@@ -8,7 +8,7 @@ description: "SteamFriendListService 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class SteamFriendListService : IFriendListService`
 **Base:** `IFriendListService`
-**File:** `bin/TaleWorlds.PlatformService.Steam/TaleWorlds.PlatformService.Steam/SteamFriendListService.cs`
+**File:** `TaleWorlds.PlatformService.Steam/SteamFriendListService.cs`
 
 ## 概述
 

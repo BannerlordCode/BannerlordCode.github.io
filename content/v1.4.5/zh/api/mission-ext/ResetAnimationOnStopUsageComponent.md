@@ -8,7 +8,7 @@ description: "ResetAnimationOnStopUsageComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ResetAnimationOnStopUsageComponent : UsableMissionObjectComponent`
 **Base:** `UsableMissionObjectComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ResetAnimationOnStopUsageComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/ResetAnimationOnStopUsageComponent.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "UlongBasicTypeSerializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class UlongBasicTypeSerializer : IBasicTypeSerializer`
 **Base:** `IBasicTypeSerializer`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/UlongBasicTypeSerializer.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/UlongBasicTypeSerializer.cs`
 
 ## 概述
 

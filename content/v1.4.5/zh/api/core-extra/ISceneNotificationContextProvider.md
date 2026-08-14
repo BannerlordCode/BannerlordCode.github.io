@@ -8,7 +8,7 @@ description: "ISceneNotificationContextProvider 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface ISceneNotificationContextProvider`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ISceneNotificationContextProvider.cs`
+**File:** `TaleWorlds.Core/ISceneNotificationContextProvider.cs`
 
 ## 概述
 

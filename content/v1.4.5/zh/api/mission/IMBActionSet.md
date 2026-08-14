@@ -8,7 +8,7 @@ description: "IMBActionSet 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBActionSet`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBActionSet.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBActionSet.cs`
 
 ## 概述
 

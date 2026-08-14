@@ -7,7 +7,7 @@ description: "MakePregnantAction 的自动生成战役动作参考。"
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** static class
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/MakePregnantAction.cs`
+**File:** `TaleWorlds.CampaignSystem/Actions/MakePregnantAction.cs`
 
 MakePregnantAction 是一组静态方法，用于在战役中以特定原因触发"MakePregnant"。modder通过调用其 `Apply*` 方法改变游戏状态（每种原因一个重载）。
 

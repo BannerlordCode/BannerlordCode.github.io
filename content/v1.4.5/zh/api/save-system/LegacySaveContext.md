@@ -8,7 +8,7 @@ description: "LegacySaveContext 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class LegacySaveContext : ISaveContext`
 **Base:** `ISaveContext`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/LegacySaveContext.cs`
+**File:** `TaleWorlds.SaveSystem/Save/LegacySaveContext.cs`
 
 ## 概述
 
@@ -25,55 +25,12 @@ description: "LegacySaveContext 的自动生成类参考。"
 | `RootObject` | `public object RootObject { get; }` |
 | `SaveData` | `public GameData SaveData { get; }` |
 | `DefinitionContext` | `public DefinitionContext DefinitionContext { get; }` |
+| `EnableSaveStatistics` | `public static bool EnableSaveStatistics { get; }` |
 
 ## 主要方法
 
-### SaveStatistics
-`public struct SaveStatistics(Dictionary<string, (int, int, int, long)> typeStatistics, Dictionary<string, (int, int, int, int, long)> containerStatistics)`
-
-**用途 / Purpose:** 将 statistics 写入持久化存储或流中。
-
-```csharp
-// 先通过子系统 API 拿到 LegacySaveContext 实例
-LegacySaveContext legacySaveContext = ...;
-var result = legacySaveContext.SaveStatistics(dictionary<string, (int, 0, 0, 0, dictionary<string, (int, 0, 0, 0, 0);
-```
-
-### GetContainerSize
-`public long GetContainerSize(string key)`
-
-**用途 / Purpose:** 读取并返回当前对象中 container size 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 LegacySaveContext 实例
-LegacySaveContext legacySaveContext = ...;
-var result = legacySaveContext.GetContainerSize("example");
-```
-
-### GetTypeKeys
-`public List<string> GetTypeKeys()`
-
-**用途 / Purpose:** 读取并返回当前对象中 type keys 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 LegacySaveContext 实例
-LegacySaveContext legacySaveContext = ...;
-var result = legacySaveContext.GetTypeKeys();
-```
-
-### GetContainerKeys
-`public List<string> GetContainerKeys()`
-
-**用途 / Purpose:** 读取并返回当前对象中 container keys 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 LegacySaveContext 实例
-LegacySaveContext legacySaveContext = ...;
-var result = legacySaveContext.GetContainerKeys();
-```
-
 ### GetStatistics
-`public static SaveStatistics GetStatistics()`
+`public static LegacySaveContext.SaveStatistics GetStatistics()`
 
 **用途 / Purpose:** 读取并返回当前对象中 statistics 的结果。
 
@@ -148,12 +105,65 @@ LegacySaveContext legacySaveContext = ...;
 var result = legacySaveContext.Save(target, metaData, errorMessage);
 ```
 
+### GetObjectCounts
+`public ValueTuple<int, int, int, long> GetObjectCounts(string key)`
+
+**用途 / Purpose:** 读取并返回当前对象中 object counts 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LegacySaveContext 实例
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetObjectCounts("example");
+```
+
+### GetContainerCounts
+`public ValueTuple<int, int, int, int, long> GetContainerCounts(string key)`
+
+**用途 / Purpose:** 读取并返回当前对象中 container counts 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LegacySaveContext 实例
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetContainerCounts("example");
+```
+
+### GetContainerSize
+`public long GetContainerSize(string key)`
+
+**用途 / Purpose:** 读取并返回当前对象中 container size 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LegacySaveContext 实例
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetContainerSize("example");
+```
+
+### GetTypeKeys
+`public List<string> GetTypeKeys()`
+
+**用途 / Purpose:** 读取并返回当前对象中 type keys 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LegacySaveContext 实例
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetTypeKeys();
+```
+
+### GetContainerKeys
+`public List<string> GetContainerKeys()`
+
+**用途 / Purpose:** 读取并返回当前对象中 container keys 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LegacySaveContext 实例
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetContainerKeys();
+```
+
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-LegacySaveContext legacySaveContext = ...;
-legacySaveContext.SaveStatistics(dictionary<string, (int, 0, 0, 0, dictionary<string, (int, 0, 0, 0, 0);
+LegacySaveContext.GetStatistics();
 ```
 
 ## 参见

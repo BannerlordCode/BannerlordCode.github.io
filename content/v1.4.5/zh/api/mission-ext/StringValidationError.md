@@ -8,7 +8,7 @@ description: "StringValidationError 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum StringValidationError`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/StringValidationError.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/StringValidationError.cs`
 
 ## 概述
 

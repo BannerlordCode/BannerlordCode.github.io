@@ -8,7 +8,7 @@ description: "MBDotNet 的自动生成类参考。"
 **Module:** TaleWorlds.Starter
 **Type:** `internal static class MBDotNet`
 **Base:** 无
-**File:** `bin/TaleWorlds.Starter.Library/TaleWorlds.Starter.Library/MBDotNet.cs`
+**File:** `TaleWorlds.Starter.Library/MBDotNet.cs`
 
 ## 概述
 

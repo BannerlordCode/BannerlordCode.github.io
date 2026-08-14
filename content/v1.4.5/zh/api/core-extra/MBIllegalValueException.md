@@ -8,7 +8,7 @@ description: "MBIllegalValueException 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MBIllegalValueException : MBException`
 **Base:** `MBException`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBIllegalValueException.cs`
+**File:** `TaleWorlds.Core/MBIllegalValueException.cs`
 
 ## 概述
 

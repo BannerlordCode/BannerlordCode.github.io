@@ -8,7 +8,7 @@ description: "TeamSideEnumExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public static class TeamSideEnumExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TeamSideEnumExtensions.cs`
+**File:** `TaleWorlds.Core/TeamSideEnumExtensions.cs`
 
 ## 概述
 

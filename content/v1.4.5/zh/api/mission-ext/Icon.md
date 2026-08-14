@@ -8,7 +8,7 @@ description: "Icon 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum Icon : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/NativeMessageBox.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/NativeMessageBox.cs`
 
 ## 概述
 

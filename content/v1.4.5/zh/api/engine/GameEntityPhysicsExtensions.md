@@ -8,7 +8,7 @@ description: "GameEntityPhysicsExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public static class GameEntityPhysicsExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/GameEntityPhysicsExtensions.cs`
+**File:** `TaleWorlds.Engine/GameEntityPhysicsExtensions.cs`
 
 ## 概述
 
@@ -58,16 +58,6 @@ GameEntityPhysicsExtensions.AddSphereAsBody(gameEntity, sphere, 0, bodyFlags);
 ```csharp
 // 静态调用，不需要实例
 GameEntityPhysicsExtensions.AddCapsuleAsBody(gameEntity, p1, p2, 0, bodyFlags, "example");
-```
-
-### UpdateBodyRestOffset
-`public static void UpdateBodyRestOffset(this WeakGameEntity gameEntity, float restOffset)`
-
-**用途 / Purpose:** 重新计算并更新 body rest offset 的最新表示。
-
-```csharp
-// 静态调用，不需要实例
-GameEntityPhysicsExtensions.UpdateBodyRestOffset(gameEntity, 0);
 ```
 
 ### PushCapsuleShapeToEntityBody
@@ -591,7 +581,7 @@ GameEntityPhysicsExtensions.ApplyLocalImpulseToDynamicBody(gameEntity, localPosi
 ```
 
 ### ApplyForceToDynamicBody
-`public static void ApplyForceToDynamicBody(this GameEntity gameEntity, Vec3 force, ForceMode forceMode)`
+`public static void ApplyForceToDynamicBody(this GameEntity gameEntity, Vec3 force, GameEntityPhysicsExtensions.ForceMode forceMode)`
 
 **用途 / Purpose:** 将 force to dynamic body 的效果应用到当前对象。
 
@@ -601,7 +591,7 @@ GameEntityPhysicsExtensions.ApplyForceToDynamicBody(gameEntity, force, forceMode
 ```
 
 ### ApplyForceToDynamicBody
-`public static void ApplyForceToDynamicBody(this WeakGameEntity gameEntity, Vec3 force, ForceMode forceMode)`
+`public static void ApplyForceToDynamicBody(this WeakGameEntity gameEntity, Vec3 force, GameEntityPhysicsExtensions.ForceMode forceMode)`
 
 **用途 / Purpose:** 将 force to dynamic body 的效果应用到当前对象。
 
@@ -611,7 +601,7 @@ GameEntityPhysicsExtensions.ApplyForceToDynamicBody(gameEntity, force, forceMode
 ```
 
 ### ApplyGlobalForceAtLocalPosToDynamicBody
-`public static void ApplyGlobalForceAtLocalPosToDynamicBody(this GameEntity gameEntity, Vec3 localPosition, Vec3 globalForce, ForceMode forceMode)`
+`public static void ApplyGlobalForceAtLocalPosToDynamicBody(this GameEntity gameEntity, Vec3 localPosition, Vec3 globalForce, GameEntityPhysicsExtensions.ForceMode forceMode)`
 
 **用途 / Purpose:** 将 global force at local pos to dynamic body 的效果应用到当前对象。
 
@@ -621,7 +611,7 @@ GameEntityPhysicsExtensions.ApplyGlobalForceAtLocalPosToDynamicBody(gameEntity, 
 ```
 
 ### ApplyGlobalForceAtLocalPosToDynamicBody
-`public static void ApplyGlobalForceAtLocalPosToDynamicBody(this WeakGameEntity gameEntity, Vec3 localPosition, Vec3 globalForce, ForceMode forceMode)`
+`public static void ApplyGlobalForceAtLocalPosToDynamicBody(this WeakGameEntity gameEntity, Vec3 localPosition, Vec3 globalForce, GameEntityPhysicsExtensions.ForceMode forceMode)`
 
 **用途 / Purpose:** 将 global force at local pos to dynamic body 的效果应用到当前对象。
 
@@ -631,7 +621,7 @@ GameEntityPhysicsExtensions.ApplyGlobalForceAtLocalPosToDynamicBody(gameEntity, 
 ```
 
 ### ApplyTorqueToDynamicBody
-`public static void ApplyTorqueToDynamicBody(this GameEntity gameEntity, Vec3 torque, ForceMode forceMode)`
+`public static void ApplyTorqueToDynamicBody(this GameEntity gameEntity, Vec3 torque, GameEntityPhysicsExtensions.ForceMode forceMode)`
 
 **用途 / Purpose:** 将 torque to dynamic body 的效果应用到当前对象。
 
@@ -641,7 +631,7 @@ GameEntityPhysicsExtensions.ApplyTorqueToDynamicBody(gameEntity, torque, forceMo
 ```
 
 ### ApplyTorqueToDynamicBody
-`public static void ApplyTorqueToDynamicBody(this WeakGameEntity gameEntity, Vec3 torque, ForceMode forceMode)`
+`public static void ApplyTorqueToDynamicBody(this WeakGameEntity gameEntity, Vec3 torque, GameEntityPhysicsExtensions.ForceMode forceMode)`
 
 **用途 / Purpose:** 将 torque to dynamic body 的效果应用到当前对象。
 
@@ -651,7 +641,7 @@ GameEntityPhysicsExtensions.ApplyTorqueToDynamicBody(gameEntity, torque, forceMo
 ```
 
 ### ApplyLocalForceAtLocalPosToDynamicBody
-`public static void ApplyLocalForceAtLocalPosToDynamicBody(this GameEntity gameEntity, Vec3 localPosition, Vec3 localForce, ForceMode forceMode)`
+`public static void ApplyLocalForceAtLocalPosToDynamicBody(this GameEntity gameEntity, Vec3 localPosition, Vec3 localForce, GameEntityPhysicsExtensions.ForceMode forceMode)`
 
 **用途 / Purpose:** 将 local force at local pos to dynamic body 的效果应用到当前对象。
 
@@ -661,7 +651,7 @@ GameEntityPhysicsExtensions.ApplyLocalForceAtLocalPosToDynamicBody(gameEntity, l
 ```
 
 ### ApplyLocalForceAtLocalPosToDynamicBody
-`public static void ApplyLocalForceAtLocalPosToDynamicBody(this WeakGameEntity gameEntity, Vec3 localPosition, Vec3 localForce, ForceMode forceMode)`
+`public static void ApplyLocalForceAtLocalPosToDynamicBody(this WeakGameEntity gameEntity, Vec3 localPosition, Vec3 localForce, GameEntityPhysicsExtensions.ForceMode forceMode)`
 
 **用途 / Purpose:** 将 local force at local pos to dynamic body 的效果应用到当前对象。
 

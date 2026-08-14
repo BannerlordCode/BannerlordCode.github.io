@@ -8,7 +8,7 @@ description: "InnerProcessConnectionInformation 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public sealed class InnerProcessConnectionInformation : IConnectionInformation`
 **Base:** `IConnectionInformation`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/InnerProcessConnectionInformation.cs`
+**File:** `TaleWorlds.Diamond/InnerProcessConnectionInformation.cs`
 
 ## 概述
 

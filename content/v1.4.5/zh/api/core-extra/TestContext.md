@@ -8,7 +8,7 @@ description: "TestContext 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class TestContext`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TestContext.cs`
+**File:** `TaleWorlds.Library/TestContext.cs`
 
 ## 概述
 

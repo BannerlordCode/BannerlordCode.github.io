@@ -8,7 +8,7 @@ description: "BattleEndedMessage 的自动生成类参考。"
 **Module:** Messages.FromBattleServer
 **Type:** `public class BattleEndedMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/BattleEndedMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromBattleServer/ToBattleServerManager/BattleEndedMessage.cs`
 
 ## 概述
 

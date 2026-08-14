@@ -8,7 +8,7 @@ description: "RestObjectFunctionResult 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class RestObjectFunctionResult : RestFunctionResult`
 **Base:** `RestFunctionResult`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/RestObjectFunctionResult.cs`
+**File:** `TaleWorlds.Diamond/Rest/RestObjectFunctionResult.cs`
 
 ## 概述
 

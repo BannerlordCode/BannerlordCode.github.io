@@ -8,7 +8,7 @@ description: "BodyProperties 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct BodyProperties`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BodyProperties.cs`
+**File:** `TaleWorlds.Core/BodyProperties.cs`
 
 ## 概述
 
@@ -17,6 +17,25 @@ description: "BodyProperties 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `StaticProperties` | `public StaticBodyProperties StaticProperties { get; }` |
+| `DynamicProperties` | `public DynamicBodyProperties DynamicProperties { get; }` |
+| `Age` | `public float Age { get; }` |
+| `Weight` | `public float Weight { get; }` |
+| `Build` | `public float Build { get; }` |
+| `KeyPart1` | `public ulong KeyPart1 { get; }` |
+| `KeyPart2` | `public ulong KeyPart2 { get; }` |
+| `KeyPart3` | `public ulong KeyPart3 { get; }` |
+| `KeyPart4` | `public ulong KeyPart4 { get; }` |
+| `KeyPart5` | `public ulong KeyPart5 { get; }` |
+| `KeyPart6` | `public ulong KeyPart6 { get; }` |
+| `KeyPart7` | `public ulong KeyPart7 { get; }` |
+| `KeyPart8` | `public ulong KeyPart8 { get; }` |
+| `Default` | `public static BodyProperties Default { get; }` |
 
 ## 主要方法
 

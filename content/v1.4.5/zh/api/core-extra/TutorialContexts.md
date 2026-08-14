@@ -8,7 +8,7 @@ description: "TutorialContexts 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum TutorialContexts`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TutorialContexts.cs`
+**File:** `TaleWorlds.Core/TutorialContexts.cs`
 
 ## 概述
 

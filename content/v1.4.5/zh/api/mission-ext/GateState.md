@@ -8,7 +8,7 @@ description: "GateState 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum GateState`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CastleGate.cs`
+**File:** `TaleWorlds.MountAndBlade/CastleGate.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "TrajectoryVisualizer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TrajectoryVisualizer : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TrajectoryVisualizer.cs`
+**File:** `TaleWorlds.MountAndBlade/TrajectoryVisualizer.cs`
 
 ## 概述
 

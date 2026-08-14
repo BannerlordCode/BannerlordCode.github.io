@@ -8,7 +8,7 @@ description: "ManagedDelegate 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public class ManagedDelegate : DotNetObject`
 **Base:** `DotNetObject`
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedDelegate.cs`
+**File:** `TaleWorlds.DotNet/ManagedDelegate.cs`
 
 ## 概述
 
@@ -22,20 +22,9 @@ description: "ManagedDelegate 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `Instance` | `public DelegateDefinition Instance { get; set; }` |
+| `Instance` | `public ManagedDelegate.DelegateDefinition Instance { get; set; }` |
 
 ## 主要方法
-
-### DelegateDefinition
-`public delegate void DelegateDefinition()`
-
-**用途 / Purpose:** 调用 DelegateDefinition 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ManagedDelegate 实例
-ManagedDelegate managedDelegate = ...;
-managedDelegate.DelegateDefinition();
-```
 
 ### InvokeAux
 `public void InvokeAux()`
@@ -48,12 +37,23 @@ ManagedDelegate managedDelegate = ...;
 managedDelegate.InvokeAux();
 ```
 
+### DelegateDefinition
+`public delegate void DelegateDefinition()`
+
+**用途 / Purpose:** 调用 DelegateDefinition 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedDelegate 实例
+ManagedDelegate managedDelegate = ...;
+managedDelegate.DelegateDefinition();
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 ManagedDelegate managedDelegate = ...;
-managedDelegate.DelegateDefinition();
+managedDelegate.InvokeAux();
 ```
 
 ## 参见

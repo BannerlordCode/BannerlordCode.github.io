@@ -8,7 +8,7 @@ description: "JoinCustomGameResultMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class JoinCustomGameResultMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/JoinCustomGameResultMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/JoinCustomGameResultMessage.cs`
 
 ## 概述
 

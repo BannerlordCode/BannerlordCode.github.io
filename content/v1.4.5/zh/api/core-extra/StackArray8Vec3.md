@@ -8,7 +8,7 @@ description: "StackArray8Vec3 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct StackArray8Vec3`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Vec3.cs`
+**File:** `TaleWorlds.Library/Vec3.cs`
 
 ## 概述
 

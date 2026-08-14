@@ -8,7 +8,7 @@ description: "WeaponTiers 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum WeaponTiers`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/WeaponComponentData.cs`
+**File:** `TaleWorlds.Core/WeaponComponentData.cs`
 
 ## 概述
 

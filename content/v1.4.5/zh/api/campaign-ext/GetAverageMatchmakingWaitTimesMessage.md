@@ -8,7 +8,7 @@ description: "GetAverageMatchmakingWaitTimesMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class GetAverageMatchmakingWaitTimesMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetAverageMatchmakingWaitTimesMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/GetAverageMatchmakingWaitTimesMessage.cs`
 
 ## 概述
 

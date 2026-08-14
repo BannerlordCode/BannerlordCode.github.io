@@ -6,9 +6,9 @@ description: "ToggleStateButtonWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class ToggleStateButtonWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ToggleStateButtonWidget.cs`
+**Type:** `public class ToggleStateButtonWidget : ButtonWidget`
+**Base:** `ButtonWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/ToggleStateButtonWidget.cs`
 
 ## 概述
 
@@ -25,19 +25,6 @@ description: "ToggleStateButtonWidget 的自动生成类参考。"
 | `WidgetToClose` | `public Widget WidgetToClose { get; set; }` |
 | `AllowSwitchOff` | `public bool AllowSwitchOff { get; set; }` |
 | `NotifyParentForSelection` | `public bool NotifyParentForSelection { get; set; }` |
-
-## 主要方法
-
-### ToggleStateButtonWidget
-`public class ToggleStateButtonWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 ToggleStateButtonWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ToggleStateButtonWidget 实例
-ToggleStateButtonWidget toggleStateButtonWidget = ...;
-var result = toggleStateButtonWidget.ToggleStateButtonWidget(context);
-```
 
 ## 使用示例
 

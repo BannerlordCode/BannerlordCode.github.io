@@ -8,7 +8,7 @@ description: "IncomingServerSessionMessage 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `internal class IncomingServerSessionMessage`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/IncomingServerSessionMessage.cs`
+**File:** `TaleWorlds.Network/IncomingServerSessionMessage.cs`
 
 ## 概述
 

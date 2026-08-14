@@ -8,7 +8,7 @@ description: "PathFaceRecord 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct PathFaceRecord`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PathFaceRecord.cs`
+**File:** `TaleWorlds.Library/PathFaceRecord.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "PathFaceRecord 的自动生成类参考。"
 先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### PathFaceRecord
-`public struct PathFaceRecord(int index, int groupIndex, int islandIndex)`
-
-**用途 / Purpose:** 调用 PathFaceRecord 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 PathFaceRecord 实例
-PathFaceRecord pathFaceRecord = ...;
-var result = pathFaceRecord.PathFaceRecord(0, 0, 0);
-```
 
 ### IsValid
 `public bool IsValid()`
@@ -47,7 +36,7 @@ var result = pathFaceRecord.IsValid();
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 PathFaceRecord pathFaceRecord = ...;
-pathFaceRecord.PathFaceRecord(0, 0, 0);
+pathFaceRecord.IsValid();
 ```
 
 ## 参见

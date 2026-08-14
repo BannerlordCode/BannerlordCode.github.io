@@ -8,7 +8,7 @@ description: "TacticalPositionTypeEnum 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum TacticalPositionTypeEnum`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticalPosition.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticalPosition.cs`
 
 ## 概述
 

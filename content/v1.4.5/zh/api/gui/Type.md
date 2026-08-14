@@ -8,7 +8,7 @@ description: "Type 的自动生成类参考。"
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public enum Type`
 **Base:** 无
-**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/AnimationInterpolation.cs`
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/AnimationInterpolation.cs`
 
 ## 概述
 

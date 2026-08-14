@@ -8,7 +8,7 @@ description: "JoinPremadeGameRequestResultMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class JoinPremadeGameRequestResultMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/JoinPremadeGameRequestResultMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/JoinPremadeGameRequestResultMessage.cs`
 
 ## 概述
 

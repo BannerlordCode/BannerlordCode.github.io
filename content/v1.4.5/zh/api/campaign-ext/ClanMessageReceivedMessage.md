@@ -8,7 +8,7 @@ description: "ClanMessageReceivedMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class ClanMessageReceivedMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/ClanMessageReceivedMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/ClanMessageReceivedMessage.cs`
 
 ## 概述
 

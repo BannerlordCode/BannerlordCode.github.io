@@ -8,7 +8,7 @@ description: "MultiplayerSiegeTowerSpawner 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerSiegeTowerSpawner : SiegeTowerSpawner`
 **Base:** `SiegeTowerSpawner`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Siege/MultiplayerSiegeTowerSpawner.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Siege/MultiplayerSiegeTowerSpawner.cs`
 
 ## 概述
 

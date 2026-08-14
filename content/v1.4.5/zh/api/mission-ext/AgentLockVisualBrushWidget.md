@@ -6,9 +6,9 @@ description: "AgentLockVisualBrushWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class AgentLockVisualBrushWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/AgentLockVisualBrushWidget.cs`
+**Type:** `public class AgentLockVisualBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/AgentLockVisualBrushWidget.cs`
 
 ## 概述
 
@@ -24,19 +24,6 @@ description: "AgentLockVisualBrushWidget 的自动生成类参考。"
 |------|-----------|
 | `Position` | `public Vec2 Position { get; set; }` |
 | `LockState` | `public int LockState { get; set; }` |
-
-## 主要方法
-
-### AgentLockVisualBrushWidget
-`public class AgentLockVisualBrushWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 AgentLockVisualBrushWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 AgentLockVisualBrushWidget 实例
-AgentLockVisualBrushWidget agentLockVisualBrushWidget = ...;
-var result = agentLockVisualBrushWidget.AgentLockVisualBrushWidget(context);
-```
 
 ## 使用示例
 

@@ -8,7 +8,7 @@ description: "SaveOutput 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveOutput`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/SaveOutput.cs`
+**File:** `TaleWorlds.SaveSystem/Save/SaveOutput.cs`
 
 ## 概述
 
@@ -25,6 +25,7 @@ description: "SaveOutput 的自动生成类参考。"
 | `Data` | `public GameData Data { get; }` |
 | `Result` | `public SaveResult Result { get; }` |
 | `Errors` | `public SaveError Errors { get; }` |
+| `Successful` | `public bool Successful { get; }` |
 | `IsContinuing` | `public bool IsContinuing { get; }` |
 
 ## 主要方法

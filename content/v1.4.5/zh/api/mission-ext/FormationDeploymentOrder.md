@@ -8,7 +8,7 @@ description: "FormationDeploymentOrder 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FormationDeploymentOrder`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationDeploymentOrder.cs`
+**File:** `TaleWorlds.MountAndBlade/FormationDeploymentOrder.cs`
 
 ## 概述
 
@@ -27,17 +27,6 @@ description: "FormationDeploymentOrder 的自动生成类参考。"
 
 ## 主要方法
 
-### Compare
-`public int Compare(FormationDeploymentOrder a, FormationDeploymentOrder b)`
-
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
-
-```csharp
-// 先通过子系统 API 拿到 FormationDeploymentOrder 实例
-FormationDeploymentOrder formationDeploymentOrder = ...;
-var result = formationDeploymentOrder.Compare(a, b);
-```
-
 ### GetDeploymentOrder
 `public static FormationDeploymentOrder GetDeploymentOrder(FormationClass fClass, int offset = 0)`
 
@@ -49,7 +38,7 @@ FormationDeploymentOrder.GetDeploymentOrder(fClass, 0);
 ```
 
 ### GetComparer
-`public static DeploymentOrderComparer GetComparer()`
+`public static FormationDeploymentOrder.DeploymentOrderComparer GetComparer()`
 
 **用途 / Purpose:** 读取并返回当前对象中 comparer 的结果。
 
@@ -58,12 +47,21 @@ FormationDeploymentOrder.GetDeploymentOrder(fClass, 0);
 FormationDeploymentOrder.GetComparer();
 ```
 
+### Compare
+`public int Compare(FormationDeploymentOrder a, FormationDeploymentOrder b)`
+
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 FormationDeploymentOrder 实例
+FormationDeploymentOrder formationDeploymentOrder = ...;
+var result = formationDeploymentOrder.Compare(a, b);
+```
+
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-FormationDeploymentOrder formationDeploymentOrder = ...;
-formationDeploymentOrder.Compare(a, b);
+FormationDeploymentOrder.GetDeploymentOrder(fClass, 0);
 ```
 
 ## 参见

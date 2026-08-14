@@ -6,9 +6,9 @@ description: "ItemShipCountComparer 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `public class ItemShipCountComparer : ItemComparerBase`
-**Base:** `ItemComparerBase`
-**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories/ClanPartiesSortControllerVM.cs`
+**Type:** `public class ItemShipCountComparer : ClanPartiesSortControllerVM.ItemComparerBase`
+**Base:** `ClanPartiesSortControllerVM.ItemComparerBase`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/ClanManagement/Categories/ClanPartiesSortControllerVM.cs`
 
 ## 概述
 

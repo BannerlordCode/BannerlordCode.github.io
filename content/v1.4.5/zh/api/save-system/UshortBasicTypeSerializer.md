@@ -8,7 +8,7 @@ description: "UshortBasicTypeSerializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class UshortBasicTypeSerializer : IBasicTypeSerializer`
 **Base:** `IBasicTypeSerializer`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/UshortBasicTypeSerializer.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/UshortBasicTypeSerializer.cs`
 
 ## 概述
 

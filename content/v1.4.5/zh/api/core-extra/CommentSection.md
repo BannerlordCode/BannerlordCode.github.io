@@ -8,7 +8,7 @@ description: "CommentSection 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class CommentSection`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/CommentSection.cs`
+**File:** `TaleWorlds.Library/CodeGeneration/CommentSection.cs`
 
 ## 概述
 

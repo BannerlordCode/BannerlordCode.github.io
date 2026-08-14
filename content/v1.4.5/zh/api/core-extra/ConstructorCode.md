@@ -8,7 +8,7 @@ description: "ConstructorCode 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class ConstructorCode`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/ConstructorCode.cs`
+**File:** `TaleWorlds.Library/CodeGeneration/ConstructorCode.cs`
 
 ## 概述
 

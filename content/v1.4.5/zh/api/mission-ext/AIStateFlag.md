@@ -8,7 +8,7 @@ description: "AIStateFlag 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum AIStateFlag : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Agent.cs`
+**File:** `TaleWorlds.MountAndBlade/Agent.cs`
 
 ## 概述
 

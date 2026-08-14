@@ -8,7 +8,7 @@ description: "ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent 的�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent : UsableMissionObjectComponent`
 **Base:** `UsableMissionObjectComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent.cs`
 
 ## 概述
 

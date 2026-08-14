@@ -8,7 +8,7 @@ description: "MPHeroClassGroup 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPHeroClassGroup`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerClassDivisions.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerClassDivisions.cs`
 
 ## 概述
 

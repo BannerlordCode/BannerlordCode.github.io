@@ -8,7 +8,7 @@ description: "MBBodyProperties 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBBodyProperties`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBBodyProperties.cs`
+**File:** `TaleWorlds.MountAndBlade/MBBodyProperties.cs`
 
 ## 概述
 

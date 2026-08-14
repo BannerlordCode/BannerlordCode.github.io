@@ -8,7 +8,7 @@ description: "GameKeyContextType 的自动生成类参考。"
 **Module:** TaleWorlds.InputSystem
 **Type:** `public enum GameKeyContextType`
 **Base:** 无
-**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/GameKeyContext.cs`
+**File:** `TaleWorlds.InputSystem/GameKeyContext.cs`
 
 ## 概述
 

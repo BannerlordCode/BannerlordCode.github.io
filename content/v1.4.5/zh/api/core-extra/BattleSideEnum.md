@@ -8,7 +8,7 @@ description: "BattleSideEnum 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum BattleSideEnum`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BattleSideEnum.cs`
+**File:** `TaleWorlds.Core/BattleSideEnum.cs`
 
 ## 概述
 

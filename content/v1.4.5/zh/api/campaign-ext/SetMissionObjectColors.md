@@ -8,7 +8,7 @@ description: "SetMissionObjectColors 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetMissionObjectColors : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetMissionObjectColors.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetMissionObjectColors.cs`
 
 ## 概述
 

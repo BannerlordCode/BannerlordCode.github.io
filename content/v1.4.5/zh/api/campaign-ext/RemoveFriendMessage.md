@@ -8,7 +8,7 @@ description: "RemoveFriendMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class RemoveFriendMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/RemoveFriendMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/RemoveFriendMessage.cs`
 
 ## 概述
 

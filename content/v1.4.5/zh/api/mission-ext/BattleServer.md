@@ -8,7 +8,7 @@ description: "BattleServer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleServer : Client<BattleServer>`
 **Base:** `Client<BattleServer>`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BattleServer.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/BattleServer.cs`
 
 ## 概述
 
@@ -38,6 +38,7 @@ description: "BattleServer 的自动生成类参考。"
 | `PremadeGameType` | `public PremadeGameType PremadeGameType { get; }` |
 | `AssignedPlayers` | `public PlayerId AssignedPlayers { get; }` |
 | `IsActive` | `public bool IsActive { get; }` |
+| `IsFinished` | `public bool IsFinished { get; }` |
 
 ## 主要方法
 
@@ -240,7 +241,7 @@ battleServer.HandlePlayerDisconnect(playerId, disconnectType, battleResult);
 ```
 
 ### InformGameServerReady
-`public async void InformGameServerReady()`
+`public void InformGameServerReady()`
 
 **用途 / Purpose:** 调用 InformGameServerReady 对应的操作。
 

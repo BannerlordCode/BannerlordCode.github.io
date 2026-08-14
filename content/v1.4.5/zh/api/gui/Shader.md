@@ -8,7 +8,7 @@ description: "Shader 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class Shader`
 **Base:** 无
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/Shader.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Shader.cs`
 
 ## 概述
 
@@ -85,7 +85,7 @@ shader.StopUsing();
 ```
 
 ### SetMatrix
-`public void SetMatrix(string name, in Matrix4x4 matrix)`
+`public void SetMatrix(string name, Matrix4x4 matrix)`
 
 **用途 / Purpose:** 为 matrix 赋新值，并同步更新对象内部状态。
 

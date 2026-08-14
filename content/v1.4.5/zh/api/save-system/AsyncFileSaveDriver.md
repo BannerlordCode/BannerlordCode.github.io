@@ -8,7 +8,7 @@ description: "AsyncFileSaveDriver 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class AsyncFileSaveDriver : ISaveDriver`
 **Base:** `ISaveDriver`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/AsyncFileSaveDriver.cs`
+**File:** `TaleWorlds.SaveSystem/AsyncFileSaveDriver.cs`
 
 ## 概述
 

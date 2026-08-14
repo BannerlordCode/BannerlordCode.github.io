@@ -8,7 +8,7 @@ description: "SetSiegeTowerHasArrivedAtTarget 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetSiegeTowerHasArrivedAtTarget : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetSiegeTowerHasArrivedAtTarget.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetSiegeTowerHasArrivedAtTarget.cs`
 
 ## 概述
 

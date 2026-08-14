@@ -8,7 +8,7 @@ description: "DamageParticleModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class DamageParticleModel : MBGameModel<DamageParticleModel>`
 **Base:** `MBGameModel<DamageParticleModel>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DamageParticleModel.cs`
+**File:** `TaleWorlds.MountAndBlade/DamageParticleModel.cs`
 
 ## 概述
 

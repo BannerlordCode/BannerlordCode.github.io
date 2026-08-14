@@ -8,7 +8,7 @@ description: "TauntUsage 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class TauntUsage`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TauntUsageManager.cs`
+**File:** `TaleWorlds.Core/TauntUsageManager.cs`
 
 ## 概述
 
@@ -22,76 +22,10 @@ description: "TauntUsage 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `UsageFlag` | `public TauntUsageFlag UsageFlag { get; }` |
 | `Instance` | `public static TauntUsageManager Instance { get; }` |
+| `UsageFlag` | `public TauntUsageManager.TauntUsage.TauntUsageFlag UsageFlag { get; }` |
 
 ## 主要方法
-
-### Compare
-`public int Compare(TauntUsage.TauntUsageFlag x, TauntUsage.TauntUsageFlag y)`
-
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
-
-```csharp
-// 先通过子系统 API 拿到 TauntUsage 实例
-TauntUsage tauntUsage = ...;
-var result = tauntUsage.Compare(x, y);
-```
-
-### AddUsage
-`public void AddUsage(TauntUsage usage)`
-
-**用途 / Purpose:** 将 usage 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 TauntUsage 实例
-TauntUsage tauntUsage = ...;
-tauntUsage.AddUsage(usage);
-```
-
-### GetUsages
-`public MBReadOnlyList<TauntUsage> GetUsages()`
-
-**用途 / Purpose:** 读取并返回当前对象中 usages 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 TauntUsage 实例
-TauntUsage tauntUsage = ...;
-var result = tauntUsage.GetUsages();
-```
-
-### IsSuitable
-`public bool IsSuitable(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
-
-**用途 / Purpose:** 判断当前对象是否处于 suitable 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 TauntUsage 实例
-TauntUsage tauntUsage = ...;
-var result = tauntUsage.IsSuitable(false, false, mainHandWeapon, offhandWeapon);
-```
-
-### GetIsNotSuitableReason
-`public TauntUsageFlag GetIsNotSuitableReason(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
-
-**用途 / Purpose:** 读取并返回当前对象中 is not suitable reason 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 TauntUsage 实例
-TauntUsage tauntUsage = ...;
-var result = tauntUsage.GetIsNotSuitableReason(false, false, mainHandWeapon, offhandWeapon);
-```
-
-### GetAction
-`public string GetAction()`
-
-**用途 / Purpose:** 读取并返回当前对象中 action 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 TauntUsage 实例
-TauntUsage tauntUsage = ...;
-var result = tauntUsage.GetAction();
-```
 
 ### Initialize
 `public static TauntUsageManager Initialize()`
@@ -115,7 +49,7 @@ tauntUsage.Read();
 ```
 
 ### GetUsageSet
-`public TauntUsageSet GetUsageSet(string id)`
+`public TauntUsageManager.TauntUsageSet GetUsageSet(string id)`
 
 **用途 / Purpose:** 读取并返回当前对象中 usage set 的结果。
 
@@ -137,7 +71,7 @@ var result = tauntUsage.GetAction(0, false, false, mainHandWeapon, offhandWeapon
 ```
 
 ### GetActionDisabledReasonText
-`public static string GetActionDisabledReasonText(TauntUsage.TauntUsageFlag disabledReasonFlag)`
+`public static string GetActionDisabledReasonText(TauntUsageManager.TauntUsage.TauntUsageFlag disabledReasonFlag)`
 
 **用途 / Purpose:** 读取并返回当前对象中 action disabled reason text 的结果。
 
@@ -147,7 +81,7 @@ TauntUsage.GetActionDisabledReasonText(disabledReasonFlag);
 ```
 
 ### GetIsActionNotSuitableReason
-`public TauntUsage.TauntUsageFlag GetIsActionNotSuitableReason(int index, bool isLeftStance, bool onFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
+`public TauntUsageManager.TauntUsage.TauntUsageFlag GetIsActionNotSuitableReason(int index, bool isLeftStance, bool onFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
 
 **用途 / Purpose:** 读取并返回当前对象中 is action not suitable reason 的结果。
 
@@ -190,12 +124,76 @@ TauntUsage tauntUsage = ...;
 var result = tauntUsage.GetDefaultAction(0);
 ```
 
+### Compare
+`public int Compare(TauntUsageManager.TauntUsage.TauntUsageFlag x, TauntUsageManager.TauntUsage.TauntUsageFlag y)`
+
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 TauntUsage 实例
+TauntUsage tauntUsage = ...;
+var result = tauntUsage.Compare(x, y);
+```
+
+### AddUsage
+`public void AddUsage(TauntUsageManager.TauntUsage usage)`
+
+**用途 / Purpose:** 将 usage 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 TauntUsage 实例
+TauntUsage tauntUsage = ...;
+tauntUsage.AddUsage(usage);
+```
+
+### GetUsages
+`public MBReadOnlyList<TauntUsageManager.TauntUsage> GetUsages()`
+
+**用途 / Purpose:** 读取并返回当前对象中 usages 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TauntUsage 实例
+TauntUsage tauntUsage = ...;
+var result = tauntUsage.GetUsages();
+```
+
+### IsSuitable
+`public bool IsSuitable(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
+
+**用途 / Purpose:** 判断当前对象是否处于 suitable 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 TauntUsage 实例
+TauntUsage tauntUsage = ...;
+var result = tauntUsage.IsSuitable(false, false, mainHandWeapon, offhandWeapon);
+```
+
+### GetIsNotSuitableReason
+`public TauntUsageManager.TauntUsage.TauntUsageFlag GetIsNotSuitableReason(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
+
+**用途 / Purpose:** 读取并返回当前对象中 is not suitable reason 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TauntUsage 实例
+TauntUsage tauntUsage = ...;
+var result = tauntUsage.GetIsNotSuitableReason(false, false, mainHandWeapon, offhandWeapon);
+```
+
+### GetAction
+`public string GetAction()`
+
+**用途 / Purpose:** 读取并返回当前对象中 action 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TauntUsage 实例
+TauntUsage tauntUsage = ...;
+var result = tauntUsage.GetAction();
+```
+
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-TauntUsage tauntUsage = ...;
-tauntUsage.Compare(x, y);
+TauntUsage.Initialize();
 ```
 
 ## 参见

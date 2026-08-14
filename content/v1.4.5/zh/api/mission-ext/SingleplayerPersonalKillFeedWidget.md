@@ -6,9 +6,9 @@ description: "SingleplayerPersonalKillFeedWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.KillFeed.Personal
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class SingleplayerPersonalKillFeedWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.KillFeed.Personal/SingleplayerPersonalKillFeedWidget.cs`
+**Type:** `public class SingleplayerPersonalKillFeedWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/KillFeed/Personal/SingleplayerPersonalKillFeedWidget.cs`
 
 ## 概述
 
@@ -17,19 +17,6 @@ description: "SingleplayerPersonalKillFeedWidget 的自动生成类参考。"
 ## 心智模型
 
 把 `SingleplayerPersonalKillFeedWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
-
-## 主要方法
-
-### SingleplayerPersonalKillFeedWidget
-`public class SingleplayerPersonalKillFeedWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 SingleplayerPersonalKillFeedWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 SingleplayerPersonalKillFeedWidget 实例
-SingleplayerPersonalKillFeedWidget singleplayerPersonalKillFeedWidget = ...;
-var result = singleplayerPersonalKillFeedWidget.SingleplayerPersonalKillFeedWidget(context);
-```
 
 ## 使用示例
 

@@ -8,7 +8,7 @@ description: "StartBattleMessage 的自动生成类参考。"
 **Module:** Messages.FromBattleServerManager
 **Type:** `public class StartBattleMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServerManager.ToBattleServer/StartBattleMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromBattleServerManager/ToBattleServer/StartBattleMessage.cs`
 
 ## 概述
 

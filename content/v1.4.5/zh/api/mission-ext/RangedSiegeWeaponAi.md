@@ -8,7 +8,7 @@ description: "RangedSiegeWeaponAi 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class RangedSiegeWeaponAi : UsableMachineAIBase`
 **Base:** `UsableMachineAIBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RangedSiegeWeaponAi.cs`
+**File:** `TaleWorlds.MountAndBlade/RangedSiegeWeaponAi.cs`
 
 ## 概述
 
@@ -20,15 +20,15 @@ description: "RangedSiegeWeaponAi 的自动生成类参考。"
 
 ## 主要方法
 
-### InitializeTargetableObjects
-`public void InitializeTargetableObjects()`
+### FindNextTarget
+`public void FindNextTarget()`
 
-**用途 / Purpose:** 为 targetable objects 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的next target。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeaponAi 实例
 RangedSiegeWeaponAi rangedSiegeWeaponAi = ...;
-rangedSiegeWeaponAi.InitializeTargetableObjects();
+rangedSiegeWeaponAi.FindNextTarget();
 ```
 
 ### PrepareTargetFromTask
@@ -104,28 +104,6 @@ RangedSiegeWeaponAi.GetTargetFlagsOfFormation();
 ```csharp
 // 静态调用，不需要实例
 RangedSiegeWeaponAi.GetMaxThreat(castleKeyPositions);
-```
-
-### InitializeThreatSeeker
-`public void InitializeThreatSeeker()`
-
-**用途 / Purpose:** 为 threat seeker 初始化必要的资源、状态或绑定。
-
-```csharp
-// 先通过子系统 API 拿到 RangedSiegeWeaponAi 实例
-RangedSiegeWeaponAi rangedSiegeWeaponAi = ...;
-rangedSiegeWeaponAi.InitializeThreatSeeker();
-```
-
-### FindNextTarget
-`public void FindNextTarget()`
-
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的next target。
-
-```csharp
-// 先通过子系统 API 拿到 RangedSiegeWeaponAi 实例
-RangedSiegeWeaponAi rangedSiegeWeaponAi = ...;
-rangedSiegeWeaponAi.FindNextTarget();
 ```
 
 ## 使用示例

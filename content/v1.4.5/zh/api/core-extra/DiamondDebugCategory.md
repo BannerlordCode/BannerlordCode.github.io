@@ -8,7 +8,7 @@ description: "DiamondDebugCategory 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum DiamondDebugCategory`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/DiamondDebugManager.cs`
+**File:** `TaleWorlds.Library/DiamondDebugManager.cs`
 
 ## 概述
 

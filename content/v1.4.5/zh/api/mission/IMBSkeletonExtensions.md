@@ -8,7 +8,7 @@ description: "IMBSkeletonExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBSkeletonExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBSkeletonExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBSkeletonExtensions.cs`
 
 ## 概述
 

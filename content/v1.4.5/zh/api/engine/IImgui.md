@@ -8,7 +8,7 @@ description: "IImgui 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IImgui`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IImgui.cs`
+**File:** `TaleWorlds.Engine/IImgui.cs`
 
 ## 概述
 

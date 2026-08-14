@@ -8,7 +8,7 @@ description: "RequestPerkChange 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class RequestPerkChange : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/RequestPerkChange.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/RequestPerkChange.cs`
 
 ## 概述
 

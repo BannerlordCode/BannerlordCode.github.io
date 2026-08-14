@@ -8,7 +8,7 @@ description: "ApplyOrderWithFormationAndPercentage 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class ApplyOrderWithFormationAndPercentage : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/ApplyOrderWithFormationAndPercentage.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/ApplyOrderWithFormationAndPercentage.cs`
 
 ## 概述
 

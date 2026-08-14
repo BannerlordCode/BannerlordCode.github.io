@@ -8,7 +8,7 @@ description: "NotificationProperty 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class NotificationProperty : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/NotificationProperty.cs`
+**File:** `TaleWorlds.MountAndBlade/NotificationProperty.cs`
 
 ## 概述
 

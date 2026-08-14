@@ -8,7 +8,7 @@ description: "FightAreaMarker 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FightAreaMarker : AreaMarker`
 **Base:** `AreaMarker`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/FightAreaMarker.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/FightAreaMarker.cs`
 
 ## 概述
 

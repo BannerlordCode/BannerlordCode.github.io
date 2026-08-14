@@ -8,7 +8,7 @@ description: "CharacterAttribute 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class CharacterAttribute : PropertyObject`
 **Base:** `PropertyObject`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/CharacterAttribute.cs`
+**File:** `TaleWorlds.Core/CharacterAttribute.cs`
 
 ## 概述
 

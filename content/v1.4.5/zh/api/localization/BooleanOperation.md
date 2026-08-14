@@ -8,7 +8,7 @@ description: "BooleanOperation 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal enum BooleanOperation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/BooleanOperation.cs`
+**File:** `TaleWorlds.Localization/Expressions/BooleanOperation.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "NetworkCommunication 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class NetworkCommunication : INetworkCommunication`
 **Base:** `INetworkCommunication`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/NetworkCommunication.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkCommunication.cs`
 
 ## 概述
 

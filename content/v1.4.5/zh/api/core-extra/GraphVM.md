@@ -8,7 +8,7 @@ description: "GraphVM 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class GraphVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.Graph/GraphVM.cs`
+**File:** `TaleWorlds.Library/Graph/GraphVM.cs`
 
 ## 概述
 
@@ -33,14 +33,14 @@ description: "GraphVM 的自动生成类参考。"
 ## 主要方法
 
 ### Draw
-`public void Draw(IEnumerable<(GraphLineVM line, IEnumerable<GraphLinePointVM> points)> linesWithPoints, in Vec2 horizontalRange, in Vec2 verticalRange, float autoRangeHorizontalCoefficient = 1f, float autoRangeVerticalCoefficient = 1f, bool useAutoHorizontalRange = false, bool useAutoVerticalRange = false)`
+`public void Draw( { "line", "points" })`
 
 **用途 / Purpose:** 调用 Draw 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphVM 实例
 GraphVM graphVM = ...;
-graphVM.Draw(line, linesWithPoints, horizontalRange, verticalRange, 0, 0, false, false);
+graphVM.Draw("line", });
 ```
 
 ## 使用示例
@@ -48,7 +48,7 @@ graphVM.Draw(line, linesWithPoints, horizontalRange, verticalRange, 0, 0, false,
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 GraphVM graphVM = ...;
-graphVM.Draw(line, linesWithPoints, horizontalRange, verticalRange, 0, 0, false, false);
+graphVM.Draw("line", });
 ```
 
 ## 参见

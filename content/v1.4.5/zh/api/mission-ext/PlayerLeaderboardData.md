@@ -8,7 +8,7 @@ description: "PlayerLeaderboardData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerLeaderboardData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerLeaderboardData.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerLeaderboardData.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "NotificationMessage 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class NotificationMessage : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/NotificationMessage.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/NotificationMessage.cs`
 
 ## 概述
 

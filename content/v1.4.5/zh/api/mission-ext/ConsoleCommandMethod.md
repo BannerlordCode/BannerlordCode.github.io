@@ -8,7 +8,7 @@ description: "ConsoleCommandMethod 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ConsoleCommandMethod : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ConsoleCommandMethod.cs`
+**File:** `TaleWorlds.MountAndBlade/ConsoleCommandMethod.cs`
 
 ## 概述
 

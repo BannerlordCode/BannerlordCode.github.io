@@ -8,7 +8,7 @@ description: "ComparerType 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum ComparerType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBSortedMultiList.cs`
+**File:** `TaleWorlds.Library/MBSortedMultiList.cs`
 
 ## 概述
 

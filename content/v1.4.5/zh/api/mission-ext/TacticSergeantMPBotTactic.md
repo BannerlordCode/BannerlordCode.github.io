@@ -8,7 +8,7 @@ description: "TacticSergeantMPBotTactic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticSergeantMPBotTactic : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticSergeantMPBotTactic.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticSergeantMPBotTactic.cs`
 
 ## 概述
 

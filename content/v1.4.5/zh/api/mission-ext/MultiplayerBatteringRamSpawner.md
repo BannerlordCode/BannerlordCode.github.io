@@ -8,7 +8,7 @@ description: "MultiplayerBatteringRamSpawner 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerBatteringRamSpawner : BatteringRamSpawner`
 **Base:** `BatteringRamSpawner`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Siege/MultiplayerBatteringRamSpawner.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Siege/MultiplayerBatteringRamSpawner.cs`
 
 ## 概述
 

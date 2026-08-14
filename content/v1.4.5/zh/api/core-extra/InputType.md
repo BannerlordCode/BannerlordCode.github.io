@@ -8,7 +8,7 @@ description: "InputType 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum InputType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/InputType.cs`
+**File:** `TaleWorlds.Library/InputType.cs`
 
 ## 概述
 

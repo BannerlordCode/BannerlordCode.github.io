@@ -8,7 +8,7 @@ description: "AcceptClanInvitationMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class AcceptClanInvitationMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/AcceptClanInvitationMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/AcceptClanInvitationMessage.cs`
 
 ## 概述
 

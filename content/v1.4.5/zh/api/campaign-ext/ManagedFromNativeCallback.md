@@ -8,7 +8,7 @@ description: "ManagedFromNativeCallback 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public class ManagedFromNativeCallback : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedFromNativeCallback.cs`
+**File:** `TaleWorlds.DotNet/ManagedFromNativeCallback.cs`
 
 ## 概述
 

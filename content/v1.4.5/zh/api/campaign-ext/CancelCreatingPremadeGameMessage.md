@@ -8,7 +8,7 @@ description: "CancelCreatingPremadeGameMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class CancelCreatingPremadeGameMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/CancelCreatingPremadeGameMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/CancelCreatingPremadeGameMessage.cs`
 
 ## 概述
 

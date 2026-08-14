@@ -8,7 +8,7 @@ description: "IMissionSystemHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IMissionSystemHandler`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMissionSystemHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/IMissionSystemHandler.cs`
 
 ## 概述
 

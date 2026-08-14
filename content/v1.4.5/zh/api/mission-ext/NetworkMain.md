@@ -8,7 +8,7 @@ description: "NetworkMain 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class NetworkMain`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/NetworkMain.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMain.cs`
 
 ## 概述
 

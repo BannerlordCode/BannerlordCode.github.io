@@ -8,7 +8,7 @@ description: "SaveableCoreTypeDefiner 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class SaveableCoreTypeDefiner : SaveableTypeDefiner`
 **Base:** `SaveableTypeDefiner`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SaveableCoreTypeDefiner.cs`
+**File:** `TaleWorlds.Core/SaveableCoreTypeDefiner.cs`
 
 ## 概述
 

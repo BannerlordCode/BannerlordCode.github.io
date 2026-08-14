@@ -8,7 +8,7 @@ description: "IAnalyticsFlagInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IAnalyticsFlagInfo : IMissionBehavior`
 **Base:** `IMissionBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IAnalyticsFlagInfo.cs`
+**File:** `TaleWorlds.MountAndBlade/IAnalyticsFlagInfo.cs`
 
 ## 概述
 

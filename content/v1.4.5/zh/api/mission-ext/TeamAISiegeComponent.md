@@ -8,7 +8,7 @@ description: "TeamAISiegeComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class TeamAISiegeComponent : TeamAIComponent`
 **Base:** `TeamAIComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TeamAISiegeComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/TeamAISiegeComponent.cs`
 
 ## 概述
 
@@ -27,6 +27,7 @@ description: "TeamAISiegeComponent 的自动生成类参考。"
 | `OuterGate` | `public CastleGate OuterGate { get; }` |
 | `PrimarySiegeWeapons` | `public List<IPrimarySiegeWeapon> PrimarySiegeWeapons { get; }` |
 | `InnerGate` | `public CastleGate InnerGate { get; }` |
+| `Ladders` | `public MBReadOnlyList<SiegeLadder> Ladders { get; }` |
 | `AreLaddersReady` | `public bool AreLaddersReady { get; }` |
 | `DifficultNavmeshIDs` | `public List<int> DifficultNavmeshIDs { get; }` |
 

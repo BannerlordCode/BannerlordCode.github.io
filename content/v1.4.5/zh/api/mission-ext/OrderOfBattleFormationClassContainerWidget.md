@@ -8,7 +8,7 @@ description: "OrderOfBattleFormationClassContainerWidget 的自动生成类参�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderOfBattleFormationClassContainerWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle/OrderOfBattleFormationClassContainerWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/OrderOfBattle/OrderOfBattleFormationClassContainerWidget.cs`
 
 ## 概述
 

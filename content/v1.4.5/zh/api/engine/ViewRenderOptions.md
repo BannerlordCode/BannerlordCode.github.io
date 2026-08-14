@@ -8,7 +8,7 @@ description: "ViewRenderOptions 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum ViewRenderOptions`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/View.cs`
+**File:** `TaleWorlds.Engine/View.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "BinaryWriterFactory 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal static class BinaryWriterFactory`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/BinaryWriterFactory.cs`
+**File:** `TaleWorlds.SaveSystem/BinaryWriterFactory.cs`
 
 ## 概述
 

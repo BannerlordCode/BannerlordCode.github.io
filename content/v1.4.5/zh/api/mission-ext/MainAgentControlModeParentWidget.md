@@ -8,7 +8,7 @@ description: "MainAgentControlModeParentWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MainAgentControlModeParentWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.MainAgentControlMode/MainAgentControlModeParentWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/MainAgentControlMode/MainAgentControlModeParentWidget.cs`
 
 ## 概述
 

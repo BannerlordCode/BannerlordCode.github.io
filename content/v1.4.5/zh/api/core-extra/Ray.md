@@ -8,7 +8,7 @@ description: "Ray 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct Ray`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Ray.cs`
+**File:** `TaleWorlds.Library/Ray.cs`
 
 ## 概述
 
@@ -25,11 +25,12 @@ description: "Ray 的自动生成类参考。"
 | `Origin` | `public Vec3 Origin { get; }` |
 | `Direction` | `public Vec3 Direction { get; }` |
 | `MaxDistance` | `public float MaxDistance { get; }` |
+| `EndPoint` | `public Vec3 EndPoint { get; }` |
 
 ## 主要方法
 
 ### Reset
-`public void Reset(Vec3 origin, Vec3 direction, float maxDistance = float.MaxValue)`
+`public void Reset(Vec3 origin, Vec3 direction, float maxDistance = 3.4028235E+38f)`
 
 **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 

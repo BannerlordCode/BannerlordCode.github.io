@@ -8,7 +8,7 @@ description: "ComparisonExpression 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class ComparisonExpression : NumeralExpression`
 **Base:** `NumeralExpression`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/ComparisonExpression.cs`
+**File:** `TaleWorlds.Localization/Expressions/ComparisonExpression.cs`
 
 ## 概述
 

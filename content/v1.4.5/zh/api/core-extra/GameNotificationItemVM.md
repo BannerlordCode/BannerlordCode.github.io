@@ -8,7 +8,7 @@ description: "GameNotificationItemVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class GameNotificationItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/GameNotificationItemVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/Information/GameNotificationItemVM.cs`
 
 ## 概述
 

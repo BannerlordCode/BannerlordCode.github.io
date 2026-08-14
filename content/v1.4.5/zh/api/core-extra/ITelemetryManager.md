@@ -8,7 +8,7 @@ description: "ITelemetryManager 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public interface ITelemetryManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ITelemetryManager.cs`
+**File:** `TaleWorlds.Library/ITelemetryManager.cs`
 
 ## 概述
 

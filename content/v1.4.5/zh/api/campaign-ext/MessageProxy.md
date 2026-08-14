@@ -8,7 +8,7 @@ description: "MessageProxy 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public abstract class MessageProxy`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/MessageProxy.cs`
+**File:** `TaleWorlds.Network/MessageProxy.cs`
 
 ## 概述
 

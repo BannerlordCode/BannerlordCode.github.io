@@ -8,7 +8,7 @@ description: "DefaultBannerEffects 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class DefaultBannerEffects`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/DefaultBannerEffects.cs`
+**File:** `TaleWorlds.Core/DefaultBannerEffects.cs`
 
 ## 概述
 
@@ -17,6 +17,24 @@ description: "DefaultBannerEffects 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `IncreasedMeleeDamage` | `public static BannerEffect IncreasedMeleeDamage { get; }` |
+| `IncreasedMeleeDamageAgainstMountedTroops` | `public static BannerEffect IncreasedMeleeDamageAgainstMountedTroops { get; }` |
+| `IncreasedRangedDamage` | `public static BannerEffect IncreasedRangedDamage { get; }` |
+| `IncreasedChargeDamage` | `public static BannerEffect IncreasedChargeDamage { get; }` |
+| `DecreasedChargeDamage` | `public static BannerEffect DecreasedChargeDamage { get; }` |
+| `DecreasedRangedAccuracyPenalty` | `public static BannerEffect DecreasedRangedAccuracyPenalty { get; }` |
+| `DecreasedMoraleShock` | `public static BannerEffect DecreasedMoraleShock { get; }` |
+| `DecreasedMeleeAttackDamage` | `public static BannerEffect DecreasedMeleeAttackDamage { get; }` |
+| `DecreasedRangedAttackDamage` | `public static BannerEffect DecreasedRangedAttackDamage { get; }` |
+| `DecreasedShieldDamage` | `public static BannerEffect DecreasedShieldDamage { get; }` |
+| `IncreasedTroopMovementSpeed` | `public static BannerEffect IncreasedTroopMovementSpeed { get; }` |
+| `IncreasedMountMovementSpeed` | `public static BannerEffect IncreasedMountMovementSpeed { get; }` |
+| `IncreasedMoraleShockByMeleeTroops` | `public static BannerEffect IncreasedMoraleShockByMeleeTroops { get; }` |
 
 ## 使用示例
 

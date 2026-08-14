@@ -8,7 +8,7 @@ description: "DisorganizedStateCampaignBehavior 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class DisorganizedStateCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/DisorganizedStateCampaignBehavior.cs`
+**File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/DisorganizedStateCampaignBehavior.cs`
 
 ## 概述
 

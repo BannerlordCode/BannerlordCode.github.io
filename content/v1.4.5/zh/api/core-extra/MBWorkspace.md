@@ -8,7 +8,7 @@ description: "MBWorkspace 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class MBWorkspace<T>`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBWorkspace.cs`
+**File:** `TaleWorlds.Library/MBWorkspace.cs`
 
 ## 概述
 

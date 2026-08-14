@@ -8,7 +8,7 @@ description: "MissionPeer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionPeer : PeerComponent`
 **Base:** `PeerComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionPeer.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionPeer.cs`
 
 ## 概述
 
@@ -29,6 +29,7 @@ description: "MissionPeer 的自动生成类参考。"
 | `SelectedTroopIndex` | `public int SelectedTroopIndex { get; set; }` |
 | `NextSelectedTroopIndex` | `public int NextSelectedTroopIndex { get; set; }` |
 | `Representative` | `public MissionRepresentativeBase Representative { get; }` |
+| `Perks` | `public MBReadOnlyList<int > Perks { get; }` |
 | `DisplayedName` | `public string DisplayedName { get; }` |
 | `SelectedPerks` | `public MBReadOnlyList<MPPerkObject> SelectedPerks { get; }` |
 | `SpawnTimer` | `public Timer SpawnTimer { get; }` |
@@ -56,61 +57,6 @@ description: "MissionPeer 的自动生成类参考。"
 | `IsMutedFromGameOrPlatform` | `public bool IsMutedFromGameOrPlatform { get; }` |
 
 ## 主要方法
-
-### OnUpdateEquipmentSetIndexEventDelegate
-`public delegate void OnUpdateEquipmentSetIndexEventDelegate(MissionPeer lobbyPeer, int equipmentSetIndex)`
-
-**用途 / Purpose:** 在 update equipment set index event delegate 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionPeer 实例
-MissionPeer missionPeer = ...;
-missionPeer.OnUpdateEquipmentSetIndexEventDelegate(lobbyPeer, 0);
-```
-
-### OnPerkUpdateEventDelegate
-`public delegate void OnPerkUpdateEventDelegate(MissionPeer peer)`
-
-**用途 / Purpose:** 在 perk update event delegate 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionPeer 实例
-MissionPeer missionPeer = ...;
-missionPeer.OnPerkUpdateEventDelegate(peer);
-```
-
-### OnTeamChangedDelegate
-`public delegate void OnTeamChangedDelegate(NetworkCommunicator peer, Team previousTeam, Team newTeam)`
-
-**用途 / Purpose:** 在 team changed delegate 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionPeer 实例
-MissionPeer missionPeer = ...;
-missionPeer.OnTeamChangedDelegate(peer, previousTeam, newTeam);
-```
-
-### OnCultureChangedDelegate
-`public delegate void OnCultureChangedDelegate(BasicCultureObject newCulture)`
-
-**用途 / Purpose:** 在 culture changed delegate 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionPeer 实例
-MissionPeer missionPeer = ...;
-missionPeer.OnCultureChangedDelegate(newCulture);
-```
-
-### OnPlayerKilledDelegate
-`public delegate void OnPlayerKilledDelegate(MissionPeer killerPeer, MissionPeer killedPeer)`
-
-**用途 / Purpose:** 在 player killed delegate 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionPeer 实例
-MissionPeer missionPeer = ...;
-missionPeer.OnPlayerKilledDelegate(killerPeer, killedPeer);
-```
 
 ### SetMutedFromPlatform
 `public void SetMutedFromPlatform(bool isMuted)`
@@ -376,12 +322,67 @@ MissionPeer missionPeer = ...;
 missionPeer.OnTeamInitialPerkInfoReceived(0);
 ```
 
+### OnUpdateEquipmentSetIndexEventDelegate
+`public delegate void OnUpdateEquipmentSetIndexEventDelegate(MissionPeer lobbyPeer, int equipmentSetIndex)`
+
+**用途 / Purpose:** 在 update equipment set index event delegate 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.OnUpdateEquipmentSetIndexEventDelegate(lobbyPeer, 0);
+```
+
+### OnPerkUpdateEventDelegate
+`public delegate void OnPerkUpdateEventDelegate(MissionPeer peer)`
+
+**用途 / Purpose:** 在 perk update event delegate 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.OnPerkUpdateEventDelegate(peer);
+```
+
+### OnTeamChangedDelegate
+`public delegate void OnTeamChangedDelegate(NetworkCommunicator peer, Team previousTeam, Team newTeam)`
+
+**用途 / Purpose:** 在 team changed delegate 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.OnTeamChangedDelegate(peer, previousTeam, newTeam);
+```
+
+### OnCultureChangedDelegate
+`public delegate void OnCultureChangedDelegate(BasicCultureObject newCulture)`
+
+**用途 / Purpose:** 在 culture changed delegate 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.OnCultureChangedDelegate(newCulture);
+```
+
+### OnPlayerKilledDelegate
+`public delegate void OnPlayerKilledDelegate(MissionPeer killerPeer, MissionPeer killedPeer)`
+
+**用途 / Purpose:** 在 player killed delegate 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.OnPlayerKilledDelegate(killerPeer, killedPeer);
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 MissionPeer missionPeer = ...;
-missionPeer.OnUpdateEquipmentSetIndexEventDelegate(lobbyPeer, 0);
+missionPeer.SetMutedFromPlatform(false);
 ```
 
 ## 参见

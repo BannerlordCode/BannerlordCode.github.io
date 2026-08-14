@@ -8,7 +8,7 @@ description: "CachedPartyVariables 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal struct CachedPartyVariables`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/MobileParty.cs`
+**File:** `TaleWorlds.CampaignSystem/Party/MobileParty.cs`
 
 ## 概述
 

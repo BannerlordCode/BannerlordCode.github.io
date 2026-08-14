@@ -8,7 +8,7 @@ description: "CreateFreeMountAgent 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class CreateFreeMountAgent : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/CreateFreeMountAgent.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/CreateFreeMountAgent.cs`
 
 ## 概述
 

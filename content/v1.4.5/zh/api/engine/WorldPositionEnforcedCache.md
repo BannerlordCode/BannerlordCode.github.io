@@ -8,7 +8,7 @@ description: "WorldPositionEnforcedCache 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum WorldPositionEnforcedCache`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/WorldPosition.cs`
+**File:** `TaleWorlds.Engine/WorldPosition.cs`
 
 ## 概述
 

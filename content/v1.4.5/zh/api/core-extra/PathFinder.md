@@ -8,7 +8,7 @@ description: "PathFinder 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public abstract class PathFinder`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PathFinder.cs`
+**File:** `TaleWorlds.Library/PathFinder.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "BehaviorDefendKeyPosition 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorDefendKeyPosition : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorDefendKeyPosition.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorDefendKeyPosition.cs`
 
 ## 概述
 

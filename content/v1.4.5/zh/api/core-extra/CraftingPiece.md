@@ -8,7 +8,7 @@ description: "CraftingPiece 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class CraftingPiece : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/CraftingPiece.cs`
+**File:** `TaleWorlds.Core/CraftingPiece.cs`
 
 ## 概述
 
@@ -24,7 +24,7 @@ description: "CraftingPiece 的自动生成类参考。"
 |------|-----------|
 | `IsValid` | `public bool IsValid { get; }` |
 | `Name` | `public TextObject Name { get; }` |
-| `PieceType` | `public PieceTypes PieceType { get; }` |
+| `PieceType` | `public CraftingPiece.PieceTypes PieceType { get; }` |
 | `MeshName` | `public string MeshName { get; }` |
 | `Culture` | `public BasicCultureObject Culture { get; }` |
 | `Length` | `public float Length { get; }` |
@@ -51,14 +51,17 @@ description: "CraftingPiece 的自动生成类参考。"
 | `IsHiddenOnDesigner` | `public bool IsHiddenOnDesigner { get; }` |
 | `IsUnique` | `public bool IsUnique { get; }` |
 | `ItemUsageFeaturesToExclude` | `public string ItemUsageFeaturesToExclude { get; }` |
+| `MaterialsUsed` | `public MBReadOnlyList<ValueTuple<CraftingMaterials, int>> MaterialsUsed { get; }` |
+| `IsEmptyPiece` | `public bool IsEmptyPiece { get; }` |
 | `CraftingCost` | `public int CraftingCost { get; }` |
 | `RequiredSkillValue` | `public int RequiredSkillValue { get; }` |
 | `BladeData` | `public BladeData BladeData { get; }` |
+| `All` | `public static MBReadOnlyList<CraftingPiece> All { get; }` |
 
 ## 主要方法
 
 ### GetInvalidCraftingPiece
-`public static CraftingPiece GetInvalidCraftingPiece(PieceTypes pieceType)`
+`public static CraftingPiece GetInvalidCraftingPiece(CraftingPiece.PieceTypes pieceType)`
 
 **用途 / Purpose:** 读取并返回当前对象中 invalid crafting piece 的结果。
 

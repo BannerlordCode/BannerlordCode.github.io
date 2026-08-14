@@ -8,7 +8,7 @@ description: "PropertyChangedWithDoubleValueEventArgs 的自动生成类参考�
 **Module:** TaleWorlds.Library
 **Type:** `public struct PropertyChangedWithDoubleValueEventArgs`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithDoubleValueEventArgs.cs`
+**File:** `TaleWorlds.Library/PropertyChangedWithDoubleValueEventArgs.cs`
 
 ## 概述
 
@@ -25,25 +25,11 @@ description: "PropertyChangedWithDoubleValueEventArgs 的自动生成类参考�
 | `PropertyName` | `public string PropertyName { get; }` |
 | `Value` | `public double Value { get; }` |
 
-## 主要方法
-
-### PropertyChangedWithDoubleValueEventArgs
-`public struct PropertyChangedWithDoubleValueEventArgs(string propertyName, double value)`
-
-**用途 / Purpose:** 调用 PropertyChangedWithDoubleValueEventArgs 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 PropertyChangedWithDoubleValueEventArgs 实例
-PropertyChangedWithDoubleValueEventArgs propertyChangedWithDoubleValueEventArgs = ...;
-var result = propertyChangedWithDoubleValueEventArgs.PropertyChangedWithDoubleValueEventArgs("example", 0);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-PropertyChangedWithDoubleValueEventArgs propertyChangedWithDoubleValueEventArgs = ...;
-propertyChangedWithDoubleValueEventArgs.PropertyChangedWithDoubleValueEventArgs("example", 0);
+// 从对应子系统 API 获取实例
+PropertyChangedWithDoubleValueEventArgs instance = ...;
 ```
 
 ## 参见

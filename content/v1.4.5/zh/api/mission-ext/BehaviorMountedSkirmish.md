@@ -8,7 +8,7 @@ description: "BehaviorMountedSkirmish 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorMountedSkirmish : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorMountedSkirmish.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorMountedSkirmish.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "BehaviorMountedSkirmish 的自动生成类参考。"
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### GetTargetPos
-`public Vec2 GetTargetPos(Vec2 position, float distance)`
-
-**用途 / Purpose:** 读取并返回当前对象中 target pos 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 BehaviorMountedSkirmish 实例
-BehaviorMountedSkirmish behaviorMountedSkirmish = ...;
-var result = behaviorMountedSkirmish.GetTargetPos(position, 0);
-```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
@@ -42,12 +31,23 @@ BehaviorMountedSkirmish behaviorMountedSkirmish = ...;
 behaviorMountedSkirmish.TickOccasionally();
 ```
 
+### GetTargetPos
+`public Vec2 GetTargetPos(Vec2 position, float distance)`
+
+**用途 / Purpose:** 读取并返回当前对象中 target pos 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorMountedSkirmish 实例
+BehaviorMountedSkirmish behaviorMountedSkirmish = ...;
+var result = behaviorMountedSkirmish.GetTargetPos(position, 0);
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 BehaviorMountedSkirmish behaviorMountedSkirmish = ...;
-behaviorMountedSkirmish.GetTargetPos(position, 0);
+behaviorMountedSkirmish.TickOccasionally();
 ```
 
 ## 参见

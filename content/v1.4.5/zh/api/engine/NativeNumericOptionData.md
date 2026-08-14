@@ -8,7 +8,7 @@ description: "NativeNumericOptionData 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class NativeNumericOptionData : NativeOptionData, INumericOptionData, IOptionData`
 **Base:** `NativeOptionData`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeNumericOptionData.cs`
+**File:** `TaleWorlds.Engine/Options/NativeNumericOptionData.cs`
 
 ## 概述
 

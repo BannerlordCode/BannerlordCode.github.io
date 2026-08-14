@@ -8,7 +8,7 @@ description: "WeaponSpawner 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class WeaponSpawner : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/WeaponSpawner.cs`
+**File:** `TaleWorlds.MountAndBlade/WeaponSpawner.cs`
 
 ## 概述
 

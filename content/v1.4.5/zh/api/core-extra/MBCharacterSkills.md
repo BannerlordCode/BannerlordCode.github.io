@@ -8,7 +8,7 @@ description: "MBCharacterSkills 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MBCharacterSkills : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBCharacterSkills.cs`
+**File:** `TaleWorlds.Core/MBCharacterSkills.cs`
 
 ## 概述
 

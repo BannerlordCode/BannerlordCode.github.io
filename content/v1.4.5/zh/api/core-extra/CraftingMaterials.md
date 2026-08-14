@@ -8,7 +8,7 @@ description: "CraftingMaterials 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum CraftingMaterials`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/CraftingMaterials.cs`
+**File:** `TaleWorlds.Core/CraftingMaterials.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "Client 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class Client<T> : DiamondClientApplicationObject, IClient where T : Client<T>`
 **Base:** `DiamondClientApplicationObject`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/Client.cs`
+**File:** `TaleWorlds.Diamond/Client.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "Client 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `IsInCriticalState` | `public bool IsInCriticalState { get; set; }` |
+| `AliveCheckTimeInMiliSeconds` | `public virtual long AliveCheckTimeInMiliSeconds { get; }` |
 | `AccessProvider` | `public ILoginAccessProvider AccessProvider { get; set; }` |
 
 ## 主要方法

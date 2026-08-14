@@ -8,7 +8,7 @@ description: "IGameStateManagerListener 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface IGameStateManagerListener`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IGameStateManagerListener.cs`
+**File:** `TaleWorlds.Core/IGameStateManagerListener.cs`
 
 ## 概述
 

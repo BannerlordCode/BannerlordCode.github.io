@@ -8,7 +8,7 @@ description: "PlatformServices 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class PlatformServices`
 **Base:** 无
-**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/PlatformServices.cs`
+**File:** `TaleWorlds.PlatformService/PlatformServices.cs`
 
 ## 概述
 
@@ -22,11 +22,15 @@ description: "PlatformServices 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `Instance` | `public static IPlatformServices Instance { get; }` |
+| `InvitationServices` | `public static IPlatformInvitationServices InvitationServices { get; }` |
 | `OnSessionInvitationAccepted` | `public static Action<SessionInvitationType> OnSessionInvitationAccepted { get; set; }` |
 | `OnPlatformRequestedMultiplayer` | `public static Action OnPlatformRequestedMultiplayer { get; }` |
 | `IsPlatformRequestedMultiplayer` | `public static bool IsPlatformRequestedMultiplayer { get; }` |
 | `SessionInvitationType` | `public static SessionInvitationType SessionInvitationType { get; }` |
 | `IsPlatformRequestedContinueGame` | `public static bool IsPlatformRequestedContinueGame { get; }` |
+| `ProviderName` | `public static string ProviderName { get; }` |
+| `UserId` | `public static string UserId { get; }` |
 
 ## 主要方法
 
@@ -141,7 +145,7 @@ PlatformServices.SetIsPlatformRequestedContinueGame(false);
 ```
 
 ### FilterString
-`public static async Task<string> FilterString(string content, string defaultContent)`
+`public static Task<string> FilterString(string content, string defaultContent)`
 
 **用途 / Purpose:** 调用 FilterString 对应的操作。
 

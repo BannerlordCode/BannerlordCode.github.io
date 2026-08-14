@@ -8,7 +8,7 @@ description: "AgentController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentController`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentController.cs`
+**File:** `TaleWorlds.MountAndBlade/AgentController.cs`
 
 ## 概述
 

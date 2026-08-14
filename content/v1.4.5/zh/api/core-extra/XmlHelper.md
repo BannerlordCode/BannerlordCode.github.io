@@ -8,7 +8,7 @@ description: "XmlHelper 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public static class XmlHelper`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/XmlHelper.cs`
+**File:** `TaleWorlds.Core/XmlHelper.cs`
 
 ## 概述
 

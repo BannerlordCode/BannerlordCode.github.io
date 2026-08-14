@@ -8,7 +8,7 @@ description: "StandaloneUIDomain 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class StandaloneUIDomain : FrameworkDomain`
 **Base:** `FrameworkDomain`
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/StandaloneUIDomain.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/StandaloneUIDomain.cs`
 
 ## 概述
 
@@ -24,6 +24,7 @@ description: "StandaloneUIDomain 的自动生成类参考。"
 |------|-----------|
 | `UserDataManager` | `public UserDataManager UserDataManager { get; }` |
 | `AdditionalArgs` | `public string AdditionalArgs { get; }` |
+| `HasUnofficialModulesSelected` | `public bool HasUnofficialModulesSelected { get; }` |
 
 ## 主要方法
 

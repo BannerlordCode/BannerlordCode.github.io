@@ -8,7 +8,7 @@ description: "SimpleText 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class SimpleText : TextExpression`
 **Base:** `TextExpression`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/SimpleText.cs`
+**File:** `TaleWorlds.Localization/Expressions/SimpleText.cs`
 
 ## 概述
 

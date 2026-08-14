@@ -8,7 +8,7 @@ description: "BehaviorDefensiveRing 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorDefensiveRing : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorDefensiveRing.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorDefensiveRing.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ItemComparerBase 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class ItemComparerBase : IComparer<TournamentLeaderboardEntryItemVM>`
 **Base:** `IComparer<TournamentLeaderboardEntryItemVM>`
-**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard/TournamentLeaderboardSortControllerVM.cs`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/TournamentLeaderboard/TournamentLeaderboardSortControllerVM.cs`
 
 ## 概述
 

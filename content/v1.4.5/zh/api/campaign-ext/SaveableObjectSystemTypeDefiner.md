@@ -8,7 +8,7 @@ description: "SaveableObjectSystemTypeDefiner 的自动生成类参考。"
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public class SaveableObjectSystemTypeDefiner : SaveableTypeDefiner`
 **Base:** `SaveableTypeDefiner`
-**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/SaveableObjectSystemTypeDefiner.cs`
+**File:** `TaleWorlds.ObjectSystem/SaveableObjectSystemTypeDefiner.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "InvitedPlayerOnlineMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class InvitedPlayerOnlineMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/InvitedPlayerOnlineMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/InvitedPlayerOnlineMessage.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MovementPath 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MovementPath`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MovementPath.cs`
+**File:** `TaleWorlds.MountAndBlade/MovementPath.cs`
 
 ## 概述
 
@@ -24,6 +24,7 @@ description: "MovementPath 的自动生成类参考。"
 |------|-----------|
 | `InitialDirection` | `public Vec2 InitialDirection { get; }` |
 | `FinalDirection` | `public Vec2 FinalDirection { get; }` |
+| `Destination` | `public Vec3 Destination { get; }` |
 
 ## 主要方法
 

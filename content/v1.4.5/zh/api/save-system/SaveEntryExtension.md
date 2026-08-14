@@ -8,7 +8,7 @@ description: "SaveEntryExtension 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public enum SaveEntryExtension : byte`
 **Base:** `byte`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveEntryExtension.cs`
+**File:** `TaleWorlds.SaveSystem/SaveEntryExtension.cs`
 
 ## 概述
 

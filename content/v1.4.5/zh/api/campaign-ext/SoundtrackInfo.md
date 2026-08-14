@@ -8,7 +8,7 @@ description: "SoundtrackInfo 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `public class SoundtrackInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/SoundtrackInfo.cs`
+**File:** `TaleWorlds.PSAI/net/SoundtrackInfo.cs`
 
 ## 概述
 

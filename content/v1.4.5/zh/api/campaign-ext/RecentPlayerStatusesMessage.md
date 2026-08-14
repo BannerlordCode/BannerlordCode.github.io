@@ -8,7 +8,7 @@ description: "RecentPlayerStatusesMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class RecentPlayerStatusesMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/RecentPlayerStatusesMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/RecentPlayerStatusesMessage.cs`
 
 ## 概述
 

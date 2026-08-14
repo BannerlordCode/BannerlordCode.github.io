@@ -8,7 +8,7 @@ description: "MBGUIDBasicTypeSerializer 的自动生成类参考。"
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `internal class MBGUIDBasicTypeSerializer : IBasicTypeSerializer`
 **Base:** `IBasicTypeSerializer`
-**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBGUIDBasicTypeSerializer.cs`
+**File:** `TaleWorlds.ObjectSystem/MBGUIDBasicTypeSerializer.cs`
 
 ## 概述
 

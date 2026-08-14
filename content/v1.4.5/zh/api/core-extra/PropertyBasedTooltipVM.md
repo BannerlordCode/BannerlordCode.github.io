@@ -8,7 +8,7 @@ description: "PropertyBasedTooltipVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class PropertyBasedTooltipVM : TooltipBaseVM`
 **Base:** `TooltipBaseVM`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/PropertyBasedTooltipVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/Information/PropertyBasedTooltipVM.cs`
 
 ## 概述
 

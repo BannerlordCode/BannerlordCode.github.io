@@ -8,7 +8,7 @@ description: "AudioPlaybackLayerChannelStandalone 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `public class AudioPlaybackLayerChannelStandalone : IAudioPlaybackLayerChannel`
 **Base:** `IAudioPlaybackLayerChannel`
-**File:** `bin/TaleWorlds.PSAI/psai.net/AudioPlaybackLayerChannelStandalone.cs`
+**File:** `TaleWorlds.PSAI/net/AudioPlaybackLayerChannelStandalone.cs`
 
 ## 概述
 

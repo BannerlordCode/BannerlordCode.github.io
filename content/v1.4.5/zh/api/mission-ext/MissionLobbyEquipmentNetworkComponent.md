@@ -8,7 +8,7 @@ description: "MissionLobbyEquipmentNetworkComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionLobbyEquipmentNetworkComponent : MissionNetwork`
 **Base:** `MissionNetwork`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionLobbyEquipmentNetworkComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionLobbyEquipmentNetworkComponent.cs`
 
 ## 概述
 
@@ -19,28 +19,6 @@ description: "MissionLobbyEquipmentNetworkComponent 的自动生成类参考。"
 把 `MissionLobbyEquipmentNetworkComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
-
-### OnToggleLoadoutDelegate
-`public delegate void OnToggleLoadoutDelegate(bool isActive)`
-
-**用途 / Purpose:** 在 toggle loadout delegate 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionLobbyEquipmentNetworkComponent 实例
-MissionLobbyEquipmentNetworkComponent missionLobbyEquipmentNetworkComponent = ...;
-missionLobbyEquipmentNetworkComponent.OnToggleLoadoutDelegate(false);
-```
-
-### OnRefreshEquipmentEventDelegate
-`public delegate void OnRefreshEquipmentEventDelegate(MissionPeer lobbyPeer)`
-
-**用途 / Purpose:** 在 refresh equipment event delegate 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionLobbyEquipmentNetworkComponent 实例
-MissionLobbyEquipmentNetworkComponent missionLobbyEquipmentNetworkComponent = ...;
-missionLobbyEquipmentNetworkComponent.OnRefreshEquipmentEventDelegate(lobbyPeer);
-```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
@@ -84,6 +62,28 @@ missionLobbyEquipmentNetworkComponent.EquipmentUpdated();
 // 先通过子系统 API 拿到 MissionLobbyEquipmentNetworkComponent 实例
 MissionLobbyEquipmentNetworkComponent missionLobbyEquipmentNetworkComponent = ...;
 missionLobbyEquipmentNetworkComponent.ToggleLoadout(false);
+```
+
+### OnToggleLoadoutDelegate
+`public delegate void OnToggleLoadoutDelegate(bool isActive)`
+
+**用途 / Purpose:** 在 toggle loadout delegate 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyEquipmentNetworkComponent 实例
+MissionLobbyEquipmentNetworkComponent missionLobbyEquipmentNetworkComponent = ...;
+missionLobbyEquipmentNetworkComponent.OnToggleLoadoutDelegate(false);
+```
+
+### OnRefreshEquipmentEventDelegate
+`public delegate void OnRefreshEquipmentEventDelegate(MissionPeer lobbyPeer)`
+
+**用途 / Purpose:** 在 refresh equipment event delegate 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyEquipmentNetworkComponent 实例
+MissionLobbyEquipmentNetworkComponent missionLobbyEquipmentNetworkComponent = ...;
+missionLobbyEquipmentNetworkComponent.OnRefreshEquipmentEventDelegate(lobbyPeer);
 ```
 
 ## 使用示例

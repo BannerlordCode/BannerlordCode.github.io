@@ -8,7 +8,7 @@ description: "TimedDictionaryCache 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class TimedDictionaryCache<TKey, TValue>`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TimedDictionaryCache.cs`
+**File:** `TaleWorlds.Library/TimedDictionaryCache.cs`
 
 ## 概述
 

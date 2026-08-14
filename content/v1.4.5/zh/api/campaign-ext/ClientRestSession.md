@@ -8,7 +8,7 @@ description: "ClientRestSession 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class ClientRestSession : IClientSession`
 **Base:** `IClientSession`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/ClientRestSession.cs`
+**File:** `TaleWorlds.Diamond/Rest/ClientRestSession.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "SiegeWeaponOrderType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum SiegeWeaponOrderType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeWeaponOrderType.cs`
+**File:** `TaleWorlds.MountAndBlade/SiegeWeaponOrderType.cs`
 
 ## 概述
 

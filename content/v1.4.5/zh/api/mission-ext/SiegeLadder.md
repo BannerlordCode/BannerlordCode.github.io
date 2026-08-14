@@ -8,7 +8,7 @@ description: "SiegeLadder 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeLadder : SiegeWeapon, IPrimarySiegeWeapon, IOrderableWithInteractionArea, IOrderable, ISpawnable`
 **Base:** `SiegeWeapon`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeLadder.cs`
+**File:** `TaleWorlds.MountAndBlade/SiegeLadder.cs`
 
 ## 概述
 
@@ -22,6 +22,15 @@ description: "SiegeLadder 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `InitialWaitPosition` | `public GameEntity InitialWaitPosition { get; }` |
+| `OnWallNavMeshId` | `public int OnWallNavMeshId { get; }` |
+| `TargetCastlePosition` | `public MissionObject TargetCastlePosition { get; }` |
+| `WeaponSide` | `public FormationAI.BehaviorSide WeaponSide { get; }` |
+| `SiegeWeaponPriority` | `public float SiegeWeaponPriority { get; }` |
+| `OverTheWallNavMeshID` | `public int OverTheWallNavMeshID { get; }` |
+| `State` | `public SiegeLadder.LadderState State { get; set; }` |
+| `HoldLadders` | `public bool HoldLadders { get; }` |
+| `SendLadders` | `public bool SendLadders { get; }` |
 | `IsStateLand` | `public bool IsStateLand { get; }` |
 | `State` | `public int State { get; }` |
 | `AnimationState` | `public int AnimationState { get; }` |
@@ -30,23 +39,8 @@ description: "SiegeLadder 的自动生成类参考。"
 | `HasAnimation` | `public bool HasAnimation { get; }` |
 | `LadderAnimationIndex` | `public int LadderAnimationIndex { get; }` |
 | `LadderAnimationProgress` | `public float LadderAnimationProgress { get; }` |
-| `InitialWaitPosition` | `public GameEntity InitialWaitPosition { get; }` |
-| `OnWallNavMeshId` | `public int OnWallNavMeshId { get; }` |
-| `WeaponSide` | `public FormationAI.BehaviorSide WeaponSide { get; }` |
-| `State` | `public LadderState State { get; set; }` |
 
 ## 主要方法
-
-### ReadFromNetwork
-`public bool ReadFromNetwork(ref bool bufferReadValid)`
-
-**用途 / Purpose:** 从当前实例读取from network相关数据。
-
-```csharp
-// 先通过子系统 API 拿到 SiegeLadder 实例
-SiegeLadder siegeLadder = ...;
-var result = siegeLadder.ReadFromNetwork(bufferReadValid);
-```
 
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
@@ -93,7 +87,7 @@ var result = siegeLadder.IsDisabledForBattleSide(sideEnum);
 ```
 
 ### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
 **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
@@ -203,14 +197,14 @@ siegeLadder.SetSpawnedFromSpawner();
 ```
 
 ### OnAfterReadFromNetwork
-`public override void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
+`public override void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
 **用途 / Purpose:** 在 after read from network 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeLadder 实例
 SiegeLadder siegeLadder = ...;
-siegeLadder.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
+siegeLadder.OnAfterReadFromNetwork(valueTuple<BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
 ```
 
 ### AssignParametersFromSpawner
@@ -246,12 +240,23 @@ SiegeLadder siegeLadder = ...;
 siegeLadder.OnFormationFrameChanged(agent, false, position);
 ```
 
+### ReadFromNetwork
+`public bool ReadFromNetwork(ref bool bufferReadValid)`
+
+**用途 / Purpose:** 从当前实例读取from network相关数据。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.ReadFromNetwork(bufferReadValid);
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 SiegeLadder siegeLadder = ...;
-siegeLadder.ReadFromNetwork(bufferReadValid);
+siegeLadder.GetSiegeEngineType();
 ```
 
 ## 参见

@@ -1,631 +1,147 @@
 ---
 title: "Widget"
-description: "Widget 的自动生成类参考。"
+description: "Gauntlet UI 所有可视控件的运行时基类：控件树、布局策略、可视状态、事件与手柄导航都在它身上；由 movie XML 实例化，按 id/路径取引用，而非手动 new。"
 ---
+
 # Widget
 
-**Namespace:** TaleWorlds.GauntletUI.BaseTypes
-**Module:** TaleWorlds.GauntletUI
-**Type:** `public class Widget : PropertyOwnerObject`
-**Base:** `PropertyOwnerObject`
-**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/Widget.cs`
+**Namespace:** `TaleWorlds.GauntletUI.BaseTypes`  
+**Module:** `TaleWorlds.GauntletUI`  
+**Type:** `public class Widget : PropertyOwnerObject`  
+**Base:** `PropertyOwnerObject`  
+**源文件：** `TaleWorlds.GauntletUI.BaseTypes/Widget.cs`
 
-## 概述
+## 职责一句话
 
-`Widget` 位于 `TaleWorlds.GauntletUI.BaseTypes`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`Widget` 是 **屏幕上每一个可视元素的运行时对象**：它持有父子控件树、布局参数（尺寸策略/对齐/边距）、可视状态（Hover/Pressed/Disabled…）、组件与事件通道，并负责测量/布局/绘制；mod 几乎永远通过 movie XML 声明它，再按 `id`/绑定路径取引用，而不是手动 `new`。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.GauntletUI.BaseTypes` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+把 `Widget` 想成 **UI 的「DOM 节点」**：控件树（`_parent` / `_children`）决定结构与命中，布局系统按 `SizePolicy` + 对齐 + 边距算出矩形，可视状态机（`SetState`）切换 brush，事件（`EventFired`）把点击/悬停/拖拽流向绑定层或代码订阅者。它和 [ViewModel](../../core-extra/ViewModel) 是「视图」与「数据」的两半：widget 通过绑定路径读 VM 的属性，通过事件名触发 VM 的命令。
 
-## 主要属性
+### 生命周期
 
-| Name | Signature |
-|------|-----------|
-| `ColorFactor` | `public float ColorFactor { get; set; }` |
-| `AlphaFactor` | `public float AlphaFactor { get; set; }` |
-| `ValueFactor` | `public float ValueFactor { get; set; }` |
-| `SaturationFactor` | `public float SaturationFactor { get; set; }` |
-| `ExtendLeft` | `public float ExtendLeft { get; set; }` |
-| `ExtendRight` | `public float ExtendRight { get; set; }` |
-| `ExtendTop` | `public float ExtendTop { get; set; }` |
-| `ExtendBottom` | `public float ExtendBottom { get; set; }` |
-| `VerticalFlip` | `public bool VerticalFlip { get; set; }` |
-| `HorizontalFlip` | `public bool HorizontalFlip { get; set; }` |
-| `NinePatchTop` | `public int NinePatchTop { get; set; }` |
-| `NinePatchBottom` | `public int NinePatchBottom { get; set; }` |
-| `NinePatchLeft` | `public int NinePatchLeft { get; set; }` |
-| `NinePatchRight` | `public int NinePatchRight { get; set; }` |
-| `ImageFit` | `public ImageFit ImageFit { get; set; }` |
-| `GlobalRotation` | `public float GlobalRotation { get; set; }` |
-| `Rotation` | `public float Rotation { get; set; }` |
-| `PivotX` | `public float PivotX { get; set; }` |
-| `PivotY` | `public float PivotY { get; set; }` |
-| `Left` | `public float Left { get; }` |
-| `Top` | `public float Top { get; }` |
-| `Size` | `public Vector2 Size { get; }` |
-| `FrictionEnabled` | `public bool FrictionEnabled { get; set; }` |
-| `Color` | `public Color Color { get; set; }` |
-| `Id` | `public string Id { get; }` |
-| `LocalPosition` | `public Vector2 LocalPosition { get; }` |
-| `GlobalPosition` | `public Vector2 GlobalPosition { get; }` |
-| `GamepadCursorAreaRect` | `public Rectangle2D GamepadCursorAreaRect { get; }` |
-| `DoNotUseCustomScaleAndChildren` | `public bool DoNotUseCustomScaleAndChildren { get; set; }` |
-| `DoNotUseCustomScale` | `public bool DoNotUseCustomScale { get; set; }` |
-| `SuggestedWidth` | `public float SuggestedWidth { get; set; }` |
-| `SuggestedHeight` | `public float SuggestedHeight { get; set; }` |
-| `ScaledSuggestedWidth` | `public float ScaledSuggestedWidth { get; set; }` |
-| `ScaledSuggestedHeight` | `public float ScaledSuggestedHeight { get; set; }` |
-| `HoveredCursorState` | `public string HoveredCursorState { get; set; }` |
-| `AlternateClickEventHasSpecialEvent` | `public bool AlternateClickEventHasSpecialEvent { get; set; }` |
-| `PosOffset` | `public Vector2 PosOffset { get; set; }` |
-| `PositionXOffset` | `public float PositionXOffset { get; set; }` |
-| `PositionYOffset` | `public float PositionYOffset { get; set; }` |
-| `ScaledPositionXOffset` | `public float ScaledPositionXOffset { get; set; }` |
-| `ScaledPositionYOffset` | `public float ScaledPositionYOffset { get; set; }` |
-| `ParentWidget` | `public Widget ParentWidget { get; set; }` |
-| `Context` | `public UIContext Context { get; }` |
-| `MeasuredSize` | `public Vector2 MeasuredSize { get; }` |
-| `MarginTop` | `public float MarginTop { get; set; }` |
-| `MarginLeft` | `public float MarginLeft { get; set; }` |
-| `MarginBottom` | `public float MarginBottom { get; set; }` |
-| `MarginRight` | `public float MarginRight { get; set; }` |
-| `VerticalAlignment` | `public VerticalAlignment VerticalAlignment { get; set; }` |
-| `HorizontalAlignment` | `public HorizontalAlignment HorizontalAlignment { get; set; }` |
-| `ForcePixelPerfectRenderPlacement` | `public bool ForcePixelPerfectRenderPlacement { get; set; }` |
-| `UseGlobalTimeForAnimation` | `public bool UseGlobalTimeForAnimation { get; set; }` |
-| `UseSpriteDimensions` | `public bool UseSpriteDimensions { get; set; }` |
-| `WidthSizePolicy` | `public SizePolicy WidthSizePolicy { get; set; }` |
-| `HeightSizePolicy` | `public SizePolicy HeightSizePolicy { get; set; }` |
-| `AcceptDrag` | `public bool AcceptDrag { get; set; }` |
-| `AcceptDrop` | `public bool AcceptDrop { get; set; }` |
-| `HideOnDrag` | `public bool HideOnDrag { get; set; }` |
-| `DragWidget` | `public Widget DragWidget { get; set; }` |
-| `ClipContents` | `public bool ClipContents { get; set; }` |
-| `ClipHorizontalContent` | `public bool ClipHorizontalContent { get; set; }` |
-| `ClipVerticalContent` | `public bool ClipVerticalContent { get; set; }` |
-| `CircularClipEnabled` | `public bool CircularClipEnabled { get; set; }` |
-| `CircularClipRadius` | `public float CircularClipRadius { get; set; }` |
-| `IsCircularClipRadiusHalfOfWidth` | `public bool IsCircularClipRadiusHalfOfWidth { get; set; }` |
-| `IsCircularClipRadiusHalfOfHeight` | `public bool IsCircularClipRadiusHalfOfHeight { get; set; }` |
-| `CircularClipSmoothingRadius` | `public float CircularClipSmoothingRadius { get; set; }` |
-| `CircularClipXOffset` | `public float CircularClipXOffset { get; set; }` |
-| `CircularClipYOffset` | `public float CircularClipYOffset { get; set; }` |
-| `RenderLate` | `public bool RenderLate { get; set; }` |
-| `DoNotRenderIfNotFullyInsideScissor` | `public bool DoNotRenderIfNotFullyInsideScissor { get; set; }` |
-| `IsHovered` | `public bool IsHovered { get; }` |
-| `IsDisabled` | `public bool IsDisabled { get; set; }` |
-| `IsFocusable` | `public bool IsFocusable { get; set; }` |
-| `IsFocused` | `public bool IsFocused { get; }` |
-| `IsEnabled` | `public bool IsEnabled { get; set; }` |
-| `RestartAnimationFirstFrame` | `public bool RestartAnimationFirstFrame { get; set; }` |
-| `DoNotPassEventsToChildren` | `public bool DoNotPassEventsToChildren { get; set; }` |
-| `DoNotAcceptEvents` | `public bool DoNotAcceptEvents { get; set; }` |
-| `CanAcceptEvents` | `public bool CanAcceptEvents { get; set; }` |
-| `IsPressed` | `public bool IsPressed { get; set; }` |
-| `IsHidden` | `public bool IsHidden { get; set; }` |
-| `IsVisible` | `public bool IsVisible { get; set; }` |
-| `Sprite` | `public Sprite Sprite { get; set; }` |
-| `VisualDefinition` | `public VisualDefinition VisualDefinition { get; set; }` |
-| `CurrentState` | `public string CurrentState { get; set; }` |
-| `UpdateChildrenStates` | `public bool UpdateChildrenStates { get; set; }` |
-| `Tag` | `public object Tag { get; }` |
-| `LayoutImp` | `public ILayout LayoutImp { get; }` |
-| `DropEventHandledManually` | `public bool DropEventHandledManually { get; }` |
-| `ConnectedToRoot` | `public bool ConnectedToRoot { get; }` |
-| `MaxWidth` | `public float MaxWidth { get; set; }` |
-| `MaxHeight` | `public float MaxHeight { get; set; }` |
-| `MinWidth` | `public float MinWidth { get; set; }` |
-| `MinHeight` | `public float MinHeight { get; set; }` |
-| `DisableRender` | `public bool DisableRender { get; set; }` |
-| `ExtendCursorAreaTop` | `public float ExtendCursorAreaTop { get; set; }` |
-| `ExtendCursorAreaRight` | `public float ExtendCursorAreaRight { get; set; }` |
-| `ExtendCursorAreaBottom` | `public float ExtendCursorAreaBottom { get; set; }` |
-| `ExtendCursorAreaLeft` | `public float ExtendCursorAreaLeft { get; set; }` |
-| `CursorAreaXOffset` | `public float CursorAreaXOffset { get; set; }` |
-| `CursorAreaYOffset` | `public float CursorAreaYOffset { get; set; }` |
-| `AcceptNavigation` | `public bool AcceptNavigation { get; set; }` |
-| `DoNotAcceptNavigation` | `public bool DoNotAcceptNavigation { get; set; }` |
-| `IsUsingNavigation` | `public bool IsUsingNavigation { get; set; }` |
-| `UseSiblingIndexForNavigation` | `public bool UseSiblingIndexForNavigation { get; set; }` |
-| `GamepadNavigationIndex` | `public int GamepadNavigationIndex { get; set; }` |
-| `UsedNavigationMovements` | `public GamepadNavigationTypes UsedNavigationMovements { get; set; }` |
-| `EventFire` | `public event Action<Widget, string, object > EventFire { get; }` |
+1. movie XML 被 [GauntletLayer](../../engine/GauntletLayer) 加载，运行时按 XML 元素 `new` 出对应具体类型（`ButtonWidget`、`ListPanel`、`TextWidget`…），递归挂成树。
+2. 测量阶段 `Measure` 自底向上算出期望尺寸；布局阶段 `Layout(left,bottom,right,top)` 自顶向下摊派矩形。
+3. `UpdateBrushes(dt)` 推动 brush 过渡与状态外观；`Render` 把结果画到 2D 上下文。
+4. 交互产生 `EventFired("Click"|"Hover"|"Drag"|…)`；XML 的 `<Event>` 交给 VM 命令，代码订阅者也能直接接。
+5. 屏幕/layer 移除时，树随 layer 一起释放；动态 `AddChild` 的控件需要在合适的时机 `RemoveChild`/`RemoveAllChildren`，否则会残留引用。
 
-## 主要方法
+## 何时用 / 何时不要用
 
-### GetAllChildrenAndThisRecursive
-`public List<Widget> GetAllChildrenAndThisRecursive()`
+**适合使用：**
 
-**用途 / Purpose:** 读取并返回当前对象中 all children and this recursive 的结果。
+- 在 XML 里声明控件结构与 `Brush`/`SizePolicy`/`Margin`；用 `Id` 或绑定路径定位。
+- 运行时取引用改状态：`root.FindChild("ConfirmButton")` 后 `SetState("Pressed")`、`Show()`/`Hide()`。
+- 代码里订阅交互：`widget.EventFired += (w, name, args) => { if (name == "Click") … };`。
+- 极少数需要动态增删控件时：`AddChild` / `RemoveChild`（优先用 XML + 可见性切换，少用运行时树操作）。
 
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.GetAllChildrenAndThisRecursive();
+**不要这样使用：**
+
+- 不要手动 `new Widget()` 当通用控件——用具体类型（`TextWidget`、`ListPanel`…），且只在确实有动态 UI 需求时。
+- 不要在后台线程改布局/状态/事件；测量与绘制在 UI 线程，跨线程改会竞态或静默不刷新。
+- 不要只靠「调用了基类」就认为清理完成：动态添加的子控件、事件订阅、手柄导航索引都要显式回收。
+- 不要在 widget 上直接挂世界状态逻辑；状态归 [ViewModel](../../core-extra/ViewModel) / 战役系统，widget 只负责呈现。
+
+## 依赖关系
+
+```mermaid
+graph TD
+    XML[movie XML] --> RT[Gauntlet 运行时 new Widget 树]
+    RT --> TREE[_parent / _children]
+    RT --> LAYOUT[Measure / Layout / SizePolicy]
+    RT --> STATE[SetState / VisualState]
+    RT --> EVT[EventFired Click/Hover/Drag]
+    LAYER[GauntletLayer] --> CTX[UIContext]
+    CTX --> BRUSH[BrushFactory -> Brush]
+    WIDGET[Widget.UpdateBrushes] --> BRUSH
+    EVT --> VM[ViewModel 命令]
+    VM -.绑定路径读属性.-> WIDGET
 ```
 
-### ApplyActionToAllChildren
-`public void ApplyActionToAllChildren(Action<Widget> action)`
+- 上游宿主：[GauntletLayer](../../engine/GauntletLayer) 提供 `UIContext` 并加载 XML；[ScreenManager](../ScreenManager) 管理承载 layer 的屏幕。
+- 外观来源：[Brush](../Brush) 由 `UIContext.BrushFactory` 解析，widget 在 `UpdateBrushes` 消费。
+- 数据侧：[ViewModel](../../core-extra/ViewModel) 通过绑定路径读写 widget 属性，命令经 `EventFired` 名触发。
+- 崩溃面：参见 [崩溃与存档边界](../../../architecture/crash-boundaries) 的「UI 线程/生命周期」一节。
 
-**用途 / Purpose:** 将 action to all children 的效果应用到当前对象。
+## 关键成员与调用时机
 
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.ApplyActionToAllChildren(action);
+### 控件树
+
+- `void AddChild(Widget widget)` / `AddChildAtIndex(Widget, int)` / `RemoveChild(Widget)` / `RemoveAllChildren()`：运行时增删子控件。
+- `Widget FindChild(string id, bool includeAllChildren = false)` / `FindChild(BindingPath)` / `FindChild(WidgetSearchDelegate)`：按 `Id` 或绑定路径取子树引用；`id` 不存在返回 `null`，务必判空。
+- `bool HasChild(Widget)`、`Widget GetChild(int i)`、`ApplyActionToAllChildrenRecursive(Action<Widget>)`：遍历与判定。
+
+### 布局与可视状态
+
+- `SizePolicy WidthSizePolicy` / `HeightSizePolicy`、`HorizontalAlignment` / `VerticalAlignment`、`Margin*`：决定测量与矩形摊派；改这些值后由布局系统在下帧重算。
+- `void AddState(string stateName)` / `bool ContainsState(string)` / `virtual void SetState(string stateName)`：切换可视状态（如 `"Pressed"`、`"Disabled"`）；状态名与 XML 的 `<VisualState>` 对应。
+- `virtual void UpdateBrushes(float dt)`：推进 brush 过渡与状态外观，由框架在刷新期调用。
+
+### 事件与可见性
+
+- `event Action<Widget, string, object[]> EventFired`：所有交互的统一出口；订阅后按 `eventName` 区分（`"Click"`/`"Hover"`/`"Drag"`…）。这是代码侧接点击的正确入口，不是编译期类型安全的委托。
+- `void Show()` / `void Hide()` / `bool IsRecursivelyVisible()`：控制可见性；隐藏不会自动退订事件或回收子控件。
+- `UIContext Context { get; private set; }`：本 widget 所属的上下文，可经它取 `BrushFactory` 等。
+
+## 风险与崩溃边界
+
+1. **`FindChild` 返回 `null`**：`id` 拼错或控件尚未创建完成即访问，直接解引用会空引用崩溃；务必判空或确认加载时机。
+2. **事件泄漏**：代码订阅 `EventFired` 后，若 widget/屏幕销毁时未退订，回调会在对象「消失」后继续触发，访问已释放状态。
+3. **动态树未回收**：`AddChild` 的控件若只在 XML 之外存活，必须在移除 layer/屏幕前 `RemoveChild`/`RemoveAllChildren`，否则残留引用拖慢并可能串味到其他界面。
+4. **跨线程改 UI**：在后台线程改布局/状态/事件，测量与绘制不会即时反映，且可能竞态导致布局异常。
+5. **状态与 `VisualDefinition` 混淆**：运行时 `SetState` 只是切状态名；具体外观由 XML 的 `VisualState`/`VisualDefinition` 决定，状态名拼错会静默无效果。
+6. **手柄导航索引**：启用手柄导航的 widget 有 `_gamepadNavigationIndex`；动态增删控件后索引可能错位，导致手柄焦点跳错位置。
+
+## 真实示例
+
+### 1.3.15：XML 声明 + 按 id 取引用并接点击
+
+```xml
+<ListPanel Id="ItemList" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren">
+  <Children>
+    <ButtonWidget Id="ConfirmButton" Brush="ButtonBrush" State="Default">
+      <Events>
+        <Event Click="ExecuteConfirm" />
+      </Events>
+    </ButtonWidget>
+  </Children>
+</ListPanel>
 ```
 
-### ApplyActionToAllChildrenRecursive
-`public void ApplyActionToAllChildrenRecursive(Action<Widget> action)`
-
-**用途 / Purpose:** 将 action to all children recursive 的效果应用到当前对象。
-
 ```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.ApplyActionToAllChildrenRecursive(action);
+// 运行时按 id 取引用（必须在 XML 加载完成后）
+Widget confirm = rootWidget.FindChild("ConfirmButton");
+if (confirm != null)
+{
+    confirm.SetState("Pressed");                 // 切可视状态
+    confirm.EventFired += (w, name, args) =>     // 代码侧接交互
+    {
+        if (name == "Click") { /* 真实回调，通常转交 ViewModel 命令 */ }
+    };
+}
 ```
 
-### GetAllChildrenRecursive
-`public List<Widget> GetAllChildrenRecursive(Func<Widget, bool> predicate = null)`
-
-**用途 / Purpose:** 读取并返回当前对象中 all children recursive 的结果。
+### 1.4.5：极少数需要动态挂子控件（真实 API）
 
 ```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.GetAllChildrenRecursive(func<Widget, false);
+UIContext ctx = rootWidget.Context;            // Widget.Context 是 UIContext
+TextWidget entry = new TextWidget(ctx);         // 具体类型构造接受 UIContext
+entry.Text = "动态条目";
+ListPanel list = (ListPanel)rootWidget.FindChild("ItemList");
+list.AddChild(entry);                           // 之后在合适时机 RemoveChild / RemoveAllChildren
 ```
 
-### GetAllParents
-`public List<Widget> GetAllParents()`
+`Widget` 构造、`FindChild`、`SetState`、`EventFired`、`AddChild` 均来自 `TaleWorlds.GauntletUI.BaseTypes/Widget.cs`；`TextWidget(UIContext)` 来自 `TextWidget.cs`。
 
-**用途 / Purpose:** 读取并返回当前对象中 all parents 的结果。
+## 版本注记
 
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.GetAllParents();
-```
+1.3.15 与 1.4.5 的 `Widget` 核心模型一致（`FindChild`/`SetState`/`EventFired`/`AddChild` 均存在）。1.4.5 源码来自完整模块；若目标版本没有某具体控件模块，仍应按 `GauntletLayer 加载 XML → FindChild/id → EventFired` 的关系接入，而不是假设某模块的自定义 widget 入口存在。
 
-### AddComponent
-`public void AddComponent(WidgetComponent component)`
+## 导航
 
-**用途 / Purpose:** 将 component 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.AddComponent(component);
-```
-
-### AddState
-`public void AddState(string stateName)`
-
-**用途 / Purpose:** 将 state 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.AddState("example");
-```
-
-### ContainsState
-`public bool ContainsState(string stateName)`
-
-**用途 / Purpose:** 检查当前对象是否含有state。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.ContainsState("example");
-```
-
-### SetState
-`public virtual void SetState(string stateName)`
-
-**用途 / Purpose:** 为 state 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.SetState("example");
-```
-
-### FindChild
-`public Widget FindChild(BindingPath path)`
-
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的child。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.FindChild(path);
-```
-
-### FindChild
-`public Widget FindChild(string singlePathNode)`
-
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的child。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.FindChild("example");
-```
-
-### FindChild
-`public Widget FindChild(WidgetSearchDelegate widgetSearchDelegate)`
-
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的child。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.FindChild(widgetSearchDelegate);
-```
-
-### FindChild
-`public Widget FindChild(string id, bool includeAllChildren = false)`
-
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的child。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.FindChild("example", false);
-```
-
-### GetFirstInChildrenAndThisRecursive
-`public Widget GetFirstInChildrenAndThisRecursive(Func<Widget, bool> predicate)`
-
-**用途 / Purpose:** 读取并返回当前对象中 first in children and this recursive 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.GetFirstInChildrenAndThisRecursive(func<Widget, false);
-```
-
-### GetFirstInChildrenRecursive
-`public Widget GetFirstInChildrenRecursive(Func<Widget, bool> predicate)`
-
-**用途 / Purpose:** 读取并返回当前对象中 first in children recursive 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.GetFirstInChildrenRecursive(func<Widget, false);
-```
-
-### RemoveAllChildren
-`public void RemoveAllChildren()`
-
-**用途 / Purpose:** 从当前容器或状态中移除 all children。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.RemoveAllChildren();
-```
-
-### UpdateAnimationPropertiesSubTask
-`public virtual void UpdateAnimationPropertiesSubTask(float alphaFactor)`
-
-**用途 / Purpose:** 重新计算并更新 animation properties sub task 的最新表示。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.UpdateAnimationPropertiesSubTask(0);
-```
-
-### Measure
-`public void Measure(Vector2 measureSpec)`
-
-**用途 / Purpose:** 调用 Measure 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.Measure(measureSpec);
-```
-
-### CheckIsMyChildRecursive
-`public bool CheckIsMyChildRecursive(Widget child)`
-
-**用途 / Purpose:** 检查is my child recursive在当前对象中是否成立。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.CheckIsMyChildRecursive(child);
-```
-
-### AddChild
-`public void AddChild(Widget widget)`
-
-**用途 / Purpose:** 将 child 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.AddChild(widget);
-```
-
-### AddChildAtIndex
-`public void AddChildAtIndex(Widget widget, int index)`
-
-**用途 / Purpose:** 将 child at index 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.AddChildAtIndex(widget, 0);
-```
-
-### SwapChildren
-`public void SwapChildren(Widget widget1, Widget widget2)`
-
-**用途 / Purpose:** 调用 SwapChildren 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.SwapChildren(widget1, widget2);
-```
-
-### RemoveChild
-`public void RemoveChild(Widget widget)`
-
-**用途 / Purpose:** 从当前容器或状态中移除 child。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.RemoveChild(widget);
-```
-
-### OnBeforeRemovedChild
-`public virtual void OnBeforeRemovedChild(Widget widget)`
-
-**用途 / Purpose:** 在 before removed child 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.OnBeforeRemovedChild(widget);
-```
-
-### HasChild
-`public bool HasChild(Widget widget)`
-
-**用途 / Purpose:** 判断当前对象是否已经持有 child。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.HasChild(widget);
-```
-
-### UpdateBrushes
-`public virtual void UpdateBrushes(float dt)`
-
-**用途 / Purpose:** 重新计算并更新 brushes 的最新表示。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.UpdateBrushes(0);
-```
-
-### GetChildIndex
-`public int GetChildIndex(Widget child)`
-
-**用途 / Purpose:** 读取并返回当前对象中 child index 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.GetChildIndex(child);
-```
-
-### GetVisibleChildIndex
-`public int GetVisibleChildIndex(Widget child)`
-
-**用途 / Purpose:** 读取并返回当前对象中 visible child index 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.GetVisibleChildIndex(child);
-```
-
-### GetFilterChildIndex
-`public int GetFilterChildIndex(Widget child, Func<Widget, bool> childrenFilter)`
-
-**用途 / Purpose:** 读取并返回当前对象中 filter child index 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.GetFilterChildIndex(child, func<Widget, false);
-```
-
-### GetChild
-`public Widget GetChild(int i)`
-
-**用途 / Purpose:** 读取并返回当前对象中 child 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.GetChild(0);
-```
-
-### Layout
-`public void Layout(float left, float bottom, float right, float top)`
-
-**用途 / Purpose:** 调用 Layout 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.Layout(0, 0, 0, 0);
-```
-
-### HandleInput
-`public virtual void HandleInput(IReadOnlyList<int> lastKeysPressed)`
-
-**用途 / Purpose:** 响应 input 事件，执行对应的处理逻辑。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.HandleInput(lastKeysPressed);
-```
-
-### IsPointInsideMeasuredArea
-`public bool IsPointInsideMeasuredArea(Vector2 p)`
-
-**用途 / Purpose:** 判断当前对象是否处于 point inside measured area 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.IsPointInsideMeasuredArea(p);
-```
-
-### IsPointInsideGamepadCursorArea
-`public bool IsPointInsideGamepadCursorArea(Vector2 p)`
-
-**用途 / Purpose:** 判断当前对象是否处于 point inside gamepad cursor area 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.IsPointInsideGamepadCursorArea(p);
-```
-
-### Hide
-`public void Hide()`
-
-**用途 / Purpose:** 隐藏当前对象对应的界面或元素。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.Hide();
-```
-
-### Show
-`public void Show()`
-
-**用途 / Purpose:** 显示当前对象对应的界面或元素。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.Show();
-```
-
-### GetLocalPoint
-`public Vector2 GetLocalPoint(Vector2 globalPoint)`
-
-**用途 / Purpose:** 读取并返回当前对象中 local point 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.GetLocalPoint(globalPoint);
-```
-
-### SetSiblingIndex
-`public void SetSiblingIndex(int index, bool force = false)`
-
-**用途 / Purpose:** 为 sibling index 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.SetSiblingIndex(0, false);
-```
-
-### GetSiblingIndex
-`public int GetSiblingIndex()`
-
-**用途 / Purpose:** 读取并返回当前对象中 sibling index 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.GetSiblingIndex();
-```
-
-### GetVisibleSiblingIndex
-`public int GetVisibleSiblingIndex()`
-
-**用途 / Purpose:** 读取并返回当前对象中 visible sibling index 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.GetVisibleSiblingIndex();
-```
-
-### Render
-`public void Render(TwoDimensionContext twoDimensionContext, TwoDimensionDrawContext drawContext)`
-
-**用途 / Purpose:** 调用 Render 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.Render(twoDimensionContext, drawContext);
-```
-
-### IsRecursivelyVisible
-`public bool IsRecursivelyVisible()`
-
-**用途 / Purpose:** 判断当前对象是否处于 recursively visible 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.IsRecursivelyVisible();
-```
-
-### ToString
-`public override string ToString()`
-
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-var result = widget.ToString();
-```
-
-### OnGamepadNavigationFocusGain
-`public void OnGamepadNavigationFocusGain()`
-
-**用途 / Purpose:** 在 gamepad navigation focus gain 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Widget 实例
-Widget widget = ...;
-widget.OnGamepadNavigationFocusGain();
-```
-
-## 使用示例
-
-```csharp
-// 通常从对应子系统 API 获取实例后调用
-Widget widget = ...;
-widget.GetAllChildrenAndThisRecursive();
-```
-
-## 参见
-
-- [本区域目录](../)
+- ↑ 父级：[gui 目录](../)
+- ↔ 同级：[Brush](../Brush) · [ScreenManager](../ScreenManager)
+- 上游：[GauntletLayer](../../engine/GauntletLayer)
+- 下游：[ViewModel](../../core-extra/ViewModel)
+- 相关：[崩溃与存档边界](../../../architecture/crash-boundaries) · [ScreenManager](../ScreenManager)

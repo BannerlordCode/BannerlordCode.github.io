@@ -6,9 +6,9 @@ description: "KingdomClanTypeVisualBrushWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class KingdomClanTypeVisualBrushWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/KingdomClanTypeVisualBrushWidget.cs`
+**Type:** `public class KingdomClanTypeVisualBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Kingdom/KingdomClanTypeVisualBrushWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "KingdomClanTypeVisualBrushWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Type` | `public int Type { get; set; }` |
-
-## 主要方法
-
-### KingdomClanTypeVisualBrushWidget
-`public class KingdomClanTypeVisualBrushWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 KingdomClanTypeVisualBrushWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 KingdomClanTypeVisualBrushWidget 实例
-KingdomClanTypeVisualBrushWidget kingdomClanTypeVisualBrushWidget = ...;
-var result = kingdomClanTypeVisualBrushWidget.KingdomClanTypeVisualBrushWidget(context);
-```
 
 ## 使用示例
 

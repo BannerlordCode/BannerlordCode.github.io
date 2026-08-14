@@ -8,7 +8,7 @@ description: "AccessObject 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class AccessObject`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/AccessObject.cs`
+**File:** `TaleWorlds.Diamond/AccessObject.cs`
 
 ## 概述
 

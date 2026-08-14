@@ -8,7 +8,7 @@ description: "SetUsableMissionObjectIsDisabledForPlayers 的自动生成类参�
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetUsableMissionObjectIsDisabledForPlayers : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetUsableMissionObjectIsDisabledForPlayers.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetUsableMissionObjectIsDisabledForPlayers.cs`
 
 ## 概述
 

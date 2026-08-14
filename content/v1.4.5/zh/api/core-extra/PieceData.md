@@ -8,7 +8,7 @@ description: "PieceData 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct PieceData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/PieceData.cs`
+**File:** `TaleWorlds.Core/PieceData.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "DefineSynchedMissionObjectType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal sealed class DefineSynchedMissionObjectType : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefineSynchedMissionObjectType.cs`
+**File:** `TaleWorlds.MountAndBlade/DefineSynchedMissionObjectType.cs`
 
 ## 概述
 

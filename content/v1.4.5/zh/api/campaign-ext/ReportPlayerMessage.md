@@ -8,7 +8,7 @@ description: "ReportPlayerMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class ReportPlayerMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/ReportPlayerMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/ReportPlayerMessage.cs`
 
 ## 概述
 

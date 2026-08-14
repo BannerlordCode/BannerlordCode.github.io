@@ -8,7 +8,7 @@ description: "SkillProgressFillBarWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SkillProgressFillBarWidget : FillBarWidget`
 **Base:** `FillBarWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/SkillProgressFillBarWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/CharacterDeveloper/SkillProgressFillBarWidget.cs`
 
 ## 概述
 

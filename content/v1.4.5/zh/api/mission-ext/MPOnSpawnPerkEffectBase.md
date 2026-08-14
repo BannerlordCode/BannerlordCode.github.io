@@ -8,7 +8,7 @@ description: "MPOnSpawnPerkEffectBase 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MPOnSpawnPerkEffectBase : MPPerkEffectBase, IOnSpawnPerkEffect`
 **Base:** `MPPerkEffectBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPOnSpawnPerkEffectBase.cs`
+**File:** `TaleWorlds.MountAndBlade/MPOnSpawnPerkEffectBase.cs`
 
 ## 概述
 
@@ -40,6 +40,17 @@ var result = mPOnSpawnPerkEffectBase.GetTroopCountMultiplier();
 // 先通过子系统 API 拿到 MPOnSpawnPerkEffectBase 实例
 MPOnSpawnPerkEffectBase mPOnSpawnPerkEffectBase = ...;
 var result = mPOnSpawnPerkEffectBase.GetExtraTroopCount();
+```
+
+### GetAlternativeEquipments
+`public virtual List<ValueTuple<EquipmentIndex, EquipmentElement>> GetAlternativeEquipments(bool isPlayer, List<ValueTuple<EquipmentIndex, EquipmentElement>> alternativeEquipments, bool getAll = false)`
+
+**用途 / Purpose:** 读取并返回当前对象中 alternative equipments 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MPOnSpawnPerkEffectBase 实例
+MPOnSpawnPerkEffectBase mPOnSpawnPerkEffectBase = ...;
+var result = mPOnSpawnPerkEffectBase.GetAlternativeEquipments(false, list<ValueTuple<EquipmentIndex, alternativeEquipments, false);
 ```
 
 ### GetDrivenPropertyBonusOnSpawn

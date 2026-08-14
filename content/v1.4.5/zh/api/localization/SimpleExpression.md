@@ -8,7 +8,7 @@ description: "SimpleExpression 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class SimpleExpression : TextExpression`
 **Base:** `TextExpression`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/SimpleExpression.cs`
+**File:** `TaleWorlds.Localization/Expressions/SimpleExpression.cs`
 
 ## 概述
 

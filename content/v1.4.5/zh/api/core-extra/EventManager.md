@@ -8,7 +8,7 @@ description: "EventManager 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class EventManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.EventSystem/EventManager.cs`
+**File:** `TaleWorlds.Library/EventSystem/EventManager.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MultiplayerLobbyFriendGroupToggleWidget 的自动生成类参考�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyFriendGroupToggleWidget : ToggleButtonWidget`
 **Base:** `ToggleButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Friend/MultiplayerLobbyFriendGroupToggleWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Lobby/Friend/MultiplayerLobbyFriendGroupToggleWidget.cs`
 
 ## 概述
 

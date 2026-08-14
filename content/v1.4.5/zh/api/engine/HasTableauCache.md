@@ -8,7 +8,7 @@ description: "HasTableauCache 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class HasTableauCache : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/HasTableauCache.cs`
+**File:** `TaleWorlds.Engine/HasTableauCache.cs`
 
 ## 概述
 

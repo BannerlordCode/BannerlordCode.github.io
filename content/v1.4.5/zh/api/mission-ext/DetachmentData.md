@@ -8,7 +8,7 @@ description: "DetachmentData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DetachmentData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DetachmentData.cs`
+**File:** `TaleWorlds.MountAndBlade/DetachmentData.cs`
 
 ## 概述
 
@@ -17,6 +17,12 @@ description: "DetachmentData 的自动生成类参考。"
 ## 心智模型
 
 把 `DetachmentData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `AgentCount` | `public int AgentCount { get; }` |
 
 ## 主要方法
 

@@ -8,7 +8,7 @@ description: "ItemImageIdentifierVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class ItemImageIdentifierVM : ImageIdentifierVM`
 **Base:** `ImageIdentifierVM`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.ImageIdentifiers/ItemImageIdentifierVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/ImageIdentifiers/ItemImageIdentifierVM.cs`
 
 ## 概述
 

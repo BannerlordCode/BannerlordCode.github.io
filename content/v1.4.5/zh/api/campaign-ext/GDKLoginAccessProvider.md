@@ -8,7 +8,7 @@ description: "GDKLoginAccessProvider 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class GDKLoginAccessProvider : ILoginAccessProvider`
 **Base:** `ILoginAccessProvider`
-**File:** `bin/TaleWorlds.Diamond.AccessProvider.GDK/TaleWorlds.Diamond.AccessProvider.GDK/GDKLoginAccessProvider.cs`
+**File:** `TaleWorlds.Diamond.AccessProvider.GDK/GDKLoginAccessProvider.cs`
 
 ## 概述
 

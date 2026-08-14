@@ -13,7 +13,7 @@ description: "v1.4.5 SandBox 的模块生命周期入口，负责安装战役任
 
 `SandBoxSubModule` 是单机 SandBox 层的模块引导器。引擎调用它的生命周期 hook；这些 hook 安装 SandBox 任务和存档 manager，注册战役 Model 与 behavior，初始化 XML 对象，并为新游戏或读档启动正确的 [SandBoxGameManager](../SandBoxGameManager)。它不是服务定位器，生命周期回调也不是应该由业务代码随意调用的普通方法。
 
-## 心智模型：有顺序的引导过程
+## 心智模型
 
 需要区分“安装依赖的 hook”和“消费依赖的代码”：
 
@@ -75,7 +75,7 @@ campaign.SandBoxManager.SandBoxSaveManager = new SandBoxSaveManager();
 - `OnConfigChanged` 在战役存在时把配置变化转发给战役事件接收器。
 - `OnNewModuleLoad` 调用 `SaveManager.InitializeGlobalDefinitionContext()`，让存档定义从已加载程序集重新建立。
 
-## 依赖与边界
+## 依赖
 
 - [MBSubModuleBase](../../core/MBSubModuleBase) 提供引擎生命周期回调并调用本模块。
 - [SandBoxManager](../../campaign/SandBoxManager) 持有已经安装的任务、Agent behavior 和存档接口。

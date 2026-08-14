@@ -8,7 +8,7 @@ description: "ISelectionOptionData 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public interface ISelectionOptionData : IOptionData`
 **Base:** `IOptionData`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/ISelectionOptionData.cs`
+**File:** `TaleWorlds.Engine/Options/ISelectionOptionData.cs`
 
 ## 概述
 

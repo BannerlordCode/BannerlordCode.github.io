@@ -8,7 +8,7 @@ description: "PremadeGameEntry 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PremadeGameEntry`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PremadeGameEntry.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PremadeGameEntry.cs`
 
 ## 概述
 

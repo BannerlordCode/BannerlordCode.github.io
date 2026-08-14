@@ -8,7 +8,7 @@ description: "NauticalInformation 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct NauticalInformation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/NauticalInformation.cs`
+**File:** `TaleWorlds.Library/NauticalInformation.cs`
 
 ## 概述
 

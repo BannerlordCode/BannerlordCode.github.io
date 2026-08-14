@@ -8,7 +8,7 @@ description: "IObjectManagerHandler 的自动生成类参考。"
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public interface IObjectManagerHandler`
 **Base:** 无
-**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/IObjectManagerHandler.cs`
+**File:** `TaleWorlds.ObjectSystem/IObjectManagerHandler.cs`
 
 ## 概述
 

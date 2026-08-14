@@ -8,7 +8,7 @@ description: "EngineExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public static class EngineExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/EngineExtensions.cs`
+**File:** `TaleWorlds.Engine/EngineExtensions.cs`
 
 ## 概述
 

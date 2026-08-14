@@ -8,7 +8,7 @@ description: "CustomBattleApplyWeatherEffectsModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleApplyWeatherEffectsModel : ApplyWeatherEffectsModel`
 **Base:** `ApplyWeatherEffectsModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleApplyWeatherEffectsModel.cs`
+**File:** `TaleWorlds.MountAndBlade/CustomBattleApplyWeatherEffectsModel.cs`
 
 ## 概述
 

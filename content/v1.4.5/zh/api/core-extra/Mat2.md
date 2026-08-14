@@ -8,7 +8,7 @@ description: "Mat2 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct Mat2`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Mat2.cs`
+**File:** `TaleWorlds.Library/Mat2.cs`
 
 ## 概述
 

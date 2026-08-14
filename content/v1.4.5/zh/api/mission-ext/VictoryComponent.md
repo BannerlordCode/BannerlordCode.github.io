@@ -8,7 +8,7 @@ description: "VictoryComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class VictoryComponent : AgentComponent`
 **Base:** `AgentComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/VictoryComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/VictoryComponent.cs`
 
 ## 概述
 

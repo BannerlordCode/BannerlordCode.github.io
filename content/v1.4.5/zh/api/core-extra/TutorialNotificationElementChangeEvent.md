@@ -8,7 +8,7 @@ description: "TutorialNotificationElementChangeEvent 的自动生成类参考。
 **Module:** TaleWorlds.Core
 **Type:** `public class TutorialNotificationElementChangeEvent : EventBase`
 **Base:** `EventBase`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Tutorial/TutorialNotificationElementChangeEvent.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/Tutorial/TutorialNotificationElementChangeEvent.cs`
 
 ## 概述
 

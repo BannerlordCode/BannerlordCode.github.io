@@ -8,7 +8,7 @@ description: "MultiplayerBattleMoraleModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerBattleMoraleModel : BattleMoraleModel`
 **Base:** `BattleMoraleModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerBattleMoraleModel.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerBattleMoraleModel.cs`
 
 ## 概述
 
@@ -19,6 +19,28 @@ description: "MultiplayerBattleMoraleModel 的自动生成类参考。"
 把 `MultiplayerBattleMoraleModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
+
+### CalculateMaxMoraleChangeDueToAgentIncapacitated
+`public override ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentIncapacitated(Agent affectedAgent, AgentState affectedAgentState, Agent affectorAgent, in KillingBlow killingBlow)`
+
+**用途 / Purpose:** 计算max morale change due to agent incapacitated的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerBattleMoraleModel 实例
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.CalculateMaxMoraleChangeDueToAgentIncapacitated(affectedAgent, affectedAgentState, affectorAgent, killingBlow);
+```
+
+### CalculateMaxMoraleChangeDueToAgentPanicked
+`public override ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentPanicked(Agent agent)`
+
+**用途 / Purpose:** 计算max morale change due to agent panicked的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerBattleMoraleModel 实例
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.CalculateMaxMoraleChangeDueToAgentPanicked(agent);
+```
 
 ### CalculateMoraleChangeToCharacter
 `public override float CalculateMoraleChangeToCharacter(Agent agent, float maxMoraleChange)`

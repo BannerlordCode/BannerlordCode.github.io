@@ -8,7 +8,7 @@ description: "VideoPlayerView 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class VideoPlayerView : View`
 **Base:** `View`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/VideoPlayerView.cs`
+**File:** `TaleWorlds.Engine/VideoPlayerView.cs`
 
 ## 概述
 

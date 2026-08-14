@@ -8,7 +8,7 @@ description: "LauncherOnlineImageTextureProvider 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherOnlineImageTextureProvider : TextureProvider`
 **Base:** `TextureProvider`
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherOnlineImageTextureProvider.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/LauncherOnlineImageTextureProvider.cs`
 
 ## 概述
 

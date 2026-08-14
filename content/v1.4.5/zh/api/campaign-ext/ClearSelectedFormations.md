@@ -8,7 +8,7 @@ description: "ClearSelectedFormations 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class ClearSelectedFormations : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/ClearSelectedFormations.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/ClearSelectedFormations.cs`
 
 ## 概述
 

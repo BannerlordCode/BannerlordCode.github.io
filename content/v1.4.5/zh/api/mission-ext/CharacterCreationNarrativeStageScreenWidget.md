@@ -8,7 +8,7 @@ description: "CharacterCreationNarrativeStageScreenWidget 的自动生成类参�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterCreationNarrativeStageScreenWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation/CharacterCreationNarrativeStageScreenWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/CharacterCreation/CharacterCreationNarrativeStageScreenWidget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MultiplayerAgentStatCalculateModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerAgentStatCalculateModel : AgentStatCalculateModel`
 **Base:** `AgentStatCalculateModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerAgentStatCalculateModel.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerAgentStatCalculateModel.cs`
 
 ## 概述
 
@@ -51,6 +51,17 @@ var result = multiplayerAgentStatCalculateModel.CanAgentRideMount(agent, targetM
 // 先通过子系统 API 拿到 MultiplayerAgentStatCalculateModel 实例
 MultiplayerAgentStatCalculateModel multiplayerAgentStatCalculateModel = ...;
 multiplayerAgentStatCalculateModel.InitializeAgentStats(agent, spawnEquipment, agentDrivenProperties, agentBuildData);
+```
+
+### GetWeaponInaccuracy
+`public override float GetWeaponInaccuracy(Agent agent, WeaponComponentData weapon, int weaponSkill)`
+
+**用途 / Purpose:** 读取并返回当前对象中 weapon inaccuracy 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAgentStatCalculateModel 实例
+MultiplayerAgentStatCalculateModel multiplayerAgentStatCalculateModel = ...;
+var result = multiplayerAgentStatCalculateModel.GetWeaponInaccuracy(agent, weapon, 0);
 ```
 
 ### GetWeaponDamageMultiplier
@@ -117,17 +128,6 @@ var result = multiplayerAgentStatCalculateModel.GetKnockDownResistance(agent, st
 // 先通过子系统 API 拿到 MultiplayerAgentStatCalculateModel 实例
 MultiplayerAgentStatCalculateModel multiplayerAgentStatCalculateModel = ...;
 var result = multiplayerAgentStatCalculateModel.GetDismountResistance(agent);
-```
-
-### GetWeaponInaccuracy
-`public override float GetWeaponInaccuracy(Agent agent, WeaponComponentData weapon, int weaponSkill)`
-
-**用途 / Purpose:** 读取并返回当前对象中 weapon inaccuracy 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerAgentStatCalculateModel 实例
-MultiplayerAgentStatCalculateModel multiplayerAgentStatCalculateModel = ...;
-var result = multiplayerAgentStatCalculateModel.GetWeaponInaccuracy(agent, weapon, 0);
 ```
 
 ### GetBreatheHoldMaxDuration

@@ -8,7 +8,7 @@ description: "TacticDefensiveEngagement 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticDefensiveEngagement : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticDefensiveEngagement.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticDefensiveEngagement.cs`
 
 ## 概述
 

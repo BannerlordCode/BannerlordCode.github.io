@@ -8,7 +8,7 @@ description: "MBCallback 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBCallback : ManagedFromNativeCallback`
 **Base:** `ManagedFromNativeCallback`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBCallback.cs`
+**File:** `TaleWorlds.MountAndBlade/MBCallback.cs`
 
 ## 概述
 

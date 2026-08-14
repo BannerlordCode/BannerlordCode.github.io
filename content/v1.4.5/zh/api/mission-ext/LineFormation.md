@@ -8,7 +8,7 @@ description: "LineFormation 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LineFormation : IFormationArrangement`
 **Base:** `IFormationArrangement`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/LineFormation.cs`
+**File:** `TaleWorlds.MountAndBlade/LineFormation.cs`
 
 ## 概述
 
@@ -22,12 +22,22 @@ description: "LineFormation 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `RankCount` | `public int RankCount { get; set; }` |
 | `AreLocalPositionsDirty` | `public bool AreLocalPositionsDirty { get; set; }` |
+| `IntervalMultiplier` | `public virtual float IntervalMultiplier { get; }` |
+| `DistanceMultiplier` | `public virtual float DistanceMultiplier { get; }` |
 | `Width` | `public virtual float Width { get; set; }` |
+| `Depth` | `public virtual float Depth { get; set; }` |
 | `FlankWidth` | `public float FlankWidth { get; set; }` |
+| `RankDepth` | `public float RankDepth { get; }` |
+| `MinimumFlankWidth` | `public float MinimumFlankWidth { get; }` |
+| `MinimumWidth` | `public virtual float MinimumWidth { get; }` |
 | `MaximumWidth` | `public virtual float MaximumWidth { get; }` |
 | `IsStaggered` | `public bool IsStaggered { get; set; }` |
+| `IsLoose` | `public virtual bool? IsLoose { get; set; }` |
 | `PostponeReconstructUnitsFromUnits2D` | `public bool PostponeReconstructUnitsFromUnits2D { get; set; }` |
+| `UnitCount` | `public int UnitCount { get; }` |
+| `PositionedUnitCount` | `public int PositionedUnitCount { get; }` |
 
 ## 主要方法
 
@@ -613,15 +623,15 @@ LineFormation lineFormation = ...;
 var result = lineFormation.GetLocalPositionOfReservedUnitPosition();
 ```
 
-### OnTickOccasionally
-`public void OnTickOccasionally()`
+### OnTickOccasionallyOfUnit
+`public virtual void OnTickOccasionallyOfUnit(IFormationUnit unit, bool arrangementChangeAllowed)`
 
-**用途 / Purpose:** 在 tick occasionally 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick occasionally of unit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
 LineFormation lineFormation = ...;
-lineFormation.OnTickOccasionally();
+lineFormation.OnTickOccasionallyOfUnit(unit, false);
 ```
 
 ### GetDirectionChangeTendencyOfUnit

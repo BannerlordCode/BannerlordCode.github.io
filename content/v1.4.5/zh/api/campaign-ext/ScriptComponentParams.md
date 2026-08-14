@@ -8,7 +8,7 @@ description: "ScriptComponentParams 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public class ScriptComponentParams : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ScriptComponentParams.cs`
+**File:** `TaleWorlds.DotNet/ScriptComponentParams.cs`
 
 ## 概述
 

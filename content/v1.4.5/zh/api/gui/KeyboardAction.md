@@ -8,7 +8,7 @@ description: "KeyboardAction 的自动生成类参考。"
 **Module:** TaleWorlds.GauntletUI
 **Type:** `enum KeyboardAction`
 **Base:** 无
-**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/EditableTextWidget.cs`
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/BaseTypes/EditableTextWidget.cs`
 
 ## 概述
 

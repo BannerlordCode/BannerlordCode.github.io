@@ -8,7 +8,7 @@ description: "IBooleanOptionData 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public interface IBooleanOptionData : IOptionData`
 **Base:** `IOptionData`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/IBooleanOptionData.cs`
+**File:** `TaleWorlds.Engine/Options/IBooleanOptionData.cs`
 
 ## 概述
 

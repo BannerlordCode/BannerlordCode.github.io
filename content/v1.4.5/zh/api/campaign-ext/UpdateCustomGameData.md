@@ -8,7 +8,7 @@ description: "UpdateCustomGameData 的自动生成类参考。"
 **Module:** Messages.FromCustomBattleServer
 **Type:** `public class UpdateCustomGameData : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/UpdateCustomGameData.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromCustomBattleServer/ToCustomBattleServerManager/UpdateCustomGameData.cs`
 
 ## 概述
 

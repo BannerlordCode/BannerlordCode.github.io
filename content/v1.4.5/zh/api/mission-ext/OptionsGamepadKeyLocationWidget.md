@@ -8,7 +8,7 @@ description: "OptionsGamepadKeyLocationWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OptionsGamepadKeyLocationWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options.Gamepad/OptionsGamepadKeyLocationWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Options/Gamepad/OptionsGamepadKeyLocationWidget.cs`
 
 ## 概述
 

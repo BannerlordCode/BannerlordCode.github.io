@@ -8,7 +8,7 @@ description: "MBAPI 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBAPI`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBAPI.cs`
+**File:** `TaleWorlds.MountAndBlade/MBAPI.cs`
 
 ## 概述
 

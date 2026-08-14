@@ -8,7 +8,7 @@ description: "Activity 的自动生成类参考。"
 **Module:** TaleWorlds.ActivitySystem
 **Type:** `public class Activity`
 **Base:** 无
-**File:** `bin/TaleWorlds.ActivitySystem/TaleWorlds.ActivitySystem/Activity.cs`
+**File:** `TaleWorlds.ActivitySystem/Activity.cs`
 
 ## 概述
 

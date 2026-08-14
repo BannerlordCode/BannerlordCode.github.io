@@ -3,56 +3,34 @@ title: "save-system 目录"
 description: TaleWorlds.SaveSystem 存档系统类参考目录
 ---
 
-## Saveable 属性家族：成员、根类与类型定义
+## 模块心智模型
 
-### 心智模型
+一句话：`save-system` 是整局战役「活过一次存读档」的唯一保证——它把内存里的对象图扁平成二进制 blob 再原样拼回，而 `LocalSaveId` 就是你和旧存档之间不可违背的契约。
 
-这三个 Attribute 只描述存档 schema 的不同层次，不能互相替代。`SaveableRootClassAttribute` 说明一个 class 可以被标记为对象图根；`SaveableFieldAttribute` 和 `SaveablePropertyAttribute` 分别说明已注册类型中的字段或属性应以哪个成员本地 ID 进入存档。它们不会创建 `DefinitionContext`、不会替 mod 注册 `SaveableTypeDefiner`，也不会把任意 CLR 对象自动变成可存档对象。
+`TaleWorlds.SaveSystem` 负责的是 Bannerlord 的全部持久化：它不关心你存了什么，只关心「谁要存、怎么找到它、用什么键写回来」。核心机制是**基于特性的显式标注**——一个字段或属性会不会进存档，不看可见性、不看类型，只看有没有 `[SaveableField]` / `[SaveableProperty]`。启动时 `SaveManager.InitializeGlobalDefinitionContext()` 调用 `DefinitionContext.FillWithCurrentTypes()`，用反射扫描所有带 `[SaveableField]`/`[SaveableProperty]` 的成员，为每个成员算出稳定键 `MemberTypeId = (TypeLevel << 8) + LocalSaveId`。写档时 `SaveContext` 遍历整张对象图逐个写出，读档时 `LoadContext` 再按 `LocalSaveId` 把字节送回当前字段。
 
-### 共同契约与依赖边界
+这是整个游戏**崩溃与坏档风险最高的区域**。绑定靠的是那串数字 `LocalSaveId`，而不是字段名或声明顺序——改 id、复用 id、或跨层级撞 id，都会让旧存档的字节被写进错误的字段，轻则静默错位，重则类型不匹配直接崩溃。`SaveManager.Save/Load` 用 `ISaveDriver` 落盘（`.sav`，内部 zip），任何抛异常都被包成 `SaveOutput`/`LoadResult` 失败返回；而 `ShouldResolveConflicts()` 在读档期为真，正是冲突解析器（`IConflictResolver`）接管旧成员映射的窗口。
 
-真正的注册链是：[SaveManager](./SaveManager) 创建 [DefinitionContext](./DefinitionContext)，扫描并运行 [SaveableTypeDefiner](./SaveableTypeDefiner)，再让 [TypeDefinition](./TypeDefinition) 反射收集带有成员 Attribute 的字段和属性。成员的 local ID 必须在其声明类型和继承层级内稳定且不重复；成员类型、封闭泛型和容器仍必须由 definer 注册。战役 Behavior 的小块状态则通常应使用 [CampaignBehaviorBase](../campaign/CampaignBehaviorBase) 的 `SyncData(IDataStore)`，而不是为了保存一个 primitive 添加 Saveable Attribute。
+## 核心入口类型
 
-| 命名空间 | 类型 | 手写用途 | 典型时机 |
-| --- | --- | --- | --- |
-| `TaleWorlds.SaveSystem` | [`SaveableFieldAttribute`](./SaveableFieldAttribute) | 给实例字段分配 `LocalSaveId`，由 `TypeDefinition.CollectFields()` 收集；适合需要保留字段语义、包括私有字段的已注册类型。 | 类型定义注册完成后，DefinitionContext 收集字段元数据时生效；不是运行期给字段加标签的 API。 |
-| `TaleWorlds.SaveSystem` | [`SaveablePropertyAttribute`](./SaveablePropertyAttribute) | 给实例属性分配 `LocalSaveId`，由 `TypeDefinition.CollectProperties()` 收集；适合通过属性 getter/setter 暴露的持久化成员。 | 类型定义注册完成后、序列化或反序列化对象图前收集；属性仍必须有可用的存取契约。 |
-| `TaleWorlds.SaveSystem` | [`SaveableRootClassAttribute`](./SaveableRootClassAttribute) | 在源码中声明 class 的根类标记及其 `SaveId`；它不等价于完整的 root definition。 | 该标记本身不是当前 v1.4.5 的注册入口；实际 root definition 由 `SaveableCoreTypeDefiner.DefineRootClassTypes()` 调用 `SaveableTypeDefiner.AddRootClassDefinition` 建立。 |
+- [SaveManager](./SaveManager) — 存 / 读档的静态统一入口，`Save`/`Load`/`CheckSaveableTypes`/`InitializeGlobalDefinitionContext`。
+- [SaveableFieldAttribute](./SaveableFieldAttribute) — 贴在字段上，用 `LocalSaveId` 声明该字段参与序列化（已知 deep_pass 重点）。
+- [SaveablePropertyAttribute](./SaveablePropertyAttribute) — 贴在属性上的等价标记，规则与字段对称。
+- [SaveableRootClassAttribute](./SaveableRootClassAttribute) — 标记存档图的根对象（如 `CampaignBehavior`）。
+- [SaveableTypeDefiner](./SaveableTypeDefiner) — 注册可存档类型、定义 `IConflictResolver` 做版本迁移。
+- [DefinitionContext](./DefinitionContext) — 启动时反射收集全部类型 / 字段定义并发现错误。
+- [MetaData](./MetaData) — 存档元数据，携带 `ApplicationVersion` 供跨版本判定。
+- [SaveContext](./SaveContext) — 写档上下文，遍历对象图产出 `SaveData`。
+- [LoadContext](./LoadContext) — 读档上下文，按 `LocalSaveId` 还原对象图。
+- [SaveOutput](./SaveOutput) — 写档结果（成功 / 失败 / 续传）。
+- [LoadResult](./LoadResult) — 读档结果，含根对象与延迟初始化回调。
+- [GameData](./GameData) — 序列化过程的对象图数据容器。
 
-源码中的 `Game` 与 `SaveableCoreTypeDefiner` 分别展示了三层概念：
+## 与其他模块的关系
 
-```csharp
-[SaveableRootClass(5000)]
-public sealed class Game
-{
-    [SaveableField(11)]
-    private int _nextUniqueTroopSeed = 1;
+存档系统本身只做「对象图 ↔ 二进制」的搬运，真正的可存档实例由上层模块持有。`campaign-ext` 的 [IDataStore](../campaign-ext/IDataStore/)（及其同步机制 `SyncData`）正是战役行为把运行时状态登记进存档图的典型通道——你写的 `CampaignBehavior` 字段，只有从某个已注册根对象可达，才会被 `SaveManager` 遍历到；这条边界是多数「mod 状态没存上」问题的根源。
 
-    [SaveableProperty(3)]
-    public GameType GameType { get; private set; }
-}
-```
-
-```csharp
-public class SaveableCoreTypeDefiner : SaveableTypeDefiner
-{
-protected override void DefineRootClassTypes()
-{
-    AddRootClassDefinition(typeof(Game), 4001);
-}
-}
-```
-
-这里 `5000` 是根类 Attribute 的标记值，`11` 和 `3` 是成员本地 ID，而 `SaveableCoreTypeDefiner` 在 base ID `10000` 下注册的 `4001` 才形成实际 root type save ID。不要把这几个数字混用，也不要在发布后随意改变它们。
-
-### 风险边界
-
-- **ID 是存档契约：** 改变 root、type、field 或 property 的已发布 ID，会让旧存档无法按原 schema 解释；改属性名也不等于保留兼容性。
-- **字段和属性不是同一入口：** `SaveableFieldAttribute` 只面向 field，`SaveablePropertyAttribute` 只面向 property。`TypeDefinition` 分别在 field/property 字典中检查重复的 `MemberTypeId` 并记录错误；不要假设 field 与 property 跨种类使用同一个数字会自动触发同一条重复检查，发布时仍应让所有成员本地 ID 清晰且稳定。
-- **标记不等于类型注册：** 成员引用的 class、struct、enum、泛型或容器必须先由 [SaveableTypeDefiner](./SaveableTypeDefiner) 定义；否则 schema 只有成员编号，没有可解析的类型定义。
-- **不要把 Behavior 状态硬塞进 Saveable schema：** 自定义战役状态优先用 [IDataStore](../campaign/IDataStore) 和稳定 key 通过 `SyncData` 保存；不要在保存回调中缓存 `Settlement`、`MobileParty` 等运行时对象引用并假设它们会按引用恢复。
-
-最短的选择规则是：要保存 Behavior 自己的状态，先看 `SyncData`；要让一个已注册对象的成员进入引擎对象图，才考虑 field/property Attribute；要注册对象图的根和类型身份，再看 [SaveableTypeDefiner](./SaveableTypeDefiner)。
+想理解整条链路与防坏档规范，见 [存档系统架构](../../architecture/save-system/)（定义收集、驱动、版本迁移的全貌），以及 [崩溃边界](../../architecture/crash-boundaries/) 中关于存档损坏模式（id 冲突、类型漂移、半截写盘）的剖析——它们与上面 `LocalSaveId` 契约的约束直接对应。
 
 <!-- BEGIN SECTION INDEX -->
 
@@ -154,7 +132,7 @@ protected override void DefineRootClassTypes()
 - [MemberSaveData](./MemberSaveData)
 - [MemberTypeId](./MemberTypeId)
 - [MetaData](./MetaData)
-- [MetaDataExtensions](./MetaDataExtensions)
+- [MetaDataExtensions](./MetaDataExtensions__TaleWorlds_SaveSystem)
 
 ### O
 

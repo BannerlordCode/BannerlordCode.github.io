@@ -8,7 +8,7 @@ description: "Decal 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class Decal : GameEntityComponent`
 **Base:** `GameEntityComponent`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Decal.cs`
+**File:** `TaleWorlds.Engine/Decal.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "Decal 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `IsValid` | `public bool IsValid { get; }` |
 | `Frame` | `public MatrixFrame Frame { get; set; }` |
 
 ## 主要方法

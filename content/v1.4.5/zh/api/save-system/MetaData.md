@@ -8,7 +8,7 @@ description: "MetaData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class MetaData`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/MetaData.cs`
+**File:** `TaleWorlds.SaveSystem/MetaData.cs`
 
 ## 概述
 
@@ -22,7 +22,9 @@ description: "MetaData 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `Count` | `public int Count { get; }` |
 | `this` | `public string this { get; set; }` |
+| `Keys` | `public Dictionary<string, string>.KeyCollection Keys { get; }` |
 
 ## 主要方法
 

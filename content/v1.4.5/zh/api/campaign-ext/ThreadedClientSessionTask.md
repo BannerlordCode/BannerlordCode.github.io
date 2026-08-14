@@ -8,7 +8,7 @@ description: "ThreadedClientSessionTask 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `internal abstract class ThreadedClientSessionTask`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/ThreadedClientSessionTask.cs`
+**File:** `TaleWorlds.Diamond/ThreadedClientSessionTask.cs`
 
 ## 概述
 

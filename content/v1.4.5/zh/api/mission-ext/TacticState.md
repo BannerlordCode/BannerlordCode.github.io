@@ -8,7 +8,7 @@ description: "TacticState 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum TacticState`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticDefendCastle.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticDefendCastle.cs`
 
 ## 概述
 

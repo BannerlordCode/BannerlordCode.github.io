@@ -8,7 +8,7 @@ description: "TeamAIGeneral 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TeamAIGeneral : TeamAIComponent`
 **Base:** `TeamAIComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TeamAIGeneral.cs`
+**File:** `TaleWorlds.MountAndBlade/TeamAIGeneral.cs`
 
 ## 概述
 
@@ -29,17 +29,6 @@ description: "TeamAIGeneral 的自动生成类参考。"
 // 先通过子系统 API 拿到 TeamAIGeneral 实例
 TeamAIGeneral teamAIGeneral = ...;
 teamAIGeneral.OnUnitAddedToFormationForTheFirstTime(formation);
-```
-
-### OnDeploymentFinished
-`public override void OnDeploymentFinished()`
-
-**用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 TeamAIGeneral 实例
-TeamAIGeneral teamAIGeneral = ...;
-teamAIGeneral.OnDeploymentFinished();
 ```
 
 ## 使用示例

@@ -8,7 +8,7 @@ description: "PartyHotKeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class PartyHotKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/PartyHotKeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/PartyHotKeyCategory.cs`
 
 ## 概述
 

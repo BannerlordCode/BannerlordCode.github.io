@@ -6,9 +6,9 @@ description: "MultiplayerScoreboardEndOfBattlePanelWidget 的自动生成类参�
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class MultiplayerScoreboardEndOfBattlePanelWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard/MultiplayerScoreboardEndOfBattlePanelWidget.cs`
+**Type:** `public class MultiplayerScoreboardEndOfBattlePanelWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Scoreboard/MultiplayerScoreboardEndOfBattlePanelWidget.cs`
 
 ## 概述
 
@@ -27,17 +27,6 @@ description: "MultiplayerScoreboardEndOfBattlePanelWidget 的自动生成类参�
 | `SecondDelay` | `public float SecondDelay { get; set; }` |
 
 ## 主要方法
-
-### MultiplayerScoreboardEndOfBattlePanelWidget
-`public class MultiplayerScoreboardEndOfBattlePanelWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 MultiplayerScoreboardEndOfBattlePanelWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerScoreboardEndOfBattlePanelWidget 实例
-MultiplayerScoreboardEndOfBattlePanelWidget multiplayerScoreboardEndOfBattlePanelWidget = ...;
-var result = multiplayerScoreboardEndOfBattlePanelWidget.MultiplayerScoreboardEndOfBattlePanelWidget(context);
-```
 
 ### StartAnimation
 `public void StartAnimation()`

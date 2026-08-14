@@ -8,7 +8,7 @@ description: "MBMusicManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBMusicManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBMusicManager.cs`
+**File:** `TaleWorlds.MountAndBlade/MBMusicManager.cs`
 
 ## 概述
 
@@ -26,72 +26,6 @@ description: "MBMusicManager 的自动生成类参考。"
 | `CurrentMode` | `public MusicMode CurrentMode { get; }` |
 
 ## 主要方法
-
-### GetCampaignTheme
-`public MusicTheme GetCampaignTheme(BasicCultureObject culture, bool isDark)`
-
-**用途 / Purpose:** 读取并返回当前对象中 campaign theme 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MBMusicManager 实例
-MBMusicManager mBMusicManager = ...;
-var result = mBMusicManager.GetCampaignTheme(culture, false);
-```
-
-### GetCampaignDramaticThemeWithCulture
-`public MusicTheme GetCampaignDramaticThemeWithCulture(BasicCultureObject culture)`
-
-**用途 / Purpose:** 读取并返回当前对象中 campaign dramatic theme with culture 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MBMusicManager 实例
-MBMusicManager mBMusicManager = ...;
-var result = mBMusicManager.GetCampaignDramaticThemeWithCulture(culture);
-```
-
-### GetSeaCampignMusic
-`public MusicTheme GetSeaCampignMusic(BasicCultureObject culture)`
-
-**用途 / Purpose:** 读取并返回当前对象中 sea campign music 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MBMusicManager 实例
-MBMusicManager mBMusicManager = ...;
-var result = mBMusicManager.GetSeaCampignMusic(culture);
-```
-
-### GetBattleTheme
-`public MusicTheme GetBattleTheme(BasicCultureObject culture, int battleSize, out bool isPaganBattle)`
-
-**用途 / Purpose:** 读取并返回当前对象中 battle theme 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MBMusicManager 实例
-MBMusicManager mBMusicManager = ...;
-var result = mBMusicManager.GetBattleTheme(culture, 0, isPaganBattle);
-```
-
-### GetSiegeTheme
-`public MusicTheme GetSiegeTheme(BasicCultureObject culture)`
-
-**用途 / Purpose:** 读取并返回当前对象中 siege theme 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MBMusicManager 实例
-MBMusicManager mBMusicManager = ...;
-var result = mBMusicManager.GetSiegeTheme(culture);
-```
-
-### GetBattleEndTheme
-`public MusicTheme GetBattleEndTheme(BasicCultureObject culture, bool isVictorious)`
-
-**用途 / Purpose:** 读取并返回当前对象中 battle end theme 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MBMusicManager 实例
-MBMusicManager mBMusicManager = ...;
-var result = mBMusicManager.GetBattleEndTheme(culture, false);
-```
 
 ### IsCreationCompleted
 `public static bool IsCreationCompleted()`
@@ -374,6 +308,72 @@ var result = mBMusicManager.GetBattleTurnsOneSideTheme(culture, false, false);
 // 先通过子系统 API 拿到 MBMusicManager 实例
 MBMusicManager mBMusicManager = ...;
 var result = mBMusicManager.GetCampaignMusicTheme(culture, false, false, false);
+```
+
+### GetCampaignTheme
+`public MusicTheme GetCampaignTheme(BasicCultureObject culture, bool isDark)`
+
+**用途 / Purpose:** 读取并返回当前对象中 campaign theme 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBMusicManager 实例
+MBMusicManager mBMusicManager = ...;
+var result = mBMusicManager.GetCampaignTheme(culture, false);
+```
+
+### GetCampaignDramaticThemeWithCulture
+`public MusicTheme GetCampaignDramaticThemeWithCulture(BasicCultureObject culture)`
+
+**用途 / Purpose:** 读取并返回当前对象中 campaign dramatic theme with culture 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBMusicManager 实例
+MBMusicManager mBMusicManager = ...;
+var result = mBMusicManager.GetCampaignDramaticThemeWithCulture(culture);
+```
+
+### GetSeaCampignMusic
+`public MusicTheme GetSeaCampignMusic(BasicCultureObject culture)`
+
+**用途 / Purpose:** 读取并返回当前对象中 sea campign music 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBMusicManager 实例
+MBMusicManager mBMusicManager = ...;
+var result = mBMusicManager.GetSeaCampignMusic(culture);
+```
+
+### GetBattleTheme
+`public MusicTheme GetBattleTheme(BasicCultureObject culture, int battleSize, out bool isPaganBattle)`
+
+**用途 / Purpose:** 读取并返回当前对象中 battle theme 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBMusicManager 实例
+MBMusicManager mBMusicManager = ...;
+var result = mBMusicManager.GetBattleTheme(culture, 0, isPaganBattle);
+```
+
+### GetSiegeTheme
+`public MusicTheme GetSiegeTheme(BasicCultureObject culture)`
+
+**用途 / Purpose:** 读取并返回当前对象中 siege theme 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBMusicManager 实例
+MBMusicManager mBMusicManager = ...;
+var result = mBMusicManager.GetSiegeTheme(culture);
+```
+
+### GetBattleEndTheme
+`public MusicTheme GetBattleEndTheme(BasicCultureObject culture, bool isVictorious)`
+
+**用途 / Purpose:** 读取并返回当前对象中 battle end theme 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBMusicManager 实例
+MBMusicManager mBMusicManager = ...;
+var result = mBMusicManager.GetBattleEndTheme(culture, false);
 ```
 
 ## 使用示例

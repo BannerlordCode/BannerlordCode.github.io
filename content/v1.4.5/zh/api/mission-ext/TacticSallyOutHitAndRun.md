@@ -8,7 +8,7 @@ description: "TacticSallyOutHitAndRun 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticSallyOutHitAndRun : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticSallyOutHitAndRun.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticSallyOutHitAndRun.cs`
 
 ## 概述
 

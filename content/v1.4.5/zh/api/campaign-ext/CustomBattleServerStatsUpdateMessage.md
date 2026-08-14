@@ -8,7 +8,7 @@ description: "CustomBattleServerStatsUpdateMessage 的自动生成类参考。"
 **Module:** Messages.FromCustomBattleServer
 **Type:** `public class CustomBattleServerStatsUpdateMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/CustomBattleServerStatsUpdateMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromCustomBattleServer/ToCustomBattleServerManager/CustomBattleServerStatsUpdateMessage.cs`
 
 ## 概述
 

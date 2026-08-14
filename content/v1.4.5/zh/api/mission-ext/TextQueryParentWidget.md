@@ -8,7 +8,7 @@ description: "TextQueryParentWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TextQueryParentWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Popup/TextQueryParentWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Popup/TextQueryParentWidget.cs`
 
 ## 概述
 

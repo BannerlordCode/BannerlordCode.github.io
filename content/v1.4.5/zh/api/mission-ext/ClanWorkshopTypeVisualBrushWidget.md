@@ -6,9 +6,9 @@ description: "ClanWorkshopTypeVisualBrushWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class ClanWorkshopTypeVisualBrushWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan/ClanWorkshopTypeVisualBrushWidget.cs`
+**Type:** `public class ClanWorkshopTypeVisualBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Clan/ClanWorkshopTypeVisualBrushWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "ClanWorkshopTypeVisualBrushWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `WorkshopType` | `public string WorkshopType { get; set; }` |
-
-## 主要方法
-
-### ClanWorkshopTypeVisualBrushWidget
-`public class ClanWorkshopTypeVisualBrushWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 ClanWorkshopTypeVisualBrushWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ClanWorkshopTypeVisualBrushWidget 实例
-ClanWorkshopTypeVisualBrushWidget clanWorkshopTypeVisualBrushWidget = ...;
-var result = clanWorkshopTypeVisualBrushWidget.ClanWorkshopTypeVisualBrushWidget(context);
-```
 
 ## 使用示例
 

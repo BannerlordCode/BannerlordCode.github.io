@@ -8,7 +8,7 @@ description: "AgentData 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class AgentData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/AgentData.cs`
+**File:** `TaleWorlds.Core/AgentData.cs`
 
 ## 概述
 

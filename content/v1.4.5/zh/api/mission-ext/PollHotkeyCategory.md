@@ -8,7 +8,7 @@ description: "PollHotkeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class PollHotkeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/PollHotkeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/PollHotkeyCategory.cs`
 
 ## 概述
 

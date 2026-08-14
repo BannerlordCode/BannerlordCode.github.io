@@ -8,7 +8,7 @@ description: "ManagedNumericOptionData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ManagedNumericOptionData : ManagedOptionData, INumericOptionData, IOptionData`
 **Base:** `ManagedOptionData`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options.ManagedOptions/ManagedNumericOptionData.cs`
+**File:** `TaleWorlds.MountAndBlade/Options/ManagedOptions/ManagedNumericOptionData.cs`
 
 ## 概述
 

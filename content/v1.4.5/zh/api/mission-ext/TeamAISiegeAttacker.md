@@ -8,7 +8,7 @@ description: "TeamAISiegeAttacker 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TeamAISiegeAttacker : TeamAISiegeComponent`
 **Base:** `TeamAISiegeComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TeamAISiegeAttacker.cs`
+**File:** `TaleWorlds.MountAndBlade/TeamAISiegeAttacker.cs`
 
 ## 概述
 
@@ -17,6 +17,12 @@ description: "TeamAISiegeAttacker 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `ArcherPositions` | `public MBReadOnlyList<ArcherPosition> ArcherPositions { get; }` |
 
 ## 主要方法
 

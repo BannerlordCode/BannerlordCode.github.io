@@ -8,7 +8,7 @@ description: "MissionLeaveBarSliderWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionLeaveBarSliderWidget : SliderWidget`
 **Base:** `SliderWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/MissionLeaveBarSliderWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/MissionLeaveBarSliderWidget.cs`
 
 ## 概述
 

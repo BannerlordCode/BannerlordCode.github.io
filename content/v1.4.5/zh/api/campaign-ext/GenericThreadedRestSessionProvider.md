@@ -8,7 +8,7 @@ description: "GenericThreadedRestSessionProvider 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class GenericThreadedRestSessionProvider<T> : IClientSessionProvider<T> where T : Client<T>`
 **Base:** `IClientSessionProvider<T> where T : Client<T>`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.ClientApplication/GenericThreadedRestSessionProvider.cs`
+**File:** `TaleWorlds.Diamond/ClientApplication/GenericThreadedRestSessionProvider.cs`
 
 ## 概述
 

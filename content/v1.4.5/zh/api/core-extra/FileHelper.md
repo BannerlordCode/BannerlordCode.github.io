@@ -8,7 +8,7 @@ description: "FileHelper 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class FileHelper`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/FileHelper.cs`
+**File:** `TaleWorlds.Library/FileHelper.cs`
 
 ## 概述
 

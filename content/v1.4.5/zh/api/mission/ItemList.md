@@ -8,7 +8,7 @@ description: "ItemList 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal class ItemList`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ItemList.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ItemList.cs`
 
 ## 概述
 

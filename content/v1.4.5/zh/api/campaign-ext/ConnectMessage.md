@@ -8,7 +8,7 @@ description: "ConnectMessage 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class ConnectMessage : RestRequestMessage`
 **Base:** `RestRequestMessage`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/ConnectMessage.cs`
+**File:** `TaleWorlds.Diamond/Rest/ConnectMessage.cs`
 
 ## 概述
 

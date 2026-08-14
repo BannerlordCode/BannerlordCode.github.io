@@ -8,7 +8,7 @@ description: "LinearFrictionTerm 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct LinearFrictionTerm`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/LinearFrictionTerm.cs`
+**File:** `TaleWorlds.Core/LinearFrictionTerm.cs`
 
 ## 概述
 
@@ -23,6 +23,8 @@ description: "LinearFrictionTerm 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `IsValid` | `public bool IsValid { get; }` |
+| `Invalid` | `public static LinearFrictionTerm Invalid { get; }` |
+| `One` | `public static LinearFrictionTerm One { get; }` |
 
 ## 主要方法
 
@@ -35,17 +37,6 @@ description: "LinearFrictionTerm 的自动生成类参考。"
 // 先通过子系统 API 拿到 LinearFrictionTerm 实例
 LinearFrictionTerm linearFrictionTerm = ...;
 var result = linearFrictionTerm.ElementWiseProduct(o);
-```
-
-### NearlyEquals
-`public bool NearlyEquals(in LinearFrictionTerm o, float epsilon = 1E-05f)`
-
-**用途 / Purpose:** 调用 NearlyEquals 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 LinearFrictionTerm 实例
-LinearFrictionTerm linearFrictionTerm = ...;
-var result = linearFrictionTerm.NearlyEquals(o, 0);
 ```
 
 ## 使用示例

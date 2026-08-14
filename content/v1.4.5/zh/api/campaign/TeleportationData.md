@@ -8,7 +8,7 @@ description: "TeleportationData 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class TeleportationData`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/TeleportationCampaignBehavior.cs`
+**File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/TeleportationCampaignBehavior.cs`
 
 ## 概述
 

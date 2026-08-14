@@ -8,7 +8,7 @@ description: "SteamAccessObject 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class SteamAccessObject : AccessObject`
 **Base:** `AccessObject`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/SteamAccessObject.cs`
+**File:** `TaleWorlds.Diamond/SteamAccessObject.cs`
 
 ## 概述
 

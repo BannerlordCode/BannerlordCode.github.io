@@ -8,7 +8,7 @@ description: "GameNetwork 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class GameNetwork`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameNetwork.cs`
+**File:** `TaleWorlds.MountAndBlade/GameNetwork.cs`
 
 ## 概述
 
@@ -24,7 +24,11 @@ description: "GameNetwork 的自动生成类参考。"
 |------|-----------|
 | `IsServer` | `public static bool IsServer { get; }` |
 | `IsServerOrRecorder` | `public static bool IsServerOrRecorder { get; }` |
+| `IsClient` | `public static bool IsClient { get; }` |
+| `IsReplay` | `public static bool IsReplay { get; }` |
 | `IsClientOrReplay` | `public static bool IsClientOrReplay { get; }` |
+| `IsDedicatedServer` | `public static bool IsDedicatedServer { get; }` |
+| `MultiplayerDisabled` | `public static bool MultiplayerDisabled { get; }` |
 | `IsMultiplayer` | `public static bool IsMultiplayer { get; }` |
 | `IsMultiplayerOrReplay` | `public static bool IsMultiplayerOrReplay { get; }` |
 | `IsSessionActive` | `public static bool IsSessionActive { get; }` |
@@ -32,34 +36,14 @@ description: "GameNetwork 的自动生成类参考。"
 | `VirtualPlayers` | `public static VirtualPlayer VirtualPlayers { get; }` |
 | `NetworkPeers` | `public static List<NetworkCommunicator> NetworkPeers { get; }` |
 | `DisconnectedNetworkPeers` | `public static List<NetworkCommunicator> DisconnectedNetworkPeers { get; }` |
+| `NetworkPeerCount` | `public static int NetworkPeerCount { get; }` |
+| `NetworkPeersValid` | `public static bool NetworkPeersValid { get; }` |
 | `NetworkComponents` | `public static List<UdpNetworkComponent> NetworkComponents { get; }` |
 | `NetworkHandlers` | `public static List<IUdpNetworkHandler> NetworkHandlers { get; }` |
 | `MyPeer` | `public static NetworkCommunicator MyPeer { get; }` |
 | `IsMyPeerReady` | `public static bool IsMyPeerReady { get; }` |
 
 ## 主要方法
-
-### RegisterMessages
-`public void RegisterMessages()`
-
-**用途 / Purpose:** 将messages注册到当前系统，以便后续监听或分发。
-
-```csharp
-// 先通过子系统 API 拿到 GameNetwork 实例
-GameNetwork gameNetwork = ...;
-gameNetwork.RegisterMessages();
-```
-
-### UnregisterMessages
-`public void UnregisterMessages()`
-
-**用途 / Purpose:** 从当前系统中注销messages。
-
-```csharp
-// 先通过子系统 API 拿到 GameNetwork 实例
-GameNetwork gameNetwork = ...;
-gameNetwork.UnregisterMessages();
-```
 
 ### ClearAllPeers
 `public static void ClearAllPeers()`
@@ -172,7 +156,7 @@ GameNetwork.AddNewPlayerOnServer(playerConnectionInfo, false, false);
 ```
 
 ### AddNewPlayersOnServer
-`public static AddPlayersResult AddNewPlayersOnServer(PlayerConnectionInfo playerConnectionInfos, bool serverPeer)`
+`public static GameNetwork.AddPlayersResult AddNewPlayersOnServer(PlayerConnectionInfo playerConnectionInfos, bool serverPeer)`
 
 **用途 / Purpose:** 将 new players on server 添加到当前容器或状态中。
 
@@ -302,7 +286,7 @@ GameNetwork.BeginBroadcastModuleEvent();
 ```
 
 ### EndBroadcastModuleEvent
-`public static void EndBroadcastModuleEvent(EventBroadcastFlags broadcastFlags, NetworkCommunicator targetPlayer = null)`
+`public static void EndBroadcastModuleEvent(GameNetwork.EventBroadcastFlags broadcastFlags, NetworkCommunicator targetPlayer = null)`
 
 **用途 / Purpose:** 调用 EndBroadcastModuleEvent 对应的操作。
 
@@ -322,7 +306,7 @@ GameNetwork.ElapsedTimeSinceLastUdpPacketArrived();
 ```
 
 ### EndBroadcastModuleEventUnreliable
-`public static void EndBroadcastModuleEventUnreliable(EventBroadcastFlags broadcastFlags, NetworkCommunicator targetPlayer = null)`
+`public static void EndBroadcastModuleEventUnreliable(GameNetwork.EventBroadcastFlags broadcastFlags, NetworkCommunicator targetPlayer = null)`
 
 **用途 / Purpose:** 调用 EndBroadcastModuleEventUnreliable 对应的操作。
 
@@ -342,7 +326,7 @@ GameNetwork.UnSynchronizeEveryone();
 ```
 
 ### AddRemoveMessageHandlers
-`public static void AddRemoveMessageHandlers(NetworkMessageHandlerRegisterer.RegisterMode mode)`
+`public static void AddRemoveMessageHandlers(GameNetwork.NetworkMessageHandlerRegisterer.RegisterMode mode)`
 
 **用途 / Purpose:** 将 remove message handlers 添加到当前容器或状态中。
 
@@ -372,7 +356,7 @@ GameNetwork.HandleNewClientConnect(playerConnectionInfo, false);
 ```
 
 ### HandleNewClientsConnect
-`public static AddPlayersResult HandleNewClientsConnect(PlayerConnectionInfo playerConnectionInfos, bool isAdmin)`
+`public static GameNetwork.AddPlayersResult HandleNewClientsConnect(PlayerConnectionInfo playerConnectionInfos, bool isAdmin)`
 
 **用途 / Purpose:** 响应 new clients connect 事件，执行对应的处理逻辑。
 
@@ -532,7 +516,7 @@ GameNetwork.GetAveragePacketLossRatio();
 ```
 
 ### GetDebugUploadsInBits
-`public static void GetDebugUploadsInBits(ref DebugNetworkPacketStatisticsStruct networkStatisticsStruct, ref DebugNetworkPositionCompressionStatisticsStruct posStatisticsStruct)`
+`public static void GetDebugUploadsInBits(ref GameNetwork.DebugNetworkPacketStatisticsStruct networkStatisticsStruct, ref GameNetwork.DebugNetworkPositionCompressionStatisticsStruct posStatisticsStruct)`
 
 **用途 / Purpose:** 读取并返回当前对象中 debug uploads in bits 的结果。
 
@@ -591,12 +575,32 @@ GameNetwork.ResetMissionData();
 GameNetwork.InitializeCompressionInfos();
 ```
 
+### RegisterMessages
+`public void RegisterMessages()`
+
+**用途 / Purpose:** 将messages注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 GameNetwork 实例
+GameNetwork gameNetwork = ...;
+gameNetwork.RegisterMessages();
+```
+
+### UnregisterMessages
+`public void UnregisterMessages()`
+
+**用途 / Purpose:** 从当前系统中注销messages。
+
+```csharp
+// 先通过子系统 API 拿到 GameNetwork 实例
+GameNetwork gameNetwork = ...;
+gameNetwork.UnregisterMessages();
+```
+
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-GameNetwork gameNetwork = ...;
-gameNetwork.RegisterMessages();
+GameNetwork.ClearAllPeers();
 ```
 
 ## 参见

@@ -8,7 +8,7 @@ description: "LauncherRandomImageWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherRandomImageWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets/LauncherRandomImageWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/CustomWidgets/LauncherRandomImageWidget.cs`
 
 ## 概述
 

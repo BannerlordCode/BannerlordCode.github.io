@@ -8,7 +8,7 @@ description: "IObjectTypeRecord 的自动生成类参考。"
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `internal interface IObjectTypeRecord : IEnumerable`
 **Base:** `IEnumerable`
-**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBObjectManager.cs`
+**File:** `TaleWorlds.ObjectSystem/MBObjectManager.cs`
 
 ## 概述
 

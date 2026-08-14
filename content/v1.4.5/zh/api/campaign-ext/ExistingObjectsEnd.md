@@ -8,7 +8,7 @@ description: "ExistingObjectsEnd 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class ExistingObjectsEnd : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/ExistingObjectsEnd.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/ExistingObjectsEnd.cs`
 
 ## 概述
 

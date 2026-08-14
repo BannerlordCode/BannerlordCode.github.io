@@ -8,7 +8,7 @@ description: "IReadOnlyPropertyOwnerF 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface IReadOnlyPropertyOwnerF<T>`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IReadOnlyPropertyOwnerF.cs`
+**File:** `TaleWorlds.Core/IReadOnlyPropertyOwnerF.cs`
 
 ## 概述
 

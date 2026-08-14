@@ -8,7 +8,7 @@ description: "PostfxConfig 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum PostfxConfig : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/View.cs`
+**File:** `TaleWorlds.Engine/View.cs`
 
 ## 概述
 

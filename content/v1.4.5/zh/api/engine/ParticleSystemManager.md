@@ -8,7 +8,7 @@ description: "ParticleSystemManager 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class ParticleSystemManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ParticleSystemManager.cs`
+**File:** `TaleWorlds.Engine/ParticleSystemManager.cs`
 
 ## 概述
 

@@ -6,9 +6,9 @@ description: "KingdomCardItemContainerWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class KingdomCardItemContainerWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/KingdomCardItemContainerWidget.cs`
+**Type:** `public class KingdomCardItemContainerWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Kingdom/KingdomCardItemContainerWidget.cs`
 
 ## 概述
 
@@ -17,19 +17,6 @@ description: "KingdomCardItemContainerWidget 的自动生成类参考。"
 ## 心智模型
 
 把 `KingdomCardItemContainerWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
-
-## 主要方法
-
-### KingdomCardItemContainerWidget
-`public class KingdomCardItemContainerWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 KingdomCardItemContainerWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 KingdomCardItemContainerWidget 实例
-KingdomCardItemContainerWidget kingdomCardItemContainerWidget = ...;
-var result = kingdomCardItemContainerWidget.KingdomCardItemContainerWidget(context);
-```
 
 ## 使用示例
 

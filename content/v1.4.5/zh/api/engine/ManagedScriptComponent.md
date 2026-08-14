@@ -8,7 +8,7 @@ description: "ManagedScriptComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class ManagedScriptComponent : ScriptComponent`
 **Base:** `ScriptComponent`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ManagedScriptComponent.cs`
+**File:** `TaleWorlds.Engine/ManagedScriptComponent.cs`
 
 ## 概述
 
@@ -17,6 +17,12 @@ description: "ManagedScriptComponent 的自动生成类参考。"
 ## 心智模型
 
 把 `ManagedScriptComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `ScriptComponentBehavior` | `public ScriptComponentBehavior ScriptComponentBehavior { get; }` |
 
 ## 主要方法
 

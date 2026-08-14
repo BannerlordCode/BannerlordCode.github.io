@@ -8,7 +8,7 @@ description: "SpawningBehaviorBase 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class SpawningBehaviorBase`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SpawningBehaviorBase.cs`
+**File:** `TaleWorlds.MountAndBlade/SpawningBehaviorBase.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "SpawningBehaviorBase 的自动生成类参考。"
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### OnSpawningEndedEventDelegate
-`public delegate void OnSpawningEndedEventDelegate()`
-
-**用途 / Purpose:** 在 spawning ended event delegate 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 SpawningBehaviorBase 实例
-SpawningBehaviorBase spawningBehaviorBase = ...;
-spawningBehaviorBase.OnSpawningEndedEventDelegate();
-```
 
 ### Initialize
 `public virtual void Initialize(SpawnComponent spawnComponent)`
@@ -172,6 +161,17 @@ spawningBehaviorBase.OnClearScene();
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例
 SpawningBehaviorBase spawningBehaviorBase = ...;
 spawningBehaviorBase.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
+
+### OnSpawningEndedEventDelegate
+`public delegate void OnSpawningEndedEventDelegate()`
+
+**用途 / Purpose:** 在 spawning ended event delegate 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SpawningBehaviorBase 实例
+SpawningBehaviorBase spawningBehaviorBase = ...;
+spawningBehaviorBase.OnSpawningEndedEventDelegate();
 ```
 
 ## 使用示例

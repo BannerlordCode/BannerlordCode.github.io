@@ -8,7 +8,7 @@ description: "ConversationHotKeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class ConversationHotKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ConversationHotKeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/ConversationHotKeyCategory.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "CustomBattleServerReadyMessage 的自动生成类参考。"
 **Module:** Messages.FromCustomBattleServer
 **Type:** `public class CustomBattleServerReadyMessage : LoginMessage`
 **Base:** `LoginMessage`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/CustomBattleServerReadyMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromCustomBattleServer/ToCustomBattleServerManager/CustomBattleServerReadyMessage.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "BehaviorGeneral 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorGeneral : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorGeneral.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorGeneral.cs`
 
 ## 概述
 

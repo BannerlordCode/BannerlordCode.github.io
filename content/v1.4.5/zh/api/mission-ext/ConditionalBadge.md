@@ -8,7 +8,7 @@ description: "ConditionalBadge 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ConditionalBadge : Badge`
 **Base:** `Badge`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/ConditionalBadge.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/MultiplayerBadges/ConditionalBadge.cs`
 
 ## 概述
 

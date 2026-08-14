@@ -8,7 +8,7 @@ description: "AgentList 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentList : AgentReadOnlyList`
 **Base:** `AgentReadOnlyList`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions/AgentList.cs`
+**File:** `TaleWorlds.MountAndBlade/Missions/AgentList.cs`
 
 ## 概述
 

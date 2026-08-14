@@ -8,7 +8,7 @@ description: "ElementNotificationVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class ElementNotificationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Tutorial/ElementNotificationVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/Tutorial/ElementNotificationVM.cs`
 
 ## 概述
 

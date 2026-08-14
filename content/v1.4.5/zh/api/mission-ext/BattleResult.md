@@ -8,7 +8,7 @@ description: "BattleResult 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleResult`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BattleResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/BattleResult.cs`
 
 ## 概述
 

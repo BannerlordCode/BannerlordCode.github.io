@@ -8,7 +8,7 @@ description: "ElementSaveData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class ElementSaveData : VariableSaveData`
 **Base:** `VariableSaveData`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/ElementSaveData.cs`
+**File:** `TaleWorlds.SaveSystem/Save/ElementSaveData.cs`
 
 ## 概述
 

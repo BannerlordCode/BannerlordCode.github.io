@@ -8,7 +8,7 @@ description: "LauncherPlatformType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum LauncherPlatformType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherPlatformType.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/LauncherPlatformType.cs`
 
 ## 概述
 

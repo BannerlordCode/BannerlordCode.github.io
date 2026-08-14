@@ -8,7 +8,7 @@ description: "DefaultAgentDecideKilledOrUnconsciousModel 的自动生成类参�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultAgentDecideKilledOrUnconsciousModel : AgentDecideKilledOrUnconsciousModel`
 **Base:** `AgentDecideKilledOrUnconsciousModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultAgentDecideKilledOrUnconsciousModel.cs`
+**File:** `TaleWorlds.MountAndBlade/DefaultAgentDecideKilledOrUnconsciousModel.cs`
 
 ## 概述
 

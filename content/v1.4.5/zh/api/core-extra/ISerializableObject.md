@@ -8,7 +8,7 @@ description: "ISerializableObject 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public interface ISerializableObject`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ISerializableObject.cs`
+**File:** `TaleWorlds.Library/ISerializableObject.cs`
 
 ## 概述
 

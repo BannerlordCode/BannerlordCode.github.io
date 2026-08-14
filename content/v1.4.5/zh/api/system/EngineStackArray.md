@@ -8,7 +8,7 @@ description: "EngineStackArray 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `internal class EngineStackArray`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/EngineStackArray.cs`
+**File:** `TaleWorlds.DotNet/EngineStackArray.cs`
 
 ## 概述
 

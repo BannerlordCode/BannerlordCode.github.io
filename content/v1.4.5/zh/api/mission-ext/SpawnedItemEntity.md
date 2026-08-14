@@ -8,7 +8,7 @@ description: "SpawnedItemEntity 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SpawnedItemEntity : UsableMissionObject`
 **Base:** `UsableMissionObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SpawnedItemEntity.cs`
+**File:** `TaleWorlds.MountAndBlade/SpawnedItemEntity.cs`
 
 ## 概述
 
@@ -22,8 +22,11 @@ description: "SpawnedItemEntity 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `WeaponCopy` | `public MissionWeapon WeaponCopy { get; set; }` |
 | `HasLifeTime` | `public bool HasLifeTime { get; set; }` |
+| `IsRemoved` | `public bool IsRemoved { get; }` |
 | `SpawnedOnACorpse` | `public bool SpawnedOnACorpse { get; }` |
+| `LockUserFrames` | `public override bool LockUserFrames { get; }` |
 | `SpawnFlags` | `public Mission.WeaponSpawnFlags SpawnFlags { get; }` |
 
 ## 主要方法
@@ -62,7 +65,7 @@ spawnedItemEntity.Initialize(weapon, false, spawnFlags, fakeSimulationVelocity, 
 ```
 
 ### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
 **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
@@ -216,14 +219,14 @@ spawnedItemEntity.RequestDeletionOnNextTick();
 ```
 
 ### OnAfterReadFromNetwork
-`public override void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
+`public override void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
 **用途 / Purpose:** 在 after read from network 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnedItemEntity 实例
 SpawnedItemEntity spawnedItemEntity = ...;
-spawnedItemEntity.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
+spawnedItemEntity.OnAfterReadFromNetwork(valueTuple<BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
 ```
 
 ## 使用示例

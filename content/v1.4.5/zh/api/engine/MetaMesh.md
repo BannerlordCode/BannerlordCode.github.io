@@ -8,7 +8,7 @@ description: "MetaMesh 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class MetaMesh : GameEntityComponent`
 **Base:** `GameEntityComponent`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/MetaMesh.cs`
+**File:** `TaleWorlds.Engine/MetaMesh.cs`
 
 ## 概述
 
@@ -22,6 +22,8 @@ description: "MetaMesh 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `IsValid` | `public bool IsValid { get; }` |
+| `MeshCount` | `public int MeshCount { get; }` |
 | `Frame` | `public MatrixFrame Frame { get; set; }` |
 | `VectorUserData` | `public Vec3 VectorUserData { get; set; }` |
 

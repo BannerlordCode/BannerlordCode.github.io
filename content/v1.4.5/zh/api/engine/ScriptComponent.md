@@ -8,7 +8,7 @@ description: "ScriptComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public abstract class ScriptComponent : NativeObject`
 **Base:** `NativeObject`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ScriptComponent.cs`
+**File:** `TaleWorlds.Engine/ScriptComponent.cs`
 
 ## 概述
 

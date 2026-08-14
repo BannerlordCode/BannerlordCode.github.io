@@ -8,7 +8,7 @@ description: "CustomBattleAgentStatCalculateModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleAgentStatCalculateModel : AgentStatCalculateModel`
 **Base:** `AgentStatCalculateModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleAgentStatCalculateModel.cs`
+**File:** `TaleWorlds.MountAndBlade/CustomBattleAgentStatCalculateModel.cs`
 
 ## 概述
 
@@ -128,17 +128,6 @@ var result = customBattleAgentStatCalculateModel.GetKnockDownResistance(agent, s
 // 先通过子系统 API 拿到 CustomBattleAgentStatCalculateModel 实例
 CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
 var result = customBattleAgentStatCalculateModel.GetDismountResistance(agent);
-```
-
-### GetWeaponInaccuracy
-`public override float GetWeaponInaccuracy(Agent agent, WeaponComponentData weapon, int weaponSkill)`
-
-**用途 / Purpose:** 读取并返回当前对象中 weapon inaccuracy 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 CustomBattleAgentStatCalculateModel 实例
-CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
-var result = customBattleAgentStatCalculateModel.GetWeaponInaccuracy(agent, weapon, 0);
 ```
 
 ### GetBreatheHoldMaxDuration

@@ -6,9 +6,9 @@ description: "ClanLordStatusWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class ClanLordStatusWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan/ClanLordStatusWidget.cs`
+**Type:** `public class ClanLordStatusWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Clan/ClanLordStatusWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "ClanLordStatusWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `StatusType` | `public int StatusType { get; set; }` |
-
-## 主要方法
-
-### ClanLordStatusWidget
-`public class ClanLordStatusWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 ClanLordStatusWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ClanLordStatusWidget 实例
-ClanLordStatusWidget clanLordStatusWidget = ...;
-var result = clanLordStatusWidget.ClanLordStatusWidget(context);
-```
 
 ## 使用示例
 

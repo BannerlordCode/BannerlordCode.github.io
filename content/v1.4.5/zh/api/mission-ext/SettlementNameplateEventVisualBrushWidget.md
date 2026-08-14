@@ -8,7 +8,7 @@ description: "SettlementNameplateEventVisualBrushWidget 的自动生成类参考
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SettlementNameplateEventVisualBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate/SettlementNameplateEventVisualBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Nameplate/SettlementNameplateEventVisualBrushWidget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "BodyMeshMaturityType 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum BodyMeshMaturityType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BodyMeshMaturityType.cs`
+**File:** `TaleWorlds.Core/BodyMeshMaturityType.cs`
 
 ## 概述
 

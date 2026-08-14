@@ -8,7 +8,7 @@ description: "MapHotKeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class MapHotKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MapHotKeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/MapHotKeyCategory.cs`
 
 ## 概述
 

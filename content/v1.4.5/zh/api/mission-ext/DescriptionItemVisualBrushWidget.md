@@ -6,9 +6,9 @@ description: "DescriptionItemVisualBrushWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class DescriptionItemVisualBrushWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/DescriptionItemVisualBrushWidget.cs`
+**Type:** `public class DescriptionItemVisualBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Menu/TownManagement/DescriptionItemVisualBrushWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "DescriptionItemVisualBrushWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Type` | `public int Type { get; set; }` |
-
-## 主要方法
-
-### DescriptionItemVisualBrushWidget
-`public class DescriptionItemVisualBrushWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 DescriptionItemVisualBrushWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 DescriptionItemVisualBrushWidget 实例
-DescriptionItemVisualBrushWidget descriptionItemVisualBrushWidget = ...;
-var result = descriptionItemVisualBrushWidget.DescriptionItemVisualBrushWidget(context);
-```
 
 ## 使用示例
 

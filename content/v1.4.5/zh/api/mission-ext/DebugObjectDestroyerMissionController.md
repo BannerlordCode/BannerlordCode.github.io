@@ -8,7 +8,7 @@ description: "DebugObjectDestroyerMissionController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DebugObjectDestroyerMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/DebugObjectDestroyerMissionController.cs`
+**File:** `TaleWorlds.MountAndBlade/Source/Missions/DebugObjectDestroyerMissionController.cs`
 
 ## 概述
 

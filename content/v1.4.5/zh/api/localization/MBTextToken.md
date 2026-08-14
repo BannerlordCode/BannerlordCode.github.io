@@ -8,7 +8,7 @@ description: "MBTextToken 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class MBTextToken`
 **Base:** 无
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor/MBTextToken.cs`
+**File:** `TaleWorlds.Localization/TextProcessor/MBTextToken.cs`
 
 ## 概述
 

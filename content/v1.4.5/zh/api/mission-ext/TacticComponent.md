@@ -8,7 +8,7 @@ description: "TacticComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class TacticComponent`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticComponent.cs`
 
 ## 概述
 

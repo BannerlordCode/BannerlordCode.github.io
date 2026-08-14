@@ -8,7 +8,7 @@ description: "IMBAnimation 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBAnimation`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBAnimation.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBAnimation.cs`
 
 ## 概述
 

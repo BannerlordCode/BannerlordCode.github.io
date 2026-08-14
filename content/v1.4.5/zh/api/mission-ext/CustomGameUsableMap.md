@@ -8,7 +8,7 @@ description: "CustomGameUsableMap 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomGameUsableMap`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomGameUsableMap.cs`
+**File:** `TaleWorlds.MountAndBlade/CustomGameUsableMap.cs`
 
 ## 概述
 

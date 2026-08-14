@@ -6,9 +6,9 @@ description: "ReinforcementFormationPreferenceComparer 的自动生成类参考�
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class ReinforcementFormationPreferenceComparer : IComparer<ReinforcementFormationPriority>`
-**Base:** `IComparer<ReinforcementFormationPriority>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionReinforcementsHelper.cs`
+**Type:** `public class ReinforcementFormationPreferenceComparer : IComparer<MissionReinforcementsHelper.ReinforcementFormationPriority>`
+**Base:** `IComparer<MissionReinforcementsHelper.ReinforcementFormationPriority>`
+**File:** `TaleWorlds.MountAndBlade/MissionReinforcementsHelper.cs`
 
 ## 概述
 
@@ -21,7 +21,7 @@ description: "ReinforcementFormationPreferenceComparer 的自动生成类参考�
 ## 主要方法
 
 ### Compare
-`public int Compare(ReinforcementFormationPriority left, ReinforcementFormationPriority right)`
+`public int Compare(MissionReinforcementsHelper.ReinforcementFormationPriority left, MissionReinforcementsHelper.ReinforcementFormationPriority right)`
 
 **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 

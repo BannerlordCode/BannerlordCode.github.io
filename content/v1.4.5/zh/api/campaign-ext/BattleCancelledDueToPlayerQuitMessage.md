@@ -8,7 +8,7 @@ description: "BattleCancelledDueToPlayerQuitMessage 的自动生成类参考。"
 **Module:** Messages.FromBattleServer
 **Type:** `public class BattleCancelledDueToPlayerQuitMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/BattleCancelledDueToPlayerQuitMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromBattleServer/ToBattleServerManager/BattleCancelledDueToPlayerQuitMessage.cs`
 
 ## 概述
 

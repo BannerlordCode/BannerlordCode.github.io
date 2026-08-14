@@ -8,7 +8,7 @@ description: "LauncherNewsItemVM 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherNewsItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherNewsItemVM.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/LauncherNewsItemVM.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "OptionCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OptionCategory`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options/OptionCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/Options/OptionCategory.cs`
 
 ## 概述
 

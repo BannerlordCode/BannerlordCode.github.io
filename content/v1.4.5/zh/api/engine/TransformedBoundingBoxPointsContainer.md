@@ -8,7 +8,7 @@ description: "TransformedBoundingBoxPointsContainer 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public struct TransformedBoundingBoxPointsContainer`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/BoundingBox.cs`
+**File:** `TaleWorlds.Engine/BoundingBox.cs`
 
 ## 概述
 
@@ -22,13 +22,27 @@ description: "TransformedBoundingBoxPointsContainer 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `this` | `public Vec3 this { get; set; }` |
+| `this` | `public Vec3 this { get; }` |
+
+## 主要方法
+
+### ComputeTransformedMinMax
+`public ValueTuple<Vec3, Vec3> ComputeTransformedMinMax()`
+
+**用途 / Purpose:** 调用 ComputeTransformedMinMax 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TransformedBoundingBoxPointsContainer 实例
+TransformedBoundingBoxPointsContainer transformedBoundingBoxPointsContainer = ...;
+var result = transformedBoundingBoxPointsContainer.ComputeTransformedMinMax();
+```
 
 ## 使用示例
 
 ```csharp
-// 从对应子系统 API 获取实例
-TransformedBoundingBoxPointsContainer instance = ...;
+// 通常从对应子系统 API 获取实例后调用
+TransformedBoundingBoxPointsContainer transformedBoundingBoxPointsContainer = ...;
+transformedBoundingBoxPointsContainer.ComputeTransformedMinMax();
 ```
 
 ## 参见

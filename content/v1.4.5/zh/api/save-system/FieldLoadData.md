@@ -8,7 +8,7 @@ description: "FieldLoadData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class FieldLoadData : MemberLoadData`
 **Base:** `MemberLoadData`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/FieldLoadData.cs`
+**File:** `TaleWorlds.SaveSystem/Load/FieldLoadData.cs`
 
 ## 概述
 

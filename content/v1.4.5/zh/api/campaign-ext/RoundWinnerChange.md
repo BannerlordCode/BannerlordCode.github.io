@@ -8,7 +8,7 @@ description: "RoundWinnerChange 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class RoundWinnerChange : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RoundWinnerChange.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/RoundWinnerChange.cs`
 
 ## 概述
 

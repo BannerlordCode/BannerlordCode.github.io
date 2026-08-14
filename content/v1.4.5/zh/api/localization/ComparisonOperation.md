@@ -8,7 +8,7 @@ description: "ComparisonOperation 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal enum ComparisonOperation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/ComparisonOperation.cs`
+**File:** `TaleWorlds.Localization/Expressions/ComparisonOperation.cs`
 
 ## 概述
 

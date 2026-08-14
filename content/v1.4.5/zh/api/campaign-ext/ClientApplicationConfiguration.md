@@ -8,7 +8,7 @@ description: "ClientApplicationConfiguration 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class ClientApplicationConfiguration`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.ClientApplication/ClientApplicationConfiguration.cs`
+**File:** `TaleWorlds.Diamond/ClientApplication/ClientApplicationConfiguration.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ObjectInstanceTracker 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class ObjectInstanceTracker`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ObjectInstanceTracker.cs`
+**File:** `TaleWorlds.Library/ObjectInstanceTracker.cs`
 
 ## 概述
 

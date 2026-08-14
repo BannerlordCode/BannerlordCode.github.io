@@ -8,7 +8,7 @@ description: "DisconnectType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum DisconnectType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/DisconnectType.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/DisconnectType.cs`
 
 ## 概述
 

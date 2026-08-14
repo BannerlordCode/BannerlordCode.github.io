@@ -8,7 +8,7 @@ description: "TroopUsageFlags 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum TroopUsageFlags : ushort`
 **Base:** `ushort`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TroopUsageFlags.cs`
+**File:** `TaleWorlds.Core/TroopUsageFlags.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "Dwmapi 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal static class Dwmapi`
 **Base:** 无
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/Dwmapi.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/Windows/Dwmapi.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "StopUsingObject 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class StopUsingObject : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/StopUsingObject.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/StopUsingObject.cs`
 
 ## 概述
 

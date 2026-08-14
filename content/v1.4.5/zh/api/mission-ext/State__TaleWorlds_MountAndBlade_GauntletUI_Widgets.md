@@ -8,7 +8,7 @@ description: "State 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum State`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/SettlementStatTextWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/SettlementStatTextWidget.cs`
 
 ## 概述
 

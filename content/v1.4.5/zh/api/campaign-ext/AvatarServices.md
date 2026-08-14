@@ -8,7 +8,7 @@ description: "AvatarServices 的自动生成类参考。"
 **Module:** TaleWorlds.Avatar
 **Type:** `public static class AvatarServices`
 **Base:** 无
-**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.Avatar.PlayerServices/AvatarServices.cs`
+**File:** `TaleWorlds.PlayerServices/Avatar/PlayerServices/AvatarServices.cs`
 
 ## 概述
 

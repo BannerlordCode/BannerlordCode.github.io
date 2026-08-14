@@ -8,7 +8,7 @@ description: "MultiplayerScoreboardStripedBackgroundWidget 的自动生成类参
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerScoreboardStripedBackgroundWidget : MultiplayerScoreboardStatsListPanel`
 **Base:** `MultiplayerScoreboardStatsListPanel`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard/MultiplayerScoreboardStripedBackgroundWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Scoreboard/MultiplayerScoreboardStripedBackgroundWidget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "TacticOption 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `class TacticOption`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TeamAIComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/TeamAIComponent.cs`
 
 ## 概述
 

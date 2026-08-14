@@ -8,7 +8,7 @@ description: "ResetAllTutorialsEvent 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class ResetAllTutorialsEvent : EventBase`
 **Base:** `EventBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ResetAllTutorialsEvent.cs`
+**File:** `TaleWorlds.Core/ResetAllTutorialsEvent.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "AmbientInformation 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct AmbientInformation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/AmbientInformation.cs`
+**File:** `TaleWorlds.Library/AmbientInformation.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IMBWindowManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBWindowManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBWindowManager.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBWindowManager.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MissionShipObject 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MissionShipObject : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MissionShipObject.cs`
+**File:** `TaleWorlds.Core/MissionShipObject.cs`
 
 ## 概述
 
@@ -39,6 +39,7 @@ description: "MissionShipObject 的自动生成类参考。"
 | `OarsmenForceMultiplier` | `public float OarsmenForceMultiplier { get; }` |
 | `OarsTipSpeed` | `public float OarsTipSpeed { get; }` |
 | `OarFrictionMultiplier` | `public float OarFrictionMultiplier { get; }` |
+| `Sails` | `public MBReadOnlyList<ShipSail> Sails { get; }` |
 | `OarCount` | `public int OarCount { get; }` |
 | `RudderBladeLength` | `public float RudderBladeLength { get; }` |
 | `RudderBladeHeight` | `public float RudderBladeHeight { get; }` |
@@ -51,9 +52,10 @@ description: "MissionShipObject 的自动生成类参考。"
 | `MaxAngularSpeed` | `public float MaxAngularSpeed { get; }` |
 | `MaxAngularAccel` | `public float MaxAngularAccel { get; }` |
 | `PartialHitPointsRatio` | `public float PartialHitPointsRatio { get; }` |
+| `HasSails` | `public bool HasSails { get; }` |
+| `HasValidRudderStockPosition` | `public bool HasValidRudderStockPosition { get; }` |
 | `ShipPhysicsReferenceId` | `public string ShipPhysicsReferenceId { get; }` |
 | `BowAngleLimitFromCenterline` | `public float BowAngleLimitFromCenterline { get; }` |
-| `LandingDepth` | `public float LandingDepth { get; }` |
 
 ## 主要方法
 

@@ -8,7 +8,7 @@ description: "Vec2 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct Vec2`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Vec2.cs`
+**File:** `TaleWorlds.Library/Vec2.cs`
 
 ## 概述
 
@@ -22,6 +22,11 @@ description: "Vec2 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `X` | `public float X { get; }` |
+| `Y` | `public float Y { get; }` |
+| `Length` | `public float Length { get; }` |
+| `LengthSquared` | `public float LengthSquared { get; }` |
+| `RotationInRadians` | `public float RotationInRadians { get; }` |
 | `IsValid` | `public bool IsValid { get; }` |
 
 ## 主要方法

@@ -8,7 +8,7 @@ description: "CharacterDeveloperAttributeInspectionPopupWidget 的自动生成�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterDeveloperAttributeInspectionPopupWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/CharacterDeveloperAttributeInspectionPopupWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/CharacterDeveloper/CharacterDeveloperAttributeInspectionPopupWidget.cs`
 
 ## 概述
 

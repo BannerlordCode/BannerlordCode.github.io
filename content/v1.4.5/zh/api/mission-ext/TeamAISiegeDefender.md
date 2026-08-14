@@ -8,7 +8,7 @@ description: "TeamAISiegeDefender 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TeamAISiegeDefender : TeamAISiegeComponent`
 **Base:** `TeamAISiegeComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TeamAISiegeDefender.cs`
+**File:** `TaleWorlds.MountAndBlade/TeamAISiegeDefender.cs`
 
 ## 概述
 

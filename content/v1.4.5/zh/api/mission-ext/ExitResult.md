@@ -8,7 +8,7 @@ description: "ExitResult 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum ExitResult`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleEndLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/BattleEndLogic.cs`
 
 ## 概述
 

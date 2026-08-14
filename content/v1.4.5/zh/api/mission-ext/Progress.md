@@ -8,7 +8,7 @@ description: "Progress 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum Progress`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/Progress.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Progress.cs`
 
 ## 概述
 

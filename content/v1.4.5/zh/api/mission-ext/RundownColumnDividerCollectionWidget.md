@@ -8,7 +8,7 @@ description: "RundownColumnDividerCollectionWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RundownColumnDividerCollectionWidget : ListPanel`
 **Base:** `ListPanel`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information.RundownTooltip/RundownColumnDividerCollectionWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Information/RundownTooltip/RundownColumnDividerCollectionWidget.cs`
 
 ## 概述
 

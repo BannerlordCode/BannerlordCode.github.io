@@ -8,7 +8,7 @@ description: "ArchiveConcurrentSerializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class ArchiveConcurrentSerializer : IArchiveContext`
 **Base:** `IArchiveContext`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/ArchiveConcurrentSerializer.cs`
+**File:** `TaleWorlds.SaveSystem/ArchiveConcurrentSerializer.cs`
 
 ## 概述
 

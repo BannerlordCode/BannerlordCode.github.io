@@ -8,7 +8,7 @@ description: "IPhysicsShape 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IPhysicsShape`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IPhysicsShape.cs`
+**File:** `TaleWorlds.Engine/IPhysicsShape.cs`
 
 ## 概述
 

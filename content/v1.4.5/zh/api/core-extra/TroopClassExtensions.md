@@ -8,7 +8,7 @@ description: "TroopClassExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public static class TroopClassExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TroopClassExtensions.cs`
+**File:** `TaleWorlds.Core/TroopClassExtensions.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "SrtParser 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class SrtParser`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SRTHelper.cs`
+**File:** `TaleWorlds.Library/SRTHelper.cs`
 
 ## 概述
 
@@ -21,7 +21,7 @@ description: "SrtParser 的自动生成类参考。"
 ## 主要方法
 
 ### ParseStream
-`public static List<SubtitleItem> ParseStream(Stream subtitleStream, Encoding encoding)`
+`public static List<SRTHelper.SubtitleItem> ParseStream(Stream subtitleStream, Encoding encoding)`
 
 **用途 / Purpose:** 将外部输入解析为当前系统可识别的stream。
 

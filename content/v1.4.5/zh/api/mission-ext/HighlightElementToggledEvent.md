@@ -8,7 +8,7 @@ description: "HighlightElementToggledEvent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class HighlightElementToggledEvent : EventBase`
 **Base:** `EventBase`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial/TutorialHighlightItemBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Tutorial/TutorialHighlightItemBrushWidget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IBasicTypeSerializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public interface IBasicTypeSerializer`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/IBasicTypeSerializer.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/IBasicTypeSerializer.cs`
 
 ## 概述
 

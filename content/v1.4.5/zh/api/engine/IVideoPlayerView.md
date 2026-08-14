@@ -8,7 +8,7 @@ description: "IVideoPlayerView 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IVideoPlayerView`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IVideoPlayerView.cs`
+**File:** `TaleWorlds.Engine/IVideoPlayerView.cs`
 
 ## 概述
 

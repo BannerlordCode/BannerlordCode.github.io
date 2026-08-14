@@ -8,7 +8,7 @@ description: "DestructableComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DestructableComponent : SynchedMissionObject, IFocusable`
 **Base:** `SynchedMissionObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DestructableComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/DestructableComponent.cs`
 
 ## 概述
 
@@ -22,36 +22,17 @@ description: "DestructableComponent 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `HitPoint` | `public float HitPoint { get; set; }` |
+| `FocusableObjectType` | `public FocusableObjectType FocusableObjectType { get; }` |
+| `IsFocusable` | `public virtual bool IsFocusable { get; }` |
+| `IsDestroyed` | `public bool IsDestroyed { get; }` |
+| `CurrentState` | `public GameEntity CurrentState { get; }` |
 | `HitPoint` | `public float HitPoint { get; }` |
 | `DestructionState` | `public int DestructionState { get; }` |
 | `ForceIndex` | `public int ForceIndex { get; }` |
 | `IsMissionObject` | `public bool IsMissionObject { get; }` |
-| `HitPoint` | `public float HitPoint { get; set; }` |
-| `CurrentState` | `public GameEntity CurrentState { get; }` |
 
 ## 主要方法
-
-### ReadFromNetwork
-`public bool ReadFromNetwork(ref bool bufferReadValid)`
-
-**用途 / Purpose:** 从当前实例读取from network相关数据。
-
-```csharp
-// 先通过子系统 API 拿到 DestructableComponent 实例
-DestructableComponent destructableComponent = ...;
-var result = destructableComponent.ReadFromNetwork(bufferReadValid);
-```
-
-### OnHitTakenAndDestroyedDelegate
-`public delegate void OnHitTakenAndDestroyedDelegate(DestructableComponent target, Agent attackerAgent, in MissionWeapon weapon, ScriptComponentBehavior attackerScriptComponentBehavior, int inflictedDamage)`
-
-**用途 / Purpose:** 在 hit taken and destroyed delegate 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 DestructableComponent 实例
-DestructableComponent destructableComponent = ...;
-destructableComponent.OnHitTakenAndDestroyedDelegate(target, attackerAgent, weapon, attackerScriptComponentBehavior, 0);
-```
 
 ### GetOriginalState
 `public WeakGameEntity GetOriginalState(WeakGameEntity parent)`
@@ -175,14 +156,14 @@ var result = destructableComponent.GetInfoTextForBeingNotInteractable(userAgent)
 ```
 
 ### OnAfterReadFromNetwork
-`public override void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
+`public override void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
 **用途 / Purpose:** 在 after read from network 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例
 DestructableComponent destructableComponent = ...;
-destructableComponent.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
+destructableComponent.OnAfterReadFromNetwork(valueTuple<BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
 ```
 
 ### GetDescriptionText
@@ -194,6 +175,28 @@ destructableComponent.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRe
 // 先通过子系统 API 拿到 DestructableComponent 实例
 DestructableComponent destructableComponent = ...;
 var result = destructableComponent.GetDescriptionText(gameEntity);
+```
+
+### ReadFromNetwork
+`public bool ReadFromNetwork(ref bool bufferReadValid)`
+
+**用途 / Purpose:** 从当前实例读取from network相关数据。
+
+```csharp
+// 先通过子系统 API 拿到 DestructableComponent 实例
+DestructableComponent destructableComponent = ...;
+var result = destructableComponent.ReadFromNetwork(bufferReadValid);
+```
+
+### OnHitTakenAndDestroyedDelegate
+`public delegate void OnHitTakenAndDestroyedDelegate(DestructableComponent target, Agent attackerAgent, in MissionWeapon weapon, ScriptComponentBehavior attackerScriptComponentBehavior, int inflictedDamage)`
+
+**用途 / Purpose:** 在 hit taken and destroyed delegate 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DestructableComponent 实例
+DestructableComponent destructableComponent = ...;
+destructableComponent.OnHitTakenAndDestroyedDelegate(target, attackerAgent, weapon, attackerScriptComponentBehavior, 0);
 ```
 
 ## 使用示例

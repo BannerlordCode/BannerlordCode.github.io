@@ -8,7 +8,7 @@ description: "Features 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum Features`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/Features.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Features.cs`
 
 ## 概述
 

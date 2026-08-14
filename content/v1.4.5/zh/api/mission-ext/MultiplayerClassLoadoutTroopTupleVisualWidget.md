@@ -8,7 +8,7 @@ description: "MultiplayerClassLoadoutTroopTupleVisualWidget 的自动生成类�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerClassLoadoutTroopTupleVisualWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout/MultiplayerClassLoadoutTroopTupleVisualWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/ClassLoadout/MultiplayerClassLoadoutTroopTupleVisualWidget.cs`
 
 ## 概述
 

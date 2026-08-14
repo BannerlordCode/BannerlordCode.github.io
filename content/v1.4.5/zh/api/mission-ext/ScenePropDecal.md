@@ -8,7 +8,7 @@ description: "ScenePropDecal 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ScenePropDecal : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ScenePropDecal.cs`
+**File:** `TaleWorlds.MountAndBlade/ScenePropDecal.cs`
 
 ## 概述
 

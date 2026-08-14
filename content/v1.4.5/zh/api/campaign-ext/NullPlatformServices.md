@@ -8,7 +8,7 @@ description: "NullPlatformServices 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class NullPlatformServices : IPlatformServices`
 **Base:** `IPlatformServices`
-**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/NullPlatformServices.cs`
+**File:** `TaleWorlds.PlatformService/NullPlatformServices.cs`
 
 ## 概述
 

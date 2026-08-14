@@ -8,7 +8,7 @@ description: "DependentVersionMissmatchItem 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct DependentVersionMissmatchItem`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/DependentVersionMissmatchItem.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/DependentVersionMissmatchItem.cs`
 
 ## 概述
 

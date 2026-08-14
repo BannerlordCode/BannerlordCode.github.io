@@ -8,7 +8,7 @@ description: "BillboardType 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum BillboardType : byte`
 **Base:** `byte`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/BillboardType.cs`
+**File:** `TaleWorlds.Engine/BillboardType.cs`
 
 ## 概述
 

@@ -6,9 +6,9 @@ description: "MultiplayerFactionBannerWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class MultiplayerFactionBannerWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerFactionBannerWidget.cs`
+**Type:** `public class MultiplayerFactionBannerWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/MultiplayerFactionBannerWidget.cs`
 
 ## 概述
 
@@ -27,19 +27,6 @@ description: "MultiplayerFactionBannerWidget 的自动生成类参考。"
 | `FactionCode` | `public string FactionCode { get; set; }` |
 | `BannerWidget` | `public Widget BannerWidget { get; set; }` |
 | `IconWidget` | `public Widget IconWidget { get; set; }` |
-
-## 主要方法
-
-### MultiplayerFactionBannerWidget
-`public class MultiplayerFactionBannerWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 MultiplayerFactionBannerWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerFactionBannerWidget 实例
-MultiplayerFactionBannerWidget multiplayerFactionBannerWidget = ...;
-var result = multiplayerFactionBannerWidget.MultiplayerFactionBannerWidget(context);
-```
 
 ## 使用示例
 

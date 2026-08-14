@@ -8,7 +8,7 @@ description: "ServiceException 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public class ServiceException : Exception`
 **Base:** `Exception`
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/ServiceException.cs`
+**File:** `TaleWorlds.Network/ServiceException.cs`
 
 ## 概述
 

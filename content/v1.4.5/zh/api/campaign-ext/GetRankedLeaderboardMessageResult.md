@@ -8,7 +8,7 @@ description: "GetRankedLeaderboardMessageResult 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class GetRankedLeaderboardMessageResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetRankedLeaderboardMessageResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/GetRankedLeaderboardMessageResult.cs`
 
 ## 概述
 

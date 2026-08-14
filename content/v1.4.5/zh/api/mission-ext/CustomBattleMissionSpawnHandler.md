@@ -8,7 +8,7 @@ description: "CustomBattleMissionSpawnHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleMissionSpawnHandler : CustomMissionSpawnHandler`
 **Base:** `CustomMissionSpawnHandler`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionSpawnHandlers/CustomBattleMissionSpawnHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionSpawnHandlers/CustomBattleMissionSpawnHandler.cs`
 
 ## 概述
 

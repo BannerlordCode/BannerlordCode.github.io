@@ -8,7 +8,7 @@ description: "ThreadedClientDisconnectedTask 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `internal sealed class ThreadedClientDisconnectedTask : ThreadedClientTask`
 **Base:** `ThreadedClientTask`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/ThreadedClientDisconnectedTask.cs`
+**File:** `TaleWorlds.Diamond/ThreadedClientDisconnectedTask.cs`
 
 ## 概述
 

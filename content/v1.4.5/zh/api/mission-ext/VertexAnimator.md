@@ -8,7 +8,7 @@ description: "VertexAnimator 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class VertexAnimator : SynchedMissionObject`
 **Base:** `SynchedMissionObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/VertexAnimator.cs`
+**File:** `TaleWorlds.MountAndBlade/VertexAnimator.cs`
 
 ## 概述
 
@@ -29,19 +29,8 @@ description: "VertexAnimator 的自动生成类参考。"
 
 ## 主要方法
 
-### ReadFromNetwork
-`public bool ReadFromNetwork(ref bool bufferReadValid)`
-
-**用途 / Purpose:** 从当前实例读取from network相关数据。
-
-```csharp
-// 先通过子系统 API 拿到 VertexAnimator 实例
-VertexAnimator vertexAnimator = ...;
-var result = vertexAnimator.ReadFromNetwork(bufferReadValid);
-```
-
 ### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
 **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
@@ -162,14 +151,25 @@ vertexAnimator.WriteToNetwork();
 ```
 
 ### OnAfterReadFromNetwork
-`public override void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
+`public override void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
 **用途 / Purpose:** 在 after read from network 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 VertexAnimator 实例
 VertexAnimator vertexAnimator = ...;
-vertexAnimator.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
+vertexAnimator.OnAfterReadFromNetwork(valueTuple<BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
+```
+
+### ReadFromNetwork
+`public bool ReadFromNetwork(ref bool bufferReadValid)`
+
+**用途 / Purpose:** 从当前实例读取from network相关数据。
+
+```csharp
+// 先通过子系统 API 拿到 VertexAnimator 实例
+VertexAnimator vertexAnimator = ...;
+var result = vertexAnimator.ReadFromNetwork(bufferReadValid);
 ```
 
 ## 使用示例
@@ -177,7 +177,7 @@ vertexAnimator.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, s
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 VertexAnimator vertexAnimator = ...;
-vertexAnimator.ReadFromNetwork(bufferReadValid);
+vertexAnimator.GetTickRequirement();
 ```
 
 ## 参见

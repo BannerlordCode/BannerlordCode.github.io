@@ -8,7 +8,7 @@ description: "ImageFitResult 的自动生成类参考。"
 **Module:** TaleWorlds.GauntletUI
 **Type:** `struct ImageFitResult`
 **Base:** 无
-**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/ImageFitResult.cs`
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/ImageFitResult.cs`
 
 ## 概述
 

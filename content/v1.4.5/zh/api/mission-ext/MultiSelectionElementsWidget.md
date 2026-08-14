@@ -6,9 +6,9 @@ description: "MultiSelectionElementsWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class MultiSelectionElementsWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information/MultiSelectionElementsWidget.cs`
+**Type:** `public class MultiSelectionElementsWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Information/MultiSelectionElementsWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "MultiSelectionElementsWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `DoneButtonWidget` | `public ButtonWidget DoneButtonWidget { get; set; }` |
-
-## 主要方法
-
-### MultiSelectionElementsWidget
-`public class MultiSelectionElementsWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 MultiSelectionElementsWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiSelectionElementsWidget 实例
-MultiSelectionElementsWidget multiSelectionElementsWidget = ...;
-var result = multiSelectionElementsWidget.MultiSelectionElementsWidget(context);
-```
 
 ## 使用示例
 

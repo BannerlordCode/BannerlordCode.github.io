@@ -8,7 +8,7 @@ description: "MissionMultiplayerSiege 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerSiege : MissionMultiplayerGameModeBase, IAnalyticsFlagInfo, IMissionBehavior`
 **Base:** `MissionMultiplayerGameModeBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerSiege.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionMultiplayerSiege.cs`
 
 ## 概述
 
@@ -22,76 +22,12 @@ description: "MissionMultiplayerSiege 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `Contribution` | `public float Contribution { get; }` |
+| `IsGameModeHidingAllAgentVisuals` | `public override bool IsGameModeHidingAllAgentVisuals { get; }` |
+| `IsGameModeUsingOpposingTeams` | `public override bool IsGameModeUsingOpposingTeams { get; }` |
 | `AllCapturePoints` | `public MBReadOnlyList<FlagCapturePoint> AllCapturePoints { get; }` |
+| `Contribution` | `public float Contribution { get; }` |
 
 ## 主要方法
-
-### IncreaseAmount
-`public void IncreaseAmount(float deltaContribution)`
-
-**用途 / Purpose:** 调用 IncreaseAmount 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
-MissionMultiplayerSiege missionMultiplayerSiege = ...;
-missionMultiplayerSiege.IncreaseAmount(0);
-```
-
-### RegisterObjective
-`public bool RegisterObjective(GameEntity entity)`
-
-**用途 / Purpose:** 将objective注册到当前系统，以便后续监听或分发。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
-MissionMultiplayerSiege missionMultiplayerSiege = ...;
-var result = missionMultiplayerSiege.RegisterObjective(entity);
-```
-
-### AddContributionForObjective
-`public void AddContributionForObjective(GameEntity objectiveEntity, MissionPeer contributorPeer, float contribution)`
-
-**用途 / Purpose:** 将 contribution for objective 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
-MissionMultiplayerSiege missionMultiplayerSiege = ...;
-missionMultiplayerSiege.AddContributionForObjective(objectiveEntity, contributorPeer, 0);
-```
-
-### GetAllContributorsForSideAndClear
-`public List<KeyValuePair<MissionPeer, float>> GetAllContributorsForSideAndClear(GameEntity objectiveEntity, BattleSideEnum side)`
-
-**用途 / Purpose:** 读取并返回当前对象中 all contributors for side and clear 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
-MissionMultiplayerSiege missionMultiplayerSiege = ...;
-var result = missionMultiplayerSiege.GetAllContributorsForSideAndClear(objectiveEntity, side);
-```
-
-### OnDestructableComponentDestroyedDelegate
-`public delegate void OnDestructableComponentDestroyedDelegate(DestructableComponent destructableComponent, ScriptComponentBehavior attackerScriptComponentBehaviour, MissionPeer contributors)`
-
-**用途 / Purpose:** 在 destructable component destroyed delegate 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
-MissionMultiplayerSiege missionMultiplayerSiege = ...;
-missionMultiplayerSiege.OnDestructableComponentDestroyedDelegate(destructableComponent, attackerScriptComponentBehaviour, contributors);
-```
-
-### OnObjectiveGoldGainedDelegate
-`public delegate void OnObjectiveGoldGainedDelegate(MissionPeer peer, int goldGain)`
-
-**用途 / Purpose:** 在 objective gold gained delegate 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
-MissionMultiplayerSiege missionMultiplayerSiege = ...;
-missionMultiplayerSiege.OnObjectiveGoldGainedDelegate(peer, 0);
-```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
@@ -236,12 +172,78 @@ MissionMultiplayerSiege missionMultiplayerSiege = ...;
 missionMultiplayerSiege.OnClearScene();
 ```
 
+### RegisterObjective
+`public bool RegisterObjective(GameEntity entity)`
+
+**用途 / Purpose:** 将objective注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.RegisterObjective(entity);
+```
+
+### AddContributionForObjective
+`public void AddContributionForObjective(GameEntity objectiveEntity, MissionPeer contributorPeer, float contribution)`
+
+**用途 / Purpose:** 将 contribution for objective 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.AddContributionForObjective(objectiveEntity, contributorPeer, 0);
+```
+
+### GetAllContributorsForSideAndClear
+`public List<KeyValuePair<MissionPeer, float>> GetAllContributorsForSideAndClear(GameEntity objectiveEntity, BattleSideEnum side)`
+
+**用途 / Purpose:** 读取并返回当前对象中 all contributors for side and clear 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.GetAllContributorsForSideAndClear(objectiveEntity, side);
+```
+
+### IncreaseAmount
+`public void IncreaseAmount(float deltaContribution)`
+
+**用途 / Purpose:** 调用 IncreaseAmount 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.IncreaseAmount(0);
+```
+
+### OnDestructableComponentDestroyedDelegate
+`public delegate void OnDestructableComponentDestroyedDelegate(DestructableComponent destructableComponent, ScriptComponentBehavior attackerScriptComponentBehaviour, MissionPeer contributors)`
+
+**用途 / Purpose:** 在 destructable component destroyed delegate 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnDestructableComponentDestroyedDelegate(destructableComponent, attackerScriptComponentBehaviour, contributors);
+```
+
+### OnObjectiveGoldGainedDelegate
+`public delegate void OnObjectiveGoldGainedDelegate(MissionPeer peer, int goldGain)`
+
+**用途 / Purpose:** 在 objective gold gained delegate 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnObjectiveGoldGainedDelegate(peer, 0);
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 MissionMultiplayerSiege missionMultiplayerSiege = ...;
-missionMultiplayerSiege.IncreaseAmount(0);
+missionMultiplayerSiege.OnBehaviorInitialize();
 ```
 
 ## 参见

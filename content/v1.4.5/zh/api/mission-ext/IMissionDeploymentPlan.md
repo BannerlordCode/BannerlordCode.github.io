@@ -8,7 +8,7 @@ description: "IMissionDeploymentPlan 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IMissionDeploymentPlan`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMissionDeploymentPlan.cs`
+**File:** `TaleWorlds.MountAndBlade/IMissionDeploymentPlan.cs`
 
 ## 概述
 

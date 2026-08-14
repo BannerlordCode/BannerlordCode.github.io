@@ -8,7 +8,7 @@ description: "ApplyOrderWithTwoPositions 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class ApplyOrderWithTwoPositions : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/ApplyOrderWithTwoPositions.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/ApplyOrderWithTwoPositions.cs`
 
 ## 概述
 

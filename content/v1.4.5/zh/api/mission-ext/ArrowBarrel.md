@@ -8,7 +8,7 @@ description: "ArrowBarrel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ArrowBarrel : AmmoBarrelBase`
 **Base:** `AmmoBarrelBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Usables/ArrowBarrel.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Usables/ArrowBarrel.cs`
 
 ## 概述
 

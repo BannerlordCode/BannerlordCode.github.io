@@ -8,7 +8,7 @@ description: "MBBoundaryCollection 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBBoundaryCollection : IDictionary<string, ICollection<Vec2>>, ICollection<KeyValuePair<string, ICollection<Vec2>>>, IEnumerable<KeyValuePair<string, ICollection<Vec2>>>, IEnumerable, INotifyCollectionChanged`
 **Base:** `IDictionary<string`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Mission.cs`
+**File:** `TaleWorlds.MountAndBlade/Mission.cs`
 
 ## 概述
 
@@ -22,6 +22,8 @@ description: "MBBoundaryCollection 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `Count` | `public int Count { get; }` |
+| `IsReadOnly` | `public bool IsReadOnly { get; }` |
 | `Keys` | `public ICollection<string> Keys { get; }` |
 | `Values` | `public ICollection<ICollection<Vec2>> Values { get; }` |
 | `this` | `public ICollection<Vec2> this { get; }` |

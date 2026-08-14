@@ -8,7 +8,7 @@ description: "VariableCodeAccessModifier 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum VariableCodeAccessModifier`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/VariableCodeAccessModifier.cs`
+**File:** `TaleWorlds.Library/CodeGeneration/VariableCodeAccessModifier.cs`
 
 ## 概述
 

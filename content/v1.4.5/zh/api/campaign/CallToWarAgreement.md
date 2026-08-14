@@ -8,7 +8,7 @@ description: "CallToWarAgreement 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal struct CallToWarAgreement`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/AllianceCampaignBehavior.cs`
+**File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/AllianceCampaignBehavior.cs`
 
 ## 概述
 

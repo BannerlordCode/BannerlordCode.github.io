@@ -8,7 +8,7 @@ description: "MethodCode 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class MethodCode`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/MethodCode.cs`
+**File:** `TaleWorlds.Library/CodeGeneration/MethodCode.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "GDKAccessObject 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class GDKAccessObject : AccessObject`
 **Base:** `AccessObject`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/GDKAccessObject.cs`
+**File:** `TaleWorlds.Diamond/GDKAccessObject.cs`
 
 ## 概述
 

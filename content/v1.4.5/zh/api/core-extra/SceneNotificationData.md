@@ -8,7 +8,7 @@ description: "SceneNotificationData 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class SceneNotificationData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SceneNotificationData.cs`
+**File:** `TaleWorlds.Core/SceneNotificationData.cs`
 
 ## 概述
 
@@ -36,32 +36,10 @@ description: "SceneNotificationData 的自动生成类参考。"
 | `IsAffirmativeOptionShown` | `public virtual bool IsAffirmativeOptionShown { get; }` |
 | `IsNegativeOptionShown` | `public virtual bool IsNegativeOptionShown { get; }` |
 | `PauseActiveState` | `public virtual bool PauseActiveState { get; }` |
-| `RelevantContext` | `public virtual RelevantContextType RelevantContext { get; }` |
-| `SceneProperties` | `public virtual NotificationSceneProperties SceneProperties { get; }` |
+| `RelevantContext` | `public virtual SceneNotificationData.RelevantContextType RelevantContext { get; }` |
+| `SceneProperties` | `public virtual SceneNotificationData.NotificationSceneProperties SceneProperties { get; }` |
 
 ## 主要方法
-
-### SceneNotificationCharacter
-`public readonly struct SceneNotificationCharacter(BasicCharacterObject character, Equipment overriddenEquipment = null, BodyProperties overriddenBodyProperties = default(BodyProperties), bool useCivilianEquipment = false, uint customColor1 = uint.MaxValue, uint customColor2 = uint.MaxValue, bool useHorse = false)`
-
-**用途 / Purpose:** 调用 SceneNotificationCharacter 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 SceneNotificationData 实例
-SceneNotificationData sceneNotificationData = ...;
-var result = sceneNotificationData.SceneNotificationCharacter(character, null, default(BodyProperties), false, 0, 0, false);
-```
-
-### SceneNotificationShip
-`public readonly struct SceneNotificationShip(string shipPrefabId, List<ShipVisualSlotInfo> shipUpgrades, float shipHitPointRatio, uint sailColor1, uint sailColor2, int shipSeed)`
-
-**用途 / Purpose:** 调用 SceneNotificationShip 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 SceneNotificationData 实例
-SceneNotificationData sceneNotificationData = ...;
-var result = sceneNotificationData.SceneNotificationShip("example", shipUpgrades, 0, 0, 0, 0);
-```
 
 ### OnAffirmativeAction
 `public virtual void OnAffirmativeAction()`
@@ -108,7 +86,7 @@ var result = sceneNotificationData.GetBanners();
 ```
 
 ### GetSceneNotificationCharacters
-`public virtual SceneNotificationCharacter GetSceneNotificationCharacters()`
+`public virtual SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()`
 
 **用途 / Purpose:** 读取并返回当前对象中 scene notification characters 的结果。
 
@@ -119,7 +97,7 @@ var result = sceneNotificationData.GetSceneNotificationCharacters();
 ```
 
 ### GetShips
-`public virtual SceneNotificationShip GetShips()`
+`public virtual SceneNotificationData.SceneNotificationShip GetShips()`
 
 **用途 / Purpose:** 读取并返回当前对象中 ships 的结果。
 

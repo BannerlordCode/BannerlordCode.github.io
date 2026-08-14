@@ -8,7 +8,7 @@ description: "Mat3 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct Mat3`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Mat3.cs`
+**File:** `TaleWorlds.Library/Mat3.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "Mat3 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `this` | `public Vec3 this { get; set; }` |
+| `Identity` | `public static Mat3 Identity { get; }` |
 
 ## 主要方法
 
@@ -319,26 +320,6 @@ Mat3.Lerp(m1, m2, 0);
 ```csharp
 // 静态调用，不需要实例
 Mat3.LerpNonOrthogonal(m1, m2, 0);
-```
-
-### Slerp
-`public static Mat3 Slerp(in Mat3 m1, in Mat3 m2, float alpha)`
-
-**用途 / Purpose:** 调用 Slerp 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-Mat3.Slerp(m1, m2, 0);
-```
-
-### SlerpFPSIndependent
-`public static Mat3 SlerpFPSIndependent(in Mat3 m1, in Mat3 m2, float alpha)`
-
-**用途 / Purpose:** 调用 SlerpFPSIndependent 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-Mat3.SlerpFPSIndependent(m1, m2, 0);
 ```
 
 ### CreateMat3WithForward

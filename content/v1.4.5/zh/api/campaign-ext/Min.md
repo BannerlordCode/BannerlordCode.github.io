@@ -8,7 +8,7 @@ description: "Min 的自动生成类参考。"
 **Module:** TaleWorlds.LinQuick
 **Type:** `public class Min`
 **Base:** 无
-**File:** `bin/TaleWorlds.LinQuick/TaleWorlds.LinQuick/Min.cs`
+**File:** `TaleWorlds.LinQuick/Min.cs`
 
 ## 概述
 

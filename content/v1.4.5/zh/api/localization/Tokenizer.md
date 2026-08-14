@@ -8,7 +8,7 @@ description: "Tokenizer 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class Tokenizer`
 **Base:** 无
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor/Tokenizer.cs`
+**File:** `TaleWorlds.Localization/TextProcessor/Tokenizer.cs`
 
 ## 概述
 

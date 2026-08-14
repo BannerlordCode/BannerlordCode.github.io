@@ -8,7 +8,7 @@ description: "GetUserCosmeticsInfoMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class GetUserCosmeticsInfoMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetUserCosmeticsInfoMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/GetUserCosmeticsInfoMessage.cs`
 
 ## 概述
 

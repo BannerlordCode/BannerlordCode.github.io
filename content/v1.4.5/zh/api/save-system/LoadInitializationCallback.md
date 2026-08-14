@@ -8,7 +8,7 @@ description: "LoadInitializationCallback 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class LoadInitializationCallback : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/LoadInitializationCallback.cs`
+**File:** `TaleWorlds.SaveSystem/LoadInitializationCallback.cs`
 
 ## 概述
 

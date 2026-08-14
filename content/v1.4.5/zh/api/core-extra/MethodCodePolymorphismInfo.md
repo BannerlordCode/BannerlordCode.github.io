@@ -8,7 +8,7 @@ description: "MethodCodePolymorphismInfo 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum MethodCodePolymorphismInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/MethodCodePolymorphismInfo.cs`
+**File:** `TaleWorlds.Library/CodeGeneration/MethodCodePolymorphismInfo.cs`
 
 ## 概述
 

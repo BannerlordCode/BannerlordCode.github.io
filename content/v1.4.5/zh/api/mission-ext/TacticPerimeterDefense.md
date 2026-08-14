@@ -8,7 +8,7 @@ description: "TacticPerimeterDefense 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticPerimeterDefense : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticPerimeterDefense.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticPerimeterDefense.cs`
 
 ## 概述
 
@@ -24,8 +24,20 @@ description: "TacticPerimeterDefense 的自动生成类参考。"
 |------|-----------|
 | `AggregatePosition` | `public Vec2 AggregatePosition { get; }` |
 | `MedianAggregatePosition` | `public WorldPosition MedianAggregatePosition { get; }` |
+| `EnemyFormations` | `public MBReadOnlyList<Formation> EnemyFormations { get; }` |
 
 ## 主要方法
+
+### TickOccasionally
+`public override void TickOccasionally()`
+
+**用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
+
+```csharp
+// 先通过子系统 API 拿到 TacticPerimeterDefense 实例
+TacticPerimeterDefense tacticPerimeterDefense = ...;
+tacticPerimeterDefense.TickOccasionally();
+```
 
 ### UpdateClusterData
 `public void UpdateClusterData()`
@@ -60,23 +72,12 @@ TacticPerimeterDefense tacticPerimeterDefense = ...;
 tacticPerimeterDefense.RemoveFromCluster(formation);
 ```
 
-### TickOccasionally
-`public override void TickOccasionally()`
-
-**用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
-
-```csharp
-// 先通过子系统 API 拿到 TacticPerimeterDefense 实例
-TacticPerimeterDefense tacticPerimeterDefense = ...;
-tacticPerimeterDefense.TickOccasionally();
-```
-
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 TacticPerimeterDefense tacticPerimeterDefense = ...;
-tacticPerimeterDefense.UpdateClusterData();
+tacticPerimeterDefense.TickOccasionally();
 ```
 
 ## 参见

@@ -8,7 +8,7 @@ description: "MultiplayerBattleBannerBearersModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerBattleBannerBearersModel : BattleBannerBearersModel`
 **Base:** `BattleBannerBearersModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerBattleBannerBearersModel.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerBattleBannerBearersModel.cs`
 
 ## 概述
 

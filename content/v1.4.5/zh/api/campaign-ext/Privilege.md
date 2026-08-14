@@ -8,7 +8,7 @@ description: "Privilege 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public enum Privilege`
 **Base:** 无
-**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/Privilege.cs`
+**File:** `TaleWorlds.PlatformService/Privilege.cs`
 
 ## 概述
 

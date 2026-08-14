@@ -8,7 +8,7 @@ description: "WarmupSpawningBehavior 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class WarmupSpawningBehavior : SpawningBehaviorBase`
 **Base:** `SpawningBehaviorBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/WarmupSpawningBehavior.cs`
+**File:** `TaleWorlds.MountAndBlade/WarmupSpawningBehavior.cs`
 
 ## 概述
 

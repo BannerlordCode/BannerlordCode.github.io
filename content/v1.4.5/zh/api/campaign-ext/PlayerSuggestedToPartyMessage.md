@@ -8,7 +8,7 @@ description: "PlayerSuggestedToPartyMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class PlayerSuggestedToPartyMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayerSuggestedToPartyMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/PlayerSuggestedToPartyMessage.cs`
 
 ## 概述
 

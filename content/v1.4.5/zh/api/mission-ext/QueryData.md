@@ -8,7 +8,7 @@ description: "QueryData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class QueryData<T> : IQueryData`
 **Base:** `IQueryData`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/QueryData.cs`
+**File:** `TaleWorlds.MountAndBlade/QueryData.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "RecentPlayersFriendListService 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RecentPlayersFriendListService : BannerlordFriendListService, IFriendListService`
 **Base:** `BannerlordFriendListService`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RecentPlayersFriendListService.cs`
+**File:** `TaleWorlds.MountAndBlade/RecentPlayersFriendListService.cs`
 
 ## 概述
 

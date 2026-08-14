@@ -8,7 +8,7 @@ description: "ContainerSaveId 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class ContainerSaveId : SaveId`
 **Base:** `SaveId`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/ContainerSaveId.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/ContainerSaveId.cs`
 
 ## 概述
 

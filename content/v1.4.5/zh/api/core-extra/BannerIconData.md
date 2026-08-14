@@ -8,7 +8,7 @@ description: "BannerIconData 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct BannerIconData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BannerIconData.cs`
+**File:** `TaleWorlds.Core/BannerIconData.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "AutoPinner 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal class AutoPinner : IDisposable`
 **Base:** `IDisposable`
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native/AutoPinner.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/AutoPinner.cs`
 
 ## 概述
 

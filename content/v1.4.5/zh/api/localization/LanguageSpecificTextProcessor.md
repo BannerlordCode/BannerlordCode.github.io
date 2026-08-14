@@ -8,7 +8,7 @@ description: "LanguageSpecificTextProcessor 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `public abstract class LanguageSpecificTextProcessor`
 **Base:** 无
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor/LanguageSpecificTextProcessor.cs`
+**File:** `TaleWorlds.Localization/TextProcessor/LanguageSpecificTextProcessor.cs`
 
 ## 概述
 

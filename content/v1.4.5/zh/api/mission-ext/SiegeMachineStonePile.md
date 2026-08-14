@@ -8,7 +8,7 @@ description: "SiegeMachineStonePile 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeMachineStonePile : UsableMachine, ISpawnable`
 **Base:** `UsableMachine`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Usables/SiegeMachineStonePile.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Usables/SiegeMachineStonePile.cs`
 
 ## 概述
 

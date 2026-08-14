@@ -8,7 +8,7 @@ description: "MessageInfo 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public class MessageInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/MessageInfo.cs`
+**File:** `TaleWorlds.Network/MessageInfo.cs`
 
 ## 概述
 

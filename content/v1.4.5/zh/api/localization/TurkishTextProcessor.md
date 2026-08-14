@@ -8,7 +8,7 @@ description: "TurkishTextProcessor 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `public class TurkishTextProcessor : LanguageSpecificTextProcessor`
 **Base:** `LanguageSpecificTextProcessor`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor.LanguageProcessors/TurkishTextProcessor.cs`
+**File:** `TaleWorlds.Localization/TextProcessor/LanguageProcessors/TurkishTextProcessor.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "TurkishTextProcessor 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `LinkList` | `public static List<string> LinkList { get; }` |
+| `CultureInfoForLanguage` | `public override CultureInfo CultureInfoForLanguage { get; }` |
 
 ## 主要方法
 

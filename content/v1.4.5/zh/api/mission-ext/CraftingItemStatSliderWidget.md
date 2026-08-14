@@ -8,7 +8,7 @@ description: "CraftingItemStatSliderWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CraftingItemStatSliderWidget : SliderWidget`
 **Base:** `SliderWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftingItemStatSliderWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Crafting/CraftingItemStatSliderWidget.cs`
 
 ## 概述
 

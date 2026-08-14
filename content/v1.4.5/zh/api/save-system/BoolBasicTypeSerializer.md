@@ -8,7 +8,7 @@ description: "BoolBasicTypeSerializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class BoolBasicTypeSerializer : IBasicTypeSerializer`
 **Base:** `IBasicTypeSerializer`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/BoolBasicTypeSerializer.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/BoolBasicTypeSerializer.cs`
 
 ## 概述
 

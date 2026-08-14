@@ -8,7 +8,7 @@ description: "TeamCollection 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class TeamCollection : List<Team>`
 **Base:** `List<Team>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Mission.cs`
+**File:** `TaleWorlds.MountAndBlade/Mission.cs`
 
 ## 概述
 
@@ -26,7 +26,7 @@ description: "TeamCollection 的自动生成类参考。"
 | `Defender` | `public Team Defender { get; }` |
 | `AttackerAlly` | `public Team AttackerAlly { get; }` |
 | `DefenderAlly` | `public Team DefenderAlly { get; }` |
-| `Player` | `public Team Player { get; }` |
+| `Player` | `public Team Player { get; set; }` |
 | `PlayerEnemy` | `public Team PlayerEnemy { get; }` |
 | `PlayerAlly` | `public Team PlayerAlly { get; }` |
 
@@ -44,7 +44,7 @@ teamCollection.Add(t);
 ```
 
 ### Add
-`public Team Add(BattleSideEnum side, uint color = uint.MaxValue, uint color2 = uint.MaxValue, Banner banner = null, bool isPlayerGeneral = true, bool isPlayerSergeant = false, bool isSettingRelations = true)`
+`public Team Add(BattleSideEnum side, uint color = 4294967295U, uint color2 = 4294967295U, Banner banner = null, bool isPlayerGeneral = true, bool isPlayerSergeant = false, bool isSettingRelations = true)`
 
 **用途 / Purpose:** 向当前容器或状态添加项。
 

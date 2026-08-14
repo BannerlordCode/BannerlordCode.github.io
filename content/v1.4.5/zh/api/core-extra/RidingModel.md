@@ -8,7 +8,7 @@ description: "RidingModel 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class RidingModel : MBGameModel<RidingModel>`
 **Base:** `MBGameModel<RidingModel>`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/RidingModel.cs`
+**File:** `TaleWorlds.Core/RidingModel.cs`
 
 ## 概述
 

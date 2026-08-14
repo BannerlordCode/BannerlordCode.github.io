@@ -8,7 +8,7 @@ description: "ClanPlayerRole 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum ClanPlayerRole`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ClanPlayerRole.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ClanPlayerRole.cs`
 
 ## 概述
 

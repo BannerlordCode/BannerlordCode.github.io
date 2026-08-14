@@ -8,7 +8,7 @@ description: "BoundaryWallView 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BoundaryWallView : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BoundaryWallView.cs`
+**File:** `TaleWorlds.MountAndBlade/BoundaryWallView.cs`
 
 ## 概述
 
@@ -21,7 +21,7 @@ description: "BoundaryWallView 的自动生成类参考。"
 ## 主要方法
 
 ### CreateBoundaryMesh
-`public static Mesh CreateBoundaryMesh(Scene scene, ICollection<Vec2> boundaryPoints, uint meshColor = 536918784u)`
+`public static Mesh CreateBoundaryMesh(Scene scene, ICollection<Vec2> boundaryPoints, uint meshColor = 536918784U)`
 
 **用途 / Purpose:** 构建一个新的 boundary mesh 实体并返回给调用方。
 

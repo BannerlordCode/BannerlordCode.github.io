@@ -8,7 +8,7 @@ description: "TacticalRegionTypeEnum 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum TacticalRegionTypeEnum`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticalRegion.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticalRegion.cs`
 
 ## 概述
 

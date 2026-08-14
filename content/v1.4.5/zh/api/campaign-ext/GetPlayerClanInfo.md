@@ -8,7 +8,7 @@ description: "GetPlayerClanInfo 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class GetPlayerClanInfo : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetPlayerClanInfo.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/GetPlayerClanInfo.cs`
 
 ## 概述
 

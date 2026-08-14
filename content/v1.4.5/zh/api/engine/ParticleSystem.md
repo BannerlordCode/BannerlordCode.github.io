@@ -8,7 +8,7 @@ description: "ParticleSystem 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class ParticleSystem : GameEntityComponent`
 **Base:** `GameEntityComponent`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ParticleSystem.cs`
+**File:** `TaleWorlds.Engine/ParticleSystem.cs`
 
 ## 概述
 

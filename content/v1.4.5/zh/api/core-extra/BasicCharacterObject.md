@@ -8,7 +8,7 @@ description: "BasicCharacterObject 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class BasicCharacterObject : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BasicCharacterObject.cs`
+**File:** `TaleWorlds.Core/BasicCharacterObject.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "BasicCharacterObject 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `Name` | `public virtual TextObject Name { get; }` |
 | `BodyPropertyRange` | `public virtual MBBodyProperty BodyPropertyRange { get; set; }` |
 | `DefaultFormationGroup` | `public int DefaultFormationGroup { get; }` |
 | `DefaultFormationClass` | `public FormationClass DefaultFormationClass { get; }` |
@@ -30,15 +31,28 @@ description: "BasicCharacterObject 的自动生成类参考。"
 | `DismountResistance` | `public float DismountResistance { get; }` |
 | `FormationPositionPreference` | `public FormationPositionPreference FormationPositionPreference { get; set; }` |
 | `IsInfantry` | `public bool IsInfantry { get; }` |
+| `IsMounted` | `public virtual bool IsMounted { get; }` |
+| `IsRanged` | `public virtual bool IsRanged { get; }` |
+| `SkillFactor` | `public float SkillFactor { get; set; }` |
 | `Race` | `public int Race { get; }` |
 | `IsFemale` | `public virtual bool IsFemale { get; }` |
 | `FaceMeshCache` | `public bool FaceMeshCache { get; }` |
 | `Equipment` | `public virtual Equipment Equipment { get; }` |
+| `BattleEquipments` | `public virtual IEnumerable<Equipment> BattleEquipments { get; }` |
+| `FirstBattleEquipment` | `public virtual Equipment FirstBattleEquipment { get; }` |
+| `RandomBattleEquipment` | `public virtual Equipment RandomBattleEquipment { get; }` |
+| `CivilianEquipments` | `public virtual IEnumerable<Equipment> CivilianEquipments { get; }` |
+| `FirstCivilianEquipment` | `public virtual Equipment FirstCivilianEquipment { get; }` |
+| `RandomCivilianEquipment` | `public virtual Equipment RandomCivilianEquipment { get; }` |
+| `GetRandomEquipment` | `public virtual Equipment GetRandomEquipment { get; }` |
 | `IsObsolete` | `public bool IsObsolete { get; }` |
 | `Level` | `public virtual int Level { get; set; }` |
 | `Culture` | `public BasicCultureObject Culture { get; set; }` |
+| `IsPlayerCharacter` | `public virtual bool IsPlayerCharacter { get; set; }` |
 | `Age` | `public virtual float Age { get; set; }` |
+| `HitPoints` | `public virtual int HitPoints { get; }` |
 | `FaceDirtAmount` | `public float FaceDirtAmount { get; }` |
+| `IsHero` | `public virtual bool IsHero { get; }` |
 | `IsSoldier` | `public bool IsSoldier { get; }` |
 
 ## 主要方法

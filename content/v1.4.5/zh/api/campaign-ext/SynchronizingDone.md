@@ -8,7 +8,7 @@ description: "SynchronizingDone 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SynchronizingDone : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SynchronizingDone.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SynchronizingDone.cs`
 
 ## 概述
 

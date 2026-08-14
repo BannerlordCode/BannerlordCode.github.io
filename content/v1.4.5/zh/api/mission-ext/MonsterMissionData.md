@@ -8,7 +8,7 @@ description: "MonsterMissionData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MonsterMissionData : IMonsterMissionData`
 **Base:** `IMonsterMissionData`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MonsterMissionData.cs`
+**File:** `TaleWorlds.MountAndBlade/MonsterMissionData.cs`
 
 ## 概述
 
@@ -23,6 +23,8 @@ description: "MonsterMissionData 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Monster` | `public Monster Monster { get; }` |
+| `BodyCapsule` | `public CapsuleData BodyCapsule { get; }` |
+| `CrouchedBodyCapsule` | `public CapsuleData CrouchedBodyCapsule { get; }` |
 | `ActionSet` | `public MBActionSet ActionSet { get; }` |
 | `FemaleActionSet` | `public MBActionSet FemaleActionSet { get; }` |
 

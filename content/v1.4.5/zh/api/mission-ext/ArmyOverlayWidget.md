@@ -6,9 +6,9 @@ description: "ArmyOverlayWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class ArmyOverlayWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay/ArmyOverlayWidget.cs`
+**Type:** `public class ArmyOverlayWidget : OverlayBaseWidget`
+**Base:** `OverlayBaseWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Menu/Overlay/ArmyOverlayWidget.cs`
 
 ## 概述
 
@@ -27,19 +27,6 @@ description: "ArmyOverlayWidget 的自动生成类参考。"
 | `ExtendButton` | `public ButtonWidget ExtendButton { get; set; }` |
 | `IsInfoBarExtended` | `public bool IsInfoBarExtended { get; set; }` |
 | `PageControlWidget` | `public ContainerPageControlWidget PageControlWidget { get; set; }` |
-
-## 主要方法
-
-### ArmyOverlayWidget
-`public class ArmyOverlayWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 ArmyOverlayWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ArmyOverlayWidget 实例
-ArmyOverlayWidget armyOverlayWidget = ...;
-var result = armyOverlayWidget.ArmyOverlayWidget(context);
-```
 
 ## 使用示例
 

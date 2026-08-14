@@ -8,7 +8,7 @@ description: "DoubleTabControlListPanel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DoubleTabControlListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/DoubleTabControlListPanel.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/DoubleTabControlListPanel.cs`
 
 ## 概述
 

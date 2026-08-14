@@ -8,7 +8,7 @@ description: "ChangeRegionMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class ChangeRegionMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/ChangeRegionMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/ChangeRegionMessage.cs`
 
 ## 概述
 

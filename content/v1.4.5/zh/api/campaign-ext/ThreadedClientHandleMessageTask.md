@@ -8,7 +8,7 @@ description: "ThreadedClientHandleMessageTask 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `internal sealed class ThreadedClientHandleMessageTask : ThreadedClientTask`
 **Base:** `ThreadedClientTask`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/ThreadedClientHandleMessageTask.cs`
+**File:** `TaleWorlds.Diamond/ThreadedClientHandleMessageTask.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ObjectSaveData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class ObjectSaveData`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/ObjectSaveData.cs`
+**File:** `TaleWorlds.SaveSystem/Save/ObjectSaveData.cs`
 
 ## 概述
 

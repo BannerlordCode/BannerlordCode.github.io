@@ -8,7 +8,7 @@ description: "SendBattleResultToPlayerMessage 的自动生成类参考。"
 **Module:** Messages.FromBattleServer
 **Type:** `public class SendBattleResultToPlayerMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/SendBattleResultToPlayerMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromBattleServer/ToBattleServerManager/SendBattleResultToPlayerMessage.cs`
 
 ## 概述
 

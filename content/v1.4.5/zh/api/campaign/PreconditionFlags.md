@@ -8,7 +8,7 @@ description: "PreconditionFlags 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `enum PreconditionFlags : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/IssueBase.cs`
+**File:** `TaleWorlds.CampaignSystem/Issues/IssueBase.cs`
 
 ## 概述
 

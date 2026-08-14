@@ -8,7 +8,7 @@ description: "ApiAvatarServiceBase 的自动生成类参考。"
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public abstract class ApiAvatarServiceBase : IAvatarService`
 **Base:** `IAvatarService`
-**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/ApiAvatarServiceBase.cs`
+**File:** `TaleWorlds.PlayerServices/PlayerServices/Avatar/ApiAvatarServiceBase.cs`
 
 ## 概述
 

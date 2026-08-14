@@ -8,7 +8,7 @@ description: "ThreatSeeker 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ThreatSeeker`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RangedSiegeWeaponAi.cs`
+**File:** `TaleWorlds.MountAndBlade/RangedSiegeWeaponAi.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "ThreatSeeker 的自动生成类参考。"
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### InitializeTargetableObjects
-`public void InitializeTargetableObjects()`
-
-**用途 / Purpose:** 为 targetable objects 初始化必要的资源、状态或绑定。
-
-```csharp
-// 先通过子系统 API 拿到 ThreatSeeker 实例
-ThreatSeeker threatSeeker = ...;
-threatSeeker.InitializeTargetableObjects();
-```
 
 ### PrepareTargetFromTask
 `public Threat PrepareTargetFromTask()`
@@ -111,7 +100,7 @@ ThreatSeeker.GetMaxThreat(castleKeyPositions);
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 ThreatSeeker threatSeeker = ...;
-threatSeeker.InitializeTargetableObjects();
+threatSeeker.PrepareTargetFromTask();
 ```
 
 ## 参见

@@ -8,7 +8,7 @@ description: "BehaviorSaveData 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class BehaviorSaveData : IDataStore`
 **Base:** `IDataStore`
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignBehaviorDataStore.cs`
+**File:** `TaleWorlds.CampaignSystem/CampaignBehaviorDataStore.cs`
 
 ## 概述
 
@@ -17,6 +17,13 @@ description: "BehaviorSaveData 的自动生成类参考。"
 ## 心智模型
 
 把 `BehaviorSaveData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `IsSaving` | `public bool IsSaving { get; }` |
+| `IsLoading` | `public bool IsLoading { get; }` |
 
 ## 使用示例
 

@@ -8,7 +8,7 @@ description: "GameManagerBase 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class GameManagerBase`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/GameManagerBase.cs`
+**File:** `TaleWorlds.Core/GameManagerBase.cs`
 
 ## 概述
 
@@ -24,6 +24,7 @@ description: "GameManagerBase 的自动生成类参考。"
 |------|-----------|
 | `Current` | `public static GameManagerBase Current { get; }` |
 | `Game` | `public Game Game { get; set; }` |
+| `Components` | `public IEnumerable<GameManagerComponent> Components { get; }` |
 | `ApplicationTime` | `public abstract float ApplicationTime { get; }` |
 | `CheatMode` | `public abstract bool CheatMode { get; }` |
 | `IsDevelopmentMode` | `public abstract bool IsDevelopmentMode { get; }` |

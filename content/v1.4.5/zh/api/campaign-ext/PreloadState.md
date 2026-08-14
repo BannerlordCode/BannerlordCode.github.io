@@ -8,7 +8,7 @@ description: "PreloadState 的自动生成类参考。"
 **Module:** Sandbox.View
 **Type:** `public class PreloadState : GameState`
 **Base:** `GameState`
-**File:** `bin/TaleWorlds.CampaignSystem/Sandbox.View.GameStates/PreloadState.cs`
+**File:** `TaleWorlds.CampaignSystem/Sandbox/View/GameStates/PreloadState.cs`
 
 ## 概述
 

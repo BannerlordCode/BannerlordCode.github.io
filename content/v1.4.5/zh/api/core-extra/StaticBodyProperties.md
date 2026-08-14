@@ -8,7 +8,7 @@ description: "StaticBodyProperties 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct StaticBodyProperties : ISerializableObject`
 **Base:** `ISerializableObject`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/StaticBodyProperties.cs`
+**File:** `TaleWorlds.Core/StaticBodyProperties.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "KillData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct KillData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/KillData.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/MultiplayerBadges/KillData.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "FaceCorner 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public struct FaceCorner`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/MeshBuilder.cs`
+**File:** `TaleWorlds.Engine/MeshBuilder.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MessageType 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public enum MessageType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/MessageType.cs`
+**File:** `TaleWorlds.Diamond/Rest/MessageType.cs`
 
 ## 概述
 

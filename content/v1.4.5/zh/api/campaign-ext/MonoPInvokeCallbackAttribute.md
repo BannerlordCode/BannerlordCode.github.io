@@ -8,7 +8,7 @@ description: "MonoPInvokeCallbackAttribute 的自动生成类参考。"
 **Module:** (global)
 **Type:** `public class MonoPInvokeCallbackAttribute : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.DotNet/MonoPInvokeCallbackAttribute.cs`
+**File:** `TaleWorlds.DotNet/MonoPInvokeCallbackAttribute.cs`
 
 ## 概述
 

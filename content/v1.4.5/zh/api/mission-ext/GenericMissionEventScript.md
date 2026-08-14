@@ -8,7 +8,7 @@ description: "GenericMissionEventScript 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GenericMissionEventScript : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/GenericMissionEventScript.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/GenericMissionEventScript.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "PartyRemoveReason 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum PartyRemoveReason`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PartyRemoveReason.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PartyRemoveReason.cs`
 
 ## 概述
 

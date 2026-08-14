@@ -8,7 +8,7 @@ description: "ParameterFile 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class ParameterFile`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ParameterFile.cs`
+**File:** `TaleWorlds.Library/ParameterFile.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "FireMangonel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FireMangonel : Mangonel`
 **Base:** `Mangonel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FireMangonel.cs`
+**File:** `TaleWorlds.MountAndBlade/FireMangonel.cs`
 
 ## 概述
 

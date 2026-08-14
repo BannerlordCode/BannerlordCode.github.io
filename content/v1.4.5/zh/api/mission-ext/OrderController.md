@@ -8,7 +8,7 @@ description: "OrderController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderController`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/OrderController.cs`
+**File:** `TaleWorlds.MountAndBlade/OrderController.cs`
 
 ## 概述
 
@@ -23,6 +23,8 @@ description: "OrderController 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `SiegeWeaponController` | `public SiegeWeaponController SiegeWeaponController { get; }` |
+| `SelectedFormations` | `public MBReadOnlyList<Formation> SelectedFormations { get; }` |
+| `FormationUpdateEnabledAfterSetOrder` | `public bool FormationUpdateEnabledAfterSetOrder { get; }` |
 | `simulationFormations` | `public Dictionary<Formation, Formation> simulationFormations { get; }` |
 
 ## 主要方法
@@ -116,7 +118,7 @@ orderController.ClearSelectedFormations();
 ```
 
 ### SetOrder
-`public virtual void SetOrder(OrderType orderType)`
+`public unsafe virtual void SetOrder(OrderType orderType)`
 
 **用途 / Purpose:** 为 order 赋新值，并同步更新对象内部状态。
 
@@ -182,14 +184,14 @@ orderController.TransferUnitWithPriorityFunction(orderFormation, 0, false, false
 ```
 
 ### RearrangeFormationsAccordingToFilters
-`public void RearrangeFormationsAccordingToFilters(Team team, List<(Formation formation, int troopCount, TroopTraitsMask troopFilter, List<Agent> excludedAgents)> MassTransferData)`
+`public void RearrangeFormationsAccordingToFilters(Team team, { "formation", "troopCount", "troopFilter", "excludedAgents" })`
 
 **用途 / Purpose:** 调用 RearrangeFormationsAccordingToFilters 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderController 实例
 OrderController orderController = ...;
-orderController.RearrangeFormationsAccordingToFilters(team, formation, 0, troopFilter, massTransferData);
+orderController.RearrangeFormationsAccordingToFilters(team, "formation", "troopCount", "troopFilter", });
 ```
 
 ### SetOrderWithFormationAndNumber
@@ -226,7 +228,7 @@ orderController.SetOrderWithOrderableObject(target);
 ```
 
 ### GetActiveMovementOrderOf
-`public static OrderType GetActiveMovementOrderOf(Formation formation)`
+`public unsafe static OrderType GetActiveMovementOrderOf(Formation formation)`
 
 **用途 / Purpose:** 读取并返回当前对象中 active movement order of 的结果。
 
@@ -339,13 +341,13 @@ OrderController.SimulateNewOrderWithPositionAndDirection(formations, dictionary<
 ```
 
 ### SimulateNewOrderWithPositionAndDirection
-`public static void SimulateNewOrderWithPositionAndDirection(IEnumerable<Formation> formations, Dictionary<Formation, Formation> simulationFormations, WorldPosition formationLineBegin, WorldPosition formationLineEnd, out List<(Formation, int, float, WorldPosition, Vec2)> formationChanges, out bool isLineShort, bool isFormationLayoutVertical = true)`
+`public static void SimulateNewOrderWithPositionAndDirection(IEnumerable<Formation> formations, Dictionary<Formation, Formation> simulationFormations, WorldPosition formationLineBegin, WorldPosition formationLineEnd, out List<ValueTuple<Formation, int, float, WorldPosition, Vec2>> formationChanges, out bool isLineShort, bool isFormationLayoutVertical = true)`
 
 **用途 / Purpose:** 调用 SimulateNewOrderWithPositionAndDirection 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
-OrderController.SimulateNewOrderWithPositionAndDirection(formations, dictionary<Formation, simulationFormations, formationLineBegin, formationLineEnd, list<(Formation, 0, 0, worldPosition, formationChanges, isLineShort, false);
+OrderController.SimulateNewOrderWithPositionAndDirection(formations, dictionary<Formation, simulationFormations, formationLineBegin, formationLineEnd, list<ValueTuple<Formation, 0, 0, worldPosition, formationChanges, isLineShort, false);
 ```
 
 ### SimulateDestinationFrames
@@ -453,16 +455,6 @@ var result = orderController.GetOverridenOrderType(formation);
 // 先通过子系统 API 拿到 OrderController 实例
 OrderController orderController = ...;
 orderController.SetFormationUpdateEnabledAfterSetOrder(false);
-```
-
-### TryCancelStopOrder
-`public static void TryCancelStopOrder(Formation formation)`
-
-**用途 / Purpose:** 尝试获取 cancel stop order 的值，通常通过 out 参数返回是否成功。
-
-```csharp
-// 静态调用，不需要实例
-OrderController.TryCancelStopOrder(formation);
 ```
 
 ## 使用示例

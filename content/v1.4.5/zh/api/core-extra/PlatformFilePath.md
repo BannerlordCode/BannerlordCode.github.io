@@ -8,7 +8,7 @@ description: "PlatformFilePath 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct PlatformFilePath`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PlatformFilePath.cs`
+**File:** `TaleWorlds.Library/PlatformFilePath.cs`
 
 ## 概述
 
@@ -18,18 +18,13 @@ description: "PlatformFilePath 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `FileFullPath` | `public string FileFullPath { get; }` |
+
 ## 主要方法
-
-### PlatformFilePath
-`public struct PlatformFilePath(PlatformDirectoryPath folderPath, string fileName)`
-
-**用途 / Purpose:** 调用 PlatformFilePath 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 PlatformFilePath 实例
-PlatformFilePath platformFilePath = ...;
-var result = platformFilePath.PlatformFilePath(folderPath, "example");
-```
 
 ### GetFileNameWithoutExtension
 `public string GetFileNameWithoutExtension()`
@@ -58,7 +53,7 @@ var result = platformFilePath.ToString();
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 PlatformFilePath platformFilePath = ...;
-platformFilePath.PlatformFilePath(folderPath, "example");
+platformFilePath.GetFileNameWithoutExtension();
 ```
 
 ## 参见

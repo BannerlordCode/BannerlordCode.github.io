@@ -8,7 +8,7 @@ description: "MBGlobals 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBGlobals`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBGlobals.cs`
+**File:** `TaleWorlds.MountAndBlade/MBGlobals.cs`
 
 ## 概述
 

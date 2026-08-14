@@ -8,7 +8,7 @@ description: "StringItemWithEnabledAndHintVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class StringItemWithEnabledAndHintVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Generic/StringItemWithEnabledAndHintVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/Generic/StringItemWithEnabledAndHintVM.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "StanceTypes 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum StanceTypes`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection/CharacterViewModel.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/CharacterViewModel.cs`
 
 ## 概述
 

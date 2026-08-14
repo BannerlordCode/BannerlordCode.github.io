@@ -8,7 +8,7 @@ description: "AgentDrivenProperties 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentDrivenProperties`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentDrivenProperties.cs`
+**File:** `TaleWorlds.MountAndBlade/AgentDrivenProperties.cs`
 
 ## 概述
 
@@ -28,13 +28,13 @@ description: "AgentDrivenProperties 的自动生成类参考。"
 | `ReloadSpeed` | `public float ReloadSpeed { get; set; }` |
 | `MissileSpeedMultiplier` | `public float MissileSpeedMultiplier { get; set; }` |
 | `WeaponInaccuracy` | `public float WeaponInaccuracy { get; set; }` |
+| `AiShooterErrorWoRangeUpdate` | `public float AiShooterErrorWoRangeUpdate { get; set; }` |
 | `WeaponMaxMovementAccuracyPenalty` | `public float WeaponMaxMovementAccuracyPenalty { get; set; }` |
 | `WeaponMaxUnsteadyAccuracyPenalty` | `public float WeaponMaxUnsteadyAccuracyPenalty { get; set; }` |
 | `WeaponBestAccuracyWaitTime` | `public float WeaponBestAccuracyWaitTime { get; set; }` |
 | `WeaponUnsteadyBeginTime` | `public float WeaponUnsteadyBeginTime { get; set; }` |
 | `WeaponUnsteadyEndTime` | `public float WeaponUnsteadyEndTime { get; set; }` |
 | `WeaponRotationalAccuracyPenaltyInRadians` | `public float WeaponRotationalAccuracyPenaltyInRadians { get; set; }` |
-| `WeaponExternalAccelerationAccuracyPenalty` | `public float WeaponExternalAccelerationAccuracyPenalty { get; set; }` |
 | `ArmorEncumbrance` | `public float ArmorEncumbrance { get; set; }` |
 | `DamageMultiplierBonus` | `public float DamageMultiplierBonus { get; set; }` |
 | `ThrowingWeaponDamageMultiplierBonus` | `public float ThrowingWeaponDamageMultiplierBonus { get; set; }` |
@@ -65,7 +65,6 @@ description: "AgentDrivenProperties 的自动生成类参考。"
 | `MountDifficulty` | `public float MountDifficulty { get; set; }` |
 | `BipedalRangedReadySpeedMultiplier` | `public float BipedalRangedReadySpeedMultiplier { get; set; }` |
 | `BipedalRangedReloadSpeedMultiplier` | `public float BipedalRangedReloadSpeedMultiplier { get; set; }` |
-| `AiShooterErrorWoRangeUpdate` | `public float AiShooterErrorWoRangeUpdate { get; set; }` |
 | `AiRangedHorsebackMissileRange` | `public float AiRangedHorsebackMissileRange { get; set; }` |
 | `AiFacingMissileWatch` | `public float AiFacingMissileWatch { get; set; }` |
 | `AiFlyingMissileCheckRadius` | `public float AiFlyingMissileCheckRadius { get; set; }` |

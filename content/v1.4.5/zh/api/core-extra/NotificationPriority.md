@@ -8,7 +8,7 @@ description: "NotificationPriority 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum NotificationPriority`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBInformationManager.cs`
+**File:** `TaleWorlds.Core/MBInformationManager.cs`
 
 ## 概述
 

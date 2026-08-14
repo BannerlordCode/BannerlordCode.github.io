@@ -8,7 +8,7 @@ description: "SkeletonScale 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class SkeletonScale : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SkeletonScale.cs`
+**File:** `TaleWorlds.Core/SkeletonScale.cs`
 
 ## 概述
 

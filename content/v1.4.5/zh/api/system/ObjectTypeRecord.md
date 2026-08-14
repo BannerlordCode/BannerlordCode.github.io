@@ -6,9 +6,9 @@ description: "ObjectTypeRecord 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.ObjectSystem
 **Module:** TaleWorlds.ObjectSystem
-**Type:** `internal class ObjectTypeRecord<T> : IObjectTypeRecord, IEnumerable, IEnumerable<T> where T : MBObjectBase`
-**Base:** `IObjectTypeRecord`
-**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBObjectManager.cs`
+**Type:** `internal class ObjectTypeRecord<T> : MBObjectManager.IObjectTypeRecord, IEnumerable, IEnumerable<T> where T : MBObjectBase`
+**Base:** `MBObjectManager.IObjectTypeRecord`
+**File:** `TaleWorlds.ObjectSystem/MBObjectManager.cs`
 
 ## 概述
 

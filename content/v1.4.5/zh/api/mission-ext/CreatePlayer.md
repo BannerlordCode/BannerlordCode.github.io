@@ -8,7 +8,7 @@ description: "CreatePlayer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class CreatePlayer : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Network.Messages/CreatePlayer.cs`
+**File:** `TaleWorlds.MountAndBlade/Network/Messages/CreatePlayer.cs`
 
 ## 概述
 

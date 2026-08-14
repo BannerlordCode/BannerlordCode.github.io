@@ -8,7 +8,7 @@ description: "FriendListService 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public static class FriendListService`
 **Base:** 无
-**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/FriendListService.cs`
+**File:** `TaleWorlds.PlatformService/FriendListService.cs`
 
 ## 概述
 

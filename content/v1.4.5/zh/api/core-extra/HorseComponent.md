@@ -8,7 +8,7 @@ description: "HorseComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class HorseComponent : ItemComponent`
 **Base:** `ItemComponent`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/HorseComponent.cs`
+**File:** `TaleWorlds.Core/HorseComponent.cs`
 
 ## 概述
 
@@ -22,33 +22,24 @@ description: "HorseComponent 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `Name` | `public string Name { get; }` |
 | `Monster` | `public Monster Monster { get; }` |
 | `Maneuver` | `public int Maneuver { get; }` |
 | `ChargeDamage` | `public int ChargeDamage { get; }` |
 | `Speed` | `public int Speed { get; }` |
 | `BodyLength` | `public int BodyLength { get; }` |
+| `HitPoints` | `public int HitPoints { get; }` |
 | `HitPointBonus` | `public int HitPointBonus { get; }` |
 | `IsRideable` | `public bool IsRideable { get; }` |
 | `IsPackAnimal` | `public bool IsPackAnimal { get; }` |
 | `IsMount` | `public bool IsMount { get; }` |
 | `IsLiveStock` | `public bool IsLiveStock { get; }` |
+| `HorseMaterialNames` | `public MBReadOnlyList<HorseComponent.MaterialProperty> HorseMaterialNames { get; }` |
 | `MeatCount` | `public int MeatCount { get; }` |
 | `HideCount` | `public int HideCount { get; }` |
 | `SkeletonScale` | `public SkeletonScale SkeletonScale { get; }` |
+| `Name` | `public string Name { get; }` |
 
 ## 主要方法
-
-### MaterialProperty
-`public struct MaterialProperty(string name)`
-
-**用途 / Purpose:** 调用 MaterialProperty 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 HorseComponent 实例
-HorseComponent horseComponent = ...;
-var result = horseComponent.MaterialProperty("example");
-```
 
 ### GetCopy
 `public override ItemComponent GetCopy()`

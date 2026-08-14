@@ -8,7 +8,7 @@ description: "BehaviorRegroup 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorRegroup : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorRegroup.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorRegroup.cs`
 
 ## 概述
 

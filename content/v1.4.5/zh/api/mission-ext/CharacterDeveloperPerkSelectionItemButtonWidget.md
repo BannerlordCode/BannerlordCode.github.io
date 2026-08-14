@@ -8,7 +8,7 @@ description: "CharacterDeveloperPerkSelectionItemButtonWidget 的自动生成类
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterDeveloperPerkSelectionItemButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/CharacterDeveloperPerkSelectionItemButtonWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/CharacterDeveloper/CharacterDeveloperPerkSelectionItemButtonWidget.cs`
 
 ## 概述
 

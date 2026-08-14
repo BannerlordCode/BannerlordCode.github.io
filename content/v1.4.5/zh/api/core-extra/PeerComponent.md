@@ -8,7 +8,7 @@ description: "PeerComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class PeerComponent : IEntityComponent`
 **Base:** `IEntityComponent`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/PeerComponent.cs`
+**File:** `TaleWorlds.Core/PeerComponent.cs`
 
 ## 概述
 
@@ -23,6 +23,8 @@ description: "PeerComponent 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Peer` | `public VirtualPlayer Peer { get; set; }` |
+| `Name` | `public string Name { get; }` |
+| `IsMine` | `public bool IsMine { get; }` |
 | `TypeId` | `public uint TypeId { get; set; }` |
 
 ## 主要方法

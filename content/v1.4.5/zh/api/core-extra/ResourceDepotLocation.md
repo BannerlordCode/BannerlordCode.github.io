@@ -8,7 +8,7 @@ description: "ResourceDepotLocation 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class ResourceDepotLocation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ResourceDepotLocation.cs`
+**File:** `TaleWorlds.Library/ResourceDepotLocation.cs`
 
 ## 概述
 

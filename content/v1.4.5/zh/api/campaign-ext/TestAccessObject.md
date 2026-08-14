@@ -8,7 +8,7 @@ description: "TestAccessObject 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class TestAccessObject : AccessObject`
 **Base:** `AccessObject`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/TestAccessObject.cs`
+**File:** `TaleWorlds.Diamond/TestAccessObject.cs`
 
 ## 概述
 

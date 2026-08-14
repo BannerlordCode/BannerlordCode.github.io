@@ -8,7 +8,7 @@ description: "ArithmeticOperation 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal enum ArithmeticOperation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/ArithmeticOperation.cs`
+**File:** `TaleWorlds.Localization/Expressions/ArithmeticOperation.cs`
 
 ## 概述
 

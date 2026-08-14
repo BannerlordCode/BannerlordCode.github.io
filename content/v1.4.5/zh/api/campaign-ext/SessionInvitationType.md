@@ -8,7 +8,7 @@ description: "SessionInvitationType 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public enum SessionInvitationType`
 **Base:** 无
-**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/SessionInvitationType.cs`
+**File:** `TaleWorlds.PlatformService/SessionInvitationType.cs`
 
 ## 概述
 

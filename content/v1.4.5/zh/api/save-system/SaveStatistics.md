@@ -8,7 +8,7 @@ description: "SaveStatistics 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public struct SaveStatistics`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/LegacySaveContext.cs`
+**File:** `TaleWorlds.SaveSystem/Save/LegacySaveContext.cs`
 
 ## 概述
 
@@ -20,15 +20,26 @@ description: "SaveStatistics 的自动生成类参考。"
 
 ## 主要方法
 
-### SaveStatistics
-`public struct SaveStatistics(Dictionary<string, (int, int, int, long)> typeStatistics, Dictionary<string, (int, int, int, int, long)> containerStatistics)`
+### GetObjectCounts
+`public ValueTuple<int, int, int, long> GetObjectCounts(string key)`
 
-**用途 / Purpose:** 将 statistics 写入持久化存储或流中。
+**用途 / Purpose:** 读取并返回当前对象中 object counts 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveStatistics 实例
 SaveStatistics saveStatistics = ...;
-var result = saveStatistics.SaveStatistics(dictionary<string, (int, 0, 0, 0, dictionary<string, (int, 0, 0, 0, 0);
+var result = saveStatistics.GetObjectCounts("example");
+```
+
+### GetContainerCounts
+`public ValueTuple<int, int, int, int, long> GetContainerCounts(string key)`
+
+**用途 / Purpose:** 读取并返回当前对象中 container counts 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveStatistics 实例
+SaveStatistics saveStatistics = ...;
+var result = saveStatistics.GetContainerCounts("example");
 ```
 
 ### GetContainerSize
@@ -69,7 +80,7 @@ var result = saveStatistics.GetContainerKeys();
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 SaveStatistics saveStatistics = ...;
-saveStatistics.SaveStatistics(dictionary<string, (int, 0, 0, 0, dictionary<string, (int, 0, 0, 0, 0);
+saveStatistics.GetObjectCounts("example");
 ```
 
 ## 参见

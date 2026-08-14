@@ -8,7 +8,7 @@ description: "CustomBattleSliderLockButtonWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleSliderLockButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CustomBattle/CustomBattleSliderLockButtonWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/CustomBattle/CustomBattleSliderLockButtonWidget.cs`
 
 ## 概述
 

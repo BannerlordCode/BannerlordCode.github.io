@@ -8,7 +8,7 @@ description: "ActivityTransition 的自动生成类参考。"
 **Module:** TaleWorlds.ActivitySystem
 **Type:** `public enum ActivityTransition`
 **Base:** 无
-**File:** `bin/TaleWorlds.ActivitySystem/TaleWorlds.ActivitySystem/ActivityTransition.cs`
+**File:** `TaleWorlds.ActivitySystem/ActivityTransition.cs`
 
 ## 概述
 

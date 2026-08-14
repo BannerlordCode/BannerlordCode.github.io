@@ -8,7 +8,7 @@ description: "BadgeType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum BadgeType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/BadgeType.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/MultiplayerBadges/BadgeType.cs`
 
 ## 概述
 

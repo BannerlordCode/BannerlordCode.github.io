@@ -8,7 +8,7 @@ description: "MBFastRandom 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MBFastRandom`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBFastRandom.cs`
+**File:** `TaleWorlds.Core/MBFastRandom.cs`
 
 ## 概述
 

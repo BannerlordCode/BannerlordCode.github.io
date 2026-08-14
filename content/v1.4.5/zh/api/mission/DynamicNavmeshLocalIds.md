@@ -8,7 +8,7 @@ description: "DynamicNavmeshLocalIds 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `enum DynamicNavmeshLocalIds`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionObject.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionObject.cs`
 
 ## 概述
 

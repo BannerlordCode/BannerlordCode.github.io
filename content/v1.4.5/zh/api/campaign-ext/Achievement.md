@@ -8,7 +8,7 @@ description: "Achievement 的自动生成类参考。"
 **Module:** TaleWorlds.AchievementSystem
 **Type:** `public class Achievement`
 **Base:** 无
-**File:** `bin/TaleWorlds.AchievementSystem/TaleWorlds.AchievementSystem/Achievement.cs`
+**File:** `TaleWorlds.AchievementSystem/Achievement.cs`
 
 ## 概述
 

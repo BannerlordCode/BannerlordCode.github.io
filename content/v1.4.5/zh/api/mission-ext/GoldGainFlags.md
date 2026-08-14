@@ -8,7 +8,7 @@ description: "GoldGainFlags 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum GoldGainFlags : ushort`
 **Base:** `ushort`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GoldGainFlags.cs`
+**File:** `TaleWorlds.MountAndBlade/GoldGainFlags.cs`
 
 ## 概述
 

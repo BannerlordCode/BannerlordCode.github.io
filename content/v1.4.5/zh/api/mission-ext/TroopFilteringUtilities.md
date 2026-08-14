@@ -8,7 +8,7 @@ description: "TroopFilteringUtilities 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class TroopFilteringUtilities`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TroopFilteringUtilities.cs`
+**File:** `TaleWorlds.MountAndBlade/TroopFilteringUtilities.cs`
 
 ## 概述
 

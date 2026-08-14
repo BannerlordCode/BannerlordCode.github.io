@@ -8,7 +8,7 @@ description: "SavedMemberType 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal enum SavedMemberType`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SavedMemberType.cs`
+**File:** `TaleWorlds.SaveSystem/SavedMemberType.cs`
 
 ## 概述
 

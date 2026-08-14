@@ -8,7 +8,7 @@ description: "EventBase 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class EventBase`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.EventSystem/EventBase.cs`
+**File:** `TaleWorlds.Library/EventSystem/EventBase.cs`
 
 ## 概述
 

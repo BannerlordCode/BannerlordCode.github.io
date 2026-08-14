@@ -8,7 +8,7 @@ description: "DefaultDeploymentPlan 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultDeploymentPlan`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultDeploymentPlan.cs`
+**File:** `TaleWorlds.MountAndBlade/DefaultDeploymentPlan.cs`
 
 ## 概述
 
@@ -22,13 +22,17 @@ description: "DefaultDeploymentPlan 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `SpawnWithHorses` | `public bool SpawnWithHorses { get; }` |
+| `PlanCount` | `public int PlanCount { get; }` |
 | `IsPlanMade` | `public bool IsPlanMade { get; }` |
 | `SpawnPathOffset` | `public float SpawnPathOffset { get; }` |
 | `TargetOffset` | `public float TargetOffset { get; }` |
+| `IsSafeToDeploy` | `public bool IsSafeToDeploy { get; }` |
 | `SafetyScore` | `public float SafetyScore { get; }` |
 | `FootTroopCount` | `public int FootTroopCount { get; }` |
 | `MountedTroopCount` | `public int MountedTroopCount { get; }` |
 | `TroopCount` | `public int TroopCount { get; }` |
+| `MeanPosition` | `public Vec3 MeanPosition { get; }` |
 
 ## 主要方法
 
@@ -73,15 +77,15 @@ DefaultDeploymentPlan defaultDeploymentPlan = ...;
 defaultDeploymentPlan.SetSpawnWithHorses(false);
 ```
 
-### MakeDeploymentPlan
-`public void MakeDeploymentPlan(float spawnPathOffset = 0f, float targetOffset = 0f, FormationSceneSpawnEntry formationSceneSpawnEntries = null)`
+### ClearAddedTroops
+`public void ClearAddedTroops()`
 
-**用途 / Purpose:** 调用 MakeDeploymentPlan 对应的操作。
+**用途 / Purpose:** 清空当前对象中的added troops。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDeploymentPlan 实例
 DefaultDeploymentPlan defaultDeploymentPlan = ...;
-defaultDeploymentPlan.MakeDeploymentPlan(0, 0, null);
+defaultDeploymentPlan.ClearAddedTroops();
 ```
 
 ### ClearPlan
@@ -95,17 +99,6 @@ DefaultDeploymentPlan defaultDeploymentPlan = ...;
 defaultDeploymentPlan.ClearPlan();
 ```
 
-### ClearAddedTroops
-`public void ClearAddedTroops()`
-
-**用途 / Purpose:** 清空当前对象中的added troops。
-
-```csharp
-// 先通过子系统 API 拿到 DefaultDeploymentPlan 实例
-DefaultDeploymentPlan defaultDeploymentPlan = ...;
-defaultDeploymentPlan.ClearAddedTroops();
-```
-
 ### AddTroops
 `public void AddTroops(FormationClass formationClass, int footTroopCount, int mountedTroopCount)`
 
@@ -115,6 +108,17 @@ defaultDeploymentPlan.ClearAddedTroops();
 // 先通过子系统 API 拿到 DefaultDeploymentPlan 实例
 DefaultDeploymentPlan defaultDeploymentPlan = ...;
 defaultDeploymentPlan.AddTroops(formationClass, 0, 0);
+```
+
+### PlanBattleDeployment
+`public void PlanBattleDeployment(FormationSceneSpawnEntry formationSceneSpawnEntries, float spawnPathOffset = 0f, float targetOffset = 0f)`
+
+**用途 / Purpose:** 调用 PlanBattleDeployment 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultDeploymentPlan 实例
+DefaultDeploymentPlan defaultDeploymentPlan = ...;
+defaultDeploymentPlan.PlanBattleDeployment(formationSceneSpawnEntries, 0, 0);
 ```
 
 ### GetFormationPlan
@@ -139,26 +143,15 @@ DefaultDeploymentPlan defaultDeploymentPlan = ...;
 var result = defaultDeploymentPlan.GetFormationDeploymentFrame(fClass, frame);
 ```
 
-### GetFirstValidFormationDeploymentFrame
-`public bool GetFirstValidFormationDeploymentFrame(out MatrixFrame frame)`
-
-**用途 / Purpose:** 读取并返回当前对象中 first valid formation deployment frame 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 DefaultDeploymentPlan 实例
-DefaultDeploymentPlan defaultDeploymentPlan = ...;
-var result = defaultDeploymentPlan.GetFirstValidFormationDeploymentFrame(frame);
-```
-
 ### IsPlanSuitableForFormations
-`public bool IsPlanSuitableForFormations((int, int) troopDataPerFormationClass)`
+`public bool IsPlanSuitableForFormations(ValueTuple<int, int> troopDataPerFormationClass)`
 
 **用途 / Purpose:** 判断当前对象是否处于 plan suitable for formations 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDeploymentPlan 实例
 DefaultDeploymentPlan defaultDeploymentPlan = ...;
-var result = defaultDeploymentPlan.IsPlanSuitableForFormations((int, 0);
+var result = defaultDeploymentPlan.IsPlanSuitableForFormations(valueTuple<int, 0);
 ```
 
 ### UpdateSafetyScore
@@ -181,6 +174,17 @@ defaultDeploymentPlan.UpdateSafetyScore();
 // 先通过子系统 API 拿到 DefaultDeploymentPlan 实例
 DefaultDeploymentPlan defaultDeploymentPlan = ...;
 var result = defaultDeploymentPlan.GetFrameFromFormationSpawnEntity(formationSpawnEntity, 0);
+```
+
+### GetFormationSpawnWidthAndDepth
+`public ValueTuple<float, float> GetFormationSpawnWidthAndDepth(FormationClass formationNo, int troopCount, bool hasMountedTroops, bool considerCavalryAsInfantry = false)`
+
+**用途 / Purpose:** 读取并返回当前对象中 formation spawn width and depth 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultDeploymentPlan 实例
+DefaultDeploymentPlan defaultDeploymentPlan = ...;
+var result = defaultDeploymentPlan.GetFormationSpawnWidthAndDepth(formationNo, 0, false, false);
 ```
 
 ## 使用示例

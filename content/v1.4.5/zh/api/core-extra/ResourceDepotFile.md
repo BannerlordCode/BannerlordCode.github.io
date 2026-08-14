@@ -8,7 +8,7 @@ description: "ResourceDepotFile 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class ResourceDepotFile`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ResourceDepotFile.cs`
+**File:** `TaleWorlds.Library/ResourceDepotFile.cs`
 
 ## 概述
 
@@ -23,6 +23,8 @@ description: "ResourceDepotFile 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `ResourceDepotLocation` | `public ResourceDepotLocation ResourceDepotLocation { get; }` |
+| `BasePath` | `public string BasePath { get; }` |
+| `Location` | `public string Location { get; }` |
 | `FileName` | `public string FileName { get; }` |
 | `FullPath` | `public string FullPath { get; }` |
 | `FullPathLowerCase` | `public string FullPathLowerCase { get; }` |

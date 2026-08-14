@@ -8,7 +8,7 @@ description: "MangonelSpawner 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MangonelSpawner : SpawnerBase`
 **Base:** `SpawnerBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Siege/MangonelSpawner.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Siege/MangonelSpawner.cs`
 
 ## 概述
 

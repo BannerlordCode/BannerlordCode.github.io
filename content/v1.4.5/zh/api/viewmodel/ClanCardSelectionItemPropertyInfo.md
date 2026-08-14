@@ -8,7 +8,7 @@ description: "ClanCardSelectionItemPropertyInfo 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `struct ClanCardSelectionItemPropertyInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement/ClanCardSelectionItemPropertyInfo.cs`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/ClanManagement/ClanCardSelectionItemPropertyInfo.cs`
 
 ## 概述
 

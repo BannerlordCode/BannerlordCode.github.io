@@ -8,7 +8,7 @@ description: "AlwaysVisibleNameMarkerListPanel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AlwaysVisibleNameMarkerListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker/AlwaysVisibleNameMarkerListPanel.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/NameMarker/AlwaysVisibleNameMarkerListPanel.cs`
 
 ## 概述
 

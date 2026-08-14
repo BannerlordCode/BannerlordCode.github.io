@@ -8,7 +8,7 @@ description: "PlatformLayerStandalone 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `internal class PlatformLayerStandalone : IPlatformLayer`
 **Base:** `IPlatformLayer`
-**File:** `bin/TaleWorlds.PSAI/psai.net/PlatformLayerStandalone.cs`
+**File:** `TaleWorlds.PSAI/net/PlatformLayerStandalone.cs`
 
 ## 概述
 

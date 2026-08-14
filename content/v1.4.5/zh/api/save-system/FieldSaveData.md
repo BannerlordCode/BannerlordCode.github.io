@@ -8,7 +8,7 @@ description: "FieldSaveData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class FieldSaveData : MemberSaveData`
 **Base:** `MemberSaveData`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/FieldSaveData.cs`
+**File:** `TaleWorlds.SaveSystem/Save/FieldSaveData.cs`
 
 ## 概述
 

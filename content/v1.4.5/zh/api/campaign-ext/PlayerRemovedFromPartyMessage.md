@@ -8,7 +8,7 @@ description: "PlayerRemovedFromPartyMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class PlayerRemovedFromPartyMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayerRemovedFromPartyMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/PlayerRemovedFromPartyMessage.cs`
 
 ## 概述
 

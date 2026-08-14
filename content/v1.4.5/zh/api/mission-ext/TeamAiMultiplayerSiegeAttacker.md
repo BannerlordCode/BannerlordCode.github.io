@@ -8,7 +8,7 @@ description: "TeamAiMultiplayerSiegeAttacker 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TeamAiMultiplayerSiegeAttacker : TeamAISiegeComponent`
 **Base:** `TeamAISiegeComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TeamAiMultiplayerSiegeAttacker.cs`
+**File:** `TaleWorlds.MountAndBlade/TeamAiMultiplayerSiegeAttacker.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MBAgentRendererSceneController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBAgentRendererSceneController`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBAgentRendererSceneController.cs`
+**File:** `TaleWorlds.MountAndBlade/MBAgentRendererSceneController.cs`
 
 ## 概述
 

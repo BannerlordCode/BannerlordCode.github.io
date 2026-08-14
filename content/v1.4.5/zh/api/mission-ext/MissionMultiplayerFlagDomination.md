@@ -8,7 +8,7 @@ description: "MissionMultiplayerFlagDomination 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerFlagDomination : MissionMultiplayerGameModeBase, IAnalyticsFlagInfo, IMissionBehavior`
 **Base:** `MissionMultiplayerGameModeBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerFlagDomination.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionMultiplayerFlagDomination.cs`
 
 ## 概述
 
@@ -23,7 +23,9 @@ description: "MissionMultiplayerFlagDomination 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `IsGameModeHidingAllAgentVisuals` | `public override bool IsGameModeHidingAllAgentVisuals { get; }` |
+| `IsGameModeUsingOpposingTeams` | `public override bool IsGameModeUsingOpposingTeams { get; }` |
 | `AllCapturePoints` | `public MBReadOnlyList<FlagCapturePoint> AllCapturePoints { get; }` |
+| `MoraleRounded` | `public float MoraleRounded { get; }` |
 | `GameModeUsesSingleSpawning` | `public bool GameModeUsesSingleSpawning { get; }` |
 
 ## 主要方法

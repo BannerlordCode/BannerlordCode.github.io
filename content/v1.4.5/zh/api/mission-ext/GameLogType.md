@@ -8,7 +8,7 @@ description: "GameLogType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum GameLogType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/GameLogType.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/GameLogType.cs`
 
 ## 概述
 

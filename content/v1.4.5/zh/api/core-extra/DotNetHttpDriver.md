@@ -8,7 +8,7 @@ description: "DotNetHttpDriver 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class DotNetHttpDriver : IHttpDriver`
 **Base:** `IHttpDriver`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.Http/DotNetHttpDriver.cs`
+**File:** `TaleWorlds.Library/Http/DotNetHttpDriver.cs`
 
 ## 概述
 

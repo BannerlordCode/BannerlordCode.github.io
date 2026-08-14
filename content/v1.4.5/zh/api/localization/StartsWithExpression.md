@@ -8,7 +8,7 @@ description: "StartsWithExpression 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class StartsWithExpression : TextExpression`
 **Base:** `TextExpression`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/StartsWithExpression.cs`
+**File:** `TaleWorlds.Localization/Expressions/StartsWithExpression.cs`
 
 ## 概述
 

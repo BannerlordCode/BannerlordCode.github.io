@@ -8,7 +8,7 @@ description: "IBadgeComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IBadgeComponent`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/IBadgeComponent.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/IBadgeComponent.cs`
 
 ## 概述
 

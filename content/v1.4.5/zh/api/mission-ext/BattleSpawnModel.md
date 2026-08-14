@@ -8,7 +8,7 @@ description: "BattleSpawnModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class BattleSpawnModel : MBGameModel<BattleSpawnModel>`
 **Base:** `MBGameModel<BattleSpawnModel>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/BattleSpawnModel.cs`
+**File:** `TaleWorlds.MountAndBlade/ComponentInterfaces/BattleSpawnModel.cs`
 
 ## 概述
 
@@ -40,6 +40,28 @@ battleSpawnModel.OnMissionStart();
 // 先通过子系统 API 拿到 BattleSpawnModel 实例
 BattleSpawnModel battleSpawnModel = ...;
 battleSpawnModel.OnMissionEnd();
+```
+
+### GetInitialSpawnAssignments
+`public abstract List<ValueTuple<IAgentOriginBase, int>> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
+
+**用途 / Purpose:** 读取并返回当前对象中 initial spawn assignments 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSpawnModel 实例
+BattleSpawnModel battleSpawnModel = ...;
+var result = battleSpawnModel.GetInitialSpawnAssignments(battleSide, troopOrigins);
+```
+
+### GetReinforcementAssignments
+`public abstract List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
+
+**用途 / Purpose:** 读取并返回当前对象中 reinforcement assignments 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSpawnModel 实例
+BattleSpawnModel battleSpawnModel = ...;
+var result = battleSpawnModel.GetReinforcementAssignments(battleSide, troopOrigins);
 ```
 
 ## 使用示例

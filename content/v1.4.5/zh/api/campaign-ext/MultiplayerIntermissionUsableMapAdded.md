@@ -8,7 +8,7 @@ description: "MultiplayerIntermissionUsableMapAdded 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class MultiplayerIntermissionUsableMapAdded : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/MultiplayerIntermissionUsableMapAdded.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/MultiplayerIntermissionUsableMapAdded.cs`
 
 ## 概述
 

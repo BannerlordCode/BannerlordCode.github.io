@@ -8,7 +8,7 @@ description: "DeploymentPointState 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum DeploymentPointState`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DeploymentPoint.cs`
+**File:** `TaleWorlds.MountAndBlade/DeploymentPoint.cs`
 
 ## 概述
 

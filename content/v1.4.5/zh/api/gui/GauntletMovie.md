@@ -8,7 +8,7 @@ description: "GauntletMovie 的自动生成类参考。"
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class GauntletMovie : IGauntletMovie`
 **Base:** `IGauntletMovie`
-**File:** `bin/TaleWorlds.GauntletUI.Data/TaleWorlds.GauntletUI.Data/GauntletMovie.cs`
+**File:** `TaleWorlds.GauntletUI.Data/GauntletMovie.cs`
 
 ## 概述
 
@@ -25,6 +25,7 @@ description: "GauntletMovie 的自动生成类参考。"
 | `WidgetFactory` | `public WidgetFactory WidgetFactory { get; }` |
 | `BrushFactory` | `public BrushFactory BrushFactory { get; }` |
 | `Context` | `public UIContext Context { get; }` |
+| `ViewModel` | `public IViewModel ViewModel { get; }` |
 | `MovieName` | `public string MovieName { get; }` |
 | `RootView` | `public GauntletView RootView { get; }` |
 | `RootWidget` | `public Widget RootWidget { get; }` |

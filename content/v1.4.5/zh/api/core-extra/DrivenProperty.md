@@ -8,7 +8,7 @@ description: "DrivenProperty 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum DrivenProperty`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/DrivenProperty.cs`
+**File:** `TaleWorlds.Core/DrivenProperty.cs`
 
 ## 概述
 

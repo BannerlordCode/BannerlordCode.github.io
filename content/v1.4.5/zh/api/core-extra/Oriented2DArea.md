@@ -8,7 +8,7 @@ description: "Oriented2DArea 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct Oriented2DArea`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Oriented2DArea.cs`
+**File:** `TaleWorlds.Library/Oriented2DArea.cs`
 
 ## 概述
 
@@ -22,14 +22,14 @@ description: "Oriented2DArea 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `GlobalCenter` | `public Vec2 GlobalCenter { get; }` |
+| `GlobalForward` | `public Vec2 GlobalForward { get; }` |
+| `LocalDimensions` | `public Vec2 LocalDimensions { get; }` |
 | `TopLeft` | `public Vec2 TopLeft { get; }` |
 | `TopRight` | `public Vec2 TopRight { get; }` |
 | `BottomLeft` | `public Vec2 BottomLeft { get; }` |
 | `BottomRight` | `public Vec2 BottomRight { get; }` |
 | `this` | `public Vec2 this { get; }` |
-| `GlobalCenter` | `public Vec2 GlobalCenter { get; }` |
-| `GlobalForward` | `public Vec2 GlobalForward { get; }` |
-| `LocalDimensions` | `public Vec2 LocalDimensions { get; }` |
 
 ## 主要方法
 
@@ -78,7 +78,7 @@ var result = oriented2DArea.Intersects(line, 0);
 ```
 
 ### GetCorners
-`public Corners GetCorners()`
+`public Oriented2DArea.Corners GetCorners()`
 
 **用途 / Purpose:** 读取并返回当前对象中 corners 的结果。
 

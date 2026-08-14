@@ -8,7 +8,7 @@ description: "CombatLogColor 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum CombatLogColor`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CombatLogColor.cs`
+**File:** `TaleWorlds.MountAndBlade/CombatLogColor.cs`
 
 ## 概述
 

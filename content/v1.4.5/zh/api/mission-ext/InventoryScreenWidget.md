@@ -6,9 +6,9 @@ description: "InventoryScreenWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class InventoryScreenWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryScreenWidget.cs`
+**Type:** `public class InventoryScreenWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Inventory/InventoryScreenWidget.cs`
 
 ## 概述
 
@@ -40,17 +40,6 @@ description: "InventoryScreenWidget 的自动生成类参考。"
 | `ScrollItemId` | `public string ScrollItemId { get; set; }` |
 
 ## 主要方法
-
-### InventoryScreenWidget
-`public class InventoryScreenWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 InventoryScreenWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 InventoryScreenWidget 实例
-InventoryScreenWidget inventoryScreenWidget = ...;
-var result = inventoryScreenWidget.InventoryScreenWidget(context);
-```
 
 ### ItemWidgetDragBegin
 `public void ItemWidgetDragBegin(InventoryItemButtonWidget itemWidget)`

@@ -8,7 +8,7 @@ description: "CreateBanner 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class CreateBanner : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/CreateBanner.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/CreateBanner.cs`
 
 ## 概述
 

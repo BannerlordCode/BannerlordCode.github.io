@@ -8,7 +8,7 @@ description: "MatchmakerDisabledMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class MatchmakerDisabledMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/MatchmakerDisabledMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/MatchmakerDisabledMessage.cs`
 
 ## 概述
 

@@ -6,9 +6,9 @@ description: "OrderSiegeDeploymentItemButtonWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class OrderSiegeDeploymentItemButtonWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order/OrderSiegeDeploymentItemButtonWidget.cs`
+**Type:** `public class OrderSiegeDeploymentItemButtonWidget : ButtonWidget`
+**Base:** `ButtonWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Order/OrderSiegeDeploymentItemButtonWidget.cs`
 
 ## 概述
 
@@ -30,19 +30,6 @@ description: "OrderSiegeDeploymentItemButtonWidget 的自动生成类参考。"
 | `IsInFront` | `public bool IsInFront { get; set; }` |
 | `IsPlayerGeneral` | `public bool IsPlayerGeneral { get; set; }` |
 | `ScreenWidget` | `public OrderSiegeDeploymentScreenWidget ScreenWidget { get; set; }` |
-
-## 主要方法
-
-### OrderSiegeDeploymentItemButtonWidget
-`public class OrderSiegeDeploymentItemButtonWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 OrderSiegeDeploymentItemButtonWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 OrderSiegeDeploymentItemButtonWidget 实例
-OrderSiegeDeploymentItemButtonWidget orderSiegeDeploymentItemButtonWidget = ...;
-var result = orderSiegeDeploymentItemButtonWidget.OrderSiegeDeploymentItemButtonWidget(context);
-```
 
 ## 使用示例
 

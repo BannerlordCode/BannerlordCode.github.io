@@ -8,7 +8,7 @@ description: "NewsManager 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class NewsManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.NewsManager/NewsManager.cs`
+**File:** `TaleWorlds.Library/NewsManager/NewsManager.cs`
 
 ## 概述
 
@@ -22,13 +22,14 @@ description: "NewsManager 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `NewsItems` | `public MBReadOnlyList<NewsItem> NewsItems { get; }` |
 | `IsInPreviewMode` | `public bool IsInPreviewMode { get; }` |
 | `LocalizationID` | `public string LocalizationID { get; }` |
 
 ## 主要方法
 
 ### GetNewsItems
-`public async Task<MBReadOnlyList<NewsItem>> GetNewsItems(bool forceRefresh)`
+`public Task<MBReadOnlyList<NewsItem>> GetNewsItems(bool forceRefresh)`
 
 **用途 / Purpose:** 读取并返回当前对象中 news items 的结果。
 
@@ -50,7 +51,7 @@ newsManager.SetNewsSourceURL("example");
 ```
 
 ### UpdateNewsItems
-`public async Task UpdateNewsItems(bool forceRefresh)`
+`public Task UpdateNewsItems(bool forceRefresh)`
 
 **用途 / Purpose:** 重新计算并更新 news items 的最新表示。
 

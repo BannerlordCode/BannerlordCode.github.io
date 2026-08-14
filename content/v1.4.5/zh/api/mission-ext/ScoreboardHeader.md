@@ -8,7 +8,7 @@ description: "ScoreboardHeader 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct ScoreboardHeader`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionScoreboardComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionScoreboardComponent.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "ScoreboardHeader 的自动生成类参考。"
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### ScoreboardHeader
-`public struct ScoreboardHeader(string id, Func<MissionPeer, string> playerGetterFunc, Func<BotData, string> botGetterFunc)`
-
-**用途 / Purpose:** 调用 ScoreboardHeader 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ScoreboardHeader 实例
-ScoreboardHeader scoreboardHeader = ...;
-var result = scoreboardHeader.ScoreboardHeader("example", func<MissionPeer, "example", func<BotData, "example");
-```
 
 ### GetValueOf
 `public string GetValueOf(MissionPeer missionPeer)`
@@ -58,7 +47,7 @@ var result = scoreboardHeader.GetValueOf(botData);
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 ScoreboardHeader scoreboardHeader = ...;
-scoreboardHeader.ScoreboardHeader("example", func<MissionPeer, "example", func<BotData, "example");
+scoreboardHeader.GetValueOf(missionPeer);
 ```
 
 ## 参见

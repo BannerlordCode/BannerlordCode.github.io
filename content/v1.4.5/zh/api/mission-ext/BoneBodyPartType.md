@@ -8,7 +8,7 @@ description: "BoneBodyPartType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum BoneBodyPartType : sbyte`
 **Base:** `sbyte`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BoneBodyPartType.cs`
+**File:** `TaleWorlds.MountAndBlade/BoneBodyPartType.cs`
 
 ## 概述
 

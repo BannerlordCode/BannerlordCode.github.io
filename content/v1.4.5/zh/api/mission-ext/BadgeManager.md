@@ -8,7 +8,7 @@ description: "BadgeManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class BadgeManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/BadgeManager.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/MultiplayerBadges/BadgeManager.cs`
 
 ## 概述
 

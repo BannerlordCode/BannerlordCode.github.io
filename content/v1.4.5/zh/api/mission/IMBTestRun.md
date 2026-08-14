@@ -8,7 +8,7 @@ description: "IMBTestRun 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBTestRun`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBTestRun.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBTestRun.cs`
 
 ## 概述
 

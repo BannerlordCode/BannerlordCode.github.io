@@ -8,7 +8,7 @@ description: "MBTypeNotRegisteredException 的自动生成类参考。"
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public class MBTypeNotRegisteredException : ObjectSystemException`
 **Base:** `ObjectSystemException`
-**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBTypeNotRegisteredException.cs`
+**File:** `TaleWorlds.ObjectSystem/MBTypeNotRegisteredException.cs`
 
 ## 概述
 

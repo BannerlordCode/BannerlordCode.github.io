@@ -8,7 +8,7 @@ description: "SaveError 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveError`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/SaveError.cs`
+**File:** `TaleWorlds.SaveSystem/Save/SaveError.cs`
 
 ## 概述
 

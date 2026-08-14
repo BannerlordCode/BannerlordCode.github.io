@@ -8,7 +8,7 @@ description: "Runtime 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum Runtime`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Runtime.cs`
+**File:** `TaleWorlds.Library/Runtime.cs`
 
 ## 概述
 

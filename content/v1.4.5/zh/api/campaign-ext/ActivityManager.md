@@ -8,7 +8,7 @@ description: "ActivityManager 的自动生成类参考。"
 **Module:** TaleWorlds.ActivitySystem
 **Type:** `public class ActivityManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.ActivitySystem/TaleWorlds.ActivitySystem/ActivityManager.cs`
+**File:** `TaleWorlds.ActivitySystem/ActivityManager.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "WeakMaterial 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public struct WeakMaterial`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/WeakMaterial.cs`
+**File:** `TaleWorlds.Engine/WeakMaterial.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "WeakMaterial 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Pointer` | `public UIntPtr Pointer { get; }` |
+| `IsValid` | `public bool IsValid { get; }` |
 | `Name` | `public string Name { get; set; }` |
 
 ## 主要方法

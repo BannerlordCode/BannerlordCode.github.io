@@ -8,7 +8,7 @@ description: "MBNetworkBitException 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MBNetworkBitException : MBException`
 **Base:** `MBException`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBNetworkBitException.cs`
+**File:** `TaleWorlds.Core/MBNetworkBitException.cs`
 
 ## 概述
 

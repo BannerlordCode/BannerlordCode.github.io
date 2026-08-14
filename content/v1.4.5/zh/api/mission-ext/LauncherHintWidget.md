@@ -8,7 +8,7 @@ description: "LauncherHintWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherHintWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets/LauncherHintWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/CustomWidgets/LauncherHintWidget.cs`
 
 ## 概述
 

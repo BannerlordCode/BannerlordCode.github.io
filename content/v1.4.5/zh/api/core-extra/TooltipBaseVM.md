@@ -8,7 +8,7 @@ description: "TooltipBaseVM 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public abstract class TooltipBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TooltipBaseVM.cs`
+**File:** `TaleWorlds.Library/TooltipBaseVM.cs`
 
 ## 概述
 

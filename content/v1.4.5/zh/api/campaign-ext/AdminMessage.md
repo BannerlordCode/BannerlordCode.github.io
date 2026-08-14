@@ -8,7 +8,7 @@ description: "AdminMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class AdminMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/AdminMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/AdminMessage.cs`
 
 ## 概述
 

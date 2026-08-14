@@ -8,7 +8,7 @@ description: "SetUsableMissionObjectIsDeactivated 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetUsableMissionObjectIsDeactivated : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetUsableMissionObjectIsDeactivated.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetUsableMissionObjectIsDeactivated.cs`
 
 ## 概述
 

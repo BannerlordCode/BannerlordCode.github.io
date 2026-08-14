@@ -8,7 +8,7 @@ description: "ILight 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface ILight`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ILight.cs`
+**File:** `TaleWorlds.Engine/ILight.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "WeaponUsageIndexChangeMessage 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class WeaponUsageIndexChangeMessage : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/WeaponUsageIndexChangeMessage.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/WeaponUsageIndexChangeMessage.cs`
 
 ## 概述
 

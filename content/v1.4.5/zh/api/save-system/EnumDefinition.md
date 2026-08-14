@@ -8,7 +8,7 @@ description: "EnumDefinition 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class EnumDefinition : TypeDefinitionBase`
 **Base:** `TypeDefinitionBase`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/EnumDefinition.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/EnumDefinition.cs`
 
 ## 概述
 

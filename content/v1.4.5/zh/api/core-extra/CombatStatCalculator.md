@@ -8,7 +8,7 @@ description: "CombatStatCalculator 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public static class CombatStatCalculator`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/CombatStatCalculator.cs`
+**File:** `TaleWorlds.Core/CombatStatCalculator.cs`
 
 ## 概述
 

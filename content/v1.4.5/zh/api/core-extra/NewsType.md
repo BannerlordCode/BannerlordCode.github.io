@@ -8,7 +8,7 @@ description: "NewsType 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct NewsType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.NewsManager/NewsType.cs`
+**File:** `TaleWorlds.Library/NewsManager/NewsType.cs`
 
 ## 概述
 

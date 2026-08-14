@@ -8,7 +8,7 @@ description: "IBattleCombatant 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface IBattleCombatant`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IBattleCombatant.cs`
+**File:** `TaleWorlds.Core/IBattleCombatant.cs`
 
 ## 概述
 

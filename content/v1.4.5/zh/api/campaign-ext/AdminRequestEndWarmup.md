@@ -8,7 +8,7 @@ description: "AdminRequestEndWarmup 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class AdminRequestEndWarmup : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/AdminRequestEndWarmup.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/AdminRequestEndWarmup.cs`
 
 ## 概述
 

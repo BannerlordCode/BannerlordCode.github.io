@@ -8,7 +8,7 @@ description: "FormOrder 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FormOrder`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormOrder.cs`
+**File:** `TaleWorlds.MountAndBlade/FormOrder.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "FormOrder 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `CustomFlankWidth` | `public float CustomFlankWidth { get; set; }` |
+| `OrderType` | `public OrderType OrderType { get; }` |
 
 ## 主要方法
 
@@ -69,7 +70,7 @@ var result = formOrder.OnApplyToCustomArrangement(formation, arrangement);
 ```
 
 ### GetMaxFileCountStatic
-`public static int? GetMaxFileCountStatic(FormOrderEnum order, int unitCount)`
+`public static int? GetMaxFileCountStatic(FormOrder.FormOrderEnum order, int unitCount)`
 
 **用途 / Purpose:** 读取并返回当前对象中 max file count static 的结果。
 

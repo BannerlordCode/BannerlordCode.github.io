@@ -8,7 +8,7 @@ description: "Screen 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public static class Screen`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Screen.cs`
+**File:** `TaleWorlds.Engine/Screen.cs`
 
 ## 概述
 
@@ -24,6 +24,7 @@ description: "Screen 的自动生成类参考。"
 |------|-----------|
 | `RealScreenResolutionWidth` | `public static float RealScreenResolutionWidth { get; }` |
 | `RealScreenResolutionHeight` | `public static float RealScreenResolutionHeight { get; }` |
+| `RealScreenResolution` | `public static Vec2 RealScreenResolution { get; }` |
 | `AspectRatio` | `public static float AspectRatio { get; }` |
 | `DesktopResolution` | `public static Vec2 DesktopResolution { get; }` |
 | `ScreenScale` | `public static Vec2 ScreenScale { get; }` |

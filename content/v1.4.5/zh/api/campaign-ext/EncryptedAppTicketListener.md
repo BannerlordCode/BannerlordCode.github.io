@@ -8,7 +8,7 @@ description: "EncryptedAppTicketListener 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `internal class EncryptedAppTicketListener : IEncryptedAppTicketListener`
 **Base:** `IEncryptedAppTicketListener`
-**File:** `bin/TaleWorlds.Diamond.AccessProvider.GOG/TaleWorlds.Diamond.AccessProvider.GOG/EncryptedAppTicketListener.cs`
+**File:** `TaleWorlds.Diamond.AccessProvider.GOG/EncryptedAppTicketListener.cs`
 
 ## 概述
 
@@ -27,7 +27,7 @@ description: "EncryptedAppTicketListener 的自动生成类参考。"
 ## 主要方法
 
 ### OnEncryptedAppTicketRetrieveFailure
-`public override void OnEncryptedAppTicketRetrieveFailure(FailureReason failureReason)`
+`public override void OnEncryptedAppTicketRetrieveFailure(IEncryptedAppTicketListener.FailureReason failureReason)`
 
 **用途 / Purpose:** 在 encrypted app ticket retrieve failure 事件触发时调用此回调。
 

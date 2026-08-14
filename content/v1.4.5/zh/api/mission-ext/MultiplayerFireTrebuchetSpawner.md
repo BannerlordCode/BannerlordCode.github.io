@@ -8,7 +8,7 @@ description: "MultiplayerFireTrebuchetSpawner 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerFireTrebuchetSpawner : TrebuchetSpawner`
 **Base:** `TrebuchetSpawner`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Siege/MultiplayerFireTrebuchetSpawner.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Siege/MultiplayerFireTrebuchetSpawner.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IHttpRequestTask 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public interface IHttpRequestTask`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.Http/IHttpRequestTask.cs`
+**File:** `TaleWorlds.Library/Http/IHttpRequestTask.cs`
 
 ## 概述
 

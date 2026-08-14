@@ -8,7 +8,7 @@ description: "GameTexts 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public static class GameTexts`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/GameTexts.cs`
+**File:** `TaleWorlds.Core/GameTexts.cs`
 
 ## 概述
 
@@ -19,37 +19,6 @@ description: "GameTexts 的自动生成类参考。"
 先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### Variation
-`public GameTextHelper Variation(string text, params object propertiesAndWeights)`
-
-**用途 / Purpose:** 调用 Variation 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 GameTexts 实例
-GameTexts gameTexts = ...;
-var result = gameTexts.Variation("example", propertiesAndWeights);
-```
-
-### MergeTextObjectsWithComma
-`public static TextObject MergeTextObjectsWithComma(List<TextObject> textObjects, bool includeAnd)`
-
-**用途 / Purpose:** 调用 MergeTextObjectsWithComma 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-GameTexts.MergeTextObjectsWithComma(textObjects, false);
-```
-
-### MergeTextObjectsWithSymbol
-`public static TextObject MergeTextObjectsWithSymbol(List<TextObject> textObjects, TextObject symbol, TextObject lastSymbol = null)`
-
-**用途 / Purpose:** 调用 MergeTextObjectsWithSymbol 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-GameTexts.MergeTextObjectsWithSymbol(textObjects, symbol, null);
-```
 
 ### Initialize
 `public static void Initialize(GameTextManager gameTextManager)`
@@ -142,7 +111,7 @@ GameTexts.ClearInstance();
 ```
 
 ### AddGameTextWithVariation
-`public static GameTextHelper AddGameTextWithVariation(string id)`
+`public static GameTexts.GameTextHelper AddGameTextWithVariation(string id)`
 
 **用途 / Purpose:** 将 game text with variation 添加到当前容器或状态中。
 
@@ -151,12 +120,41 @@ GameTexts.ClearInstance();
 GameTexts.AddGameTextWithVariation("example");
 ```
 
+### Variation
+`public GameTexts.GameTextHelper Variation(string text, params object propertiesAndWeights)`
+
+**用途 / Purpose:** 调用 Variation 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameTexts 实例
+GameTexts gameTexts = ...;
+var result = gameTexts.Variation("example", propertiesAndWeights);
+```
+
+### MergeTextObjectsWithComma
+`public static TextObject MergeTextObjectsWithComma(List<TextObject> textObjects, bool includeAnd)`
+
+**用途 / Purpose:** 调用 MergeTextObjectsWithComma 对应的操作。
+
+```csharp
+// 静态调用，不需要实例
+GameTexts.MergeTextObjectsWithComma(textObjects, false);
+```
+
+### MergeTextObjectsWithSymbol
+`public static TextObject MergeTextObjectsWithSymbol(List<TextObject> textObjects, TextObject symbol, TextObject lastSymbol = null)`
+
+**用途 / Purpose:** 调用 MergeTextObjectsWithSymbol 对应的操作。
+
+```csharp
+// 静态调用，不需要实例
+GameTexts.MergeTextObjectsWithSymbol(textObjects, symbol, null);
+```
+
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-GameTexts gameTexts = ...;
-gameTexts.Variation("example", propertiesAndWeights);
+GameTexts.Initialize(gameTextManager);
 ```
 
 ## 参见

@@ -8,7 +8,7 @@ description: "EncyclopediaFilterListItemButtonWidget 的自动生成类参考。
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EncyclopediaFilterListItemButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia/EncyclopediaFilterListItemButtonWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Encyclopedia/EncyclopediaFilterListItemButtonWidget.cs`
 
 ## 概述
 

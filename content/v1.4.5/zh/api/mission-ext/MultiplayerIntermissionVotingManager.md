@@ -8,7 +8,7 @@ description: "MultiplayerIntermissionVotingManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerIntermissionVotingManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerIntermissionVotingManager.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerIntermissionVotingManager.cs`
 
 ## 概述
 
@@ -22,55 +22,12 @@ description: "MultiplayerIntermissionVotingManager 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `Instance` | `public static MultiplayerIntermissionVotingManager Instance { get; }` |
 | `MapVoteItems` | `public List<IntermissionVoteItem> MapVoteItems { get; }` |
 | `CultureVoteItems` | `public List<IntermissionVoteItem> CultureVoteItems { get; }` |
 | `UsableMaps` | `public List<CustomGameUsableMap> UsableMaps { get; }` |
 
 ## 主要方法
-
-### MapItemAddedDelegate
-`public delegate void MapItemAddedDelegate(string mapId)`
-
-**用途 / Purpose:** 调用 MapItemAddedDelegate 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
-MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
-multiplayerIntermissionVotingManager.MapItemAddedDelegate("example");
-```
-
-### CultureItemAddedDelegate
-`public delegate void CultureItemAddedDelegate(string cultureId)`
-
-**用途 / Purpose:** 调用 CultureItemAddedDelegate 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
-MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
-multiplayerIntermissionVotingManager.CultureItemAddedDelegate("example");
-```
-
-### MapItemVoteCountChangedDelegate
-`public delegate void MapItemVoteCountChangedDelegate(int mapItemIndex, int voteCount)`
-
-**用途 / Purpose:** 调用 MapItemVoteCountChangedDelegate 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
-MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
-multiplayerIntermissionVotingManager.MapItemVoteCountChangedDelegate(0, 0);
-```
-
-### CultureItemVoteCountChangedDelegate
-`public delegate void CultureItemVoteCountChangedDelegate(int cultureItemIndex, int voteCount)`
-
-**用途 / Purpose:** 调用 CultureItemVoteCountChangedDelegate 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
-MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
-multiplayerIntermissionVotingManager.CultureItemVoteCountChangedDelegate(0, 0);
-```
 
 ### AddMapItem
 `public void AddMapItem(string mapID)`
@@ -235,6 +192,50 @@ var result = multiplayerIntermissionVotingManager.IsPeerVotedForItem(peer, "exam
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
 MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
 multiplayerIntermissionVotingManager.SortVotesAndPickBest();
+```
+
+### MapItemAddedDelegate
+`public delegate void MapItemAddedDelegate(string mapId)`
+
+**用途 / Purpose:** 调用 MapItemAddedDelegate 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.MapItemAddedDelegate("example");
+```
+
+### CultureItemAddedDelegate
+`public delegate void CultureItemAddedDelegate(string cultureId)`
+
+**用途 / Purpose:** 调用 CultureItemAddedDelegate 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.CultureItemAddedDelegate("example");
+```
+
+### MapItemVoteCountChangedDelegate
+`public delegate void MapItemVoteCountChangedDelegate(int mapItemIndex, int voteCount)`
+
+**用途 / Purpose:** 调用 MapItemVoteCountChangedDelegate 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.MapItemVoteCountChangedDelegate(0, 0);
+```
+
+### CultureItemVoteCountChangedDelegate
+`public delegate void CultureItemVoteCountChangedDelegate(int cultureItemIndex, int voteCount)`
+
+**用途 / Purpose:** 调用 CultureItemVoteCountChangedDelegate 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.CultureItemVoteCountChangedDelegate(0, 0);
 ```
 
 ## 使用示例

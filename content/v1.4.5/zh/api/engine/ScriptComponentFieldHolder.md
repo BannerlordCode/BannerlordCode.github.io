@@ -8,7 +8,7 @@ description: "ScriptComponentFieldHolder 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public struct ScriptComponentFieldHolder`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ScriptComponentFieldHolder.cs`
+**File:** `TaleWorlds.Engine/ScriptComponentFieldHolder.cs`
 
 ## 概述
 

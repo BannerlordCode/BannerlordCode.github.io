@@ -8,7 +8,7 @@ description: "HTMLDebugData 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `internal class HTMLDebugData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/HTMLDebugData.cs`
+**File:** `TaleWorlds.Library/HTMLDebugData.cs`
 
 ## 概述
 

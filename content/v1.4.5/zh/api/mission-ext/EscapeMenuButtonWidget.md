@@ -8,7 +8,7 @@ description: "EscapeMenuButtonWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EscapeMenuButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.EscapeMenu/EscapeMenuButtonWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/EscapeMenu/EscapeMenuButtonWidget.cs`
 
 ## 概述
 

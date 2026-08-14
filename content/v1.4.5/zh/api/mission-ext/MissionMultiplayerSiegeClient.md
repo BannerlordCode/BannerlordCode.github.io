@@ -8,7 +8,7 @@ description: "MissionMultiplayerSiegeClient 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerSiegeClient : MissionMultiplayerGameModeBaseClient, ICommanderInfo, IMissionBehavior`
 **Base:** `MissionMultiplayerGameModeBaseClient`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerSiegeClient.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionMultiplayerSiegeClient.cs`
 
 ## 概述
 
@@ -22,6 +22,11 @@ description: "MissionMultiplayerSiegeClient 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `IsGameModeUsingGold` | `public override bool IsGameModeUsingGold { get; }` |
+| `IsGameModeTactical` | `public override bool IsGameModeTactical { get; }` |
+| `IsGameModeUsingRoundCountdown` | `public override bool IsGameModeUsingRoundCountdown { get; }` |
+| `GameType` | `public override MultiplayerGameType GameType { get; }` |
+| `AreMoralesIndependent` | `public bool AreMoralesIndependent { get; }` |
 | `AllCapturePoints` | `public IEnumerable<FlagCapturePoint> AllCapturePoints { get; }` |
 
 ## 主要方法

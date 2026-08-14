@@ -8,7 +8,7 @@ description: "ISceneView 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface ISceneView`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ISceneView.cs`
+**File:** `TaleWorlds.Engine/ISceneView.cs`
 
 ## 概述
 

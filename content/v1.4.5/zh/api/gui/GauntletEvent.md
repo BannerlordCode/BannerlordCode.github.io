@@ -8,7 +8,7 @@ description: "GauntletEvent 的自动生成类参考。"
 **Module:** TaleWorlds.GauntletUI
 **Type:** `internal enum GauntletEvent`
 **Base:** 无
-**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/GauntletEvent.cs`
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/GauntletEvent.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "PeerTypes 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PeerTypes`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PeerTypes.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PeerTypes.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "SelectionData 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public struct SelectionData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/SelectionData.cs`
+**File:** `TaleWorlds.Engine/Options/SelectionData.cs`
 
 ## 概述
 
@@ -17,19 +17,6 @@ description: "SelectionData 的自动生成类参考。"
 ## 心智模型
 
 把 `SelectionData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
-
-## 主要方法
-
-### SelectionData
-`public struct SelectionData(bool isLocalizationId, string data)`
-
-**用途 / Purpose:** 调用 SelectionData 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 SelectionData 实例
-SelectionData selectionData = ...;
-var result = selectionData.SelectionData(false, "example");
-```
 
 ## 使用示例
 

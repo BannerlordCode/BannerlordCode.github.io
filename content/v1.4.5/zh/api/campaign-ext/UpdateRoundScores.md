@@ -8,7 +8,7 @@ description: "UpdateRoundScores 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class UpdateRoundScores : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/UpdateRoundScores.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/UpdateRoundScores.cs`
 
 ## 概述
 

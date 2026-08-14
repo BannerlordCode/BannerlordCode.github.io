@@ -8,7 +8,7 @@ description: "LobbyClientConnectResult 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LobbyClientConnectResult`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/LobbyClientConnectResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/LobbyClientConnectResult.cs`
 
 ## 概述
 

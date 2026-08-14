@@ -8,7 +8,7 @@ description: "IManagedComponent 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public interface IManagedComponent`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/IManagedComponent.cs`
+**File:** `TaleWorlds.DotNet/IManagedComponent.cs`
 
 ## 概述
 

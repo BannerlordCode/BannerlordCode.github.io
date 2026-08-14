@@ -8,7 +8,7 @@ description: "MBDebug 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public static class MBDebug`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/MBDebug.cs`
+**File:** `TaleWorlds.Engine/MBDebug.cs`
 
 ## 概述
 
@@ -158,23 +158,23 @@ MBDebug.AssertConditionOrCallerClassNameSearchAllCallstack(false, "example");
 ```
 
 ### Print
-`public static void Print(string message, int logLevel = 0, TaleWorlds.Library.Debug.DebugColor color = TaleWorlds.Library.Debug.DebugColor.White, ulong debugFilter = 17592186044416uL)`
+`public static void Print(string message, int logLevel = 0, Debug.DebugColor color = Debug.DebugColor.White, ulong debugFilter = 17592186044416UL)`
 
 **用途 / Purpose:** 调用 Print 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
-MBDebug.Print("example", 0, taleWorlds.Library.Debug.DebugColor.White, 0);
+MBDebug.Print("example", 0, debug.DebugColor.White, 0);
 ```
 
 ### ConsolePrint
-`public static void ConsolePrint(string message, TaleWorlds.Library.Debug.DebugColor color = TaleWorlds.Library.Debug.DebugColor.White, ulong debugFilter = 17592186044416uL)`
+`public static void ConsolePrint(string message, Debug.DebugColor color = Debug.DebugColor.White, ulong debugFilter = 17592186044416UL)`
 
 **用途 / Purpose:** 调用 ConsolePrint 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
-MBDebug.ConsolePrint("example", taleWorlds.Library.Debug.DebugColor.White, 0);
+MBDebug.ConsolePrint("example", debug.DebugColor.White, 0);
 ```
 
 ### WriteDebugLineOnScreen
@@ -188,7 +188,7 @@ MBDebug.WriteDebugLineOnScreen("example");
 ```
 
 ### RenderDebugText
-`public static void RenderDebugText(float screenX, float screenY, string text, uint color = uint.MaxValue, float time = 0f)`
+`public static void RenderDebugText(float screenX, float screenY, string text, uint color = 4294967295U, float time = 0f)`
 
 **用途 / Purpose:** 调用 RenderDebugText 对应的操作。
 
@@ -198,7 +198,7 @@ MBDebug.RenderDebugText(0, 0, "example", 0, 0);
 ```
 
 ### RenderText
-`public static void RenderText(float screenX, float screenY, string text, uint color = uint.MaxValue, float time = 0f)`
+`public static void RenderText(float screenX, float screenY, string text, uint color = 4294967295U, float time = 0f)`
 
 **用途 / Purpose:** 调用 RenderText 对应的操作。
 
@@ -218,7 +218,7 @@ MBDebug.RenderDebugRect(0, 0, 0, 0);
 ```
 
 ### RenderDebugRectWithColor
-`public static void RenderDebugRectWithColor(float left, float bottom, float right, float top, uint color = uint.MaxValue)`
+`public static void RenderDebugRectWithColor(float left, float bottom, float right, float top, uint color = 4294967295U)`
 
 **用途 / Purpose:** 调用 RenderDebugRectWithColor 对应的操作。
 
@@ -238,7 +238,7 @@ MBDebug.RenderDebugFrame(frame, 0, 0);
 ```
 
 ### RenderDebugText3D
-`public static void RenderDebugText3D(Vec3 worldPosition, string str, uint color = uint.MaxValue, int screenPosOffsetX = 0, int screenPosOffsetY = 0, float time = 0f)`
+`public static void RenderDebugText3D(Vec3 worldPosition, string str, uint color = 4294967295U, int screenPosOffsetX = 0, int screenPosOffsetY = 0, float time = 0f)`
 
 **用途 / Purpose:** 调用 RenderDebugText3D 对应的操作。
 
@@ -248,7 +248,7 @@ MBDebug.RenderDebugText3D(worldPosition, "example", 0, 0, 0, 0);
 ```
 
 ### RenderDebugDirectionArrow
-`public static void RenderDebugDirectionArrow(Vec3 position, Vec3 direction, uint color = uint.MaxValue, bool depthCheck = false)`
+`public static void RenderDebugDirectionArrow(Vec3 position, Vec3 direction, uint color = 4294967295U, bool depthCheck = false)`
 
 **用途 / Purpose:** 调用 RenderDebugDirectionArrow 对应的操作。
 
@@ -258,7 +258,7 @@ MBDebug.RenderDebugDirectionArrow(position, direction, 0, false);
 ```
 
 ### RenderDebugLine
-`public static void RenderDebugLine(Vec3 position, Vec3 direction, uint color = uint.MaxValue, bool depthCheck = false, float time = 0f)`
+`public static void RenderDebugLine(Vec3 position, Vec3 direction, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
 
 **用途 / Purpose:** 调用 RenderDebugLine 对应的操作。
 
@@ -268,7 +268,7 @@ MBDebug.RenderDebugLine(position, direction, 0, false, 0);
 ```
 
 ### RenderDebugSphere
-`public static void RenderDebugSphere(Vec3 position, float radius, uint color = uint.MaxValue, bool depthCheck = false, float time = 0f)`
+`public static void RenderDebugSphere(Vec3 position, float radius, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
 
 **用途 / Purpose:** 调用 RenderDebugSphere 对应的操作。
 
@@ -278,7 +278,7 @@ MBDebug.RenderDebugSphere(position, 0, 0, false, 0);
 ```
 
 ### RenderDebugCapsule
-`public static void RenderDebugCapsule(Vec3 p0, Vec3 p1, float radius, uint color = uint.MaxValue, bool depthCheck = false, float time = 0f)`
+`public static void RenderDebugCapsule(Vec3 p0, Vec3 p1, float radius, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
 
 **用途 / Purpose:** 调用 RenderDebugCapsule 对应的操作。
 
@@ -288,7 +288,7 @@ MBDebug.RenderDebugCapsule(p0, p1, 0, 0, false, 0);
 ```
 
 ### RenderDebugBoundingBoxOfEntity
-`public static void RenderDebugBoundingBoxOfEntity(GameEntity entity, MatrixFrame frame, uint color = uint.MaxValue, bool depthCheck = false, float time = 0f)`
+`public static void RenderDebugBoundingBoxOfEntity(GameEntity entity, MatrixFrame frame, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
 
 **用途 / Purpose:** 调用 RenderDebugBoundingBoxOfEntity 对应的操作。
 
@@ -298,7 +298,7 @@ MBDebug.RenderDebugBoundingBoxOfEntity(entity, frame, 0, false, 0);
 ```
 
 ### RenderDebugBoundingBox
-`public static void RenderDebugBoundingBox(BoundingBox box, MatrixFrame frame, uint color = uint.MaxValue, bool depthCheck = false, float time = 0f)`
+`public static void RenderDebugBoundingBox(BoundingBox box, MatrixFrame frame, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
 
 **用途 / Purpose:** 调用 RenderDebugBoundingBox 对应的操作。
 
@@ -318,7 +318,7 @@ MBDebug.ClearRenderObjects();
 ```
 
 ### RenderDebugBoxObject
-`public static void RenderDebugBoxObject(Vec3 min, Vec3 max, uint color = uint.MaxValue, bool depthCheck = false, float time = 0f)`
+`public static void RenderDebugBoxObject(Vec3 min, Vec3 max, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
 
 **用途 / Purpose:** 调用 RenderDebugBoxObject 对应的操作。
 
@@ -328,7 +328,7 @@ MBDebug.RenderDebugBoxObject(min, max, 0, false, 0);
 ```
 
 ### RenderDebugBoxObject
-`public static void RenderDebugBoxObject(Vec3 min, Vec3 max, MatrixFrame frame, uint color = uint.MaxValue, bool depthCheck = false, float time = 0f)`
+`public static void RenderDebugBoxObject(Vec3 min, Vec3 max, MatrixFrame frame, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
 
 **用途 / Purpose:** 调用 RenderDebugBoxObject 对应的操作。
 

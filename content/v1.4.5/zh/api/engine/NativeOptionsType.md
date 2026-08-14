@@ -8,7 +8,7 @@ description: "NativeOptionsType 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum NativeOptionsType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeOptions.cs`
+**File:** `TaleWorlds.Engine/Options/NativeOptions.cs`
 
 ## 概述
 

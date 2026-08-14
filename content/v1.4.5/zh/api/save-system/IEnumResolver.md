@@ -8,7 +8,7 @@ description: "IEnumResolver 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public interface IEnumResolver`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Resolvers/IEnumResolver.cs`
+**File:** `TaleWorlds.SaveSystem/Resolvers/IEnumResolver.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "AuthenticationListener 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class AuthenticationListener : GlobalAuthListener`
 **Base:** `GlobalAuthListener`
-**File:** `bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/AuthenticationListener.cs`
+**File:** `TaleWorlds.PlatformService.GOG/AuthenticationListener.cs`
 
 ## 概述
 
@@ -38,7 +38,7 @@ authenticationListener.OnAuthSuccess();
 ```
 
 ### OnAuthFailure
-`public override void OnAuthFailure(FailureReason failureReason)`
+`public override void OnAuthFailure(IAuthListener.FailureReason failureReason)`
 
 **用途 / Purpose:** 在 auth failure 事件触发时调用此回调。
 

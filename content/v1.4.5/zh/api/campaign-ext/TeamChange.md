@@ -8,7 +8,7 @@ description: "TeamChange 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class TeamChange : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/TeamChange.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/TeamChange.cs`
 
 ## 概述
 

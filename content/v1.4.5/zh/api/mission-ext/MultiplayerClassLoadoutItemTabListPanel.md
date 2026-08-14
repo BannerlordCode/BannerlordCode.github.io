@@ -8,7 +8,7 @@ description: "MultiplayerClassLoadoutItemTabListPanel 的自动生成类参考�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerClassLoadoutItemTabListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout/MultiplayerClassLoadoutItemTabListPanel.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/ClassLoadout/MultiplayerClassLoadoutItemTabListPanel.cs`
 
 ## 概述
 

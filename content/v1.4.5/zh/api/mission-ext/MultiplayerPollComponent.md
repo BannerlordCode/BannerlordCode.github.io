@@ -8,7 +8,7 @@ description: "MultiplayerPollComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerPollComponent : MissionNetwork`
 **Base:** `MissionNetwork`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerPollComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerPollComponent.cs`
 
 ## 概述
 
@@ -22,14 +22,59 @@ description: "MultiplayerPollComponent 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `PollType` | `public Type PollType { get; }` |
+| `PollType` | `public MultiplayerPollComponent.MultiplayerPoll.Type PollType { get; }` |
 | `IsOpen` | `public bool IsOpen { get; }` |
+| `ParticipantsToVote` | `public List<NetworkCommunicator> ParticipantsToVote { get; }` |
 | `TargetPeer` | `public NetworkCommunicator TargetPeer { get; }` |
 | `TargetPeer` | `public NetworkCommunicator TargetPeer { get; }` |
 | `GameType` | `public string GameType { get; }` |
 | `MapName` | `public string MapName { get; }` |
 
 ## 主要方法
+
+### OnBehaviorInitialize
+`public override void OnBehaviorInitialize()`
+
+**用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
+MultiplayerPollComponent multiplayerPollComponent = ...;
+multiplayerPollComponent.OnBehaviorInitialize();
+```
+
+### OnMissionTick
+`public override void OnMissionTick(float dt)`
+
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
+MultiplayerPollComponent multiplayerPollComponent = ...;
+multiplayerPollComponent.OnMissionTick(0);
+```
+
+### Vote
+`public void Vote(bool accepted)`
+
+**用途 / Purpose:** 调用 Vote 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
+MultiplayerPollComponent multiplayerPollComponent = ...;
+multiplayerPollComponent.Vote(false);
+```
+
+### RequestKickPlayerPoll
+`public void RequestKickPlayerPoll(NetworkCommunicator peer, bool banPlayer)`
+
+**用途 / Purpose:** 调用 RequestKickPlayerPoll 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
+MultiplayerPollComponent multiplayerPollComponent = ...;
+multiplayerPollComponent.RequestKickPlayerPoll(peer, false);
+```
 
 ### IsCancelled
 `public virtual bool IsCancelled()`
@@ -128,50 +173,6 @@ var result = multiplayerPollComponent.IsCancelled();
 // 先通过子系统 API 拿到 MultiplayerPollComponent 实例
 MultiplayerPollComponent multiplayerPollComponent = ...;
 var result = multiplayerPollComponent.GetPollProgressReceivers();
-```
-
-### OnBehaviorInitialize
-`public override void OnBehaviorInitialize()`
-
-**用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
-MultiplayerPollComponent multiplayerPollComponent = ...;
-multiplayerPollComponent.OnBehaviorInitialize();
-```
-
-### OnMissionTick
-`public override void OnMissionTick(float dt)`
-
-**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
-MultiplayerPollComponent multiplayerPollComponent = ...;
-multiplayerPollComponent.OnMissionTick(0);
-```
-
-### Vote
-`public void Vote(bool accepted)`
-
-**用途 / Purpose:** 调用 Vote 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
-MultiplayerPollComponent multiplayerPollComponent = ...;
-multiplayerPollComponent.Vote(false);
-```
-
-### RequestKickPlayerPoll
-`public void RequestKickPlayerPoll(NetworkCommunicator peer, bool banPlayer)`
-
-**用途 / Purpose:** 调用 RequestKickPlayerPoll 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
-MultiplayerPollComponent multiplayerPollComponent = ...;
-multiplayerPollComponent.RequestKickPlayerPoll(peer, false);
 ```
 
 ## 使用示例

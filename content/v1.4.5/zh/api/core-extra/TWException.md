@@ -8,7 +8,7 @@ description: "TWException 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class TWException : ApplicationException`
 **Base:** `ApplicationException`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TWException.cs`
+**File:** `TaleWorlds.Library/TWException.cs`
 
 ## 概述
 

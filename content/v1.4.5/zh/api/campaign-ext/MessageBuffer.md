@@ -8,7 +8,7 @@ description: "MessageBuffer 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `internal class MessageBuffer`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/MessageBuffer.cs`
+**File:** `TaleWorlds.Network/MessageBuffer.cs`
 
 ## 概述
 

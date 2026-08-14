@@ -160,7 +160,7 @@ if (playerFaction != null && targetFaction != null)
 
 null 检查覆盖了 menu 切换期间或可玩 Campaign 尚未建立主角/当前据点的阶段。helper 仍然读取实时状态，不是存档快照。
 
-## 依赖与所有权
+## 依赖
 
 - [IFaction](../../campaign/IFaction) 提供派系身份、消灭状态、王国标志、crime rating、囚犯领主和 stance 访问。
 - [Campaign](../../campaign/Campaign) 提供活动 `CrimeModel`、`LogEntryHistory` 以及战争原因/日志查询所需的 Campaign 生命周期。

@@ -8,7 +8,7 @@ description: "INetworkMessageReader 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public interface INetworkMessageReader`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/INetworkMessageReader.cs`
+**File:** `TaleWorlds.Network/INetworkMessageReader.cs`
 
 ## 概述
 

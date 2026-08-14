@@ -8,7 +8,7 @@ description: "PostProcessInformation 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct PostProcessInformation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PostProcessInformation.cs`
+**File:** `TaleWorlds.Library/PostProcessInformation.cs`
 
 ## 概述
 

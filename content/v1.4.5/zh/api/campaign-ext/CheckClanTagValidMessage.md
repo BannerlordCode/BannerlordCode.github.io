@@ -8,7 +8,7 @@ description: "CheckClanTagValidMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class CheckClanTagValidMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/CheckClanTagValidMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/CheckClanTagValidMessage.cs`
 
 ## 概述
 

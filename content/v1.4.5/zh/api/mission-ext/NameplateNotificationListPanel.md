@@ -6,9 +6,9 @@ description: "NameplateNotificationListPanel 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate.Notifications
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class NameplateNotificationListPanel`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate.Notifications/NameplateNotificationListPanel.cs`
+**Type:** `public class NameplateNotificationListPanel : ListPanel`
+**Base:** `ListPanel`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Nameplate/Notifications/NameplateNotificationListPanel.cs`
 
 ## 概述
 
@@ -27,25 +27,11 @@ description: "NameplateNotificationListPanel 的自动生成类参考。"
 | `StayAmount` | `public float StayAmount { get; set; }` |
 | `FadeTime` | `public float FadeTime { get; set; }` |
 
-## 主要方法
-
-### NameplateNotificationListPanel
-`public class NameplateNotificationListPanel(UIContext context)`
-
-**用途 / Purpose:** 调用 NameplateNotificationListPanel 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 NameplateNotificationListPanel 实例
-NameplateNotificationListPanel nameplateNotificationListPanel = ...;
-var result = nameplateNotificationListPanel.NameplateNotificationListPanel(context);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-NameplateNotificationListPanel nameplateNotificationListPanel = ...;
-nameplateNotificationListPanel.NameplateNotificationListPanel(context);
+// 从对应子系统 API 获取实例
+NameplateNotificationListPanel instance = ...;
 ```
 
 ## 参见

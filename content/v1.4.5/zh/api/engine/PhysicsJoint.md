@@ -8,7 +8,7 @@ description: "PhysicsJoint 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class PhysicsJoint`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/PhysicsJoint.cs`
+**File:** `TaleWorlds.Engine/PhysicsJoint.cs`
 
 ## 概述
 

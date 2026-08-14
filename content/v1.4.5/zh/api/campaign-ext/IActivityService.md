@@ -8,7 +8,7 @@ description: "IActivityService 的自动生成类参考。"
 **Module:** TaleWorlds.ActivitySystem
 **Type:** `public interface IActivityService`
 **Base:** 无
-**File:** `bin/TaleWorlds.ActivitySystem/TaleWorlds.ActivitySystem/IActivityService.cs`
+**File:** `TaleWorlds.ActivitySystem/IActivityService.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "SimpleToken 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class SimpleToken : TextExpression`
 **Base:** `TextExpression`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/SimpleToken.cs`
+**File:** `TaleWorlds.Localization/Expressions/SimpleToken.cs`
 
 ## 概述
 

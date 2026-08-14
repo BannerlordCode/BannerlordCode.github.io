@@ -8,7 +8,7 @@ description: "MBUnknownTypeException 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MBUnknownTypeException : MBException`
 **Base:** `MBException`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBUnknownTypeException.cs`
+**File:** `TaleWorlds.Core/MBUnknownTypeException.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IMessageProxyClient 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public interface IMessageProxyClient`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/IMessageProxyClient.cs`
+**File:** `TaleWorlds.Network/IMessageProxyClient.cs`
 
 ## 概述
 

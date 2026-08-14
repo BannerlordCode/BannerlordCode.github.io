@@ -8,7 +8,7 @@ description: "MBEquipmentMissionExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBEquipmentMissionExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBEquipmentMissionExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/MBEquipmentMissionExtensions.cs`
 
 ## 概述
 

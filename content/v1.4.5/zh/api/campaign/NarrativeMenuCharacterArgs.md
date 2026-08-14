@@ -8,7 +8,7 @@ description: "NarrativeMenuCharacterArgs 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `struct NarrativeMenuCharacterArgs`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterCreationContent/NarrativeMenuCharacterArgs.cs`
+**File:** `TaleWorlds.CampaignSystem/CharacterCreationContent/NarrativeMenuCharacterArgs.cs`
 
 ## 概述
 

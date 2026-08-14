@@ -8,7 +8,7 @@ description: "ExplanationLine 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `struct ExplanationLine`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ExplainedNumber.cs`
+**File:** `TaleWorlds.CampaignSystem/ExplainedNumber.cs`
 
 ## 概述
 

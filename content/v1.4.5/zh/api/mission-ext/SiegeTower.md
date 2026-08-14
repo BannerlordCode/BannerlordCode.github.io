@@ -8,7 +8,7 @@ description: "SiegeTower 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeTower : SiegeWeapon, IPathHolder, IPrimarySiegeWeapon, IMoveableSiegeWeapon, ISpawnable`
 **Base:** `SiegeWeapon`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeTower.cs`
+**File:** `TaleWorlds.MountAndBlade/SiegeTower.cs`
 
 ## 概述
 
@@ -22,29 +22,24 @@ description: "SiegeTower 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `TargetCastlePosition` | `public MissionObject TargetCastlePosition { get; }` |
+| `WeaponSide` | `public FormationAI.BehaviorSide WeaponSide { get; }` |
+| `PathEntity` | `public string PathEntity { get; }` |
+| `EditorGhostEntityMove` | `public bool EditorGhostEntityMove { get; }` |
+| `SiegeWeaponPriority` | `public float SiegeWeaponPriority { get; }` |
+| `OverTheWallNavMeshID` | `public int OverTheWallNavMeshID { get; }` |
+| `MovementComponent` | `public SiegeWeaponMovementComponent MovementComponent { get; }` |
+| `HoldLadders` | `public bool HoldLadders { get; }` |
+| `SendLadders` | `public bool SendLadders { get; }` |
+| `HasArrivedAtTarget` | `public bool HasArrivedAtTarget { get; set; }` |
+| `State` | `public SiegeTower.GateState State { get; set; }` |
+| `IsDeactivated` | `public override bool IsDeactivated { get; }` |
 | `HasArrivedAtTarget` | `public bool HasArrivedAtTarget { get; }` |
 | `State` | `public int State { get; }` |
 | `FallAngularSpeed` | `public float FallAngularSpeed { get; }` |
 | `TotalDistanceTraveled` | `public float TotalDistanceTraveled { get; }` |
-| `WeaponSide` | `public FormationAI.BehaviorSide WeaponSide { get; }` |
-| `PathEntity` | `public string PathEntity { get; }` |
-| `MovementComponent` | `public SiegeWeaponMovementComponent MovementComponent { get; }` |
-| `HasArrivedAtTarget` | `public bool HasArrivedAtTarget { get; set; }` |
-| `State` | `public GateState State { get; set; }` |
-| `IsDeactivated` | `public override bool IsDeactivated { get; }` |
 
 ## 主要方法
-
-### ReadFromNetwork
-`public bool ReadFromNetwork(ref bool bufferReadValid)`
-
-**用途 / Purpose:** 从当前实例读取from network相关数据。
-
-```csharp
-// 先通过子系统 API 拿到 SiegeTower 实例
-SiegeTower siegeTower = ...;
-var result = siegeTower.ReadFromNetwork(bufferReadValid);
-```
 
 ### HasCompletedAction
 `public bool HasCompletedAction()`
@@ -212,7 +207,7 @@ siegeTower.SetAbilityOfFaces(false);
 ```
 
 ### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
 **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
@@ -278,14 +273,14 @@ siegeTower.SetSpawnedFromSpawner();
 ```
 
 ### OnAfterReadFromNetwork
-`public override void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
+`public override void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
 **用途 / Purpose:** 在 after read from network 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeTower 实例
 SiegeTower siegeTower = ...;
-siegeTower.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
+siegeTower.OnAfterReadFromNetwork(valueTuple<BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
 ```
 
 ### AssignParametersFromSpawner
@@ -321,12 +316,23 @@ SiegeTower siegeTower = ...;
 siegeTower.OnFormationFrameChanged(agent, false, frame);
 ```
 
+### ReadFromNetwork
+`public bool ReadFromNetwork(ref bool bufferReadValid)`
+
+**用途 / Purpose:** 从当前实例读取from network相关数据。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeTower 实例
+SiegeTower siegeTower = ...;
+var result = siegeTower.ReadFromNetwork(bufferReadValid);
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 SiegeTower siegeTower = ...;
-siegeTower.ReadFromNetwork(bufferReadValid);
+siegeTower.HasCompletedAction();
 ```
 
 ## 参见

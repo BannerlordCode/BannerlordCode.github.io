@@ -8,7 +8,7 @@ description: "ManagedToUnmanagedScopedCallCounter 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public class ManagedToUnmanagedScopedCallCounter : IDisposable`
 **Base:** `IDisposable`
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedToUnmanagedScopedCallCounter.cs`
+**File:** `TaleWorlds.DotNet/ManagedToUnmanagedScopedCallCounter.cs`
 
 ## 概述
 

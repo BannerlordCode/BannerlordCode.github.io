@@ -8,7 +8,7 @@ description: "EntryId 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public struct EntryId : IEquatable<EntryId>`
 **Base:** `IEquatable<EntryId>`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/EntryId.cs`
+**File:** `TaleWorlds.SaveSystem/EntryId.cs`
 
 ## 概述
 

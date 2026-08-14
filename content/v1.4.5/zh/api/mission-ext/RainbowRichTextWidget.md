@@ -6,9 +6,9 @@ description: "RainbowRichTextWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class RainbowRichTextWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/RainbowRichTextWidget.cs`
+**Type:** `public class RainbowRichTextWidget : RichTextWidget`
+**Base:** `RichTextWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/RainbowRichTextWidget.cs`
 
 ## 概述
 
@@ -17,19 +17,6 @@ description: "RainbowRichTextWidget 的自动生成类参考。"
 ## 心智模型
 
 把 `RainbowRichTextWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
-
-## 主要方法
-
-### RainbowRichTextWidget
-`public class RainbowRichTextWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 RainbowRichTextWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 RainbowRichTextWidget 实例
-RainbowRichTextWidget rainbowRichTextWidget = ...;
-var result = rainbowRichTextWidget.RainbowRichTextWidget(context);
-```
 
 ## 使用示例
 

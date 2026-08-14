@@ -6,9 +6,9 @@ description: "MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget 的自动生�
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget.cs`
+**Type:** `public class MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Lobby/Armory/MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget 的自动生�
 | Name | Signature |
 |------|-----------|
 | `Rarity` | `public int Rarity { get; set; }` |
-
-## 主要方法
-
-### MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget
-`public class MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget 实例
-MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget multiplayerLobbyArmoryCosmeticTierVisualBrushWidget = ...;
-var result = multiplayerLobbyArmoryCosmeticTierVisualBrushWidget.MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget(context);
-```
 
 ## 使用示例
 

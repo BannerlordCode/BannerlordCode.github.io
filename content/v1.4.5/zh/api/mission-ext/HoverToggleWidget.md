@@ -8,7 +8,7 @@ description: "HoverToggleWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class HoverToggleWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/HoverToggleWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/HoverToggleWidget.cs`
 
 ## 概述
 

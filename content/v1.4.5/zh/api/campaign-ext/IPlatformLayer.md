@@ -8,7 +8,7 @@ description: "IPlatformLayer 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `internal interface IPlatformLayer`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/IPlatformLayer.cs`
+**File:** `TaleWorlds.PSAI/net/IPlatformLayer.cs`
 
 ## 概述
 

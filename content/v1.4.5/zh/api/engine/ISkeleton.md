@@ -8,7 +8,7 @@ description: "ISkeleton 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface ISkeleton`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ISkeleton.cs`
+**File:** `TaleWorlds.Engine/ISkeleton.cs`
 
 ## 概述
 

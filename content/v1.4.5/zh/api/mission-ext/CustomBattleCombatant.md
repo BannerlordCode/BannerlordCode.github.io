@@ -8,7 +8,7 @@ description: "CustomBattleCombatant 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleCombatant : IBattleCombatant`
 **Base:** `IBattleCombatant`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleCombatant.cs`
+**File:** `TaleWorlds.MountAndBlade/CustomBattleCombatant.cs`
 
 ## 概述
 
@@ -24,9 +24,15 @@ description: "CustomBattleCombatant 的自动生成类参考。"
 |------|-----------|
 | `Name` | `public TextObject Name { get; }` |
 | `Side` | `public BattleSideEnum Side { get; }` |
+| `General` | `public BasicCharacterObject General { get; }` |
 | `BasicCulture` | `public BasicCultureObject BasicCulture { get; }` |
+| `PrimaryColorPair` | `public Tuple<uint, uint> PrimaryColorPair { get; }` |
+| `AlternativeColorPair` | `public Tuple<uint, uint> AlternativeColorPair { get; }` |
 | `Banner` | `public Banner Banner { get; }` |
+| `Characters` | `public IEnumerable<BasicCharacterObject> Characters { get; }` |
+| `CountOfCharacters` | `public int CountOfCharacters { get; }` |
 | `NumberOfAllMembers` | `public int NumberOfAllMembers { get; }` |
+| `NumberOfHealthyMembers` | `public int NumberOfHealthyMembers { get; }` |
 
 ## 主要方法
 
@@ -61,17 +67,6 @@ customBattleCombatant.AddCharacter(characterObject, 0);
 // 先通过子系统 API 拿到 CustomBattleCombatant 实例
 CustomBattleCombatant customBattleCombatant = ...;
 customBattleCombatant.SetGeneral(generalCharacter);
-```
-
-### IsUnderPlayersCommand
-`public bool IsUnderPlayersCommand(BattleSideEnum playerSide)`
-
-**用途 / Purpose:** 判断当前对象是否处于 under players command 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 CustomBattleCombatant 实例
-CustomBattleCombatant customBattleCombatant = ...;
-var result = customBattleCombatant.IsUnderPlayersCommand(playerSide);
 ```
 
 ## 使用示例

@@ -8,7 +8,7 @@ description: "Utilities 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public static class Utilities`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Utilities.cs`
+**File:** `TaleWorlds.Engine/Utilities.cs`
 
 ## 概述
 
@@ -18,18 +18,14 @@ description: "Utilities 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.Engine` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `EngineFrameNo` | `public static int EngineFrameNo { get; }` |
+| `EditModeEnabled` | `public static bool EditModeEnabled { get; }` |
+
 ## 主要方法
-
-### Dispose
-`public void Dispose()`
-
-**用途 / Purpose:** 释放当前对象占用的非托管资源。
-
-```csharp
-// 先通过子系统 API 拿到 Utilities 实例
-Utilities utilities = ...;
-utilities.Dispose();
-```
 
 ### ConstructMainThreadJob
 `public static void ConstructMainThreadJob(Delegate function, params object parameters)`
@@ -922,7 +918,7 @@ Utilities.GetDetailedGPUMemoryData(totalMemoryAllocated, totalMemoryUsed, emptyC
 ```
 
 ### SetRenderMode
-`public static void SetRenderMode(EngineRenderDisplayMode mode)`
+`public static void SetRenderMode(Utilities.EngineRenderDisplayMode mode)`
 
 **用途 / Purpose:** 为 render mode 赋新值，并同步更新对象内部状态。
 
@@ -1131,14 +1127,14 @@ Utilities.LoadSkyBoxes();
 Utilities.GetApplicationName();
 ```
 
-### OpenConsoleStorePage
-`public static void OpenConsoleStorePage(string productId)`
+### OpenNavalDlcPurchasePage
+`public static void OpenNavalDlcPurchasePage()`
 
-**用途 / Purpose:** 打开console store page对应的资源或界面。
+**用途 / Purpose:** 打开naval dlc purchase page对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
-Utilities.OpenConsoleStorePage("example");
+Utilities.OpenNavalDlcPurchasePage();
 ```
 
 ### SetWindowTitle
@@ -1411,16 +1407,6 @@ Utilities.GetApplicationVersionWithBuildNumber();
 Utilities.ParallelFor(0, 0, 0, 0);
 ```
 
-### ParallelForWithDt
-`public static void ParallelForWithDt(int startIndex, int endIndex, long curKey, int grainSize)`
-
-**用途 / Purpose:** 调用 ParallelForWithDt 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-Utilities.ParallelForWithDt(0, 0, 0, 0);
-```
-
 ### ParallelForWithoutRenderThread
 `public static void ParallelForWithoutRenderThread(int startIndex, int endIndex, long curKey, int grainSize)`
 
@@ -1429,16 +1415,6 @@ Utilities.ParallelForWithDt(0, 0, 0, 0);
 ```csharp
 // 静态调用，不需要实例
 Utilities.ParallelForWithoutRenderThread(0, 0, 0, 0);
-```
-
-### ParallelForWithoutRenderThreadDt
-`public static void ParallelForWithoutRenderThreadDt(int startIndex, int endIndex, long curKey, int grainSize)`
-
-**用途 / Purpose:** 调用 ParallelForWithoutRenderThreadDt 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-Utilities.ParallelForWithoutRenderThreadDt(0, 0, 0, 0);
 ```
 
 ### ClearShaderMemory
@@ -1459,6 +1435,16 @@ Utilities.ClearShaderMemory();
 ```csharp
 // 静态调用，不需要实例
 Utilities.RegisterMeshForGPUMorph("example");
+```
+
+### ParallelForWithDt
+`public static void ParallelForWithDt(int startIndex, int endIndex, long curKey, int grainSize)`
+
+**用途 / Purpose:** 调用 ParallelForWithDt 对应的操作。
+
+```csharp
+// 静态调用，不需要实例
+Utilities.ParallelForWithDt(0, 0, 0, 0);
 ```
 
 ### GetMainThreadId
@@ -1551,12 +1537,21 @@ Utilities.StartLoadingStuckCheckState(0);
 Utilities.EndLoadingStuckCheckState();
 ```
 
+### Dispose
+`public void Dispose()`
+
+**用途 / Purpose:** 释放当前对象占用的非托管资源。
+
+```csharp
+// 先通过子系统 API 拿到 Utilities 实例
+Utilities utilities = ...;
+utilities.Dispose();
+```
+
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-Utilities utilities = ...;
-utilities.Dispose();
+Utilities.ConstructMainThreadJob(function, parameters);
 ```
 
 ## 参见

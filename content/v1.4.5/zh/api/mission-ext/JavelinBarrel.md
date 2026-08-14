@@ -8,7 +8,7 @@ description: "JavelinBarrel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class JavelinBarrel : AmmoBarrelBase`
 **Base:** `AmmoBarrelBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Usables/JavelinBarrel.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Usables/JavelinBarrel.cs`
 
 ## 概述
 

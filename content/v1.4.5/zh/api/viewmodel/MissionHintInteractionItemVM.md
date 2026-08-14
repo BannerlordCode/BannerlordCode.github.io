@@ -8,7 +8,7 @@ description: "MissionHintInteractionItemVM 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal class MissionHintInteractionItemVM : MissionInteractionItemBaseVM`
 **Base:** `MissionInteractionItemBaseVM`
-**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction.InteractionItems/MissionHintInteractionItemVM.cs`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Missions/Interaction/InteractionItems/MissionHintInteractionItemVM.cs`
 
 ## 概述
 

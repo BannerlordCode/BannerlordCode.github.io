@@ -8,7 +8,7 @@ description: "PersuasionResultChanceContainerListPanel 的自动生成类参考�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PersuasionResultChanceContainerListPanel : BrushListPanel`
 **Base:** `BrushListPanel`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation/PersuasionResultChanceContainerListPanel.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Conversation/PersuasionResultChanceContainerListPanel.cs`
 
 ## 概述
 

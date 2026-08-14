@@ -8,7 +8,7 @@ description: "SpawnerEntityMissionHelper 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SpawnerEntityMissionHelper`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SpawnerEntityMissionHelper.cs`
+**File:** `TaleWorlds.MountAndBlade/SpawnerEntityMissionHelper.cs`
 
 ## 概述
 

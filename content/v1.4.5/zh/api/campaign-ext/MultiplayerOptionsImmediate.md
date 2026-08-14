@@ -8,7 +8,7 @@ description: "MultiplayerOptionsImmediate 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class MultiplayerOptionsImmediate : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/MultiplayerOptionsImmediate.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/MultiplayerOptionsImmediate.cs`
 
 ## 概述
 

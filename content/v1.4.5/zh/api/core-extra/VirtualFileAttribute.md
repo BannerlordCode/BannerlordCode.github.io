@@ -8,7 +8,7 @@ description: "VirtualFileAttribute 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class VirtualFileAttribute : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/VirtualFileAttribute.cs`
+**File:** `TaleWorlds.Library/VirtualFileAttribute.cs`
 
 ## 概述
 

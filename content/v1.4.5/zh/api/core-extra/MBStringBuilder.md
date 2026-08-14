@@ -8,7 +8,7 @@ description: "MBStringBuilder 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct MBStringBuilder`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBStringBuilder.cs`
+**File:** `TaleWorlds.Library/MBStringBuilder.cs`
 
 ## 概述
 
@@ -18,37 +18,13 @@ description: "MBStringBuilder 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Length` | `public int Length { get; }` |
+
 ## 主要方法
-
-### Acquire
-`public static StringBuilder Acquire(int capacity = 16)`
-
-**用途 / Purpose:** 调用 Acquire 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBStringBuilder.Acquire(0);
-```
-
-### Release
-`public static void Release(StringBuilder sb)`
-
-**用途 / Purpose:** 调用 Release 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBStringBuilder.Release("example");
-```
-
-### GetStringAndReleaseBuilder
-`public static string GetStringAndReleaseBuilder(StringBuilder sb)`
-
-**用途 / Purpose:** 读取并返回当前对象中 string and release builder 的结果。
-
-```csharp
-// 静态调用，不需要实例
-MBStringBuilder.GetStringAndReleaseBuilder("example");
-```
 
 ### Initialize
 `public void Initialize(int capacity = 16, string callerMemberName = "")`
@@ -160,10 +136,42 @@ MBStringBuilder mBStringBuilder = ...;
 var result = mBStringBuilder.ToString();
 ```
 
+### Acquire
+`public static StringBuilder Acquire(int capacity = 16)`
+
+**用途 / Purpose:** 调用 Acquire 对应的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBStringBuilder.Acquire(0);
+```
+
+### Release
+`public static void Release(StringBuilder sb)`
+
+**用途 / Purpose:** 调用 Release 对应的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBStringBuilder.Release("example");
+```
+
+### GetStringAndReleaseBuilder
+`public static string GetStringAndReleaseBuilder(StringBuilder sb)`
+
+**用途 / Purpose:** 读取并返回当前对象中 string and release builder 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBStringBuilder.GetStringAndReleaseBuilder("example");
+```
+
 ## 使用示例
 
 ```csharp
-MBStringBuilder.Acquire(0);
+// 通常从对应子系统 API 获取实例后调用
+MBStringBuilder mBStringBuilder = ...;
+mBStringBuilder.Initialize(0, "example");
 ```
 
 ## 参见

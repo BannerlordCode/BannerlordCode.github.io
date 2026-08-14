@@ -8,7 +8,7 @@ description: "InterfaceDefinition 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class InterfaceDefinition : TypeDefinitionBase`
 **Base:** `TypeDefinitionBase`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/InterfaceDefinition.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/InterfaceDefinition.cs`
 
 ## 概述
 

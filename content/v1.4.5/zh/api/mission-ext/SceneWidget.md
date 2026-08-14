@@ -8,7 +8,7 @@ description: "SceneWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SceneWidget : TextureWidget`
 **Base:** `TextureWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/SceneWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/SceneWidget.cs`
 
 ## 概述
 

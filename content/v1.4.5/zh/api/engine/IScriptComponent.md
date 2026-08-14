@@ -8,7 +8,7 @@ description: "IScriptComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IScriptComponent`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IScriptComponent.cs`
+**File:** `TaleWorlds.Engine/IScriptComponent.cs`
 
 ## 概述
 

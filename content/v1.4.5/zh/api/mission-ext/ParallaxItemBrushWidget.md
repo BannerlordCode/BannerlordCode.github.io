@@ -8,7 +8,7 @@ description: "ParallaxItemBrushWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ParallaxItemBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ParallaxItemBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/ParallaxItemBrushWidget.cs`
 
 ## 概述
 
@@ -25,7 +25,7 @@ description: "ParallaxItemBrushWidget 的自动生成类参考。"
 | `IsEaseInOutEnabled` | `public bool IsEaseInOutEnabled { get; set; }` |
 | `OneDirectionDuration` | `public float OneDirectionDuration { get; set; }` |
 | `OneDirectionDistance` | `public float OneDirectionDistance { get; set; }` |
-| `InitialDirection` | `public ParallaxMovementDirection InitialDirection { get; set; }` |
+| `InitialDirection` | `public ParallaxItemBrushWidget.ParallaxMovementDirection InitialDirection { get; set; }` |
 
 ## 使用示例
 

@@ -8,7 +8,7 @@ description: "TargetIconType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum TargetIconType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TargetIconType.cs`
+**File:** `TaleWorlds.MountAndBlade/TargetIconType.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "FadeData 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `internal class FadeData`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/FadeData.cs`
+**File:** `TaleWorlds.PSAI/net/FadeData.cs`
 
 ## 概述
 

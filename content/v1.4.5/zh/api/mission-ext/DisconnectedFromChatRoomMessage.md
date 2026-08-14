@@ -8,7 +8,7 @@ description: "DisconnectedFromChatRoomMessage 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DisconnectedFromChatRoomMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Messages.FromLobbyServer.ToClient/DisconnectedFromChatRoomMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/DisconnectedFromChatRoomMessage.cs`
 
 ## 概述
 

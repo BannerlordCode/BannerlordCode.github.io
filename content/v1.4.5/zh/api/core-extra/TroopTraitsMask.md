@@ -8,7 +8,7 @@ description: "TroopTraitsMask 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum TroopTraitsMask : ushort`
 **Base:** `ushort`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TroopTraitsMask.cs`
+**File:** `TaleWorlds.Core/TroopTraitsMask.cs`
 
 ## 概述
 

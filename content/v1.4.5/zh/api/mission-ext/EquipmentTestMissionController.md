@@ -8,7 +8,7 @@ description: "EquipmentTestMissionController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EquipmentTestMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/EquipmentTestMissionController.cs`
+**File:** `TaleWorlds.MountAndBlade/Source/Missions/EquipmentTestMissionController.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "NetworkSession 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public abstract class NetworkSession`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/NetworkSession.cs`
+**File:** `TaleWorlds.Network/NetworkSession.cs`
 
 ## 概述
 
@@ -22,20 +22,12 @@ description: "NetworkSession 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `IsActive` | `public bool IsActive { get; set; }` |
+| `Address` | `public string Address { get; }` |
+| `LastMessageSentTime` | `public int LastMessageSentTime { get; }` |
 | `IsConnected` | `public bool IsConnected { get; }` |
 
 ## 主要方法
-
-### ComponentMessageHandlerDelegate
-`public delegate void ComponentMessageHandlerDelegate(NetworkMessage networkMessage)`
-
-**用途 / Purpose:** 调用 ComponentMessageHandlerDelegate 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 NetworkSession 实例
-NetworkSession networkSession = ...;
-networkSession.ComponentMessageHandlerDelegate(networkMessage);
-```
 
 ### SendDisconnectMessage
 `public void SendDisconnectMessage()`
@@ -68,6 +60,17 @@ networkSession.Tick();
 // 先通过子系统 API 拿到 NetworkSession 实例
 NetworkSession networkSession = ...;
 networkSession.SendMessage(message);
+```
+
+### ComponentMessageHandlerDelegate
+`public delegate void ComponentMessageHandlerDelegate(NetworkMessage networkMessage)`
+
+**用途 / Purpose:** 调用 ComponentMessageHandlerDelegate 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkSession 实例
+NetworkSession networkSession = ...;
+networkSession.ComponentMessageHandlerDelegate(networkMessage);
 ```
 
 ## 使用示例

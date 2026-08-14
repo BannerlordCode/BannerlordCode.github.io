@@ -8,7 +8,7 @@ description: "ImpactSoundModifier 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct ImpactSoundModifier`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionWeapon.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionWeapon.cs`
 
 ## 概述
 

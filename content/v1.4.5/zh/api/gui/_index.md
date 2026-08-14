@@ -2,6 +2,47 @@
 title: "gui 目录"
 description: Gauntlet UI 系统类参考目录
 ---
+
+## 心智模型
+
+一句话洞察：`gui` 桶不是某一个类，而是 Bannerlord Gauntlet UI 运行时的**整套地基**——从屏幕栈门面（ScreenManager）到一次加载出来的 XAML 实例（GauntletMovie），再到控件树、布局测量、文本光栅化、手柄导航，以及最底层的原生 2D 绘制（Shader / Material / Texture / OpenGL / Dwmapi）被粘合在一起，共同构成「界面内容该怎么渲染、怎么跑」这一层。
+
+这个桶把分散在 `TaleWorlds.ScreenSystem`、`TaleWorlds.GauntletUI(.Data/.Layout/.GamepadNavigation)`、`TaleWorlds.TwoDimension` 以及原生图形互操作（Gdi32 / Opengl32 / Dwmapi）中的 UI 相关类型汇到了一处。最高层是 `ScreenManager`——静态门面，持有屏幕栈、选出 `TopScreen`、并把引擎每帧的 `Tick` / `Update` / `LateTick` 派发给活动屏及其 `ScreenLayer`。再往下，`GauntletMovie` 是一次 `LoadMovie` 加载出来的 XAML 实例，内部持有 `RootWidget`（控件树根）、`WidgetFactory`、`BrushFactory` 和绑定的 `ViewModel`。
+
+控件树之下是真正的 UI 机械：`WidgetContainer` 按 `Update` / `LateUpdate` / `VisualDefinition` / `UpdateBrushes` 等阶段收集并刷新 `Widget`；`LayoutBox` 用 `Left/Right/Top/Bottom` 做布局矩形测量；`TextHelper` / `TextMeshGenerator` 做位图字体文本的光栅化与网格生成；`GamepadNavigationHelper` 计算手柄导航的几何与候选控件。最底层则是 `Shader` / `Material` / `Texture` 与 OpenGL / Dwmapi / Gdi32 互操作，把 2D 绘制真正画到屏上。
+
+它站在引擎的 `GauntletLayer` 之上：`ScreenManager` 通过屏幕栈决定哪些层当前活动，而 `GauntletLayer`（见 `../engine/`）正是承载 Gauntlet UI 的 `ScreenLayer` 宿主——你把 `GauntletMovie` 挂到它上面，gui 桶的运行时才真正跑起来。换句话说，gui 桶在 engine 的 `GauntletLayer` 之上提供「界面内容与运行逻辑」，在 `viewmodel` 桶（见 `../viewmodel/`）之下消费它提供的绑定数据。
+
+## 核心入口类型
+
+- [ScreenManager](./ScreenManager)：静态门面，屏幕栈 + `TopScreen` + 每帧层派发，是 GUI 层唯一公开入口。
+- [GauntletMovie](./GauntletMovie)：一次 `LoadMovie` 的 XAML 实例，含 `RootWidget` / `WidgetFactory` / `BrushFactory` 与绑定 `ViewModel`。
+- [WidgetContainer](./WidgetContainer)：按阶段（`Update` / `LateUpdate` / `VisualDefinition` …）收集维护控件树的容器。
+- [LayoutBox](./LayoutBox)：布局矩形（`Left` / `Right` / `Top` / `Bottom`），布局测量的基础结构。
+- [TextHelper](./TextHelper)：位图字体文本光栅化，文本排版入口。
+- [TextMeshGenerator](./TextMeshGenerator)：由文本生成可渲染网格。
+- [GamepadNavigationHelper](./GamepadNavigationHelper)：手柄导航的几何与候选控件计算。
+- [TwoDimensionDrawData](./TwoDimensionDrawData)：2D 绘制数据载体。
+- [EmptyWidget](./EmptyWidget)：无外观的空控件基元，常用于布局占位。
+- [ViewBindCommandInfo](./ViewBindCommandInfo)：XAML 视图绑定命令的元信息。
+
+## 与其他模块的关系
+
+与 **engine 桶**（见 `../engine/`）的关系：gui 桶本身不负责把 UI 接入游戏循环，那是 `GauntletLayer` 的工作。`GauntletLayer` 是 engine 桶里承载 Gauntlet UI 的 `ScreenLayer`，`ScreenManager` 管理的屏幕栈决定哪个 `GauntletLayer` 当前活动；gui 桶的 `GauntletMovie` 与控件树就运行在它里面。
+
+与 **viewmodel 桶**（见 `../viewmodel/`）的关系：`GauntletMovie` 绑定的正是 viewmodel 桶的 ViewModel 家族（`IViewModel` / `ViewModel`）。没有 viewmodel 提供数据，gui 桶的控件树只是空壳；数据变化经 `RefreshDataSource` / `RefreshBindingWithChildren` 回流到控件。此外，UI 运行时任何异常（绑定失败、控件树崩溃）都可能经由架构层的[崩溃边界](../../architecture/crash-boundaries/)策略被隔离，避免拖垮整个游戏循环。
+
+| Namespace | Type | Purpose | Timing |
+| --- | --- | --- | --- |
+| TaleWorlds.ScreenSystem | [ScreenManager](./ScreenManager) | 持有屏幕栈并向活动层派发每帧工作。 | 应用和屏幕切换期间。 |
+| TaleWorlds.GauntletUI.Data | [GauntletMovie](./GauntletMovie) | 表示一个加载的 XAML Movie、根控件和数据上下文。 | 从 `LoadMovie` 到卸载期间。 |
+| TaleWorlds.GauntletUI | [WidgetContainer](./WidgetContainer) | 在更新和布局阶段维护控件子树。 | 控件树活动期间。 |
+| TaleWorlds.GauntletUI.Layout | [LayoutBox](./LayoutBox) | 承载布局测量所使用的矩形。 | measure/arrange 阶段。 |
+| TaleWorlds.TwoDimension.BitmapFont | [TextHelper](./TextHelper) | 将本地化文本转换为位图字体布局数据。 | 文本控件刷新时。 |
+| TaleWorlds.GauntletUI.GamepadNavigation | [GamepadNavigationHelper](./GamepadNavigationHelper) | 根据控件几何位置选择手柄导航候选项。 | 焦点移动期间。 |
+| TaleWorlds.GauntletUI | [EmptyWidget](./EmptyWidget) | 提供无外观控件，用于间距或条件布局。 | 构建父级控件树时。 |
+| TaleWorlds.GauntletUI.Data | [ViewBindCommandInfo](./ViewBindCommandInfo) | 描述 Movie 数据层发现的命令绑定。 | ViewModel 绑定期间。 |
+
 <!-- BEGIN SECTION INDEX -->
 
 ## ↑ 上级导航
@@ -13,216 +54,65 @@ description: Gauntlet UI 系统类参考目录
 
 ### A
 
-- [AlignmentAxis](./AlignmentAxis)
-- [AlphaFormatFlags](./AlphaFormatFlags)
-- [AnimatedDropdownWidget](./AnimatedDropdownWidget)
-- [AnimatedNumberTextWidget](./AnimatedNumberTextWidget)
-- [AnimationInterpolation](./AnimationInterpolation)
 - [ArrayType](./ArrayType)
 - [AttribueMask](./AttribueMask)
-- [AudioProperty](./AudioProperty)
 - [AutoPinner](./AutoPinner)
-- [AutoScrollParameters](./AutoScrollParameters)
 
 ### B
 
-- [BasicContainer](./BasicContainer)
 - [BeginMode](./BeginMode)
-- [BitmapFontCharacter](./BitmapFontCharacter)
-- [BitmapInfo](./BitmapInfo)
-- [BitmapInfoHeader](./BitmapInfoHeader)
-- [BlendFunction](./BlendFunction)
 - [BlendingDestinationFactor](./BlendingDestinationFactor)
 - [BlendingSourceFactor](./BlendingSourceFactor)
-- [BlurBehindConstraints](./BlurBehindConstraints)
-- [Brush](./Brush)
-- [BrushAnimation](./BrushAnimation)
-- [BrushAnimationKeyFrame](./BrushAnimationKeyFrame)
-- [BrushAnimationProperty](./BrushAnimationProperty)
-- [BrushAnimationPropertyType](./BrushAnimationPropertyType)
-- [BrushFactory](./BrushFactory)
-- [BrushLayer](./BrushLayer)
-- [BrushLayerAnimation](./BrushLayerAnimation)
-- [BrushLayerSizePolicy](./BrushLayerSizePolicy)
-- [BrushLayerState](./BrushLayerState)
-- [BrushListPanel](./BrushListPanel)
-- [BrushOverlayMethod](./BrushOverlayMethod)
-- [BrushRenderer](./BrushRenderer)
-- [BrushRendererAnimationState](./BrushRendererAnimationState)
-- [BrushState](./BrushState)
-- [BrushWidget](./BrushWidget)
-- [BufferBindingTarget](./BufferBindingTarget)
-- [ButtonType](./ButtonType)
-- [ButtonWidget](./ButtonWidget)
 
 ### C
 
-- [CircleActionSelectorWidget](./CircleActionSelectorWidget)
-- [CircleItemPlacerWidget](./CircleItemPlacerWidget)
-- [ConstantDefinition](./ConstantDefinition)
-- [ConstantDefinitionType](./ConstantDefinitionType)
-- [Container](./Container)
-- [ContainerItemDescription](./ContainerItemDescription)
-- [ContextParameter](./ContextParameter)
 - [CursorMovementDirection](./CursorMovementDirection)
-- [CursorType](./CursorType)
-- [CustomWidgetManager](./CustomWidgetManager)
-- [CustomWidgetType](./CustomWidgetType)
 
 ### D
 
-- [D3D_DRIVER_TYPE](./D3D_DRIVER_TYPE)
-- [D3D11](./D3D11)
 - [DataType](./DataType)
-- [DefaultLayout](./DefaultLayout)
-- [DelayedStateChanger](./DelayedStateChanger)
-- [DialogButtonsParentWidget](./DialogButtonsParentWidget)
-- [DisabledAlphaChangerWidget](./DisabledAlphaChangerWidget)
-- [DragCarrierLayout](./DragCarrierLayout)
-- [DragCarrierWidget](./DragCarrierWidget)
-- [DropdownWidget](./DropdownWidget)
 - [Dwmapi](./Dwmapi)
 - [DwmBlurBehind](./DwmBlurBehind)
-- [DXGI](./DXGI)
-- [DXGI_ADAPTER_DESC](./DXGI_ADAPTER_DESC)
-- [DXGI_OUTPUT_DESC](./DXGI_OUTPUT_DESC)
 
 ### E
 
-- [EditableText](./EditableText)
-- [EditableTextWidget](./EditableTextWidget)
-- [EditorAttribute](./EditorAttribute)
 - [EmptyWidget](./EmptyWidget)
-- [EventManager](./EventManager)
-
-### F
-
-- [FillBar](./FillBar)
-- [FillBarHorizontalWidget](./FillBarHorizontalWidget)
-- [FillBarVerticalClipTierColorsWidget](./FillBarVerticalClipTierColorsWidget)
-- [FillBarVerticalClipWidget](./FillBarVerticalClipWidget)
-- [FillBarVerticalWidget](./FillBarVerticalWidget)
-- [FillBarWidget](./FillBarWidget)
-- [FloatInputTextWidget](./FloatInputTextWidget)
-- [Font](./Font)
-- [FontData](./FontData)
-- [FontFactory](./FontFactory)
-- [FontStyle](./FontStyle)
-- [FrameworkDomain](./FrameworkDomain)
-- [Function](./Function)
 
 ### G
 
-- [GamepadNavigationForcedScopeCollection](./GamepadNavigationForcedScopeCollection)
 - [GamepadNavigationHelper](./GamepadNavigationHelper)
-- [GamepadNavigationScope](./GamepadNavigationScope)
 - [GamepadNavigationScopeCollection](./GamepadNavigationScopeCollection)
-- [GamepadNavigationTypes](./GamepadNavigationTypes)
 - [GauntletEvent](./GauntletEvent)
-- [GauntletExtensions](./GauntletExtensions)
-- [GauntletGamepadNavigationManager](./GauntletGamepadNavigationManager)
-- [GauntletInputContext](./GauntletInputContext)
 - [GauntletMovie](./GauntletMovie)
-- [GauntletView](./GauntletView)
 - [Gdi32](./Gdi32)
-- [GeneratedGauntletMovie](./GeneratedGauntletMovie)
-- [GeneratedPrefabContext](./GeneratedPrefabContext)
-- [GeneratedPrefabInstantiationResult](./GeneratedPrefabInstantiationResult)
-- [GeneratedWidgetData](./GeneratedWidgetData)
-- [GeoTypeId](./GeoTypeId)
-- [GlobalLayer](./GlobalLayer)
-- [GraphicsContext](./GraphicsContext)
-- [GraphicsForm](./GraphicsForm)
-- [GraphLinePointWidget](./GraphLinePointWidget)
-- [GraphLineWidget](./GraphLineWidget)
-- [GraphWidget](./GraphWidget)
-- [GridDirection](./GridDirection)
-- [GridHorizontalLayoutMethod](./GridHorizontalLayoutMethod)
-- [GridLayout](./GridLayout)
-- [GridVerticalLayoutMethod](./GridVerticalLayoutMethod)
-- [GridWidget](./GridWidget)
-- [GuiEventResult](./GuiEventResult)
-- [GuiEventType](./GuiEventType)
 
 ### H
 
 - [HintMode](./HintMode)
-- [HorizontalAlignment](./HorizontalAlignment)
 
 ### I
 
-- [IBrushAnimationState](./IBrushAnimationState)
-- [IBrushLayerData](./IBrushLayerData)
-- [IDataSource](./IDataSource)
-- [IDrawObject](./IDrawObject)
-- [IDropContainer](./IDropContainer)
-- [IDXGIAdapter](./IDXGIAdapter)
-- [IDXGIFactory](./IDXGIFactory)
-- [IDXGIOutput](./IDXGIOutput)
-- [IGauntletMovie](./IGauntletMovie)
-- [IGeneratedGauntletMovieRoot](./IGeneratedGauntletMovieRoot)
-- [IGeneratedUIPrefabCreator](./IGeneratedUIPrefabCreator)
-- [ILanguage](./ILanguage)
-- [ILayout](./ILayout)
-- [ImageDrawObject](./ImageDrawObject)
-- [ImageFit](./ImageFit)
 - [ImageFitResult](./ImageFitResult)
-- [ImageFitTypes](./ImageFitTypes)
-- [ImageHorizontalAlignments](./ImageHorizontalAlignments)
-- [ImageSizePolicies](./ImageSizePolicies)
-- [ImageVerticalAlignments](./ImageVerticalAlignments)
-- [ImageWidget](./ImageWidget)
-- [IMessageCommunicator](./IMessageCommunicator)
-- [InputData](./InputData)
-- [InputKeyVisualWidget](./InputKeyVisualWidget)
-- [InputRestrictions](./InputRestrictions)
-- [IntegerInputPercentageTextWidget](./IntegerInputPercentageTextWidget)
-- [IntegerInputTextWidget](./IntegerInputTextWidget)
-- [IReadonlyInputContext](./IReadonlyInputContext)
-- [IScreenManagerEngineConnection](./IScreenManagerEngineConnection)
-- [ItemTemplateUsage](./ItemTemplateUsage)
-- [ItemTemplateUsageWithData](./ItemTemplateUsageWithData)
-- [IText](./IText)
 - [ITexture](./ITexture)
-- [ITwoDimensionPlatform](./ITwoDimensionPlatform)
-- [ITwoDimensionResourceContext](./ITwoDimensionResourceContext)
 
 ### K
 
-- [Kernel32](./Kernel32)
 - [KeyboardAction](./KeyboardAction)
 
 ### L
 
-- [Language](./Language)
-- [LayeredWindowController](./LayeredWindowController)
 - [LayoutBox](./LayoutBox)
-- [LayoutMethod](./LayoutMethod)
-- [ListPanel](./ListPanel)
 
 ### M
 
-- [MaskedTextureWidget](./MaskedTextureWidget)
 - [Material](./Material)
-- [MaterialPool](./MaterialPool)
-- [Mathf](./Mathf)
 - [MatrixMode](./MatrixMode)
-- [MeshTopology](./MeshTopology)
-- [MONITORINFOEX](./MONITORINFOEX)
-- [MouseCursors](./MouseCursors)
 - [MouseState](./MouseState)
-- [MouseWidget](./MouseWidget)
-
-### N
-
-- [NativeMessage](./NativeMessage)
 
 ### O
 
-- [OnlineImageTextureWidget](./OnlineImageTextureWidget)
 - [Opengl32](./Opengl32)
 - [Opengl32ARB](./Opengl32ARB)
-- [OpenGLTexture](./OpenGLTexture)
 
 ### P
 
@@ -231,172 +121,46 @@ description: Gauntlet UI 系统类参考目录
 - [PixelFormatDescriptorFlags](./PixelFormatDescriptorFlags)
 - [PixelFormatDescriptorLayerTypes](./PixelFormatDescriptorLayerTypes)
 - [PixelFormatDescriptorPixelTypes](./PixelFormatDescriptorPixelTypes)
-- [Point](./Point)
-- [PrefabDatabindingExtension](./PrefabDatabindingExtension)
-- [PrefabExtension](./PrefabExtension)
-- [PrefabExtensionContext](./PrefabExtensionContext)
-- [PrimitivePolygonMaterial](./PrimitivePolygonMaterial)
-- [PropertyOwnerObject](./PropertyOwnerObject)
-
-### Q
-
-- [Quad](./Quad)
-
-### R
-
-- [RECT](./RECT)
-- [Rectangle2D](./Rectangle2D)
-- [ResourceTextureProvider](./ResourceTextureProvider)
-- [RichText](./RichText)
-- [RichTextException](./RichTextException)
-- [RichTextLinkGroup](./RichTextLinkGroup)
-- [RichTextParser](./RichTextParser)
-- [RichTextPart](./RichTextPart)
-- [RichTextPartType](./RichTextPartType)
-- [RichTextTag](./RichTextTag)
-- [RichTextTagParser](./RichTextTagParser)
-- [RichTextTagType](./RichTextTagType)
-- [RichTextWidget](./RichTextWidget)
 
 ### S
 
-- [ScissorTestInfo](./ScissorTestInfo)
-- [ScreenBase](./ScreenBase)
-- [ScreenComponent](./ScreenComponent)
-- [ScreenLayer](./ScreenLayer)
 - [ScreenManager](./ScreenManager)
-- [ScrollablePanel](./ScrollablePanel)
-- [ScrollablePanelFixedHeaderWidget](./ScrollablePanelFixedHeaderWidget)
 - [ScrollbarInterpolationController](./ScrollbarInterpolationController)
-- [ScrollbarWidget](./ScrollbarWidget)
-- [ScrollingRichTextWidget](./ScrollingRichTextWidget)
-- [ScrollingTextWidget](./ScrollingTextWidget)
-- [SelectedStateBrushWidget](./SelectedStateBrushWidget)
 - [Shader](./Shader)
-- [ShaderType](./ShaderType)
 - [ShadingModel](./ShadingModel)
-- [SiblingIndexVisibilityWidget](./SiblingIndexVisibilityWidget)
-- [SimpleMaterial](./SimpleMaterial)
-- [SimpleRectangle](./SimpleRectangle)
-- [SizePolicy](./SizePolicy)
-- [SliderWidget](./SliderWidget)
-- [SmoothDecreaseIndicatorFillBar](./SmoothDecreaseIndicatorFillBar)
-- [SoundProperties](./SoundProperties)
-- [Sprite](./Sprite)
-- [SpriteCategory](./SpriteCategory)
-- [SpriteData](./SpriteData)
 - [SpriteFromTexture](./SpriteFromTexture)
-- [SpriteGeneric](./SpriteGeneric)
-- [SpriteNinePatchParameters](./SpriteNinePatchParameters)
-- [SpritePart](./SpritePart)
 - [SpriteSizeComparer](./SpriteSizeComparer)
-- [StackLayout](./StackLayout)
-- [StandaloneApplicationUtility](./StandaloneApplicationUtility)
-- [StandaloneInputManager](./StandaloneInputManager)
-- [StateSyncWidget](./StateSyncWidget)
-- [StringBasedVisibilityWidget](./StringBasedVisibilityWidget)
-- [Style](./Style)
-- [StyleAnimationMode](./StyleAnimationMode)
-- [StyleFontContainer](./StyleFontContainer)
-- [StyleLayer](./StyleLayer)
 
 ### T
 
-- [TabControl](./TabControl)
-- [TabToggleWidget](./TabToggleWidget)
 - [Target](./Target)
-- [Text](./Text)
-- [TextDrawObject](./TextDrawObject)
 - [TextHelper](./TextHelper)
-- [TextHorizontalAlignment](./TextHorizontalAlignment)
-- [TextLayout](./TextLayout)
 - [TextLineOutput](./TextLineOutput)
-- [TextMaterial](./TextMaterial)
 - [TextMeshGenerator](./TextMeshGenerator)
 - [TextOutput](./TextOutput)
-- [TextParser](./TextParser)
-- [TextPart](./TextPart)
-- [TextToken](./TextToken)
 - [TextTokenOutput](./TextTokenOutput)
 - [Texture](./Texture)
 - [TextureInternalFormat](./TextureInternalFormat)
 - [TextureMagFilter](./TextureMagFilter)
 - [TextureParameterName](./TextureParameterName)
-- [TextureProvider](./TextureProvider)
-- [TextureProviderFactory](./TextureProviderFactory)
-- [TextureUnit](./TextureUnit)
-- [TextureWidget](./TextureWidget)
 - [TextureWrapParameter](./TextureWrapParameter)
-- [TextVerticalAlignment](./TextVerticalAlignment)
-- [TextWidget](./TextWidget)
 - [TokenType](./TokenType)
-- [TooltipPositioningType](./TooltipPositioningType)
-- [TooltipWidget](./TooltipWidget)
-- [TwoDimensionContext](./TwoDimensionContext)
-- [TwoDimensionContextObject](./TwoDimensionContextObject)
-- [TwoDimensionDrawContext](./TwoDimensionDrawContext)
 - [TwoDimensionDrawData](./TwoDimensionDrawData)
-- [TwoDimensionPlatform](./TwoDimensionPlatform)
-- [TwoWaySliderWidget](./TwoWaySliderWidget)
 - [Type](./Type)
 
 ### U
 
-- [UIContext](./UIContext)
 - [UpdateAction](./UpdateAction)
-- [User32](./User32)
 
 ### V
 
-- [ValueBasedVisibilityWidget](./ValueBasedVisibilityWidget)
-- [ValueType](./ValueType)
-- [VertexArrayObject](./VertexArrayObject)
-- [VerticalAlignment](./VerticalAlignment)
 - [ViewBindCommandInfo](./ViewBindCommandInfo)
 - [ViewBindDataInfo](./ViewBindDataInfo)
-- [VisualDefinition](./VisualDefinition)
-- [VisualDefinitionTemplate](./VisualDefinitionTemplate)
-- [VisualState](./VisualState)
-- [VisualStateAnimationState](./VisualStateAnimationState)
-- [VisualStateTemplate](./VisualStateTemplate)
 
 ### W
 
-- [WatchTypes](./WatchTypes)
-- [Widget](./Widget)
-- [WidgetAttributeContext](./WidgetAttributeContext)
-- [WidgetAttributeKeyType](./WidgetAttributeKeyType)
-- [WidgetAttributeKeyTypeAttribute](./WidgetAttributeKeyTypeAttribute)
-- [WidgetAttributeKeyTypeCommand](./WidgetAttributeKeyTypeCommand)
-- [WidgetAttributeKeyTypeCommandParameter](./WidgetAttributeKeyTypeCommandParameter)
-- [WidgetAttributeKeyTypeDataSource](./WidgetAttributeKeyTypeDataSource)
-- [WidgetAttributeKeyTypeId](./WidgetAttributeKeyTypeId)
-- [WidgetAttributeKeyTypeParameter](./WidgetAttributeKeyTypeParameter)
-- [WidgetAttributeTemplate](./WidgetAttributeTemplate)
-- [WidgetAttributeValueType](./WidgetAttributeValueType)
-- [WidgetAttributeValueTypeBinding](./WidgetAttributeValueTypeBinding)
-- [WidgetAttributeValueTypeBindingPath](./WidgetAttributeValueTypeBindingPath)
-- [WidgetAttributeValueTypeConstant](./WidgetAttributeValueTypeConstant)
-- [WidgetAttributeValueTypeDefault](./WidgetAttributeValueTypeDefault)
-- [WidgetAttributeValueTypeParameter](./WidgetAttributeValueTypeParameter)
-- [WidgetComponent](./WidgetComponent)
 - [WidgetContainer](./WidgetContainer)
-- [WidgetCreationData](./WidgetCreationData)
-- [WidgetExtensions](./WidgetExtensions)
-- [WidgetFactory](./WidgetFactory)
-- [WidgetInfo](./WidgetInfo)
-- [WidgetInstantiationResult](./WidgetInstantiationResult)
-- [WidgetInstantiationResultDatabindingExtension](./WidgetInstantiationResultDatabindingExtension)
 - [WidgetInstantiationResultExtensionData](./WidgetInstantiationResultExtensionData)
-- [WidgetPrefab](./WidgetPrefab)
-- [WidgetTemplate](./WidgetTemplate)
-- [WindowClass](./WindowClass)
-- [WindowMessage](./WindowMessage)
-- [WindowsForm](./WindowsForm)
-- [WindowsFramework](./WindowsFramework)
-- [WindowsFrameworkThreadConfig](./WindowsFrameworkThreadConfig)
-- [WindowShowStyle](./WindowShowStyle)
-- [WindowStyle](./WindowStyle)
 
 
 <!-- END SECTION INDEX -->

@@ -8,7 +8,7 @@ description: "XmlInformationType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum XmlInformationType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Module.cs`
+**File:** `TaleWorlds.MountAndBlade/Module.cs`
 
 ## 概述
 

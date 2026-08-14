@@ -8,7 +8,7 @@ description: "SetMissionObjectVertexAnimationProgress 的自动生成类参考�
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetMissionObjectVertexAnimationProgress : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetMissionObjectVertexAnimationProgress.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetMissionObjectVertexAnimationProgress.cs`
 
 ## 概述
 

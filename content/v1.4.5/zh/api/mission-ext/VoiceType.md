@@ -8,7 +8,7 @@ description: "VoiceType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class VoiceType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SkinVoiceManager.cs`
+**File:** `TaleWorlds.MountAndBlade/SkinVoiceManager.cs`
 
 ## 概述
 

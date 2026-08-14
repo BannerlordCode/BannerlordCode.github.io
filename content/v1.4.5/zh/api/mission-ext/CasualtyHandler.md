@@ -8,7 +8,7 @@ description: "CasualtyHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CasualtyHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CasualtyHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/CasualtyHandler.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "GameModel 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class GameModel`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/GameModel.cs`
+**File:** `TaleWorlds.Core/GameModel.cs`
 
 ## 概述
 

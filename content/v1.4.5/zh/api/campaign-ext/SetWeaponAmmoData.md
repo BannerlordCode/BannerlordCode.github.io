@@ -8,7 +8,7 @@ description: "SetWeaponAmmoData 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetWeaponAmmoData : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetWeaponAmmoData.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetWeaponAmmoData.cs`
 
 ## 概述
 

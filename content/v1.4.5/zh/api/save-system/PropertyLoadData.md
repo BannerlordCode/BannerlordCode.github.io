@@ -8,7 +8,7 @@ description: "PropertyLoadData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class PropertyLoadData : MemberLoadData`
 **Base:** `MemberLoadData`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/PropertyLoadData.cs`
+**File:** `TaleWorlds.SaveSystem/Load/PropertyLoadData.cs`
 
 ## 概述
 

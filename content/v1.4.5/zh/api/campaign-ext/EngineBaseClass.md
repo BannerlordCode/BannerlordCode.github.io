@@ -8,7 +8,7 @@ description: "EngineBaseClass 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public abstract class EngineBaseClass : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/EngineBaseClass.cs`
+**File:** `TaleWorlds.DotNet/EngineBaseClass.cs`
 
 ## 概述
 

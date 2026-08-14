@@ -8,7 +8,7 @@ description: "ByteBasicTypeSerializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class ByteBasicTypeSerializer : IBasicTypeSerializer`
 **Base:** `IBasicTypeSerializer`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/ByteBasicTypeSerializer.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/ByteBasicTypeSerializer.cs`
 
 ## 概述
 

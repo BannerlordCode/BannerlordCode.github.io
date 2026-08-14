@@ -8,7 +8,7 @@ description: "EpicAccessObject 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class EpicAccessObject : AccessObject`
 **Base:** `AccessObject`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/EpicAccessObject.cs`
+**File:** `TaleWorlds.Diamond/EpicAccessObject.cs`
 
 ## 概述
 

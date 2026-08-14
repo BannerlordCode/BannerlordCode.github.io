@@ -8,7 +8,7 @@ description: "EpicPlatformServices 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class EpicPlatformServices : IPlatformServices`
 **Base:** `IPlatformServices`
-**File:** `bin/TaleWorlds.PlatformService.Epic/TaleWorlds.PlatformService.Epic/EpicPlatformServices.cs`
+**File:** `TaleWorlds.PlatformService.Epic/EpicPlatformServices.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "EpicPlatformServices 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `UserId` | `public string UserId { get; }` |
 | `Name` | `public string Name { get; set; }` |
 | `Value` | `public int Value { get; set; }` |
 | `ErrorCode` | `public string ErrorCode { get; set; }` |
@@ -45,7 +46,6 @@ description: "EpicPlatformServices 的自动生成类参考。"
 | `InAppId` | `public string InAppId { get; set; }` |
 | `DeviceId` | `public string DeviceId { get; set; }` |
 | `ProductId` | `public string ProductId { get; set; }` |
-| `UserId` | `public string UserId { get; }` |
 
 ## 主要方法
 

@@ -8,7 +8,7 @@ description: "LobbyMissionType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum LobbyMissionType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/LobbyMissionType.cs`
+**File:** `TaleWorlds.MountAndBlade/LobbyMissionType.cs`
 
 ## 概述
 

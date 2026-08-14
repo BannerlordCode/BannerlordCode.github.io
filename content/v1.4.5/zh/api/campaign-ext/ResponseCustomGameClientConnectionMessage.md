@@ -8,7 +8,7 @@ description: "ResponseCustomGameClientConnectionMessage 的自动生成类参考
 **Module:** Messages.FromCustomBattleServer
 **Type:** `public class ResponseCustomGameClientConnectionMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/ResponseCustomGameClientConnectionMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromCustomBattleServer/ToCustomBattleServerManager/ResponseCustomGameClientConnectionMessage.cs`
 
 ## 概述
 

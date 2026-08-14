@@ -8,7 +8,7 @@ description: "DefaultFormationDeploymentPlan 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultFormationDeploymentPlan : IFormationDeploymentPlan`
 **Base:** `IFormationDeploymentPlan`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultFormationDeploymentPlan.cs`
+**File:** `TaleWorlds.MountAndBlade/DefaultFormationDeploymentPlan.cs`
 
 ## 概述
 
@@ -22,7 +22,15 @@ description: "DefaultFormationDeploymentPlan 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `Class` | `public FormationClass Class { get; }` |
+| `SpawnClass` | `public FormationClass SpawnClass { get; }` |
+| `PlannedWidth` | `public float PlannedWidth { get; }` |
+| `PlannedDepth` | `public float PlannedDepth { get; }` |
+| `PlannedTroopCount` | `public int PlannedTroopCount { get; }` |
+| `PlannedFootTroopCount` | `public int PlannedFootTroopCount { get; }` |
+| `PlannedMountedTroopCount` | `public int PlannedMountedTroopCount { get; }` |
 | `HasDimensions` | `public bool HasDimensions { get; }` |
+| `HasSignificantMountedTroops` | `public bool HasSignificantMountedTroops { get; }` |
 
 ## 主要方法
 
@@ -38,14 +46,14 @@ var result = defaultFormationDeploymentPlan.HasFrame();
 ```
 
 ### GetDefaultFlank
-`public FormationDeploymentFlank GetDefaultFlank(int formationTroopCount, bool teamPlanHasAnyFootTroops, bool spawnWithHorses = false)`
+`public FormationDeploymentFlank GetDefaultFlank(int formationTroopCount, int infantryCount, bool spawnWithHorses = false)`
 
 **用途 / Purpose:** 读取并返回当前对象中 default flank 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFormationDeploymentPlan 实例
 DefaultFormationDeploymentPlan defaultFormationDeploymentPlan = ...;
-var result = defaultFormationDeploymentPlan.GetDefaultFlank(0, false, false);
+var result = defaultFormationDeploymentPlan.GetDefaultFlank(0, 0, false);
 ```
 
 ### GetFlankDeploymentOrder
@@ -156,16 +164,6 @@ defaultFormationDeploymentPlan.SetFrame(frame);
 // 先通过子系统 API 拿到 DefaultFormationDeploymentPlan 实例
 DefaultFormationDeploymentPlan defaultFormationDeploymentPlan = ...;
 defaultFormationDeploymentPlan.SetSpawnClass(spawnClass);
-```
-
-### GetFormationDefaultFlankAux
-`public static FormationDeploymentFlank GetFormationDefaultFlankAux(FormationClass formationClass, int formationTroopCount, bool teamPlanHasAnyFootTroops, bool hasSignificantMountedTroops, bool canSpawnWithHorses)`
-
-**用途 / Purpose:** 读取并返回当前对象中 formation default flank aux 的结果。
-
-```csharp
-// 静态调用，不需要实例
-DefaultFormationDeploymentPlan.GetFormationDefaultFlankAux(formationClass, 0, false, false, false);
 ```
 
 ## 使用示例

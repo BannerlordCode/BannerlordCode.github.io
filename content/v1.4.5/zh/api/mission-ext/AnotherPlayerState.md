@@ -8,7 +8,7 @@ description: "AnotherPlayerState 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum AnotherPlayerState`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/AnotherPlayerState.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/AnotherPlayerState.cs`
 
 ## 概述
 

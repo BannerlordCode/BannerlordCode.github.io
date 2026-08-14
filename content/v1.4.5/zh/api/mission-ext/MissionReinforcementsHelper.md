@@ -8,7 +8,7 @@ description: "MissionReinforcementsHelper 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MissionReinforcementsHelper`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionReinforcementsHelper.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionReinforcementsHelper.cs`
 
 ## 概述
 
@@ -20,8 +20,38 @@ description: "MissionReinforcementsHelper 的自动生成类参考。"
 
 ## 主要方法
 
+### OnMissionStart
+`public static void OnMissionStart()`
+
+**用途 / Purpose:** 在 mission start 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+MissionReinforcementsHelper.OnMissionStart();
+```
+
+### GetReinforcementAssignments
+`public unsafe static List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
+
+**用途 / Purpose:** 读取并返回当前对象中 reinforcement assignments 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MissionReinforcementsHelper.GetReinforcementAssignments(battleSide, troopOrigins);
+```
+
+### OnMissionEnd
+`public static void OnMissionEnd()`
+
+**用途 / Purpose:** 在 mission end 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+MissionReinforcementsHelper.OnMissionEnd();
+```
+
 ### Compare
-`public int Compare(ReinforcementFormationPriority left, ReinforcementFormationPriority right)`
+`public int Compare(MissionReinforcementsHelper.ReinforcementFormationPriority left, MissionReinforcementsHelper.ReinforcementFormationPriority right)`
 
 **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
@@ -65,7 +95,7 @@ var result = missionReinforcementsHelper.IsInitialized(0);
 ```
 
 ### GetPriority
-`public ReinforcementFormationPriority GetPriority(FormationClass troopClass)`
+`public MissionReinforcementsHelper.ReinforcementFormationPriority GetPriority(FormationClass troopClass)`
 
 **用途 / Purpose:** 读取并返回当前对象中 priority 的结果。
 
@@ -73,26 +103,6 @@ var result = missionReinforcementsHelper.IsInitialized(0);
 // 先通过子系统 API 拿到 MissionReinforcementsHelper 实例
 MissionReinforcementsHelper missionReinforcementsHelper = ...;
 var result = missionReinforcementsHelper.GetPriority(troopClass);
-```
-
-### OnMissionStart
-`public static void OnMissionStart()`
-
-**用途 / Purpose:** 在 mission start 事件触发时调用此回调。
-
-```csharp
-// 静态调用，不需要实例
-MissionReinforcementsHelper.OnMissionStart();
-```
-
-### OnMissionEnd
-`public static void OnMissionEnd()`
-
-**用途 / Purpose:** 在 mission end 事件触发时调用此回调。
-
-```csharp
-// 静态调用，不需要实例
-MissionReinforcementsHelper.OnMissionEnd();
 ```
 
 ## 使用示例

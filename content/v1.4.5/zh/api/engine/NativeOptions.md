@@ -8,7 +8,7 @@ description: "NativeOptions 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class NativeOptions`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeOptions.cs`
+**File:** `TaleWorlds.Engine/Options/NativeOptions.cs`
 
 ## 概述
 
@@ -27,19 +27,8 @@ description: "NativeOptions 的自动生成类参考。"
 
 ## 主要方法
 
-### OnNativeOptionChangedDelegate
-`public delegate void OnNativeOptionChangedDelegate(NativeOptionsType changedNativeOptionsType)`
-
-**用途 / Purpose:** 在 native option changed delegate 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 NativeOptions 实例
-NativeOptions nativeOptions = ...;
-nativeOptions.OnNativeOptionChangedDelegate(changedNativeOptionsType);
-```
-
 ### GetGFXPresetName
-`public static string GetGFXPresetName(ConfigQuality presetIndex)`
+`public static string GetGFXPresetName(NativeOptions.ConfigQuality presetIndex)`
 
 **用途 / Purpose:** 读取并返回当前对象中 g f x preset name 的结果。
 
@@ -49,7 +38,7 @@ NativeOptions.GetGFXPresetName(presetIndex);
 ```
 
 ### IsGFXOptionChangeable
-`public static bool IsGFXOptionChangeable(ConfigQuality config)`
+`public static bool IsGFXOptionChangeable(NativeOptions.ConfigQuality config)`
 
 **用途 / Purpose:** 判断当前对象是否处于 g f x option changeable 状态或条件。
 
@@ -69,7 +58,7 @@ NativeOptions.ReadRGLConfigFiles();
 ```
 
 ### GetConfig
-`public static float GetConfig(NativeOptionsType type)`
+`public static float GetConfig(NativeOptions.NativeOptionsType type)`
 
 **用途 / Purpose:** 读取并返回当前对象中 config 的结果。
 
@@ -79,7 +68,7 @@ NativeOptions.GetConfig(type);
 ```
 
 ### GetDefaultConfig
-`public static float GetDefaultConfig(NativeOptionsType type)`
+`public static float GetDefaultConfig(NativeOptions.NativeOptionsType type)`
 
 **用途 / Purpose:** 读取并返回当前对象中 default config 的结果。
 
@@ -89,7 +78,7 @@ NativeOptions.GetDefaultConfig(type);
 ```
 
 ### GetDefaultConfigForOverallSettings
-`public static float GetDefaultConfigForOverallSettings(NativeOptionsType type, int config)`
+`public static float GetDefaultConfigForOverallSettings(NativeOptions.NativeOptionsType type, int config)`
 
 **用途 / Purpose:** 读取并返回当前对象中 default config for overall settings 的结果。
 
@@ -299,7 +288,7 @@ NativeOptions.CheckGFXSupportStatus(0);
 ```
 
 ### SetConfig
-`public static void SetConfig(NativeOptionsType type, float value)`
+`public static void SetConfig(NativeOptions.NativeOptionsType type, float value)`
 
 **用途 / Purpose:** 为 config 赋新值，并同步更新对象内部状态。
 
@@ -378,12 +367,21 @@ NativeOptions.SetDefaultGameKeys();
 NativeOptions.SetDefaultGameConfig();
 ```
 
+### OnNativeOptionChangedDelegate
+`public delegate void OnNativeOptionChangedDelegate(NativeOptions.NativeOptionsType changedNativeOptionsType)`
+
+**用途 / Purpose:** 在 native option changed delegate 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 NativeOptions 实例
+NativeOptions nativeOptions = ...;
+nativeOptions.OnNativeOptionChangedDelegate(changedNativeOptionsType);
+```
+
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-NativeOptions nativeOptions = ...;
-nativeOptions.OnNativeOptionChangedDelegate(changedNativeOptionsType);
+NativeOptions.GetGFXPresetName(presetIndex);
 ```
 
 ## 参见

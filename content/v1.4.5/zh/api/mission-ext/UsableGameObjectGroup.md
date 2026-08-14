@@ -8,7 +8,7 @@ description: "UsableGameObjectGroup 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class UsableGameObjectGroup : ScriptComponentBehavior, IVisible`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/UsableGameObjectGroup.cs`
+**File:** `TaleWorlds.MountAndBlade/UsableGameObjectGroup.cs`
 
 ## 概述
 

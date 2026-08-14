@@ -8,7 +8,7 @@ description: "Transformation 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct Transformation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Transformation.cs`
+**File:** `TaleWorlds.Library/Transformation.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "Transformation 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `Identity` | `public static Transformation Identity { get; }` |
 | `AsMatrixFrame` | `public MatrixFrame AsMatrixFrame { get; }` |
 
 ## 主要方法

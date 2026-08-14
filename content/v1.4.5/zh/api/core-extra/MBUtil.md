@@ -8,7 +8,7 @@ description: "MBUtil 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class MBUtil`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBUtil.cs`
+**File:** `TaleWorlds.Library/MBUtil.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "BattleDeploymentHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleDeploymentHandler : DeploymentHandler`
 **Base:** `DeploymentHandler`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Handlers/BattleDeploymentHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/Missions/Handlers/BattleDeploymentHandler.cs`
 
 ## 概述
 

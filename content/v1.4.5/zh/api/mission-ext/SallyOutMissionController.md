@@ -8,7 +8,7 @@ description: "SallyOutMissionController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class SallyOutMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SallyOutMissionController.cs`
+**File:** `TaleWorlds.MountAndBlade/SallyOutMissionController.cs`
 
 ## 概述
 
@@ -17,6 +17,12 @@ description: "SallyOutMissionController 的自动生成类参考。"
 ## 心智模型
 
 把 `SallyOutMissionController` 当作一个 Controller 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `BesiegerSiegeEngines` | `public MBReadOnlyList<SiegeWeapon> BesiegerSiegeEngines { get; }` |
 
 ## 主要方法
 

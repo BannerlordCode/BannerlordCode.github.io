@@ -8,7 +8,7 @@ description: "BehaviorShootFromSiegeTower 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorShootFromSiegeTower : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorShootFromSiegeTower.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorShootFromSiegeTower.cs`
 
 ## 概述
 

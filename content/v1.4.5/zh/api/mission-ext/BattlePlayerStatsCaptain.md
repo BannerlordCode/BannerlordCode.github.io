@@ -8,7 +8,7 @@ description: "BattlePlayerStatsCaptain 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattlePlayerStatsCaptain : BattlePlayerStatsBase`
 **Base:** `BattlePlayerStatsBase`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BattlePlayerStatsCaptain.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/BattlePlayerStatsCaptain.cs`
 
 ## 概述
 

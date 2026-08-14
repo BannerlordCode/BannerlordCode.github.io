@@ -8,7 +8,7 @@ description: "RenderTargetComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class RenderTargetComponent : DotNetObject`
 **Base:** `DotNetObject`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/RenderTargetComponent.cs`
+**File:** `TaleWorlds.Engine/RenderTargetComponent.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "RenderTargetComponent 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `RenderTarget` | `public Texture RenderTarget { get; set; }` |
 | `UserData` | `public object UserData { get; set; }` |
 
 ## 主要方法

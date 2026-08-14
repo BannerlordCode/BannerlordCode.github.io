@@ -8,7 +8,7 @@ description: "ClanPlayerInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanPlayerInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ClanPlayerInfo.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ClanPlayerInfo.cs`
 
 ## 概述
 

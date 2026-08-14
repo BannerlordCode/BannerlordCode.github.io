@@ -8,7 +8,7 @@ description: "MultiplayerAdminMessageWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerAdminMessageWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.AdminMessage/MultiplayerAdminMessageWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/AdminMessage/MultiplayerAdminMessageWidget.cs`
 
 ## 概述
 
@@ -23,6 +23,9 @@ description: "MultiplayerAdminMessageWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `MessageTextWidget` | `public TextWidget MessageTextWidget { get; set; }` |
+| `MessageOnScreenStayTime` | `public float MessageOnScreenStayTime { get; }` |
+| `MessageFadeInTime` | `public float MessageFadeInTime { get; }` |
+| `MessageFadeOutTime` | `public float MessageFadeOutTime { get; }` |
 
 ## 使用示例
 

@@ -8,7 +8,7 @@ description: "FormationSearchThreatTask 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FormationSearchThreatTask : DividableTask`
 **Base:** `DividableTask`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.DividableTasks/FormationSearchThreatTask.cs`
+**File:** `TaleWorlds.MountAndBlade/DividableTasks/FormationSearchThreatTask.cs`
 
 ## 概述
 

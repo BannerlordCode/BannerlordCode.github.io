@@ -13,7 +13,7 @@ description: "v1.4.5 SandBox 的游戏加载器，区分新战役创建与存档
 
 `SandBoxGameManager` 是驱动 SandBox 启动流程的 `MBGameManager` 实现。它的两个构造函数代表两个不同根路径：`CampaignCreatorDelegate` 创建新战役，`LoadResult` 恢复存档战役。随后 manager 推进模块加载，创建或加载 `Game`，等待各个 SubModule，并进入角色创建或恢复后的地图状态。
 
-## 心智模型：一个加载器，两种根
+## 心智模型
 
 ```text
 新战役: CampaignCreatorDelegate -> new Campaign -> Game.CreateGame
@@ -78,7 +78,7 @@ MBGameManager.StartNewGame(new SandBoxGameManager(loadResult));
 
 `SandBoxSubModule.StartGame(LoadResult)` 使用同一读档构造路径。这些是宿主的启动路径；普通战役代码不应在已有 `Game` 或 `Mission` 存活时再启动一个 manager。
 
-## 依赖与边界
+## 依赖
 
 - [MBGameManager](../../mission-ext/MBGameManager) 提供引擎加载契约和 `Current` manager 表面。
 - [SandBoxSubModule](../SandBoxSubModule) 在读档流程中安装本 manager，并负责周围的模块 hook。

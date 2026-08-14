@@ -24,7 +24,7 @@ PartyBaseHelper 只消费已由 [MobileParty](../../campaign/MobileParty) 或 [S
 - FindPartySizeNormalLimit、GetCaptainOfTroop 和 HasFeat 是当前状态/随机结果的计算，不会把结果写回 PartyBase。
 - SortRoster 会把最高 Tier 的角色移到 roster 索引 0；它不是纯查询。英雄加入、俘虏、物品交易或战斗必须走对应 Action，而不是借 helper 改写世界关系。
 
-## 依赖与调用链
+## 依赖
 
 | 依赖 | 作用与时机 |
 | --- | --- |

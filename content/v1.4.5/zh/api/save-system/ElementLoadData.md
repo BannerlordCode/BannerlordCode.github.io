@@ -8,7 +8,7 @@ description: "ElementLoadData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class ElementLoadData : VariableLoadData`
 **Base:** `VariableLoadData`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/ElementLoadData.cs`
+**File:** `TaleWorlds.SaveSystem/Load/ElementLoadData.cs`
 
 ## 概述
 

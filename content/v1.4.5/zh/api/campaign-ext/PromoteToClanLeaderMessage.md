@@ -8,7 +8,7 @@ description: "PromoteToClanLeaderMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class PromoteToClanLeaderMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/PromoteToClanLeaderMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/PromoteToClanLeaderMessage.cs`
 
 ## 概述
 

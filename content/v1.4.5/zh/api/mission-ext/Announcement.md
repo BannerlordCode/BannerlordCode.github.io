@@ -8,7 +8,7 @@ description: "Announcement 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class Announcement`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/Announcement.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Announcement.cs`
 
 ## 概述
 

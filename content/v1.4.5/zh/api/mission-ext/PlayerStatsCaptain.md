@@ -8,7 +8,7 @@ description: "PlayerStatsCaptain 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerStatsCaptain : PlayerStatsRanked`
 **Base:** `PlayerStatsRanked`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsCaptain.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerStatsCaptain.cs`
 
 ## 概述
 

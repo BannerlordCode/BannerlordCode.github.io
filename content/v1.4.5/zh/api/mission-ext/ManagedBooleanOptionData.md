@@ -8,7 +8,7 @@ description: "ManagedBooleanOptionData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ManagedBooleanOptionData : ManagedOptionData, IBooleanOptionData, IOptionData`
 **Base:** `ManagedOptionData`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options.ManagedOptions/ManagedBooleanOptionData.cs`
+**File:** `TaleWorlds.MountAndBlade/Options/ManagedOptions/ManagedBooleanOptionData.cs`
 
 ## 概述
 

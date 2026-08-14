@@ -8,7 +8,7 @@ description: "SetMachineRotation 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class SetMachineRotation : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/SetMachineRotation.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/SetMachineRotation.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IViewModelGetterInterface 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public interface IViewModelGetterInterface`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ViewModel.cs`
+**File:** `TaleWorlds.Library/ViewModel.cs`
 
 ## 概述
 

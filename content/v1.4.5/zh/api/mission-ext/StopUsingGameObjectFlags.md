@@ -8,7 +8,7 @@ description: "StopUsingGameObjectFlags 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum StopUsingGameObjectFlags : byte`
 **Base:** `byte`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Agent.cs`
+**File:** `TaleWorlds.MountAndBlade/Agent.cs`
 
 ## 概述
 

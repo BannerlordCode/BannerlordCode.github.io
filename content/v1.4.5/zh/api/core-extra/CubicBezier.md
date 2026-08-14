@@ -8,7 +8,7 @@ description: "CubicBezier 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class CubicBezier`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/CubicBezier.cs`
+**File:** `TaleWorlds.Library/CubicBezier.cs`
 
 ## 概述
 

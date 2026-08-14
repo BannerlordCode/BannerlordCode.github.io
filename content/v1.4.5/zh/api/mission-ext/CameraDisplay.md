@@ -8,7 +8,7 @@ description: "CameraDisplay 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CameraDisplay : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CameraDisplay.cs`
+**File:** `TaleWorlds.MountAndBlade/CameraDisplay.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "WorldPosition 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public struct WorldPosition`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/WorldPosition.cs`
+**File:** `TaleWorlds.Engine/WorldPosition.cs`
 
 ## 概述
 
@@ -22,6 +22,9 @@ description: "WorldPosition 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `AsVec2` | `public Vec2 AsVec2 { get; }` |
+| `X` | `public float X { get; }` |
+| `Y` | `public float Y { get; }` |
 | `IsValid` | `public bool IsValid { get; }` |
 
 ## 主要方法

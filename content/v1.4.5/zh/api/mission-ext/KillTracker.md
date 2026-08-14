@@ -8,7 +8,7 @@ description: "KillTracker 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class KillTracker : GameBadgeTracker`
 **Base:** `GameBadgeTracker`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/KillTracker.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/MultiplayerBadges/KillTracker.cs`
 
 ## 概述
 

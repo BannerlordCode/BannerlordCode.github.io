@@ -8,7 +8,7 @@ description: "ScriptingInterfaceBase 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal class ScriptingInterfaceBase : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ScriptingInterfaceBase.cs`
+**File:** `TaleWorlds.MountAndBlade/ScriptingInterfaceBase.cs`
 
 ## 概述
 

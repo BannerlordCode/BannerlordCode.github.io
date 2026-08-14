@@ -8,7 +8,7 @@ description: "SallyOutEndLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SallyOutEndLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SallyOutEndLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/SallyOutEndLogic.cs`
 
 ## 概述
 

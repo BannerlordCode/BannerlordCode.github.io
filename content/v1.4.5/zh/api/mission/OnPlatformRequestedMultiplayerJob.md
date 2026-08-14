@@ -8,7 +8,7 @@ description: "OnPlatformRequestedMultiplayerJob 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal class OnPlatformRequestedMultiplayerJob : Job`
 **Base:** `Job`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/OnPlatformRequestedMultiplayerJob.cs`
+**File:** `TaleWorlds.MountAndBlade/OnPlatformRequestedMultiplayerJob.cs`
 
 ## 概述
 

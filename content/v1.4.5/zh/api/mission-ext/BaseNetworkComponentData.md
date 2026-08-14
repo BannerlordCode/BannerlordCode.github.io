@@ -8,7 +8,7 @@ description: "BaseNetworkComponentData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BaseNetworkComponentData : UdpNetworkComponent`
 **Base:** `UdpNetworkComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BaseNetworkComponentData.cs`
+**File:** `TaleWorlds.MountAndBlade/BaseNetworkComponentData.cs`
 
 ## 概述
 

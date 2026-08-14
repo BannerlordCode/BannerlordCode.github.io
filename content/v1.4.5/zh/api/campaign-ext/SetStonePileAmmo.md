@@ -8,7 +8,7 @@ description: "SetStonePileAmmo 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetStonePileAmmo : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetStonePileAmmo.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetStonePileAmmo.cs`
 
 ## 概述
 

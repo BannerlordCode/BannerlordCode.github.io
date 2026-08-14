@@ -8,7 +8,7 @@ description: "AnimalSpawnSettings 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AnimalSpawnSettings : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/AnimalSpawnSettings.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/AnimalSpawnSettings.cs`
 
 ## 概述
 

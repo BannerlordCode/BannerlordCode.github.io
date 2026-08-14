@@ -8,7 +8,7 @@ description: "OptionsKeyItemListPanel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OptionsKeyItemListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options/OptionsKeyItemListPanel.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Options/OptionsKeyItemListPanel.cs`
 
 ## 概述
 
@@ -24,7 +24,6 @@ description: "OptionsKeyItemListPanel 的自动生成类参考。"
 |------|-----------|
 | `OptionTitle` | `public string OptionTitle { get; set; }` |
 | `OptionDescription` | `public string OptionDescription { get; set; }` |
-| `OptionExtraInformation` | `public string OptionExtraInformation { get; set; }` |
 
 ## 使用示例
 

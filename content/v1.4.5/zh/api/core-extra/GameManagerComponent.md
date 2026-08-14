@@ -8,7 +8,7 @@ description: "GameManagerComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class GameManagerComponent : IEntityComponent`
 **Base:** `IEntityComponent`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/GameManagerComponent.cs`
+**File:** `TaleWorlds.Core/GameManagerComponent.cs`
 
 ## 概述
 

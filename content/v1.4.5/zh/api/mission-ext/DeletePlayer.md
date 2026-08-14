@@ -8,7 +8,7 @@ description: "DeletePlayer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class DeletePlayer : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Network.Messages/DeletePlayer.cs`
+**File:** `TaleWorlds.MountAndBlade/Network/Messages/DeletePlayer.cs`
 
 ## 概述
 

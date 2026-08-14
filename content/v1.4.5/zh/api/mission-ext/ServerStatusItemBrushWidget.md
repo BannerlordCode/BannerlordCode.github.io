@@ -6,9 +6,9 @@ description: "ServerStatusItemBrushWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class ServerStatusItemBrushWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD/ServerStatusItemBrushWidget.cs`
+**Type:** `public class ServerStatusItemBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/HUD/ServerStatusItemBrushWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "ServerStatusItemBrushWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Status` | `public int Status { get; set; }` |
-
-## 主要方法
-
-### ServerStatusItemBrushWidget
-`public class ServerStatusItemBrushWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 ServerStatusItemBrushWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ServerStatusItemBrushWidget 实例
-ServerStatusItemBrushWidget serverStatusItemBrushWidget = ...;
-var result = serverStatusItemBrushWidget.ServerStatusItemBrushWidget(context);
-```
 
 ## 使用示例
 

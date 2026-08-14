@@ -8,7 +8,7 @@ description: "EncyclopediaListItemNameComparer 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class EncyclopediaListItemNameComparer : EncyclopediaListItemComparerBase`
 **Base:** `EncyclopediaListItemComparerBase`
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/EncyclopediaListItemNameComparer.cs`
+**File:** `TaleWorlds.CampaignSystem/Encyclopedia/EncyclopediaListItemNameComparer.cs`
 
 ## 概述
 

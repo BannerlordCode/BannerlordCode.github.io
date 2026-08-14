@@ -8,7 +8,7 @@ description: "TestFriendListService 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class TestFriendListService : IFriendListService`
 **Base:** `IFriendListService`
-**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/TestFriendListService.cs`
+**File:** `TaleWorlds.PlatformService/TestFriendListService.cs`
 
 ## 概述
 

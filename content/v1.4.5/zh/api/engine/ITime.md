@@ -8,7 +8,7 @@ description: "ITime 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface ITime`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ITime.cs`
+**File:** `TaleWorlds.Engine/ITime.cs`
 
 ## 概述
 

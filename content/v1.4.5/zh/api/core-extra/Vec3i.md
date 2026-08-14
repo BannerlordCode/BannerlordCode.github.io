@@ -8,7 +8,7 @@ description: "Vec3i 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct Vec3i`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Vec3i.cs`
+**File:** `TaleWorlds.Library/Vec3i.cs`
 
 ## 概述
 
@@ -25,17 +25,6 @@ description: "Vec3i 的自动生成类参考。"
 | `this` | `public int this { get; set; }` |
 
 ## 主要方法
-
-### Vec3i
-`public struct Vec3i(int x = 0, int y = 0, int z = 0)`
-
-**用途 / Purpose:** 调用 Vec3i 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3i 实例
-Vec3i vec3i = ...;
-var result = vec3i.Vec3i(0, 0, 0);
-```
 
 ### ToVec3
 `public Vec3 ToVec3()`
@@ -86,7 +75,7 @@ var result = vec3i.ToString();
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 Vec3i vec3i = ...;
-vec3i.Vec3i(0, 0, 0);
+vec3i.ToVec3();
 ```
 
 ## 参见

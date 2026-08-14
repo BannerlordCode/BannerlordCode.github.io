@@ -8,7 +8,7 @@ description: "TooltipPropertyFlags 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum TooltipPropertyFlags`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/TooltipProperty.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/Information/TooltipProperty.cs`
 
 ## 概述
 

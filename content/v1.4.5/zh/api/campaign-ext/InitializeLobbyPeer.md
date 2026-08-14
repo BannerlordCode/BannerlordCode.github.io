@@ -8,7 +8,7 @@ description: "InitializeLobbyPeer 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class InitializeLobbyPeer : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/InitializeLobbyPeer.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/InitializeLobbyPeer.cs`
 
 ## 概述
 

@@ -6,9 +6,9 @@ description: "MessageContractCreator 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
-**Type:** `internal abstract class MessageContractCreator`
-**Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/MessageContractCreator.cs`
+**Type:** `internal class MessageContractCreator<T> : MessageContractCreator where T : MessageContract, new()`
+**Base:** `MessageContractCreator where T : MessageContract`
+**File:** `TaleWorlds.Network/MessageContractCreator.2.cs`
 
 ## 概述
 
@@ -21,7 +21,7 @@ description: "MessageContractCreator 的自动生成类参考。"
 ## 主要方法
 
 ### Invoke
-`public abstract MessageContract Invoke()`
+`public override MessageContract Invoke()`
 
 **用途 / Purpose:** 调用 Invoke 对应的操作。
 
@@ -34,8 +34,9 @@ var result = messageContractCreator.Invoke();
 ## 使用示例
 
 ```csharp
-// 通常通过子系统 API 或工厂获得派生实例
-MessageContractCreator instance = ...;
+// 通常从对应子系统 API 获取实例后调用
+MessageContractCreator messageContractCreator = ...;
+messageContractCreator.Invoke();
 ```
 
 ## 参见

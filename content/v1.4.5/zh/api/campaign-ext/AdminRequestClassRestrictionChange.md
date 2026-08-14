@@ -8,7 +8,7 @@ description: "AdminRequestClassRestrictionChange 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class AdminRequestClassRestrictionChange : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/AdminRequestClassRestrictionChange.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/AdminRequestClassRestrictionChange.cs`
 
 ## 概述
 

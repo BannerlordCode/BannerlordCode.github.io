@@ -8,7 +8,7 @@ description: "GameOverScreenWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameOverScreenWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameOver/GameOverScreenWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/GameOver/GameOverScreenWidget.cs`
 
 ## 概述
 

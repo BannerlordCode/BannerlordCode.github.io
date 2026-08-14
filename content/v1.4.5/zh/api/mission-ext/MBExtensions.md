@@ -8,7 +8,7 @@ description: "MBExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/MBExtensions.cs`
 
 ## 概述
 
@@ -88,6 +88,26 @@ MBExtensions.CollectChildrenEntitiesWithTag(entity, "example");
 ```csharp
 // 静态调用，不需要实例
 MBExtensions.GetFirstChildEntityWithName(entity, "example");
+```
+
+### HasParentOfType
+`public static bool HasParentOfType(this GameEntity e, Type t)`
+
+**用途 / Purpose:** 判断当前对象是否已经持有 parent of type。
+
+```csharp
+// 静态调用，不需要实例
+MBExtensions.HasParentOfType(e, t);
+```
+
+### HasParentOfType
+`public static bool HasParentOfType(this WeakGameEntity e, Type t)`
+
+**用途 / Purpose:** 判断当前对象是否已经持有 parent of type。
+
+```csharp
+// 静态调用，不需要实例
+MBExtensions.HasParentOfType(e, t);
 ```
 
 ### IsOpponentOf

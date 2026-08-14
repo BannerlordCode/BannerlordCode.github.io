@@ -8,7 +8,7 @@ description: "MultiplayerHotkeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class MultiplayerHotkeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerHotkeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerHotkeyCategory.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "TacticFullScaleAttack 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticFullScaleAttack : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticFullScaleAttack.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticFullScaleAttack.cs`
 
 ## 概述
 

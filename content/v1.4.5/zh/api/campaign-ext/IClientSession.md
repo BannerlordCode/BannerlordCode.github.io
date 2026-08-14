@@ -8,7 +8,7 @@ description: "IClientSession 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public interface IClientSession`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/IClientSession.cs`
+**File:** `TaleWorlds.Diamond/IClientSession.cs`
 
 ## 概述
 

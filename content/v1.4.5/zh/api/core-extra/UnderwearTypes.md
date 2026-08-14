@@ -8,7 +8,7 @@ description: "UnderwearTypes 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum UnderwearTypes`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/Equipment.cs`
+**File:** `TaleWorlds.Core/Equipment.cs`
 
 ## 概述
 

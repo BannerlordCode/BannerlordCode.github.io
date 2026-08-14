@@ -8,7 +8,7 @@ description: "DestructableMissionObject 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DestructableMissionObject : MissionObject`
 **Base:** `MissionObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DestructableMissionObject.cs`
+**File:** `TaleWorlds.MountAndBlade/DestructableMissionObject.cs`
 
 ## 概述
 

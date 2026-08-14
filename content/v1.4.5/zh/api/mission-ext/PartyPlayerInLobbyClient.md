@@ -8,7 +8,7 @@ description: "PartyPlayerInLobbyClient 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PartyPlayerInLobbyClient`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PartyPlayerInLobbyClient.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PartyPlayerInLobbyClient.cs`
 
 ## 概述
 

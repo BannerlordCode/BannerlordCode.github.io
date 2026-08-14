@@ -8,7 +8,7 @@ description: "PropertySaveData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class PropertySaveData : MemberSaveData`
 **Base:** `MemberSaveData`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/PropertySaveData.cs`
+**File:** `TaleWorlds.SaveSystem/Save/PropertySaveData.cs`
 
 ## 概述
 

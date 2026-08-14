@@ -8,7 +8,7 @@ description: "SupportedFeatures 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SupportedFeatures`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/SupportedFeatures.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/SupportedFeatures.cs`
 
 ## 概述
 

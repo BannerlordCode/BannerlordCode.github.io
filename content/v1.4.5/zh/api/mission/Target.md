@@ -8,7 +8,7 @@ description: "Target 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `enum Target`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPOnSpawnPerkEffectBase.cs`
+**File:** `TaleWorlds.MountAndBlade/MPOnSpawnPerkEffectBase.cs`
 
 ## 概述
 

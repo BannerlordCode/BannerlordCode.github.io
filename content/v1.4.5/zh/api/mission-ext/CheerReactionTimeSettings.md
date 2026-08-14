@@ -8,7 +8,7 @@ description: "CheerReactionTimeSettings 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct CheerReactionTimeSettings`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/AgentVictoryLogic.cs`
 
 ## 概述
 
@@ -18,25 +18,11 @@ description: "CheerReactionTimeSettings 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要方法
-
-### CheerReactionTimeSettings
-`public struct CheerReactionTimeSettings(float minDuration, float maxDuration)`
-
-**用途 / Purpose:** 调用 CheerReactionTimeSettings 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 CheerReactionTimeSettings 实例
-CheerReactionTimeSettings cheerReactionTimeSettings = ...;
-var result = cheerReactionTimeSettings.CheerReactionTimeSettings(0, 0);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-CheerReactionTimeSettings cheerReactionTimeSettings = ...;
-cheerReactionTimeSettings.CheerReactionTimeSettings(0, 0);
+// 从对应子系统 API 获取实例
+CheerReactionTimeSettings instance = ...;
 ```
 
 ## 参见

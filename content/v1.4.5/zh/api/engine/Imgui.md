@@ -8,7 +8,7 @@ description: "Imgui 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class Imgui`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Imgui.cs`
+**File:** `TaleWorlds.Engine/Imgui.cs`
 
 ## 概述
 
@@ -41,7 +41,7 @@ Imgui.EndMainThreadScope();
 ```
 
 ### PushStyleColor
-`public static void PushStyleColor(ColorStyle style, ref Vec3 color)`
+`public static void PushStyleColor(Imgui.ColorStyle style, ref Vec3 color)`
 
 **用途 / Purpose:** 调用 PushStyleColor 对应的操作。
 

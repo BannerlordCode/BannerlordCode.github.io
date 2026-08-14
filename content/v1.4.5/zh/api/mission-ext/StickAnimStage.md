@@ -8,7 +8,7 @@ description: "StickAnimStage 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class StickAnimStage`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial/TutorialObjectiveStickParentWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Tutorial/TutorialObjectiveStickParentWidget.cs`
 
 ## 概述
 
@@ -25,7 +25,7 @@ description: "StickAnimStage 的自动生成类参考。"
 | `IsCompleted` | `public bool IsCompleted { get; }` |
 | `AnimTime` | `public float AnimTime { get; }` |
 | `Direction` | `public Vec2 Direction { get; }` |
-| `AnimType` | `public AnimTypes AnimType { get; }` |
+| `AnimType` | `public TutorialObjectiveStickParentWidget.StickAnimStage.AnimTypes AnimType { get; }` |
 | `WidgetToManipulate` | `public Widget WidgetToManipulate { get; }` |
 
 ## 主要方法

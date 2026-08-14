@@ -8,7 +8,7 @@ description: "SpawnerBase 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SpawnerBase : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Siege/SpawnerBase.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Siege/SpawnerBase.cs`
 
 ## 概述
 

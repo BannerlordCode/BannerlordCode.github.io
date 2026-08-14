@@ -8,7 +8,7 @@ description: "MissionHardBorderPlacer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionHardBorderPlacer : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionHardBorderPlacer.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionHardBorderPlacer.cs`
 
 ## 概述
 

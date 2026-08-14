@@ -8,7 +8,7 @@ description: "IInputManager 的自动生成类参考。"
 **Module:** TaleWorlds.InputSystem
 **Type:** `public interface IInputManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/IInputManager.cs`
+**File:** `TaleWorlds.InputSystem/IInputManager.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "HyperlinkTexts 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public static class HyperlinkTexts`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/HyperlinkTexts.cs`
+**File:** `TaleWorlds.Core/HyperlinkTexts.cs`
 
 ## 概述
 

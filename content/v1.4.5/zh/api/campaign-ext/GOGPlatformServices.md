@@ -8,7 +8,7 @@ description: "GOGPlatformServices 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class GOGPlatformServices : IPlatformServices`
 **Base:** `IPlatformServices`
-**File:** `bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/GOGPlatformServices.cs`
+**File:** `TaleWorlds.PlatformService.GOG/GOGPlatformServices.cs`
 
 ## 概述
 

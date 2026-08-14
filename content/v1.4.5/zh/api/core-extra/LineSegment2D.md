@@ -8,7 +8,7 @@ description: "LineSegment2D 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct LineSegment2D`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/LineSegment2D.cs`
+**File:** `TaleWorlds.Library/LineSegment2D.cs`
 
 ## 概述
 
@@ -24,25 +24,11 @@ description: "LineSegment2D 的自动生成类参考。"
 |------|-----------|
 | `this` | `public Vec2 this { get; }` |
 
-## 主要方法
-
-### LineSegment2D
-`public struct LineSegment2D(Vec2 point1, Vec2 point2)`
-
-**用途 / Purpose:** 调用 LineSegment2D 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 LineSegment2D 实例
-LineSegment2D lineSegment2D = ...;
-var result = lineSegment2D.LineSegment2D(point1, point2);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-LineSegment2D lineSegment2D = ...;
-lineSegment2D.LineSegment2D(point1, point2);
+// 从对应子系统 API 获取实例
+LineSegment2D instance = ...;
 ```
 
 ## 参见

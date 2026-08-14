@@ -8,7 +8,7 @@ description: "GenericComparer 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class GenericComparer<T> : Comparer<T> where T : IComparable<T>`
 **Base:** `Comparer<T> where T : IComparable<T>`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/GenericComparer.cs`
+**File:** `TaleWorlds.Library/GenericComparer.cs`
 
 ## 概述
 

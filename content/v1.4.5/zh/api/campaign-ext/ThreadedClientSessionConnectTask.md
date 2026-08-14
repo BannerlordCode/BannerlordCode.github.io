@@ -8,7 +8,7 @@ description: "ThreadedClientSessionConnectTask 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `internal sealed class ThreadedClientSessionConnectTask : ThreadedClientSessionTask`
 **Base:** `ThreadedClientSessionTask`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/ThreadedClientSessionConnectTask.cs`
+**File:** `TaleWorlds.Diamond/ThreadedClientSessionConnectTask.cs`
 
 ## 概述
 

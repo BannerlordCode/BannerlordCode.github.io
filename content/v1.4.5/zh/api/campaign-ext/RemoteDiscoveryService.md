@@ -8,7 +8,7 @@ description: "RemoteDiscoveryService 的自动生成类参考。"
 **Module:** TaleWorlds.ServiceDiscovery
 **Type:** `public class RemoteDiscoveryService : IDiscoveryService`
 **Base:** `IDiscoveryService`
-**File:** `bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/RemoteDiscoveryService.cs`
+**File:** `TaleWorlds.ServiceDiscovery.Client/RemoteDiscoveryService.cs`
 
 ## 概述
 

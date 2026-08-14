@@ -8,7 +8,7 @@ description: "EntityFlags 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum EntityFlags : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/EntityFlags.cs`
+**File:** `TaleWorlds.Engine/EntityFlags.cs`
 
 ## 概述
 

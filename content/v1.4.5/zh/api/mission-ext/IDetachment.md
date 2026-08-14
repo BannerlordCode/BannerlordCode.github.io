@@ -8,7 +8,7 @@ description: "IDetachment 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IDetachment`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IDetachment.cs`
+**File:** `TaleWorlds.MountAndBlade/IDetachment.cs`
 
 ## 概述
 

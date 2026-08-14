@@ -8,7 +8,7 @@ description: "BuyCosmeticMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class BuyCosmeticMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/BuyCosmeticMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/BuyCosmeticMessage.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MBSkeletonExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBSkeletonExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBSkeletonExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/MBSkeletonExtensions.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "VariableSaveData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal abstract class VariableSaveData`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/VariableSaveData.cs`
+**File:** `TaleWorlds.SaveSystem/Save/VariableSaveData.cs`
 
 ## 概述
 

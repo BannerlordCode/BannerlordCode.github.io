@@ -8,7 +8,7 @@ description: "ItemComparerBase 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class ItemComparerBase : IComparer<KingdomArmyItemVM>`
 **Base:** `IComparer<KingdomArmyItemVM>`
-**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies/KingdomArmySortControllerVM.cs`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/KingdomManagement/Armies/KingdomArmySortControllerVM.cs`
 
 ## 概述
 

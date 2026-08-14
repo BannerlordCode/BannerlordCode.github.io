@@ -8,7 +8,7 @@ description: "FavoriteServerData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FavoriteServerData : MultiplayerLocalData`
 **Base:** `MultiplayerLocalData`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData/FavoriteServerData.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Lobby/LocalData/FavoriteServerData.cs`
 
 ## 概述
 

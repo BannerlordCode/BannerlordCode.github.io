@@ -8,7 +8,7 @@ description: "HighlightsController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class HighlightsController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HighlightsController.cs`
+**File:** `TaleWorlds.MountAndBlade/HighlightsController.cs`
 
 ## 概述
 
@@ -22,6 +22,8 @@ description: "HighlightsController 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `IsHighlightsInitialized` | `public static bool IsHighlightsInitialized { get; }` |
+| `IsAnyHighlightSaved` | `public bool IsAnyHighlightSaved { get; }` |
 | `Id` | `public string Id { get; }` |
 | `Description` | `public string Description { get; }` |
 | `GroupId` | `public string GroupId { get; }` |
@@ -30,7 +32,6 @@ description: "HighlightsController 的自动生成类参考。"
 | `MinVisibilityScore` | `public float MinVisibilityScore { get; }` |
 | `MaxHighlightDistance` | `public float MaxHighlightDistance { get; }` |
 | `IsVisibilityRequired` | `public bool IsVisibilityRequired { get; }` |
-| `IsHighlightsInitialized` | `public static bool IsHighlightsInitialized { get; }` |
 
 ## 主要方法
 
@@ -45,7 +46,7 @@ HighlightsController.RemoveHighlights();
 ```
 
 ### GetHighlightTypeWithId
-`public HighlightType GetHighlightTypeWithId(string highlightId)`
+`public HighlightsController.HighlightType GetHighlightTypeWithId(string highlightId)`
 
 **用途 / Purpose:** 读取并返回当前对象中 highlight type with id 的结果。
 
@@ -100,7 +101,7 @@ highlightsController.OnMissionTick(0);
 ```
 
 ### AddHighlightType
-`public static void AddHighlightType(HighlightType highlightType)`
+`public static void AddHighlightType(HighlightsController.HighlightType highlightType)`
 
 **用途 / Purpose:** 将 highlight type 添加到当前容器或状态中。
 
@@ -110,7 +111,7 @@ HighlightsController.AddHighlightType(highlightType);
 ```
 
 ### SaveHighlight
-`public void SaveHighlight(Highlight highlight)`
+`public void SaveHighlight(HighlightsController.Highlight highlight)`
 
 **用途 / Purpose:** 将 highlight 写入持久化存储或流中。
 
@@ -121,7 +122,7 @@ highlightsController.SaveHighlight(highlight);
 ```
 
 ### SaveHighlight
-`public void SaveHighlight(Highlight highlight, Vec3 position)`
+`public void SaveHighlight(HighlightsController.Highlight highlight, Vec3 position)`
 
 **用途 / Purpose:** 将 highlight 写入持久化存储或流中。
 
@@ -132,7 +133,7 @@ highlightsController.SaveHighlight(highlight, position);
 ```
 
 ### CanSaveHighlight
-`public bool CanSaveHighlight(HighlightType highlightType, Vec3 position)`
+`public bool CanSaveHighlight(HighlightsController.HighlightType highlightType, Vec3 position)`
 
 **用途 / Purpose:** 检查当前对象是否满足 save highlight 的前置条件。
 

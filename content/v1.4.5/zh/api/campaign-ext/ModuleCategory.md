@@ -8,7 +8,7 @@ description: "ModuleCategory 的自动生成类参考。"
 **Module:** TaleWorlds.ModuleManager
 **Type:** `public enum ModuleCategory`
 **Base:** 无
-**File:** `bin/TaleWorlds.ModuleManager/TaleWorlds.ModuleManager/ModuleCategory.cs`
+**File:** `TaleWorlds.ModuleManager/ModuleCategory.cs`
 
 ## 概述
 

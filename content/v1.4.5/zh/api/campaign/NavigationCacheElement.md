@@ -8,7 +8,7 @@ description: "NavigationCacheElement 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `struct NavigationCacheElement<T> : IEquatable<NavigationCacheElement<T>> where T : ISettlementDataHolder`
 **Base:** `IEquatable<NavigationCacheElement<T>> where T : ISettlementDataHolder`
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Map.DistanceCache/NavigationCacheElement.cs`
+**File:** `TaleWorlds.CampaignSystem/Map/DistanceCache/NavigationCacheElement.cs`
 
 ## 概述
 
@@ -17,6 +17,14 @@ description: "NavigationCacheElement 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.CampaignSystem.Map.DistanceCache` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `PortPosition` | `public CampaignVec2 PortPosition { get; }` |
+| `GatePosition` | `public CampaignVec2 GatePosition { get; }` |
+| `StringId` | `public string StringId { get; }` |
 
 ## 主要方法
 

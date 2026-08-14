@@ -8,7 +8,7 @@ description: "CreateAgentVisuals 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class CreateAgentVisuals : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/CreateAgentVisuals.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/CreateAgentVisuals.cs`
 
 ## 概述
 

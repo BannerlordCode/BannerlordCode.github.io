@@ -8,7 +8,7 @@ description: "GetPremadeGameListResult 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class GetPremadeGameListResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetPremadeGameListResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/GetPremadeGameListResult.cs`
 
 ## 概述
 

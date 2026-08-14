@@ -8,7 +8,7 @@ description: "MBTextModel 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `public class MBTextModel`
 **Base:** 无
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor/MBTextModel.cs`
+**File:** `TaleWorlds.Localization/TextProcessor/MBTextModel.cs`
 
 ## 概述
 

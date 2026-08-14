@@ -8,7 +8,7 @@ description: "SystemMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class SystemMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/SystemMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/SystemMessage.cs`
 
 ## 概述
 

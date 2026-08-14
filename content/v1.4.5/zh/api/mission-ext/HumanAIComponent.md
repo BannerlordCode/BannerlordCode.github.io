@@ -8,7 +8,7 @@ description: "HumanAIComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class HumanAIComponent : AgentComponent`
 **Base:** `AgentComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HumanAIComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/HumanAIComponent.cs`
 
 ## 概述
 
@@ -24,22 +24,13 @@ description: "HumanAIComponent 的自动生成类参考。"
 |------|-----------|
 | `FollowedAgent` | `public Agent FollowedAgent { get; }` |
 | `ShouldCatchUpWithFormation` | `public bool ShouldCatchUpWithFormation { get; }` |
+| `IsDefending` | `public bool IsDefending { get; }` |
+| `HasTimedScriptedFrame` | `public bool HasTimedScriptedFrame { get; }` |
 
 ## 主要方法
 
-### GetValueAt
-`public float GetValueAt(float x)`
-
-**用途 / Purpose:** 读取并返回当前对象中 value at 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 HumanAIComponent 实例
-HumanAIComponent humanAIComponent = ...;
-var result = humanAIComponent.GetValueAt(0);
-```
-
 ### OverrideBehaviorParams
-`public void OverrideBehaviorParams(AISimpleBehaviorKind behavior, float y1, float x2, float y2, float x3, float y3)`
+`public void OverrideBehaviorParams(HumanAIComponent.AISimpleBehaviorKind behavior, float y1, float x2, float y2, float x3, float y3)`
 
 **用途 / Purpose:** 调用 OverrideBehaviorParams 对应的操作。
 
@@ -248,7 +239,7 @@ humanAIComponent.AdjustSpeedLimit(agent, 0, false);
 ```
 
 ### ParallelUpdateFormationMovement
-`public void ParallelUpdateFormationMovement()`
+`public unsafe void ParallelUpdateFormationMovement()`
 
 **用途 / Purpose:** 调用 ParallelUpdateFormationMovement 对应的操作。
 
@@ -281,7 +272,7 @@ humanAIComponent.OnDismount(mount);
 ```
 
 ### SetBehaviorValueSet
-`public void SetBehaviorValueSet(BehaviorValueSet behaviorValueSet)`
+`public void SetBehaviorValueSet(HumanAIComponent.BehaviorValueSet behaviorValueSet)`
 
 **用途 / Purpose:** 为 behavior value set 赋新值，并同步更新对象内部状态。
 
@@ -333,6 +324,17 @@ humanAIComponent.SetScriptedPositionAndDirectionTimed(position, 0, 0);
 // 先通过子系统 API 拿到 HumanAIComponent 实例
 HumanAIComponent humanAIComponent = ...;
 humanAIComponent.DisableTimedScriptedMovement();
+```
+
+### GetValueAt
+`public float GetValueAt(float x)`
+
+**用途 / Purpose:** 读取并返回当前对象中 value at 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HumanAIComponent 实例
+HumanAIComponent humanAIComponent = ...;
+var result = humanAIComponent.GetValueAt(0);
 ```
 
 ## 使用示例

@@ -8,7 +8,7 @@ description: "IHttpDriver 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public interface IHttpDriver`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.Http/IHttpDriver.cs`
+**File:** `TaleWorlds.Library/Http/IHttpDriver.cs`
 
 ## 概述
 

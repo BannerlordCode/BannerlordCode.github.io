@@ -8,7 +8,7 @@ description: "TerminateOperationMatchmakingMessage 的自动生成类参考。"
 **Module:** Messages.FromBattleServerManager
 **Type:** `public class TerminateOperationMatchmakingMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServerManager.ToBattleServer/TerminateOperationMatchmakingMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromBattleServerManager/ToBattleServer/TerminateOperationMatchmakingMessage.cs`
 
 ## 概述
 

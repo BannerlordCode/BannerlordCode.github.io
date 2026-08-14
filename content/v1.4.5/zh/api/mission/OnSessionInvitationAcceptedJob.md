@@ -8,7 +8,7 @@ description: "OnSessionInvitationAcceptedJob 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal class OnSessionInvitationAcceptedJob : Job`
 **Base:** `Job`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/OnSessionInvitationAcceptedJob.cs`
+**File:** `TaleWorlds.MountAndBlade/OnSessionInvitationAcceptedJob.cs`
 
 ## 概述
 

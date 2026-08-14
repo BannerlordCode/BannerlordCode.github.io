@@ -6,9 +6,9 @@ description: "OrderSiegeMachineItemButtonWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class OrderSiegeMachineItemButtonWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order/OrderSiegeMachineItemButtonWidget.cs`
+**Type:** `public class OrderSiegeMachineItemButtonWidget : ButtonWidget`
+**Base:** `ButtonWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Order/OrderSiegeMachineItemButtonWidget.cs`
 
 ## 概述
 
@@ -26,19 +26,6 @@ description: "OrderSiegeMachineItemButtonWidget 的自动生成类参考。"
 | `RemainingCountWidget` | `public TextWidget RemainingCountWidget { get; set; }` |
 | `MachineClass` | `public string MachineClass { get; set; }` |
 | `MachineIconWidget` | `public Widget MachineIconWidget { get; set; }` |
-
-## 主要方法
-
-### OrderSiegeMachineItemButtonWidget
-`public class OrderSiegeMachineItemButtonWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 OrderSiegeMachineItemButtonWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 OrderSiegeMachineItemButtonWidget 实例
-OrderSiegeMachineItemButtonWidget orderSiegeMachineItemButtonWidget = ...;
-var result = orderSiegeMachineItemButtonWidget.OrderSiegeMachineItemButtonWidget(context);
-```
 
 ## 使用示例
 

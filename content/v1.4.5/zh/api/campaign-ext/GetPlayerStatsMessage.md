@@ -8,7 +8,7 @@ description: "GetPlayerStatsMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class GetPlayerStatsMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetPlayerStatsMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/GetPlayerStatsMessage.cs`
 
 ## 概述
 

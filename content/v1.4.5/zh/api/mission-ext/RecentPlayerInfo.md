@@ -8,7 +8,7 @@ description: "RecentPlayerInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RecentPlayerInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/RecentPlayerInfo.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/RecentPlayerInfo.cs`
 
 ## 概述
 

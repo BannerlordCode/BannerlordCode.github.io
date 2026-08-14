@@ -8,7 +8,7 @@ description: "MBUnderFlowException 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MBUnderFlowException : MBException`
 **Base:** `MBException`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBUnderFlowException.cs`
+**File:** `TaleWorlds.Core/MBUnderFlowException.cs`
 
 ## 概述
 

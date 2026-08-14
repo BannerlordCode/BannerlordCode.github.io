@@ -8,7 +8,7 @@ description: "GameMenuItemCreationData 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `struct GameMenuItemCreationData`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu/GameMenuItemVM.cs`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/GameMenuItemVM.cs`
 
 ## 概述
 
@@ -17,6 +17,12 @@ description: "GameMenuItemCreationData 的自动生成类参考。"
 ## 心智模型
 
 把 `GameMenuItemCreationData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `OptionID` | `public string OptionID { get; }` |
 
 ## 使用示例
 

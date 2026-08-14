@@ -8,7 +8,7 @@ description: "StringItemWithActionVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class StringItemWithActionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Generic/StringItemWithActionVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/Generic/StringItemWithActionVM.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "FactoredNumber 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FactoredNumber`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FactoredNumber.cs`
+**File:** `TaleWorlds.MountAndBlade/FactoredNumber.cs`
 
 ## 概述
 
@@ -22,7 +22,10 @@ description: "FactoredNumber 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `ResultNumber` | `public float ResultNumber { get; }` |
 | `BaseNumber` | `public float BaseNumber { get; }` |
+| `LimitMinValue` | `public float LimitMinValue { get; }` |
+| `LimitMaxValue` | `public float LimitMaxValue { get; }` |
 
 ## 主要方法
 

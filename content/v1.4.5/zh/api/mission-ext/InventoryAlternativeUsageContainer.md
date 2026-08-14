@@ -6,9 +6,9 @@ description: "InventoryAlternativeUsageContainer 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class InventoryAlternativeUsageContainer`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryAlternativeUsageContainer.cs`
+**Type:** `public class InventoryAlternativeUsageContainer : Container`
+**Base:** `Container`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Inventory/InventoryAlternativeUsageContainer.cs`
 
 ## 概述
 
@@ -29,17 +29,6 @@ description: "InventoryAlternativeUsageContainer 的自动生成类参考。"
 | `IsDragHovering` | `public override bool IsDragHovering { get; }` |
 
 ## 主要方法
-
-### InventoryAlternativeUsageContainer
-`public class InventoryAlternativeUsageContainer(UIContext context)`
-
-**用途 / Purpose:** 调用 InventoryAlternativeUsageContainer 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 InventoryAlternativeUsageContainer 实例
-InventoryAlternativeUsageContainer inventoryAlternativeUsageContainer = ...;
-var result = inventoryAlternativeUsageContainer.InventoryAlternativeUsageContainer(context);
-```
 
 ### OnChildSelected
 `public override void OnChildSelected(Widget widget)`
@@ -79,7 +68,7 @@ var result = inventoryAlternativeUsageContainer.GetIndexForDrop(draggedWidgetPos
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 InventoryAlternativeUsageContainer inventoryAlternativeUsageContainer = ...;
-inventoryAlternativeUsageContainer.InventoryAlternativeUsageContainer(context);
+inventoryAlternativeUsageContainer.OnChildSelected(widget);
 ```
 
 ## 参见

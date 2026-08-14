@@ -6,9 +6,9 @@ description: "BarterItemVisualBrushWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Barter
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class BarterItemVisualBrushWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Barter/BarterItemVisualBrushWidget.cs`
+**Type:** `public class BarterItemVisualBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Barter/BarterItemVisualBrushWidget.cs`
 
 ## 概述
 
@@ -29,19 +29,6 @@ description: "BarterItemVisualBrushWidget 的自动生成类参考。"
 | `HasVisualIdentifier` | `public bool HasVisualIdentifier { get; set; }` |
 | `Type` | `public string Type { get; set; }` |
 | `FiefImagePath` | `public string FiefImagePath { get; set; }` |
-
-## 主要方法
-
-### BarterItemVisualBrushWidget
-`public class BarterItemVisualBrushWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 BarterItemVisualBrushWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 BarterItemVisualBrushWidget 实例
-BarterItemVisualBrushWidget barterItemVisualBrushWidget = ...;
-var result = barterItemVisualBrushWidget.BarterItemVisualBrushWidget(context);
-```
 
 ## 使用示例
 

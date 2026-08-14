@@ -8,7 +8,7 @@ description: "ITrackableBase 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface ITrackableBase`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ITrackableBase.cs`
+**File:** `TaleWorlds.Core/ITrackableBase.cs`
 
 ## 概述
 

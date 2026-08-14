@@ -8,7 +8,7 @@ description: "ChangeClanSigilMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class ChangeClanSigilMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/ChangeClanSigilMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/ChangeClanSigilMessage.cs`
 
 ## 概述
 

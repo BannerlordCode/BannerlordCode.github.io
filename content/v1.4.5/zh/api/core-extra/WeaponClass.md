@@ -8,7 +8,7 @@ description: "WeaponClass 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum WeaponClass`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/WeaponClass.cs`
+**File:** `TaleWorlds.Core/WeaponClass.cs`
 
 ## 概述
 

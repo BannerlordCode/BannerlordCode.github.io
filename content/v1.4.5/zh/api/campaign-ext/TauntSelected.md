@@ -8,7 +8,7 @@ description: "TauntSelected 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class TauntSelected : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/TauntSelected.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/TauntSelected.cs`
 
 ## 概述
 

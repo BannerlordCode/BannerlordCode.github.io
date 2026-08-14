@@ -8,7 +8,7 @@ description: "ShipSlot 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class ShipSlot : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ShipSlot.cs`
+**File:** `TaleWorlds.Core/ShipSlot.cs`
 
 ## 概述
 
@@ -24,6 +24,7 @@ description: "ShipSlot 的自动生成类参考。"
 |------|-----------|
 | `TypeId` | `public string TypeId { get; }` |
 | `MainPrefabId` | `public string MainPrefabId { get; }` |
+| `MatchingPieces` | `public MBReadOnlyList<ShipUpgradePiece> MatchingPieces { get; }` |
 
 ## 主要方法
 

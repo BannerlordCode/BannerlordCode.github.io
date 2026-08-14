@@ -8,7 +8,7 @@ description: "DeploymentOrderComparer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DeploymentOrderComparer : IComparer<FormationDeploymentOrder>`
 **Base:** `IComparer<FormationDeploymentOrder>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationDeploymentOrder.cs`
+**File:** `TaleWorlds.MountAndBlade/FormationDeploymentOrder.cs`
 
 ## 概述
 

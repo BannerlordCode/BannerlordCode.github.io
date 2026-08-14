@@ -8,7 +8,7 @@ description: "GetPlayerCountInQueueResult 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class GetPlayerCountInQueueResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetPlayerCountInQueueResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/GetPlayerCountInQueueResult.cs`
 
 ## 概述
 

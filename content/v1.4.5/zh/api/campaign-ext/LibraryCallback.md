@@ -8,7 +8,7 @@ description: "LibraryCallback 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public class LibraryCallback : ManagedFromNativeCallback`
 **Base:** `ManagedFromNativeCallback`
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/LibraryCallback.cs`
+**File:** `TaleWorlds.DotNet/LibraryCallback.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "SaveEntry 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveEntry`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveEntry.cs`
+**File:** `TaleWorlds.SaveSystem/SaveEntry.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "SaveEntry 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `Data` | `public byte Data { get; }` |
 | `Id` | `public EntryId Id { get; }` |
 | `FolderId` | `public int FolderId { get; }` |
 

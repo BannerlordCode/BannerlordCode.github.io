@@ -6,9 +6,9 @@ description: "FiefProfitTypeVisualBrushWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class FiefProfitTypeVisualBrushWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/FiefProfitTypeVisualBrushWidget.cs`
+**Type:** `public class FiefProfitTypeVisualBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/FiefProfitTypeVisualBrushWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "FiefProfitTypeVisualBrushWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Type` | `public int Type { get; set; }` |
-
-## 主要方法
-
-### FiefProfitTypeVisualBrushWidget
-`public class FiefProfitTypeVisualBrushWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 FiefProfitTypeVisualBrushWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 FiefProfitTypeVisualBrushWidget 实例
-FiefProfitTypeVisualBrushWidget fiefProfitTypeVisualBrushWidget = ...;
-var result = fiefProfitTypeVisualBrushWidget.FiefProfitTypeVisualBrushWidget(context);
-```
 
 ## 使用示例
 

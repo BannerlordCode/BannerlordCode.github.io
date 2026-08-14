@@ -8,7 +8,7 @@ description: "CoroutineState 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public abstract class CoroutineState`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/CoroutineState.cs`
+**File:** `TaleWorlds.Network/CoroutineState.cs`
 
 ## 概述
 

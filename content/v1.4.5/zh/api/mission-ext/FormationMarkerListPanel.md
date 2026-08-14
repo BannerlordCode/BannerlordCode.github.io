@@ -8,7 +8,7 @@ description: "FormationMarkerListPanel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FormationMarkerListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/FormationMarkerListPanel.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/FormationMarkerListPanel.cs`
 
 ## 概述
 
@@ -29,8 +29,8 @@ description: "FormationMarkerListPanel 的自动生成类参考。"
 | `FarScaleTarget` | `public float FarScaleTarget { get; set; }` |
 | `CloseScaleTarget` | `public float CloseScaleTarget { get; set; }` |
 | `IsMarkerEnabled` | `public bool IsMarkerEnabled { get; set; }` |
-| `IsTargetingAFormation` | `public bool IsTargetingAFormation { get; set; }` |
 | `IsActive` | `public bool IsActive { get; set; }` |
+| `IsTargetingAFormation` | `public bool IsTargetingAFormation { get; set; }` |
 | `ShowDistanceTexts` | `public bool ShowDistanceTexts { get; set; }` |
 | `TeamType` | `public int TeamType { get; set; }` |
 | `WSign` | `public int WSign { get; set; }` |

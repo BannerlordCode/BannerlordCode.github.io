@@ -8,7 +8,7 @@ description: "GameStartupInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameStartupInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameStartupInfo.cs`
+**File:** `TaleWorlds.MountAndBlade/GameStartupInfo.cs`
 
 ## 概述
 

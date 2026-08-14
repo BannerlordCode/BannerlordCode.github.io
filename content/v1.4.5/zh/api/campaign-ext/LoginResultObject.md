@@ -8,7 +8,7 @@ description: "LoginResultObject 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class LoginResultObject`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/LoginResultObject.cs`
+**File:** `TaleWorlds.Diamond/LoginResultObject.cs`
 
 ## 概述
 

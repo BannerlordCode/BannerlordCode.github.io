@@ -8,7 +8,7 @@ description: "ConditionType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum ConditionType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/ConditionType.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/MultiplayerBadges/ConditionType.cs`
 
 ## 概述
 

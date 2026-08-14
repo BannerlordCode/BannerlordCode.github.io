@@ -8,7 +8,7 @@ description: "CraftingTemplate 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class CraftingTemplate : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/CraftingTemplate.cs`
+**File:** `TaleWorlds.Core/CraftingTemplate.cs`
 
 ## 概述
 
@@ -33,6 +33,7 @@ description: "CraftingTemplate 的自动生成类参考。"
 | `AlwaysShowHolsterWithWeapon` | `public bool AlwaysShowHolsterWithWeapon { get; }` |
 | `RotateWeaponInHolster` | `public bool RotateWeaponInHolster { get; }` |
 | `PieceTypeToScaleHolsterWith` | `public CraftingPiece.PieceTypes PieceTypeToScaleHolsterWith { get; }` |
+| `All` | `public static MBReadOnlyList<CraftingTemplate> All { get; }` |
 
 ## 主要方法
 
@@ -59,7 +60,7 @@ var result = craftingTemplate.IsPieceTypeHiddenOnHolster(pieceType);
 ```
 
 ### GetStatDatas
-`public IEnumerable<KeyValuePair<CraftingStatTypes, float>> GetStatDatas(string weaponDescriptionId, DamageTypes thrustDamageType, DamageTypes swingDamageType)`
+`public IEnumerable<KeyValuePair<CraftingTemplate.CraftingStatTypes, float>> GetStatDatas(string weaponDescriptionId, DamageTypes thrustDamageType, DamageTypes swingDamageType)`
 
 **用途 / Purpose:** 读取并返回当前对象中 stat datas 的结果。
 

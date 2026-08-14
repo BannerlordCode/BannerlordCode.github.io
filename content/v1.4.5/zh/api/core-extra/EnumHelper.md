@@ -6,9 +6,9 @@ description: "EnumHelper 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** `internal static class EnumHelper<T1>`
+**Type:** `public static class EnumHelper`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/EnumHelper.cs`
+**File:** `TaleWorlds.Library/EnumHelper.2.cs`
 
 ## 概述
 
@@ -20,184 +20,24 @@ description: "EnumHelper 的自动生成类参考。"
 
 ## 主要方法
 
-### Overlaps
-`public static bool Overlaps(sbyte p1, sbyte p2)`
+### GetCombinedULongEnumFlagsValue
+`public static ulong GetCombinedULongEnumFlagsValue(Type type)`
 
-**用途 / Purpose:** 调用 Overlaps 对应的操作。
+**用途 / Purpose:** 读取并返回当前对象中 combined u long enum flags value 的结果。
 
 ```csharp
 // 静态调用，不需要实例
-EnumHelper.Overlaps(0, 0);
+EnumHelper.GetCombinedULongEnumFlagsValue(type);
 ```
 
-### Overlaps
-`public static bool Overlaps(byte p1, byte p2)`
+### GetCombinedUIntEnumFlagsValue
+`public static uint GetCombinedUIntEnumFlagsValue(Type type)`
 
-**用途 / Purpose:** 调用 Overlaps 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-EnumHelper.Overlaps(0, 0);
-```
-
-### Overlaps
-`public static bool Overlaps(short p1, short p2)`
-
-**用途 / Purpose:** 调用 Overlaps 对应的操作。
+**用途 / Purpose:** 读取并返回当前对象中 combined u int enum flags value 的结果。
 
 ```csharp
 // 静态调用，不需要实例
-EnumHelper.Overlaps(0, 0);
-```
-
-### Overlaps
-`public static bool Overlaps(ushort p1, ushort p2)`
-
-**用途 / Purpose:** 调用 Overlaps 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-EnumHelper.Overlaps(0, 0);
-```
-
-### Overlaps
-`public static bool Overlaps(int p1, int p2)`
-
-**用途 / Purpose:** 调用 Overlaps 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-EnumHelper.Overlaps(0, 0);
-```
-
-### Overlaps
-`public static bool Overlaps(uint p1, uint p2)`
-
-**用途 / Purpose:** 调用 Overlaps 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-EnumHelper.Overlaps(0, 0);
-```
-
-### Overlaps
-`public static bool Overlaps(long p1, long p2)`
-
-**用途 / Purpose:** 调用 Overlaps 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-EnumHelper.Overlaps(0, 0);
-```
-
-### Overlaps
-`public static bool Overlaps(ulong p1, ulong p2)`
-
-**用途 / Purpose:** 调用 Overlaps 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-EnumHelper.Overlaps(0, 0);
-```
-
-### ContainsAll
-`public static bool ContainsAll(sbyte p1, sbyte p2)`
-
-**用途 / Purpose:** 检查当前对象是否含有all。
-
-```csharp
-// 静态调用，不需要实例
-EnumHelper.ContainsAll(0, 0);
-```
-
-### ContainsAll
-`public static bool ContainsAll(byte p1, byte p2)`
-
-**用途 / Purpose:** 检查当前对象是否含有all。
-
-```csharp
-// 静态调用，不需要实例
-EnumHelper.ContainsAll(0, 0);
-```
-
-### ContainsAll
-`public static bool ContainsAll(short p1, short p2)`
-
-**用途 / Purpose:** 检查当前对象是否含有all。
-
-```csharp
-// 静态调用，不需要实例
-EnumHelper.ContainsAll(0, 0);
-```
-
-### ContainsAll
-`public static bool ContainsAll(ushort p1, ushort p2)`
-
-**用途 / Purpose:** 检查当前对象是否含有all。
-
-```csharp
-// 静态调用，不需要实例
-EnumHelper.ContainsAll(0, 0);
-```
-
-### ContainsAll
-`public static bool ContainsAll(int p1, int p2)`
-
-**用途 / Purpose:** 检查当前对象是否含有all。
-
-```csharp
-// 静态调用，不需要实例
-EnumHelper.ContainsAll(0, 0);
-```
-
-### ContainsAll
-`public static bool ContainsAll(uint p1, uint p2)`
-
-**用途 / Purpose:** 检查当前对象是否含有all。
-
-```csharp
-// 静态调用，不需要实例
-EnumHelper.ContainsAll(0, 0);
-```
-
-### ContainsAll
-`public static bool ContainsAll(long p1, long p2)`
-
-**用途 / Purpose:** 检查当前对象是否含有all。
-
-```csharp
-// 静态调用，不需要实例
-EnumHelper.ContainsAll(0, 0);
-```
-
-### ContainsAll
-`public static bool ContainsAll(ulong p1, ulong p2)`
-
-**用途 / Purpose:** 检查当前对象是否含有all。
-
-```csharp
-// 静态调用，不需要实例
-EnumHelper.ContainsAll(0, 0);
-```
-
-### initProc
-`public static bool initProc(T1 p1, T1 p2)`
-
-**用途 / Purpose:** 调用 initProc 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-EnumHelper.initProc(p1, p2);
-```
-
-### initAllProc
-`public static bool initAllProc(T1 p1, T1 p2)`
-
-**用途 / Purpose:** 调用 initAllProc 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-EnumHelper.initAllProc(p1, p2);
+EnumHelper.GetCombinedUIntEnumFlagsValue(type);
 ```
 
 ## 使用示例

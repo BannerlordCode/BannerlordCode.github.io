@@ -8,7 +8,7 @@ description: "MissionQuestConversationHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionQuestConversationHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionQuestConversationHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionQuestConversationHandler.cs`
 
 ## 概述
 

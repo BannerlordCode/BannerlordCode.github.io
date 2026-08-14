@@ -8,7 +8,7 @@ description: "MPConditionalEffect 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPConditionalEffect`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPConditionalEffect.cs`
+**File:** `TaleWorlds.MountAndBlade/MPConditionalEffect.cs`
 
 ## 概述
 
@@ -22,13 +22,68 @@ description: "MPConditionalEffect 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `IsSatisfied` | `public bool IsSatisfied { get; set; }` |
 | `Conditions` | `public MBReadOnlyList<MPPerkCondition> Conditions { get; }` |
 | `Effects` | `public MBReadOnlyList<MPPerkEffectBase> Effects { get; }` |
 | `EventFlags` | `public MPPerkCondition.PerkEventFlags EventFlags { get; }` |
 | `IsTickRequired` | `public bool IsTickRequired { get; }` |
+| `IsSatisfied` | `public bool IsSatisfied { get; set; }` |
 
 ## 主要方法
+
+### Check
+`public bool Check(MissionPeer peer)`
+
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
+
+```csharp
+// 先通过子系统 API 拿到 MPConditionalEffect 实例
+MPConditionalEffect mPConditionalEffect = ...;
+var result = mPConditionalEffect.Check(peer);
+```
+
+### Check
+`public bool Check(Agent agent)`
+
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
+
+```csharp
+// 先通过子系统 API 拿到 MPConditionalEffect 实例
+MPConditionalEffect mPConditionalEffect = ...;
+var result = mPConditionalEffect.Check(agent);
+```
+
+### OnEvent
+`public void OnEvent(bool isWarmup, MissionPeer peer, MPConditionalEffect.ConditionalEffectContainer container)`
+
+**用途 / Purpose:** 在 event 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPConditionalEffect 实例
+MPConditionalEffect mPConditionalEffect = ...;
+mPConditionalEffect.OnEvent(false, peer, container);
+```
+
+### OnEvent
+`public void OnEvent(bool isWarmup, Agent agent, MPConditionalEffect.ConditionalEffectContainer container)`
+
+**用途 / Purpose:** 在 event 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPConditionalEffect 实例
+MPConditionalEffect mPConditionalEffect = ...;
+mPConditionalEffect.OnEvent(false, agent, container);
+```
+
+### OnTick
+`public void OnTick(bool isWarmup, MissionPeer peer, int tickCount)`
+
+**用途 / Purpose:** 在 tick 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPConditionalEffect 实例
+MPConditionalEffect mPConditionalEffect = ...;
+mPConditionalEffect.OnTick(false, peer, 0);
+```
 
 ### GetState
 `public bool GetState(MPConditionalEffect conditionalEffect, Agent agent)`
@@ -63,67 +118,12 @@ MPConditionalEffect mPConditionalEffect = ...;
 mPConditionalEffect.ResetStates();
 ```
 
-### Check
-`public bool Check(MissionPeer peer)`
-
-**用途 / Purpose:** 检查当前对象是否满足指定条件。
-
-```csharp
-// 先通过子系统 API 拿到 MPConditionalEffect 实例
-MPConditionalEffect mPConditionalEffect = ...;
-var result = mPConditionalEffect.Check(peer);
-```
-
-### Check
-`public bool Check(Agent agent)`
-
-**用途 / Purpose:** 检查当前对象是否满足指定条件。
-
-```csharp
-// 先通过子系统 API 拿到 MPConditionalEffect 实例
-MPConditionalEffect mPConditionalEffect = ...;
-var result = mPConditionalEffect.Check(agent);
-```
-
-### OnEvent
-`public void OnEvent(bool isWarmup, MissionPeer peer, ConditionalEffectContainer container)`
-
-**用途 / Purpose:** 在 event 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MPConditionalEffect 实例
-MPConditionalEffect mPConditionalEffect = ...;
-mPConditionalEffect.OnEvent(false, peer, container);
-```
-
-### OnEvent
-`public void OnEvent(bool isWarmup, Agent agent, ConditionalEffectContainer container)`
-
-**用途 / Purpose:** 在 event 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MPConditionalEffect 实例
-MPConditionalEffect mPConditionalEffect = ...;
-mPConditionalEffect.OnEvent(false, agent, container);
-```
-
-### OnTick
-`public void OnTick(bool isWarmup, MissionPeer peer, int tickCount)`
-
-**用途 / Purpose:** 在 tick 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MPConditionalEffect 实例
-MPConditionalEffect mPConditionalEffect = ...;
-mPConditionalEffect.OnTick(false, peer, 0);
-```
-
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 MPConditionalEffect mPConditionalEffect = ...;
-mPConditionalEffect.GetState(conditionalEffect, agent);
+mPConditionalEffect.Check(peer);
 ```
 
 ## 参见

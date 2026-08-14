@@ -8,7 +8,7 @@ description: "TutorialContextChangedEvent 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class TutorialContextChangedEvent : EventBase`
 **Base:** `EventBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TutorialContextChangedEvent.cs`
+**File:** `TaleWorlds.Core/TutorialContextChangedEvent.cs`
 
 ## 概述
 

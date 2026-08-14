@@ -8,7 +8,7 @@ description: "ThumbnailRenderRequest 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public struct ThumbnailRenderRequest`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ThumbnailRenderRequest.cs`
+**File:** `TaleWorlds.Engine/ThumbnailRenderRequest.cs`
 
 ## 概述
 

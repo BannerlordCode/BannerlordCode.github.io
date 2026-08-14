@@ -8,7 +8,7 @@ description: "DuelPointsUpdateMessage 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class DuelPointsUpdateMessage : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/DuelPointsUpdateMessage.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/DuelPointsUpdateMessage.cs`
 
 ## 概述
 

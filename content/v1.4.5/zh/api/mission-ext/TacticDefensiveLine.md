@@ -8,7 +8,7 @@ description: "TacticDefensiveLine 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticDefensiveLine : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticDefensiveLine.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticDefensiveLine.cs`
 
 ## 概述
 

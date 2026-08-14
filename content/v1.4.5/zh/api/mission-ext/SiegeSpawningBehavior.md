@@ -8,7 +8,7 @@ description: "SiegeSpawningBehavior 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeSpawningBehavior : SpawningBehaviorBase`
 **Base:** `SpawningBehaviorBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeSpawningBehavior.cs`
+**File:** `TaleWorlds.MountAndBlade/SiegeSpawningBehavior.cs`
 
 ## 概述
 

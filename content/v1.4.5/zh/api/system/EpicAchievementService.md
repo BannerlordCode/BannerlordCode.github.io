@@ -8,7 +8,7 @@ description: "EpicAchievementService 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `internal class EpicAchievementService : IAchievementService`
 **Base:** `IAchievementService`
-**File:** `bin/TaleWorlds.PlatformService.Epic/TaleWorlds.PlatformService.Epic/EpicAchievementService.cs`
+**File:** `TaleWorlds.PlatformService.Epic/EpicAchievementService.cs`
 
 ## 概述
 

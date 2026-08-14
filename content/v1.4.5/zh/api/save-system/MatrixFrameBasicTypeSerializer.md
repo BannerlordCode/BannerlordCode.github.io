@@ -8,7 +8,7 @@ description: "MatrixFrameBasicTypeSerializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class MatrixFrameBasicTypeSerializer : IBasicTypeSerializer`
 **Base:** `IBasicTypeSerializer`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/MatrixFrameBasicTypeSerializer.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/MatrixFrameBasicTypeSerializer.cs`
 
 ## 概述
 

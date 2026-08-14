@@ -8,7 +8,7 @@ description: "StackArray40Int 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public struct StackArray40Int`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/EngineStackArray.cs`
+**File:** `TaleWorlds.DotNet/EngineStackArray.cs`
 
 ## 概述
 

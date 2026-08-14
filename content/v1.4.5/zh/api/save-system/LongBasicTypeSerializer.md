@@ -8,7 +8,7 @@ description: "LongBasicTypeSerializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class LongBasicTypeSerializer : IBasicTypeSerializer`
 **Base:** `IBasicTypeSerializer`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/LongBasicTypeSerializer.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/LongBasicTypeSerializer.cs`
 
 ## 概述
 

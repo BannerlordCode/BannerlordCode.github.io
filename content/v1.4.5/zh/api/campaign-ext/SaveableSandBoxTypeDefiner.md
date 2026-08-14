@@ -13,7 +13,7 @@ description: "v1.4.5 SandBox 的存档定义模块，保留稳定 base ID，但�
 
 `SaveableSandBoxTypeDefiner` 是 SandBox 模块接入全局存档定义上下文的扩展点。v1.4.5 的构造函数保留存档 base ID `33231`，而且本类覆盖的每个定义 hook 都为空：没有新增 class、struct、enum、interface、generic 或 container 定义。因此它当前的行为是以空注册集参与定义阶段，而不是隐藏着一份 SandBox 存档类清单。
 
-## 心智模型：定义提供者，不是存档 manager
+## 心智模型
 
 存档系统会在遍历对象图前先建立定义：
 
@@ -26,7 +26,7 @@ SandBoxSubModule.OnNewModuleLoad
   -> Save/Load 解析稳定的类型 ID
 ```
 
-本类通过 [SaveableTypeDefiner](../../save-system/SaveableTypeDefiner) 参与这个阶段。它不拥有 `SyncData` key，不读存档文件，也不决定存档兼容性。
+本类通过 [SaveableTypeDefiner](../../save-system/SaveableTypeDefiner) 参与这个阶段。一个 `SaveableTypeDefiner` 的职责，是在存档遍历开始前把本模块希望持久化的类型（class、struct、enum、interface、container 及其泛型版本）登记到全局定义上下文，并各自携带一个稳定的 base ID；base ID 与每个类型的局部 ID 合并后，成为存档协议里标识“这个对象是什么类型”的数字。因此 definer 本身不是存储层，也不直接序列化对象，它只是“哪些类型可存档、用哪个 ID”的声明。v1.4.5 里本类所有定义 hook 都为空，说明 SandBox 当前没有交给它管理的额外类型，而不是把类型清单藏在了别处。
 
 ## 源码定义的表面
 
@@ -52,7 +52,7 @@ protected override void DefineContainerDefinitions() { }
 
 全局上下文由 `SaveManager.InitializeGlobalDefinitionContext()` 重建，`SandBoxSubModule.OnNewModuleLoad` 会调用它。这个初始化不是迁移机制：发布后修改 ID 可能让旧对象图解析到其他类型，或直接加载失败。
 
-## 依赖与边界
+## 依赖
 
 - [SaveableTypeDefiner](../../save-system/SaveableTypeDefiner) 提供受保护的定义 API，并负责把 base ID 与局部 ID 合并。
 - [SaveManager](../../save-system/SaveManager) 在建立全局定义上下文时发现本 definer。

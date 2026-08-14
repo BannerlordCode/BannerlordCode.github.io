@@ -8,7 +8,7 @@ description: "MultiplayerLobbyBadgeProgressInformationWidget 的自动生成类�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyBadgeProgressInformationWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyBadgeProgressInformationWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Lobby/MultiplayerLobbyBadgeProgressInformationWidget.cs`
 
 ## 概述
 

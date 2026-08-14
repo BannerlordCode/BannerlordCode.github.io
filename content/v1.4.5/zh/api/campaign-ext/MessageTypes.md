@@ -8,7 +8,7 @@ description: "MessageTypes 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public enum MessageTypes : byte`
 **Base:** `byte`
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/MessageTypes.cs`
+**File:** `TaleWorlds.Network/MessageTypes.cs`
 
 ## 概述
 

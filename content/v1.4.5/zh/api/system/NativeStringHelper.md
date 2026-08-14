@@ -8,7 +8,7 @@ description: "NativeStringHelper 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `internal static class NativeStringHelper`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/NativeStringHelper.cs`
+**File:** `TaleWorlds.DotNet/NativeStringHelper.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ThumbnailCreatorView 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class ThumbnailCreatorView : View`
 **Base:** `View`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ThumbnailCreatorView.cs`
+**File:** `TaleWorlds.Engine/ThumbnailCreatorView.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "ThumbnailCreatorView 的自动生成类参考。"
 把 `ThumbnailCreatorView` 当作一个 View 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
-
-### OnThumbnailRenderCompleteDelegate
-`public delegate void OnThumbnailRenderCompleteDelegate(string renderId, Texture renderTarget)`
-
-**用途 / Purpose:** 在 thumbnail render complete delegate 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 ThumbnailCreatorView 实例
-ThumbnailCreatorView thumbnailCreatorView = ...;
-thumbnailCreatorView.OnThumbnailRenderCompleteDelegate("example", renderTarget);
-```
 
 ### CreateThumbnailCreatorView
 `public static ThumbnailCreatorView CreateThumbnailCreatorView()`
@@ -127,6 +116,17 @@ var result = thumbnailCreatorView.GetNumberOfPendingRequests();
 // 先通过子系统 API 拿到 ThumbnailCreatorView 实例
 ThumbnailCreatorView thumbnailCreatorView = ...;
 var result = thumbnailCreatorView.IsMemoryCleared();
+```
+
+### OnThumbnailRenderCompleteDelegate
+`public delegate void OnThumbnailRenderCompleteDelegate(string renderId, Texture renderTarget)`
+
+**用途 / Purpose:** 在 thumbnail render complete delegate 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ThumbnailCreatorView 实例
+ThumbnailCreatorView thumbnailCreatorView = ...;
+thumbnailCreatorView.OnThumbnailRenderCompleteDelegate("example", renderTarget);
 ```
 
 ## 使用示例

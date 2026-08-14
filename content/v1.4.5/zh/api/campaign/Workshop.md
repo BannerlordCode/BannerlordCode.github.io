@@ -1,183 +1,249 @@
 ---
 title: "Workshop"
-description: "城镇工坊的持久化主人、生产账本、每日运行机制，以及安全改变世界状态的边界。"
+description: "城镇中一个具体的生产工坊实例：绑定所属城镇、拥有者英雄与生产类型，记录运营资本、盈亏与每日生产进度，是工坊经济与玩家投资的载体。"
 ---
 # Workshop
 
-**命名空间：** `TaleWorlds.CampaignSystem.Settlements.Workshops`  
-**模块：** `TaleWorlds.CampaignSystem`  
-**类型：** `public class Workshop : SettlementArea`  
-**基类：** `SettlementArea`  
-**源文件：** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Workshops/Workshop.cs`  
-**持久化角色：** 城镇中的一个可存档生产区域；宿主据点、主人、类型、资本、生产进度和上次运行时间都属于 Campaign 对象图。
+**Namespace:** TaleWorlds.CampaignSystem.Settlements.Workshops  
+**Module:** TaleWorlds.CampaignSystem  
+**Type:** `public class Workshop : SettlementArea`  
+**Base:** `SettlementArea`  
+**File:** `TaleWorlds.CampaignSystem/Settlements/Workshops/Workshop.cs`
 
-## 概述与心智模型：工坊到底代表什么
+## 概述
 
-`Workshop` 是城镇里一个固定的生产槽位。它把四种不能混为一谈的职责连在一起：
+`Workshop` 是 Bannerlord 战役世界里**一个具体城镇里一间具体工坊**的运行时实例——不是工坊的“类型定义”（那是 [`WorkshopType`](../../campaign-ext/WorkshopType/)），也不是工坊的每日生产逻辑（那在 [`WorkshopsCampaignBehavior`](../../campaign-ext/WorkshopsCampaignBehavior/) 里）。它把四件事绑在一起：
 
-- **地点：** `Settlement` 和 `Tag` 标识这个槽位。真正保存槽位集合的是 `Settlement.Town.Workshops`，所以工坊既不是独立地图队伍，也不是独立据点。
-- **人物：** `Owner` 是一个 [Hero](../Hero)，不是 [Clan](../Clan)。`Hero.OwnedWorkshops` 是反向的可存档集合。宗族通过领袖的资产取得工坊收入，并不直接持有工坊列表。
-- **配方：** `WorkshopType` 是 XML/对象管理器登记的定义，提供一个或多个生产配方。其输入、输出类别和基础转化速度是共享的定义数据，不是每座工坊各自可随意改写的配置。
-- **账本：** `Capital`、`InitialCapital`、进度和 `LastRunCampaignTime` 描述正在经营的状态；它们不是玩家金币，也不是一笔交易流水。
+- **位置与归属**：属于哪个城镇（[`Settlement`](../Settlement/) / [`Town`](../Town/)）、归哪个英雄（[`Hero`](../Hero/)）所有、在城镇里的唯一标签 `Tag`。
+- **生产类型**：`WorkshopType` 决定它把哪些原料（[`ItemCategory`](../../campaign-ext/)) 转成哪些商品，以及转换速度。
+- **经营账本**：`Capital`（当前周转资金）、`InitialCapital`（初始资金）、`ProfitMade`（累计利润）、`Expense`（每日开销）。
+- **生产进度**：`_productionProgress[]`（对每种 `WorkshopType.Productions` 各一条 0~1 的进度）。
 
-应把 `Workshop` 用作读取既有城镇产业、或交给原生 Campaign 流程处理的真实目标。不要自行构造它来往据点中塞一座工坊。城镇初始化、Hero 的反向所有权、工坊 Behavior 数据、存档登记和 Campaign 事件共同构成一个生命周期。
+你几乎所有“工坊 mod”都会碰到它：读玩家在某个城镇开了哪些铺子、看哪间在赚钱、把某间转产、或给某间注资。注意 `Workshop` 只是一个**状态和归属容器**；真正的“每天生产/卖货/扣钱”由 `WorkshopsCampaignBehavior` 的每日 tick 驱动，并通过 [`WorkshopModel`](../../campaign-ext/WorkshopModel/) 读取经济参数。
 
-## 依赖关系与生命周期边界
+## 心智模型
 
-工坊的上游实体和规则入口是 [Settlement](../Settlement)、[Town](../Town)、[Hero](../Hero) 与 [WorkshopType](../WorkshopType)；它们共同决定工坊的地点、主人、定义和运行规则。下游的 [ClanFinanceModel](../ClanFinanceModel) 只在财务流程中提取收入，不能替代工坊每日行为。
+把 `Workshop` 当成**“城镇里一间铺面的营业执照 + 账本”**：
 
-```mermaid
-graph TD
-    Settlement[Settlement] --> Town[Town.Workshops]
-    Town --> Workshop[Workshop 槽位与账本]
-    Workshop --> Owner[Hero Owner]
-    Owner --> Owned[Hero.OwnedWorkshops]
-    Type[WorkshopType] --> Workshop
-    Model[WorkshopModel] --> Production[速度、价格与上限]
-    Behavior[WorkshopsCampaignBehavior] --> Production
-    Finance[ClanFinanceModel] --> Owner
-    OwnerAction[ChangeOwnerOfWorkshopAction] --> Workshop
-    Events[CampaignEvents] --> Behavior
-```
+- 它在**战役（Campaign）层**，不属于战斗场景（Mission）。进战斗后工坊不会变成 `Agent`。
+- 一个 `Workshop` 实例对应一个**城镇里的固定槽位**（`Tag` 唯一）。槽位由 `Town.InitializeWorkshops(...)` 在开局分配，`Workshop[]` 数组长度固定；你拿到的 `Workshop` 是已经存在的、被序列化保存的对象，**不要自己 `new Workshop(...)`**。
+- 它**不做生产计算**：`ChangeGold`、`SetProgress`、`UpdateLastRunTime` 都是“被动记录”，由 `WorkshopsCampaignBehavior.DailyTickTown` 在每个城镇的每日 tick 里调用。你自己直接调它们，相当于手动改账本，会和行为内部的仓库/进度数据脱节。
+- **何时直接用 `Workshop` 的方法**：只读（看利润、看归属、看进度）、或用 `SetCustomName` 改个店名。
+- **何时不要直接调变更方法**：换所有者、换生产类型、改资本——这些应走对应的 Action（`ChangeOwnerOfWorkshopAction`、`ChangeProductionTypeOfWorkshopAction`、`InitializeWorkshopAction`），否则会绕过行为数据与事件，见下方风险段。
+- **依赖**：向上依赖 `WorkshopType`（XML 加载的 `MBObjectBase`）、`WorkshopModel`（经济参数）；向下被 `WorkshopsCampaignBehavior`（每日 tick）、`Clan` 财务面板、仓库 UI 读取；变更会通过 `CampaignEventDispatcher` 广播事件。
 
-## 先取得真实工坊对象
+## 依赖图
 
-按问题选择入口。两条路径都只能在 Campaign 已启动后使用。
+| 方向 | 节点 | 关系 |
+|------|------|------|
+| 上游（定义/参数） | [WorkshopType](../../campaign-ext/WorkshopType/) | 决定生产配方 `Productions`、名称、隐藏性 |
+| 上游（参数） | [WorkshopModel](../../campaign-ext/WorkshopModel/) | `InitialCapital` / `DailyExpense` / `CapitalLowLimit` 等来源 |
+| 下游（驱动者） | [WorkshopsCampaignBehavior](../../campaign-ext/WorkshopsCampaignBehavior/) | 每日 tick 调用 `SetProgress` / `ChangeGold` / `UpdateLastRunTime` |
+| 下游（变更入口） | [ChangeOwnerOfWorkshopAction](../../campaign-ext/ChangeOwnerOfWorkshopAction/) · [ChangeProductionTypeOfWorkshopAction](../../campaign-ext/ChangeProductionTypeOfWorkshopAction/) · [InitializeWorkshopAction](../../campaign-ext/InitializeWorkshopAction/) | 正确换主/转产/开局建坊的入口 |
+| 事件 | [CampaignEventDispatcher](../../campaign-ext/CampaignEventDispatcher/) | `OnItemProduced` / `OnItemConsumed`；`WorkshopOwnerChangedEvent` / `WorkshopTypeChangedEvent` |
+| 仓库接口 | [IWorkshopWarehouseCampaignBehavior](../../campaign-ext/IWorkshopWarehouseCampaignBehavior/) | 玩家工坊的仓库出入库比例与原料判定 |
+| 归属 | [Hero](../Hero/) · [Clan](../Clan/) | `Owner.OwnedWorkshops` 反向持有；玩家铺面计入家族财务 |
+| 容器 | [Town](../Town/) · [Settlement](../Settlement/) | `Town.Workshops` 是获取入口；`Settlement` 是地理位置 |
 
-| 问题 | 真实路径 | 为什么重要 |
-| --- | --- | --- |
-| “当前城镇有哪些工坊？” | `Settlement.CurrentSettlement -> Town -> Workshops` | 工坊属于城镇组件；村庄或没有 `Town` 的据点没有工坊数组。 |
-| “这个 Hero 名下有哪些产业？” | `Hero.MainHero.OwnedWorkshops`，或另一位存活 Hero 的 `OwnedWorkshops` | 这是财务模型读取的主人侧反向视图。 |
-| “它使用哪个定义？” | `workshop.WorkshopType`，再用 `WorkshopType.Find(id)` 或 `WorkshopType.All` | `WorkshopType.All` 委托给当前 `Campaign`，不能在 Campaign 初始化前读取。 |
-| “当前规则是什么？” | `Campaign.Current.Models.WorkshopModel` 和 `ClanFinanceModel` | Model 提供当前生效规则，可能不同于原版默认实现。 |
+## 风险段
 
-以下只读示例刻意从当前据点开始，再确认所选工坊确实属于玩家。它还演示了新战役工坊初始化所使用的 `artisans` id 的 `WorkshopType.Find` 查询。
+> 直接改 `Workshop` 的低级 setter 而不走 Action，是工坊 mod 最常见的“坏档/黑屏仓库”来源。
+
+1. **换主/转产要走过场 Action，不要裸调 `ChangeOwnerOfWorkshop` / `ChangeWorkshopProduction`。** 这两个方法只是改字段；而 `WorkshopsCampaignBehavior` 在 `OnWorkshopOwnerChanged` / `OnWorkshopTypeChanged` 里才维护玩家工坊的 `_workshopData`（仓库进度、库存比例）和 `_warehouseRosterPerSettlement`。裸调会让“仓库数据”和实际工坊脱节：玩家在城镇开“进入仓库”菜单时可能拿到错配的 `ItemRoster`，甚至因为 `_workshopData` 找不到对应条目而静默丢失仓库。正确做法见示例 2。
+2. **`SetProgress(i, value)` 越界会抛 `IndexOutOfRangeException`。** `_productionProgress` 数组长度严格等于 `WorkshopType.Productions.Count`。任何 `i` 必须满足 `0 <= i < WorkshopType.Productions.Count`。换生产类型后数组会被 `ChangeWorkshopProduction` 重建，老的索引含义已变。
+3. **不要随便 `ChangeGold` 灌资本。** `Capital` 由每日 tick 的 `HandlePlayerWorkshopExpense` / `HandleNotableWorkshopExpense` 管理；资本低于 `CapitalLowLimit` 且所有者付不起开销时，行为会触发 `ChangeWorkshopOwnerByBankruptcy`（走 `ChangeOwnerOfWorkshopAction.ApplyByBankruptcy`，铺子被名人接管）。你直接把 `Capital` 拉高会掩盖破产逻辑，或直接调低会提前触发破产转移。
+4. **不要用 `new Workshop(...)` 自建实例。** 槽位与序列化由引擎拥有；存档加载时 `AfterLoad()` 会按 `WorkshopType.Productions.Count` 校正 `_productionProgress` 长度、把 `LastRunCampaignTime == CampaignTime.Zero` 的实例推到“现在”。自己 new 出来的对象不会被保存、也不会出现在 `Town.Workshops` 中，反而可能成为孤儿引用。
+5. **`WorkshopType` 是 `MBObjectBase`（模块 XML 加载），不能 `new`。** 通过 `WorkshopType.Find(id)` 或 `WorkshopType.All` 获取；传一个不存在/`null` 的 type 给 `InitializeWorkshop` / `ChangeWorkshopProduction` 会在 `type.Productions` 处崩溃。
+6. **在每日 tick 之外改 `Capital` / `ProductionProgress` 可能与行为内 `_workshopData` 不同步。** 若必须改，优先在 `CampaignBehaviorBase` 的 `DailyTickTownEvent` 订阅里操作，此时行为自身也在跑同一步骤。
+
+## 如何获取 Workshop
 
 ```csharp
-using System.Linq;
-using TaleWorlds.CampaignSystem;
+// 路径 1：从当前所在城镇拿到全部工坊（每个元素是 Workshop）
+Town town = Settlement.CurrentSettlement.Town;
+Workshop[] workshops = town.Workshops;
+foreach (Workshop w in workshops)
+{
+    // w 是一间具体工坊
+}
+
+// 路径 2：从某个英雄拿到其拥有的全部工坊
+MBReadOnlyList<Workshop> owned = Hero.MainHero.OwnedWorkshops;
+foreach (Workshop w in owned)
+{
+    // 玩家开的铺子
+}
+
+// 路径 3：从 WorkshopType 的定义反查“所有此类工坊”并没有直接索引，
+// 通常遍历 Town.Workshops 按 w.WorkshopType 过滤：
+foreach (Town t in Town.AllTowns)
+{
+    foreach (Workshop w in t.Workshops)
+    {
+        if (w.WorkshopType == WorkshopType.Find("brewery"))
+        {
+            // 找到所有酿酒坊
+        }
+    }
+}
+```
+
+> `Town.Workshops` 是 `Workshop[]`；`Hero.OwnedWorkshops` 是 `MBReadOnlyList<Workshop>`。两者引用的是同一批实例。
+
+## 成员说明（按主题）
+
+### 身份与归属
+
+#### `public override Settlement Settlement { get; }`
+工坊所属城镇（[`Settlement`](../Settlement/)）。只读，构造时由 `Town.InitializeWorkshops` 注入，序列化保存。**查看何时调用**：任何需要知道“这间铺子在哪”的逻辑（如邻近村庄补给、城镇税率判定）。
+
+#### `public override string Tag { get; }`
+工坊在该城镇内的唯一短标签（如 `"workshop_1"`）。与 `Settlement` 一起参与 `GetHashCode()`。只读。**查看何时调用**：需要稳定区分同一城镇内多间工坊时（比数组下标更稳健）。
+
+#### `public override Hero Owner { get; }`
+当前所有者英雄。只读属性，但内部可变；变更应通过 `ChangeOwnerOfWorkshopAction`。**副作用注意**：`Owner.OwnedWorkshops` 反向列表由 `AddOwnedWorkshop` / `RemoveOwnedWorkshop` 维护——裸调 `ChangeOwnerOfWorkshop` 才会同步该列表，但**不会**同步行为仓库数据（见风险段）。
+
+#### `public override TextObject Name { get; }`
+显示名称：优先用 `SetCustomName` 设的自定义名，否则用 `WorkshopType.Name`，都没有则返回 `Empty Workshop`。只读。**查看何时调用**：UI 列表、日志、对话文本。
+
+#### `public WorkshopType WorkshopType { get; private set; }`
+这间工坊当前的生产类型。决定 `Productions`（配方）、`IsHidden`、名称。**设置何时调用**：仅通过 `ChangeWorkshopProduction` 或对应的 `ChangeProductionTypeOfWorkshopAction`；不要赋 `null`。
+
+### 经营状态
+
+#### `public int Capital { get; private set; }`
+当前周转资金。由 `ChangeGold` 增减，日常被开销扣减，生产卖出时增加。**查看何时调用**：判断是否盈利、是否接近破产阈值 `WorkshopModel.CapitalLowLimit`。
+
+#### `public int InitialCapital { get; private set; }`
+开局/购入时的初始资金。在 `InitializeWorkshop` 中由 `WorkshopModel.InitialCapital` 设定，之后不变。
+
+#### `public int ProfitMade { get; }`
+累计利润，计算为 `MathF.Max(Capital - InitialCapital, 0)`。**只读、派生值**：不需要调用方维护。
+
+#### `public int Expense { get; }`
+每日固定开销，等于 `Campaign.Current.Models.WorkshopModel.DailyExpense`。**只读、派生值**；若 `WorkshopType.IsHidden` 为 true，行为在每日 tick 中skip 这笔开销。
+
+#### `public CampaignTime LastRunCampaignTime { get; private set; }`
+上一次跑生产循环的战役时刻。由 `UpdateLastRunTime` 写入 `CampaignTime.Now`。**查看何时调用**：需要判断“多久没产出了”或冷却时。
+
+### 生产进度
+
+#### `public float GetProductionProgress(int index)`
+读取第 `index` 种配方的进度（0~1）。`index` 必须 `< WorkshopType.Productions.Count`，否则越界。**查看何时调用**：只读展示进度条，或判断某配方这轮是否能产出。
+
+#### `public void SetProgress(int i, float value)`
+写入第 `i` 种配方的进度。`i` 越界抛 `IndexOutOfRangeException`。**副作用**：仅改本实例数组；由 `WorkshopsCampaignBehavior.RunTownWorkshop` 每日累加 `WorkshopModel.GetEffectiveConversionSpeedOfProduction` 的结果后回写。**何时调用**：一般不要手动调；若必须，在每日 tick 订阅中、且确保 `i` 落在 `Productions.Count` 内。
+
+### 生命周期与初始化
+
+#### `public Workshop(Settlement settlement, string tag)`
+**引擎内部**构造：分配槽位、清零资本、不绑定 `WorkshopType` 和 `Owner`。**mod 不应调用**——由 `Town.InitializeWorkshops` 调用；之后请走 `InitializeWorkshopAction.ApplyByNewGame`。
+
+#### `public void InitializeWorkshop(Hero owner, WorkshopType type)`
+把空槽位真正变成一间营业工坊：设置 `WorkshopType`、`_owner`（并 `owner.AddOwnedWorkshop(this)`）、按 `WorkshopModel.InitialCapital` 设 `Capital` / `InitialCapital`、按 `type.Productions.Count` 分配进度数组。**正常入口是** `InitializeWorkshopAction.ApplyByNewGame(workshop, owner, type)`；直接调本方法不会触发 `WorkshopOwnerChangedEvent`，且对玩家铺子不会建 `_workshopData`。
+
+#### `internal void AfterLoad()`
+存档加载后校正：`_productionProgress` 长度与 `WorkshopType.Productions.Count` 对齐（不一致则重建，==丢进度），`LastRunCampaignTime == Zero` 则推到 Now。**mod 不可访问（internal）**，仅记录其存在以避免误以为能手动“修复”进度。
+
+### 变更操作（多数应走 Action）
+
+#### `public void ChangeOwnerOfWorkshop(Hero newOwner, WorkshopType type, int capital)`
+低级换主：从旧主 `RemoveOwnedWorkshop`、新主 `AddOwnedWorkshop`、`Capital = capital`；若 `type != WorkshopType` 顺带 `ChangeWorkshopProduction`。**副作用/风险**：同步了 `Hero.OwnedWorkshops`，但**不同步** `WorkshopsCampaignBehavior` 的仓库数据，也不发事件。正确入口：`ChangeOwnerOfWorkshopAction.ApplyByPlayerBuying` / `ApplyByDeath` / `ApplyByBankruptcy`。
+
+#### `public void ChangeWorkshopProduction(WorkshopType newWorkshopType)`
+换生产类型并**重建** `_productionProgress` 数组（长度 = 新类型的 `Productions.Count`，旧进度清零）。**风险**：会丢失进度；且裸调不触发 `WorkshopTypeChangedEvent`，玩家铺子的 `_workshopData` 不会被刷新。正确入口：`ChangeProductionTypeOfWorkshopAction.Apply(workshop, newType, ignoreCost)`。
+
+#### `public void SetCustomName(TextObject customName)`
+设置自定义店名，覆盖 `WorkshopType.Name`。**安全、可直接调用**：仅改显示名，无经济副作用。空名回退到 `WorkshopType.Name` 或 `Empty Workshop`。
+
+#### `public void ChangeGold(int goldChange)`
+`Capital += goldChange`。**副作用**：直接动账本。日常由 `WorkshopsCampaignBehavior` 在生产卖出（加）、开销（减）时调用。**何时调用**：除非你明确要手动注资/扣款，否则不要调——会干扰破产与盈亏统计。
+
+#### `public void UpdateLastRunTime()`
+`LastRunCampaignTime = CampaignTime.Now`。由 `RunTownWorkshop` 在当天有产出时调用。**何时调用**：手动模拟一次生产循环后如需刷新时间戳，可在每日 tick 订阅内调用。
+
+### 杂项
+
+#### `public override int GetHashCode()`
+基于 `Settlement` 与 `Tag` 的哈希（用于在字典/集合中稳定识别同一间工坊）。可直接使用。
+
+#### `public override string ToString()`
+`Name.ToString() + " " + Settlement.ToString()`，用于日志/调试。
+
+## 典型用法示例
+
+### 示例 1：列出当前城镇每间工坊的名称、类型与累计利润（只读，安全）
+
+```csharp
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.CampaignSystem.Settlements.Workshops;
 
-public static class WorkshopInspection
+Town town = Settlement.CurrentSettlement.Town;
+foreach (Workshop workshop in town.Workshops)
 {
-    public static string ReadCurrentPlayerWorkshop()
-    {
-        Town town = Settlement.CurrentSettlement?.Town;
-        Workshop workshop = town?.Workshops.FirstOrDefault(
-            candidate => candidate.Owner == Hero.MainHero);
-
-        if (workshop == null)
-        {
-            return "No player-owned workshop at the current settlement.";
-        }
-
-        WorkshopType artisans = WorkshopType.Find("artisans");
-        int purchaseCost = Campaign.Current.Models.WorkshopModel
-            .GetCostForPlayer(workshop);
-
-        return $"{workshop.Name}: {workshop.WorkshopType.Name}; " +
-               $"capital={workshop.Capital}; price={purchaseCost}; " +
-               $"artisansRegistered={artisans != null}";
-    }
+    string name = workshop.Name.ToString();
+    string type = workshop.WorkshopType?.Name.ToString() ?? "(none)";
+    int profit = workshop.ProfitMade;
+    int capital = workshop.Capital;
+    InformationManager.DisplayMessage(
+        new InformationMessage($"{name} [{type}] 利润 {profit}, 资本 {capital}"));
 }
 ```
 
-`WorkshopType.Find` 在当前模块集没有登记该 id 时会返回 `null`，使用结果前必须检查。不要让 `WorkshopType`、`Workshop`、`Town` 或 `Hero` 的缓存跨越读档边界；读档后应从当前 Campaign 对象图重新取得。
-
-## 生产是每日 Behavior，不是 `IsRunning` 标记
-
-1.4.5 的 `Workshop` 没有公开 `IsRunning` 属性。不能从资本、类型或存在生产配方去虚构这个状态。原生 `WorkshopsCampaignBehavior` 订阅 `DailyTickTownEvent`，并对每个 `Town.Workshops` 条目执行：
-
-1. 城镇不处于叛乱时才运行生产循环；
-2. 以 `WorkshopModel.GetEffectiveConversionSpeedOfProduction` 推进每个 `WorkshopType.Productions` 条目；
-3. 经由城镇市场或玩家仓库路径尝试消耗输入、产出成品；
-4. 即使因叛乱跳过生产，仍处理每日工坊费用。
-
-`LastRunCampaignTime` 只有在 Behavior 的成功运行条件成立后才会更新。它可作为诊断线索，却不是回答“此刻是否正在生产”的通用布尔值。配方存在时仍可能因原料不足、资本不足、城镇叛乱或仓库/市场约束而无法完成生产。诊断 UI 应显示当前类型、每个配方的输入/输出、资本和上次运行时间，并把这些称为状态，而不是保证产出。
-
-| 成员 | 应用于读取 | 不应推断或执行 |
-| --- | --- | --- |
-| `WorkshopType.Productions` | 已配置的输入/输出类别和基础 `ConversionSpeed` | 类型变更后不要继续用旧的进度索引；进度数组会按新配方数量重建。 |
-| `GetProductionProgress(index)` | 每个配方累计的进度 | 不要用旧类型的索引，也不要把进度 `>= 1` 当作市场交易已完成。 |
-| `LastRunCampaignTime` | Behavior 维护的运行证据 | 不要手动调用 `UpdateLastRunTime` 伪造“正在运行”。 |
-| `Expense` | 当前 `WorkshopModel.DailyExpense` | 它来自 Model，不是每座工坊各自存档的工资设定。 |
-| `Capital` / `InitialCapital` | 工坊账本与初始化基线 | 两者都不是主人金币余额，也不是最终利润报告。 |
-
-## 利润、费用，以及收入何时进入 Hero
-
-`ProfitMade` 的定义就是 `max(Capital - InitialCapital, 0)`。它是当前超过初始资本基线的金额，不是每日结算收入，也不表示主人已拿到金币。
-
-默认 [ClanFinanceModel](../ClanFinanceModel) 把非负工坊利润除以 `RevenueSmoothenFraction()` 计算主人收入，默认实现的平滑分母为 5。宗族每日财务应用时，`ClanVariablesCampaignBehavior` 会调用 `CalculateClanGoldChange(..., applyWithdrawals: true)`；财务模型用 `workshop.ChangeGold(-income)` 从正的工坊份额中提款，再通过 `GiveGoldAction` 把合并后的宗族总额交给宗族领袖。对于主角，这次提款还会触发玩家资产收入事件。
-
-因此每日有两条独立路径：
-
-- **城镇生产与费用：** `DailyTickTownEvent` 改变工坊账本。玩家工坊通常在资本高于当前低资本阈值时从资本支付每日费用；否则 Behavior 可能使用主人的金币、回退到资本，或通过破产流程转让工坊。显贵工坊使用自身资本，同样可能破产。
-- **宗族财务提款：** 财务 Behavior 将主人工坊账本中的一部分正值变为每日宗族收入，并在实际提款时减少该账本。
-
-所以一座工坊可能在财务结算前已有正 `ProfitMade`，可能未生产却因费用损失资本，也可能在财务结算后显示不同数值。要取得当前 Model 下的估计值，应调用 `Campaign.Current.Models.ClanFinanceModel.CalculateOwnerIncomeFromWorkshop(workshop)`；不要在让原生每日财务运行的同时又自行支付该结果。
-
-## 改世界状态时：Action 才拥有交易与事件
-
-`Workshop` 的公开低层方法不能替代 Campaign 交易。`ChangeOwnerOfWorkshop` 确实会同步旧/新 `Hero.OwnedWorkshops` 集合，但不会计算交易金额、移动金币或广播所有权事件。`ChangeWorkshopProduction` 会重置进度数组，却不会支付转换费用或广播类型事件。`ChangeGold` 只修改工坊账本。
-
-| 目标 | 应使用 | Action 保留的内容 |
-| --- | --- | --- |
-| 玩家购买 | [ChangeOwnerOfWorkshopAction.ApplyByPlayerBuying](../../campaign-ext/ChangeOwnerOfWorkshopAction) | Model 购买价、初始资本、Hero 反向所有权、金币转移和 `WorkshopOwnerChangedEvent` |
-| 玩家出售 | 在选择有效显贵买家后使用 `ApplyByPlayerSelling` | 显贵收购价、重置资本、所有权列表、金币转移和事件 |
-| 破产、战争或主人死亡 | 对应的 `ApplyByBankruptcy`、`ApplyByWar` 或 `ApplyByDeath` | 场景规定的资本/类型策略，以及所有权和事件处理 |
-| 转换生产类型 | `ChangeProductionTypeOfWorkshopAction.Apply` | 当前 Model 的转换费用、进度重置、主人支付和 `WorkshopTypeChangedEvent` |
-| 原生新战役初始化 | `InitializeWorkshopAction.ApplyByNewGame` | 初始资本、主人反向列表、生成的主人名字和 `WorkshopInitializedEvent` |
-
-这些 Action 是改变机制，不是资格验证器。原生对话 UI 会在购买前检查玩家金币和 `GetMaxWorkshopCountForClanTier`，出售前使用 `WorkshopModel.CanPlayerSellWorkshop` / `GetNotableOwnerForWorkshop`。Mod 若直接调用 Action，必须做等价的时机与资格检查；Action 本身仍会执行其有限的交易逻辑。
-
-下面的转换示例使用玩家已有产业和已登记类型。它通过 Action 支付当前 Model 的费用，而不是分别修改资本或主人金币。
+### 示例 2：把玩家拥有的某间工坊转产为“酿酒坊”——走正确的 Action
 
 ```csharp
-using System.Linq;
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Settlements.Workshops;
+using TaleWorlds.CampaignSystem.Actions;
 
-public static class WorkshopConversion
+// 获取目标工坊：玩家拥有的第一间，或任意 town.Workshops 元素
+Workshop playerShop = Hero.MainHero.OwnedWorkshops.FirstOrDefault();
+if (playerShop != null)
 {
-    public static bool ConvertFirstPlayerWorkshopToArtisans()
+    // 正确的转产入口：会扣转产费、同步 WorkshopsCampaignBehavior 的 _workshopData，
+    // 并广播 WorkshopTypeChangedEvent
+    WorkshopType brewery = WorkshopType.Find("brewery");
+    if (brewery != null && playerShop.WorkshopType != brewery)
     {
-        Workshop workshop = Hero.MainHero.OwnedWorkshops.FirstOrDefault();
-        WorkshopType targetType = WorkshopType.Find("artisans");
-
-        if (workshop == null || targetType == null ||
-            workshop.WorkshopType == targetType)
-        {
-            return false;
-        }
-
-        int cost = Campaign.Current.Models.WorkshopModel
-            .GetConvertProductionCost(targetType);
-        if (Hero.MainHero.Gold < cost)
-        {
-            return false;
-        }
-
-        ChangeProductionTypeOfWorkshopAction.Apply(workshop, targetType);
-        return true;
+        ChangeProductionTypeOfWorkshopAction.Apply(playerShop, brewery);
     }
 }
 ```
 
-此类世界状态变更应在合法的 Campaign 交互或 Behavior 中执行；不要一边枚举存活所有权集合，一边修改它，也不要放在无关的存档/读档回调中。类型或所有权监听器可能立即重建玩家工坊/仓库数据。
+> 对比：直接 `playerShop.ChangeWorkshopProduction(brewery)` 虽然也能换类型，但会丢失生产进度、且不刷新玩家仓库数据，长期运行会出现仓库菜单与实际不符。始终优先用 `ChangeProductionTypeOfWorkshopAction` / `ChangeOwnerOfWorkshopAction`。
 
-## 存档、事件与生命周期风险
+### 示例 3：检测某间玩家工坊是否濒临破产（只读诊断）
 
-- **存的是对象图，不是孤立数据：** `Workshop` 保存据点、主人、类型、资本、初始资本、进度和上次运行时间。`Town.Workshops` 与 `Hero.OwnedWorkshops` 从另一侧保存关联。工坊 Campaign Behavior 还单独保存玩家仓库/工坊 Behavior 数据。手工创建或替换对象会使其中一部分结构缺失。
-- **读档修复：** `Workshop.AfterLoad` 会按当前 `WorkshopType.Productions.Count` 调整进度长度，并为零运行时间写入当前时间。工坊 Behavior 也会在读档时重建或移除玩家专用数据。读档后重新取得引用，不要保留读档前的列表或配方索引。
-- **事件观察者：** 所有权和类型 Action 会发布 [CampaignEvents](../CampaignEvents) 通知。`WorkshopsCampaignBehavior` 监听两者：玩家获得资产时建立仓库/工坊数据，所有权或类型变化时刷新或移除数据。绕过 Action 即使看上去字段变了，UI 和仓库状态仍可能过期。
-- **据点事件可以转让资产：** Behavior 还响应据点所有权、战争、宗族-王国关系变化和 Hero 死亡。敌对领地中的玩家工坊可走战争路径被转让，死亡显贵的工坊也会走死亡路径。不要在一次事件回调或一次每日 tick 内假定 `Owner` 恒定。
-- **没有独立销毁槽位：** v1.4.5 源码没有公开的 `DestroyWorkshopAction` 或 Workshop 移除生命周期。`Town.Workshops` 是由 Town 初始化并进入存档的固定槽位集合；不要通过移除、置空或替换数组条目来模拟销毁。需要改变工坊状态时，应使用所有权、破产、战争、死亡或生产类型对应的原生 Action/Behavior，让它们维护反向集合、事件和存档数据。
-- **不要直接写“盈利”：** `Capital` 的 setter 是私有的，但公开 `ChangeGold` 仍是底层账本改动。直接加奖金会跳过经济来源、财务提款时机和交易语义。新增经济规则应放入合适的 Model 或受控 Campaign Behavior，并明确决定如何存档。
+```csharp
+Workshop w = Hero.MainHero.OwnedWorkshops.FirstOrDefault();
+if (w != null)
+{
+    int lowLimit = Campaign.Current.Models.WorkshopModel.CapitalLowLimit;
+    bool nearBankruptcy = w.Capital <= lowLimit && w.Owner.Gold < w.Expense;
+    if (nearBankruptcy)
+    {
+        InformationManager.DisplayMessage(
+            new InformationMessage($"{w.Name} 即将破产（资本 {w.Capital} / 下限 {lowLimit}）"));
+    }
+}
+```
+
+## 跨版本提示
+
+- **v1.3.15 与 v1.4.5 的 `Workshop` 公开 API 完全一致**：`Workshop(Settlement, string)`、`InitializeWorkshop`、`ChangeOwnerOfWorkshop`、`ChangeWorkshopProduction`、`SetCustomName`、`ChangeGold`、`SetProgress`、`GetProductionProgress`、`UpdateLastRunTime`、`AfterLoad`（internal）、`GetHashCode`、`ToString`，以及全部属性名与签名均无变化。
+- `WorkshopType` 的 `All`（`=> Campaign.Current.Workshops`）与 `Find(string)` 在两个版本同样存在；`Productions` 为 `MBReadOnlyList<WorkshopType.Production>`。
+- 行为层 `WorkshopsCampaignBehavior`、三个 Action、以及 `WorkshopModel` 的经济参数（`InitialCapital` / `DailyExpense` / `CapitalLowLimit`）在 v1.3.15 同样适用，跨版本 mod 可直接依赖。
 
 ## 导航
 
-- ↑ Parent: [Campaign API](../)
-- ↔ Siblings: [Settlement](../Settlement) · [Town](../Town) · [Village](../Village) · [Clan](../Clan) · [Hero](../Hero)
-- Related: [WorkshopType](../WorkshopType) · [WorkshopModel](../WorkshopModel) · [ClanFinanceModel](../ClanFinanceModel) · [ChangeOwnerOfWorkshopAction](../../campaign-ext/ChangeOwnerOfWorkshopAction) · [CampaignEvents](../CampaignEvents) · [SaveManager](../../save-system/SaveManager)
+- ↑ 父级：[战役 API 索引](../../campaign/) · [api 根](../../)
+- ↔ 同级：[Town](../Town/) · [Settlement](../Settlement/) · [Village](../Village/) · [Hero](../Hero/) · [Clan](../Clan/) · [WorkshopData](../WorkshopData/) · [MobileParty](../MobileParty/) · [Campaign](../Campaign/)
+- 相关类型 / 行为 / 动作：
+  - [WorkshopType](../../campaign-ext/WorkshopType/) — 生产类型定义（配方、名称）
+  - [WorkshopModel](../../campaign-ext/WorkshopModel/) — 工坊经济参数
+  - [WorkshopsCampaignBehavior](../../campaign-ext/WorkshopsCampaignBehavior/) — 每日 tick 驱动器
+  - [InitializeWorkshopAction](../../campaign-ext/InitializeWorkshopAction/) — 开局建坊
+  - [ChangeOwnerOfWorkshopAction](../../campaign-ext/ChangeOwnerOfWorkshopAction/) — 换主/买卖/破产
+  - [ChangeProductionTypeOfWorkshopAction](../../campaign-ext/ChangeProductionTypeOfWorkshopAction/) — 转产
+  - [CampaignEventDispatcher](../../campaign-ext/CampaignEventDispatcher/) — 产出/消耗与工坊事件
+  - [IWorkshopWarehouseCampaignBehavior](../../campaign-ext/IWorkshopWarehouseCampaignBehavior/) — 玩家仓库出入库接口

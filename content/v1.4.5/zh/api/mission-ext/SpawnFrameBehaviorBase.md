@@ -8,7 +8,7 @@ description: "SpawnFrameBehaviorBase 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class SpawnFrameBehaviorBase`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SpawnFrameBehaviorBase.cs`
+**File:** `TaleWorlds.MountAndBlade/SpawnFrameBehaviorBase.cs`
 
 ## 概述
 
@@ -19,27 +19,6 @@ description: "SpawnFrameBehaviorBase 的自动生成类参考。"
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### CreateDecreasingCache
-`public static WeightCache CreateDecreasingCache()`
-
-**用途 / Purpose:** 构建一个新的 decreasing cache 实体并返回给调用方。
-
-```csharp
-// 静态调用，不需要实例
-SpawnFrameBehaviorBase.CreateDecreasingCache();
-```
-
-### CheckAndInsertNewValueIfLower
-`public bool CheckAndInsertNewValueIfLower(float value, out float valueDifference)`
-
-**用途 / Purpose:** 检查and insert new value if lower在当前对象中是否成立。
-
-```csharp
-// 先通过子系统 API 拿到 SpawnFrameBehaviorBase 实例
-SpawnFrameBehaviorBase spawnFrameBehaviorBase = ...;
-var result = spawnFrameBehaviorBase.CheckAndInsertNewValueIfLower(0, valueDifference);
-```
 
 ### Initialize
 `public virtual void Initialize()`
@@ -72,6 +51,27 @@ var result = spawnFrameBehaviorBase.GetSpawnFrame(team, false, false);
 // 先通过子系统 API 拿到 SpawnFrameBehaviorBase 实例
 SpawnFrameBehaviorBase spawnFrameBehaviorBase = ...;
 spawnFrameBehaviorBase.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
+
+### CreateDecreasingCache
+`public static SpawnFrameBehaviorBase.WeightCache CreateDecreasingCache()`
+
+**用途 / Purpose:** 构建一个新的 decreasing cache 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SpawnFrameBehaviorBase.CreateDecreasingCache();
+```
+
+### CheckAndInsertNewValueIfLower
+`public bool CheckAndInsertNewValueIfLower(float value, out float valueDifference)`
+
+**用途 / Purpose:** 检查and insert new value if lower在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnFrameBehaviorBase 实例
+SpawnFrameBehaviorBase spawnFrameBehaviorBase = ...;
+var result = spawnFrameBehaviorBase.CheckAndInsertNewValueIfLower(0, valueDifference);
 ```
 
 ## 使用示例

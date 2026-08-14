@@ -8,7 +8,7 @@ description: "FakeMarketData 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class FakeMarketData : IMarketData`
 **Base:** `IMarketData`
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/FakeMarketData.cs`
+**File:** `TaleWorlds.CampaignSystem/Settlements/FakeMarketData.cs`
 
 ## 概述
 

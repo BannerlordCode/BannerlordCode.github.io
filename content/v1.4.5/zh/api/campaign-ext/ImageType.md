@@ -8,7 +8,7 @@ description: "ImageType 的自动生成类参考。"
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public enum ImageType`
 **Base:** 无
-**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/AvatarData.cs`
+**File:** `TaleWorlds.PlayerServices/PlayerServices/Avatar/AvatarData.cs`
 
 ## 概述
 

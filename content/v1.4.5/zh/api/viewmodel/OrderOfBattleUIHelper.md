@@ -8,7 +8,7 @@ description: "OrderOfBattleUIHelper 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal static class OrderOfBattleUIHelper`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle/OrderOfBattleUIHelper.cs`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/OrderOfBattle/OrderOfBattleUIHelper.cs`
 
 ## 概述
 

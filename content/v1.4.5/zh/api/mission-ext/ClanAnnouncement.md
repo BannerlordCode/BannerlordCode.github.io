@@ -8,7 +8,7 @@ description: "ClanAnnouncement 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanAnnouncement`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ClanAnnouncement.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ClanAnnouncement.cs`
 
 ## 概述
 

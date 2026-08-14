@@ -8,7 +8,7 @@ description: "MonsterMissionDataCreator 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MonsterMissionDataCreator : IMonsterMissionDataCreator`
 **Base:** `IMonsterMissionDataCreator`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MonsterMissionDataCreator.cs`
+**File:** `TaleWorlds.MountAndBlade/MonsterMissionDataCreator.cs`
 
 ## 概述
 

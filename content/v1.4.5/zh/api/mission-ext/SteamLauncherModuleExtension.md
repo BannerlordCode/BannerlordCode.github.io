@@ -8,7 +8,7 @@ description: "SteamLauncherModuleExtension 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SteamLauncherModuleExtension : IPlatformModuleExtension`
 **Base:** `IPlatformModuleExtension`
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Steam/TaleWorlds.MountAndBlade.Launcher.Steam/SteamLauncherModuleExtension.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Steam/SteamLauncherModuleExtension.cs`
 
 ## 概述
 

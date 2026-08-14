@@ -8,7 +8,7 @@ description: "TextureInternalFormat 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal enum TextureInternalFormat : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/TextureInternalFormat.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/TextureInternalFormat.cs`
 
 ## 概述
 

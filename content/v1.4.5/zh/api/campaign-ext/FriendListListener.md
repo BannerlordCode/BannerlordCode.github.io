@@ -8,7 +8,7 @@ description: "FriendListListener 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class FriendListListener : IFriendListListener`
 **Base:** `IFriendListListener`
-**File:** `bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/FriendListListener.cs`
+**File:** `TaleWorlds.PlatformService.GOG/FriendListListener.cs`
 
 ## 概述
 
@@ -38,7 +38,7 @@ friendListListener.OnFriendListRetrieveSuccess();
 ```
 
 ### OnFriendListRetrieveFailure
-`public override void OnFriendListRetrieveFailure(FailureReason failureReason)`
+`public override void OnFriendListRetrieveFailure(IFriendListListener.FailureReason failureReason)`
 
 **用途 / Purpose:** 在 friend list retrieve failure 事件触发时调用此回调。
 

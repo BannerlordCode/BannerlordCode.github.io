@@ -8,7 +8,7 @@ description: "EncyclopediaTroopScrollablePanel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EncyclopediaTroopScrollablePanel : ScrollablePanel`
 **Base:** `ScrollablePanel`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/EncyclopediaTroopScrollablePanel.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/EncyclopediaTroopScrollablePanel.cs`
 
 ## 概述
 

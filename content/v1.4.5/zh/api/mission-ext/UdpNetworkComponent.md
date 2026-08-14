@@ -8,7 +8,7 @@ description: "UdpNetworkComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class UdpNetworkComponent : IUdpNetworkHandler`
 **Base:** `IUdpNetworkHandler`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/UdpNetworkComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/UdpNetworkComponent.cs`
 
 ## 概述
 

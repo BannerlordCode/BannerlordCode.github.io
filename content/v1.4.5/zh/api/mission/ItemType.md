@@ -8,7 +8,7 @@ description: "ItemType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal enum ItemType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ItemType.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ItemType.cs`
 
 ## 概述
 

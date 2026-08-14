@@ -8,7 +8,7 @@ description: "ICharacterData 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface ICharacterData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ICharacterData.cs`
+**File:** `TaleWorlds.Core/ICharacterData.cs`
 
 ## 概述
 

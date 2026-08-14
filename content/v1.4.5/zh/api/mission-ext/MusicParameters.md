@@ -8,7 +8,7 @@ description: "MusicParameters 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MusicParameters`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MusicParameters.cs`
+**File:** `TaleWorlds.MountAndBlade/MusicParameters.cs`
 
 ## 概述
 
@@ -17,6 +17,29 @@ description: "MusicParameters 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `SmallBattleTreshold` | `public static int SmallBattleTreshold { get; }` |
+| `MediumBattleTreshold` | `public static int MediumBattleTreshold { get; }` |
+| `LargeBattleTreshold` | `public static int LargeBattleTreshold { get; }` |
+| `SmallBattleDistanceTreshold` | `public static float SmallBattleDistanceTreshold { get; }` |
+| `MediumBattleDistanceTreshold` | `public static float MediumBattleDistanceTreshold { get; }` |
+| `LargeBattleDistanceTreshold` | `public static float LargeBattleDistanceTreshold { get; }` |
+| `MaxBattleDistanceTreshold` | `public static float MaxBattleDistanceTreshold { get; }` |
+| `MinIntensity` | `public static float MinIntensity { get; }` |
+| `DefaultStartIntensity` | `public static float DefaultStartIntensity { get; }` |
+| `PlayerChargeEffectMultiplierOnIntensity` | `public static float PlayerChargeEffectMultiplierOnIntensity { get; }` |
+| `BattleSizeEffectOnStartIntensity` | `public static float BattleSizeEffectOnStartIntensity { get; }` |
+| `RandomEffectMultiplierOnStartIntensity` | `public static float RandomEffectMultiplierOnStartIntensity { get; }` |
+| `FriendlyTroopDeadEffectOnIntensity` | `public static float FriendlyTroopDeadEffectOnIntensity { get; }` |
+| `EnemyTroopDeadEffectOnIntensity` | `public static float EnemyTroopDeadEffectOnIntensity { get; }` |
+| `PlayerTroopDeadEffectMultiplierOnIntensity` | `public static float PlayerTroopDeadEffectMultiplierOnIntensity { get; }` |
+| `BattleRatioTresholdOnIntensity` | `public static float BattleRatioTresholdOnIntensity { get; }` |
+| `BattleTurnsOneSideCooldown` | `public static float BattleTurnsOneSideCooldown { get; }` |
+| `CampaignDarkModeThreshold` | `public static float CampaignDarkModeThreshold { get; }` |
 
 ## 主要方法
 

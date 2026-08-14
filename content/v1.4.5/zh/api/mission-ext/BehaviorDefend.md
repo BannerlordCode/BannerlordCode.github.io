@@ -8,7 +8,7 @@ description: "BehaviorDefend 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorDefend : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorDefend.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorDefend.cs`
 
 ## 概述
 

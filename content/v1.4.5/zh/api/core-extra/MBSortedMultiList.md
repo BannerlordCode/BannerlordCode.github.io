@@ -8,7 +8,7 @@ description: "MBSortedMultiList 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class MBSortedMultiList<TKey, TValue> : IReadOnlyList<TValue>, IEnumerable<TValue>, IEnumerable, IReadOnlyCollection<TValue>, IMBCollection where TKey : IComparable<TKey>`
 **Base:** `IReadOnlyList<TValue>`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBSortedMultiList.cs`
+**File:** `TaleWorlds.Library/MBSortedMultiList.cs`
 
 ## 概述
 
@@ -18,73 +18,19 @@ description: "MBSortedMultiList 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Comparer` | `public MBSortedMultiList<TKey, TValue>.ComparerType Comparer { get; }` |
+| `Count` | `public int Count { get; }` |
+| `this` | `public TValue this { get; }` |
+| `FirstValue` | `public TValue FirstValue { get; }` |
+| `LastValue` | `public TValue LastValue { get; }` |
+| `Current` | `public TValue Current { get; }` |
+| `Current` | `public TValue Current { get; }` |
+
 ## 主要方法
-
-### MoveNext
-`public bool MoveNext()`
-
-**用途 / Purpose:** 移动next到新的位置或状态。
-
-```csharp
-// 先通过子系统 API 拿到 MBSortedMultiList 实例
-MBSortedMultiList mBSortedMultiList = ...;
-var result = mBSortedMultiList.MoveNext();
-```
-
-### Dispose
-`public void Dispose()`
-
-**用途 / Purpose:** 释放当前对象占用的非托管资源。
-
-```csharp
-// 先通过子系统 API 拿到 MBSortedMultiList 实例
-MBSortedMultiList mBSortedMultiList = ...;
-mBSortedMultiList.Dispose();
-```
-
-### Reset
-`public void Reset()`
-
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
-
-```csharp
-// 先通过子系统 API 拿到 MBSortedMultiList 实例
-MBSortedMultiList mBSortedMultiList = ...;
-mBSortedMultiList.Reset();
-```
-
-### MoveNext
-`public bool MoveNext()`
-
-**用途 / Purpose:** 移动next到新的位置或状态。
-
-```csharp
-// 先通过子系统 API 拿到 MBSortedMultiList 实例
-MBSortedMultiList mBSortedMultiList = ...;
-var result = mBSortedMultiList.MoveNext();
-```
-
-### Dispose
-`public void Dispose()`
-
-**用途 / Purpose:** 释放当前对象占用的非托管资源。
-
-```csharp
-// 先通过子系统 API 拿到 MBSortedMultiList 实例
-MBSortedMultiList mBSortedMultiList = ...;
-mBSortedMultiList.Dispose();
-```
-
-### Reset
-`public void Reset()`
-
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
-
-```csharp
-// 先通过子系统 API 拿到 MBSortedMultiList 实例
-MBSortedMultiList mBSortedMultiList = ...;
-mBSortedMultiList.Reset();
-```
 
 ### Contains
 `public bool Contains(TKey key)`
@@ -372,12 +318,78 @@ MBSortedMultiList mBSortedMultiList = ...;
 var result = mBSortedMultiList.GetEnumerator();
 ```
 
+### MoveNext
+`public bool MoveNext()`
+
+**用途 / Purpose:** 移动next到新的位置或状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.MoveNext();
+```
+
+### Dispose
+`public void Dispose()`
+
+**用途 / Purpose:** 释放当前对象占用的非托管资源。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Dispose();
+```
+
+### Reset
+`public void Reset()`
+
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Reset();
+```
+
+### MoveNext
+`public bool MoveNext()`
+
+**用途 / Purpose:** 移动next到新的位置或状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.MoveNext();
+```
+
+### Dispose
+`public void Dispose()`
+
+**用途 / Purpose:** 释放当前对象占用的非托管资源。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Dispose();
+```
+
+### Reset
+`public void Reset()`
+
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Reset();
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 MBSortedMultiList mBSortedMultiList = ...;
-mBSortedMultiList.MoveNext();
+mBSortedMultiList.Contains(key);
 ```
 
 ## 参见

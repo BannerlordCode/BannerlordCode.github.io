@@ -8,7 +8,7 @@ description: "PollRequestRejected 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class PollRequestRejected : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/PollRequestRejected.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/PollRequestRejected.cs`
 
 ## 概述
 

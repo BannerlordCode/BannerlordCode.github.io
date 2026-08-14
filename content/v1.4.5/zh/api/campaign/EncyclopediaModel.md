@@ -8,7 +8,7 @@ description: "EncyclopediaModel 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class EncyclopediaModel : EncyclopediaModelBase`
 **Base:** `EncyclopediaModelBase`
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/EncyclopediaModel.cs`
+**File:** `TaleWorlds.CampaignSystem/Encyclopedia/EncyclopediaModel.cs`
 
 ## 概述
 

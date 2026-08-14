@@ -8,7 +8,7 @@ description: "TrebuchetAI 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class TrebuchetAI : RangedSiegeWeaponAi`
 **Base:** `RangedSiegeWeaponAi`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TrebuchetAI.cs`
+**File:** `TaleWorlds.MountAndBlade/TrebuchetAI.cs`
 
 ## 概述
 

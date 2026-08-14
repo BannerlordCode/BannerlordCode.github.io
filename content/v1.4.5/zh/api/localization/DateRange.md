@@ -8,7 +8,7 @@ description: "DateRange 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `public class DateRange`
 **Base:** 无
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization/DateRange.cs`
+**File:** `TaleWorlds.Localization/DateRange.cs`
 
 ## 概述
 

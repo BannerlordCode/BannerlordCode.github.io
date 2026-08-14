@@ -8,7 +8,7 @@ description: "JoinGameData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class JoinGameData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/JoinGameData.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/JoinGameData.cs`
 
 ## 概述
 

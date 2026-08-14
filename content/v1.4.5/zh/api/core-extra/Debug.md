@@ -8,7 +8,7 @@ description: "Debug 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class Debug`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Debug.cs`
+**File:** `TaleWorlds.Library/Debug.cs`
 
 ## 概述
 
@@ -118,13 +118,13 @@ Debug.ReportMemoryBookmark("example");
 ```
 
 ### Print
-`public static void Print(string message, int logLevel = 0, DebugColor color = DebugColor.White, ulong debugFilter = 17592186044416uL)`
+`public static void Print(string message, int logLevel = 0, Debug.DebugColor color = Debug.DebugColor.White, ulong debugFilter = 17592186044416UL)`
 
 **用途 / Purpose:** 调用 Print 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
-Debug.Print("example", 0, debugColor.White, 0);
+Debug.Print("example", 0, debug.DebugColor.White, 0);
 ```
 
 ### ShowMessageBox
@@ -138,7 +138,7 @@ Debug.ShowMessageBox("example", "example", 0);
 ```
 
 ### PrintWarning
-`public static void PrintWarning(string warning, ulong debugFilter = 17592186044416uL)`
+`public static void PrintWarning(string warning, ulong debugFilter = 17592186044416UL)`
 
 **用途 / Purpose:** 调用 PrintWarning 对应的操作。
 
@@ -148,7 +148,7 @@ Debug.PrintWarning("example", 0);
 ```
 
 ### PrintError
-`public static void PrintError(string error, string stackTrace = null, ulong debugFilter = 17592186044416uL)`
+`public static void PrintError(string error, string stackTrace = null, ulong debugFilter = 17592186044416UL)`
 
 **用途 / Purpose:** 调用 PrintError 对应的操作。
 
@@ -208,7 +208,7 @@ Debug.WriteDebugLineOnScreen("example");
 ```
 
 ### RenderDebugLine
-`public static void RenderDebugLine(Vec3 position, Vec3 direction, uint color = uint.MaxValue, bool depthCheck = false, float time = 0f)`
+`public static void RenderDebugLine(Vec3 position, Vec3 direction, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
 
 **用途 / Purpose:** 调用 RenderDebugLine 对应的操作。
 
@@ -218,7 +218,7 @@ Debug.RenderDebugLine(position, direction, 0, false, 0);
 ```
 
 ### RenderDebugLineWithThickness
-`public static void RenderDebugLineWithThickness(Vec3 position, Vec3 direction, uint color = uint.MaxValue, bool depthCheck = false, float time = 0f, int thickness = 0)`
+`public static void RenderDebugLineWithThickness(Vec3 position, Vec3 direction, uint color = 4294967295U, bool depthCheck = false, float time = 0f, int thickness = 0)`
 
 **用途 / Purpose:** 调用 RenderDebugLineWithThickness 对应的操作。
 
@@ -228,7 +228,7 @@ Debug.RenderDebugLineWithThickness(position, direction, 0, false, 0, 0);
 ```
 
 ### RenderDebugSphere
-`public static void RenderDebugSphere(Vec3 position, float radius, uint color = uint.MaxValue, bool depthCheck = false, float time = 0f)`
+`public static void RenderDebugSphere(Vec3 position, float radius, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
 
 **用途 / Purpose:** 调用 RenderDebugSphere 对应的操作。
 
@@ -248,7 +248,7 @@ Debug.RenderDebugFrame(frame, 0, 0);
 ```
 
 ### RenderDebugText
-`public static void RenderDebugText(float screenX, float screenY, string text, uint color = uint.MaxValue, float time = 0f)`
+`public static void RenderDebugText(float screenX, float screenY, string text, uint color = 4294967295U, float time = 0f)`
 
 **用途 / Purpose:** 调用 RenderDebugText 对应的操作。
 
@@ -258,7 +258,7 @@ Debug.RenderDebugText(0, 0, "example", 0, 0);
 ```
 
 ### RenderDebugRectWithColor
-`public static void RenderDebugRectWithColor(float left, float bottom, float right, float top, uint color = uint.MaxValue)`
+`public static void RenderDebugRectWithColor(float left, float bottom, float right, float top, uint color = 4294967295U)`
 
 **用途 / Purpose:** 调用 RenderDebugRectWithColor 对应的操作。
 
@@ -268,7 +268,7 @@ Debug.RenderDebugRectWithColor(0, 0, 0, 0, 0);
 ```
 
 ### RenderDebugText3D
-`public static void RenderDebugText3D(Vec3 position, string text, uint color = uint.MaxValue, int screenPosOffsetX = 0, int screenPosOffsetY = 0, float time = 0f)`
+`public static void RenderDebugText3D(Vec3 position, string text, uint color = 4294967295U, int screenPosOffsetX = 0, int screenPosOffsetY = 0, float time = 0f)`
 
 **用途 / Purpose:** 调用 RenderDebugText3D 对应的操作。
 

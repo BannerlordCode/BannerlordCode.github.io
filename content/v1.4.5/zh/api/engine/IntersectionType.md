@@ -8,7 +8,7 @@ description: "IntersectionType 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum IntersectionType : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IntersectionType.cs`
+**File:** `TaleWorlds.Engine/IntersectionType.cs`
 
 ## 概述
 

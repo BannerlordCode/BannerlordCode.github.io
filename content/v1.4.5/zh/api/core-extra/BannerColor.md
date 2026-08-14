@@ -8,7 +8,7 @@ description: "BannerColor 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct BannerColor`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BannerColor.cs`
+**File:** `TaleWorlds.Core/BannerColor.cs`
 
 ## 概述
 

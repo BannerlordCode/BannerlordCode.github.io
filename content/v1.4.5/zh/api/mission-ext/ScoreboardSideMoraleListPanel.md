@@ -6,9 +6,9 @@ description: "ScoreboardSideMoraleListPanel 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class ScoreboardSideMoraleListPanel`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardSideMoraleListPanel.cs`
+**Type:** `public class ScoreboardSideMoraleListPanel : ListPanel`
+**Base:** `ListPanel`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Scoreboard/ScoreboardSideMoraleListPanel.cs`
 
 ## 概述
 
@@ -25,25 +25,11 @@ description: "ScoreboardSideMoraleListPanel 的自动生成类参考。"
 | `Morale` | `public float Morale { get; set; }` |
 | `MaxMorale` | `public float MaxMorale { get; set; }` |
 
-## 主要方法
-
-### ScoreboardSideMoraleListPanel
-`public class ScoreboardSideMoraleListPanel(UIContext context)`
-
-**用途 / Purpose:** 调用 ScoreboardSideMoraleListPanel 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ScoreboardSideMoraleListPanel 实例
-ScoreboardSideMoraleListPanel scoreboardSideMoraleListPanel = ...;
-var result = scoreboardSideMoraleListPanel.ScoreboardSideMoraleListPanel(context);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-ScoreboardSideMoraleListPanel scoreboardSideMoraleListPanel = ...;
-scoreboardSideMoraleListPanel.ScoreboardSideMoraleListPanel(context);
+// 从对应子系统 API 获取实例
+ScoreboardSideMoraleListPanel instance = ...;
 ```
 
 ## 参见

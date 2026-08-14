@@ -8,7 +8,7 @@ description: "CustomSiegeMissionSpawnHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomSiegeMissionSpawnHandler : CustomMissionSpawnHandler`
 **Base:** `CustomMissionSpawnHandler`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionSpawnHandlers/CustomSiegeMissionSpawnHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionSpawnHandlers/CustomSiegeMissionSpawnHandler.cs`
 
 ## 概述
 

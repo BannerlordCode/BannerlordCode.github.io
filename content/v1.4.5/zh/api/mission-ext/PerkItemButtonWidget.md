@@ -8,7 +8,7 @@ description: "PerkItemButtonWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PerkItemButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/PerkItemButtonWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/CharacterDeveloper/PerkItemButtonWidget.cs`
 
 ## 概述
 
@@ -24,6 +24,7 @@ description: "PerkItemButtonWidget 的自动生成类参考。"
 |------|-----------|
 | `NotEarnedPerkBrush` | `public Brush NotEarnedPerkBrush { get; set; }` |
 | `EarnedNotSelectedPerkBrush` | `public Brush EarnedNotSelectedPerkBrush { get; set; }` |
+| `InSelectionPerkBrush` | `public Brush InSelectionPerkBrush { get; set; }` |
 | `EarnedActivePerkBrush` | `public Brush EarnedActivePerkBrush { get; set; }` |
 | `EarnedNotActivePerkBrush` | `public Brush EarnedNotActivePerkBrush { get; set; }` |
 | `EarnedPreviousPerkNotSelectedPerkBrush` | `public Brush EarnedPreviousPerkNotSelectedPerkBrush { get; set; }` |

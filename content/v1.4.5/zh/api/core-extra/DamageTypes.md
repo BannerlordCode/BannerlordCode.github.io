@@ -8,7 +8,7 @@ description: "DamageTypes 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum DamageTypes`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/DamageTypes.cs`
+**File:** `TaleWorlds.Core/DamageTypes.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IPlayerInputEffector 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IPlayerInputEffector : IMissionBehavior`
 **Base:** `IMissionBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IPlayerInputEffector.cs`
+**File:** `TaleWorlds.MountAndBlade/IPlayerInputEffector.cs`
 
 ## 概述
 

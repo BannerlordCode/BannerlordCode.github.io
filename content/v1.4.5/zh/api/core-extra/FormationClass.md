@@ -8,7 +8,7 @@ description: "FormationClass 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum FormationClass`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/FormationClass.cs`
+**File:** `TaleWorlds.Core/FormationClass.cs`
 
 ## 概述
 

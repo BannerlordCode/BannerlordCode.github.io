@@ -8,7 +8,7 @@ description: "CharacterDeveloperPerksContainerWidget 的自动生成类参考。
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterDeveloperPerksContainerWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/CharacterDeveloperPerksContainerWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/CharacterDeveloper/CharacterDeveloperPerksContainerWidget.cs`
 
 ## 概述
 

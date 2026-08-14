@@ -8,7 +8,7 @@ description: "PlayerTypes 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `enum PlayerTypes`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionRepresentativeBase.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionRepresentativeBase.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IncrementalTimer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class IncrementalTimer`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IncrementalTimer.cs`
+**File:** `TaleWorlds.MountAndBlade/IncrementalTimer.cs`
 
 ## 概述
 

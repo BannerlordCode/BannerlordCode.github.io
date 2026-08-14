@@ -8,7 +8,7 @@ description: "TWSharedMutexReadLock 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct TWSharedMutexReadLock : IDisposable`
 **Base:** `IDisposable`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TWSharedMutexReadLock.cs`
+**File:** `TaleWorlds.Library/TWSharedMutexReadLock.cs`
 
 ## 概述
 

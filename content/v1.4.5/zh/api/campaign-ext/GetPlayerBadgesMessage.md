@@ -8,7 +8,7 @@ description: "GetPlayerBadgesMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class GetPlayerBadgesMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetPlayerBadgesMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/GetPlayerBadgesMessage.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MultiplayerClassLoadoutTroopSubclassButtonWidget 的自动生成�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerClassLoadoutTroopSubclassButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout/MultiplayerClassLoadoutTroopSubclassButtonWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/ClassLoadout/MultiplayerClassLoadoutTroopSubclassButtonWidget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "KickedFromClanMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class KickedFromClanMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/KickedFromClanMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/KickedFromClanMessage.cs`
 
 ## 概述
 

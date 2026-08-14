@@ -8,7 +8,7 @@ description: "DefaultSkills 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class DefaultSkills`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/DefaultSkills.cs`
+**File:** `TaleWorlds.Core/DefaultSkills.cs`
 
 ## 概述
 
@@ -17,6 +17,29 @@ description: "DefaultSkills 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `OneHanded` | `public static SkillObject OneHanded { get; }` |
+| `TwoHanded` | `public static SkillObject TwoHanded { get; }` |
+| `Polearm` | `public static SkillObject Polearm { get; }` |
+| `Bow` | `public static SkillObject Bow { get; }` |
+| `Crossbow` | `public static SkillObject Crossbow { get; }` |
+| `Throwing` | `public static SkillObject Throwing { get; }` |
+| `Riding` | `public static SkillObject Riding { get; }` |
+| `Athletics` | `public static SkillObject Athletics { get; }` |
+| `Crafting` | `public static SkillObject Crafting { get; }` |
+| `Tactics` | `public static SkillObject Tactics { get; }` |
+| `Scouting` | `public static SkillObject Scouting { get; }` |
+| `Roguery` | `public static SkillObject Roguery { get; }` |
+| `Charm` | `public static SkillObject Charm { get; }` |
+| `Leadership` | `public static SkillObject Leadership { get; }` |
+| `Trade` | `public static SkillObject Trade { get; }` |
+| `Steward` | `public static SkillObject Steward { get; }` |
+| `Medicine` | `public static SkillObject Medicine { get; }` |
+| `Engineering` | `public static SkillObject Engineering { get; }` |
 
 ## 使用示例
 

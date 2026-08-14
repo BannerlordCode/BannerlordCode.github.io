@@ -8,7 +8,7 @@ description: "GeneralsAndCaptainsAssignmentLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GeneralsAndCaptainsAssignmentLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GeneralsAndCaptainsAssignmentLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/GeneralsAndCaptainsAssignmentLogic.cs`
 
 ## 概述
 

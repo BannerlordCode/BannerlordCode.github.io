@@ -8,7 +8,7 @@ description: "LanguageData 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class LanguageData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization/LanguageData.cs`
+**File:** `TaleWorlds.Localization/LanguageData.cs`
 
 ## 概述
 
@@ -22,11 +22,14 @@ description: "LanguageData 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `All` | `public static MBReadOnlyList<LanguageData> All { get; }` |
 | `Title` | `public string Title { get; }` |
 | `TextProcessor` | `public string TextProcessor { get; }` |
 | `SupportedIsoCodes` | `public string SupportedIsoCodes { get; }` |
 | `SubtitleExtension` | `public string SubtitleExtension { get; }` |
 | `IsUnderDevelopment` | `public bool IsUnderDevelopment { get; }` |
+| `XmlPaths` | `public MBReadOnlyList<string> XmlPaths { get; }` |
+| `VoiceXmlPathsAndModulePaths` | `public IReadOnlyDictionary<string, string> VoiceXmlPathsAndModulePaths { get; }` |
 | `IsValid` | `public bool IsValid { get; }` |
 
 ## 主要方法

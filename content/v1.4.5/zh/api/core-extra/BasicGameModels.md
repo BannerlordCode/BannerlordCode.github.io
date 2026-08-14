@@ -8,7 +8,7 @@ description: "BasicGameModels 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class BasicGameModels : GameModelsManager`
 **Base:** `GameModelsManager`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BasicGameModels.cs`
+**File:** `TaleWorlds.Core/BasicGameModels.cs`
 
 ## 概述
 

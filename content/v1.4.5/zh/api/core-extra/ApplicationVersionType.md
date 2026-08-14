@@ -8,7 +8,7 @@ description: "ApplicationVersionType 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum ApplicationVersionType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ApplicationVersionType.cs`
+**File:** `TaleWorlds.Library/ApplicationVersionType.cs`
 
 ## 概述
 

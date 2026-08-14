@@ -8,7 +8,7 @@ description: "QuitFromMatchmakerGameMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class QuitFromMatchmakerGameMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/QuitFromMatchmakerGameMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/QuitFromMatchmakerGameMessage.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "SpectatorCameraTypes 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum SpectatorCameraTypes`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SpectatorCameraTypes.cs`
+**File:** `TaleWorlds.Core/SpectatorCameraTypes.cs`
 
 ## 概述
 

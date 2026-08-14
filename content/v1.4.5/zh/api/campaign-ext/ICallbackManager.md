@@ -8,7 +8,7 @@ description: "ICallbackManager 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public interface ICallbackManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ICallbackManager.cs`
+**File:** `TaleWorlds.DotNet/ICallbackManager.cs`
 
 ## 概述
 

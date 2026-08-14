@@ -6,9 +6,9 @@ description: "PartyHealthFillBarWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class PartyHealthFillBarWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyHealthFillBarWidget.cs`
+**Type:** `public class PartyHealthFillBarWidget : FillBar`
+**Base:** `FillBar`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Party/PartyHealthFillBarWidget.cs`
 
 ## 概述
 
@@ -25,19 +25,6 @@ description: "PartyHealthFillBarWidget 的自动生成类参考。"
 | `Health` | `public int Health { get; set; }` |
 | `IsWounded` | `public bool IsWounded { get; set; }` |
 | `HealthText` | `public TextWidget HealthText { get; set; }` |
-
-## 主要方法
-
-### PartyHealthFillBarWidget
-`public class PartyHealthFillBarWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 PartyHealthFillBarWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 PartyHealthFillBarWidget 实例
-PartyHealthFillBarWidget partyHealthFillBarWidget = ...;
-var result = partyHealthFillBarWidget.PartyHealthFillBarWidget(context);
-```
 
 ## 使用示例
 

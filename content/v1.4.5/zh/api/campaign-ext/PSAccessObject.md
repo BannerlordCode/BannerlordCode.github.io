@@ -8,7 +8,7 @@ description: "PSAccessObject 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class PSAccessObject : AccessObject`
 **Base:** `AccessObject`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/PSAccessObject.cs`
+**File:** `TaleWorlds.Diamond/PSAccessObject.cs`
 
 ## 概述
 

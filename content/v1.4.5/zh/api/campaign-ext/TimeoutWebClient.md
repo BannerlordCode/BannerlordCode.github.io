@@ -8,7 +8,7 @@ description: "TimeoutWebClient 的自动生成类参考。"
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public class TimeoutWebClient : WebClient`
 **Base:** `WebClient`
-**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices/TimeoutWebClient.cs`
+**File:** `TaleWorlds.PlayerServices/PlayerServices/TimeoutWebClient.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IBattleEndLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IBattleEndLogic`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IBattleEndLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/IBattleEndLogic.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MusicMode 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum MusicMode`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MusicMode.cs`
+**File:** `TaleWorlds.MountAndBlade/MusicMode.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "GetPlayerGameTypeRankInfoMessageResult 的自动生成类参考。
 **Module:** Messages.FromLobbyServer
 **Type:** `public class GetPlayerGameTypeRankInfoMessageResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetPlayerGameTypeRankInfoMessageResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/GetPlayerGameTypeRankInfoMessageResult.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "SkeletonModelBoundsRecFlags 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum SkeletonModelBoundsRecFlags : sbyte`
 **Base:** `sbyte`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SkeletonModelBoundsRecFlags.cs`
+**File:** `TaleWorlds.MountAndBlade/SkeletonModelBoundsRecFlags.cs`
 
 ## 概述
 

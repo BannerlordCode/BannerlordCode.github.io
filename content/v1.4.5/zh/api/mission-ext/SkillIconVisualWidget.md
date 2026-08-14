@@ -6,9 +6,9 @@ description: "SkillIconVisualWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class SkillIconVisualWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/SkillIconVisualWidget.cs`
+**Type:** `public class SkillIconVisualWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/SkillIconVisualWidget.cs`
 
 ## 概述
 
@@ -25,19 +25,6 @@ description: "SkillIconVisualWidget 的自动生成类参考。"
 | `SkillId` | `public string SkillId { get; set; }` |
 | `UseSmallVariation` | `public bool UseSmallVariation { get; set; }` |
 | `UseSmallestVariation` | `public bool UseSmallestVariation { get; set; }` |
-
-## 主要方法
-
-### SkillIconVisualWidget
-`public class SkillIconVisualWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 SkillIconVisualWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 SkillIconVisualWidget 实例
-SkillIconVisualWidget skillIconVisualWidget = ...;
-var result = skillIconVisualWidget.SkillIconVisualWidget(context);
-```
 
 ## 使用示例
 

@@ -8,7 +8,7 @@ description: "View 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public abstract class View : NativeObject`
 **Base:** `NativeObject`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/View.cs`
+**File:** `TaleWorlds.Engine/View.cs`
 
 ## 概述
 
@@ -54,7 +54,7 @@ view.SetRenderOrder(0);
 ```
 
 ### SetRenderOption
-`public void SetRenderOption(ViewRenderOptions optionEnum, bool value)`
+`public void SetRenderOption(View.ViewRenderOptions optionEnum, bool value)`
 
 **用途 / Purpose:** 为 render option 赋新值，并同步更新对象内部状态。
 
@@ -164,7 +164,7 @@ view.SetFileNameToSaveResult("example");
 ```
 
 ### SetFileTypeToSave
-`public void SetFileTypeToSave(TextureSaveFormat format)`
+`public void SetFileTypeToSave(View.TextureSaveFormat format)`
 
 **用途 / Purpose:** 为 file type to save 赋新值，并同步更新对象内部状态。
 

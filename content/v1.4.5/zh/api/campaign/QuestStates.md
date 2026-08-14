@@ -8,7 +8,7 @@ description: "QuestStates 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal enum QuestStates`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/QuestBase.cs`
+**File:** `TaleWorlds.CampaignSystem/QuestBase.cs`
 
 ## 概述
 

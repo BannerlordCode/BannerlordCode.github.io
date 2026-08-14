@@ -6,9 +6,9 @@ description: "MultiplayerBattleResultColorizedWidget 的自动生成类参考。
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class MultiplayerBattleResultColorizedWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerBattleResultColorizedWidget.cs`
+**Type:** `public class MultiplayerBattleResultColorizedWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/MultiplayerBattleResultColorizedWidget.cs`
 
 ## 概述
 
@@ -26,19 +26,6 @@ description: "MultiplayerBattleResultColorizedWidget 的自动生成类参考。
 | `DrawColor` | `public Color DrawColor { get; set; }` |
 | `VictoryColor` | `public Color VictoryColor { get; set; }` |
 | `DefeatColor` | `public Color DefeatColor { get; set; }` |
-
-## 主要方法
-
-### MultiplayerBattleResultColorizedWidget
-`public class MultiplayerBattleResultColorizedWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 MultiplayerBattleResultColorizedWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerBattleResultColorizedWidget 实例
-MultiplayerBattleResultColorizedWidget multiplayerBattleResultColorizedWidget = ...;
-var result = multiplayerBattleResultColorizedWidget.MultiplayerBattleResultColorizedWidget(context);
-```
 
 ## 使用示例
 

@@ -8,7 +8,7 @@ description: "EngineController 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public static class EngineController`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/EngineController.cs`
+**File:** `TaleWorlds.Engine/EngineController.cs`
 
 ## 概述
 

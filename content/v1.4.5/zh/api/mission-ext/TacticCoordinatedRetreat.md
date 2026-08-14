@@ -6,9 +6,9 @@ description: "TacticCoordinatedRetreat 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class TacticCoordinatedRetreat`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticCoordinatedRetreat.cs`
+**Type:** `public class TacticCoordinatedRetreat : TacticComponent`
+**Base:** `TacticComponent`
+**File:** `TaleWorlds.MountAndBlade/TacticCoordinatedRetreat.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "TacticCoordinatedRetreat 的自动生成类参考。"
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### TacticCoordinatedRetreat
-`public class TacticCoordinatedRetreat(Team team)`
-
-**用途 / Purpose:** 调用 TacticCoordinatedRetreat 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 TacticCoordinatedRetreat 实例
-TacticCoordinatedRetreat tacticCoordinatedRetreat = ...;
-var result = tacticCoordinatedRetreat.TacticCoordinatedRetreat(team);
-```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
@@ -47,7 +36,7 @@ tacticCoordinatedRetreat.TickOccasionally();
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 TacticCoordinatedRetreat tacticCoordinatedRetreat = ...;
-tacticCoordinatedRetreat.TacticCoordinatedRetreat(team);
+tacticCoordinatedRetreat.TickOccasionally();
 ```
 
 ## 参见

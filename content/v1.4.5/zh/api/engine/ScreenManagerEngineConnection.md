@@ -8,7 +8,7 @@ description: "ScreenManagerEngineConnection 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class ScreenManagerEngineConnection : IScreenManagerEngineConnection`
 **Base:** `IScreenManagerEngineConnection`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ScreenManagerEngineConnection.cs`
+**File:** `TaleWorlds.Engine/ScreenManagerEngineConnection.cs`
 
 ## 概述
 

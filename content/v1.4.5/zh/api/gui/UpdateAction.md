@@ -8,7 +8,7 @@ description: "UpdateAction 的自动生成类参考。"
 **Module:** TaleWorlds.GauntletUI
 **Type:** `internal struct UpdateAction`
 **Base:** 无
-**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/UpdateAction.cs`
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/UpdateAction.cs`
 
 ## 概述
 

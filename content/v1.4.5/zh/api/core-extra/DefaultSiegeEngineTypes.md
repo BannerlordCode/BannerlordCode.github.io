@@ -8,7 +8,7 @@ description: "DefaultSiegeEngineTypes 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class DefaultSiegeEngineTypes`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/DefaultSiegeEngineTypes.cs`
+**File:** `TaleWorlds.Core/DefaultSiegeEngineTypes.cs`
 
 ## 概述
 
@@ -17,6 +17,26 @@ description: "DefaultSiegeEngineTypes 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Preparations` | `public static SiegeEngineType Preparations { get; }` |
+| `Ladder` | `public static SiegeEngineType Ladder { get; }` |
+| `Ballista` | `public static SiegeEngineType Ballista { get; }` |
+| `FireBallista` | `public static SiegeEngineType FireBallista { get; }` |
+| `Ram` | `public static SiegeEngineType Ram { get; }` |
+| `ImprovedRam` | `public static SiegeEngineType ImprovedRam { get; }` |
+| `SiegeTower` | `public static SiegeEngineType SiegeTower { get; }` |
+| `HeavySiegeTower` | `public static SiegeEngineType HeavySiegeTower { get; }` |
+| `Catapult` | `public static SiegeEngineType Catapult { get; }` |
+| `FireCatapult` | `public static SiegeEngineType FireCatapult { get; }` |
+| `Onager` | `public static SiegeEngineType Onager { get; }` |
+| `FireOnager` | `public static SiegeEngineType FireOnager { get; }` |
+| `Bricole` | `public static SiegeEngineType Bricole { get; }` |
+| `Trebuchet` | `public static SiegeEngineType Trebuchet { get; }` |
+| `FireTrebuchet` | `public static SiegeEngineType FireTrebuchet { get; }` |
 
 ## 使用示例
 

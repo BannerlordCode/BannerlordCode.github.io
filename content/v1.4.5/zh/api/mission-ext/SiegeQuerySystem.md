@@ -8,7 +8,7 @@ description: "SiegeQuerySystem 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeQuerySystem`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeQuerySystem.cs`
+**File:** `TaleWorlds.MountAndBlade/SiegeQuerySystem.cs`
 
 ## 概述
 
@@ -22,6 +22,16 @@ description: "SiegeQuerySystem 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `LeftRegionMemberCount` | `public int LeftRegionMemberCount { get; }` |
+| `LeftCloseAttackerCount` | `public int LeftCloseAttackerCount { get; }` |
+| `MiddleRegionMemberCount` | `public int MiddleRegionMemberCount { get; }` |
+| `MiddleCloseAttackerCount` | `public int MiddleCloseAttackerCount { get; }` |
+| `RightRegionMemberCount` | `public int RightRegionMemberCount { get; }` |
+| `RightCloseAttackerCount` | `public int RightCloseAttackerCount { get; }` |
+| `InsideAttackerCount` | `public int InsideAttackerCount { get; }` |
+| `LeftDefenderCount` | `public int LeftDefenderCount { get; }` |
+| `MiddleDefenderCount` | `public int MiddleDefenderCount { get; }` |
+| `RightDefenderCount` | `public int RightDefenderCount { get; }` |
 | `LeftDefenderOrigin` | `public Vec3 LeftDefenderOrigin { get; }` |
 | `MidDefenderOrigin` | `public Vec3 MidDefenderOrigin { get; }` |
 | `RightDefenderOrigin` | `public Vec3 RightDefenderOrigin { get; }` |

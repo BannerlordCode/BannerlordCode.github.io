@@ -8,7 +8,7 @@ description: "VoiceChatHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class VoiceChatHandler : MissionNetwork`
 **Base:** `MissionNetwork`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/VoiceChatHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/VoiceChatHandler.cs`
 
 ## 概述
 
@@ -25,61 +25,6 @@ description: "VoiceChatHandler 的自动生成类参考。"
 | `IsReadyOnPlatform` | `public bool IsReadyOnPlatform { get; }` |
 
 ## 主要方法
-
-### WriteVoiceData
-`public void WriteVoiceData(byte dataBuffer, int bufferSize)`
-
-**用途 / Purpose:** 将voice data写入目标位置。
-
-```csharp
-// 先通过子系统 API 拿到 VoiceChatHandler 实例
-VoiceChatHandler voiceChatHandler = ...;
-voiceChatHandler.WriteVoiceData(0, 0);
-```
-
-### SetReadyOnPlatform
-`public void SetReadyOnPlatform()`
-
-**用途 / Purpose:** 为 ready on platform 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 VoiceChatHandler 实例
-VoiceChatHandler voiceChatHandler = ...;
-voiceChatHandler.SetReadyOnPlatform();
-```
-
-### ProcessVoiceData
-`public bool ProcessVoiceData()`
-
-**用途 / Purpose:** 调用 ProcessVoiceData 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 VoiceChatHandler 实例
-VoiceChatHandler voiceChatHandler = ...;
-var result = voiceChatHandler.ProcessVoiceData();
-```
-
-### GetVoiceToPlayForTick
-`public Queue<short> GetVoiceToPlayForTick()`
-
-**用途 / Purpose:** 读取并返回当前对象中 voice to play for tick 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 VoiceChatHandler 实例
-VoiceChatHandler voiceChatHandler = ...;
-var result = voiceChatHandler.GetVoiceToPlayForTick();
-```
-
-### HasAnyVoiceData
-`public bool HasAnyVoiceData()`
-
-**用途 / Purpose:** 判断当前对象是否已经持有 any voice data。
-
-```csharp
-// 先通过子系统 API 拿到 VoiceChatHandler 实例
-VoiceChatHandler voiceChatHandler = ...;
-var result = voiceChatHandler.HasAnyVoiceData();
-```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
@@ -134,6 +79,61 @@ voiceChatHandler.OnPreDisplayMissionTick(0);
 // 先通过子系统 API 拿到 VoiceChatHandler 实例
 VoiceChatHandler voiceChatHandler = ...;
 voiceChatHandler.OnPlayerDisconnectedFromServer(networkPeer);
+```
+
+### WriteVoiceData
+`public void WriteVoiceData(byte dataBuffer, int bufferSize)`
+
+**用途 / Purpose:** 将voice data写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceChatHandler 实例
+VoiceChatHandler voiceChatHandler = ...;
+voiceChatHandler.WriteVoiceData(0, 0);
+```
+
+### SetReadyOnPlatform
+`public void SetReadyOnPlatform()`
+
+**用途 / Purpose:** 为 ready on platform 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceChatHandler 实例
+VoiceChatHandler voiceChatHandler = ...;
+voiceChatHandler.SetReadyOnPlatform();
+```
+
+### ProcessVoiceData
+`public bool ProcessVoiceData()`
+
+**用途 / Purpose:** 调用 ProcessVoiceData 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceChatHandler 实例
+VoiceChatHandler voiceChatHandler = ...;
+var result = voiceChatHandler.ProcessVoiceData();
+```
+
+### GetVoiceToPlayForTick
+`public Queue<short> GetVoiceToPlayForTick()`
+
+**用途 / Purpose:** 读取并返回当前对象中 voice to play for tick 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceChatHandler 实例
+VoiceChatHandler voiceChatHandler = ...;
+var result = voiceChatHandler.GetVoiceToPlayForTick();
+```
+
+### HasAnyVoiceData
+`public bool HasAnyVoiceData()`
+
+**用途 / Purpose:** 判断当前对象是否已经持有 any voice data。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceChatHandler 实例
+VoiceChatHandler voiceChatHandler = ...;
+var result = voiceChatHandler.HasAnyVoiceData();
 ```
 
 ## 使用示例

@@ -8,7 +8,7 @@ description: "DependedModule 的自动生成类参考。"
 **Module:** TaleWorlds.ModuleManager
 **Type:** `public struct DependedModule`
 **Base:** 无
-**File:** `bin/TaleWorlds.ModuleManager/TaleWorlds.ModuleManager/DependedModule.cs`
+**File:** `TaleWorlds.ModuleManager/DependedModule.cs`
 
 ## 概述
 

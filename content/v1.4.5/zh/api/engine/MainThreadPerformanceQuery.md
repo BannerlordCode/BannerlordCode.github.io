@@ -8,7 +8,7 @@ description: "MainThreadPerformanceQuery 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class MainThreadPerformanceQuery : IDisposable`
 **Base:** `IDisposable`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Utilities.cs`
+**File:** `TaleWorlds.Engine/Utilities.cs`
 
 ## 概述
 

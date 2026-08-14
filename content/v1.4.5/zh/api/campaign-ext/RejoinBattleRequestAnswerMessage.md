@@ -8,7 +8,7 @@ description: "RejoinBattleRequestAnswerMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class RejoinBattleRequestAnswerMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/RejoinBattleRequestAnswerMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/RejoinBattleRequestAnswerMessage.cs`
 
 ## 概述
 

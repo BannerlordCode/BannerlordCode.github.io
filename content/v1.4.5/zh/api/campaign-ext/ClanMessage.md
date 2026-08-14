@@ -8,7 +8,7 @@ description: "ClanMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class ClanMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/ClanMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/ClanMessage.cs`
 
 ## 概述
 

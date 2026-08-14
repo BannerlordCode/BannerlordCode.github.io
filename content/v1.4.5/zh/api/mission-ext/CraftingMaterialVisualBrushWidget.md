@@ -6,9 +6,9 @@ description: "CraftingMaterialVisualBrushWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class CraftingMaterialVisualBrushWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftingMaterialVisualBrushWidget.cs`
+**Type:** `public class CraftingMaterialVisualBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Crafting/CraftingMaterialVisualBrushWidget.cs`
 
 ## 概述
 
@@ -24,19 +24,6 @@ description: "CraftingMaterialVisualBrushWidget 的自动生成类参考。"
 |------|-----------|
 | `MaterialType` | `public string MaterialType { get; set; }` |
 | `IsBig` | `public bool IsBig { get; set; }` |
-
-## 主要方法
-
-### CraftingMaterialVisualBrushWidget
-`public class CraftingMaterialVisualBrushWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 CraftingMaterialVisualBrushWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 CraftingMaterialVisualBrushWidget 实例
-CraftingMaterialVisualBrushWidget craftingMaterialVisualBrushWidget = ...;
-var result = craftingMaterialVisualBrushWidget.CraftingMaterialVisualBrushWidget(context);
-```
 
 ## 使用示例
 

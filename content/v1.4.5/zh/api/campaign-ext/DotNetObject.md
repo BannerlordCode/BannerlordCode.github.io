@@ -8,7 +8,7 @@ description: "DotNetObject 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public class DotNetObject`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/DotNetObject.cs`
+**File:** `TaleWorlds.DotNet/DotNetObject.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "CompatibilitySetting 的自动生成类参考。"
 **Module:** psai.Editor
 **Type:** `public enum CompatibilitySetting`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.Editor/CompatibilitySetting.cs`
+**File:** `TaleWorlds.PSAI/Editor/CompatibilitySetting.cs`
 
 ## 概述
 

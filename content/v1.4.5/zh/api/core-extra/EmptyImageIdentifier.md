@@ -8,7 +8,7 @@ description: "EmptyImageIdentifier 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class EmptyImageIdentifier : ImageIdentifier`
 **Base:** `ImageIdentifier`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core.ImageIdentifiers/EmptyImageIdentifier.cs`
+**File:** `TaleWorlds.Core/ImageIdentifiers/EmptyImageIdentifier.cs`
 
 ## 概述
 

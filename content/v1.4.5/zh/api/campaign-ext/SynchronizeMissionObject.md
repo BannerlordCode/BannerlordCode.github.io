@@ -8,7 +8,7 @@ description: "SynchronizeMissionObject 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SynchronizeMissionObject : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SynchronizeMissionObject.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SynchronizeMissionObject.cs`
 
 ## 概述
 
@@ -24,6 +24,7 @@ description: "SynchronizeMissionObject 的自动生成类参考。"
 |------|-----------|
 | `MissionObjectId` | `public MissionObjectId MissionObjectId { get; }` |
 | `RecordTypeIndex` | `public int RecordTypeIndex { get; }` |
+| `RecordPair` | `public ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> RecordPair { get; }` |
 
 ## 使用示例
 

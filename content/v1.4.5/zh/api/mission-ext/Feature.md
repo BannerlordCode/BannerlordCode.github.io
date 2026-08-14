@@ -8,7 +8,7 @@ description: "Feature 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class Feature : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/Feature.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Feature.cs`
 
 ## 概述
 

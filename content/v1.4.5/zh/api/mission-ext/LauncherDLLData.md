@@ -8,7 +8,7 @@ description: "LauncherDLLData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherDLLData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherDLLData.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/LauncherDLLData.cs`
 
 ## 概述
 

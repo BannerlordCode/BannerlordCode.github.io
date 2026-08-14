@@ -8,7 +8,7 @@ description: "MissionScoreboardSide 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionScoreboardSide`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionScoreboardComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionScoreboardComponent.cs`
 
 ## 概述
 
@@ -17,6 +17,13 @@ description: "MissionScoreboardSide 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `CurrentPlayerCount` | `public int CurrentPlayerCount { get; }` |
+| `Players` | `public IEnumerable<MissionPeer> Players { get; }` |
 
 ## 主要方法
 
@@ -87,7 +94,7 @@ var result = missionScoreboardSide.GetScore(peer);
 ```
 
 ### UpdateHeader
-`public void UpdateHeader(ScoreboardHeader headers)`
+`public void UpdateHeader(MissionScoreboardComponent.ScoreboardHeader headers)`
 
 **用途 / Purpose:** 重新计算并更新 header 的最新表示。
 

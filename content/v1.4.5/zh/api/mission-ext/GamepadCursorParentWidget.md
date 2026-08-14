@@ -8,7 +8,7 @@ description: "GamepadCursorParentWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GamepadCursorParentWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/GamepadCursorParentWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/GamepadCursorParentWidget.cs`
 
 ## 概述
 

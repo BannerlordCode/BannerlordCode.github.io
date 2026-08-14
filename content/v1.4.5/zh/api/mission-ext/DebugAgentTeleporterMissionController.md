@@ -8,7 +8,7 @@ description: "DebugAgentTeleporterMissionController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DebugAgentTeleporterMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/DebugAgentTeleporterMissionController.cs`
+**File:** `TaleWorlds.MountAndBlade/Source/Missions/DebugAgentTeleporterMissionController.cs`
 
 ## 概述
 

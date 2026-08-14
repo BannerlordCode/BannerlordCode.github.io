@@ -8,7 +8,7 @@ description: "EquipmentControllerLeaveLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EquipmentControllerLeaveLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/EquipmentControllerLeaveLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/EquipmentControllerLeaveLogic.cs`
 
 ## 概述
 

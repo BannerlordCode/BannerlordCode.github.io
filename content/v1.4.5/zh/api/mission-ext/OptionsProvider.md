@@ -8,7 +8,7 @@ description: "OptionsProvider 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class OptionsProvider`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options/OptionsProvider.cs`
+**File:** `TaleWorlds.MountAndBlade/Options/OptionsProvider.cs`
 
 ## 概述
 
@@ -141,7 +141,7 @@ OptionsProvider.GetDefaultNativeOptions();
 ```
 
 ### GetDefaultManagedOptions
-`public static Dictionary<TaleWorlds.MountAndBlade.ManagedOptions.ManagedOptionsType, float > GetDefaultManagedOptions()`
+`public static Dictionary<ManagedOptions.ManagedOptionsType, float > GetDefaultManagedOptions()`
 
 **用途 / Purpose:** 读取并返回当前对象中 default managed options 的结果。
 

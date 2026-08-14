@@ -8,7 +8,7 @@ description: "EffectIncrementType 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum EffectIncrementType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/EffectIncrementType.cs`
+**File:** `TaleWorlds.Core/EffectIncrementType.cs`
 
 ## 概述
 

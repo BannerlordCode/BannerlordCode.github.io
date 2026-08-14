@@ -8,7 +8,7 @@ description: "FlagCapturePoint 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FlagCapturePoint : SynchedMissionObject`
 **Base:** `SynchedMissionObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/FlagCapturePoint.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/FlagCapturePoint.cs`
 
 ## 概述
 
@@ -17,6 +17,16 @@ description: "FlagCapturePoint 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.MountAndBlade.Objects` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Position` | `public Vec3 Position { get; }` |
+| `FlagChar` | `public int FlagChar { get; }` |
+| `IsContested` | `public bool IsContested { get; }` |
+| `IsFullyRaised` | `public bool IsFullyRaised { get; }` |
+| `IsDeactivated` | `public bool IsDeactivated { get; }` |
 
 ## 主要方法
 

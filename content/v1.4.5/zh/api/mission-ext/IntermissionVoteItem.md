@@ -8,7 +8,7 @@ description: "IntermissionVoteItem 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class IntermissionVoteItem`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IntermissionVoteItem.cs`
+**File:** `TaleWorlds.MountAndBlade/IntermissionVoteItem.cs`
 
 ## 概述
 

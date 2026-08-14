@@ -8,7 +8,7 @@ description: "GCHandleFactory 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `internal static class GCHandleFactory`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/GCHandleFactory.cs`
+**File:** `TaleWorlds.Library/GCHandleFactory.cs`
 
 ## 概述
 

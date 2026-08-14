@@ -8,7 +8,7 @@ description: "NavigationScopeTargeter 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class NavigationScopeTargeter : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/NavigationScopeTargeter.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/NavigationScopeTargeter.cs`
 
 ## 概述
 

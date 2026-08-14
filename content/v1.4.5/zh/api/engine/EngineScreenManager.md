@@ -8,7 +8,7 @@ description: "EngineScreenManager 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal class EngineScreenManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/EngineScreenManager.cs`
+**File:** `TaleWorlds.Engine/EngineScreenManager.cs`
 
 ## 概述
 

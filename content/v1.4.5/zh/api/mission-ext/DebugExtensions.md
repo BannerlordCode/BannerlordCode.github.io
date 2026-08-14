@@ -8,7 +8,7 @@ description: "DebugExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class DebugExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DebugExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/DebugExtensions.cs`
 
 ## 概述
 

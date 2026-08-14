@@ -8,7 +8,7 @@ description: "GetOfficialServerProviderNameResult 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class GetOfficialServerProviderNameResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetOfficialServerProviderNameResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/GetOfficialServerProviderNameResult.cs`
 
 ## 概述
 

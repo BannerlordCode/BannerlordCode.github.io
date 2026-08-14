@@ -8,7 +8,7 @@ description: "AreaInformation 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct AreaInformation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/AreaInformation.cs`
+**File:** `TaleWorlds.Library/AreaInformation.cs`
 
 ## 概述
 

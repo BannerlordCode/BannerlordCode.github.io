@@ -8,7 +8,7 @@ description: "StonePile 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class StonePile : UsableMachine, IDetachment`
 **Base:** `UsableMachine`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/StonePile.cs`
+**File:** `TaleWorlds.MountAndBlade/StonePile.cs`
 
 ## 概述
 
@@ -22,34 +22,14 @@ description: "StonePile 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `ReadAmmoCount` | `public int ReadAmmoCount { get; }` |
-| `this` | `public ThrowingPoint this { get; }` |
 | `AmmoCount` | `public int AmmoCount { get; set; }` |
 | `HasThrowingPointUsed` | `public bool HasThrowingPointUsed { get; }` |
+| `Side` | `public virtual BattleSideEnum Side { get; }` |
+| `MaxUserCount` | `public override int MaxUserCount { get; }` |
+| `ReadAmmoCount` | `public int ReadAmmoCount { get; }` |
+| `this` | `public StonePile.ThrowingPoint this { get; }` |
 
 ## 主要方法
-
-### ReadFromNetwork
-`public bool ReadFromNetwork(ref bool bufferReadValid)`
-
-**用途 / Purpose:** 从当前实例读取from network相关数据。
-
-```csharp
-// 先通过子系统 API 拿到 StonePile 实例
-StonePile stonePile = ...;
-var result = stonePile.ReadFromNetwork(bufferReadValid);
-```
-
-### CanUseAttackEntity
-`public bool CanUseAttackEntity()`
-
-**用途 / Purpose:** 检查当前对象是否满足 use attack entity 的前置条件。
-
-```csharp
-// 先通过子系统 API 拿到 StonePile 实例
-StonePile stonePile = ...;
-var result = stonePile.CanUseAttackEntity();
-```
 
 ### SetAmmo
 `public void SetAmmo(int ammoLeft)`
@@ -129,7 +109,7 @@ var result = stonePile.GetBestPointAlternativeTo(standingPoint, agent);
 ```
 
 ### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
 **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
@@ -150,12 +130,34 @@ StonePile stonePile = ...;
 stonePile.WriteToNetwork();
 ```
 
+### ReadFromNetwork
+`public bool ReadFromNetwork(ref bool bufferReadValid)`
+
+**用途 / Purpose:** 从当前实例读取from network相关数据。
+
+```csharp
+// 先通过子系统 API 拿到 StonePile 实例
+StonePile stonePile = ...;
+var result = stonePile.ReadFromNetwork(bufferReadValid);
+```
+
+### CanUseAttackEntity
+`public bool CanUseAttackEntity()`
+
+**用途 / Purpose:** 检查当前对象是否满足 use attack entity 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 StonePile 实例
+StonePile stonePile = ...;
+var result = stonePile.CanUseAttackEntity();
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 StonePile stonePile = ...;
-stonePile.ReadFromNetwork(bufferReadValid);
+stonePile.SetAmmo(0);
 ```
 
 ## 参见

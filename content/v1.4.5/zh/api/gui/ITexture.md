@@ -8,7 +8,7 @@ description: "ITexture 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public interface ITexture`
 **Base:** 无
-**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/ITexture.cs`
+**File:** `TaleWorlds.TwoDimension/ITexture.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "SiegeTowerRecord 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct SiegeTowerRecord : ISynchedMissionObjectReadableRecord`
 **Base:** `ISynchedMissionObjectReadableRecord`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeTower.cs`
+**File:** `TaleWorlds.MountAndBlade/SiegeTower.cs`
 
 ## 概述
 

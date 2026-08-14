@@ -8,7 +8,7 @@ description: "MBInvalidReferenceException 的自动生成类参考。"
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public class MBInvalidReferenceException : ObjectSystemException`
 **Base:** `ObjectSystemException`
-**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBInvalidReferenceException.cs`
+**File:** `TaleWorlds.ObjectSystem/MBInvalidReferenceException.cs`
 
 ## 概述
 

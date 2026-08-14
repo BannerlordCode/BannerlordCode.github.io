@@ -8,7 +8,7 @@ description: "ClientProfiles 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class ClientProfiles`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/VirtualFolders.cs`
+**File:** `TaleWorlds.Library/VirtualFolders.cs`
 
 ## 概述
 

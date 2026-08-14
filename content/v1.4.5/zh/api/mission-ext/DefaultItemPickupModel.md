@@ -8,7 +8,7 @@ description: "DefaultItemPickupModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultItemPickupModel : ItemPickupModel`
 **Base:** `ItemPickupModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultItemPickupModel.cs`
+**File:** `TaleWorlds.MountAndBlade/DefaultItemPickupModel.cs`
 
 ## 概述
 

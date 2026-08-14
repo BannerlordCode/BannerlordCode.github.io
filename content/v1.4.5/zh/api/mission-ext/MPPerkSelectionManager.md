@@ -8,7 +8,7 @@ description: "MPPerkSelectionManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPPerkSelectionManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkSelectionManager.cs`
+**File:** `TaleWorlds.MountAndBlade/MPPerkSelectionManager.cs`
 
 ## 概述
 
@@ -18,18 +18,13 @@ description: "MPPerkSelectionManager 的自动生成类参考。"
 
 把 `MPPerkSelectionManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Instance` | `public static MPPerkSelectionManager Instance { get; }` |
+
 ## 主要方法
-
-### MPPerkSelection
-`public struct MPPerkSelection(int index, int listIndex)`
-
-**用途 / Purpose:** 调用 MPPerkSelection 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MPPerkSelectionManager 实例
-MPPerkSelectionManager mPPerkSelectionManager = ...;
-var result = mPPerkSelectionManager.MPPerkSelection(0, 0);
-```
 
 ### FreeInstance
 `public static void FreeInstance()`
@@ -75,7 +70,7 @@ mPPerkSelectionManager.TryToApplyAndSavePendingChanges();
 ```
 
 ### GetSelectionsForHeroClass
-`public List<MPPerkSelection> GetSelectionsForHeroClass(MultiplayerClassDivisions.MPHeroClass currentHeroClass)`
+`public List<MPPerkSelectionManager.MPPerkSelection> GetSelectionsForHeroClass(MultiplayerClassDivisions.MPHeroClass currentHeroClass)`
 
 **用途 / Purpose:** 读取并返回当前对象中 selections for hero class 的结果。
 
@@ -86,7 +81,7 @@ var result = mPPerkSelectionManager.GetSelectionsForHeroClass(currentHeroClass);
 ```
 
 ### SetSelectionsForHeroClassTemporarily
-`public void SetSelectionsForHeroClassTemporarily(MultiplayerClassDivisions.MPHeroClass currentHeroClass, List<MPPerkSelection> perkChoices)`
+`public void SetSelectionsForHeroClassTemporarily(MultiplayerClassDivisions.MPHeroClass currentHeroClass, List<MPPerkSelectionManager.MPPerkSelection> perkChoices)`
 
 **用途 / Purpose:** 为 selections for hero class temporarily 赋新值，并同步更新对象内部状态。
 

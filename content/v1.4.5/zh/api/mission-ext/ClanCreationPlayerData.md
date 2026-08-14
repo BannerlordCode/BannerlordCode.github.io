@@ -8,7 +8,7 @@ description: "ClanCreationPlayerData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanCreationPlayerData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ClanCreationPlayerData.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ClanCreationPlayerData.cs`
 
 ## 概述
 

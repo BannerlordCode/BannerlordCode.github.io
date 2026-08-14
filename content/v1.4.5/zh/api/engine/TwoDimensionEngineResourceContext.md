@@ -8,7 +8,7 @@ description: "TwoDimensionEngineResourceContext 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class TwoDimensionEngineResourceContext : ITwoDimensionResourceContext`
 **Base:** `ITwoDimensionResourceContext`
-**File:** `bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/TwoDimensionEngineResourceContext.cs`
+**File:** `TaleWorlds.Engine.GauntletUI/TwoDimensionEngineResourceContext.cs`
 
 ## 概述
 

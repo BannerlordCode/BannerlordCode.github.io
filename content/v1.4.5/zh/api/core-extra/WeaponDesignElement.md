@@ -8,7 +8,7 @@ description: "WeaponDesignElement 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class WeaponDesignElement`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/WeaponDesignElement.cs`
+**File:** `TaleWorlds.Core/WeaponDesignElement.cs`
 
 ## 概述
 
@@ -22,6 +22,11 @@ description: "WeaponDesignElement 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `ScalePercentage` | `public int ScalePercentage { get; }` |
+| `ScaleFactor` | `public float ScaleFactor { get; }` |
+| `IsPieceScaled` | `public bool IsPieceScaled { get; }` |
+| `CraftingPiece` | `public CraftingPiece CraftingPiece { get; }` |
+| `IsValid` | `public bool IsValid { get; }` |
 | `ScaledLength` | `public float ScaledLength { get; }` |
 | `ScaledWeight` | `public float ScaledWeight { get; }` |
 | `ScaledCenterOfMass` | `public float ScaledCenterOfMass { get; }` |

@@ -8,7 +8,7 @@ description: "PlatformFileType 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum PlatformFileType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PlatformFileType.cs`
+**File:** `TaleWorlds.Library/PlatformFileType.cs`
 
 ## 概述
 

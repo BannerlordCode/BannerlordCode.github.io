@@ -8,7 +8,7 @@ description: "ThreadType 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public enum ThreadType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/ServersideSessionManager.cs`
+**File:** `TaleWorlds.Network/ServersideSessionManager.cs`
 
 ## 概述
 

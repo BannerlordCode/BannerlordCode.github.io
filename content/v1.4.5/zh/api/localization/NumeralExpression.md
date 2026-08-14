@@ -8,7 +8,7 @@ description: "NumeralExpression 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal abstract class NumeralExpression : TextExpression`
 **Base:** `TextExpression`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/NumeralExpression.cs`
+**File:** `TaleWorlds.Localization/Expressions/NumeralExpression.cs`
 
 ## 概述
 

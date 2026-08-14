@@ -8,7 +8,7 @@ description: "SerialTask 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class SerialTask : ITask`
 **Base:** `ITask`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SerialTask.cs`
+**File:** `TaleWorlds.Library/SerialTask.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MBMath 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class MBMath`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBMath.cs`
+**File:** `TaleWorlds.Library/MBMath.cs`
 
 ## 概述
 
@@ -138,16 +138,6 @@ MBMath.GetNumberOfBitsToRepresentNumber(0);
 ```csharp
 // 静态调用，不需要实例
 MBMath.Lerp(0, 0, 0, 0);
-```
-
-### LerpFPSIndependent
-`public static float LerpFPSIndependent(float valueFrom, float valueTo, float amount)`
-
-**用途 / Purpose:** 调用 LerpFPSIndependent 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBMath.LerpFPSIndependent(0, 0, 0);
 ```
 
 ### LinearExtrapolation

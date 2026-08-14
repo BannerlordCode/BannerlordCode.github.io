@@ -8,7 +8,7 @@ description: "IMBCollection 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public interface IMBCollection`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/IMBCollection.cs`
+**File:** `TaleWorlds.Library/IMBCollection.cs`
 
 ## 概述
 

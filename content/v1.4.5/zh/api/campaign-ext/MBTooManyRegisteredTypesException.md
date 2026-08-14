@@ -8,7 +8,7 @@ description: "MBTooManyRegisteredTypesException 的自动生成类参考。"
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public class MBTooManyRegisteredTypesException : ObjectSystemException`
 **Base:** `ObjectSystemException`
-**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBTooManyRegisteredTypesException.cs`
+**File:** `TaleWorlds.ObjectSystem/MBTooManyRegisteredTypesException.cs`
 
 ## 概述
 

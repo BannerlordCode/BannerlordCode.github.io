@@ -8,7 +8,7 @@ description: "MultiplayerSceneValidator 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerSceneValidator : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerSceneValidator.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerSceneValidator.cs`
 
 ## 概述
 

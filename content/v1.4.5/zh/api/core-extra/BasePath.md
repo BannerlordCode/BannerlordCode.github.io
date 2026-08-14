@@ -8,7 +8,7 @@ description: "BasePath 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class BasePath`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/BasePath.cs`
+**File:** `TaleWorlds.Library/BasePath.cs`
 
 ## 概述
 

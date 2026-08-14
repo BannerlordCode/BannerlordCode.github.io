@@ -8,7 +8,7 @@ description: "PlayerRemovedFromCustomGame 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class PlayerRemovedFromCustomGame : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayerRemovedFromCustomGame.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/PlayerRemovedFromCustomGame.cs`
 
 ## 概述
 

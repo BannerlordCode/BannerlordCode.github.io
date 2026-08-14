@@ -8,7 +8,7 @@ description: "VisualOrderExecutionParameters 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `struct VisualOrderExecutionParameters`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/VisualOrderExecutionParameters.cs`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Order/Visual/VisualOrderExecutionParameters.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "FormationPositionPreference 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum FormationPositionPreference`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/FormationPositionPreference.cs`
+**File:** `TaleWorlds.Core/FormationPositionPreference.cs`
 
 ## 概述
 

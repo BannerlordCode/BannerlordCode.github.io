@@ -33,7 +33,7 @@ description: "Bannerlord 1.4.5 中负责遭遇距离、参与者、战斗组件�
 
 不要用它移动部队、开始战斗、改变领地所有权、结算伤亡或派发战役事件。需要改变状态时使用对应的 Action 或管理器路径，尤其是 `StartBattleAction.Apply`、`MapEventManager` 和事件组件工厂。不要在 `Campaign.Current.Models` 尚未组装时、战役结束后，或拿已经脱离当前战役的部队/事件对象来调用它。
 
-## 依赖和数据流
+## 依赖
 
 ```mermaid
 flowchart LR

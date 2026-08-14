@@ -8,7 +8,7 @@ description: "AcceptPartyJoinRequestMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class AcceptPartyJoinRequestMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/AcceptPartyJoinRequestMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/AcceptPartyJoinRequestMessage.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "CompatibilityReason 的自动生成类参考。"
 **Module:** psai.Editor
 **Type:** `public enum CompatibilityReason`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.Editor/CompatibilityReason.cs`
+**File:** `TaleWorlds.PSAI/Editor/CompatibilityReason.cs`
 
 ## 概述
 

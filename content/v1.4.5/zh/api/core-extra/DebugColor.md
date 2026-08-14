@@ -8,7 +8,7 @@ description: "DebugColor 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum DebugColor`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Debug.cs`
+**File:** `TaleWorlds.Library/Debug.cs`
 
 ## 概述
 

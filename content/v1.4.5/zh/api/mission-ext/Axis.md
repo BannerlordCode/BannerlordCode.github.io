@@ -8,7 +8,7 @@ description: "Axis 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum Axis`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SpawnerEntityEditorHelper.cs`
+**File:** `TaleWorlds.MountAndBlade/SpawnerEntityEditorHelper.cs`
 
 ## 概述
 

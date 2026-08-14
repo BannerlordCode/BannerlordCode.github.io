@@ -8,7 +8,7 @@ description: "IObjectResolver 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public interface IObjectResolver`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Resolvers/IObjectResolver.cs`
+**File:** `TaleWorlds.SaveSystem/Resolvers/IObjectResolver.cs`
 
 ## 概述
 

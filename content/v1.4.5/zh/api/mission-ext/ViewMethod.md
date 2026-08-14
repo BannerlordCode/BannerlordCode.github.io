@@ -8,7 +8,7 @@ description: "ViewMethod 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ViewMethod : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ViewMethod.cs`
+**File:** `TaleWorlds.MountAndBlade/ViewMethod.cs`
 
 ## 概述
 

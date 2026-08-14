@@ -8,7 +8,7 @@ description: "TickRequirement 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum TickRequirement : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ScriptComponentBehavior.cs`
+**File:** `TaleWorlds.Engine/ScriptComponentBehavior.cs`
 
 ## 概述
 

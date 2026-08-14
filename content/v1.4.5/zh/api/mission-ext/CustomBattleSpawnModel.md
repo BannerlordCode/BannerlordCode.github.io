@@ -8,7 +8,7 @@ description: "CustomBattleSpawnModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleSpawnModel : BattleSpawnModel`
 **Base:** `BattleSpawnModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleSpawnModel.cs`
+**File:** `TaleWorlds.MountAndBlade/CustomBattleSpawnModel.cs`
 
 ## 概述
 
@@ -40,6 +40,28 @@ customBattleSpawnModel.OnMissionStart();
 // 先通过子系统 API 拿到 CustomBattleSpawnModel 实例
 CustomBattleSpawnModel customBattleSpawnModel = ...;
 customBattleSpawnModel.OnMissionEnd();
+```
+
+### GetInitialSpawnAssignments
+`public override List<ValueTuple<IAgentOriginBase, int>> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
+
+**用途 / Purpose:** 读取并返回当前对象中 initial spawn assignments 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleSpawnModel 实例
+CustomBattleSpawnModel customBattleSpawnModel = ...;
+var result = customBattleSpawnModel.GetInitialSpawnAssignments(battleSide, troopOrigins);
+```
+
+### GetReinforcementAssignments
+`public override List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
+
+**用途 / Purpose:** 读取并返回当前对象中 reinforcement assignments 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleSpawnModel 实例
+CustomBattleSpawnModel customBattleSpawnModel = ...;
+var result = customBattleSpawnModel.GetReinforcementAssignments(battleSide, troopOrigins);
 ```
 
 ## 使用示例

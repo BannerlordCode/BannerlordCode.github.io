@@ -8,7 +8,7 @@ description: "GOGLoginAccessProvider 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class GOGLoginAccessProvider : ILoginAccessProvider`
 **Base:** `ILoginAccessProvider`
-**File:** `bin/TaleWorlds.Diamond.AccessProvider.GOG/TaleWorlds.Diamond.AccessProvider.GOG/GOGLoginAccessProvider.cs`
+**File:** `TaleWorlds.Diamond.AccessProvider.GOG/GOGLoginAccessProvider.cs`
 
 ## 概述
 

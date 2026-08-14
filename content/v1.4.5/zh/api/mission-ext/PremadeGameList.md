@@ -8,7 +8,7 @@ description: "PremadeGameList 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PremadeGameList`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PremadeGameList.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PremadeGameList.cs`
 
 ## 概述
 

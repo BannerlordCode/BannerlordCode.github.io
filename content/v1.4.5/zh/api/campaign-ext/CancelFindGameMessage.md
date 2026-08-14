@@ -8,7 +8,7 @@ description: "CancelFindGameMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class CancelFindGameMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/CancelFindGameMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/CancelFindGameMessage.cs`
 
 ## 概述
 

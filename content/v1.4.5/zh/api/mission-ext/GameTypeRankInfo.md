@@ -8,7 +8,7 @@ description: "GameTypeRankInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameTypeRankInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Ranked/GameTypeRankInfo.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Ranked/GameTypeRankInfo.cs`
 
 ## 概述
 

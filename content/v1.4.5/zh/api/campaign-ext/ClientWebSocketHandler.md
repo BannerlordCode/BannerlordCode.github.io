@@ -8,7 +8,7 @@ description: "ClientWebSocketHandler 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public class ClientWebSocketHandler`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/ClientWebSocketHandler.cs`
+**File:** `TaleWorlds.Network/ClientWebSocketHandler.cs`
 
 ## 概述
 
@@ -18,7 +18,46 @@ description: "ClientWebSocketHandler 的自动生成类参考。"
 
 把 `ClientWebSocketHandler` 当作一个 Handler 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `IsConnected` | `public bool IsConnected { get; }` |
+
 ## 主要方法
+
+### Connect
+`public Task Connect(string uri, string token, List<KeyValuePair<string, string>> headers = null)`
+
+**用途 / Purpose:** 调用 Connect 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClientWebSocketHandler 实例
+ClientWebSocketHandler clientWebSocketHandler = ...;
+var result = clientWebSocketHandler.Connect("example", "example", list<KeyValuePair<string, "example");
+```
+
+### Disconnect
+`public Task Disconnect(string reason, bool onDisconnectCommand)`
+
+**用途 / Purpose:** 调用 Disconnect 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClientWebSocketHandler 实例
+ClientWebSocketHandler clientWebSocketHandler = ...;
+var result = clientWebSocketHandler.Disconnect("example", false);
+```
+
+### SendTextMessage
+`public void SendTextMessage(string postBoxId, string text)`
+
+**用途 / Purpose:** 调用 SendTextMessage 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClientWebSocketHandler 实例
+ClientWebSocketHandler clientWebSocketHandler = ...;
+clientWebSocketHandler.SendTextMessage("example", "example");
+```
 
 ### MessageReceivedDelegate
 `public delegate void MessageReceivedDelegate(WebSocketMessage message, ClientWebSocketHandler socket)`
@@ -62,39 +101,6 @@ var result = clientWebSocketHandler.DisconnectedDelegate(sender, false);
 // 先通过子系统 API 拿到 ClientWebSocketHandler 实例
 ClientWebSocketHandler clientWebSocketHandler = ...;
 var result = clientWebSocketHandler.ConnectedDelegate(sender);
-```
-
-### Connect
-`public async Task Connect(string uri, string token, List<KeyValuePair<string, string>> headers = null)`
-
-**用途 / Purpose:** 调用 Connect 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ClientWebSocketHandler 实例
-ClientWebSocketHandler clientWebSocketHandler = ...;
-var result = clientWebSocketHandler.Connect("example", "example", list<KeyValuePair<string, "example");
-```
-
-### Disconnect
-`public async Task Disconnect(string reason, bool onDisconnectCommand)`
-
-**用途 / Purpose:** 调用 Disconnect 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ClientWebSocketHandler 实例
-ClientWebSocketHandler clientWebSocketHandler = ...;
-var result = clientWebSocketHandler.Disconnect("example", false);
-```
-
-### SendTextMessage
-`public void SendTextMessage(string postBoxId, string text)`
-
-**用途 / Purpose:** 调用 SendTextMessage 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ClientWebSocketHandler 实例
-ClientWebSocketHandler clientWebSocketHandler = ...;
-clientWebSocketHandler.SendTextMessage("example", "example");
 ```
 
 ## 使用示例

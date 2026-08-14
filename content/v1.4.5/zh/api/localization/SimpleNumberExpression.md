@@ -8,7 +8,7 @@ description: "SimpleNumberExpression 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class SimpleNumberExpression : TextExpression`
 **Base:** `TextExpression`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/SimpleNumberExpression.cs`
+**File:** `TaleWorlds.Localization/Expressions/SimpleNumberExpression.cs`
 
 ## 概述
 

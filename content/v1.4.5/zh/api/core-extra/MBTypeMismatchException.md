@@ -8,7 +8,7 @@ description: "MBTypeMismatchException 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MBTypeMismatchException : MBException`
 **Base:** `MBException`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBTypeMismatchException.cs`
+**File:** `TaleWorlds.Core/MBTypeMismatchException.cs`
 
 ## 概述
 

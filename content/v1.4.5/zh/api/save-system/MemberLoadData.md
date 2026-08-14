@@ -8,7 +8,7 @@ description: "MemberLoadData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal abstract class MemberLoadData : VariableLoadData`
 **Base:** `VariableLoadData`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/MemberLoadData.cs`
+**File:** `TaleWorlds.SaveSystem/Load/MemberLoadData.cs`
 
 ## 概述
 

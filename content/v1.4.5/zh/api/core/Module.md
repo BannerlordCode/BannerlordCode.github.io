@@ -8,7 +8,7 @@ description: "Module 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class Module : DotNetObject, IGameStateManagerOwner`
 **Base:** `DotNetObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Module.cs`
+**File:** `TaleWorlds.MountAndBlade/Module.cs`
 
 ## 概述
 
@@ -252,7 +252,7 @@ var result = module.StartMultiplayerGame("example", "example");
 ```
 
 ### ShutDownWithDelay
-`public async void ShutDownWithDelay(string reason, int seconds)`
+`public void ShutDownWithDelay(string reason, int seconds)`
 
 **用途 / Purpose:** 调用 ShutDownWithDelay 对应的操作。
 

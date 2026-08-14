@@ -8,7 +8,7 @@ description: "FiringOrder 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FiringOrder`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FiringOrder.cs`
+**File:** `TaleWorlds.MountAndBlade/FiringOrder.cs`
 
 ## 概述
 

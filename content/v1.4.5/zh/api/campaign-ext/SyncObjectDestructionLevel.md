@@ -8,7 +8,7 @@ description: "SyncObjectDestructionLevel 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SyncObjectDestructionLevel : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SyncObjectDestructionLevel.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SyncObjectDestructionLevel.cs`
 
 ## 概述
 

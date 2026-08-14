@@ -8,7 +8,7 @@ description: "AgentVisualsData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentVisualsData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVisualsData.cs`
+**File:** `TaleWorlds.MountAndBlade/AgentVisualsData.cs`
 
 ## 概述
 

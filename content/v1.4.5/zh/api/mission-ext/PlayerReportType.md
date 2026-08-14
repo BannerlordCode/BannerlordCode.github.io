@@ -8,7 +8,7 @@ description: "PlayerReportType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum PlayerReportType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerReportType.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerReportType.cs`
 
 ## 概述
 

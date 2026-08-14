@@ -8,7 +8,7 @@ description: "MultiplayerClassLoadoutItemTabControllerButtonWidget 的自动生�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerClassLoadoutItemTabControllerButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout/MultiplayerClassLoadoutItemTabControllerButtonWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/ClassLoadout/MultiplayerClassLoadoutItemTabControllerButtonWidget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MultiplayerRoundComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerRoundComponent : MissionNetwork, IRoundComponent, IMissionBehavior`
 **Base:** `MissionNetwork`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerRoundComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerRoundComponent.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "MultiplayerRoundComponent 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `RemainingRoundTime` | `public float RemainingRoundTime { get; }` |
 | `LastRoundEndRemainingTime` | `public float LastRoundEndRemainingTime { get; }` |
 | `CurrentRoundState` | `public MultiplayerRoundState CurrentRoundState { get; }` |
 | `RoundCount` | `public int RoundCount { get; }` |

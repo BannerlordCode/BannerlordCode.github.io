@@ -8,7 +8,7 @@ description: "SceneLeveler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SceneLeveler : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Objects/SceneLeveler.cs`
+**File:** `TaleWorlds.MountAndBlade/Source/Objects/SceneLeveler.cs`
 
 ## 概述
 

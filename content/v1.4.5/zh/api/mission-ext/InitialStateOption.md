@@ -8,7 +8,7 @@ description: "InitialStateOption 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InitialStateOption`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/InitialStateOption.cs`
+**File:** `TaleWorlds.MountAndBlade/InitialStateOption.cs`
 
 ## 概述
 
@@ -26,6 +26,7 @@ description: "InitialStateOption 的自动生成类参考。"
 | `Name` | `public TextObject Name { get; }` |
 | `Id` | `public string Id { get; }` |
 | `IsHidden` | `public Func<bool> IsHidden { get; }` |
+| `IsDisabledAndReason` | `public Func<ValueTuple<bool, TextObject>> IsDisabledAndReason { get; }` |
 | `EnabledHint` | `public TextObject EnabledHint { get; }` |
 
 ## 主要方法

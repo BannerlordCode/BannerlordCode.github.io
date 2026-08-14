@@ -8,7 +8,7 @@ description: "MBMultiplayerData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBMultiplayerData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBMultiplayerData.cs`
+**File:** `TaleWorlds.MountAndBlade/MBMultiplayerData.cs`
 
 ## 概述
 
@@ -25,17 +25,6 @@ description: "MBMultiplayerData 的自动生成类参考。"
 | `ServerId` | `public static Guid ServerId { get; set; }` |
 
 ## 主要方法
-
-### GameServerInfoReceivedDelegate
-`public delegate void GameServerInfoReceivedDelegate(CustomBattleId id, string gameServer, string gameModule, string gameType, string map, int currentPlayerCount, int maxPlayerCount, string address, int port)`
-
-**用途 / Purpose:** 调用 GameServerInfoReceivedDelegate 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MBMultiplayerData 实例
-MBMultiplayerData mBMultiplayerData = ...;
-mBMultiplayerData.GameServerInfoReceivedDelegate(id, "example", "example", "example", "example", 0, 0, "example", 0);
-```
 
 ### GetServerId
 `public static string GetServerId()`
@@ -115,6 +104,17 @@ MBMultiplayerData.GetPlayerCountLimit();
 ```csharp
 // 静态调用，不需要实例
 MBMultiplayerData.UpdateGameServerInfo("example", "example", "example", "example", "example", 0, 0, "example", 0);
+```
+
+### GameServerInfoReceivedDelegate
+`public delegate void GameServerInfoReceivedDelegate(CustomBattleId id, string gameServer, string gameModule, string gameType, string map, int currentPlayerCount, int maxPlayerCount, string address, int port)`
+
+**用途 / Purpose:** 调用 GameServerInfoReceivedDelegate 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBMultiplayerData 实例
+MBMultiplayerData mBMultiplayerData = ...;
+mBMultiplayerData.GameServerInfoReceivedDelegate(id, "example", "example", "example", "example", 0, 0, "example", 0);
 ```
 
 ## 使用示例

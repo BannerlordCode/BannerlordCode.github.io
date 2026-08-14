@@ -8,7 +8,7 @@ description: "Grievance 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class Grievance`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CompanionGrievanceBehavior.cs`
+**File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/CompanionGrievanceBehavior.cs`
 
 ## 概述
 

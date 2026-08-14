@@ -8,7 +8,7 @@ description: "PhotoModeHotKeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class PhotoModeHotKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.GameKeyCategory/PhotoModeHotKeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/GameKeyCategory/PhotoModeHotKeyCategory.cs`
 
 ## 概述
 

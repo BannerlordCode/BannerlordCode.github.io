@@ -8,7 +8,7 @@ description: "ClientSocketSession 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class ClientSocketSession : ClientsideSession, IClientSession`
 **Base:** `ClientsideSession`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Socket/ClientSocketSession.cs`
+**File:** `TaleWorlds.Diamond/Socket/ClientSocketSession.cs`
 
 ## 概述
 

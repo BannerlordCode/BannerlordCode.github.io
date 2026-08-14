@@ -8,7 +8,7 @@ description: "BattleReinforcementsSpawnController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleReinforcementsSpawnController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleReinforcementsSpawnController.cs`
+**File:** `TaleWorlds.MountAndBlade/BattleReinforcementsSpawnController.cs`
 
 ## 概述
 

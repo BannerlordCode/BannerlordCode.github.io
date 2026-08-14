@@ -8,7 +8,7 @@ description: "PixelFormat 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal enum PixelFormat : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/PixelFormat.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/PixelFormat.cs`
 
 ## 概述
 

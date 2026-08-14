@@ -8,7 +8,7 @@ description: "GetAvailableScenesResult 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class GetAvailableScenesResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetAvailableScenesResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/GetAvailableScenesResult.cs`
 
 ## 概述
 

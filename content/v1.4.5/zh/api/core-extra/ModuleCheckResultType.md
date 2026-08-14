@@ -8,7 +8,7 @@ description: "ModuleCheckResultType 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum ModuleCheckResultType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ModuleCheckResultType.cs`
+**File:** `TaleWorlds.Core/ModuleCheckResultType.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "LocalizationException 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `public class LocalizationException : Exception`
 **Base:** `Exception`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization/LocalizationException.cs`
+**File:** `TaleWorlds.Localization/LocalizationException.cs`
 
 ## 概述
 

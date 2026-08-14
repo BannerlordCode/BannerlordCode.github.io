@@ -8,7 +8,7 @@ description: "Light 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class Light : GameEntityComponent`
 **Base:** `GameEntityComponent`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Light.cs`
+**File:** `TaleWorlds.Engine/Light.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "Light 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `IsValid` | `public bool IsValid { get; }` |
 | `Frame` | `public MatrixFrame Frame { get; set; }` |
 | `LightColor` | `public Vec3 LightColor { get; set; }` |
 | `Intensity` | `public float Intensity { get; set; }` |
@@ -41,7 +42,7 @@ Light.CreatePointLight(0);
 ```
 
 ### SetShadowType
-`public void SetShadowType(ShadowType type)`
+`public void SetShadowType(Light.ShadowType type)`
 
 **用途 / Purpose:** 为 shadow type 赋新值，并同步更新对象内部状态。
 

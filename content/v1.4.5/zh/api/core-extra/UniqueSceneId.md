@@ -8,7 +8,7 @@ description: "UniqueSceneId 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class UniqueSceneId`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/UniqueSceneId.cs`
+**File:** `TaleWorlds.Library/UniqueSceneId.cs`
 
 ## 概述
 

@@ -6,9 +6,9 @@ description: "OrderFormationClassVisualBrushWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Order
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class OrderFormationClassVisualBrushWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Order/OrderFormationClassVisualBrushWidget.cs`
+**Type:** `public class OrderFormationClassVisualBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/Order/OrderFormationClassVisualBrushWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "OrderFormationClassVisualBrushWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `FormationClassValue` | `public int FormationClassValue { get; set; }` |
-
-## 主要方法
-
-### OrderFormationClassVisualBrushWidget
-`public class OrderFormationClassVisualBrushWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 OrderFormationClassVisualBrushWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 OrderFormationClassVisualBrushWidget 实例
-OrderFormationClassVisualBrushWidget orderFormationClassVisualBrushWidget = ...;
-var result = orderFormationClassVisualBrushWidget.OrderFormationClassVisualBrushWidget(context);
-```
 
 ## 使用示例
 

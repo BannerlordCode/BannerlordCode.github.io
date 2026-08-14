@@ -8,7 +8,7 @@ description: "CombatLogManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class CombatLogManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CombatLogManager.cs`
+**File:** `TaleWorlds.MountAndBlade/CombatLogManager.cs`
 
 ## 概述
 
@@ -38,6 +38,17 @@ CombatLogManager.PrintDebugLogForInfo(attackerAgent, victimAgent, damageType, 0,
 ```csharp
 // 静态调用，不需要实例
 CombatLogManager.GenerateCombatLog(logData);
+```
+
+### OnPrintCombatLogHandler
+`public delegate void OnPrintCombatLogHandler(CombatLogData logData)`
+
+**用途 / Purpose:** 在 print combat log handler 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CombatLogManager 实例
+CombatLogManager combatLogManager = ...;
+combatLogManager.OnPrintCombatLogHandler(logData);
 ```
 
 ## 使用示例

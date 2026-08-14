@@ -8,7 +8,7 @@ description: "Music 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class Music`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Music.cs`
+**File:** `TaleWorlds.Engine/Music.cs`
 
 ## 概述
 

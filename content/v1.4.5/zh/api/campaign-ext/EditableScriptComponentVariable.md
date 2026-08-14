@@ -8,7 +8,7 @@ description: "EditableScriptComponentVariable 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public class EditableScriptComponentVariable : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/EditableScriptComponentVariable.cs`
+**File:** `TaleWorlds.DotNet/EditableScriptComponentVariable.cs`
 
 ## 概述
 

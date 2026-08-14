@@ -8,7 +8,7 @@ description: "BattleResultType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `enum BattleResultType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/ScoreboardBaseVM.cs`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Scoreboard/ScoreboardBaseVM.cs`
 
 ## 概述
 

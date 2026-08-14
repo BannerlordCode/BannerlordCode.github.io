@@ -8,7 +8,7 @@ description: "OptionsScreenWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OptionsScreenWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options/OptionsScreenWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Options/OptionsScreenWidget.cs`
 
 ## 概述
 
@@ -25,7 +25,6 @@ description: "OptionsScreenWidget 的自动生成类参考。"
 | `VideoMemoryUsageWidget` | `public Widget VideoMemoryUsageWidget { get; set; }` |
 | `CurrentOptionDescriptionWidget` | `public RichTextWidget CurrentOptionDescriptionWidget { get; set; }` |
 | `CurrentOptionNameWidget` | `public RichTextWidget CurrentOptionNameWidget { get; set; }` |
-| `CurrentOptionExtraInformationWidget` | `public RichTextWidget CurrentOptionExtraInformationWidget { get; set; }` |
 | `CurrentOptionImageWidget` | `public Widget CurrentOptionImageWidget { get; set; }` |
 | `PerformanceTabToggle` | `public TabToggleWidget PerformanceTabToggle { get; set; }` |
 

@@ -8,7 +8,7 @@ description: "SkinVoiceManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class SkinVoiceManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SkinVoiceManager.cs`
+**File:** `TaleWorlds.MountAndBlade/SkinVoiceManager.cs`
 
 ## 概述
 
@@ -26,17 +26,6 @@ description: "SkinVoiceManager 的自动生成类参考。"
 | `Index` | `public int Index { get; }` |
 
 ## 主要方法
-
-### GetName
-`public TextObject GetName()`
-
-**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 SkinVoiceManager 实例
-SkinVoiceManager skinVoiceManager = ...;
-var result = skinVoiceManager.GetName();
-```
 
 ### GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName
 `public static int GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName(string className)`
@@ -56,6 +45,17 @@ SkinVoiceManager.GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassNam
 ```csharp
 // 静态调用，不需要实例
 SkinVoiceManager.GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName("example", 0);
+```
+
+### GetName
+`public TextObject GetName()`
+
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SkinVoiceManager 实例
+SkinVoiceManager skinVoiceManager = ...;
+var result = skinVoiceManager.GetName();
 ```
 
 ## 使用示例

@@ -8,7 +8,7 @@ description: "PromotePlayerToPartyLeaderMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class PromotePlayerToPartyLeaderMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/PromotePlayerToPartyLeaderMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/PromotePlayerToPartyLeaderMessage.cs`
 
 ## 概述
 

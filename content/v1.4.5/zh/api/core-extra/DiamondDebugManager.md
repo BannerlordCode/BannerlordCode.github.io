@@ -8,7 +8,7 @@ description: "DiamondDebugManager 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class DiamondDebugManager : IDebugManager`
 **Base:** `IDebugManager`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/DiamondDebugManager.cs`
+**File:** `TaleWorlds.Library/DiamondDebugManager.cs`
 
 ## 概述
 

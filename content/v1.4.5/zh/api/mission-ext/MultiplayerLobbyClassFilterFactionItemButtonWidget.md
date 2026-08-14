@@ -6,9 +6,9 @@ description: "MultiplayerLobbyClassFilterFactionItemButtonWidget 的自动生成
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class MultiplayerLobbyClassFilterFactionItemButtonWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerLobbyClassFilterFactionItemButtonWidget.cs`
+**Type:** `public class MultiplayerLobbyClassFilterFactionItemButtonWidget : ButtonWidget`
+**Base:** `ButtonWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Lobby/Armory/MultiplayerLobbyClassFilterFactionItemButtonWidget.cs`
 
 ## 概述
 
@@ -24,19 +24,6 @@ description: "MultiplayerLobbyClassFilterFactionItemButtonWidget 的自动生成
 |------|-----------|
 | `BaseBrushName` | `public string BaseBrushName { get; set; }` |
 | `Culture` | `public string Culture { get; set; }` |
-
-## 主要方法
-
-### MultiplayerLobbyClassFilterFactionItemButtonWidget
-`public class MultiplayerLobbyClassFilterFactionItemButtonWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 MultiplayerLobbyClassFilterFactionItemButtonWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerLobbyClassFilterFactionItemButtonWidget 实例
-MultiplayerLobbyClassFilterFactionItemButtonWidget multiplayerLobbyClassFilterFactionItemButtonWidget = ...;
-var result = multiplayerLobbyClassFilterFactionItemButtonWidget.MultiplayerLobbyClassFilterFactionItemButtonWidget(context);
-```
 
 ## 使用示例
 

@@ -8,7 +8,7 @@ description: "FindMostDangerousThreat 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FindMostDangerousThreat : DividableTask`
 **Base:** `DividableTask`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.DividableTasks/FindMostDangerousThreat.cs`
+**File:** `TaleWorlds.MountAndBlade/DividableTasks/FindMostDangerousThreat.cs`
 
 ## 概述
 

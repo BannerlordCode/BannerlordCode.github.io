@@ -8,7 +8,7 @@ description: "ClanGameCreationCancelledMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class ClanGameCreationCancelledMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/ClanGameCreationCancelledMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/ClanGameCreationCancelledMessage.cs`
 
 ## 概述
 

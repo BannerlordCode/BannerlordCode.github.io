@@ -8,7 +8,7 @@ description: "RoundEndReason 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum RoundEndReason`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RoundEndReason.cs`
+**File:** `TaleWorlds.MountAndBlade/RoundEndReason.cs`
 
 ## 概述
 

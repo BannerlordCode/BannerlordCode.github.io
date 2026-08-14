@@ -8,7 +8,7 @@ description: "IMBPeer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBPeer`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBPeer.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBPeer.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "PropertyChangedWithValueEventArgs 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct PropertyChangedWithValueEventArgs`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithValueEventArgs.cs`
+**File:** `TaleWorlds.Library/PropertyChangedWithValueEventArgs.cs`
 
 ## 概述
 
@@ -25,25 +25,11 @@ description: "PropertyChangedWithValueEventArgs 的自动生成类参考。"
 | `PropertyName` | `public string PropertyName { get; }` |
 | `Value` | `public object Value { get; }` |
 
-## 主要方法
-
-### PropertyChangedWithValueEventArgs
-`public struct PropertyChangedWithValueEventArgs(string propertyName, object value)`
-
-**用途 / Purpose:** 调用 PropertyChangedWithValueEventArgs 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 PropertyChangedWithValueEventArgs 实例
-PropertyChangedWithValueEventArgs propertyChangedWithValueEventArgs = ...;
-var result = propertyChangedWithValueEventArgs.PropertyChangedWithValueEventArgs("example", value);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-PropertyChangedWithValueEventArgs propertyChangedWithValueEventArgs = ...;
-propertyChangedWithValueEventArgs.PropertyChangedWithValueEventArgs("example", value);
+// 从对应子系统 API 获取实例
+PropertyChangedWithValueEventArgs instance = ...;
 ```
 
 ## 参见

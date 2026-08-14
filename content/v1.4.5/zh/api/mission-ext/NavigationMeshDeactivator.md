@@ -8,7 +8,7 @@ description: "NavigationMeshDeactivator 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class NavigationMeshDeactivator : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Objects/NavigationMeshDeactivator.cs`
+**File:** `TaleWorlds.MountAndBlade/Source/Objects/NavigationMeshDeactivator.cs`
 
 ## 概述
 

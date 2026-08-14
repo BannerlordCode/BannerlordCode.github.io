@@ -6,9 +6,9 @@ description: "ParallaxContainerWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class ParallaxContainerWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ParallaxContainerWidget.cs`
+**Type:** `public class ParallaxContainerWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/ParallaxContainerWidget.cs`
 
 ## 概述
 
@@ -17,19 +17,6 @@ description: "ParallaxContainerWidget 的自动生成类参考。"
 ## 心智模型
 
 把 `ParallaxContainerWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
-
-## 主要方法
-
-### ParallaxContainerWidget
-`public class ParallaxContainerWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 ParallaxContainerWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ParallaxContainerWidget 实例
-ParallaxContainerWidget parallaxContainerWidget = ...;
-var result = parallaxContainerWidget.ParallaxContainerWidget(context);
-```
 
 ## 使用示例
 

@@ -8,7 +8,7 @@ description: "ProjectProperties 的自动生成类参考。"
 **Module:** psai.Editor
 **Type:** `public class ProjectProperties : ICloneable`
 **Base:** `ICloneable`
-**File:** `bin/TaleWorlds.PSAI/psai.Editor/ProjectProperties.cs`
+**File:** `TaleWorlds.PSAI/Editor/ProjectProperties.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "CustomEngineStructMemberData 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public class CustomEngineStructMemberData : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/CustomEngineStructMemberData.cs`
+**File:** `TaleWorlds.DotNet/CustomEngineStructMemberData.cs`
 
 ## 概述
 

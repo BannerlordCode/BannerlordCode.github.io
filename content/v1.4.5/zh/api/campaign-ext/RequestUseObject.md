@@ -8,7 +8,7 @@ description: "RequestUseObject 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class RequestUseObject : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/RequestUseObject.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/RequestUseObject.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MissionDifficultyModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionDifficultyModel : MBGameModel<MissionDifficultyModel>`
 **Base:** `MBGameModel<MissionDifficultyModel>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/MissionDifficultyModel.cs`
+**File:** `TaleWorlds.MountAndBlade/ComponentInterfaces/MissionDifficultyModel.cs`
 
 ## 概述
 

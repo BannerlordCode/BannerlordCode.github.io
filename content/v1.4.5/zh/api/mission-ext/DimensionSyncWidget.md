@@ -8,7 +8,7 @@ description: "DimensionSyncWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DimensionSyncWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Widgets/DimensionSyncWidget.cs`
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/MountAndBlade/GauntletUI/Widgets/DimensionSyncWidget.cs`
 
 ## 概述
 
@@ -24,7 +24,7 @@ description: "DimensionSyncWidget 的自动生成类参考。"
 |------|-----------|
 | `WidgetToCopyHeightFrom` | `public Widget WidgetToCopyHeightFrom { get; set; }` |
 | `PaddingAmount` | `public int PaddingAmount { get; set; }` |
-| `DimensionToSync` | `public Dimensions DimensionToSync { get; set; }` |
+| `DimensionToSync` | `public DimensionSyncWidget.Dimensions DimensionToSync { get; set; }` |
 
 ## 使用示例
 

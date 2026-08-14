@@ -8,7 +8,7 @@ description: "BannerTableauWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BannerTableauWidget : TextureWidget`
 **Base:** `TextureWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/BannerTableauWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/BannerTableauWidget.cs`
 
 ## 概述
 
@@ -27,6 +27,7 @@ description: "BannerTableauWidget 的自动生成类参考。"
 | `IsNineGrid` | `public bool IsNineGrid { get; set; }` |
 | `UpdatePositionValueManual` | `public Vec2 UpdatePositionValueManual { get; set; }` |
 | `UpdateSizeValueManual` | `public Vec2 UpdateSizeValueManual { get; set; }` |
+| `UpdateRotationValueManualWithMirror` | `public ValueTuple<float, bool> UpdateRotationValueManualWithMirror { get; set; }` |
 | `MeshIndexToUpdate` | `public int MeshIndexToUpdate { get; set; }` |
 
 ## 使用示例

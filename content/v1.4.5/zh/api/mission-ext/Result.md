@@ -8,7 +8,7 @@ description: "Result 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum Result`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/NativeMessageBox.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/NativeMessageBox.cs`
 
 ## 概述
 

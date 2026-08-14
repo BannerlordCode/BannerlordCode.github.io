@@ -8,7 +8,7 @@ description: "BuyCosmeticMessageResult 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class BuyCosmeticMessageResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/BuyCosmeticMessageResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/BuyCosmeticMessageResult.cs`
 
 ## 概述
 

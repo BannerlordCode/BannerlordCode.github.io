@@ -8,7 +8,7 @@ description: "ManagedOptions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ManagedOptions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ManagedOptions.cs`
+**File:** `TaleWorlds.MountAndBlade/ManagedOptions.cs`
 
 ## 概述
 
@@ -20,19 +20,8 @@ description: "ManagedOptions 的自动生成类参考。"
 
 ## 主要方法
 
-### OnManagedOptionChangedDelegate
-`public delegate void OnManagedOptionChangedDelegate(ManagedOptionsType changedManagedOptionsType)`
-
-**用途 / Purpose:** 在 managed option changed delegate 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 ManagedOptions 实例
-ManagedOptions managedOptions = ...;
-managedOptions.OnManagedOptionChangedDelegate(changedManagedOptionsType);
-```
-
 ### GetConfig
-`public static float GetConfig(ManagedOptionsType type)`
+`public static float GetConfig(ManagedOptions.ManagedOptionsType type)`
 
 **用途 / Purpose:** 读取并返回当前对象中 config 的结果。
 
@@ -42,7 +31,7 @@ ManagedOptions.GetConfig(type);
 ```
 
 ### GetDefaultConfig
-`public static float GetDefaultConfig(ManagedOptionsType type)`
+`public static float GetDefaultConfig(ManagedOptions.ManagedOptionsType type)`
 
 **用途 / Purpose:** 读取并返回当前对象中 default config 的结果。
 
@@ -52,7 +41,7 @@ ManagedOptions.GetDefaultConfig(type);
 ```
 
 ### SetConfig
-`public static void SetConfig(ManagedOptionsType type, float value)`
+`public static void SetConfig(ManagedOptions.ManagedOptionsType type, float value)`
 
 **用途 / Purpose:** 为 config 赋新值，并同步更新对象内部状态。
 
@@ -71,12 +60,21 @@ ManagedOptions.SetConfig(type, 0);
 ManagedOptions.SaveConfig();
 ```
 
+### OnManagedOptionChangedDelegate
+`public delegate void OnManagedOptionChangedDelegate(ManagedOptions.ManagedOptionsType changedManagedOptionsType)`
+
+**用途 / Purpose:** 在 managed option changed delegate 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedOptions 实例
+ManagedOptions managedOptions = ...;
+managedOptions.OnManagedOptionChangedDelegate(changedManagedOptionsType);
+```
+
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-ManagedOptions managedOptions = ...;
-managedOptions.OnManagedOptionChangedDelegate(changedManagedOptionsType);
+ManagedOptions.GetConfig(type);
 ```
 
 ## 参见

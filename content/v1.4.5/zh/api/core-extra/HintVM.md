@@ -8,7 +8,7 @@ description: "HintVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class HintVM : TooltipBaseVM`
 **Base:** `TooltipBaseVM`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/HintVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/Information/HintVM.cs`
 
 ## 概述
 

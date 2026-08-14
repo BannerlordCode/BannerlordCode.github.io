@@ -6,9 +6,9 @@ description: "EquipmentTypeVisualBrushWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class EquipmentTypeVisualBrushWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/EquipmentTypeVisualBrushWidget.cs`
+**Type:** `public class EquipmentTypeVisualBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/EquipmentTypeVisualBrushWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "EquipmentTypeVisualBrushWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Type` | `public string Type { get; set; }` |
-
-## 主要方法
-
-### EquipmentTypeVisualBrushWidget
-`public class EquipmentTypeVisualBrushWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 EquipmentTypeVisualBrushWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 EquipmentTypeVisualBrushWidget 实例
-EquipmentTypeVisualBrushWidget equipmentTypeVisualBrushWidget = ...;
-var result = equipmentTypeVisualBrushWidget.EquipmentTypeVisualBrushWidget(context);
-```
 
 ## 使用示例
 

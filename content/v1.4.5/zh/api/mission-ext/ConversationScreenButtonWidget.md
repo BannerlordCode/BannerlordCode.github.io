@@ -6,9 +6,9 @@ description: "ConversationScreenButtonWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class ConversationScreenButtonWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation/ConversationScreenButtonWidget.cs`
+**Type:** `public class ConversationScreenButtonWidget : ButtonWidget`
+**Base:** `ButtonWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Conversation/ConversationScreenButtonWidget.cs`
 
 ## 概述
 
@@ -25,19 +25,6 @@ description: "ConversationScreenButtonWidget 的自动生成类参考。"
 | `AnswerList` | `public ListPanel AnswerList { get; set; }` |
 | `ContinueButton` | `public ButtonWidget ContinueButton { get; set; }` |
 | `IsPersuasionActive` | `public bool IsPersuasionActive { get; set; }` |
-
-## 主要方法
-
-### ConversationScreenButtonWidget
-`public class ConversationScreenButtonWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 ConversationScreenButtonWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ConversationScreenButtonWidget 实例
-ConversationScreenButtonWidget conversationScreenButtonWidget = ...;
-var result = conversationScreenButtonWidget.ConversationScreenButtonWidget(context);
-```
 
 ## 使用示例
 

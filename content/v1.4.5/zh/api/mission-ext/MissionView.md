@@ -28,7 +28,7 @@ description: "MissionView 是连接活动 Mission 与 MissionScreen、输入、�
 - 不要给 `MissionScreen` 或 `Input` 赋值；二者由引擎持有（前者是 internal setter，后者从 scene layer 派生）。
 - 不要把 `SuspendView` 当作 Mission 暂停，也不要在 `OnRemoveBehavior`/任务结束后持有 view。
 
-## 依赖与边界
+## 依赖
 
 ```text
 任务视图工厂

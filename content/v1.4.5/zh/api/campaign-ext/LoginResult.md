@@ -8,7 +8,7 @@ description: "LoginResult 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public sealed class LoginResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/LoginResult.cs`
+**File:** `TaleWorlds.Diamond/LoginResult.cs`
 
 ## 概述
 

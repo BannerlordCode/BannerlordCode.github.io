@@ -8,7 +8,7 @@ description: "MBInvalidParameterException 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MBInvalidParameterException : MBException`
 **Base:** `MBException`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBInvalidParameterException.cs`
+**File:** `TaleWorlds.Core/MBInvalidParameterException.cs`
 
 ## 概述
 

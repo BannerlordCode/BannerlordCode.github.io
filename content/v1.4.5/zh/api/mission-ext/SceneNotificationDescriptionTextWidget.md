@@ -8,7 +8,7 @@ description: "SceneNotificationDescriptionTextWidget 的自动生成类参考。
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SceneNotificationDescriptionTextWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/SceneNotificationDescriptionTextWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/SceneNotificationDescriptionTextWidget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "FormationFilterType 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum FormationFilterType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/FormationFilterType.cs`
+**File:** `TaleWorlds.Core/FormationFilterType.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MBSceneUtilities 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBSceneUtilities`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBSceneUtilities.cs`
+**File:** `TaleWorlds.MountAndBlade/MBSceneUtilities.cs`
 
 ## 概述
 
@@ -58,6 +58,16 @@ MBSceneUtilities.GetHardBoundaryPoints(scene);
 ```csharp
 // 静态调用，不需要实例
 MBSceneUtilities.GetSceneLimitPoints(scene, sceneLimitMin, sceneLimitMax);
+```
+
+### GetDeploymentBoundaries
+`public static MBList<ValueTuple<string, MBList<Vec2>, bool>> GetDeploymentBoundaries(BattleSideEnum battleSide)`
+
+**用途 / Purpose:** 读取并返回当前对象中 deployment boundaries 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBSceneUtilities.GetDeploymentBoundaries(battleSide);
 ```
 
 ### GetAxisAlignedBoundaryRectangle

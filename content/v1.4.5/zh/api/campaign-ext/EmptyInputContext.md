@@ -8,7 +8,7 @@ description: "EmptyInputContext 的自动生成类参考。"
 **Module:** TaleWorlds.InputSystem
 **Type:** `public sealed class EmptyInputContext : IInputContext`
 **Base:** `IInputContext`
-**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/EmptyInputContext.cs`
+**File:** `TaleWorlds.InputSystem/EmptyInputContext.cs`
 
 ## 概述
 

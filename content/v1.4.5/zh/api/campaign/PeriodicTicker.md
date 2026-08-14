@@ -8,7 +8,7 @@ description: "PeriodicTicker 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class PeriodicTicker<T>`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignPeriodicEventManager.cs`
+**File:** `TaleWorlds.CampaignSystem/CampaignPeriodicEventManager.cs`
 
 ## 概述
 

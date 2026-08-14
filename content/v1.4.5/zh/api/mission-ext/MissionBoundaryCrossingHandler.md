@@ -8,7 +8,7 @@ description: "MissionBoundaryCrossingHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionBoundaryCrossingHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionBoundaryCrossingHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionBoundaryCrossingHandler.cs`
 
 ## 概述
 

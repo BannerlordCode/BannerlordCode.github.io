@@ -8,7 +8,7 @@ description: "AliveMessage 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class AliveMessage : RestRequestMessage`
 **Base:** `RestRequestMessage`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/AliveMessage.cs`
+**File:** `TaleWorlds.Diamond/Rest/AliveMessage.cs`
 
 ## 概述
 

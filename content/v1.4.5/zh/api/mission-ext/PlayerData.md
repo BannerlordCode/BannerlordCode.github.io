@@ -8,7 +8,7 @@ description: "PlayerData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerData.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerData.cs`
 
 ## 概述
 
@@ -26,6 +26,7 @@ description: "PlayerData 的自动生成类参考。"
 | `OwnerPlayerId` | `public PlayerId OwnerPlayerId { get; set; }` |
 | `Sigil` | `public string Sigil { get; set; }` |
 | `BodyProperties` | `public BodyProperties BodyProperties { get; set; }` |
+| `ShownBadgeIndex` | `public int ShownBadgeIndex { get; set; }` |
 | `Stats` | `public PlayerStatsBase Stats { get; set; }` |
 | `Race` | `public int Race { get; set; }` |
 | `IsFemale` | `public bool IsFemale { get; set; }` |
@@ -46,6 +47,9 @@ description: "PlayerData 的自动生成类参考。"
 | `ShownBadgeId` | `public string ShownBadgeId { get; set; }` |
 | `Gold` | `public int Gold { get; set; }` |
 | `IsMuted` | `public bool IsMuted { get; set; }` |
+| `Level` | `public int Level { get; }` |
+| `ExperienceToNextLevel` | `public int ExperienceToNextLevel { get; }` |
+| `ExperienceInCurrentLevel` | `public int ExperienceInCurrentLevel { get; }` |
 
 ## 主要方法
 

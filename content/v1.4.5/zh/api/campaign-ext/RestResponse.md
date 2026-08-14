@@ -8,7 +8,7 @@ description: "RestResponse 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public sealed class RestResponse : RestData`
 **Base:** `RestData`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/RestResponse.cs`
+**File:** `TaleWorlds.Diamond/Rest/RestResponse.cs`
 
 ## 概述
 

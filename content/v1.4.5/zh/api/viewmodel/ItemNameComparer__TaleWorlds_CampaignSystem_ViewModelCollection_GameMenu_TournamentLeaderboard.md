@@ -6,9 +6,9 @@ description: "ItemNameComparer 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `public class ItemNameComparer : ItemComparerBase`
-**Base:** `ItemComparerBase`
-**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard/TournamentLeaderboardSortControllerVM.cs`
+**Type:** `public class ItemNameComparer : TournamentLeaderboardSortControllerVM.ItemComparerBase`
+**Base:** `TournamentLeaderboardSortControllerVM.ItemComparerBase`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/TournamentLeaderboard/TournamentLeaderboardSortControllerVM.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "FlagDominationMissionRepresentative 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FlagDominationMissionRepresentative : MissionRepresentativeBase`
 **Base:** `MissionRepresentativeBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionRepresentatives/FlagDominationMissionRepresentative.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionRepresentatives/FlagDominationMissionRepresentative.cs`
 
 ## 概述
 

@@ -1,26 +1,340 @@
 ---
-title: "指南"
-description: "骑马与砍杀2：霸主 v1.4.5 模组开发指南——环境搭建、UI、任务、战役、存档、资源、本地化和常见模式。"
+title: 入门指南 / Getting Started Guide
+description: 快速上手 Bannerlord 模块开发 / Quick start guide for Bannerlord modding
+---
+# 入门指南 / Getting Started Guide
+
+## 心智模型
+
+先把 `入门指南` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
+欢迎来到 Bannerlord 模块开发入门指南。本指南将帮助你搭建开发环境、创建第一个 SubModule 并掌握调试技巧。
+
+## 目录 / Table of Contents
+
+1. [环境搭建 / Environment Setup](#huan-jing-da-jian-environment-setup)
+2. [项目结构 / Project Structure](#xiang-mu-jie-gou-project-structure)
+3. [第一个 SubModule / Your First SubModule](#di-yi-ge-submodule-your-first-submodule)
+4. [调试技巧 / Debugging Tips](#diao-shi-ji-qiao-debugging-tips)
+5. [常见问题 / FAQ](#chang-jian-wen-ti-faq)
+
 ---
 
-# 指南
+## 进阶指南 / Advanced Topics
 
-本节收集面向《骑马与砍杀2：霸主》v1.4.5 的实操性模组开发指南。
+6. [Gauntlet UI 系统](./gauntlet-ui) - 使用 GauntletMovie、GauntletSystem、ScreenManager 创建自定义UI
+7. [任务系统](./mission-system) - Mission、MissionBehavior、Agent、Formation、Team
+8. [战役系统](./campaign-system) - MobileParty、Kingdom、Clan、Settlement
+9. [存档系统](./save-system-guide) - v1.3.15 全新的 SaveSystem 使用指南
+10. [资源管线](./asset-pipeline) - 添加自定义网格、纹理、音效
+11. [本地化](./localization) - MBTextManager 多语言支持
+12. [常见模式](./common-patterns) - Bannerlord modding 最佳实践
+13. [游戏系统概述](./game-systems-overview) - 哪些内容可以自定义
+14. [故障排除](./troubleshooting) - 扩展调试场景
 
-> v1.4.5 的指南仍在整理中。当前 v1.4.5 与 v1.3.15 的工作流基本一致，可先阅读 [v1.3.15 指南](../../../v1.3.15/zh/guide/) 中的详细教程。
+---
 
-## 指南分类
+## 环境搭建 / Environment Setup
 
-- **环境搭建** — 依赖、模块目录结构、加载顺序
-- **Gauntlet UI** — Movie、Widget、ViewModel 与 Prefab 工作流
-- **任务系统** — MissionLogic、Agent/Formation/Team 生命周期
-- **战役系统** — 部队、聚落、王国、Behaviors、Actions
-- **存档系统** — SaveableField/Property、升级迁移
-- **资源管线** — XML、场景、资源
-- **本地化** — 文本字符串、TextProcessor、语言文件
-- **常见模式** — 模组入口点、事件钩子、GameModel 覆盖
-- **故障排除** — 崩溃边界、Native 互操作限制
+### 系统要求 / System Requirements
 
-## 从哪里开始
+| 要求 | 最低配置 | 推荐配置 |
+|------|----------|----------|
+| 操作系统 | Windows 10 | Windows 11 |
+| 内存 | 8GB RAM | 16GB RAM |
+| 硬盘 | 50GB 可用空间 | 100GB SSD |
+| .NET | .NET Framework 4.7.2 | .NET Framework 4.8 |
 
-如果你刚接触霸主模组开发，建议先阅读 [v1.3.15 SDK 总览](/v1.3.15/zh/architecture/sdk-overview/) 和 [模组工作流](/v1.3.15/en/guide/mod-workflow/) 指南；待本节内容补充后再回到此处查看 v1.4.5 的差异。
+### 安装步骤 / Installation Steps
+
+1. **安装 Visual Studio 2022**
+   - 下载 [Visual Studio 2022 Community](https://visualstudio.microsoft.com/downloads/)
+   - 安装时选择 `.NET desktop development` 工作负载
+
+2. **安装 TaleWorlds.Modding SDK**
+   ```bash
+   # 克隆 SDK 仓库
+   git clone https://github.com/BannerlordCoop/modding-sdk.git
+   
+   # 打开解决方案
+   cd modding-sdk
+   .\setup.bat
+   ```
+
+3. **配置游戏路径**
+   - 在 Visual Studio 中打开 `Module Manager`
+   - 设置 `Mount & Blade II Bannerlord` 安装路径
+   - 默认路径: `C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord`
+
+### 验证安装 / Verify Installation
+
+启动游戏，在主菜单选择 `Modules` → 确认你的模块出现在列表中。
+
+---
+
+## 项目结构 / Project Structure
+
+一个标准的 Bannerlord 模块项目结构：
+
+```
+MyModule/
+├── MyModule.dll              # 编译后的模块文件
+├── SubModule.xml             # 模块配置文件 ⭐重要
+├── ModuleData/
+│   └── lang/                 # 语言文件
+│       └── strings.txt
+├── Assets/                   # 资源文件
+│   ├── meshes/              # 模型文件
+│   ├── textures/            # 纹理文件
+│   └── sounds/             # 音效文件
+├── Guis/                    # UI 文件
+│   └── gauntlet/
+└── CSharpScripts/            # C# 脚本（如果使用）
+```
+
+### SubModule.xml 详解
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Module>
+  <Name value="MyModule"/>
+  <Version value="1.0.0"/>
+  <DefaultModule>
+    <Xmls>
+      <XmlNode path="ModuleData/my_config"/>
+    </Xmls>
+  </DefaultModule>
+</Module>
+```
+
+**关键元素：**
+- `<Name>` - 模块显示名称
+- `<Version>` - 模块版本
+- `<Xmls>` - 加载的 XML 配置
+
+---
+
+## 第一个 SubModule / Your First SubModule
+
+### 创建项目
+
+1. 在 Visual Studio 中创建新的 `Class Library (.NET Framework)` 项目
+2. 添加以下 NuGet 包：
+   ```powershell
+   Install-Package TaleWorlds.Core
+   Install-Package TaleWorlds.MountAndBlade
+   Install-Package TaleWorlds.Library
+   ```
+
+### 创建 SubModule 类
+
+```csharp
+using TaleWorlds.MountAndBlade;
+
+namespace MyModule
+{
+    // ⭐ 关键：继承 MBSubModuleBase
+    public class MySubModule : MBSubModuleBase
+    {
+        protected override void OnSubModuleLoad()
+        {
+            base.OnSubModuleLoad();
+            
+            // 模块加载时调用
+            // 用于初始化资源、注册事件等
+        }
+
+        protected override void OnGameStartGame(Game game, GameStarter gameStarter)
+        {
+            base.OnGameStartGame(game, gameStarter);
+            
+            // 游戏开始时调用
+            // 添加行为、初始化游戏逻辑等
+        }
+    }
+}
+```
+
+### 注册 SubModule
+
+修改 `SubModule.xml`：
+
+```xml
+<Module>
+  <Dlls>
+    <DllInfo>
+      <AssemblyFile>MyModule.dll</AssemblyFile>
+      <SubModuleClassType>MyModule.MySubModule</SubModuleClassType>
+    </DllInfo>
+  </Dlls>
+</Module>
+```
+
+## 调试技巧 / Debugging Tips
+
+### 使用断点调试
+
+1. 在 Visual Studio 中打开游戏解决方案
+2. 在目标代码处设置断点 (F9)
+3. 按 `F5` 启动调试
+4. 游戏将在断点处暂停
+
+### 常见调试场景
+
+| 场景 | 方法 |
+|------|------|
+| 模块未加载 | 检查 `SubModule.xml` 路径和类名 |
+| XML 解析错误 | 使用 XML 验证工具检查语法 |
+| 游戏崩溃 | 查看 `rgl_log.txt` 日志 |
+| 资源缺失 | 确认资源路径和文件名大小写 |
+
+### 日志文件位置
+
+```
+C:\Users\<用户名>\Documents\Mount & Blade II Bannerlord\logs\rgl_log.txt
+```
+
+### Module Manager 调试
+
+在游戏中按 `F12` 打开 Module Manager，可以：
+- 查看所有已加载模块
+- 检查模块依赖
+- 诊断加载失败原因
+
+---
+
+## 常见问题 / FAQ
+
+### Q: 模块不显示在列表中？
+
+检查：
+1. `SubModule.xml` 是否在正确位置
+2. DLL 是否已编译
+3. 类名是否与 XML 中匹配
+4. 是否缺少必需的依赖模块
+
+### Q: 游戏启动时报错？
+
+查看 `rgl_log.txt` 获取详细错误信息。常见原因：
+- XML 语法错误
+- 缺少资源文件
+- DLL 依赖缺失
+
+### Q: 如何发布模块？
+
+1. 确保 `SubModule.xml` 中的版本号正确
+2. 压缩整个模块文件夹
+3. 上传到 Mod 论坛或 Steam Workshop
+
+### Q: 支持多人游戏吗？
+
+Bannerlord 原生支持多人。需要：
+- 在 `MultiplayerModule` 中实现 `MPEventReceiver`
+- 同步必要的数据
+
+---
+
+## 下一步 / Next Steps
+
+- 查看 [Mod 开发工作流](./mod-workflow) - 从环境配置到发布的可重复流程
+- 查看 [Mod 作者路线](./modder-journey) - 从目标选择到验证的任务路线
+- 查看 [Gauntlet UI 系统](./gauntlet-ui) - 创建自定义界面
+- 查看 [任务系统](./mission-system) - 自定义战斗和任务
+- 查看 [战役系统](./campaign-system) - 修改世界地图玩法
+- 查看 [存档系统](./save-system-guide) - 确保你的数据正确保存
+- 查看 [API 参考](../api/) 了解可用接口
+- 查看 [XML 参考](../xml-reference/) 学习配置格式
+- 查看 [架构文档](../architecture/) 了解系统设计
+
+---
+
+## 常见问题 / FAQ
+
+### Q: 模块不显示在列表中？
+
+检查：
+1. `SubModule.xml` 是否在正确位置
+2. DLL 是否已编译
+3. 类名是否与 XML 中匹配
+4. 是否缺少必需的依赖模块
+
+### Q: 游戏启动时报错？
+
+查看 `rgl_log.txt` 获取详细错误信息。常见原因：
+- XML 语法错误
+- 缺少资源文件
+- DLL 依赖缺失
+
+### Q: 如何发布模块？
+
+1. 确保 `SubModule.xml` 中的版本号正确
+2. 压缩整个模块文件夹
+3. 上传到 Mod 论坛或 Steam Workshop
+
+### Q: 支持多人游戏吗？
+
+Bannerlord 原生支持多人。需要：
+- 在 `MultiplayerModule` 中实现 `MPEventReceiver`
+- 同步必要的数据
+
+### Q: 如何创建自定义 UI？
+
+使用 Gauntlet UI 系统：
+1. 创建继承 `GauntletMovie` 的类
+2. 在 `OnCreate()` 中定义 UI 结构
+3. 通过 `ScreenManager.PushScreen()` 显示
+
+### Q: 如何添加自定义物品？
+
+两种方式：
+1. **XML 定义**：在 `ModuleData/` 下创建 XML 文件
+2. **代码创建**：使用 `ItemObject.CreateItem()` 动态创建
+
+### Q: 如何让我的修改兼容存档？
+
+使用 TaleWorlds.SaveSystem：
+1. 用 `[SaveableClass]` 标记你的类
+2. 用 `[SaveableField]` 或 `[SaveableProperty]` 标记需要保存的成员
+3. 在 `CampaignGameStarter` 中注册
+
+### Q: v1.3.15 和 v1.3.0 有什么区别？
+
+| 特性 | v1.3.0 | v1.3.15 |
+|------|--------|---------|
+| SaveSystem | 内联实现 | 独立 TaleWorlds.SaveSystem |
+| 异步加载 | 部分支持 | 完整支持 |
+| 新增模块 | 23个 | 47个 (+24) |
+
+新项目推荐使用 v1.3.15。
+
+---
+
+## 相关链接
+
+- [Bannerlord Modding Discord](https://discord.gg/bannerlord)
+- [Official Modding Forum](https://forums.taleworlds.com/)
+
+<!-- BEGIN SECTION INDEX -->
+
+## ↑ 上级导航
+
+- [版本首页](../)
+
+## ↓ 子页面目录
+
+- [Gauntlet UI 系统 / Gauntlet UI System](./gauntlet-ui)
+- [任务系统 / Mission System](./mission-system)
+- [Mod 开发工作流 / Mod Development Workflow](./mod-workflow)
+- [Mod 作者路线 / Modder Journey](./modder-journey)
+- [存档系统指南 / Save System Guide](./save-system-guide)
+- [常见模式 / Common Patterns](./common-patterns)
+- [战役系统 / Campaign System](./campaign-system)
+- [故障排除 / Troubleshooting](./troubleshooting)
+- [本地化 / Localization](./localization)
+- [游戏系统概述 / Game Systems Overview](./game-systems-overview)
+- [资源管线 / Asset Pipeline](./asset-pipeline)
+- [SandBox 扩展实战 / SandBox Extension Example](./sandbox-extension-example)
+- [SandBox 实战 · GameMenu 与对话链路 / SandBox GameMenu & Dialog](./sandbox-gamemenu-dialog)
+- [SandBox 实战 · 自定义数值模型 / SandBox Custom Model](./sandbox-custom-model)
+
+<!-- END SECTION INDEX -->

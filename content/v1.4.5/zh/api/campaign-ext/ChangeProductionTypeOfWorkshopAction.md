@@ -7,7 +7,7 @@ description: "ChangeProductionTypeOfWorkshopAction 的自动生成战役动作�
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** static class
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/ChangeProductionTypeOfWorkshopAction.cs`
+**File:** `TaleWorlds.CampaignSystem/Actions/ChangeProductionTypeOfWorkshopAction.cs`
 
 ChangeProductionTypeOfWorkshopAction 是一组静态方法，用于在战役中以特定原因触发"ChangeProductionTypeOfWorkshop"。modder通过调用其 `Apply*` 方法改变游戏状态（每种原因一个重载）。
 

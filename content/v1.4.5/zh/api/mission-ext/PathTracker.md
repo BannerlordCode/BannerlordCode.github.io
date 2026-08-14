@@ -8,7 +8,7 @@ description: "PathTracker 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PathTracker`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/PathTracker.cs`
+**File:** `TaleWorlds.MountAndBlade/PathTracker.cs`
 
 ## 概述
 
@@ -24,6 +24,9 @@ description: "PathTracker 的自动生成类参考。"
 |------|-----------|
 | `TotalDistanceTraveled` | `public float TotalDistanceTraveled { get; set; }` |
 | `HasChanged` | `public bool HasChanged { get; }` |
+| `IsValid` | `public bool IsValid { get; }` |
+| `HasReachedEnd` | `public bool HasReachedEnd { get; }` |
+| `PathTraveledPercentage` | `public float PathTraveledPercentage { get; }` |
 | `CurrentFrame` | `public MatrixFrame CurrentFrame { get; }` |
 
 ## 主要方法

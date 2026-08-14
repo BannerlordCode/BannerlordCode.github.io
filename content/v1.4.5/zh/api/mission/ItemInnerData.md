@@ -8,7 +8,7 @@ description: "ItemInnerData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal class ItemInnerData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ItemInnerData.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ItemInnerData.cs`
 
 ## 概述
 

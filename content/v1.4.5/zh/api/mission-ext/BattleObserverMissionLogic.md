@@ -8,7 +8,7 @@ description: "BattleObserverMissionLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleObserverMissionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleObserverMissionLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/BattleObserverMissionLogic.cs`
 
 ## 概述
 

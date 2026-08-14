@@ -8,7 +8,7 @@ description: "FireBallista 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FireBallista : Ballista`
 **Base:** `Ballista`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FireBallista.cs`
+**File:** `TaleWorlds.MountAndBlade/FireBallista.cs`
 
 ## 概述
 

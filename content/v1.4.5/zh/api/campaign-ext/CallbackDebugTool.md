@@ -8,7 +8,7 @@ description: "CallbackDebugTool 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public static class CallbackDebugTool`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/CallbackDebugTool.cs`
+**File:** `TaleWorlds.DotNet/CallbackDebugTool.cs`
 
 ## 概述
 

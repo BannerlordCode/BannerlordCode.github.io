@@ -8,7 +8,7 @@ description: "StructDefinition 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class StructDefinition : TypeDefinition`
 **Base:** `TypeDefinition`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/StructDefinition.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/StructDefinition.cs`
 
 ## 概述
 

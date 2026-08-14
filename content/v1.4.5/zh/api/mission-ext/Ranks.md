@@ -8,7 +8,7 @@ description: "Ranks 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class Ranks`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Ranked/Ranks.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Ranked/Ranks.cs`
 
 ## 概述
 

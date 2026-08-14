@@ -8,7 +8,7 @@ description: "MultiplayerTeamSelectComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerTeamSelectComponent : MissionNetwork`
 **Base:** `MissionNetwork`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerTeamSelectComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerTeamSelectComponent.cs`
 
 ## 概述
 
@@ -25,17 +25,6 @@ description: "MultiplayerTeamSelectComponent 的自动生成类参考。"
 | `TeamSelectionEnabled` | `public bool TeamSelectionEnabled { get; }` |
 
 ## 主要方法
-
-### OnSelectingTeamDelegate
-`public delegate void OnSelectingTeamDelegate(List<Team> disableTeams)`
-
-**用途 / Purpose:** 在 selecting team delegate 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
-MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
-multiplayerTeamSelectComponent.OnSelectingTeamDelegate(disableTeams);
-```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
@@ -167,6 +156,17 @@ multiplayerTeamSelectComponent.BalanceTeams();
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
 MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
 multiplayerTeamSelectComponent.AutoAssignTeam(peer);
+```
+
+### OnSelectingTeamDelegate
+`public delegate void OnSelectingTeamDelegate(List<Team> disableTeams)`
+
+**用途 / Purpose:** 在 selecting team delegate 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.OnSelectingTeamDelegate(disableTeams);
 ```
 
 ## 使用示例

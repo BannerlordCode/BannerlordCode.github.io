@@ -8,7 +8,7 @@ description: "MissionMultiplayerGameModeBase 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionMultiplayerGameModeBase : MissionNetwork`
 **Base:** `MissionNetwork`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerGameModeBase.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionMultiplayerGameModeBase.cs`
 
 ## 概述
 
@@ -24,6 +24,7 @@ description: "MissionMultiplayerGameModeBase 的自动生成类参考。"
 |------|-----------|
 | `IsGameModeHidingAllAgentVisuals` | `public abstract bool IsGameModeHidingAllAgentVisuals { get; }` |
 | `IsGameModeUsingOpposingTeams` | `public abstract bool IsGameModeUsingOpposingTeams { get; }` |
+| `IsGameModeAllowChargeDamageOnFriendly` | `public virtual bool IsGameModeAllowChargeDamageOnFriendly { get; }` |
 | `SpawnComponent` | `public SpawnComponent SpawnComponent { get; }` |
 
 ## 主要方法

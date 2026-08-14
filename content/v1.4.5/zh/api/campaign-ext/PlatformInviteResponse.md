@@ -8,7 +8,7 @@ description: "PlatformInviteResponse 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public enum PlatformInviteResponse`
 **Base:** 无
-**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/PlatformInviteResponse.cs`
+**File:** `TaleWorlds.PlatformService/PlatformInviteResponse.cs`
 
 ## 概述
 

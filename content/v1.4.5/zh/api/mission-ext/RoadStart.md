@@ -8,7 +8,7 @@ description: "RoadStart 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RoadStart : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RoadStart.cs`
+**File:** `TaleWorlds.MountAndBlade/RoadStart.cs`
 
 ## 概述
 

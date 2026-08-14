@@ -8,7 +8,7 @@ description: "InquiryElementVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class InquiryElementVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/InquiryElementVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/Information/InquiryElementVM.cs`
 
 ## 概述
 

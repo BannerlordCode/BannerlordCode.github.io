@@ -8,7 +8,7 @@ description: "JobManager 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class JobManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/JobManager.cs`
+**File:** `TaleWorlds.Engine/JobManager.cs`
 
 ## 概述
 

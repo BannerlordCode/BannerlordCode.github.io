@@ -8,7 +8,7 @@ description: "SimpleMountedPlayerMissionController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SimpleMountedPlayerMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/SimpleMountedPlayerMissionController.cs`
+**File:** `TaleWorlds.MountAndBlade/Source/Missions/SimpleMountedPlayerMissionController.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "SimpleMountedPlayerMissionController 的自动生成类参考。"
 把 `SimpleMountedPlayerMissionController` 当作一个 Controller 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
-
-### EarlyStart
-`public override void EarlyStart()`
-
-**用途 / Purpose:** 调用 EarlyStart 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 SimpleMountedPlayerMissionController 实例
-SimpleMountedPlayerMissionController simpleMountedPlayerMissionController = ...;
-simpleMountedPlayerMissionController.EarlyStart();
-```
 
 ### AfterStart
 `public override void AfterStart()`

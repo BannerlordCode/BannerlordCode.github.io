@@ -8,7 +8,7 @@ description: "LinQuick 的自动生成类参考。"
 **Module:** TaleWorlds.LinQuick
 **Type:** `public static class LinQuick`
 **Base:** 无
-**File:** `bin/TaleWorlds.LinQuick/TaleWorlds.LinQuick/LinQuick.cs`
+**File:** `TaleWorlds.LinQuick/LinQuick.cs`
 
 ## 概述
 

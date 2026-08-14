@@ -8,7 +8,7 @@ description: "MultiplayerBallistaSpawner 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerBallistaSpawner : BallistaSpawner`
 **Base:** `BallistaSpawner`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Siege/MultiplayerBallistaSpawner.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Siege/MultiplayerBallistaSpawner.cs`
 
 ## 概述
 

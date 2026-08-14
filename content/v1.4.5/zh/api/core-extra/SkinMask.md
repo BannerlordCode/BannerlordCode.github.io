@@ -8,7 +8,7 @@ description: "SkinMask 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum SkinMask`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SkinMask.cs`
+**File:** `TaleWorlds.Core/SkinMask.cs`
 
 ## 概述
 

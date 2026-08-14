@@ -8,7 +8,7 @@ description: "GetBannerlordIDMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class GetBannerlordIDMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetBannerlordIDMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/GetBannerlordIDMessage.cs`
 
 ## 概述
 

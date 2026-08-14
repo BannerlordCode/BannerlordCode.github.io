@@ -8,7 +8,7 @@ description: "PixelFormatDescriptorFlags 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal enum PixelFormatDescriptorFlags : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/PixelFormatDescriptorFlags.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/Windows/PixelFormatDescriptorFlags.cs`
 
 ## 概述
 

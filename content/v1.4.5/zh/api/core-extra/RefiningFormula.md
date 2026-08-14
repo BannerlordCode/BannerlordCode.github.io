@@ -8,7 +8,7 @@ description: "RefiningFormula 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class RefiningFormula`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/Crafting.cs`
+**File:** `TaleWorlds.Core/Crafting.cs`
 
 ## 概述
 

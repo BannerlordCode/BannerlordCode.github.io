@@ -8,7 +8,7 @@ description: "TextureView 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class TextureView : View`
 **Base:** `View`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/TextureView.cs`
+**File:** `TaleWorlds.Engine/TextureView.cs`
 
 ## 概述
 

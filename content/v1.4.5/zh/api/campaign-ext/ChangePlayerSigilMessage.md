@@ -8,7 +8,7 @@ description: "ChangePlayerSigilMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class ChangePlayerSigilMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/ChangePlayerSigilMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/ChangePlayerSigilMessage.cs`
 
 ## 概述
 

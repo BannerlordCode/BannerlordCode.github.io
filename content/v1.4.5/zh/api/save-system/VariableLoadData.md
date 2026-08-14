@@ -8,7 +8,7 @@ description: "VariableLoadData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal abstract class VariableLoadData`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/VariableLoadData.cs`
+**File:** `TaleWorlds.SaveSystem/Load/VariableLoadData.cs`
 
 ## 概述
 

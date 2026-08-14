@@ -8,7 +8,7 @@ description: "PlatformPlayerJoinedToPlayerSessionMessageResult 的自动生成�
 **Module:** Messages.FromClient
 **Type:** `public class PlatformPlayerJoinedToPlayerSessionMessageResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/PlatformPlayerJoinedToPlayerSessionMessageResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/PlatformPlayerJoinedToPlayerSessionMessageResult.cs`
 
 ## 概述
 

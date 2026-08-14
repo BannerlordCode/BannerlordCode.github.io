@@ -8,7 +8,7 @@ description: "BattleJoinType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum BattleJoinType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BattleJoinType.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/BattleJoinType.cs`
 
 ## 概述
 

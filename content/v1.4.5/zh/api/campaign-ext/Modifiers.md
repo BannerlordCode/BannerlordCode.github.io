@@ -8,7 +8,7 @@ description: "Modifiers 的自动生成类参考。"
 **Module:** TaleWorlds.InputSystem
 **Type:** `public enum Modifiers`
 **Base:** 无
-**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/HotKey.cs`
+**File:** `TaleWorlds.InputSystem/HotKey.cs`
 
 ## 概述
 

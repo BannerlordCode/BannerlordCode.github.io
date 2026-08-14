@@ -8,7 +8,7 @@ description: "CoroutineManager 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public class CoroutineManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/CoroutineManager.cs`
+**File:** `TaleWorlds.Network/CoroutineManager.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "CoroutineManager 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `CurrentTick` | `public int CurrentTick { get; }` |
+| `CoroutineCount` | `public int CoroutineCount { get; }` |
 
 ## 主要方法
 

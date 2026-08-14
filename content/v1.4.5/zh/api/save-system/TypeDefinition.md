@@ -8,7 +8,7 @@ description: "TypeDefinition 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class TypeDefinition : TypeDefinitionBase`
 **Base:** `TypeDefinitionBase`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/TypeDefinition.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/TypeDefinition.cs`
 
 ## 概述
 
@@ -23,8 +23,14 @@ description: "TypeDefinition 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `MemberDefinitions` | `public List<MemberDefinition> MemberDefinitions { get; }` |
+| `InitializationCallbacks` | `public IEnumerable<MethodInfo> InitializationCallbacks { get; }` |
+| `LateInitializationCallbacks` | `public IEnumerable<MethodInfo> LateInitializationCallbacks { get; }` |
+| `Errors` | `public IEnumerable<string> Errors { get; }` |
+| `IsClassDefinition` | `public bool IsClassDefinition { get; }` |
 | `CustomFields` | `public List<CustomField> CustomFields { get; }` |
 | `CollectObjectsMethod` | `public CollectObjectsDelegate CollectObjectsMethod { get; }` |
+| `PropertyDefinitions` | `public Dictionary<MemberTypeId, PropertyDefinition>.ValueCollection PropertyDefinitions { get; }` |
+| `FieldDefinitions` | `public Dictionary<MemberTypeId, FieldDefinition>.ValueCollection FieldDefinitions { get; }` |
 
 ## 主要方法
 

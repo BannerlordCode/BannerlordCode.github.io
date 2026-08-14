@@ -8,7 +8,7 @@ description: "FaceGeneratorStage 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum FaceGeneratorStage`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/FaceGeneratorStage.cs`
+**File:** `TaleWorlds.Core/FaceGeneratorStage.cs`
 
 ## 概述
 

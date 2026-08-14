@@ -8,7 +8,7 @@ description: "AcceptPartyInvitationMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class AcceptPartyInvitationMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/AcceptPartyInvitationMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/AcceptPartyInvitationMessage.cs`
 
 ## 概述
 

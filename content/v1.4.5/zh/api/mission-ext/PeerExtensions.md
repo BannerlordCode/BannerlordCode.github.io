@@ -8,7 +8,7 @@ description: "PeerExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class PeerExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/PeerExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/PeerExtensions.cs`
 
 ## 概述
 

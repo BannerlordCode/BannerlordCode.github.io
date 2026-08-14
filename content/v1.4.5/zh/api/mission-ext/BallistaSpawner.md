@@ -8,7 +8,7 @@ description: "BallistaSpawner 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BallistaSpawner : SpawnerBase`
 **Base:** `SpawnerBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Siege/BallistaSpawner.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Siege/BallistaSpawner.cs`
 
 ## 概述
 

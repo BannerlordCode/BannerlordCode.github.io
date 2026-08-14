@@ -8,7 +8,7 @@ description: "Corners 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct Corners`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Oriented2DArea.cs`
+**File:** `TaleWorlds.Library/Oriented2DArea.cs`
 
 ## 概述
 

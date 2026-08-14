@@ -8,7 +8,7 @@ description: "TextTokenOutput 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal class TextTokenOutput`
 **Base:** 无
-**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextTokenOutput.cs`
+**File:** `TaleWorlds.TwoDimension/TextTokenOutput.cs`
 
 ## 概述
 

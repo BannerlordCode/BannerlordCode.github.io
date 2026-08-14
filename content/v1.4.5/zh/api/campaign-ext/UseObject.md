@@ -8,7 +8,7 @@ description: "UseObject 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class UseObject : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/UseObject.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/UseObject.cs`
 
 ## 概述
 

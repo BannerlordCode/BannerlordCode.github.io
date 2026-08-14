@@ -8,7 +8,7 @@ description: "IBoardGameHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IBoardGameHandler`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions.Handlers/IBoardGameHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/Source/Missions/Handlers/IBoardGameHandler.cs`
 
 ## 概述
 

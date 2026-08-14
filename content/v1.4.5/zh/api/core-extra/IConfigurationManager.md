@@ -8,7 +8,7 @@ description: "IConfigurationManager 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public interface IConfigurationManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/IConfigurationManager.cs`
+**File:** `TaleWorlds.Library/IConfigurationManager.cs`
 
 ## 概述
 

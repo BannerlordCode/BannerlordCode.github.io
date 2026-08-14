@@ -8,7 +8,7 @@ description: "Colors 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class Colors`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Colors.cs`
+**File:** `TaleWorlds.Library/Colors.cs`
 
 ## 概述
 

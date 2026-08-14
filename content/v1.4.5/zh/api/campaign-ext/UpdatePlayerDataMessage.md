@@ -8,7 +8,7 @@ description: "UpdatePlayerDataMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class UpdatePlayerDataMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/UpdatePlayerDataMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/UpdatePlayerDataMessage.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "InventoryHotKeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class InventoryHotKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/InventoryHotKeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/InventoryHotKeyCategory.cs`
 
 ## 概述
 

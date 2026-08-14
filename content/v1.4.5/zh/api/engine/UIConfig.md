@@ -8,7 +8,7 @@ description: "UIConfig 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public static class UIConfig`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/UIConfig.cs`
+**File:** `TaleWorlds.Engine.GauntletUI/UIConfig.cs`
 
 ## 概述
 

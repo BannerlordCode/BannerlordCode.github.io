@@ -8,7 +8,7 @@ description: "MultiplayerBattleInitializationModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerBattleInitializationModel : BattleInitializationModel`
 **Base:** `BattleInitializationModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerBattleInitializationModel.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerBattleInitializationModel.cs`
 
 ## 概述
 

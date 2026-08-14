@@ -8,7 +8,7 @@ description: "IMissionAgentSpawnLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IMissionAgentSpawnLogic : IMissionBehavior`
 **Base:** `IMissionBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMissionAgentSpawnLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/IMissionAgentSpawnLogic.cs`
 
 ## 概述
 

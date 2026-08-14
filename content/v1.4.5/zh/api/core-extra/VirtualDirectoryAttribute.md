@@ -8,7 +8,7 @@ description: "VirtualDirectoryAttribute 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class VirtualDirectoryAttribute : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/VirtualDirectoryAttribute.cs`
+**File:** `TaleWorlds.Library/VirtualDirectoryAttribute.cs`
 
 ## 概述
 

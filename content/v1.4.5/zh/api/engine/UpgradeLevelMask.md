@@ -8,7 +8,7 @@ description: "UpgradeLevelMask 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum UpgradeLevelMask`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/GameEntity.cs`
+**File:** `TaleWorlds.Engine/GameEntity.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ProcessBadgesAndStatsAfterCustomBattleServerFinishMessage 的自�
 **Module:** Messages.FromLobbyServer
 **Type:** `public class ProcessBadgesAndStatsAfterCustomBattleServerFinishMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToLobbyServer/ProcessBadgesAndStatsAfterCustomBattleServerFinishMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToLobbyServer/ProcessBadgesAndStatsAfterCustomBattleServerFinishMessage.cs`
 
 ## 概述
 

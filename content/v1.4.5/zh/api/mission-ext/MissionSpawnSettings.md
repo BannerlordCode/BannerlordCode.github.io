@@ -8,7 +8,7 @@ description: "MissionSpawnSettings 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct MissionSpawnSettings`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionSpawnSettings.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionSpawnSettings.cs`
 
 ## 概述
 
@@ -25,9 +25,9 @@ description: "MissionSpawnSettings 的自动生成类参考。"
 | `GlobalReinforcementInterval` | `public float GlobalReinforcementInterval { get; set; }` |
 | `DefenderAdvantageFactor` | `public float DefenderAdvantageFactor { get; set; }` |
 | `MaximumBattleSideRatio` | `public float MaximumBattleSideRatio { get; set; }` |
-| `InitialTroopsSpawnMethod` | `public InitialSpawnMethod InitialTroopsSpawnMethod { get; }` |
-| `ReinforcementTroopsTimingMethod` | `public ReinforcementTimingMethod ReinforcementTroopsTimingMethod { get; }` |
-| `ReinforcementTroopsSpawnMethod` | `public ReinforcementSpawnMethod ReinforcementTroopsSpawnMethod { get; }` |
+| `InitialTroopsSpawnMethod` | `public MissionSpawnSettings.InitialSpawnMethod InitialTroopsSpawnMethod { get; }` |
+| `ReinforcementTroopsTimingMethod` | `public MissionSpawnSettings.ReinforcementTimingMethod ReinforcementTroopsTimingMethod { get; }` |
+| `ReinforcementTroopsSpawnMethod` | `public MissionSpawnSettings.ReinforcementSpawnMethod ReinforcementTroopsSpawnMethod { get; }` |
 | `ReinforcementBatchPercentage` | `public float ReinforcementBatchPercentage { get; set; }` |
 | `DesiredReinforcementPercentage` | `public float DesiredReinforcementPercentage { get; set; }` |
 | `ReinforcementWavePercentage` | `public float ReinforcementWavePercentage { get; set; }` |

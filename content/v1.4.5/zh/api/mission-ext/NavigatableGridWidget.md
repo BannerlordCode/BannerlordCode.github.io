@@ -8,7 +8,7 @@ description: "NavigatableGridWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class NavigatableGridWidget : GridWidget`
 **Base:** `GridWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/NavigatableGridWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/NavigatableGridWidget.cs`
 
 ## 概述
 

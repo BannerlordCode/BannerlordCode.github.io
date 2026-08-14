@@ -8,7 +8,7 @@ description: "MultiplayerIntermissionState 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum MultiplayerIntermissionState`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerIntermissionState.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerIntermissionState.cs`
 
 ## 概述
 

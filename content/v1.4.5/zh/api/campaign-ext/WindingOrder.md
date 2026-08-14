@@ -8,7 +8,7 @@ description: "WindingOrder 的自动生成类参考。"
 **Module:** (global)
 **Type:** `public enum WindingOrder`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/WindingOrder.cs`
+**File:** `TaleWorlds.Library/WindingOrder.cs`
 
 ## 概述
 

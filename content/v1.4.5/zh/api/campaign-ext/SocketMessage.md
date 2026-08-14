@@ -8,7 +8,7 @@ description: "SocketMessage 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class SocketMessage : MessageContract`
 **Base:** `MessageContract`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Socket/SocketMessage.cs`
+**File:** `TaleWorlds.Diamond/Socket/SocketMessage.cs`
 
 ## 概述
 

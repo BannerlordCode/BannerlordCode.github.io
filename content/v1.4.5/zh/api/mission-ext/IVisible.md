@@ -8,7 +8,7 @@ description: "IVisible 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IVisible`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IVisible.cs`
+**File:** `TaleWorlds.MountAndBlade/IVisible.cs`
 
 ## 概述
 

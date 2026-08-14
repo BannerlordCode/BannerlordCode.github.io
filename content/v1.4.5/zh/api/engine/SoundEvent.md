@@ -8,7 +8,7 @@ description: "SoundEvent 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class SoundEvent`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/SoundEvent.cs`
+**File:** `TaleWorlds.Engine/SoundEvent.cs`
 
 ## 概述
 
@@ -293,17 +293,6 @@ var result = soundEvent.IsPlaying();
 // 先通过子系统 API 拿到 SoundEvent 实例
 SoundEvent soundEvent = ...;
 var result = soundEvent.IsPaused();
-```
-
-### IsStopped
-`public bool IsStopped()`
-
-**用途 / Purpose:** 判断当前对象是否处于 stopped 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 SoundEvent 实例
-SoundEvent soundEvent = ...;
-var result = soundEvent.IsStopped();
 ```
 
 ### CreateEventFromSoundBuffer

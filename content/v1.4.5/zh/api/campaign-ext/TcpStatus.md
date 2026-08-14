@@ -8,7 +8,7 @@ description: "TcpStatus 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `internal enum TcpStatus`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/TcpStatus.cs`
+**File:** `TaleWorlds.Network/TcpStatus.cs`
 
 ## 概述
 

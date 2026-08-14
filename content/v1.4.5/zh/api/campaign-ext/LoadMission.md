@@ -8,7 +8,7 @@ description: "LoadMission 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class LoadMission : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/LoadMission.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/LoadMission.cs`
 
 ## 概述
 

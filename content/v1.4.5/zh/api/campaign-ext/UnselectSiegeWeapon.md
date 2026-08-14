@@ -8,7 +8,7 @@ description: "UnselectSiegeWeapon 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class UnselectSiegeWeapon : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/UnselectSiegeWeapon.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/UnselectSiegeWeapon.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "CreateAgent 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class CreateAgent : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/CreateAgent.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/CreateAgent.cs`
 
 ## 概述
 

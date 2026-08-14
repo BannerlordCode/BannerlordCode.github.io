@@ -8,7 +8,7 @@ description: "IFormationDeploymentPlan 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IFormationDeploymentPlan`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IFormationDeploymentPlan.cs`
+**File:** `TaleWorlds.MountAndBlade/IFormationDeploymentPlan.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "CombatHotKeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class CombatHotKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CombatHotKeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/CombatHotKeyCategory.cs`
 
 ## 概述
 

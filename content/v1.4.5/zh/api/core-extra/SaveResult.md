@@ -8,7 +8,7 @@ description: "SaveResult 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum SaveResult`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SaveResult.cs`
+**File:** `TaleWorlds.Library/SaveResult.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "Mesh 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class Mesh : Resource`
 **Base:** `Resource`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Mesh.cs`
+**File:** `TaleWorlds.Engine/Mesh.cs`
 
 ## 概述
 
@@ -29,6 +29,7 @@ description: "Mesh 的自动生成类参考。"
 | `Color2` | `public uint Color2 { get; set; }` |
 | `Billboard` | `public BillboardType Billboard { get; set; }` |
 | `VisibilityMask` | `public VisibilityMaskFlags VisibilityMask { get; set; }` |
+| `EditDataFaceCornerCount` | `public int EditDataFaceCornerCount { get; }` |
 
 ## 主要方法
 

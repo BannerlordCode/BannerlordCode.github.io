@@ -8,7 +8,7 @@ description: "IFlagRemoved 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IFlagRemoved : IMissionBehavior`
 **Base:** `IMissionBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IFlagRemoved.cs`
+**File:** `TaleWorlds.MountAndBlade/IFlagRemoved.cs`
 
 ## 概述
 

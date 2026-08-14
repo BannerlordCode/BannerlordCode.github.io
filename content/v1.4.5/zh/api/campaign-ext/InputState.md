@@ -8,7 +8,7 @@ description: "InputState 的自动生成类参考。"
 **Module:** TaleWorlds.InputSystem
 **Type:** `public class InputState`
 **Base:** 无
-**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/InputState.cs`
+**File:** `TaleWorlds.InputSystem/InputState.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "InputState 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `NativeResolution` | `public Vec2 NativeResolution { get; set; }` |
 | `MousePositionRanged` | `public Vec2 MousePositionRanged { get; set; }` |
 | `OldMousePositionRanged` | `public Vec2 OldMousePositionRanged { get; }` |
 | `MousePositionChanged` | `public bool MousePositionChanged { get; }` |

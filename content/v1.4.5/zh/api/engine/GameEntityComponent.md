@@ -8,7 +8,7 @@ description: "GameEntityComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public abstract class GameEntityComponent : NativeObject`
 **Base:** `NativeObject`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/GameEntityComponent.cs`
+**File:** `TaleWorlds.Engine/GameEntityComponent.cs`
 
 ## 概述
 

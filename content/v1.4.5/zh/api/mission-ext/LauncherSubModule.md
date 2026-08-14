@@ -8,7 +8,7 @@ description: "LauncherSubModule 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherSubModule : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherSubModule.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/LauncherSubModule.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "LoadResult 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class LoadResult`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/LoadResult.cs`
+**File:** `TaleWorlds.SaveSystem/Load/LoadResult.cs`
 
 ## 概述
 

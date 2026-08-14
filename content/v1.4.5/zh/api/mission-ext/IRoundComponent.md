@@ -8,7 +8,7 @@ description: "IRoundComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IRoundComponent : IMissionBehavior`
 **Base:** `IMissionBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IRoundComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/IRoundComponent.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "CharacterSkillsResolver 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class CharacterSkillsResolver : IConflictResolver`
 **Base:** `IConflictResolver`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core.SaveCompability/CharacterSkillsResolver.cs`
+**File:** `TaleWorlds.Core/SaveCompability/CharacterSkillsResolver.cs`
 
 ## 概述
 

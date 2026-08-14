@@ -8,7 +8,7 @@ description: "MBMissile 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MBMissile`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBMissile.cs`
+**File:** `TaleWorlds.MountAndBlade/MBMissile.cs`
 
 ## 概述
 

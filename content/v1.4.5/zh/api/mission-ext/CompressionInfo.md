@@ -8,7 +8,7 @@ description: "CompressionInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CompressionInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CompressionInfo.cs`
+**File:** `TaleWorlds.MountAndBlade/CompressionInfo.cs`
 
 ## 概述
 
@@ -22,7 +22,7 @@ description: "CompressionInfo 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `FullPrecision` | `public static Float FullPrecision { get; }` |
+| `FullPrecision` | `public static CompressionInfo.Float FullPrecision { get; }` |
 
 ## 主要方法
 

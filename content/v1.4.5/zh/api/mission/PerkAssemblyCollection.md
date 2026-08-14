@@ -8,7 +8,7 @@ description: "PerkAssemblyCollection 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal static class PerkAssemblyCollection`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Network.Gameplay.Perks/PerkAssemblyCollection.cs`
+**File:** `TaleWorlds.MountAndBlade/Network/Gameplay/Perks/PerkAssemblyCollection.cs`
 
 ## 概述
 

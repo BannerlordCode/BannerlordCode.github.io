@@ -8,7 +8,7 @@ description: "MaterialValueOffsetImageWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MaterialValueOffsetImageWidget : ImageWidget`
 **Base:** `ImageWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MaterialValueOffsetImageWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/MaterialValueOffsetImageWidget.cs`
 
 ## 概述
 

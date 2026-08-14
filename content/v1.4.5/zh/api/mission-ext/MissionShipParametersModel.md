@@ -8,7 +8,7 @@ description: "MissionShipParametersModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionShipParametersModel : MBGameModel<MissionShipParametersModel>`
 **Base:** `MBGameModel<MissionShipParametersModel>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/MissionShipParametersModel.cs`
+**File:** `TaleWorlds.MountAndBlade/ComponentInterfaces/MissionShipParametersModel.cs`
 
 ## 概述
 
@@ -21,14 +21,14 @@ description: "MissionShipParametersModel 的自动生成类参考。"
 ## 主要方法
 
 ### CalculateMainDeckCrewSize
-`public abstract int CalculateMainDeckCrewSize(IShipOrigin shipOrigin, Agent formationUnit)`
+`public abstract int CalculateMainDeckCrewSize(IShipOrigin shipOrigin, Agent captain)`
 
 **用途 / Purpose:** 计算main deck crew size的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionShipParametersModel 实例
 MissionShipParametersModel missionShipParametersModel = ...;
-var result = missionShipParametersModel.CalculateMainDeckCrewSize(shipOrigin, formationUnit);
+var result = missionShipParametersModel.CalculateMainDeckCrewSize(shipOrigin, captain);
 ```
 
 ### CalculateWindBonus

@@ -8,7 +8,7 @@ description: "GetPublishedLobbyNewsMessageResult 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class GetPublishedLobbyNewsMessageResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetPublishedLobbyNewsMessageResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/GetPublishedLobbyNewsMessageResult.cs`
 
 ## 概述
 

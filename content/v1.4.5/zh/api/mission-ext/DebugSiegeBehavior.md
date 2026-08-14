@@ -8,7 +8,7 @@ description: "DebugSiegeBehavior 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class DebugSiegeBehavior`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DebugSiegeBehavior.cs`
+**File:** `TaleWorlds.MountAndBlade/DebugSiegeBehavior.cs`
 
 ## 概述
 
@@ -21,19 +21,19 @@ description: "DebugSiegeBehavior 的自动生成类参考。"
 ## 主要方法
 
 ### SiegeDebug
-`public static void SiegeDebug()`
+`public static void SiegeDebug(UsableMachine usableMachine)`
 
 **用途 / Purpose:** 调用 SiegeDebug 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
-DebugSiegeBehavior.SiegeDebug();
+DebugSiegeBehavior.SiegeDebug(usableMachine);
 ```
 
 ## 使用示例
 
 ```csharp
-DebugSiegeBehavior.SiegeDebug();
+DebugSiegeBehavior.SiegeDebug(usableMachine);
 ```
 
 ## 参见

@@ -8,7 +8,7 @@ description: "GameEntity 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class GameEntity : NativeObject`
 **Base:** `NativeObject`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/GameEntity.cs`
+**File:** `TaleWorlds.Engine/GameEntity.cs`
 
 ## 概述
 
@@ -22,11 +22,24 @@ description: "GameEntity 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `Scene` | `public Scene Scene { get; }` |
+| `WeakEntity` | `public WeakGameEntity WeakEntity { get; }` |
 | `Name` | `public string Name { get; set; }` |
 | `EntityFlags` | `public EntityFlags EntityFlags { get; set; }` |
 | `EntityVisibilityFlags` | `public EntityVisibilityFlags EntityVisibilityFlags { get; set; }` |
 | `BodyFlag` | `public BodyFlags BodyFlag { get; set; }` |
+| `PhysicsDescBodyFlag` | `public BodyFlags PhysicsDescBodyFlag { get; }` |
+| `Mass` | `public float Mass { get; }` |
+| `CenterOfMass` | `public Vec3 CenterOfMass { get; }` |
+| `GlobalPosition` | `public Vec3 GlobalPosition { get; }` |
+| `Tags` | `public string Tags { get; }` |
+| `ChildCount` | `public int ChildCount { get; }` |
+| `Parent` | `public GameEntity Parent { get; }` |
 | `Root` | `public GameEntity Root { get; }` |
+| `MultiMeshComponentCount` | `public int MultiMeshComponentCount { get; }` |
+| `ClothSimulatorComponentCount` | `public int ClothSimulatorComponentCount { get; }` |
+| `GlobalBoxMax` | `public Vec3 GlobalBoxMax { get; }` |
+| `GlobalBoxMin` | `public Vec3 GlobalBoxMin { get; }` |
 | `Skeleton` | `public Skeleton Skeleton { get; set; }` |
 
 ## 主要方法
@@ -108,7 +121,7 @@ var result = gameEntity.CheckResources(false, false);
 ```
 
 ### SetMobility
-`public void SetMobility(Mobility mobility)`
+`public void SetMobility(GameEntity.Mobility mobility)`
 
 **用途 / Purpose:** 为 mobility 赋新值，并同步更新对象内部状态。
 
@@ -119,7 +132,7 @@ gameEntity.SetMobility(mobility);
 ```
 
 ### GetMobility
-`public Mobility GetMobility()`
+`public GameEntity.Mobility GetMobility()`
 
 **用途 / Purpose:** 读取并返回当前对象中 mobility 的结果。
 
@@ -454,23 +467,13 @@ gameEntity.CallScriptCallbacks(false);
 ```
 
 ### Instantiate
-`public static GameEntity Instantiate(Scene scene, string prefabName, MatrixFrame frame, bool callScriptCallbacks = true)`
+`public static GameEntity Instantiate(Scene scene, string prefabName, MatrixFrame frame, bool callScriptCallbacks = true, string scriptInclusingTag = "")`
 
 **用途 / Purpose:** 调用 Instantiate 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
-GameEntity.Instantiate(scene, "example", frame, false);
-```
-
-### InstantiateWithRestOffset
-`public static GameEntity InstantiateWithRestOffset(Scene scene, string prefabName, bool createPhysics, MatrixFrame frame, float restOffset, bool callScriptCallbacks = true, string scriptInclusingTag = "")`
-
-**用途 / Purpose:** 调用 InstantiateWithRestOffset 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-GameEntity.InstantiateWithRestOffset(scene, "example", false, frame, 0, false, "example");
+GameEntity.Instantiate(scene, "example", frame, false, "example");
 ```
 
 ### IsGhostObject
@@ -691,7 +694,7 @@ GameEntity.CopyFromPrefab(prefab);
 ```
 
 ### SetUpgradeLevelMask
-`public void SetUpgradeLevelMask(UpgradeLevelMask mask)`
+`public void SetUpgradeLevelMask(GameEntity.UpgradeLevelMask mask)`
 
 **用途 / Purpose:** 为 upgrade level mask 赋新值，并同步更新对象内部状态。
 
@@ -702,7 +705,7 @@ gameEntity.SetUpgradeLevelMask(mask);
 ```
 
 ### GetUpgradeLevelMask
-`public UpgradeLevelMask GetUpgradeLevelMask()`
+`public GameEntity.UpgradeLevelMask GetUpgradeLevelMask()`
 
 **用途 / Purpose:** 读取并返回当前对象中 upgrade level mask 的结果。
 
@@ -713,7 +716,7 @@ var result = gameEntity.GetUpgradeLevelMask();
 ```
 
 ### GetUpgradeLevelMaskCumulative
-`public UpgradeLevelMask GetUpgradeLevelMaskCumulative()`
+`public GameEntity.UpgradeLevelMask GetUpgradeLevelMaskCumulative()`
 
 **用途 / Purpose:** 读取并返回当前对象中 upgrade level mask cumulative 的结果。
 
@@ -1274,7 +1277,7 @@ var result = gameEntity.RemoveMultiMesh(metaMesh);
 ```
 
 ### GetComponentCount
-`public int GetComponentCount(ComponentType componentType)`
+`public int GetComponentCount(GameEntity.ComponentType componentType)`
 
 **用途 / Purpose:** 读取并返回当前对象中 component count 的结果。
 
@@ -1307,7 +1310,7 @@ gameEntity.SetFrameChanged();
 ```
 
 ### GetComponentAtIndex
-`public GameEntityComponent GetComponentAtIndex(int index, ComponentType componentType)`
+`public GameEntityComponent GetComponentAtIndex(int index, GameEntity.ComponentType componentType)`
 
 **用途 / Purpose:** 读取并返回当前对象中 component at index 的结果。
 
@@ -1568,6 +1571,17 @@ var result = gameEntity.GetBoundingBoxRadius();
 // 先通过子系统 API 拿到 GameEntity 实例
 GameEntity gameEntity = ...;
 gameEntity.SetBoundingboxDirty();
+```
+
+### ComputeGlobalPhysicsBoundingBoxMinMax
+`public ValueTuple<Vec3, Vec3> ComputeGlobalPhysicsBoundingBoxMinMax()`
+
+**用途 / Purpose:** 调用 ComputeGlobalPhysicsBoundingBoxMinMax 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameEntity 实例
+GameEntity gameEntity = ...;
+var result = gameEntity.ComputeGlobalPhysicsBoundingBoxMinMax();
 ```
 
 ### SetContourColor

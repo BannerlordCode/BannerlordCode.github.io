@@ -8,7 +8,7 @@ description: "ManagedMeshEditOperations 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class ManagedMeshEditOperations : NativeObject`
 **Base:** `NativeObject`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ManagedMeshEditOperations.cs`
+**File:** `TaleWorlds.Engine/ManagedMeshEditOperations.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "TextProcessingContext 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `public class TextProcessingContext`
 **Base:** 无
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor/TextProcessingContext.cs`
+**File:** `TaleWorlds.Localization/TextProcessor/TextProcessingContext.cs`
 
 ## 概述
 

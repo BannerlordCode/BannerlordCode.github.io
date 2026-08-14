@@ -8,7 +8,7 @@ description: "BattleServerLostMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class BattleServerLostMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/BattleServerLostMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/BattleServerLostMessage.cs`
 
 ## 概述
 

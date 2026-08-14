@@ -8,7 +8,7 @@ description: "HTMLDebugCategory 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum HTMLDebugCategory`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/HTMLDebugCategory.cs`
+**File:** `TaleWorlds.Library/HTMLDebugCategory.cs`
 
 ## 概述
 

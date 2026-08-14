@@ -8,7 +8,7 @@ description: "NavigationTargetSwitcher 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class NavigationTargetSwitcher : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/NavigationTargetSwitcher.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/NavigationTargetSwitcher.cs`
 
 ## 概述
 

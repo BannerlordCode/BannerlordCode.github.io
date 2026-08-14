@@ -8,7 +8,7 @@ description: "IEntityComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface IEntityComponent`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IEntityComponent.cs`
+**File:** `TaleWorlds.Core/IEntityComponent.cs`
 
 ## 概述
 

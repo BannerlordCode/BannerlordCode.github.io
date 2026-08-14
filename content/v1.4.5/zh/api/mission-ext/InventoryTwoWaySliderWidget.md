@@ -8,7 +8,7 @@ description: "InventoryTwoWaySliderWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InventoryTwoWaySliderWidget : TwoWaySliderWidget`
 **Base:** `TwoWaySliderWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryTwoWaySliderWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Inventory/InventoryTwoWaySliderWidget.cs`
 
 ## 概述
 

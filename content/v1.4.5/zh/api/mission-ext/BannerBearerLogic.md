@@ -8,7 +8,7 @@ description: "BannerBearerLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BannerBearerLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BannerBearerLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/BannerBearerLogic.cs`
 
 ## 概述
 
@@ -22,176 +22,19 @@ description: "BannerBearerLogic 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `AgentSpawnLogic` | `public IMissionAgentSpawnLogic AgentSpawnLogic { get; }` |
 | `Formation` | `public Formation Formation { get; }` |
 | `BannerItem` | `public ItemObject BannerItem { get; }` |
-| `AgentSpawnLogic` | `public IMissionAgentSpawnLogic AgentSpawnLogic { get; }` |
+| `HasBanner` | `public bool HasBanner { get; }` |
+| `BannerBearers` | `public List<Agent> BannerBearers { get; }` |
+| `BannersOnGround` | `public List<GameEntity> BannersOnGround { get; }` |
+| `NumberOfBannerBearers` | `public int NumberOfBannerBearers { get; }` |
+| `NumberOfBanners` | `public int NumberOfBanners { get; }` |
+| `BannerSearchDistance` | `public static float BannerSearchDistance { get; }` |
+| `IsOnGround` | `public bool IsOnGround { get; }` |
+| `IsOnAgent` | `public bool IsOnAgent { get; }` |
 
 ## 主要方法
-
-### SetBannerItem
-`public void SetBannerItem(ItemObject bannerItem)`
-
-**用途 / Purpose:** 为 banner item 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 BannerBearerLogic 实例
-BannerBearerLogic bannerBearerLogic = ...;
-bannerBearerLogic.SetBannerItem(bannerItem);
-```
-
-### HasBannerEntity
-`public bool HasBannerEntity(GameEntity bannerEntity)`
-
-**用途 / Purpose:** 判断当前对象是否已经持有 banner entity。
-
-```csharp
-// 先通过子系统 API 拿到 BannerBearerLogic 实例
-BannerBearerLogic bannerBearerLogic = ...;
-var result = bannerBearerLogic.HasBannerEntity(bannerEntity);
-```
-
-### HasBannerOnGround
-`public bool HasBannerOnGround()`
-
-**用途 / Purpose:** 判断当前对象是否已经持有 banner on ground。
-
-```csharp
-// 先通过子系统 API 拿到 BannerBearerLogic 实例
-BannerBearerLogic bannerBearerLogic = ...;
-var result = bannerBearerLogic.HasBannerOnGround();
-```
-
-### HasActiveBannerBearers
-`public bool HasActiveBannerBearers()`
-
-**用途 / Purpose:** 判断当前对象是否已经持有 active banner bearers。
-
-```csharp
-// 先通过子系统 API 拿到 BannerBearerLogic 实例
-BannerBearerLogic bannerBearerLogic = ...;
-var result = bannerBearerLogic.HasActiveBannerBearers();
-```
-
-### IsBannerSearchingAgent
-`public bool IsBannerSearchingAgent(Agent agent)`
-
-**用途 / Purpose:** 判断当前对象是否处于 banner searching agent 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 BannerBearerLogic 实例
-BannerBearerLogic bannerBearerLogic = ...;
-var result = bannerBearerLogic.IsBannerSearchingAgent(agent);
-```
-
-### GetNumberOfActiveBannerBearers
-`public int GetNumberOfActiveBannerBearers()`
-
-**用途 / Purpose:** 读取并返回当前对象中 number of active banner bearers 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 BannerBearerLogic 实例
-BannerBearerLogic bannerBearerLogic = ...;
-var result = bannerBearerLogic.GetNumberOfActiveBannerBearers();
-```
-
-### UpdateAgentStats
-`public void UpdateAgentStats(bool forceUpdate = false)`
-
-**用途 / Purpose:** 重新计算并更新 agent stats 的最新表示。
-
-```csharp
-// 先通过子系统 API 拿到 BannerBearerLogic 实例
-BannerBearerLogic bannerBearerLogic = ...;
-bannerBearerLogic.UpdateAgentStats(false);
-```
-
-### UpdateBannerSearchers
-`public void UpdateBannerSearchers()`
-
-**用途 / Purpose:** 重新计算并更新 banner searchers 的最新表示。
-
-```csharp
-// 先通过子系统 API 拿到 BannerBearerLogic 实例
-BannerBearerLogic bannerBearerLogic = ...;
-bannerBearerLogic.UpdateBannerSearchers();
-```
-
-### UpdateBannerBearersForDeployment
-`public void UpdateBannerBearersForDeployment()`
-
-**用途 / Purpose:** 重新计算并更新 banner bearers for deployment 的最新表示。
-
-```csharp
-// 先通过子系统 API 拿到 BannerBearerLogic 实例
-BannerBearerLogic bannerBearerLogic = ...;
-bannerBearerLogic.UpdateBannerBearersForDeployment();
-```
-
-### AddBannerEntity
-`public void AddBannerEntity(GameEntity entity)`
-
-**用途 / Purpose:** 将 banner entity 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 BannerBearerLogic 实例
-BannerBearerLogic bannerBearerLogic = ...;
-bannerBearerLogic.AddBannerEntity(entity);
-```
-
-### RemoveBannerEntity
-`public void RemoveBannerEntity(WeakGameEntity entity)`
-
-**用途 / Purpose:** 从当前容器或状态中移除 banner entity。
-
-```csharp
-// 先通过子系统 API 拿到 BannerBearerLogic 实例
-BannerBearerLogic bannerBearerLogic = ...;
-bannerBearerLogic.RemoveBannerEntity(entity);
-```
-
-### OnBannerEntityPickedUp
-`public void OnBannerEntityPickedUp(GameEntity entity, Agent agent)`
-
-**用途 / Purpose:** 在 banner entity picked up 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 BannerBearerLogic 实例
-BannerBearerLogic bannerBearerLogic = ...;
-bannerBearerLogic.OnBannerEntityPickedUp(entity, agent);
-```
-
-### OnBannerEntityDropped
-`public void OnBannerEntityDropped(GameEntity entity)`
-
-**用途 / Purpose:** 在 banner entity dropped 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 BannerBearerLogic 实例
-BannerBearerLogic bannerBearerLogic = ...;
-bannerBearerLogic.OnBannerEntityDropped(entity);
-```
-
-### OnBeforeFormationMovementOrderApplied
-`public void OnBeforeFormationMovementOrderApplied(Formation formation, MovementOrder.MovementOrderEnum orderType)`
-
-**用途 / Purpose:** 在 before formation movement order applied 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 BannerBearerLogic 实例
-BannerBearerLogic bannerBearerLogic = ...;
-bannerBearerLogic.OnBeforeFormationMovementOrderApplied(formation, orderType);
-```
-
-### OnAfterArrangementOrderApplied
-`public void OnAfterArrangementOrderApplied(Formation formation, ArrangementOrder.ArrangementOrderEnum orderEnum)`
-
-**用途 / Purpose:** 在 after arrangement order applied 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 BannerBearerLogic 实例
-BannerBearerLogic bannerBearerLogic = ...;
-bannerBearerLogic.OnAfterArrangementOrderApplied(formation, orderEnum);
-```
 
 ### IsFormationBanner
 `public bool IsFormationBanner(Formation formation, SpawnedItemEntity spawnedItem)`
@@ -381,14 +224,14 @@ bannerBearerLogic.UpdateAgent(agent, false);
 ```
 
 ### SpawnBannerBearer
-`public Agent SpawnBannerBearer(IAgentOriginBase troopOrigin, bool isPlayerSide, Formation formation, bool spawnWithHorse, bool isReinforcement, int formationTroopCount, int formationTroopIndex, bool isAlarmed, bool wieldInitialWeapons, Vec3? initialPosition, Vec2? initialDirection, string specialActionSetSuffix = null, bool useTroopClassForSpawn = false)`
+`public Agent SpawnBannerBearer(IAgentOriginBase troopOrigin, bool isPlayerSide, Formation formation, bool spawnWithHorse, bool isReinforcement, int formationTroopCount, int formationTroopIndex, bool isAlarmed, bool wieldInitialWeapons, bool forceDismounted, Vec3? initialPosition, Vec2? initialDirection, string specialActionSetSuffix = null, bool useTroopClassForSpawn = false)`
 
 **用途 / Purpose:** 调用 SpawnBannerBearer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBearerLogic 实例
 BannerBearerLogic bannerBearerLogic = ...;
-var result = bannerBearerLogic.SpawnBannerBearer(troopOrigin, false, formation, false, false, 0, 0, false, false, initialPosition, initialDirection, "example", false);
+var result = bannerBearerLogic.SpawnBannerBearer(troopOrigin, false, formation, false, false, 0, 0, false, false, false, initialPosition, initialDirection, "example", false);
 ```
 
 ### IsBannerItem
@@ -399,6 +242,171 @@ var result = bannerBearerLogic.SpawnBannerBearer(troopOrigin, false, formation, 
 ```csharp
 // 静态调用，不需要实例
 BannerBearerLogic.IsBannerItem(item);
+```
+
+### SetBannerItem
+`public void SetBannerItem(ItemObject bannerItem)`
+
+**用途 / Purpose:** 为 banner item 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBearerLogic 实例
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.SetBannerItem(bannerItem);
+```
+
+### HasBannerEntity
+`public bool HasBannerEntity(GameEntity bannerEntity)`
+
+**用途 / Purpose:** 判断当前对象是否已经持有 banner entity。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBearerLogic 实例
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.HasBannerEntity(bannerEntity);
+```
+
+### HasBannerOnGround
+`public bool HasBannerOnGround()`
+
+**用途 / Purpose:** 判断当前对象是否已经持有 banner on ground。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBearerLogic 实例
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.HasBannerOnGround();
+```
+
+### HasActiveBannerBearers
+`public bool HasActiveBannerBearers()`
+
+**用途 / Purpose:** 判断当前对象是否已经持有 active banner bearers。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBearerLogic 实例
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.HasActiveBannerBearers();
+```
+
+### IsBannerSearchingAgent
+`public bool IsBannerSearchingAgent(Agent agent)`
+
+**用途 / Purpose:** 判断当前对象是否处于 banner searching agent 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBearerLogic 实例
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.IsBannerSearchingAgent(agent);
+```
+
+### GetNumberOfActiveBannerBearers
+`public int GetNumberOfActiveBannerBearers()`
+
+**用途 / Purpose:** 读取并返回当前对象中 number of active banner bearers 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBearerLogic 实例
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.GetNumberOfActiveBannerBearers();
+```
+
+### UpdateAgentStats
+`public void UpdateAgentStats(bool forceUpdate = false)`
+
+**用途 / Purpose:** 重新计算并更新 agent stats 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBearerLogic 实例
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.UpdateAgentStats(false);
+```
+
+### UpdateBannerSearchers
+`public void UpdateBannerSearchers()`
+
+**用途 / Purpose:** 重新计算并更新 banner searchers 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBearerLogic 实例
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.UpdateBannerSearchers();
+```
+
+### UpdateBannerBearersForDeployment
+`public void UpdateBannerBearersForDeployment()`
+
+**用途 / Purpose:** 重新计算并更新 banner bearers for deployment 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBearerLogic 实例
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.UpdateBannerBearersForDeployment();
+```
+
+### AddBannerEntity
+`public void AddBannerEntity(GameEntity entity)`
+
+**用途 / Purpose:** 将 banner entity 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBearerLogic 实例
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.AddBannerEntity(entity);
+```
+
+### RemoveBannerEntity
+`public void RemoveBannerEntity(WeakGameEntity entity)`
+
+**用途 / Purpose:** 从当前容器或状态中移除 banner entity。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBearerLogic 实例
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.RemoveBannerEntity(entity);
+```
+
+### OnBannerEntityPickedUp
+`public void OnBannerEntityPickedUp(GameEntity entity, Agent agent)`
+
+**用途 / Purpose:** 在 banner entity picked up 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBearerLogic 实例
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.OnBannerEntityPickedUp(entity, agent);
+```
+
+### OnBannerEntityDropped
+`public void OnBannerEntityDropped(GameEntity entity)`
+
+**用途 / Purpose:** 在 banner entity dropped 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBearerLogic 实例
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.OnBannerEntityDropped(entity);
+```
+
+### OnBeforeFormationMovementOrderApplied
+`public void OnBeforeFormationMovementOrderApplied(Formation formation, MovementOrder.MovementOrderEnum orderType)`
+
+**用途 / Purpose:** 在 before formation movement order applied 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBearerLogic 实例
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.OnBeforeFormationMovementOrderApplied(formation, orderType);
+```
+
+### OnAfterArrangementOrderApplied
+`public void OnAfterArrangementOrderApplied(Formation formation, ArrangementOrder.ArrangementOrderEnum orderEnum)`
+
+**用途 / Purpose:** 在 after arrangement order applied 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBearerLogic 实例
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.OnAfterArrangementOrderApplied(formation, orderEnum);
 ```
 
 ## 使用示例

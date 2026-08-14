@@ -8,7 +8,7 @@ description: "FloatComparedStateChangerTextWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FloatComparedStateChangerTextWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/FloatComparedStateChangerTextWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/FloatComparedStateChangerTextWidget.cs`
 
 ## 概述
 
@@ -22,7 +22,7 @@ description: "FloatComparedStateChangerTextWidget 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `ComparisonType` | `public ComparisonTypes ComparisonType { get; set; }` |
+| `ComparisonType` | `public FloatComparedStateChangerTextWidget.ComparisonTypes ComparisonType { get; set; }` |
 | `FirstValue` | `public float FirstValue { get; set; }` |
 | `SecondValue` | `public float SecondValue { get; set; }` |
 | `TrueState` | `public string TrueState { get; set; }` |

@@ -8,7 +8,7 @@ description: "ItemModifier 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class ItemModifier : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemModifier.cs`
+**File:** `TaleWorlds.Core/ItemModifier.cs`
 
 ## 概述
 
@@ -49,17 +49,6 @@ description: "ItemModifier 的自动生成类参考。"
 // 先通过子系统 API 拿到 ItemModifier 实例
 ItemModifier itemModifier = ...;
 itemModifier.Deserialize(objectManager, node);
-```
-
-### IsBeneficial
-`public bool IsBeneficial()`
-
-**用途 / Purpose:** 判断当前对象是否处于 beneficial 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 ItemModifier 实例
-ItemModifier itemModifier = ...;
-var result = itemModifier.IsBeneficial();
 ```
 
 ### Equals

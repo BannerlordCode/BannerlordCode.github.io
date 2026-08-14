@@ -8,7 +8,7 @@ description: "MBList 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class MBList<T> : MBReadOnlyList<T>`
 **Base:** `MBReadOnlyList<T>`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBList.cs`
+**File:** `TaleWorlds.Library/MBList.cs`
 
 ## 概述
 

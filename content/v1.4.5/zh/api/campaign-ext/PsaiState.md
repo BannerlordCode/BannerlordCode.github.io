@@ -8,7 +8,7 @@ description: "PsaiState 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `public enum PsaiState`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/PsaiState.cs`
+**File:** `TaleWorlds.PSAI/net/PsaiState.cs`
 
 ## 概述
 

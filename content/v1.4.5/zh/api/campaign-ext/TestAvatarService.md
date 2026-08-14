@@ -8,7 +8,7 @@ description: "TestAvatarService 的自动生成类参考。"
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public class TestAvatarService : IAvatarService`
 **Base:** `IAvatarService`
-**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/TestAvatarService.cs`
+**File:** `TaleWorlds.PlayerServices/PlayerServices/Avatar/TestAvatarService.cs`
 
 ## 概述
 

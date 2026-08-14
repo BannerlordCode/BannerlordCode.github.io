@@ -8,7 +8,7 @@ description: "SceneNotificationCharacter 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `struct SceneNotificationCharacter`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SceneNotificationData.cs`
+**File:** `TaleWorlds.Core/SceneNotificationData.cs`
 
 ## 概述
 

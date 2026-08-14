@@ -8,7 +8,7 @@ description: "MissionLobbyComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionLobbyComponent : MissionNetwork`
 **Base:** `MissionNetwork`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionLobbyComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionLobbyComponent.cs`
 
 ## 概述
 
@@ -22,9 +22,9 @@ description: "MissionLobbyComponent 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `IsInWarmup` | `public bool IsInWarmup { get; set; }` |
+| `IsInWarmup` | `public bool IsInWarmup { get; }` |
 | `MissionType` | `public MultiplayerGameType MissionType { get; }` |
-| `CurrentMultiplayerState` | `public MultiplayerGameState CurrentMultiplayerState { get; }` |
+| `CurrentMultiplayerState` | `public MissionLobbyComponent.MultiplayerGameState CurrentMultiplayerState { get; }` |
 
 ## 主要方法
 

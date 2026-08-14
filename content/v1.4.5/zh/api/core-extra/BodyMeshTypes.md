@@ -8,7 +8,7 @@ description: "BodyMeshTypes 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum BodyMeshTypes`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BodyMeshTypes.cs`
+**File:** `TaleWorlds.MountAndBlade/BodyMeshTypes.cs`
 
 ## 概述
 

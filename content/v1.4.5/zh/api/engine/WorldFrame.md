@@ -8,7 +8,7 @@ description: "WorldFrame 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public struct WorldFrame`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/WorldFrame.cs`
+**File:** `TaleWorlds.Engine/WorldFrame.cs`
 
 ## 概述
 
@@ -18,18 +18,13 @@ description: "WorldFrame 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.Engine` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `IsValid` | `public bool IsValid { get; }` |
+
 ## 主要方法
-
-### WorldFrame
-`public struct WorldFrame(Mat3 rotation, WorldPosition origin)`
-
-**用途 / Purpose:** 调用 WorldFrame 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 WorldFrame 实例
-WorldFrame worldFrame = ...;
-var result = worldFrame.WorldFrame(rotation, origin);
-```
 
 ### ToGroundMatrixFrame
 `public MatrixFrame ToGroundMatrixFrame()`
@@ -69,7 +64,7 @@ var result = worldFrame.ToNavMeshMatrixFrame();
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 WorldFrame worldFrame = ...;
-worldFrame.WorldFrame(rotation, origin);
+worldFrame.ToGroundMatrixFrame();
 ```
 
 ## 参见

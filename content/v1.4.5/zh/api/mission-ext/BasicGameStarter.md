@@ -8,7 +8,7 @@ description: "BasicGameStarter 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BasicGameStarter : IGameStarter`
 **Base:** `IGameStarter`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BasicGameStarter.cs`
+**File:** `TaleWorlds.MountAndBlade/BasicGameStarter.cs`
 
 ## 概述
 

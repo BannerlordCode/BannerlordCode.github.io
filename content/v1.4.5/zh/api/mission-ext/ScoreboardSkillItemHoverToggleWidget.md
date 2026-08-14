@@ -8,7 +8,7 @@ description: "ScoreboardSkillItemHoverToggleWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ScoreboardSkillItemHoverToggleWidget : HoverToggleWidget`
 **Base:** `HoverToggleWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardSkillItemHoverToggleWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Scoreboard/ScoreboardSkillItemHoverToggleWidget.cs`
 
 ## 概述
 

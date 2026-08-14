@@ -8,7 +8,7 @@ description: "IssueState 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal enum IssueState`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/IssueBase.cs`
+**File:** `TaleWorlds.CampaignSystem/Issues/IssueBase.cs`
 
 ## 概述
 

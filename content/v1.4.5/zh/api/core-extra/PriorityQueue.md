@@ -8,7 +8,7 @@ description: "PriorityQueue 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class PriorityQueue<TPriority, TValue> : ICollection<KeyValuePair<TPriority, TValue>>, IEnumerable<KeyValuePair<TPriority, TValue>>, IEnumerable`
 **Base:** `ICollection<KeyValuePair<TPriority`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PriorityQueue.cs`
+**File:** `TaleWorlds.Library/PriorityQueue.cs`
 
 ## 概述
 
@@ -17,6 +17,14 @@ description: "PriorityQueue 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `IsEmpty` | `public bool IsEmpty { get; }` |
+| `Count` | `public int Count { get; }` |
+| `IsReadOnly` | `public bool IsReadOnly { get; }` |
 
 ## 主要方法
 

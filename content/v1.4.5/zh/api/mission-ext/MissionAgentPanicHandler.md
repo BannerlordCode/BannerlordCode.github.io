@@ -8,7 +8,7 @@ description: "MissionAgentPanicHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionAgentPanicHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionAgentPanicHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionAgentPanicHandler.cs`
 
 ## 概述
 

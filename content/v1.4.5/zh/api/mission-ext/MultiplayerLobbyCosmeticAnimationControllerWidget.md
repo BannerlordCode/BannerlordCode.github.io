@@ -8,7 +8,7 @@ description: "MultiplayerLobbyCosmeticAnimationControllerWidget 的自动生成�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyCosmeticAnimationControllerWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyCosmeticAnimationControllerWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Lobby/MultiplayerLobbyCosmeticAnimationControllerWidget.cs`
 
 ## 概述
 

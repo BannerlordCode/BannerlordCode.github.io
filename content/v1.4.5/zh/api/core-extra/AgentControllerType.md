@@ -8,7 +8,7 @@ description: "AgentControllerType 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum AgentControllerType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/AgentControllerType.cs`
+**File:** `TaleWorlds.Core/AgentControllerType.cs`
 
 ## 概述
 

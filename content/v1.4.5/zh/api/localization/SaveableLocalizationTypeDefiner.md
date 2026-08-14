@@ -8,7 +8,7 @@ description: "SaveableLocalizationTypeDefiner 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `public class SaveableLocalizationTypeDefiner : SaveableTypeDefiner`
 **Base:** `SaveableTypeDefiner`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization/SaveableLocalizationTypeDefiner.cs`
+**File:** `TaleWorlds.Localization/SaveableLocalizationTypeDefiner.cs`
 
 ## 概述
 

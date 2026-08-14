@@ -8,7 +8,7 @@ description: "MBWindowManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBWindowManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBWindowManager.cs`
+**File:** `TaleWorlds.MountAndBlade/MBWindowManager.cs`
 
 ## 概述
 

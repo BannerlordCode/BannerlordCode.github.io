@@ -8,7 +8,7 @@ description: "Group 的自动生成类参考。"
 **Module:** psai.Editor
 **Type:** `public class Group : PsaiMusicEntity, ICloneable`
 **Base:** `PsaiMusicEntity`
-**File:** `bin/TaleWorlds.PSAI/psai.Editor/Group.cs`
+**File:** `TaleWorlds.PSAI/Editor/Group.cs`
 
 ## 概述
 

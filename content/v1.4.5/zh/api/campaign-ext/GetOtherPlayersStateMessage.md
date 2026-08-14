@@ -8,7 +8,7 @@ description: "GetOtherPlayersStateMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class GetOtherPlayersStateMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetOtherPlayersStateMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/GetOtherPlayersStateMessage.cs`
 
 ## 概述
 

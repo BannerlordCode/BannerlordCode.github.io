@@ -8,7 +8,7 @@ description: "CraftingStatData 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct CraftingStatData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/CraftingStatData.cs`
+**File:** `TaleWorlds.Core/CraftingStatData.cs`
 
 ## 概述
 
@@ -17,6 +17,12 @@ description: "CraftingStatData 的自动生成类参考。"
 ## 心智模型
 
 把 `CraftingStatData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `IsValid` | `public bool IsValid { get; }` |
 
 ## 使用示例
 

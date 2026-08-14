@@ -8,7 +8,7 @@ description: "ISessionService 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public interface ISessionService`
 **Base:** 无
-**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/ISessionService.cs`
+**File:** `TaleWorlds.PlatformService/ISessionService.cs`
 
 ## 概述
 

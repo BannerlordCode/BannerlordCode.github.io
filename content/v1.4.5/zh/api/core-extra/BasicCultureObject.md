@@ -8,7 +8,7 @@ description: "BasicCultureObject 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class BasicCultureObject : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BasicCultureObject.cs`
+**File:** `TaleWorlds.Core/BasicCultureObject.cs`
 
 ## 概述
 

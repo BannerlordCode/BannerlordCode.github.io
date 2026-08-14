@@ -8,7 +8,7 @@ description: "ApplyOrderWithFormationAndNumber 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class ApplyOrderWithFormationAndNumber : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/ApplyOrderWithFormationAndNumber.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/ApplyOrderWithFormationAndNumber.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ManagedOptionData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class ManagedOptionData : IOptionData`
 **Base:** `IOptionData`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options.ManagedOptions/ManagedOptionData.cs`
+**File:** `TaleWorlds.MountAndBlade/Options/ManagedOptions/ManagedOptionData.cs`
 
 ## 概述
 
@@ -95,6 +95,17 @@ var result = managedOptionData.IsNative();
 // 先通过子系统 API 拿到 ManagedOptionData 实例
 ManagedOptionData managedOptionData = ...;
 var result = managedOptionData.IsAction();
+```
+
+### GetIsDisabledAndReasonID
+`public ValueTuple<string, bool> GetIsDisabledAndReasonID()`
+
+**用途 / Purpose:** 读取并返回当前对象中 is disabled and reason i d 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedOptionData 实例
+ManagedOptionData managedOptionData = ...;
+var result = managedOptionData.GetIsDisabledAndReasonID();
 ```
 
 ## 使用示例

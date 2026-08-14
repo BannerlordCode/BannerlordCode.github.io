@@ -8,7 +8,7 @@ description: "MBLoginErrorCode 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum MBLoginErrorCode`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MBLoginErrorCode.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/MBLoginErrorCode.cs`
 
 ## 概述
 

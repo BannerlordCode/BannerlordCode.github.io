@@ -8,7 +8,7 @@ description: "ShipVisual 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ShipVisual : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/ShipVisual.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/ShipVisual.cs`
 
 ## 概述
 

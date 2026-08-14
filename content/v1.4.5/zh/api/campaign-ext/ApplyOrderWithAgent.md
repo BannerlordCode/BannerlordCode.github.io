@@ -8,7 +8,7 @@ description: "ApplyOrderWithAgent 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class ApplyOrderWithAgent : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/ApplyOrderWithAgent.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/ApplyOrderWithAgent.cs`
 
 ## 概述
 

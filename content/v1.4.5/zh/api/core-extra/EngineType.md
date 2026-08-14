@@ -8,7 +8,7 @@ description: "EngineType 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum EngineType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/EngineType.cs`
+**File:** `TaleWorlds.Library/EngineType.cs`
 
 ## 概述
 

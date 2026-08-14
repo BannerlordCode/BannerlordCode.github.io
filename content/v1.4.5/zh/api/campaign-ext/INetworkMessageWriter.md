@@ -8,7 +8,7 @@ description: "INetworkMessageWriter 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public interface INetworkMessageWriter`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/INetworkMessageWriter.cs`
+**File:** `TaleWorlds.Network/INetworkMessageWriter.cs`
 
 ## 概述
 

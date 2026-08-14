@@ -8,7 +8,7 @@ description: "PartyTroopTupleButtonWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PartyTroopTupleButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyTroopTupleButtonWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Party/PartyTroopTupleButtonWidget.cs`
 
 ## 概述
 
@@ -23,7 +23,7 @@ description: "PartyTroopTupleButtonWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `CharacterID` | `public string CharacterID { get; set; }` |
-| `ScreenWidget` | `public PartyScreenWidget ScreenWidget { get; set; }` |
+| `ScreenWidget` | `public PartyScreenWidget ScreenWidget { get; }` |
 | `IsTupleLeftSide` | `public bool IsTupleLeftSide { get; set; }` |
 | `TransferSlider` | `public InventoryTwoWaySliderWidget TransferSlider { get; set; }` |
 | `IsTransferable` | `public bool IsTransferable { get; set; }` |

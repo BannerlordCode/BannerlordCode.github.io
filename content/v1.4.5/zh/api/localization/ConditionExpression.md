@@ -8,7 +8,7 @@ description: "ConditionExpression 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class ConditionExpression : TextExpression`
 **Base:** `TextExpression`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/ConditionExpression.cs`
+**File:** `TaleWorlds.Localization/Expressions/ConditionExpression.cs`
 
 ## 概述
 

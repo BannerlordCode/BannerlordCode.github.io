@@ -8,7 +8,7 @@ description: "BehaviorHoldHighGround 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorHoldHighGround : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorHoldHighGround.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorHoldHighGround.cs`
 
 ## 概述
 

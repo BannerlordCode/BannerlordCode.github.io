@@ -8,7 +8,7 @@ description: "IMBDelegate 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBDelegate`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBDelegate.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBDelegate.cs`
 
 ## 概述
 

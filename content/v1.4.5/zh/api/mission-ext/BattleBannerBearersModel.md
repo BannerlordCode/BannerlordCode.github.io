@@ -8,7 +8,7 @@ description: "BattleBannerBearersModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class BattleBannerBearersModel : MBGameModel<BattleBannerBearersModel>`
 **Base:** `MBGameModel<BattleBannerBearersModel>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/BattleBannerBearersModel.cs`
+**File:** `TaleWorlds.MountAndBlade/ComponentInterfaces/BattleBannerBearersModel.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MissionOrderHotkeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class MissionOrderHotkeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionOrderHotkeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionOrderHotkeyCategory.cs`
 
 ## 概述
 

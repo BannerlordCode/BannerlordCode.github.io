@@ -8,7 +8,7 @@ description: "FlagDominationSpawnFrameBehavior 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FlagDominationSpawnFrameBehavior : SpawnFrameBehaviorBase`
 **Base:** `SpawnFrameBehaviorBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FlagDominationSpawnFrameBehavior.cs`
+**File:** `TaleWorlds.MountAndBlade/FlagDominationSpawnFrameBehavior.cs`
 
 ## 概述
 

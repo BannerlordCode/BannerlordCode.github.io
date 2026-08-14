@@ -8,7 +8,7 @@ description: "ColorStyle 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum ColorStyle`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Imgui.cs`
+**File:** `TaleWorlds.Engine/Imgui.cs`
 
 ## 概述
 

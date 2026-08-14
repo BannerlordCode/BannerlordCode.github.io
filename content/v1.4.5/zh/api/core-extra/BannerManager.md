@@ -8,7 +8,7 @@ description: "BannerManager 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class BannerManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BannerManager.cs`
+**File:** `TaleWorlds.Core/BannerManager.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "BannerManager 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Instance` | `public static BannerManager Instance { get; }` |
+| `BannerIconGroups` | `public MBReadOnlyList<BannerIconGroup> BannerIconGroups { get; }` |
 | `BaseBackgroundId` | `public int BaseBackgroundId { get; }` |
 
 ## 主要方法

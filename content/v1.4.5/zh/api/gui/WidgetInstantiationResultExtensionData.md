@@ -8,7 +8,7 @@ description: "WidgetInstantiationResultExtensionData 的自动生成类参考。
 **Module:** TaleWorlds.GauntletUI
 **Type:** `internal struct WidgetInstantiationResultExtensionData`
 **Base:** 无
-**File:** `bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/WidgetInstantiationResultExtensionData.cs`
+**File:** `TaleWorlds.GauntletUI.PrefabSystem/WidgetInstantiationResultExtensionData.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ItemPhysicsSoundContainer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ItemPhysicsSoundContainer`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ItemPhysicsSoundContainer.cs`
+**File:** `TaleWorlds.MountAndBlade/ItemPhysicsSoundContainer.cs`
 
 ## 概述
 

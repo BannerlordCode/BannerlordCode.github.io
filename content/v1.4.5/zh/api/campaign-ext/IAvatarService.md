@@ -8,7 +8,7 @@ description: "IAvatarService 的自动生成类参考。"
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public interface IAvatarService`
 **Base:** 无
-**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/IAvatarService.cs`
+**File:** `TaleWorlds.PlayerServices/PlayerServices/Avatar/IAvatarService.cs`
 
 ## 概述
 

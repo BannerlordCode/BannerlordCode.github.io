@@ -8,7 +8,7 @@ description: "ClanCreationFailedMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class ClanCreationFailedMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/ClanCreationFailedMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/ClanCreationFailedMessage.cs`
 
 ## 概述
 

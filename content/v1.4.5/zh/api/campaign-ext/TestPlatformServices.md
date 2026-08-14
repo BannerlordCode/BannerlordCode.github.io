@@ -8,7 +8,7 @@ description: "TestPlatformServices 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class TestPlatformServices : IPlatformServices`
 **Base:** `IPlatformServices`
-**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/TestPlatformServices.cs`
+**File:** `TaleWorlds.PlatformService/TestPlatformServices.cs`
 
 ## 概述
 

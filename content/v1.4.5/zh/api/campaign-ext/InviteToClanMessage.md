@@ -8,7 +8,7 @@ description: "InviteToClanMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class InviteToClanMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/InviteToClanMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/InviteToClanMessage.cs`
 
 ## 概述
 

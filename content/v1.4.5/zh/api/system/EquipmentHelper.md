@@ -71,7 +71,7 @@ if (civilianEquipment != null)
 
 这是对 Hero 当前装备组的实际 mutation。真实 behavior 应在对应的 Campaign 转换时执行，不要在每个 tick 或 UI 刷新时重复调用。
 
-## 依赖与所有权
+## 依赖
 
 - [Hero](../../campaign/Hero) 持有目标装备组：battle、civilian 和 stealth。
 - [Equipment](../../core-extra/Equipment) 提供 `IsStealth`、`IsCivilian`、12 槽索引器和源 `EquipmentElement` 值。

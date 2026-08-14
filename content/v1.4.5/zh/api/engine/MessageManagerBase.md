@@ -8,7 +8,7 @@ description: "MessageManagerBase 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public abstract class MessageManagerBase : DotNetObject`
 **Base:** `DotNetObject`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/MessageManagerBase.cs`
+**File:** `TaleWorlds.Engine/MessageManagerBase.cs`
 
 ## 概述
 

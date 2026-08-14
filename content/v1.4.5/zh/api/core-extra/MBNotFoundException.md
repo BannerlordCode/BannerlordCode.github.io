@@ -8,7 +8,7 @@ description: "MBNotFoundException 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MBNotFoundException : MBException`
 **Base:** `MBException`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBNotFoundException.cs`
+**File:** `TaleWorlds.Core/MBNotFoundException.cs`
 
 ## 概述
 

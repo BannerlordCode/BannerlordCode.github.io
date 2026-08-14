@@ -8,7 +8,7 @@ description: "FaceGenHistory 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class FaceGenHistory`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/FaceGenHistory.cs`
+**File:** `TaleWorlds.Core/FaceGenHistory.cs`
 
 ## 概述
 

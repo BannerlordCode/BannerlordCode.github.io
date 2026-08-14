@@ -8,7 +8,7 @@ description: "IUsable 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IUsable`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IUsable.cs`
+**File:** `TaleWorlds.MountAndBlade/IUsable.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "NativeParallelDriver 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class NativeParallelDriver : IParallelDriver`
 **Base:** `IParallelDriver`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/NativeParallelDriver.cs`
+**File:** `TaleWorlds.Engine/NativeParallelDriver.cs`
 
 ## 概述
 
@@ -40,17 +40,6 @@ nativeParallelDriver.For(0, 0, loopBody, 0);
 // 先通过子系统 API 拿到 NativeParallelDriver 实例
 NativeParallelDriver nativeParallelDriver = ...;
 nativeParallelDriver.ForWithoutRenderThread(0, 0, loopBody, 0);
-```
-
-### ForWithoutRenderThreadDt
-`public void ForWithoutRenderThreadDt(int fromInclusive, int toExclusive, float deltaTime, TWParallel.ParallelForWithDtAuxPredicate loopBody, int grainSize)`
-
-**用途 / Purpose:** 调用 ForWithoutRenderThreadDt 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 NativeParallelDriver 实例
-NativeParallelDriver nativeParallelDriver = ...;
-nativeParallelDriver.ForWithoutRenderThreadDt(0, 0, 0, loopBody, 0);
 ```
 
 ### For

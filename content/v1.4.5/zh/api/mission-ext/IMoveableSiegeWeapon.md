@@ -8,7 +8,7 @@ description: "IMoveableSiegeWeapon 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IMoveableSiegeWeapon`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMoveableSiegeWeapon.cs`
+**File:** `TaleWorlds.MountAndBlade/IMoveableSiegeWeapon.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "OrderOfBattleHotKeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderOfBattleHotKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.GameKeyCategory/OrderOfBattleHotKeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/GameKeyCategory/OrderOfBattleHotKeyCategory.cs`
 
 ## 概述
 

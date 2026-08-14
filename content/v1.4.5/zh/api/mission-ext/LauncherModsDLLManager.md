@@ -8,7 +8,7 @@ description: "LauncherModsDLLManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherModsDLLManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherModsDLLManager.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/LauncherModsDLLManager.cs`
 
 ## 概述
 

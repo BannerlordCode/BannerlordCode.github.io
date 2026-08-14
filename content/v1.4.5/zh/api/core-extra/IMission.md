@@ -8,7 +8,7 @@ description: "IMission 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface IMission`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IMission.cs`
+**File:** `TaleWorlds.Core/IMission.cs`
 
 ## 概述
 

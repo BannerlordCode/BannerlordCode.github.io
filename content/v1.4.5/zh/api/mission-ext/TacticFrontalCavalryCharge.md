@@ -8,7 +8,7 @@ description: "TacticFrontalCavalryCharge 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticFrontalCavalryCharge : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticFrontalCavalryCharge.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticFrontalCavalryCharge.cs`
 
 ## 概述
 

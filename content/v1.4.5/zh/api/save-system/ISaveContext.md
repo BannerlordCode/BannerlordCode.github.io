@@ -8,7 +8,7 @@ description: "ISaveContext 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal interface ISaveContext`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/ISaveContext.cs`
+**File:** `TaleWorlds.SaveSystem/Save/ISaveContext.cs`
 
 ## 概述
 

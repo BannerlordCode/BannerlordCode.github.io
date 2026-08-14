@@ -8,7 +8,7 @@ description: "GetAvailableScenesMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class GetAvailableScenesMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetAvailableScenesMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/GetAvailableScenesMessage.cs`
 
 ## 概述
 

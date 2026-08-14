@@ -8,7 +8,7 @@ description: "ParanthesisExpression 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class ParanthesisExpression : TextExpression`
 **Base:** `TextExpression`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/ParanthesisExpression.cs`
+**File:** `TaleWorlds.Localization/Expressions/ParanthesisExpression.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "RelevantContextType 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum RelevantContextType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SceneNotificationData.cs`
+**File:** `TaleWorlds.Core/SceneNotificationData.cs`
 
 ## 概述
 

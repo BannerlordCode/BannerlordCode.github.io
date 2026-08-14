@@ -8,7 +8,7 @@ description: "Authorize 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public class Authorize : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/Authorize.cs`
+**File:** `TaleWorlds.Network/Authorize.cs`
 
 ## 概述
 

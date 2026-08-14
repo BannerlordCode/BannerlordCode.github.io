@@ -8,7 +8,7 @@ description: "IMBAgent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBAgent`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBAgent.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBAgent.cs`
 
 ## 概述
 

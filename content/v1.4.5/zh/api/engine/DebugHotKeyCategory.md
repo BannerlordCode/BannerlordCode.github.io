@@ -8,7 +8,7 @@ description: "DebugHotKeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class DebugHotKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.InputSystem/DebugHotKeyCategory.cs`
+**File:** `TaleWorlds.Engine/InputSystem/DebugHotKeyCategory.cs`
 
 ## 概述
 

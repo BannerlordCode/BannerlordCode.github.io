@@ -8,7 +8,7 @@ description: "SendVoiceRecord 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class SendVoiceRecord : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/SendVoiceRecord.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/SendVoiceRecord.cs`
 
 ## 概述
 

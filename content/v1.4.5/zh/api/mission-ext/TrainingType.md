@@ -8,7 +8,7 @@ description: "TrainingType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum TrainingType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TutorialArea.cs`
+**File:** `TaleWorlds.MountAndBlade/TutorialArea.cs`
 
 ## 概述
 

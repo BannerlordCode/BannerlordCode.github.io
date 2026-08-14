@@ -8,7 +8,7 @@ description: "TutorialHighlightItemBrushWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TutorialHighlightItemBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial/TutorialHighlightItemBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Tutorial/TutorialHighlightItemBrushWidget.cs`
 
 ## 概述
 
@@ -22,12 +22,12 @@ description: "TutorialHighlightItemBrushWidget 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `IsEnabled` | `public bool IsEnabled { get; }` |
-| `HighlightFrameWidget` | `public TutorialHighlightItemBrushWidget HighlightFrameWidget { get; }` |
 | `CustomSizeSyncTarget` | `public Widget CustomSizeSyncTarget { get; set; }` |
 | `DoNotOverrideWidth` | `public bool DoNotOverrideWidth { get; set; }` |
 | `DoNotOverrideHeight` | `public bool DoNotOverrideHeight { get; set; }` |
 | `IsHighlightEnabled` | `public bool IsHighlightEnabled { get; set; }` |
+| `IsEnabled` | `public bool IsEnabled { get; }` |
+| `HighlightFrameWidget` | `public TutorialHighlightItemBrushWidget HighlightFrameWidget { get; }` |
 
 ## 使用示例
 

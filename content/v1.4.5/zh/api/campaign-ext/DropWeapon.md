@@ -8,7 +8,7 @@ description: "DropWeapon 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class DropWeapon : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/DropWeapon.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/DropWeapon.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "RequestChangeCharacterMessage 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class RequestChangeCharacterMessage : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/RequestChangeCharacterMessage.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/RequestChangeCharacterMessage.cs`
 
 ## 概述
 

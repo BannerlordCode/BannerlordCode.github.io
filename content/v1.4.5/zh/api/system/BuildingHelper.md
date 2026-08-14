@@ -119,7 +119,7 @@ BuildingHelper.BoostBuildingProcessWithGold(nextReserve, town);
 
 两次调用都操作当前 Campaign 状态。队列、默认项目和完成 mutation 应保留在所属 town-management 或 Campaign behavior 的转换阶段。
 
-## 依赖与所有权
+## 依赖
 
 - [Town](../../campaign/Town) 持有 `Buildings`、`BuildingsInProgress`、`Construction`、`BoostBuildingProcess` 以及默认/当前项目关系。
 - [Building](../../campaign/Building) 持有进度、等级、construction cost 和所属 town。

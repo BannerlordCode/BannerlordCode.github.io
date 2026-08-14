@@ -8,7 +8,7 @@ description: "SaveGameFileInfo 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveGameFileInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveGameFileInfo.cs`
+**File:** `TaleWorlds.SaveSystem/SaveGameFileInfo.cs`
 
 ## 概述
 

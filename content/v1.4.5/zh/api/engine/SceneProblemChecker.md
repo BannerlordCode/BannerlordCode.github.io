@@ -8,7 +8,7 @@ description: "SceneProblemChecker 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class SceneProblemChecker`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/SceneProblemChecker.cs`
+**File:** `TaleWorlds.Engine/SceneProblemChecker.cs`
 
 ## 概述
 

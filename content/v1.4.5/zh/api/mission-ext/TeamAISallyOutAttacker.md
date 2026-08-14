@@ -8,7 +8,7 @@ description: "TeamAISallyOutAttacker 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TeamAISallyOutAttacker : TeamAISiegeComponent`
 **Base:** `TeamAISiegeComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TeamAISallyOutAttacker.cs`
+**File:** `TaleWorlds.MountAndBlade/TeamAISallyOutAttacker.cs`
 
 ## 概述
 

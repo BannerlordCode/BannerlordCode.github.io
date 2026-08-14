@@ -8,7 +8,7 @@ description: "TroopTraitsMaskExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public static class TroopTraitsMaskExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TroopTraitsMaskExtensions.cs`
+**File:** `TaleWorlds.Core/TroopTraitsMaskExtensions.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MBFastRandomSelector 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MBFastRandomSelector<T>`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBFastRandomSelector.cs`
+**File:** `TaleWorlds.Core/MBFastRandomSelector.cs`
 
 ## 概述
 
@@ -25,17 +25,6 @@ description: "MBFastRandomSelector 的自动生成类参考。"
 | `RemainingCount` | `public ushort RemainingCount { get; }` |
 
 ## 主要方法
-
-### IndexEntry
-`public struct IndexEntry(ushort index, ushort version)`
-
-**用途 / Purpose:** 调用 IndexEntry 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MBFastRandomSelector 实例
-MBFastRandomSelector mBFastRandomSelector = ...;
-var result = mBFastRandomSelector.IndexEntry(0, 0);
-```
 
 ### Initialize
 `public void Initialize(MBReadOnlyList<T> list)`
@@ -86,7 +75,7 @@ var result = mBFastRandomSelector.SelectRandom(selection, null);
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 MBFastRandomSelector mBFastRandomSelector = ...;
-mBFastRandomSelector.IndexEntry(0, 0);
+mBFastRandomSelector.Initialize(list);
 ```
 
 ## 参见

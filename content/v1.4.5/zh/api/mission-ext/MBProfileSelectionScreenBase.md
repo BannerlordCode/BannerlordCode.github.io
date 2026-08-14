@@ -8,7 +8,7 @@ description: "MBProfileSelectionScreenBase 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBProfileSelectionScreenBase : ScreenBase, IGameStateListener`
 **Base:** `ScreenBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBProfileSelectionScreenBase.cs`
+**File:** `TaleWorlds.MountAndBlade/MBProfileSelectionScreenBase.cs`
 
 ## 概述
 

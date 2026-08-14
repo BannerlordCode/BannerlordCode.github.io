@@ -8,7 +8,7 @@ description: "MissionWeapon 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct MissionWeapon`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionWeapon.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionWeapon.cs`
 
 ## 概述
 
@@ -22,29 +22,27 @@ description: "MissionWeapon 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `Value` | `public MissionWeapon Value { get; }` |
 | `Item` | `public ItemObject Item { get; }` |
 | `ItemModifier` | `public ItemModifier ItemModifier { get; }` |
+| `WeaponsCount` | `public int WeaponsCount { get; }` |
 | `CurrentUsageItem` | `public WeaponComponentData CurrentUsageItem { get; set; }` |
 | `ReloadPhase` | `public short ReloadPhase { get; set; }` |
 | `ReloadPhaseCount` | `public short ReloadPhaseCount { get; }` |
+| `IsReloading` | `public bool IsReloading { get; }` |
 | `Banner` | `public Banner Banner { get; }` |
 | `GlossMultiplier` | `public float GlossMultiplier { get; }` |
+| `RawDataForNetwork` | `public short RawDataForNetwork { get; set; }` |
 | `HitPoints` | `public short HitPoints { get; set; }` |
 | `Amount` | `public short Amount { get; set; }` |
+| `Ammo` | `public short Ammo { get; }` |
+| `AmmoWeapon` | `public MissionWeapon AmmoWeapon { get; }` |
+| `MaxAmmo` | `public short MaxAmmo { get; }` |
+| `ModifiedMaxAmount` | `public short ModifiedMaxAmount { get; }` |
+| `ModifiedMaxHitPoints` | `public short ModifiedMaxHitPoints { get; }` |
+| `IsEmpty` | `public bool IsEmpty { get; }` |
+| `Value` | `public MissionWeapon Value { get; }` |
 
 ## 主要方法
-
-### OnGetWeaponDataDelegate
-`public delegate void OnGetWeaponDataDelegate(ref WeaponData weaponData, MissionWeapon weapon, bool isFemale, Banner banner, bool needBatchedVersion)`
-
-**用途 / Purpose:** 在 get weapon data delegate 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MissionWeapon 实例
-MissionWeapon missionWeapon = ...;
-missionWeapon.OnGetWeaponDataDelegate(weaponData, weapon, false, banner, false);
-```
 
 ### GetModifiedItemName
 `public TextObject GetModifiedItemName()`
@@ -365,17 +363,6 @@ MissionWeapon missionWeapon = ...;
 var result = missionWeapon.HasAnyUsageWithoutWeaponFlag(flags);
 ```
 
-### HasAnyUsageWithItemUsageSetFlags
-`public bool HasAnyUsageWithItemUsageSetFlags(ItemObject.ItemUsageSetFlags flags)`
-
-**用途 / Purpose:** 判断当前对象是否已经持有 any usage with item usage set flags。
-
-```csharp
-// 先通过子系统 API 拿到 MissionWeapon 实例
-MissionWeapon missionWeapon = ...;
-var result = missionWeapon.HasAnyUsageWithItemUsageSetFlags(flags);
-```
-
 ### GatherInformationFromWeapon
 `public void GatherInformationFromWeapon(out bool weaponHasMelee, out bool weaponHasShield, out bool weaponHasPolearm, out bool weaponHasNonConsumableRanged, out bool weaponHasThrown, out WeaponClass rangedAmmoClass)`
 
@@ -519,12 +506,23 @@ MissionWeapon missionWeapon = ...;
 missionWeapon.AddExtraModifiedMaxValue(0);
 ```
 
+### OnGetWeaponDataDelegate
+`public delegate void OnGetWeaponDataDelegate(ref WeaponData weaponData, MissionWeapon weapon, bool isFemale, Banner banner, bool needBatchedVersion)`
+
+**用途 / Purpose:** 在 get weapon data delegate 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionWeapon 实例
+MissionWeapon missionWeapon = ...;
+missionWeapon.OnGetWeaponDataDelegate(weaponData, weapon, false, banner, false);
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 MissionWeapon missionWeapon = ...;
-missionWeapon.OnGetWeaponDataDelegate(weaponData, weapon, false, banner, false);
+missionWeapon.GetModifiedItemName();
 ```
 
 ## 参见

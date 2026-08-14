@@ -8,7 +8,7 @@ description: "StackArray4Int 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct StackArray4Int`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/StackArray.cs`
+**File:** `TaleWorlds.Core/StackArray.cs`
 
 ## 概述
 

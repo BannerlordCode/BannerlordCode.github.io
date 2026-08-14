@@ -6,9 +6,9 @@ description: "MultiplayerEndOfBattleScreenWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class MultiplayerEndOfBattleScreenWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerEndOfBattleScreenWidget.cs`
+**Type:** `public class MultiplayerEndOfBattleScreenWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/MultiplayerEndOfBattleScreenWidget.cs`
 
 ## 概述
 
@@ -24,19 +24,6 @@ description: "MultiplayerEndOfBattleScreenWidget 的自动生成类参考。"
 |------|-----------|
 | `IsShown` | `public bool IsShown { get; set; }` |
 | `FadeInDuration` | `public float FadeInDuration { get; set; }` |
-
-## 主要方法
-
-### MultiplayerEndOfBattleScreenWidget
-`public class MultiplayerEndOfBattleScreenWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 MultiplayerEndOfBattleScreenWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerEndOfBattleScreenWidget 实例
-MultiplayerEndOfBattleScreenWidget multiplayerEndOfBattleScreenWidget = ...;
-var result = multiplayerEndOfBattleScreenWidget.MultiplayerEndOfBattleScreenWidget(context);
-```
 
 ## 使用示例
 

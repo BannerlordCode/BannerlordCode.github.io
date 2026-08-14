@@ -8,7 +8,7 @@ description: "IHighlights 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IHighlights`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IHighlights.cs`
+**File:** `TaleWorlds.Engine/IHighlights.cs`
 
 ## 概述
 

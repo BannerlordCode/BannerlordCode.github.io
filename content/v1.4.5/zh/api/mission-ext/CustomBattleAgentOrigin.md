@@ -8,7 +8,7 @@ description: "CustomBattleAgentOrigin 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleAgentOrigin : IAgentOriginBase`
 **Base:** `IAgentOriginBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleAgentOrigin.cs`
+**File:** `TaleWorlds.MountAndBlade/CustomBattleAgentOrigin.cs`
 
 ## 概述
 
@@ -25,6 +25,12 @@ description: "CustomBattleAgentOrigin 的自动生成类参考。"
 | `CustomBattleCombatant` | `public CustomBattleCombatant CustomBattleCombatant { get; }` |
 | `Troop` | `public BasicCharacterObject Troop { get; }` |
 | `Rank` | `public int Rank { get; }` |
+| `Banner` | `public Banner Banner { get; }` |
+| `IsUnderPlayersCommand` | `public bool IsUnderPlayersCommand { get; }` |
+| `FactionColor` | `public uint FactionColor { get; }` |
+| `FactionColor2` | `public uint FactionColor2 { get; }` |
+| `Seed` | `public int Seed { get; }` |
+| `UniqueSeed` | `public int UniqueSeed { get; }` |
 
 ## 主要方法
 

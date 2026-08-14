@@ -8,7 +8,7 @@ description: "BattleOverMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class BattleOverMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/BattleOverMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/BattleOverMessage.cs`
 
 ## 概述
 

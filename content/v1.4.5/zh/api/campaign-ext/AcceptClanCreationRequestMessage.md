@@ -8,7 +8,7 @@ description: "AcceptClanCreationRequestMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class AcceptClanCreationRequestMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/AcceptClanCreationRequestMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/AcceptClanCreationRequestMessage.cs`
 
 ## 概述
 

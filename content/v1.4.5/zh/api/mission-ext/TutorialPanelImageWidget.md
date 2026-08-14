@@ -8,7 +8,7 @@ description: "TutorialPanelImageWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TutorialPanelImageWidget : ImageWidget`
 **Base:** `ImageWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial/TutorialPanelImageWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Tutorial/TutorialPanelImageWidget.cs`
 
 ## 概述
 

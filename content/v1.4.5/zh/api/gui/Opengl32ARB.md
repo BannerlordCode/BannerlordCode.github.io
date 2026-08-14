@@ -8,7 +8,7 @@ description: "Opengl32ARB 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal static class Opengl32ARB`
 **Base:** 无
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/Opengl32ARB.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/Opengl32ARB.cs`
 
 ## 概述
 
@@ -19,6 +19,56 @@ description: "Opengl32ARB 的自动生成类参考。"
 先从命名空间 `TaleWorlds.TwoDimension.Standalone.Native.OpenGL` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
+
+### LoadContextExtension
+`public static void LoadContextExtension(IntPtr hdc)`
+
+**用途 / Purpose:** 从持久化存储或流中读取 context extension。
+
+```csharp
+// 静态调用，不需要实例
+Opengl32ARB.LoadContextExtension(hdc);
+```
+
+### LoadExtensions
+`public static void LoadExtensions(IntPtr hdc)`
+
+**用途 / Purpose:** 从持久化存储或流中读取 extensions。
+
+```csharp
+// 静态调用，不需要实例
+Opengl32ARB.LoadExtensions(hdc);
+```
+
+### ShaderSource
+`public static void ShaderSource(int shader, string shaderSource)`
+
+**用途 / Purpose:** 调用 ShaderSource 对应的操作。
+
+```csharp
+// 静态调用，不需要实例
+Opengl32ARB.ShaderSource(0, "example");
+```
+
+### GetUniformLocation
+`public static int GetUniformLocation(int program, string parameter)`
+
+**用途 / Purpose:** 读取并返回当前对象中 uniform location 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Opengl32ARB.GetUniformLocation(0, "example");
+```
+
+### UniformMatrix4fv
+`public static void UniformMatrix4fv(int location, int count, bool isTranspose, Matrix4x4 matrix)`
+
+**用途 / Purpose:** 调用 UniformMatrix4fv 对应的操作。
+
+```csharp
+// 静态调用，不需要实例
+Opengl32ARB.UniformMatrix4fv(0, 0, false, matrix);
+```
 
 ### BlendFuncSeparateDelegate
 `public delegate void BlendFuncSeparateDelegate(BlendingSourceFactor srcRGB, BlendingDestinationFactor dstRGB, BlendingSourceFactor srcAlpha, BlendingDestinationFactor dstAlpha)`
@@ -339,62 +389,10 @@ Opengl32ARB opengl32ARB = ...;
 var result = opengl32ARB.wglCreateContextAttribsDelegate(hDC, hShareContext, 0);
 ```
 
-### LoadContextExtension
-`public static void LoadContextExtension(IntPtr hdc)`
-
-**用途 / Purpose:** 从持久化存储或流中读取 context extension。
-
-```csharp
-// 静态调用，不需要实例
-Opengl32ARB.LoadContextExtension(hdc);
-```
-
-### LoadExtensions
-`public static void LoadExtensions(IntPtr hdc)`
-
-**用途 / Purpose:** 从持久化存储或流中读取 extensions。
-
-```csharp
-// 静态调用，不需要实例
-Opengl32ARB.LoadExtensions(hdc);
-```
-
-### ShaderSource
-`public static void ShaderSource(int shader, string shaderSource)`
-
-**用途 / Purpose:** 调用 ShaderSource 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-Opengl32ARB.ShaderSource(0, "example");
-```
-
-### GetUniformLocation
-`public static int GetUniformLocation(int program, string parameter)`
-
-**用途 / Purpose:** 读取并返回当前对象中 uniform location 的结果。
-
-```csharp
-// 静态调用，不需要实例
-Opengl32ARB.GetUniformLocation(0, "example");
-```
-
-### UniformMatrix4fv
-`public static void UniformMatrix4fv(int location, int count, bool isTranspose, in Matrix4x4 matrix)`
-
-**用途 / Purpose:** 调用 UniformMatrix4fv 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-Opengl32ARB.UniformMatrix4fv(0, 0, false, matrix);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-Opengl32ARB opengl32ARB = ...;
-opengl32ARB.BlendFuncSeparateDelegate(srcRGB, dstRGB, srcAlpha, dstAlpha);
+Opengl32ARB.LoadContextExtension(hdc);
 ```
 
 ## 参见

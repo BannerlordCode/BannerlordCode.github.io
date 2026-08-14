@@ -8,7 +8,7 @@ description: "PropertyChangedWithUIntValueEventArgs 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct PropertyChangedWithUIntValueEventArgs`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithUIntValueEventArgs.cs`
+**File:** `TaleWorlds.Library/PropertyChangedWithUIntValueEventArgs.cs`
 
 ## 概述
 
@@ -25,25 +25,11 @@ description: "PropertyChangedWithUIntValueEventArgs 的自动生成类参考。"
 | `PropertyName` | `public string PropertyName { get; }` |
 | `Value` | `public uint Value { get; }` |
 
-## 主要方法
-
-### PropertyChangedWithUIntValueEventArgs
-`public struct PropertyChangedWithUIntValueEventArgs(string propertyName, uint value)`
-
-**用途 / Purpose:** 调用 PropertyChangedWithUIntValueEventArgs 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 PropertyChangedWithUIntValueEventArgs 实例
-PropertyChangedWithUIntValueEventArgs propertyChangedWithUIntValueEventArgs = ...;
-var result = propertyChangedWithUIntValueEventArgs.PropertyChangedWithUIntValueEventArgs("example", 0);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-PropertyChangedWithUIntValueEventArgs propertyChangedWithUIntValueEventArgs = ...;
-propertyChangedWithUIntValueEventArgs.PropertyChangedWithUIntValueEventArgs("example", 0);
+// 从对应子系统 API 获取实例
+PropertyChangedWithUIntValueEventArgs instance = ...;
 ```
 
 ## 参见

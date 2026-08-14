@@ -8,7 +8,7 @@ description: "SessionCredentials 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public sealed class SessionCredentials`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/SessionCredentials.cs`
+**File:** `TaleWorlds.Diamond/SessionCredentials.cs`
 
 ## 概述
 

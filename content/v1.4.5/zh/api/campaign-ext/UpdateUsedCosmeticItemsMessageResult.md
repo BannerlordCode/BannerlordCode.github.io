@@ -8,7 +8,7 @@ description: "UpdateUsedCosmeticItemsMessageResult 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class UpdateUsedCosmeticItemsMessageResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/UpdateUsedCosmeticItemsMessageResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/UpdateUsedCosmeticItemsMessageResult.cs`
 
 ## 概述
 

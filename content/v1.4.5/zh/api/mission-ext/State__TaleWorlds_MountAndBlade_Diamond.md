@@ -8,7 +8,7 @@ description: "State 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum State`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/CustomBattleServer.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/CustomBattleServer.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "GameText 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class GameText`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/GameText.cs`
+**File:** `TaleWorlds.Core/GameText.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "GameText 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Id` | `public string Id { get; }` |
+| `Variations` | `public IEnumerable<GameText.GameTextVariation> Variations { get; }` |
 | `DefaultText` | `public TextObject DefaultText { get; }` |
 
 ## 主要方法

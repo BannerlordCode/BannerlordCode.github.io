@@ -8,7 +8,7 @@ description: "DeploymentHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class DeploymentHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DeploymentHandler.cs`
+**File:** `TaleWorlds.MountAndBlade/DeploymentHandler.cs`
 
 ## 概述
 
@@ -17,6 +17,12 @@ description: "DeploymentHandler 的自动生成类参考。"
 ## 心智模型
 
 把 `DeploymentHandler` 当作一个 Handler 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `PlayerTeam` | `public Team PlayerTeam { get; }` |
 
 ## 主要方法
 
@@ -117,16 +123,6 @@ deploymentHandler.FinishDeployment();
 // 先通过子系统 API 拿到 DeploymentHandler 实例
 DeploymentHandler deploymentHandler = ...;
 deploymentHandler.InitializeDeploymentPoints();
-```
-
-### OrderController_OnOrderIssued_Aux
-`public static void OrderController_OnOrderIssued_Aux(OrderType orderType, MBReadOnlyList<Formation> appliedFormations, OrderController orderController = null, params object delegateParams)`
-
-**用途 / Purpose:** 调用 OrderController_OnOrderIssued_Aux 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-DeploymentHandler.OrderController_OnOrderIssued_Aux(orderType, appliedFormations, null, delegateParams);
 ```
 
 ## 使用示例

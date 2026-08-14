@@ -8,7 +8,7 @@ description: "RegisterCustomGameResult 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class RegisterCustomGameResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/RegisterCustomGameResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/RegisterCustomGameResult.cs`
 
 ## 概述
 

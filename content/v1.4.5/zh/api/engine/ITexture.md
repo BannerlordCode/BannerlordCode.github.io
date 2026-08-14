@@ -8,7 +8,7 @@ description: "ITexture 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface ITexture`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ITexture.cs`
+**File:** `TaleWorlds.Engine/ITexture.cs`
 
 ## 概述
 

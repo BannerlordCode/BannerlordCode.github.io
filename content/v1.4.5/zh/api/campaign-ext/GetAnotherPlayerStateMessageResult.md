@@ -8,7 +8,7 @@ description: "GetAnotherPlayerStateMessageResult 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class GetAnotherPlayerStateMessageResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetAnotherPlayerStateMessageResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/GetAnotherPlayerStateMessageResult.cs`
 
 ## 概述
 

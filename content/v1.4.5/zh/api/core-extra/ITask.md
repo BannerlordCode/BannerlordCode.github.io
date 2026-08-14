@@ -8,7 +8,7 @@ description: "ITask 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public interface ITask`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ITask.cs`
+**File:** `TaleWorlds.Library/ITask.cs`
 
 ## 概述
 

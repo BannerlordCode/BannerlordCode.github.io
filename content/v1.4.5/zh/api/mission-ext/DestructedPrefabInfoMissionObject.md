@@ -8,7 +8,7 @@ description: "DestructedPrefabInfoMissionObject 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DestructedPrefabInfoMissionObject : MissionObject`
 **Base:** `MissionObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DestructedPrefabInfoMissionObject.cs`
+**File:** `TaleWorlds.MountAndBlade/DestructedPrefabInfoMissionObject.cs`
 
 ## 概述
 

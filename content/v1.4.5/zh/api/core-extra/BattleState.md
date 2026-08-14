@@ -8,7 +8,7 @@ description: "BattleState 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum BattleState`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BattleState.cs`
+**File:** `TaleWorlds.Core/BattleState.cs`
 
 ## 概述
 

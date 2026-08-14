@@ -8,7 +8,7 @@ description: "SiegeTowerAI 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class SiegeTowerAI : UsableMachineAIBase`
 **Base:** `UsableMachineAIBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeTowerAI.cs`
+**File:** `TaleWorlds.MountAndBlade/SiegeTowerAI.cs`
 
 ## 概述
 

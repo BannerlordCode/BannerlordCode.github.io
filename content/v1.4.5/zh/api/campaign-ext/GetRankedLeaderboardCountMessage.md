@@ -8,7 +8,7 @@ description: "GetRankedLeaderboardCountMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class GetRankedLeaderboardCountMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetRankedLeaderboardCountMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/GetRankedLeaderboardCountMessage.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ApplicationInterfaceBase 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal class ApplicationInterfaceBase : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ApplicationInterfaceBase.cs`
+**File:** `TaleWorlds.Engine/ApplicationInterfaceBase.cs`
 
 ## 概述
 

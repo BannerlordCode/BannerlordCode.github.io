@@ -8,7 +8,7 @@ description: "BehaviorProtectFlank 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorProtectFlank : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorProtectFlank.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorProtectFlank.cs`
 
 ## 概述
 

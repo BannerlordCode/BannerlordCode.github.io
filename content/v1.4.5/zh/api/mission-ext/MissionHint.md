@@ -8,7 +8,7 @@ description: "MissionHint 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionHint`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Hints/MissionHint.cs`
+**File:** `TaleWorlds.MountAndBlade/Missions/Hints/MissionHint.cs`
 
 ## 概述
 

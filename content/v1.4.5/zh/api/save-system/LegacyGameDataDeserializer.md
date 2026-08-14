@@ -8,7 +8,7 @@ description: "LegacyGameDataDeserializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public static class LegacyGameDataDeserializer`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/LegacyGameDataDeserializer.cs`
+**File:** `TaleWorlds.SaveSystem/LegacyGameDataDeserializer.cs`
 
 ## 概述
 

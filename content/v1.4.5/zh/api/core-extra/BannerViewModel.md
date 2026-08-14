@@ -8,7 +8,7 @@ description: "BannerViewModel 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class BannerViewModel : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.BannerEditor/BannerViewModel.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/BannerEditor/BannerViewModel.cs`
 
 ## 概述
 

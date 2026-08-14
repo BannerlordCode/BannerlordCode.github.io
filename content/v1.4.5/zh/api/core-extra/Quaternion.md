@@ -8,7 +8,7 @@ description: "Quaternion 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct Quaternion`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Quaternion.cs`
+**File:** `TaleWorlds.Library/Quaternion.cs`
 
 ## 概述
 
@@ -22,21 +22,12 @@ description: "Quaternion 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `this` | `public float this { get; set; }` |
+| `this` | `public float this { get; }` |
 | `IsIdentity` | `public bool IsIdentity { get; }` |
+| `IsUnit` | `public bool IsUnit { get; }` |
+| `Identity` | `public static Quaternion Identity { get; }` |
 
 ## 主要方法
-
-### Quaternion
-`public struct Quaternion(float x, float y, float z, float w)`
-
-**用途 / Purpose:** 调用 Quaternion 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Quaternion 实例
-Quaternion quaternion = ...;
-var result = quaternion.Quaternion(0, 0, 0, 0);
-```
 
 ### GetHashCode
 `public override int GetHashCode()`
@@ -320,7 +311,7 @@ var result = quaternion.Inverse();
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 Quaternion quaternion = ...;
-quaternion.Quaternion(0, 0, 0, 0);
+quaternion.GetHashCode();
 ```
 
 ## 参见

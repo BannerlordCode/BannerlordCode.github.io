@@ -8,7 +8,7 @@ description: "CombatSoundContainer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class CombatSoundContainer`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CombatSoundContainer.cs`
+**File:** `TaleWorlds.MountAndBlade/CombatSoundContainer.cs`
 
 ## 概述
 

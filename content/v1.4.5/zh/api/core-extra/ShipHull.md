@@ -8,7 +8,7 @@ description: "ShipHull 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class ShipHull : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ShipHull.cs`
+**File:** `TaleWorlds.Core/ShipHull.cs`
 
 ## 概述
 
@@ -24,6 +24,8 @@ description: "ShipHull 的自动生成类参考。"
 |------|-----------|
 | `Name` | `public TextObject Name { get; }` |
 | `Description` | `public TextObject Description { get; }` |
+| `EncyclopediaLink` | `public string EncyclopediaLink { get; }` |
+| `EncyclopediaLinkWithName` | `public TextObject EncyclopediaLinkWithName { get; }` |
 | `BaseSpeed` | `public float BaseSpeed { get; }` |
 | `Value` | `public int Value { get; }` |
 | `HasHold` | `public bool HasHold { get; }` |
@@ -31,7 +33,7 @@ description: "ShipHull 的自动生成类参考。"
 | `CanEquipFigurehead` | `public bool CanEquipFigurehead { get; }` |
 | `ProductionBuildWeight` | `public float ProductionBuildWeight { get; }` |
 | `SeaWorthiness` | `public int SeaWorthiness { get; }` |
-| `Type` | `public ShipType Type { get; }` |
+| `Type` | `public ShipHull.ShipType Type { get; }` |
 | `IsTradeShip` | `public bool IsTradeShip { get; }` |
 | `MissionShipObjectId` | `public string MissionShipObjectId { get; }` |
 | `DefaultFormationGroup` | `public int DefaultFormationGroup { get; }` |

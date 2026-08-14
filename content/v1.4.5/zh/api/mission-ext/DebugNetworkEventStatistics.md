@@ -8,7 +8,7 @@ description: "DebugNetworkEventStatistics 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class DebugNetworkEventStatistics`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Network/DebugNetworkEventStatistics.cs`
+**File:** `TaleWorlds.MountAndBlade/Network/DebugNetworkEventStatistics.cs`
 
 ## 概述
 
@@ -22,43 +22,11 @@ description: "DebugNetworkEventStatistics 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `SamplesPerSecond` | `public static int SamplesPerSecond { get; }` |
+| `SamplesPerSecond` | `public static int SamplesPerSecond { get; set; }` |
 | `IsActive` | `public static bool IsActive { get; }` |
+| `HasData` | `public bool HasData { get; }` |
 
 ## 主要方法
-
-### Equals
-`public override bool Equals(object obj)`
-
-**用途 / Purpose:** 比较当前对象与传入实例是否相等。
-
-```csharp
-// 先通过子系统 API 拿到 DebugNetworkEventStatistics 实例
-DebugNetworkEventStatistics debugNetworkEventStatistics = ...;
-var result = debugNetworkEventStatistics.Equals(obj);
-```
-
-### GetHashCode
-`public override int GetHashCode()`
-
-**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
-
-```csharp
-// 先通过子系统 API 拿到 DebugNetworkEventStatistics 实例
-DebugNetworkEventStatistics debugNetworkEventStatistics = ...;
-var result = debugNetworkEventStatistics.GetHashCode();
-```
-
-### CompareTo
-`public int CompareTo(PerEventData other)`
-
-**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
-
-```csharp
-// 先通过子系统 API 拿到 DebugNetworkEventStatistics 实例
-DebugNetworkEventStatistics debugNetworkEventStatistics = ...;
-var result = debugNetworkEventStatistics.CompareTo(other);
-```
 
 ### OpenExternalMonitor
 `public static void OpenExternalMonitor()`
@@ -170,12 +138,43 @@ DebugNetworkEventStatistics.ControlDumpReplicationData();
 DebugNetworkEventStatistics.EndTick(0);
 ```
 
+### Equals
+`public override bool Equals(object obj)`
+
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 DebugNetworkEventStatistics 实例
+DebugNetworkEventStatistics debugNetworkEventStatistics = ...;
+var result = debugNetworkEventStatistics.Equals(obj);
+```
+
+### GetHashCode
+`public override int GetHashCode()`
+
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 DebugNetworkEventStatistics 实例
+DebugNetworkEventStatistics debugNetworkEventStatistics = ...;
+var result = debugNetworkEventStatistics.GetHashCode();
+```
+
+### CompareTo
+`public int CompareTo(DebugNetworkEventStatistics.PerEventData other)`
+
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+
+```csharp
+// 先通过子系统 API 拿到 DebugNetworkEventStatistics 实例
+DebugNetworkEventStatistics debugNetworkEventStatistics = ...;
+var result = debugNetworkEventStatistics.CompareTo(other);
+```
+
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-DebugNetworkEventStatistics debugNetworkEventStatistics = ...;
-debugNetworkEventStatistics.Equals(obj);
+DebugNetworkEventStatistics.OpenExternalMonitor();
 ```
 
 ## 参见

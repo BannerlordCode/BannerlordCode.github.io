@@ -6,9 +6,9 @@ description: "CraftingDifficultyBarParentWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class CraftingDifficultyBarParentWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftingDifficultyBarParentWidget.cs`
+**Type:** `public class CraftingDifficultyBarParentWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Crafting/CraftingDifficultyBarParentWidget.cs`
 
 ## 概述
 
@@ -26,19 +26,6 @@ description: "CraftingDifficultyBarParentWidget 的自动生成类参考。"
 | `SmithingLevel` | `public int SmithingLevel { get; set; }` |
 | `SmithingLevelTextWidget` | `public TextWidget SmithingLevelTextWidget { get; set; }` |
 | `OrderDifficultyTextWidget` | `public TextWidget OrderDifficultyTextWidget { get; set; }` |
-
-## 主要方法
-
-### CraftingDifficultyBarParentWidget
-`public class CraftingDifficultyBarParentWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 CraftingDifficultyBarParentWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 CraftingDifficultyBarParentWidget 实例
-CraftingDifficultyBarParentWidget craftingDifficultyBarParentWidget = ...;
-var result = craftingDifficultyBarParentWidget.CraftingDifficultyBarParentWidget(context);
-```
 
 ## 使用示例
 

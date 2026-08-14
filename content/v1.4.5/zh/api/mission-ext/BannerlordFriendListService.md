@@ -8,7 +8,7 @@ description: "BannerlordFriendListService 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BannerlordFriendListService : IFriendListService`
 **Base:** `IFriendListService`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BannerlordFriendListService.cs`
+**File:** `TaleWorlds.MountAndBlade/BannerlordFriendListService.cs`
 
 ## 概述
 

@@ -1,0 +1,78 @@
+---
+title: "Romance"
+description: "Romance 的自动生成类参考。"
+---
+# Romance
+
+**Namespace:** TaleWorlds.CampaignSystem
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class Romance`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/Romance.cs`
+
+## 概述
+
+`Romance` 位于 `TaleWorlds.CampaignSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `RomanticStateList` | `public static List<Romance.RomanticState> RomanticStateList { get; }` |
+
+## 主要方法
+
+### GetCourtedHeroInOtherClan
+`public static Hero GetCourtedHeroInOtherClan(Hero person1, Hero person2)`
+
+**用途 / Purpose:** 读取并返回当前对象中 courted hero in other clan 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Romance.GetCourtedHeroInOtherClan(person1, person2);
+```
+
+### GetRomanticLevel
+`public static Romance.RomanceLevelEnum GetRomanticLevel(Hero person1, Hero person2)`
+
+**用途 / Purpose:** 读取并返回当前对象中 romantic level 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Romance.GetRomanticLevel(person1, person2);
+```
+
+### GetRomanticState
+`public static Romance.RomanticState GetRomanticState(Hero person1, Hero person2)`
+
+**用途 / Purpose:** 读取并返回当前对象中 romantic state 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Romance.GetRomanticState(person1, person2);
+```
+
+### Partner
+`public Hero Partner(Hero hero)`
+
+**用途 / Purpose:** 调用 Partner 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Romance 实例
+Romance romance = ...;
+var result = romance.Partner(hero);
+```
+
+## 使用示例
+
+```csharp
+Romance.GetCourtedHeroInOtherClan(person1, person2);
+```
+
+## 参见
+
+- [本区域目录](../)

@@ -8,7 +8,7 @@ description: "MiscSoundContainer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MiscSoundContainer`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MiscSoundContainer.cs`
+**File:** `TaleWorlds.MountAndBlade/MiscSoundContainer.cs`
 
 ## 概述
 

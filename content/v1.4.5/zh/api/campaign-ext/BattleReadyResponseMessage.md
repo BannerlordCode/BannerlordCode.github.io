@@ -8,7 +8,7 @@ description: "BattleReadyResponseMessage 的自动生成类参考。"
 **Module:** Messages.FromBattleServerManager
 **Type:** `public class BattleReadyResponseMessage : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServerManager.ToBattleServer/BattleReadyResponseMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromBattleServerManager/ToBattleServer/BattleReadyResponseMessage.cs`
 
 ## 概述
 

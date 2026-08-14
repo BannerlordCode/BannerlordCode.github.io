@@ -8,7 +8,7 @@ description: "DestructableComponentRecord 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct DestructableComponentRecord : ISynchedMissionObjectReadableRecord`
 **Base:** `ISynchedMissionObjectReadableRecord`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DestructableComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/DestructableComponent.cs`
 
 ## 概述
 

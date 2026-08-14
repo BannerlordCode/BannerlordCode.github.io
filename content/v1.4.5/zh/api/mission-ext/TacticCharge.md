@@ -8,7 +8,7 @@ description: "TacticCharge 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticCharge : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticCharge.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticCharge.cs`
 
 ## 概述
 

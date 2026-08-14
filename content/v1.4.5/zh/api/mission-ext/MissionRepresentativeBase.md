@@ -8,7 +8,7 @@ description: "MissionRepresentativeBase 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionRepresentativeBase : PeerComponent`
 **Base:** `PeerComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionRepresentativeBase.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionRepresentativeBase.cs`
 
 ## 概述
 

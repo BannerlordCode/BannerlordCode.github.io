@@ -8,7 +8,7 @@ description: "MissionSiegeWeaponsController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionSiegeWeaponsController : IMissionSiegeWeaponsController`
 **Base:** `IMissionSiegeWeaponsController`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions/MissionSiegeWeaponsController.cs`
+**File:** `TaleWorlds.MountAndBlade/Missions/MissionSiegeWeaponsController.cs`
 
 ## 概述
 

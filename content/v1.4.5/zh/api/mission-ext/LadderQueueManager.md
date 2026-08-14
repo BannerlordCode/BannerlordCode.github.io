@@ -8,7 +8,7 @@ description: "LadderQueueManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LadderQueueManager : MissionObject`
 **Base:** `MissionObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/LadderQueueManager.cs`
+**File:** `TaleWorlds.MountAndBlade/LadderQueueManager.cs`
 
 ## 概述
 
@@ -71,7 +71,7 @@ ladderQueueManager.Initialize(0, managedFrame, managedDirection, managedSide, 0,
 ```
 
 ### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
 **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 

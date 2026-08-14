@@ -8,7 +8,7 @@ description: "BodyFlags 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum BodyFlags : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/BodyFlags.cs`
+**File:** `TaleWorlds.Engine/BodyFlags.cs`
 
 ## 概述
 

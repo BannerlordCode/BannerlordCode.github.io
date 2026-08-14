@@ -8,7 +8,7 @@ description: "ClanCreationRequestAnsweredMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class ClanCreationRequestAnsweredMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/ClanCreationRequestAnsweredMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/ClanCreationRequestAnsweredMessage.cs`
 
 ## 概述
 

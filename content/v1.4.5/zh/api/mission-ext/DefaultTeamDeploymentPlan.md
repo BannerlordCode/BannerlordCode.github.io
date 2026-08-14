@@ -6,9 +6,9 @@ description: "DefaultTeamDeploymentPlan 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class DefaultTeamDeploymentPlan : ITeamDeploymentPlan`
-**Base:** `ITeamDeploymentPlan`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultTeamDeploymentPlan.cs`
+**Type:** `public class DefaultTeamDeploymentPlan`
+**Base:** 无
+**File:** `TaleWorlds.MountAndBlade/DefaultTeamDeploymentPlan.cs`
 
 ## 概述
 
@@ -22,8 +22,8 @@ description: "DefaultTeamDeploymentPlan 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `Team` | `public Team Team { get; }` |
 | `SpawnWithHorses` | `public bool SpawnWithHorses { get; }` |
+| `DeploymentBoundaries` | `public MBReadOnlyList<ValueTuple<string, MBList<Vec2>>> DeploymentBoundaries { get; }` |
 
 ## 主要方法
 
@@ -39,14 +39,14 @@ defaultTeamDeploymentPlan.SetSpawnWithHorses(false);
 ```
 
 ### MakeDeploymentPlan
-`public void MakeDeploymentPlan(float spawnPathOffset = 0f, float targetOffset = 0f, FormationSceneSpawnEntry formationSceneSpawnEntries = null, bool isReinforcement = false)`
+`public void MakeDeploymentPlan(FormationSceneSpawnEntry formationSceneSpawnEntries, bool isReinforcement = false, float spawnPathOffset = 0f, float targetOffset = 0f)`
 
 **用途 / Purpose:** 调用 MakeDeploymentPlan 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
 DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
-defaultTeamDeploymentPlan.MakeDeploymentPlan(0, 0, null, false);
+defaultTeamDeploymentPlan.MakeDeploymentPlan(formationSceneSpawnEntries, false, 0, 0);
 ```
 
 ### UpdateReinforcementPlans
@@ -93,17 +93,6 @@ DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
 defaultTeamDeploymentPlan.AddTroops(formationClass, 0, 0, false);
 ```
 
-### GetTroopCount
-`public int GetTroopCount(bool isReinforcement = false)`
-
-**用途 / Purpose:** 读取并返回当前对象中 troop count 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
-DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
-var result = defaultTeamDeploymentPlan.GetTroopCount(false);
-```
-
 ### IsFirstPlan
 `public bool IsFirstPlan(bool isReinforcement = false)`
 
@@ -146,6 +135,17 @@ var result = defaultTeamDeploymentPlan.GetSpawnPathOffset(false);
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
 DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
 var result = defaultTeamDeploymentPlan.GetTargetOffset(false);
+```
+
+### GetTroopCount
+`public int GetTroopCount(bool isReinforcement = false)`
+
+**用途 / Purpose:** 读取并返回当前对象中 troop count 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+var result = defaultTeamDeploymentPlan.GetTroopCount(false);
 ```
 
 ### GetDeploymentFrame
@@ -193,25 +193,25 @@ var result = defaultTeamDeploymentPlan.GetMeanPosition(false);
 ```
 
 ### IsInitialPlanSuitableForFormations
-`public bool IsInitialPlanSuitableForFormations((int, int) troopDataPerFormationClass)`
+`public bool IsInitialPlanSuitableForFormations(ValueTuple<int, int> troopDataPerFormationClass)`
 
 **用途 / Purpose:** 判断当前对象是否处于 initial plan suitable for formations 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
 DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
-var result = defaultTeamDeploymentPlan.IsInitialPlanSuitableForFormations((int, 0);
+var result = defaultTeamDeploymentPlan.IsInitialPlanSuitableForFormations(valueTuple<int, 0);
 ```
 
 ### IsPositionInsideDeploymentBoundaries
-`public bool IsPositionInsideDeploymentBoundaries(in Vec2 position, out (string id, MBList<Vec2> points) containingBoundaryTuple)`
+`public bool IsPositionInsideDeploymentBoundaries(in Vec2 position, { "id", "points" })`
 
 **用途 / Purpose:** 判断当前对象是否处于 position inside deployment boundaries 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
 DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
-var result = defaultTeamDeploymentPlan.IsPositionInsideDeploymentBoundaries(position, id, containingBoundaryTuple);
+var result = defaultTeamDeploymentPlan.IsPositionInsideDeploymentBoundaries(position, "id", });
 ```
 
 ### GetClosestDeploymentBoundaryPosition

@@ -8,7 +8,7 @@ description: "PropertyOwner 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class PropertyOwner<T> : IReadOnlyPropertyOwner<T> where T : MBObjectBase`
 **Base:** `IReadOnlyPropertyOwner<T> where T : MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/PropertyOwner.cs`
+**File:** `TaleWorlds.Core/PropertyOwner.cs`
 
 ## 概述
 

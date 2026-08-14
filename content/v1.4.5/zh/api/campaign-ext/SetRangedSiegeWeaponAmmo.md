@@ -8,7 +8,7 @@ description: "SetRangedSiegeWeaponAmmo 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetRangedSiegeWeaponAmmo : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetRangedSiegeWeaponAmmo.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetRangedSiegeWeaponAmmo.cs`
 
 ## 概述
 

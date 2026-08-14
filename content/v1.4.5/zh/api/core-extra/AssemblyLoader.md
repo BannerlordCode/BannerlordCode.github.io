@@ -8,7 +8,7 @@ description: "AssemblyLoader 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class AssemblyLoader`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/AssemblyLoader.cs`
+**File:** `TaleWorlds.Library/AssemblyLoader.cs`
 
 ## 概述
 
@@ -31,23 +31,13 @@ AssemblyLoader.Initialize();
 ```
 
 ### LoadFrom
-`public static Assembly LoadFrom(string assemblyFile, bool showError = true)`
+`public static Assembly LoadFrom(string assemblyFile, bool show_error = true)`
 
 **用途 / Purpose:** 从持久化存储或流中读取 from。
 
 ```csharp
 // 静态调用，不需要实例
 AssemblyLoader.LoadFrom("example", false);
-```
-
-### LoadFrom
-`public static Assembly LoadFrom(string assemblyFile, out AssemblyLoadResult result, bool showError = true)`
-
-**用途 / Purpose:** 从持久化存储或流中读取 from。
-
-```csharp
-// 静态调用，不需要实例
-AssemblyLoader.LoadFrom("example", result, false);
 ```
 
 ## 使用示例

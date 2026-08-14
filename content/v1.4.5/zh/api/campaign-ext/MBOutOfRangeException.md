@@ -8,7 +8,7 @@ description: "MBOutOfRangeException 的自动生成类参考。"
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public class MBOutOfRangeException : ObjectSystemException`
 **Base:** `ObjectSystemException`
-**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBOutOfRangeException.cs`
+**File:** `TaleWorlds.ObjectSystem/MBOutOfRangeException.cs`
 
 ## 概述
 

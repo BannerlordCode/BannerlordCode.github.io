@@ -8,7 +8,7 @@ description: "ChatBox 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ChatBox : GameHandler`
 **Base:** `GameHandler`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ChatBox.cs`
+**File:** `TaleWorlds.MountAndBlade/ChatBox.cs`
 
 ## 概述
 
@@ -24,6 +24,7 @@ description: "ChatBox 的自动生成类参考。"
 |------|-----------|
 | `IsContentRestricted` | `public bool IsContentRestricted { get; }` |
 | `NetworkReady` | `public bool NetworkReady { get; }` |
+| `IsExpired` | `public bool IsExpired { get; }` |
 
 ## 主要方法
 

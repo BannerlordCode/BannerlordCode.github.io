@@ -8,7 +8,7 @@ description: "MBBodyProperty 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MBBodyProperty : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBBodyProperty.cs`
+**File:** `TaleWorlds.Core/MBBodyProperty.cs`
 
 ## 概述
 
@@ -25,6 +25,8 @@ description: "MBBodyProperty 的自动生成类参考。"
 | `HairTags` | `public string HairTags { get; set; }` |
 | `BeardTags` | `public string BeardTags { get; set; }` |
 | `TattooTags` | `public string TattooTags { get; set; }` |
+| `BodyPropertyMin` | `public BodyProperties BodyPropertyMin { get; }` |
+| `BodyPropertyMax` | `public BodyProperties BodyPropertyMax { get; }` |
 
 ## 主要方法
 

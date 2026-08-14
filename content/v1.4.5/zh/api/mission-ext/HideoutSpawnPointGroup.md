@@ -8,7 +8,7 @@ description: "HideoutSpawnPointGroup 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class HideoutSpawnPointGroup : SynchedMissionObject`
 **Base:** `SynchedMissionObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HideoutSpawnPointGroup.cs`
+**File:** `TaleWorlds.MountAndBlade/HideoutSpawnPointGroup.cs`
 
 ## 概述
 

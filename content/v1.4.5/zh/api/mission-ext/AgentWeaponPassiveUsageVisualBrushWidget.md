@@ -6,9 +6,9 @@ description: "AgentWeaponPassiveUsageVisualBrushWidget 的自动生成类参考�
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class AgentWeaponPassiveUsageVisualBrushWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/AgentWeaponPassiveUsageVisualBrushWidget.cs`
+**Type:** `public class AgentWeaponPassiveUsageVisualBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/AgentWeaponPassiveUsageVisualBrushWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "AgentWeaponPassiveUsageVisualBrushWidget 的自动生成类参考�
 | Name | Signature |
 |------|-----------|
 | `CouchLanceState` | `public int CouchLanceState { get; set; }` |
-
-## 主要方法
-
-### AgentWeaponPassiveUsageVisualBrushWidget
-`public class AgentWeaponPassiveUsageVisualBrushWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 AgentWeaponPassiveUsageVisualBrushWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 AgentWeaponPassiveUsageVisualBrushWidget 实例
-AgentWeaponPassiveUsageVisualBrushWidget agentWeaponPassiveUsageVisualBrushWidget = ...;
-var result = agentWeaponPassiveUsageVisualBrushWidget.AgentWeaponPassiveUsageVisualBrushWidget(context);
-```
 
 ## 使用示例
 

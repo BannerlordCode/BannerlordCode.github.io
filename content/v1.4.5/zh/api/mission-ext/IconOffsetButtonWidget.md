@@ -8,7 +8,7 @@ description: "IconOffsetButtonWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class IconOffsetButtonWidget : IconBrushWidget`
 **Base:** `IconBrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/IconOffsetButtonWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/IconOffsetButtonWidget.cs`
 
 ## 概述
 

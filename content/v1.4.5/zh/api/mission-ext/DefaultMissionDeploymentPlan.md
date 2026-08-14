@@ -8,7 +8,7 @@ description: "DefaultMissionDeploymentPlan 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultMissionDeploymentPlan : IMissionDeploymentPlan`
 **Base:** `IMissionDeploymentPlan`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultMissionDeploymentPlan.cs`
+**File:** `TaleWorlds.MountAndBlade/DefaultMissionDeploymentPlan.cs`
 
 ## 概述
 
@@ -152,14 +152,14 @@ defaultMissionDeploymentPlan.MakeDeploymentPlan(team, 0, 0);
 ```
 
 ### MakeReinforcementDeploymentPlan
-`public void MakeReinforcementDeploymentPlan(Team team)`
+`public void MakeReinforcementDeploymentPlan(Team team, float spawnPathOffset = 0f, float targetOffset = 0f)`
 
 **用途 / Purpose:** 调用 MakeReinforcementDeploymentPlan 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
 DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
-defaultMissionDeploymentPlan.MakeReinforcementDeploymentPlan(team);
+defaultMissionDeploymentPlan.MakeReinforcementDeploymentPlan(team, 0, 0);
 ```
 
 ### RemakeDeploymentPlan
@@ -207,14 +207,14 @@ var result = defaultMissionDeploymentPlan.SupportsReinforcements();
 ```
 
 ### SupportsNavmesh
-`public bool SupportsNavmesh(Team team)`
+`public bool SupportsNavmesh()`
 
 **用途 / Purpose:** 调用 SupportsNavmesh 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
 DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
-var result = defaultMissionDeploymentPlan.SupportsNavmesh(team);
+var result = defaultMissionDeploymentPlan.SupportsNavmesh();
 ```
 
 ### GetPathDeploymentBoundaryIntersection
@@ -317,14 +317,14 @@ var result = defaultMissionDeploymentPlan.IsReinforcementPlanMade(team);
 ```
 
 ### IsInitialPlanSuitableForFormations
-`public bool IsInitialPlanSuitableForFormations(Team team, (int footTroopCount, int mountedTroopCount) troopDataPerFormationClass)`
+`public bool IsInitialPlanSuitableForFormations(Team team, { "footTroopCount", "mountedTroopCount" })`
 
 **用途 / Purpose:** 判断当前对象是否处于 initial plan suitable for formations 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
 DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
-var result = defaultMissionDeploymentPlan.IsInitialPlanSuitableForFormations(team, footTroopCount, 0);
+var result = defaultMissionDeploymentPlan.IsInitialPlanSuitableForFormations(team, "footTroopCount", });
 ```
 
 ### HasDeploymentBoundaries
@@ -358,6 +358,17 @@ var result = defaultMissionDeploymentPlan.GetDeploymentFrame(team);
 // 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
 DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
 defaultMissionDeploymentPlan.ProjectPositionToDeploymentBoundaries(team, endPosition);
+```
+
+### GetDeploymentBoundaries
+`public MBReadOnlyList<ValueTuple<string, MBList<Vec2>>> GetDeploymentBoundaries(Team team)`
+
+**用途 / Purpose:** 读取并返回当前对象中 deployment boundaries 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetDeploymentBoundaries(team);
 ```
 
 ### GetMeanPosition

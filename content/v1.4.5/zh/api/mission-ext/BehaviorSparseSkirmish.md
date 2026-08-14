@@ -8,7 +8,7 @@ description: "BehaviorSparseSkirmish 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorSparseSkirmish : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorSparseSkirmish.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorSparseSkirmish.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "BehaviorSparseSkirmish 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `ArcherPosition` | `public GameEntity ArcherPosition { get; set; }` |
+| `NavmeshlessTargetPositionPenalty` | `public override float NavmeshlessTargetPositionPenalty { get; }` |
 
 ## 主要方法
 

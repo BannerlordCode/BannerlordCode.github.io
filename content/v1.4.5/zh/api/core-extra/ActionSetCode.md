@@ -8,7 +8,7 @@ description: "ActionSetCode 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public static class ActionSetCode`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ActionSetCode.cs`
+**File:** `TaleWorlds.Core/ActionSetCode.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "FindGameMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class FindGameMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/FindGameMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/FindGameMessage.cs`
 
 ## 概述
 

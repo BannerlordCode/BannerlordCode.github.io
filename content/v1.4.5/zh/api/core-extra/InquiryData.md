@@ -8,7 +8,7 @@ description: "InquiryData 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class InquiryData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/InquiryData.cs`
+**File:** `TaleWorlds.Library/InquiryData.cs`
 
 ## 概述
 

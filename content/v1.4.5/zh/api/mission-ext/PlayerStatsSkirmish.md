@@ -8,7 +8,7 @@ description: "PlayerStatsSkirmish 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerStatsSkirmish : PlayerStatsRanked`
 **Base:** `PlayerStatsRanked`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsSkirmish.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerStatsSkirmish.cs`
 
 ## 概述
 
@@ -24,6 +24,7 @@ description: "PlayerStatsSkirmish 的自动生成类参考。"
 |------|-----------|
 | `MVPs` | `public int MVPs { get; set; }` |
 | `Score` | `public int Score { get; set; }` |
+| `AverageScore` | `public int AverageScore { get; }` |
 
 ## 主要方法
 

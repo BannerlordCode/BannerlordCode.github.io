@@ -8,7 +8,7 @@ description: "ServerInfoMessage 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum ServerInfoMessage`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ServerInfoMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ServerInfoMessage.cs`
 
 ## 概述
 

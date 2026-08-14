@@ -8,7 +8,7 @@ description: "ISavedStruct 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public interface ISavedStruct`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/ISavedStruct.cs`
+**File:** `TaleWorlds.SaveSystem/ISavedStruct.cs`
 
 ## 概述
 

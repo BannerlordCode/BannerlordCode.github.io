@@ -8,7 +8,7 @@ description: "IMBSoundEvent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBSoundEvent`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBSoundEvent.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBSoundEvent.cs`
 
 ## 概述
 

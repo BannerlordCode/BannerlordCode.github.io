@@ -8,7 +8,7 @@ description: "MBGUID 的自动生成类参考。"
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public struct MBGUID : IComparable, IEquatable<MBGUID>`
 **Base:** `IComparable`
-**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBGUID.cs`
+**File:** `TaleWorlds.ObjectSystem/MBGUID.cs`
 
 ## 概述
 
@@ -17,6 +17,13 @@ description: "MBGUID 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.ObjectSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `InternalValue` | `public uint InternalValue { get; }` |
+| `SubId` | `public uint SubId { get; }` |
 
 ## 主要方法
 

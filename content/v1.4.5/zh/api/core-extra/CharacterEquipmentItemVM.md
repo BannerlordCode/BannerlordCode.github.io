@@ -8,7 +8,7 @@ description: "CharacterEquipmentItemVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class CharacterEquipmentItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection/CharacterEquipmentItemVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/CharacterEquipmentItemVM.cs`
 
 ## 概述
 

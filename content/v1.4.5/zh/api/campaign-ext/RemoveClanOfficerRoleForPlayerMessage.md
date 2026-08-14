@@ -8,7 +8,7 @@ description: "RemoveClanOfficerRoleForPlayerMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class RemoveClanOfficerRoleForPlayerMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/RemoveClanOfficerRoleForPlayerMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/RemoveClanOfficerRoleForPlayerMessage.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "AgentAttackType 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum AgentAttackType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/AgentAttackType.cs`
+**File:** `TaleWorlds.Core/AgentAttackType.cs`
 
 ## 概述
 

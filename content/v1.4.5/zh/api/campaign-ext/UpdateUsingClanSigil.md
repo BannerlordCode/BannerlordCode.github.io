@@ -8,7 +8,7 @@ description: "UpdateUsingClanSigil 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class UpdateUsingClanSigil : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/UpdateUsingClanSigil.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/UpdateUsingClanSigil.cs`
 
 ## 概述
 

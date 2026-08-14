@@ -8,7 +8,7 @@ description: "BattleResultMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class BattleResultMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/BattleResultMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/BattleResultMessage.cs`
 
 ## 概述
 

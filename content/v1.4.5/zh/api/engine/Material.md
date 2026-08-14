@@ -8,7 +8,7 @@ description: "Material 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class Material : Resource`
 **Base:** `Resource`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Material.cs`
+**File:** `TaleWorlds.Engine/Material.cs`
 
 ## 概述
 
@@ -156,7 +156,7 @@ material.SetMeshVectorArgument(0, 0, 0, 0);
 ```
 
 ### SetTexture
-`public void SetTexture(MBTextureType textureType, Texture texture)`
+`public void SetTexture(Material.MBTextureType textureType, Texture texture)`
 
 **用途 / Purpose:** 为 texture 赋新值，并同步更新对象内部状态。
 
@@ -211,7 +211,7 @@ var result = material.UsingSkinning();
 ```
 
 ### GetTexture
-`public Texture GetTexture(MBTextureType textureType)`
+`public Texture GetTexture(Material.MBTextureType textureType)`
 
 **用途 / Purpose:** 读取并返回当前对象中 texture 的结果。
 
@@ -243,7 +243,7 @@ Material.GetAlphaMaskTableauMaterial();
 ```
 
 ### GetAlphaBlendMode
-`public MBAlphaBlendMode GetAlphaBlendMode()`
+`public Material.MBAlphaBlendMode GetAlphaBlendMode()`
 
 **用途 / Purpose:** 读取并返回当前对象中 alpha blend mode 的结果。
 
@@ -254,7 +254,7 @@ var result = material.GetAlphaBlendMode();
 ```
 
 ### SetAlphaBlendMode
-`public void SetAlphaBlendMode(MBAlphaBlendMode alphaBlendMode)`
+`public void SetAlphaBlendMode(Material.MBAlphaBlendMode alphaBlendMode)`
 
 **用途 / Purpose:** 为 alpha blend mode 赋新值，并同步更新对象内部状态。
 

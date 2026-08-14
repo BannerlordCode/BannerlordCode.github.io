@@ -8,7 +8,7 @@ description: "InputUsageMask 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum InputUsageMask`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/InputUsageMask.cs`
+**File:** `TaleWorlds.Library/InputUsageMask.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "HttpDriverManager 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class HttpDriverManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.Http/HttpDriverManager.cs`
+**File:** `TaleWorlds.Library/Http/HttpDriverManager.cs`
 
 ## 概述
 

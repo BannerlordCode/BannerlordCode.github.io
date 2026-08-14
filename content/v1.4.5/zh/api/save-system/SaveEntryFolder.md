@@ -8,7 +8,7 @@ description: "SaveEntryFolder 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveEntryFolder`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveEntryFolder.cs`
+**File:** `TaleWorlds.SaveSystem/SaveEntryFolder.cs`
 
 ## 概述
 
@@ -25,6 +25,8 @@ description: "SaveEntryFolder 的自动生成类参考。"
 | `GlobalId` | `public int GlobalId { get; }` |
 | `ParentGlobalId` | `public int ParentGlobalId { get; }` |
 | `FolderId` | `public FolderId FolderId { get; }` |
+| `ChildEntries` | `public Dictionary<EntryId, SaveEntry>.ValueCollection ChildEntries { get; }` |
+| `ChildFolders` | `public Dictionary<FolderId, SaveEntryFolder>.ValueCollection ChildFolders { get; }` |
 
 ## 主要方法
 

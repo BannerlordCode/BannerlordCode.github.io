@@ -8,7 +8,7 @@ description: "GameApplicationDomainController 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public class GameApplicationDomainController : MarshalByRefObject`
 **Base:** `MarshalByRefObject`
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/GameApplicationDomainController.cs`
+**File:** `TaleWorlds.DotNet/GameApplicationDomainController.cs`
 
 ## 概述
 

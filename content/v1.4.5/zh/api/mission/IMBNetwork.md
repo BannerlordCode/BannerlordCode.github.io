@@ -8,7 +8,7 @@ description: "IMBNetwork 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBNetwork`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBNetwork.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBNetwork.cs`
 
 ## 概述
 

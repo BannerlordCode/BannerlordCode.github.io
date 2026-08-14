@@ -8,7 +8,7 @@ description: "IPhysicsMaterial 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IPhysicsMaterial`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IPhysicsMaterial.cs`
+**File:** `TaleWorlds.Engine/IPhysicsMaterial.cs`
 
 ## 概述
 

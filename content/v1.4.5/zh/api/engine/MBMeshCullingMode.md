@@ -8,7 +8,7 @@ description: "MBMeshCullingMode 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum MBMeshCullingMode : byte`
 **Base:** `byte`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/MBMeshCullingMode.cs`
+**File:** `TaleWorlds.Engine/MBMeshCullingMode.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "DefineGameNetworkMessageTypeForMod 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class DefineGameNetworkMessageTypeForMod : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefineGameNetworkMessageTypeForMod.cs`
+**File:** `TaleWorlds.MountAndBlade/DefineGameNetworkMessageTypeForMod.cs`
 
 ## 概述
 

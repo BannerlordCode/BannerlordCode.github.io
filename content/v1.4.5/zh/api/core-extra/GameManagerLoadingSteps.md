@@ -8,7 +8,7 @@ description: "GameManagerLoadingSteps 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum GameManagerLoadingSteps`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/GameManagerLoadingSteps.cs`
+**File:** `TaleWorlds.Core/GameManagerLoadingSteps.cs`
 
 ## 概述
 

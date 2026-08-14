@@ -8,7 +8,7 @@ description: "NavigatableListPanel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class NavigatableListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/NavigatableListPanel.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/NavigatableListPanel.cs`
 
 ## 概述
 

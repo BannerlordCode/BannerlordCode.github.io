@@ -8,7 +8,7 @@ description: "ContainerType 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public enum ContainerType`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/ContainerType.cs`
+**File:** `TaleWorlds.SaveSystem/ContainerType.cs`
 
 ## 概述
 

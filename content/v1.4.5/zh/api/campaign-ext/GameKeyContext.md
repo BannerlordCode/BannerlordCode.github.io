@@ -8,7 +8,7 @@ description: "GameKeyContext 的自动生成类参考。"
 **Module:** TaleWorlds.InputSystem
 **Type:** `public abstract class GameKeyContext`
 **Base:** 无
-**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/GameKeyContext.cs`
+**File:** `TaleWorlds.InputSystem/GameKeyContext.cs`
 
 ## 概述
 
@@ -23,7 +23,10 @@ description: "GameKeyContext 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `GameKeyCategoryId` | `public string GameKeyCategoryId { get; }` |
-| `Type` | `public GameKeyContextType Type { get; }` |
+| `Type` | `public GameKeyContext.GameKeyContextType Type { get; }` |
+| `RegisteredGameKeys` | `public MBReadOnlyList<GameKey> RegisteredGameKeys { get; }` |
+| `RegisteredHotKeys` | `public Dictionary<string, HotKey>.ValueCollection RegisteredHotKeys { get; }` |
+| `RegisteredGameAxisKeys` | `public Dictionary<string, GameAxisKey>.ValueCollection RegisteredGameAxisKeys { get; }` |
 
 ## 主要方法
 

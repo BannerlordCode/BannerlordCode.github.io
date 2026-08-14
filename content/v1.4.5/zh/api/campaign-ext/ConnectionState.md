@@ -8,7 +8,7 @@ description: "ConnectionState 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public enum ConnectionState`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/ConnectionState.cs`
+**File:** `TaleWorlds.Network/ConnectionState.cs`
 
 ## 概述
 

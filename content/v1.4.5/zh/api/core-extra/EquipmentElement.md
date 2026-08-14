@@ -8,7 +8,7 @@ description: "EquipmentElement 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct EquipmentElement : ISerializableObject, ISavedStruct`
 **Base:** `ISerializableObject`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/EquipmentElement.cs`
+**File:** `TaleWorlds.Core/EquipmentElement.cs`
 
 ## 概述
 
@@ -25,6 +25,7 @@ description: "EquipmentElement 的自动生成类参考。"
 | `Item` | `public ItemObject Item { get; }` |
 | `ItemModifier` | `public ItemModifier ItemModifier { get; }` |
 | `IsQuestItem` | `public bool IsQuestItem { get; }` |
+| `IsEmpty` | `public bool IsEmpty { get; }` |
 | `IsVisualEmpty` | `public bool IsVisualEmpty { get; }` |
 | `ItemValue` | `public int ItemValue { get; }` |
 | `Weight` | `public float Weight { get; }` |

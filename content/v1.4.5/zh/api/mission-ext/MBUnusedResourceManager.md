@@ -8,7 +8,7 @@ description: "MBUnusedResourceManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBUnusedResourceManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBUnusedResourceManager.cs`
+**File:** `TaleWorlds.MountAndBlade/MBUnusedResourceManager.cs`
 
 ## 概述
 

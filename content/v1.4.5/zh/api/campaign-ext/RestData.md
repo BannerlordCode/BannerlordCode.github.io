@@ -8,7 +8,7 @@ description: "RestData 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class RestData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/RestData.cs`
+**File:** `TaleWorlds.Diamond/Rest/RestData.cs`
 
 ## 概述
 

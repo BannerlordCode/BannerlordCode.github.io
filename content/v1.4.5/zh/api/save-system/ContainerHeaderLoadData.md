@@ -8,7 +8,7 @@ description: "ContainerHeaderLoadData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class ContainerHeaderLoadData`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/ContainerHeaderLoadData.cs`
+**File:** `TaleWorlds.SaveSystem/Load/ContainerHeaderLoadData.cs`
 
 ## 概述
 

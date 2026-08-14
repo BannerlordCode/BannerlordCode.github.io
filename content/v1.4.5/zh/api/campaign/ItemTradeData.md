@@ -8,7 +8,7 @@ description: "ItemTradeData 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal struct ItemTradeData`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/TradeSkillCampaignBehavior.cs`
+**File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/TradeSkillCampaignBehavior.cs`
 
 ## 概述
 

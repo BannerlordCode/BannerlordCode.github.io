@@ -8,7 +8,7 @@ description: "SceneInitializationData 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public struct SceneInitializationData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/SceneInitializationData.cs`
+**File:** `TaleWorlds.Engine/SceneInitializationData.cs`
 
 ## 概述
 

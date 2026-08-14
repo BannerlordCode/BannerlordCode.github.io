@@ -8,7 +8,7 @@ description: "IBattlePowerCalculationLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IBattlePowerCalculationLogic : IMissionBehavior`
 **Base:** `IMissionBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IBattlePowerCalculationLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/IBattlePowerCalculationLogic.cs`
 
 ## 概述
 

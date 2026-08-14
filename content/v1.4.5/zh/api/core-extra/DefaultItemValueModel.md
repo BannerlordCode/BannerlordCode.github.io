@@ -8,7 +8,7 @@ description: "DefaultItemValueModel 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class DefaultItemValueModel : ItemValueModel`
 **Base:** `ItemValueModel`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/DefaultItemValueModel.cs`
+**File:** `TaleWorlds.Core/DefaultItemValueModel.cs`
 
 ## 概述
 

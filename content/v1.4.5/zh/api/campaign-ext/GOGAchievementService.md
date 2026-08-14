@@ -8,7 +8,7 @@ description: "GOGAchievementService 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class GOGAchievementService : IAchievementService`
 **Base:** `IAchievementService`
-**File:** `bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/GOGAchievementService.cs`
+**File:** `TaleWorlds.PlatformService.GOG/GOGAchievementService.cs`
 
 ## 概述
 

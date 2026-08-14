@@ -8,7 +8,7 @@ description: "SteamPlatformAvatarService 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class SteamPlatformAvatarService : IAvatarService`
 **Base:** `IAvatarService`
-**File:** `bin/TaleWorlds.PlatformService.Steam/TaleWorlds.PlatformService.Steam/SteamPlatformAvatarService.cs`
+**File:** `TaleWorlds.PlatformService.Steam/SteamPlatformAvatarService.cs`
 
 ## 概述
 
@@ -32,7 +32,7 @@ var result = steamPlatformAvatarService.GetPlayerAvatar(playerId);
 ```
 
 ### FetchPlayerAvatar
-`public async void FetchPlayerAvatar(AvatarData avatarData, PlayerId playerId)`
+`public void FetchPlayerAvatar(AvatarData avatarData, PlayerId playerId)`
 
 **用途 / Purpose:** 调用 FetchPlayerAvatar 对应的操作。
 

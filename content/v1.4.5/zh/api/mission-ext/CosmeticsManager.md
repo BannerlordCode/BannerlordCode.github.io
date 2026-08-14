@@ -8,7 +8,7 @@ description: "CosmeticsManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class CosmeticsManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics/CosmeticsManager.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Cosmetics/CosmeticsManager.cs`
 
 ## 概述
 
@@ -17,6 +17,12 @@ description: "CosmeticsManager 的自动生成类参考。"
 ## 心智模型
 
 把 `CosmeticsManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `CosmeticElementsList` | `public static MBReadOnlyList<CosmeticElement> CosmeticElementsList { get; }` |
 
 ## 主要方法
 

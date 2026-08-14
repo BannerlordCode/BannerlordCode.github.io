@@ -8,7 +8,7 @@ description: "ShipSail 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class ShipSail`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ShipSail.cs`
+**File:** `TaleWorlds.Core/ShipSail.cs`
 
 ## 概述
 
@@ -18,25 +18,11 @@ description: "ShipSail 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要方法
-
-### NearlyEquals
-`public bool NearlyEquals(ShipSail otherShipSail)`
-
-**用途 / Purpose:** 调用 NearlyEquals 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ShipSail 实例
-ShipSail shipSail = ...;
-var result = shipSail.NearlyEquals(otherShipSail);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-ShipSail shipSail = ...;
-shipSail.NearlyEquals(otherShipSail);
+// 从对应子系统 API 获取实例
+ShipSail instance = ...;
 ```
 
 ## 参见

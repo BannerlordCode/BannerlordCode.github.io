@@ -8,7 +8,7 @@ description: "DebugNetworkPositionCompressionStatisticsStruct 的自动生成类
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct DebugNetworkPositionCompressionStatisticsStruct`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameNetwork.cs`
+**File:** `TaleWorlds.MountAndBlade/GameNetwork.cs`
 
 ## 概述
 

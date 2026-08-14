@@ -8,7 +8,7 @@ description: "INetworkCommunication 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface INetworkCommunication`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/INetworkCommunication.cs`
+**File:** `TaleWorlds.Core/INetworkCommunication.cs`
 
 ## 概述
 

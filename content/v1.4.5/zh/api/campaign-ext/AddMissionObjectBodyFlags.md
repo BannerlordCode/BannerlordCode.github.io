@@ -8,7 +8,7 @@ description: "AddMissionObjectBodyFlags 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class AddMissionObjectBodyFlags : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AddMissionObjectBodyFlags.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/AddMissionObjectBodyFlags.cs`
 
 ## 概述
 

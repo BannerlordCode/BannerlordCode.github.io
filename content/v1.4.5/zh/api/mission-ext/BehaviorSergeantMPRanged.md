@@ -8,7 +8,7 @@ description: "BehaviorSergeantMPRanged 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorSergeantMPRanged : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorSergeantMPRanged.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorSergeantMPRanged.cs`
 
 ## 概述
 

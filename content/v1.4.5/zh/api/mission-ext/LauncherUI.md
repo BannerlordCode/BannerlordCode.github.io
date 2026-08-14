@@ -8,7 +8,7 @@ description: "LauncherUI 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherUI`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherUI.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/LauncherUI.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "LauncherUI 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `HasUnofficialModulesSelected` | `public bool HasUnofficialModulesSelected { get; }` |
 | `AdditionalArgs` | `public string AdditionalArgs { get; }` |
 
 ## 主要方法

@@ -8,7 +8,7 @@ description: "RequestJoinCustomGameMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class RequestJoinCustomGameMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/RequestJoinCustomGameMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/RequestJoinCustomGameMessage.cs`
 
 ## 概述
 

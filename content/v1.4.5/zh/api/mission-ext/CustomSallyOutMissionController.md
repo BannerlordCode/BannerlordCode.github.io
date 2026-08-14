@@ -8,7 +8,7 @@ description: "CustomSallyOutMissionController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomSallyOutMissionController : SallyOutMissionController`
 **Base:** `SallyOutMissionController`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionSpawnHandlers/CustomSallyOutMissionController.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionSpawnHandlers/CustomSallyOutMissionController.cs`
 
 ## 概述
 

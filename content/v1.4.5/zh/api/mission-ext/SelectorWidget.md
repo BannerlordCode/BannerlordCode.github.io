@@ -8,7 +8,7 @@ description: "SelectorWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SelectorWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/SelectorWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/SelectorWidget.cs`
 
 ## 概述
 

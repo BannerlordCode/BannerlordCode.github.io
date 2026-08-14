@@ -8,7 +8,7 @@ description: "ClothSimulatorComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class ClothSimulatorComponent : GameEntityComponent`
 **Base:** `GameEntityComponent`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ClothSimulatorComponent.cs`
+**File:** `TaleWorlds.Engine/ClothSimulatorComponent.cs`
 
 ## 概述
 

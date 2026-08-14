@@ -8,7 +8,7 @@ description: "IManagedMeshEditOperations 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IManagedMeshEditOperations`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IManagedMeshEditOperations.cs`
+**File:** `TaleWorlds.Engine/IManagedMeshEditOperations.cs`
 
 ## 概述
 

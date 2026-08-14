@@ -8,7 +8,7 @@ description: "MessageId 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public class MessageId : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/MessageId.cs`
+**File:** `TaleWorlds.Network/MessageId.cs`
 
 ## 概述
 

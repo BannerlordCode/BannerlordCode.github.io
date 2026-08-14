@@ -8,7 +8,7 @@ description: "MonoNativeFunctionWrapperAttribute 的自动生成类参考。"
 **Module:** (global)
 **Type:** `public class MonoNativeFunctionWrapperAttribute : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.DotNet/MonoNativeFunctionWrapperAttribute.cs`
+**File:** `TaleWorlds.DotNet/MonoNativeFunctionWrapperAttribute.cs`
 
 ## 概述
 

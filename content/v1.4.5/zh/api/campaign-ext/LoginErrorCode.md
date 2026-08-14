@@ -8,7 +8,7 @@ description: "LoginErrorCode 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public enum LoginErrorCode`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/LoginErrorCode.cs`
+**File:** `TaleWorlds.Diamond/LoginErrorCode.cs`
 
 ## 概述
 

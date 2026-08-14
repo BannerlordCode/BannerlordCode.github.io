@@ -8,7 +8,7 @@ description: "MissionMultiplayerGameModeBaseClient 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionMultiplayerGameModeBaseClient : MissionNetwork, ICameraModeLogic`
 **Base:** `MissionNetwork`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerGameModeBaseClient.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionMultiplayerGameModeBaseClient.cs`
 
 ## 概述
 
@@ -31,9 +31,14 @@ description: "MissionMultiplayerGameModeBaseClient 的自动生成类参考。"
 | `TimerComponent` | `public MultiplayerTimerComponent TimerComponent { get; }` |
 | `IsGameModeUsingGold` | `public abstract bool IsGameModeUsingGold { get; }` |
 | `IsGameModeTactical` | `public abstract bool IsGameModeTactical { get; }` |
+| `IsGameModeUsingCasualGold` | `public virtual bool IsGameModeUsingCasualGold { get; }` |
 | `IsGameModeUsingRoundCountdown` | `public abstract bool IsGameModeUsingRoundCountdown { get; }` |
+| `IsGameModeUsingAllowCultureChange` | `public virtual bool IsGameModeUsingAllowCultureChange { get; }` |
+| `IsGameModeUsingAllowTroopChange` | `public virtual bool IsGameModeUsingAllowTroopChange { get; }` |
 | `GameType` | `public abstract MultiplayerGameType GameType { get; }` |
 | `IsRoundInProgress` | `public bool IsRoundInProgress { get; }` |
+| `IsInWarmup` | `public bool IsInWarmup { get; }` |
+| `RemainingTime` | `public float RemainingTime { get; }` |
 
 ## 主要方法
 

@@ -8,7 +8,7 @@ description: "DemoTypes 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum DemoTypes`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/BrightnessDemoWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/BrightnessDemoWidget.cs`
 
 ## 概述
 

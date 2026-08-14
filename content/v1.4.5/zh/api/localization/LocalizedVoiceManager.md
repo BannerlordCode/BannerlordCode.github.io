@@ -8,7 +8,7 @@ description: "LocalizedVoiceManager 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `public static class LocalizedVoiceManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization/LocalizedVoiceManager.cs`
+**File:** `TaleWorlds.Localization/LocalizedVoiceManager.cs`
 
 ## 概述
 

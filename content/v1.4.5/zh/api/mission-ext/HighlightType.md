@@ -8,7 +8,7 @@ description: "HighlightType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct HighlightType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HighlightsController.cs`
+**File:** `TaleWorlds.MountAndBlade/HighlightsController.cs`
 
 ## 概述
 

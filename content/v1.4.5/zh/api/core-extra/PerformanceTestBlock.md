@@ -8,7 +8,7 @@ description: "PerformanceTestBlock 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class PerformanceTestBlock : IDisposable`
 **Base:** `IDisposable`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PerformanceTestBlock.cs`
+**File:** `TaleWorlds.Library/PerformanceTestBlock.cs`
 
 ## 概述
 

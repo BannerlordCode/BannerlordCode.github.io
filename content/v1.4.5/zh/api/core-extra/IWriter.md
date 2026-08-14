@@ -8,7 +8,7 @@ description: "IWriter 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public interface IWriter`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/IWriter.cs`
+**File:** `TaleWorlds.Library/IWriter.cs`
 
 ## 概述
 

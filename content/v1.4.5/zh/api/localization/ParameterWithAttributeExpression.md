@@ -8,7 +8,7 @@ description: "ParameterWithAttributeExpression 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class ParameterWithAttributeExpression : TextExpression`
 **Base:** `TextExpression`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/ParameterWithAttributeExpression.cs`
+**File:** `TaleWorlds.Localization/Expressions/ParameterWithAttributeExpression.cs`
 
 ## 概述
 

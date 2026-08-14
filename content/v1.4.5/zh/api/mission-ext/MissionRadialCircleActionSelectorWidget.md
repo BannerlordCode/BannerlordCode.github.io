@@ -8,7 +8,7 @@ description: "MissionRadialCircleActionSelectorWidget 的自动生成类参考�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionRadialCircleActionSelectorWidget : CircleActionSelectorWidget`
 **Base:** `CircleActionSelectorWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Radial/MissionRadialCircleActionSelectorWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/Radial/MissionRadialCircleActionSelectorWidget.cs`
 
 ## 概述
 

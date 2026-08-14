@@ -8,7 +8,7 @@ description: "FtlCapsuleData 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal struct FtlCapsuleData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/FtlCapsuleData.cs`
+**File:** `TaleWorlds.Engine/FtlCapsuleData.cs`
 
 ## 概述
 

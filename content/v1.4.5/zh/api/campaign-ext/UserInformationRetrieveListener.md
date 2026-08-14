@@ -8,7 +8,7 @@ description: "UserInformationRetrieveListener 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class UserInformationRetrieveListener : IUserInformationRetrieveListener`
 **Base:** `IUserInformationRetrieveListener`
-**File:** `bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/UserInformationRetrieveListener.cs`
+**File:** `TaleWorlds.PlatformService.GOG/UserInformationRetrieveListener.cs`
 
 ## 概述
 
@@ -27,7 +27,7 @@ description: "UserInformationRetrieveListener 的自动生成类参考。"
 ## 主要方法
 
 ### OnUserInformationRetrieveFailure
-`public override void OnUserInformationRetrieveFailure(GalaxyID userID, FailureReason failureReason)`
+`public override void OnUserInformationRetrieveFailure(GalaxyID userID, IUserInformationRetrieveListener.FailureReason failureReason)`
 
 **用途 / Purpose:** 在 user information retrieve failure 事件触发时调用此回调。
 

@@ -8,7 +8,7 @@ description: "ItemComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class ItemComponent : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemComponent.cs`
+**File:** `TaleWorlds.Core/ItemComponent.cs`
 
 ## 概述
 

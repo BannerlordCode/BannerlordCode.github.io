@@ -8,7 +8,7 @@ description: "MessageServiceConnection 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public abstract class MessageServiceConnection`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/MessageServiceConnection.cs`
+**File:** `TaleWorlds.Network/MessageServiceConnection.cs`
 
 ## 概述
 
@@ -25,28 +25,6 @@ description: "MessageServiceConnection 的自动生成类参考。"
 | `Address` | `public string Address { get; set; }` |
 
 ## 主要方法
-
-### ClosedDelegate
-`public delegate Task ClosedDelegate()`
-
-**用途 / Purpose:** 关闭d delegate对应的资源或界面。
-
-```csharp
-// 先通过子系统 API 拿到 MessageServiceConnection 实例
-MessageServiceConnection messageServiceConnection = ...;
-var result = messageServiceConnection.ClosedDelegate();
-```
-
-### StateChangedDelegate
-`public delegate void StateChangedDelegate(ConnectionState oldState, ConnectionState newState)`
-
-**用途 / Purpose:** 调用 StateChangedDelegate 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MessageServiceConnection 实例
-MessageServiceConnection messageServiceConnection = ...;
-messageServiceConnection.StateChangedDelegate(oldState, newState);
-```
 
 ### SendAsync
 `public abstract Task SendAsync(string text)`
@@ -101,6 +79,28 @@ var result = messageServiceConnection.StartAsync();
 // 先通过子系统 API 拿到 MessageServiceConnection 实例
 MessageServiceConnection messageServiceConnection = ...;
 var result = messageServiceConnection.StopAsync();
+```
+
+### ClosedDelegate
+`public delegate Task ClosedDelegate()`
+
+**用途 / Purpose:** 关闭d delegate对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 MessageServiceConnection 实例
+MessageServiceConnection messageServiceConnection = ...;
+var result = messageServiceConnection.ClosedDelegate();
+```
+
+### StateChangedDelegate
+`public delegate void StateChangedDelegate(ConnectionState oldState, ConnectionState newState)`
+
+**用途 / Purpose:** 调用 StateChangedDelegate 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MessageServiceConnection 实例
+MessageServiceConnection messageServiceConnection = ...;
+messageServiceConnection.StateChangedDelegate(oldState, newState);
 ```
 
 ## 使用示例

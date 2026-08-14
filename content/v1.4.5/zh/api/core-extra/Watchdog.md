@@ -8,7 +8,7 @@ description: "Watchdog 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class Watchdog`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Watchdog.cs`
+**File:** `TaleWorlds.Library/Watchdog.cs`
 
 ## 概述
 

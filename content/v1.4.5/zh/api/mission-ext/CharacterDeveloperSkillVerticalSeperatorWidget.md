@@ -8,7 +8,7 @@ description: "CharacterDeveloperSkillVerticalSeperatorWidget 的自动生成类�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterDeveloperSkillVerticalSeperatorWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/CharacterDeveloperSkillVerticalSeperatorWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/CharacterDeveloper/CharacterDeveloperSkillVerticalSeperatorWidget.cs`
 
 ## 概述
 

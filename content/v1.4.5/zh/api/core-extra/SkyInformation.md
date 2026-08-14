@@ -8,7 +8,7 @@ description: "SkyInformation 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct SkyInformation`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SkyInformation.cs`
+**File:** `TaleWorlds.Library/SkyInformation.cs`
 
 ## 概述
 

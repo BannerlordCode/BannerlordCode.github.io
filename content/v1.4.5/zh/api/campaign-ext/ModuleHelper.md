@@ -8,7 +8,7 @@ description: "ModuleHelper 的自动生成类参考。"
 **Module:** TaleWorlds.ModuleManager
 **Type:** `public static class ModuleHelper`
 **Base:** 无
-**File:** `bin/TaleWorlds.ModuleManager/TaleWorlds.ModuleManager/ModuleHelper.cs`
+**File:** `TaleWorlds.ModuleManager/ModuleHelper.cs`
 
 ## 概述
 

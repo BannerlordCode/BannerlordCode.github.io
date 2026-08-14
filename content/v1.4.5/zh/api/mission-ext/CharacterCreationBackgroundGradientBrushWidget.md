@@ -8,7 +8,7 @@ description: "CharacterCreationBackgroundGradientBrushWidget 的自动生成类�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterCreationBackgroundGradientBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation.Culture/CharacterCreationBackgroundGradientBrushWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/CharacterCreation/Culture/CharacterCreationBackgroundGradientBrushWidget.cs`
 
 ## 概述
 

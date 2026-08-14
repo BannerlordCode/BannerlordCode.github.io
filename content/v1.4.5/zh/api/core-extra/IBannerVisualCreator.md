@@ -8,7 +8,7 @@ description: "IBannerVisualCreator 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface IBannerVisualCreator`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IBannerVisualCreator.cs`
+**File:** `TaleWorlds.Core/IBannerVisualCreator.cs`
 
 ## 概述
 

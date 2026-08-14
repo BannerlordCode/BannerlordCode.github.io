@@ -8,7 +8,7 @@ description: "DialogFlowContext 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class DialogFlowContext`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/DialogFlowContext.cs`
+**File:** `TaleWorlds.CampaignSystem/DialogFlowContext.cs`
 
 ## 概述
 

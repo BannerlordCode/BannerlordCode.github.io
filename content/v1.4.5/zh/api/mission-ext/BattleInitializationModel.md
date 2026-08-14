@@ -8,7 +8,7 @@ description: "BattleInitializationModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class BattleInitializationModel : MBGameModel<BattleInitializationModel>`
 **Base:** `MBGameModel<BattleInitializationModel>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/BattleInitializationModel.cs`
+**File:** `TaleWorlds.MountAndBlade/ComponentInterfaces/BattleInitializationModel.cs`
 
 ## 概述
 
@@ -17,12 +17,6 @@ description: "BattleInitializationModel 的自动生成类参考。"
 ## 心智模型
 
 把 `BattleInitializationModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
-
-## 主要属性
-
-| Name | Signature |
-|------|-----------|
-| `BypassPlayerDeployment` | `public static bool BypassPlayerDeployment { get; }` |
 
 ## 主要方法
 
@@ -68,16 +62,6 @@ battleInitializationModel.InitializeModel();
 // 先通过子系统 API 拿到 BattleInitializationModel 实例
 BattleInitializationModel battleInitializationModel = ...;
 battleInitializationModel.FinalizeModel();
-```
-
-### SetBypassPlayerDeployment
-`public static void SetBypassPlayerDeployment(bool value)`
-
-**用途 / Purpose:** 为 bypass player deployment 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 静态调用，不需要实例
-BattleInitializationModel.SetBypassPlayerDeployment(false);
 ```
 
 ## 使用示例

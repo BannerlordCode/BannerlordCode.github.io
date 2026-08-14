@@ -8,7 +8,7 @@ description: "MissionMultiplayerGameModeDuelClient 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerGameModeDuelClient : MissionMultiplayerGameModeBaseClient`
 **Base:** `MissionMultiplayerGameModeBaseClient`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerGameModeDuelClient.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionMultiplayerGameModeDuelClient.cs`
 
 ## 概述
 
@@ -22,6 +22,13 @@ description: "MissionMultiplayerGameModeDuelClient 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `IsGameModeUsingGold` | `public override bool IsGameModeUsingGold { get; }` |
+| `IsGameModeTactical` | `public override bool IsGameModeTactical { get; }` |
+| `IsGameModeUsingRoundCountdown` | `public override bool IsGameModeUsingRoundCountdown { get; }` |
+| `IsGameModeUsingAllowCultureChange` | `public override bool IsGameModeUsingAllowCultureChange { get; }` |
+| `IsGameModeUsingAllowTroopChange` | `public override bool IsGameModeUsingAllowTroopChange { get; }` |
+| `GameType` | `public override MultiplayerGameType GameType { get; }` |
+| `IsInDuel` | `public bool IsInDuel { get; }` |
 | `MyRepresentative` | `public DuelMissionRepresentative MyRepresentative { get; }` |
 
 ## 主要方法

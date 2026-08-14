@@ -8,7 +8,7 @@ description: "InquiryElement 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class InquiryElement`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/InquiryElement.cs`
+**File:** `TaleWorlds.Core/InquiryElement.cs`
 
 ## 概述
 

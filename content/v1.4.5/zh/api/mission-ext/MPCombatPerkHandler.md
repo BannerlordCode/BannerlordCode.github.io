@@ -8,7 +8,7 @@ description: "MPCombatPerkHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `class MPCombatPerkHandler`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkObject.cs`
+**File:** `TaleWorlds.MountAndBlade/MPPerkObject.cs`
 
 ## 概述
 

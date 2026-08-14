@@ -8,7 +8,7 @@ description: "EngineInputManager 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class EngineInputManager : IInputManager`
 **Base:** `IInputManager`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.InputSystem/EngineInputManager.cs`
+**File:** `TaleWorlds.Engine/InputSystem/EngineInputManager.cs`
 
 ## 概述
 

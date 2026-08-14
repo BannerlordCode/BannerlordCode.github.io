@@ -8,7 +8,7 @@ description: "DialogFlowLine 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class DialogFlowLine`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/DialogFlowLine.cs`
+**File:** `TaleWorlds.CampaignSystem/DialogFlowLine.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "DialogFlowLine 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Variations` | `public List<KeyValuePair<TextObject, List<GameTextManager.ChoiceTag>>> Variations { get; }` |
+| `HasVariation` | `public bool HasVariation { get; }` |
 
 ## 主要方法
 

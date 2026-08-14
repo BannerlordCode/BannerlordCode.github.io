@@ -8,7 +8,7 @@ description: "BoneBodyTypeData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct BoneBodyTypeData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BoneBodyTypeData.cs`
+**File:** `TaleWorlds.MountAndBlade/BoneBodyTypeData.cs`
 
 ## 概述
 

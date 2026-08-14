@@ -8,7 +8,7 @@ description: "WaitTimeStatType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum WaitTimeStatType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/WaitTimeStatType.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/WaitTimeStatType.cs`
 
 ## 概述
 

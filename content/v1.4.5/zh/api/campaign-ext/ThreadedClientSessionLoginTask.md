@@ -8,7 +8,7 @@ description: "ThreadedClientSessionLoginTask 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `internal sealed class ThreadedClientSessionLoginTask : ThreadedClientSessionTask`
 **Base:** `ThreadedClientSessionTask`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/ThreadedClientSessionLoginTask.cs`
+**File:** `TaleWorlds.Diamond/ThreadedClientSessionLoginTask.cs`
 
 ## 概述
 
@@ -49,7 +49,7 @@ threadedClientSessionLoginTask.DoMainThreadJob();
 ```
 
 ### Wait
-`public async Task Wait()`
+`public Task Wait()`
 
 **用途 / Purpose:** 暂停当前流程，直到wait条件满足。
 

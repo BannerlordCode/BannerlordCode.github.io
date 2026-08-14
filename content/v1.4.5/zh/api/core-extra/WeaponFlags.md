@@ -8,7 +8,7 @@ description: "WeaponFlags 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum WeaponFlags : ulong`
 **Base:** `ulong`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/WeaponFlags.cs`
+**File:** `TaleWorlds.Core/WeaponFlags.cs`
 
 ## 概述
 

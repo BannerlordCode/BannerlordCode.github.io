@@ -8,7 +8,7 @@ description: "RamState 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum RamState`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BatteringRam.cs`
+**File:** `TaleWorlds.MountAndBlade/BatteringRam.cs`
 
 ## 概述
 

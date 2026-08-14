@@ -8,7 +8,7 @@ description: "PlayerSessionId 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct PlayerSessionId`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerSessionId.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerSessionId.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "PlayerSessionId 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Guid` | `public Guid Guid { get; }` |
+| `SessionKey` | `public SessionKey SessionKey { get; }` |
 
 ## 主要方法
 

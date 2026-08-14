@@ -8,7 +8,7 @@ description: "GauntletGamepadNavigationContext 的自动生成类参考。"
 **Module:** (global)
 **Type:** `public class GauntletGamepadNavigationContext : IGamepadNavigationContext`
 **Base:** `IGamepadNavigationContext`
-**File:** `bin/TaleWorlds.GauntletUI/GauntletGamepadNavigationContext.cs`
+**File:** `TaleWorlds.GauntletUI/GauntletGamepadNavigationContext.cs`
 
 ## 概述
 

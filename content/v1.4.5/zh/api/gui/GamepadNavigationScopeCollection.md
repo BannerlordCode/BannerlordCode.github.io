@@ -8,7 +8,7 @@ description: "GamepadNavigationScopeCollection 的自动生成类参考。"
 **Module:** TaleWorlds.GauntletUI
 **Type:** `internal class GamepadNavigationScopeCollection`
 **Base:** 无
-**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.GamepadNavigation/GamepadNavigationScopeCollection.cs`
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/GamepadNavigation/GamepadNavigationScopeCollection.cs`
 
 ## 概述
 

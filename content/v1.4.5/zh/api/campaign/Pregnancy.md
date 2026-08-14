@@ -8,7 +8,7 @@ description: "Pregnancy 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class Pregnancy`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/PregnancyCampaignBehavior.cs`
+**File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/PregnancyCampaignBehavior.cs`
 
 ## 概述
 

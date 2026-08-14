@@ -8,7 +8,7 @@ description: "DefaultDamageParticleModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultDamageParticleModel : DamageParticleModel`
 **Base:** `DamageParticleModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultDamageParticleModel.cs`
+**File:** `TaleWorlds.MountAndBlade/DefaultDamageParticleModel.cs`
 
 ## 概述
 

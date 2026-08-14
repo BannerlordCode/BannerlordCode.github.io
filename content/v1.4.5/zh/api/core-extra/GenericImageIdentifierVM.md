@@ -8,7 +8,7 @@ description: "GenericImageIdentifierVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class GenericImageIdentifierVM : ImageIdentifierVM`
 **Base:** `ImageIdentifierVM`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.ImageIdentifiers/GenericImageIdentifierVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/ImageIdentifiers/GenericImageIdentifierVM.cs`
 
 ## 概述
 

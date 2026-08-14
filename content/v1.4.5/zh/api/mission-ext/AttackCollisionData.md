@@ -8,7 +8,7 @@ description: "AttackCollisionData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct AttackCollisionData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AttackCollisionData.cs`
+**File:** `TaleWorlds.MountAndBlade/AttackCollisionData.cs`
 
 ## 概述
 
@@ -22,6 +22,22 @@ description: "AttackCollisionData 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `AttackBlockedWithShield` | `public bool AttackBlockedWithShield { get; }` |
+| `CorrectSideShieldBlock` | `public bool CorrectSideShieldBlock { get; }` |
+| `IsAlternativeAttack` | `public bool IsAlternativeAttack { get; }` |
+| `IsColliderAgent` | `public bool IsColliderAgent { get; }` |
+| `CollidedWithShieldOnBack` | `public bool CollidedWithShieldOnBack { get; }` |
+| `IsMissile` | `public bool IsMissile { get; }` |
+| `MissileBlockedWithWeapon` | `public bool MissileBlockedWithWeapon { get; }` |
+| `MissileHasPhysics` | `public bool MissileHasPhysics { get; }` |
+| `EntityExists` | `public bool EntityExists { get; }` |
+| `ThrustTipHit` | `public bool ThrustTipHit { get; }` |
+| `MissileGoneUnderWater` | `public bool MissileGoneUnderWater { get; }` |
+| `MissileGoneOutOfBorder` | `public bool MissileGoneOutOfBorder { get; }` |
+| `CollidedWithLastBoneSegment` | `public bool CollidedWithLastBoneSegment { get; }` |
+| `IsHorseCharge` | `public bool IsHorseCharge { get; }` |
+| `IsFallDamage` | `public bool IsFallDamage { get; }` |
+| `CollisionResult` | `public CombatCollisionResult CollisionResult { get; }` |
 | `AffectorWeaponSlotOrMissileIndex` | `public int AffectorWeaponSlotOrMissileIndex { get; }` |
 | `StrikeType` | `public int StrikeType { get; }` |
 | `DamageType` | `public int DamageType { get; }` |
@@ -40,6 +56,7 @@ description: "AttackCollisionData 的自动生成类参考。"
 | `ChargeVelocity` | `public float ChargeVelocity { get; }` |
 | `FallSpeed` | `public float FallSpeed { get; }` |
 | `WeaponRotUp` | `public Vec3 WeaponRotUp { get; }` |
+| `WeaponBlowDir` | `public Vec3 WeaponBlowDir { get; }` |
 | `CollisionGlobalPosition` | `public Vec3 CollisionGlobalPosition { get; }` |
 | `MissileVelocity` | `public Vec3 MissileVelocity { get; }` |
 | `MissileStartingPosition` | `public Vec3 MissileStartingPosition { get; }` |

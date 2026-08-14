@@ -8,7 +8,7 @@ description: "GogServicesConnectionStateListener 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class GogServicesConnectionStateListener : GlobalGogServicesConnectionStateListener`
 **Base:** `GlobalGogServicesConnectionStateListener`
-**File:** `bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/GogServicesConnectionStateListener.cs`
+**File:** `TaleWorlds.PlatformService.GOG/GogServicesConnectionStateListener.cs`
 
 ## 概述
 

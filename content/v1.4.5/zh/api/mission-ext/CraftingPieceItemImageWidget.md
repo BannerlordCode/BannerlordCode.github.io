@@ -8,7 +8,7 @@ description: "CraftingPieceItemImageWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CraftingPieceItemImageWidget : ImageWidget`
 **Base:** `ImageWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftingPieceItemImageWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Crafting/CraftingPieceItemImageWidget.cs`
 
 ## 概述
 

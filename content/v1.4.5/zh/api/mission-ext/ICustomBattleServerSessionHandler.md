@@ -8,7 +8,7 @@ description: "ICustomBattleServerSessionHandler 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface ICustomBattleServerSessionHandler`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ICustomBattleServerSessionHandler.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ICustomBattleServerSessionHandler.cs`
 
 ## 概述
 

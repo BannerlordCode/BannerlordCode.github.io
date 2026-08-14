@@ -8,7 +8,7 @@ description: "PremadeGameType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum PremadeGameType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PremadeGameType.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PremadeGameType.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "DescriptionType 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum DescriptionType`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/TownManagementDescriptionItemVM.cs`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/TownManagement/TownManagementDescriptionItemVM.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "RagdollState 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum RagdollState : ushort`
 **Base:** `ushort`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/RagdollState.cs`
+**File:** `TaleWorlds.Engine/RagdollState.cs`
 
 ## 概述
 

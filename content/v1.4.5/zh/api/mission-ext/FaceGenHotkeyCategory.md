@@ -8,7 +8,7 @@ description: "FaceGenHotkeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class FaceGenHotkeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FaceGenHotkeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/FaceGenHotkeyCategory.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ReplaceBotWithPlayer 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class ReplaceBotWithPlayer : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/ReplaceBotWithPlayer.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/ReplaceBotWithPlayer.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "TauntCosmeticElement 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TauntCosmeticElement : CosmeticElement`
 **Base:** `CosmeticElement`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes/TauntCosmeticElement.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Cosmetics/CosmeticTypes/TauntCosmeticElement.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "TauntCosmeticElement 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `MaxNumberOfTaunts` | `public static int MaxNumberOfTaunts { get; }` |
 | `Name` | `public TextObject Name { get; }` |
 
 ## 使用示例

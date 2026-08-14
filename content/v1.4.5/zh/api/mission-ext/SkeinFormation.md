@@ -8,7 +8,7 @@ description: "SkeinFormation 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SkeinFormation : LineFormation`
 **Base:** `LineFormation`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SkeinFormation.cs`
+**File:** `TaleWorlds.MountAndBlade/SkeinFormation.cs`
 
 ## 概述
 

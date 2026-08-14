@@ -8,7 +8,7 @@ description: "AIMoveToNearestLandBehavior 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class AIMoveToNearestLandBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors/AIMoveToNearestLandBehavior.cs`
+**File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/AiBehaviors/AIMoveToNearestLandBehavior.cs`
 
 ## 概述
 

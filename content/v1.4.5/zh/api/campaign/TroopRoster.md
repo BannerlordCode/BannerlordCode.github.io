@@ -15,7 +15,7 @@ description: "战役队伍的兵员名册：维护 CharacterObject 的数量、�
 
 `TroopRoster` 是一个按 `CharacterObject` 分组的兵员状态容器：它同时记录人数、伤员、兵种经验和缓存统计，并在拥有它的 [PartyBase](../PartyBase) 上触发名册变化回调。
 
-## 心智模型：Party 的名册，不是独立部队
+## 心智模型
 
 `TroopRoster` 只描述“有哪些兵以及每种兵的状态”，不负责移动、战斗、俘虏转移或队伍注册。正常的宿主是 [MobileParty](../MobileParty) 或 [Settlement](../Settlement) 的 `PartyBase`：
 
@@ -58,7 +58,7 @@ MobileParty / Settlement
 - **不是战斗结果 API。** 战斗、伤亡和战利品由 [MapEvent](../MapEvent)、遭遇流程和 [CampaignBattleRecoveryBehavior](../CampaignBattleRecoveryBehavior) 协调；名册方法只执行它被调用的那一部分状态修改。
 - **不是规则 Model。** `TotalManCount`、`TotalWounded`、工资和战斗力是当前名册状态或 Model 的输入。要改变计算规则，应扩展/替换对应 Model，而不是每个 tick 反复覆盖名册结果。
 
-## 依赖与数据流
+## 依赖
 
 ```mermaid
 graph TD

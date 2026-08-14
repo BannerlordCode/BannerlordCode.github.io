@@ -8,7 +8,7 @@ description: "ManagedArray 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct ManagedArray`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ManagedArray.cs`
+**File:** `TaleWorlds.Library/ManagedArray.cs`
 
 ## 概述
 
@@ -18,25 +18,11 @@ description: "ManagedArray 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要方法
-
-### ManagedArray
-`public struct ManagedArray(IntPtr array, int length)`
-
-**用途 / Purpose:** 调用 ManagedArray 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ManagedArray 实例
-ManagedArray managedArray = ...;
-var result = managedArray.ManagedArray(array, 0);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-ManagedArray managedArray = ...;
-managedArray.ManagedArray(array, 0);
+// 从对应子系统 API 获取实例
+ManagedArray instance = ...;
 ```
 
 ## 参见

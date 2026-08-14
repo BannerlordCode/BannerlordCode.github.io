@@ -8,7 +8,7 @@ description: "SkinGenerationParams 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct SkinGenerationParams`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SkinGenerationParams.cs`
+**File:** `TaleWorlds.MountAndBlade/SkinGenerationParams.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IOptionData 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public interface IOptionData`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/IOptionData.cs`
+**File:** `TaleWorlds.Engine/Options/IOptionData.cs`
 
 ## 概述
 

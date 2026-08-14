@@ -8,7 +8,7 @@ description: "NativeConfig 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public static class NativeConfig`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/NativeConfig.cs`
+**File:** `TaleWorlds.Engine/NativeConfig.cs`
 
 ## 概述
 
@@ -28,6 +28,18 @@ description: "NativeConfig 的自动生成类参考。"
 | `GetUIDebugMode` | `public static bool GetUIDebugMode { get; }` |
 | `DisableSound` | `public static bool DisableSound { get; }` |
 | `EnableEditMode` | `public static bool EnableEditMode { get; }` |
+| `TableauCacheEnabled` | `public static bool TableauCacheEnabled { get; }` |
+| `DoLocalizationCheckAtStartup` | `public static bool DoLocalizationCheckAtStartup { get; }` |
+| `EnableClothSimulation` | `public static bool EnableClothSimulation { get; }` |
+| `CharacterDetail` | `public static int CharacterDetail { get; }` |
+| `InvertMouse` | `public static bool InvertMouse { get; }` |
+| `LastOpenedScene` | `public static string LastOpenedScene { get; }` |
+| `AutoSaveInMinutes` | `public static int AutoSaveInMinutes { get; }` |
+| `GetUIDoNotUseGeneratedPrefabs` | `public static bool GetUIDoNotUseGeneratedPrefabs { get; }` |
+| `DebugLoginUsername` | `public static string DebugLoginUsername { get; }` |
+| `DebugLogicPassword` | `public static string DebugLogicPassword { get; }` |
+| `DisableGuiMessages` | `public static bool DisableGuiMessages { get; }` |
+| `AutoGFXQuality` | `public static NativeOptions.ConfigQuality AutoGFXQuality { get; }` |
 
 ## 主要方法
 

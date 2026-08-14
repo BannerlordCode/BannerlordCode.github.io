@@ -8,7 +8,7 @@ description: "RESTClient 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public class RESTClient`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/RESTClient.cs`
+**File:** `TaleWorlds.Network/RESTClient.cs`
 
 ## 概述
 
@@ -21,7 +21,7 @@ description: "RESTClient 的自动生成类参考。"
 ## 主要方法
 
 ### Get
-`public async Task Get(string service, List<KeyValuePair<string, string>> headers)`
+`public Task Get(string service, List<KeyValuePair<string, string>> headers)`
 
 **用途 / Purpose:** 读取当前对象的值或状态并返回。
 
@@ -32,7 +32,7 @@ var result = rESTClient.Get("example", list<KeyValuePair<string, "example");
 ```
 
 ### Post
-`public async Task Post(string service, List<KeyValuePair<string, string>> headers, string payLoad, string contentType = "application/json")`
+`public Task Post(string service, List<KeyValuePair<string, string>> headers, string payLoad, string contentType = "application/json")`
 
 **用途 / Purpose:** 调用 Post 对应的操作。
 

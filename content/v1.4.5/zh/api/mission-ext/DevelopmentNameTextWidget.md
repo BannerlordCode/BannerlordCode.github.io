@@ -6,9 +6,9 @@ description: "DevelopmentNameTextWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class DevelopmentNameTextWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/DevelopmentNameTextWidget.cs`
+**Type:** `public class DevelopmentNameTextWidget : TextWidget`
+**Base:** `TextWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Menu/TownManagement/DevelopmentNameTextWidget.cs`
 
 ## 概述
 
@@ -28,17 +28,6 @@ description: "DevelopmentNameTextWidget 的自动生成类参考。"
 | `IsInQueue` | `public bool IsInQueue { get; set; }` |
 
 ## 主要方法
-
-### DevelopmentNameTextWidget
-`public class DevelopmentNameTextWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 DevelopmentNameTextWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 DevelopmentNameTextWidget 实例
-DevelopmentNameTextWidget developmentNameTextWidget = ...;
-var result = developmentNameTextWidget.DevelopmentNameTextWidget(context);
-```
 
 ### StartMaxTextAnimation
 `public void StartMaxTextAnimation()`

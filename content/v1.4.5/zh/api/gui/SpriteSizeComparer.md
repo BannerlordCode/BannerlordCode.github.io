@@ -8,7 +8,7 @@ description: "SpriteSizeComparer 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `class SpriteSizeComparer : IComparer<SpritePart>`
 **Base:** `IComparer<SpritePart>`
-**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/SpriteCategory.cs`
+**File:** `TaleWorlds.TwoDimension/SpriteCategory.cs`
 
 ## 概述
 

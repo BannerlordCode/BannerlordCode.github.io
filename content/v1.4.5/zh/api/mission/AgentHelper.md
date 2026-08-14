@@ -8,7 +8,7 @@ description: "AgentHelper 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal static class AgentHelper`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Helpers/TaleWorlds.MountAndBlade/AgentHelper.cs`
+**File:** `TaleWorlds.MountAndBlade.Helpers/AgentHelper.cs`
 
 ## 概述
 

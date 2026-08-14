@@ -8,7 +8,7 @@ description: "MatchmakingWaitTimeRegionStats 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MatchmakingWaitTimeRegionStats`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MatchmakingWaitTimeRegionStats.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/MatchmakingWaitTimeRegionStats.cs`
 
 ## 概述
 

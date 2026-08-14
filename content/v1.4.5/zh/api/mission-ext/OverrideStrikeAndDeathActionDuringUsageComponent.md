@@ -8,7 +8,7 @@ description: "OverrideStrikeAndDeathActionDuringUsageComponent 的自动生成�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OverrideStrikeAndDeathActionDuringUsageComponent : UsableMissionObjectComponent`
 **Base:** `UsableMissionObjectComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/OverrideStrikeAndDeathActionDuringUsageComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/OverrideStrikeAndDeathActionDuringUsageComponent.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "DeformKeyData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct DeformKeyData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DeformKeyData.cs`
+**File:** `TaleWorlds.MountAndBlade/DeformKeyData.cs`
 
 ## 概述
 

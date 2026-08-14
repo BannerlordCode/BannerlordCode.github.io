@@ -8,7 +8,7 @@ description: "CombatLogNetworkMessage 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class CombatLogNetworkMessage : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/CombatLogNetworkMessage.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/CombatLogNetworkMessage.cs`
 
 ## 概述
 
@@ -31,7 +31,6 @@ description: "CombatLogNetworkMessage 的自动生成类参考。"
 | `IsRangedAttack` | `public bool IsRangedAttack { get; }` |
 | `IsFriendlyFire` | `public bool IsFriendlyFire { get; }` |
 | `IsFatalDamage` | `public bool IsFatalDamage { get; }` |
-| `IsSpecialDamage` | `public bool IsSpecialDamage { get; }` |
 | `BodyPartHit` | `public BoneBodyPartType BodyPartHit { get; }` |
 | `HitSpeed` | `public float HitSpeed { get; }` |
 | `Distance` | `public float Distance { get; }` |

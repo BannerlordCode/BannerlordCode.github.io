@@ -8,7 +8,7 @@ description: "ObjectiveMarkerWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ObjectiveMarkerWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker/ObjectiveMarkerWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/NameMarker/ObjectiveMarkerWidget.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "ObjectiveMarkerWidget 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `IsCombinedWithOtherMarkers` | `public bool IsCombinedWithOtherMarkers { get; set; }` |
 | `FarAlphaTarget` | `public float FarAlphaTarget { get; }` |
 | `FarDistanceCutoff` | `public float FarDistanceCutoff { get; }` |
 | `CloseDistanceCutoff` | `public float CloseDistanceCutoff { get; }` |

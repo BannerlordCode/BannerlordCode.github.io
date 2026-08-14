@@ -8,7 +8,7 @@ description: "TacticalPosition 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticalPosition : MissionObject`
 **Base:** `MissionObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticalPosition.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticalPosition.cs`
 
 ## 概述
 
@@ -24,7 +24,14 @@ description: "TacticalPosition 的自动生成类参考。"
 |------|-----------|
 | `Position` | `public WorldPosition Position { get; set; }` |
 | `Direction` | `public Vec2 Direction { get; set; }` |
+| `Width` | `public float Width { get; }` |
+| `Slope` | `public float Slope { get; }` |
+| `IsInsurmountable` | `public bool IsInsurmountable { get; }` |
+| `IsOuterEdge` | `public bool IsOuterEdge { get; set; }` |
 | `LinkedTacticalPositions` | `public List<TacticalPosition> LinkedTacticalPositions { get; set; }` |
+| `TacticalPositionType` | `public TacticalPosition.TacticalPositionTypeEnum TacticalPositionType { get; }` |
+| `TacticalRegionMembership` | `public TacticalRegion.TacticalRegionTypeEnum TacticalRegionMembership { get; }` |
+| `TacticalPositionSide` | `public FormationAI.BehaviorSide TacticalPositionSide { get; }` |
 
 ## 主要方法
 

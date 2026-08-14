@@ -8,7 +8,7 @@ description: "TeamDeathmatchMissionRepresentative 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TeamDeathmatchMissionRepresentative : MissionRepresentativeBase`
 **Base:** `MissionRepresentativeBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionRepresentatives/TeamDeathmatchMissionRepresentative.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionRepresentatives/TeamDeathmatchMissionRepresentative.cs`
 
 ## 概述
 

@@ -6,9 +6,9 @@ description: "SpawnPathData 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class SpawnPathData`
+**Type:** `public struct SpawnPathData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SpawnPathData.cs`
+**File:** `TaleWorlds.MountAndBlade/SpawnPathData.cs`
 
 ## 概述
 
@@ -38,73 +38,18 @@ var result = spawnPathData.Invert();
 ```
 
 ### ClampPathOffset
-`public void ClampPathOffset(ref float relativePathOffset)`
+`public float ClampPathOffset(float pathOffsetRatio)`
 
 **用途 / Purpose:** 调用 ClampPathOffset 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
 SpawnPathData spawnPathData = ...;
-spawnPathData.ClampPathOffset(relativePathOffset);
-```
-
-### ConvertPointToRelativePathOffset
-`public float ConvertPointToRelativePathOffset(int pointIndex)`
-
-**用途 / Purpose:** 把point to relative path offset转换为另一种表示或类型。
-
-```csharp
-// 先通过子系统 API 拿到 SpawnPathData 实例
-SpawnPathData spawnPathData = ...;
-var result = spawnPathData.ConvertPointToRelativePathOffset(0);
-```
-
-### ConvertRelativePathOffsetToPathDistance
-`public float ConvertRelativePathOffsetToPathDistance(float relativePathOffset)`
-
-**用途 / Purpose:** 把relative path offset to path distance转换为另一种表示或类型。
-
-```csharp
-// 先通过子系统 API 拿到 SpawnPathData 实例
-SpawnPathData spawnPathData = ...;
-var result = spawnPathData.ConvertRelativePathOffsetToPathDistance(0);
-```
-
-### GetNodeIndexAtPathDistance
-`public int GetNodeIndexAtPathDistance(float pathDistance)`
-
-**用途 / Purpose:** 读取并返回当前对象中 node index at path distance 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 SpawnPathData 实例
-SpawnPathData spawnPathData = ...;
-var result = spawnPathData.GetNodeIndexAtPathDistance(0);
-```
-
-### GetBaseOffset
-`public float GetBaseOffset()`
-
-**用途 / Purpose:** 读取并返回当前对象中 base offset 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 SpawnPathData 实例
-SpawnPathData spawnPathData = ...;
-var result = spawnPathData.GetBaseOffset();
-```
-
-### IsPathOffsetValid
-`public bool IsPathOffsetValid(float relativePathOffset)`
-
-**用途 / Purpose:** 判断当前对象是否处于 path offset valid 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 SpawnPathData 实例
-SpawnPathData spawnPathData = ...;
-var result = spawnPathData.IsPathOffsetValid(0);
+var result = spawnPathData.ClampPathOffset(0);
 ```
 
 ### GetOffsetOverflow
-`public float GetOffsetOverflow(float relativePathOffset)`
+`public float GetOffsetOverflow(float pathOffset)`
 
 **用途 / Purpose:** 读取并返回当前对象中 offset overflow 的结果。
 
@@ -114,19 +59,8 @@ SpawnPathData spawnPathData = ...;
 var result = spawnPathData.GetOffsetOverflow(0);
 ```
 
-### GetSpawnFrame
-`public MatrixFrame GetSpawnFrame(float relativePathOffset, bool searchNearestValidFrame = false, SearchDirection searchDirection = SearchDirection.Backward)`
-
-**用途 / Purpose:** 读取并返回当前对象中 spawn frame 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 SpawnPathData 实例
-SpawnPathData spawnPathData = ...;
-var result = spawnPathData.GetSpawnFrame(0, false, searchDirection.Backward);
-```
-
 ### GetSpawnPathFrameFacingTarget
-`public void GetSpawnPathFrameFacingTarget(float basePathOffset, float targetPathOffset, bool useTangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection, bool decideDirectionDynamically = false, float dynamicDistancePercentage = 0.2f)`
+`public void GetSpawnPathFrameFacingTarget(float baseOffset, float targetOffset, bool useTangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection, bool decideDirectionDynamically = false, float dynamicDistancePercentage = 0.2f)`
 
 **用途 / Purpose:** 读取并返回当前对象中 spawn path frame facing target 的结果。
 
@@ -136,14 +70,36 @@ SpawnPathData spawnPathData = ...;
 spawnPathData.GetSpawnPathFrameFacingTarget(0, 0, false, spawnPathPosition, spawnPathDirection, false, 0);
 ```
 
+### GetSpawnPathFrameFacingPivot
+`public void GetSpawnPathFrameFacingPivot(float pathOffset, bool useTangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection)`
+
+**用途 / Purpose:** 读取并返回当前对象中 spawn path frame facing pivot 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnPathData 实例
+SpawnPathData spawnPathData = ...;
+spawnPathData.GetSpawnPathFrameFacingPivot(0, false, spawnPathPosition, spawnPathDirection);
+```
+
+### GetSpawnPathFrameFacingTangentDirection
+`public void GetSpawnPathFrameFacingTangentDirection(float baseOffset, int tangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection)`
+
+**用途 / Purpose:** 读取并返回当前对象中 spawn path frame facing tangent direction 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnPathData 实例
+SpawnPathData spawnPathData = ...;
+spawnPathData.GetSpawnPathFrameFacingTangentDirection(0, 0, spawnPathPosition, spawnPathDirection);
+```
+
 ### Create
-`public static SpawnPathData Create(Scene scene, Path path, float pivotOffset, bool isInverted = false, SnapMethod snapType = SnapMethod.DontSnap)`
+`public static SpawnPathData Create(Scene scene, Path path, float pivotRatio = 0f, bool isInverted = false, SpawnPathData.SnapMethod snapType = SpawnPathData.SnapMethod.DontSnap)`
 
 **用途 / Purpose:** 创建当前对象的新实例或相关实体。
 
 ```csharp
 // 静态调用，不需要实例
-SpawnPathData.Create(scene, path, 0, false, snapMethod.DontSnap);
+SpawnPathData.Create(scene, path, 0, false, spawnPathData.SnapMethod.DontSnap);
 ```
 
 ## 使用示例

@@ -8,7 +8,7 @@ description: "MBEquipmentRoster 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MBEquipmentRoster : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBEquipmentRoster.cs`
+**File:** `TaleWorlds.Core/MBEquipmentRoster.cs`
 
 ## 概述
 
@@ -22,12 +22,33 @@ description: "MBEquipmentRoster 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `EquipmentCulture` | `public BasicCultureObject EquipmentCulture { get; }` |
-| `EquipmentCategories` | `public EquipmentCategories EquipmentCategories { get; }` |
+| `EquipmentFlags` | `public EquipmentFlags EquipmentFlags { get; }` |
 | `AllEquipments` | `public MBReadOnlyList<Equipment> AllEquipments { get; }` |
 | `DefaultEquipment` | `public Equipment DefaultEquipment { get; }` |
 
 ## 主要方法
+
+### HasEquipmentFlags
+`public bool HasEquipmentFlags(EquipmentFlags flags)`
+
+**用途 / Purpose:** 判断当前对象是否已经持有 equipment flags。
+
+```csharp
+// 先通过子系统 API 拿到 MBEquipmentRoster 实例
+MBEquipmentRoster mBEquipmentRoster = ...;
+var result = mBEquipmentRoster.HasEquipmentFlags(flags);
+```
+
+### IsEquipmentTemplate
+`public bool IsEquipmentTemplate()`
+
+**用途 / Purpose:** 判断当前对象是否处于 equipment template 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MBEquipmentRoster 实例
+MBEquipmentRoster mBEquipmentRoster = ...;
+var result = mBEquipmentRoster.IsEquipmentTemplate();
+```
 
 ### Init
 `public void Init(MBObjectManager objectManager, XmlNode node)`
@@ -62,15 +83,15 @@ MBEquipmentRoster mBEquipmentRoster = ...;
 mBEquipmentRoster.AddEquipmentRoster(equipmentRoster, equipmentType);
 ```
 
-### AddOverriddenEquipments
-`public void AddOverriddenEquipments(MBObjectManager objectManager, List<XmlNode> overridenEquipmentSlots)`
+### AddOverridenEquipments
+`public void AddOverridenEquipments(MBObjectManager objectManager, List<XmlNode> overridenEquipmentSlots)`
 
-**用途 / Purpose:** 将 overridden equipments 添加到当前容器或状态中。
+**用途 / Purpose:** 将 overriden equipments 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MBEquipmentRoster 实例
 MBEquipmentRoster mBEquipmentRoster = ...;
-mBEquipmentRoster.AddOverriddenEquipments(objectManager, overridenEquipmentSlots);
+mBEquipmentRoster.AddOverridenEquipments(objectManager, overridenEquipmentSlots);
 ```
 
 ### OrderEquipments
@@ -100,7 +121,7 @@ mBEquipmentRoster.InitializeDefaultEquipment("example");
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 MBEquipmentRoster mBEquipmentRoster = ...;
-mBEquipmentRoster.Init(objectManager, node);
+mBEquipmentRoster.HasEquipmentFlags(flags);
 ```
 
 ## 参见

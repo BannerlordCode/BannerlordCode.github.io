@@ -8,7 +8,7 @@ description: "MovementOrder 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct MovementOrder`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MovementOrder.cs`
+**File:** `TaleWorlds.MountAndBlade/MovementOrder.cs`
 
 ## 概述
 
@@ -25,7 +25,7 @@ description: "MovementOrder 的自动生成类参考。"
 | `TargetFormation` | `public Formation TargetFormation { get; }` |
 | `_targetAgent` | `public Agent _targetAgent { get; }` |
 | `OrderType` | `public OrderType OrderType { get; }` |
-| `MovementState` | `public MovementStateEnum MovementState { get; }` |
+| `MovementState` | `public MovementOrder.MovementStateEnum MovementState { get; }` |
 
 ## 主要方法
 
@@ -102,7 +102,7 @@ MovementOrder.MovementOrderAttackEntity(targetEntity, false);
 ```
 
 ### GetMovementOrderDefensiveness
-`public static int GetMovementOrderDefensiveness(MovementOrderEnum orderEnum)`
+`public static int GetMovementOrderDefensiveness(MovementOrder.MovementOrderEnum orderEnum)`
 
 **用途 / Purpose:** 读取并返回当前对象中 movement order defensiveness 的结果。
 
@@ -112,7 +112,7 @@ MovementOrder.GetMovementOrderDefensiveness(orderEnum);
 ```
 
 ### GetMovementOrderDefensivenessChange
-`public static int GetMovementOrderDefensivenessChange(MovementOrderEnum previousOrderEnum, MovementOrderEnum nextOrderEnum)`
+`public static int GetMovementOrderDefensivenessChange(MovementOrder.MovementOrderEnum previousOrderEnum, MovementOrder.MovementOrderEnum nextOrderEnum)`
 
 **用途 / Purpose:** 读取并返回当前对象中 movement order defensiveness change 的结果。
 

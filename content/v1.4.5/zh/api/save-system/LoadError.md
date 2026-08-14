@@ -8,7 +8,7 @@ description: "LoadError 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class LoadError`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/LoadError.cs`
+**File:** `TaleWorlds.SaveSystem/Load/LoadError.cs`
 
 ## 概述
 

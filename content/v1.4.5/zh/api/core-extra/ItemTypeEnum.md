@@ -8,7 +8,7 @@ description: "ItemTypeEnum 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum ItemTypeEnum`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemObject.cs`
+**File:** `TaleWorlds.Core/ItemObject.cs`
 
 ## 概述
 

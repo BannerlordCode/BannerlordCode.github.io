@@ -8,7 +8,7 @@ description: "MoraleWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MoraleWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD/MoraleWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/HUD/MoraleWidget.cs`
 
 ## 概述
 
@@ -22,11 +22,6 @@ description: "MoraleWidget 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `ParentWidget` | `public Widget ParentWidget { get; }` |
-| `MaskWidget` | `public Widget MaskWidget { get; }` |
-| `ItemWidget` | `public BrushWidget ItemWidget { get; }` |
-| `ItemGlowWidget` | `public BrushWidget ItemGlowWidget { get; }` |
-| `ItemBackgroundWidget` | `public Widget ItemBackgroundWidget { get; }` |
 | `IncreaseLevel` | `public int IncreaseLevel { get; set; }` |
 | `MoralePercentage` | `public int MoralePercentage { get; set; }` |
 | `Container` | `public Widget Container { get; set; }` |
@@ -39,6 +34,11 @@ description: "MoraleWidget 的自动生成类参考。"
 | `FlowArrowWidget` | `public MoraleArrowBrushWidget FlowArrowWidget { get; set; }` |
 | `ExtendToLeft` | `public bool ExtendToLeft { get; set; }` |
 | `AreMoralesIndependent` | `public bool AreMoralesIndependent { get; set; }` |
+| `ParentWidget` | `public Widget ParentWidget { get; }` |
+| `MaskWidget` | `public Widget MaskWidget { get; }` |
+| `ItemWidget` | `public BrushWidget ItemWidget { get; }` |
+| `ItemGlowWidget` | `public BrushWidget ItemGlowWidget { get; }` |
+| `ItemBackgroundWidget` | `public Widget ItemBackgroundWidget { get; }` |
 
 ## 主要方法
 

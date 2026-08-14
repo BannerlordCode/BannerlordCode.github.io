@@ -8,7 +8,7 @@ description: "ScopedTimer 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class ScopedTimer : IDisposable`
 **Base:** `IDisposable`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ScopedTimer.cs`
+**File:** `TaleWorlds.Library/ScopedTimer.cs`
 
 ## 概述
 

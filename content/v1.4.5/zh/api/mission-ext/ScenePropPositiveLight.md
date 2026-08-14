@@ -8,7 +8,7 @@ description: "ScenePropPositiveLight 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ScenePropPositiveLight : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ScenePropPositiveLight.cs`
+**File:** `TaleWorlds.MountAndBlade/ScenePropPositiveLight.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "PlatformInitParams 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class PlatformInitParams : Dictionary<string, object>`
 **Base:** `Dictionary<string`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PlatformInitParams.cs`
+**File:** `TaleWorlds.Library/PlatformInitParams.cs`
 
 ## 概述
 

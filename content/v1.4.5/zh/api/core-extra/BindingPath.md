@@ -8,7 +8,7 @@ description: "BindingPath 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class BindingPath`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/BindingPath.cs`
+**File:** `TaleWorlds.Library/BindingPath.cs`
 
 ## 概述
 
@@ -22,7 +22,9 @@ description: "BindingPath 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `Path` | `public string Path { get; }` |
 | `Nodes` | `public string Nodes { get; }` |
+| `FirstNode` | `public string FirstNode { get; }` |
 | `LastNode` | `public string LastNode { get; }` |
 | `SubPath` | `public BindingPath SubPath { get; }` |
 | `ParentPath` | `public BindingPath ParentPath { get; }` |

@@ -8,7 +8,7 @@ description: "GetPlayerByUsernameAndIdMessageResult 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class GetPlayerByUsernameAndIdMessageResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetPlayerByUsernameAndIdMessageResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/GetPlayerByUsernameAndIdMessageResult.cs`
 
 ## 概述
 

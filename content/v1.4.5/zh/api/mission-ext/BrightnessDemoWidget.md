@@ -8,7 +8,7 @@ description: "BrightnessDemoWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BrightnessDemoWidget : TextureWidget`
 **Base:** `TextureWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/BrightnessDemoWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/BrightnessDemoWidget.cs`
 
 ## 概述
 
@@ -22,7 +22,7 @@ description: "BrightnessDemoWidget 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `DemoType` | `public DemoTypes DemoType { get; set; }` |
+| `DemoType` | `public BrightnessDemoWidget.DemoTypes DemoType { get; set; }` |
 
 ## 使用示例
 

@@ -8,7 +8,7 @@ description: "SessionProviderType 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public enum SessionProviderType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.ClientApplication/SessionProviderType.cs`
+**File:** `TaleWorlds.Diamond/ClientApplication/SessionProviderType.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ProximityMapSearchStructInternal 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal struct ProximityMapSearchStructInternal`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentProximityMap.cs`
+**File:** `TaleWorlds.MountAndBlade/AgentProximityMap.cs`
 
 ## 概述
 

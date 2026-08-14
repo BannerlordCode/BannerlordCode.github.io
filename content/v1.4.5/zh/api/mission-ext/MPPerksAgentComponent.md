@@ -8,7 +8,7 @@ description: "MPPerksAgentComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPPerksAgentComponent : AgentComponent`
 **Base:** `AgentComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerksAgentComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/MPPerksAgentComponent.cs`
 
 ## 概述
 

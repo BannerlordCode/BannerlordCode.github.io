@@ -8,7 +8,7 @@ description: "Mangonel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class Mangonel : RangedSiegeWeapon, ISpawnable`
 **Base:** `RangedSiegeWeapon`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Mangonel.cs`
+**File:** `TaleWorlds.MountAndBlade/Mangonel.cs`
 
 ## 概述
 
@@ -54,7 +54,7 @@ mangonel.OnPilotAssignedDuringSpawn();
 ```
 
 ### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
 **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 

@@ -1,8 +1,8 @@
 ---
-title: SDK 总览 — 模块地图与开发者路线图（v1.4.5）
-description: Bannerlord v1.4.5 SDK 全模块地图、分层架构与 mod 开发者路线图
+title: SDK 总览 — 模块地图与开发者路线图
+description: Bannerlord SDK 全模块地图、分层架构与 mod 开发者路线图（v1.3.15）
 ---
-# SDK 总览 — 模块地图与开发者路线图（v1.4.5）
+# SDK 总览 — 模块地图与开发者路线图
 
 > 本文不是模块清单，而是一张**开发者路线图**。它回答三个问题：每一层**为什么存在**、你**什么时候会碰到**它、以及如何**跳去对应的 API 文档**。
 
@@ -29,13 +29,10 @@ Bannerlord 的托管代码是一组**严格分层**的 `TaleWorlds.*` 程序集�
 
 | 页面 | 解决什么问题 |
 |------|------------|
-| [路线图 / Roadmap](../roadmap/) | 整体进度与阶段 |
-| [开发者路线图 / Developer Roadmap](../developer-roadmap/) | 分阶段交付计划 |
-| [文档契约 / Doc Contract](../doc-contract/) | 手写页面规范 |
-| [噪音策略 / Noise Policy](../noise-policy/) | 非业务类型处理 |
-| [沙盒原生策略 / Sandbox-Native](../sandbox-native-policy/) | 原生代码边界 |
-| [崩溃边界 / Crash Boundary](../crash-boundary/) | 崩溃安全约束 |
-| [里程碑报告 / Milestone](../milestone-report/) | 覆盖率里程碑 |
+| [模块系统](../module-system/) | SubModule 如何加载、注册 Behavior |
+| [存档系统](../save-system/) | `[SaveableField]` 与 SaveManager |
+| [版本差异](../version-delta/) | 跨版本迁移 |
+| [开发指南](../../guide/) | 实战代码示例 |
 
 ---
 
@@ -80,13 +77,13 @@ Bannerlord 的托管代码是一组**严格分层**的 `TaleWorlds.*` 程序集�
 
 | 我想做的事 | 层 | 入口类 / 机制 | 文档起点 |
 |-----------|----|--------------|---------|
-| 注册一个 mod（游戏启动钩子） | L8 + L6 | `MBSubModuleBase` · `ModuleInfo` | [模块系统](../doc-contract/) |
+| 注册一个 mod（游戏启动钩子） | L8 + L6 | `MBSubModuleBase` · `ModuleInfo` | [模块系统](../module-system/) |
 | 加新兵种 / 物品 / 装备 | L2 + XML | `ItemObject` · `CharacterObject` · `MBObjectManager` | [Core API](../../api/core/) · [物品 / 核心扩展 API](../../api/core-extra/) |
-| 做战役 mod（每日 tick、行为、王国逻辑） | L7 | `CampaignBehaviorBase` · `CampaignEvents` | [Campaign API](../../api/campaign/) |
-| 做战斗 / 任务 mod | L6 | `MissionBehavior` · `MissionLogic` · `Agent` · `Formation` | [Mission API](../../api/mission/) |
-| 加自定义 UI 屏 | L4 + L6 | `ViewModel` · `GauntletMovie` · `ScreenBase` | [GUI API](../../api/gui/) |
-| 持久化自定义数据到存档 | L5 | `[SaveableField]` · `[SaveableProperty]` · `SaveManager` | [Save API](../../api/save-system/) |
-| 加本地化文本 | L0 | `TextObject` · `MBTextManager` | [Localization API](../../api/localization/) |
+| 做战役 mod（每日 tick、行为、王国逻辑） | L7 | `CampaignBehaviorBase` · `CampaignEvents` | [Campaign API](../../api/campaign/) · [战役指南](../../guide/campaign-system/) |
+| 做战斗 / 任务 mod | L6 | `MissionBehavior` · `MissionLogic` · `Agent` · `Formation` | [Mission API](../../api/mission/) · [任务指南](../../guide/mission-system/) |
+| 加自定义 UI 屏 | L4 + L6 | `ViewModel` · `GauntletMovie` · `ScreenBase` | [GUI API](../../api/gui/) · [Gauntlet 指南](../../guide/gauntlet-ui/) |
+| 持久化自定义数据到存档 | L5 | `[SaveableField]` · `[SaveableProperty]` · `SaveManager` | [Save API](../../api/save-system/) · [存档架构](../save-system/) |
+| 加本地化文本 | L0 | `TextObject` · `MBTextManager` | [Localization API](../../api/localization/) · [本地化指南](../../guide/localization/) |
 | 操作场景实体 | L3 | `Scene` · `GameEntity` · `MatrixFrame` | [Engine API](../../api/engine/) |
 | 读取玩家输入 | L1 | `InputContext` · `InputKey` | [API 总览](../../api/) |
 | 加新的 ViewModel / 数据绑定 | L4 + L1 | `ViewModel` · `DataSourceProperty` | [ViewModel API](../../api/viewmodel/) |
@@ -121,13 +118,13 @@ Mission 中 Agent 穿戴装备进入战斗
 Gauntlet ViewModel 把数据绑定到 HUD / Encyclopedia
 ```
 
-如果任何一步报错，先在 [Core API](../../api/core/) 查原因。
+如果任何一步报错，先在 [模块系统](../module-system/) 和 [Core API](../../api/core/) 查原因。
 
 ---
 
-## 模块清单（v1.4.5，按层分组）
+## 模块清单（v1.3.15，按层分组）
 
-> 规模：**65 个 TaleWorlds 程序集 / DLL**。v1.4.5 把多人（Multiplayer）、View、Gauntlet 拆分为独立程序集；具体模块职责与 v1.3.15 基本一致。
+> 规模：**54 个 TaleWorlds 模块 / 5196 个 .cs 文件 / 5811 个类型**。★ 标记为 1.3.15 新增。
 
 ### Layer 0 — Foundation
 
@@ -169,7 +166,7 @@ Gauntlet ViewModel 把数据绑定到 HUD / Encyclopedia
 
 | 模块 | 职责 | mod 相关性 |
 |------|------|-----------|
-| `TaleWorlds.SaveSystem` | `SaveManager`、`SaveContext`、`LoadContext`、`[SaveableField/Property]` | 任何需要跨存档保留数据的 mod |
+| `TaleWorlds.SaveSystem` ★ | `SaveManager`、`SaveContext`、`LoadContext`、`[SaveableField/Property]` | 任何需要跨存档保留数据的 mod |
 
 ### Layer 6 — MountAndBlade
 
@@ -201,7 +198,7 @@ Gauntlet ViewModel 把数据绑定到 HUD / Encyclopedia
 这些类是 mod 开发的高频入口（*号表示自动生成的跨版本对比页已存在）：
 
 - 战役：[`Campaign`](../../api/campaign/Campaign/) · [`CampaignBehaviorBase*`](../../../../versions/CampaignBehaviorBase/) · [`Hero*`](../../../../versions/Hero/) · [`MobileParty*`](../../../../versions/MobileParty/) · [`Kingdom*`](../../../../versions/Kingdom/) · [`Clan*`](../../../../versions/Clan/) · [`Settlement*`](../../../../versions/Settlement/) · [`Town*`](../../../../versions/Town/) · [`Village*`](../../../../versions/Village/)
-- 战斗：[`Mission*`](../../../../versions/Mission/) · [`MissionBehavior*`](../../../../versions/MissionBehavior/) · [`Agent`](../../api/mission/Agent/) · [`Formation*`](../../../../versions/Formation/) · `Team`
+- 战斗：[`Mission*`](../../../../versions/Mission/) · [`MissionBehavior*`](../../../../versions/MissionBehavior/) · [`Agent`](../../api/mission/Agent/) · [`Formation*`](../../../../versions/Formation/) · [`Team`](../../api/mission/Team/)
 - 核心：[`ItemObject*`](../../../../versions/ItemObject/) · [`MBObjectManager`](../../api/campaign-ext/MBObjectManager/) · [`TextObject`](../../api/localization/TextObject/)
 - 任务/事件：[`QuestBase*`](../../../../versions/QuestBase/) · [`IssueBase*`](../../../../versions/IssueBase/)
 - UI：[`ViewModel`](../../api/core-extra/ViewModel/) · [`GauntletMovie`](../../api/gui/GauntletMovie/)
@@ -213,9 +210,9 @@ Gauntlet ViewModel 把数据绑定到 HUD / Encyclopedia
 
 ## 版本差异速查
 
-| 维度 | v1.3.0 | v1.3.15 | v1.4.5（本文档） |
-|------|--------|---------|------------------|
+| 维度 | v1.3.0 | v1.3.15（本文档） | v1.4.5 |
+|------|--------|------------------|--------|
 | 模块数 | 31 | 54 | 65 (DLL) |
 | 关键变化 | 含 SandBox/StoryMode 玩法模块 | `SaveSystem` 独立；平台服务拆分 | 多人/View/Gauntlet 拆分为独立程序集 |
 
-完整对照见 [开发者路线图](../developer-roadmap/)。
+完整对照见 [版本差异](../version-delta/)。

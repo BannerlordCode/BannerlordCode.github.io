@@ -8,7 +8,7 @@ description: "IssueQuestFlags 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum IssueQuestFlags`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/CampaignUIHelper.cs`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/CampaignUIHelper.cs`
 
 ## 概述
 

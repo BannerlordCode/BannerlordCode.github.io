@@ -6,9 +6,9 @@ description: "CharacterCreationOptionsItemWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation.Options
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class CharacterCreationOptionsItemWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation.Options/CharacterCreationOptionsItemWidget.cs`
+**Type:** `public class CharacterCreationOptionsItemWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/CharacterCreation/Options/CharacterCreationOptionsItemWidget.cs`
 
 ## 概述
 
@@ -27,19 +27,6 @@ description: "CharacterCreationOptionsItemWidget 的自动生成类参考。"
 | `NumericOptionWidget` | `public Widget NumericOptionWidget { get; set; }` |
 | `SelectionOptionWidget` | `public Widget SelectionOptionWidget { get; set; }` |
 | `BooleanOptionWidget` | `public Widget BooleanOptionWidget { get; set; }` |
-
-## 主要方法
-
-### CharacterCreationOptionsItemWidget
-`public class CharacterCreationOptionsItemWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 CharacterCreationOptionsItemWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 CharacterCreationOptionsItemWidget 实例
-CharacterCreationOptionsItemWidget characterCreationOptionsItemWidget = ...;
-var result = characterCreationOptionsItemWidget.CharacterCreationOptionsItemWidget(context);
-```
 
 ## 使用示例
 

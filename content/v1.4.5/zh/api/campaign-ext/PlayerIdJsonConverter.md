@@ -8,7 +8,7 @@ description: "PlayerIdJsonConverter 的自动生成类参考。"
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public class PlayerIdJsonConverter : JsonConverter`
 **Base:** `JsonConverter`
-**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices/PlayerIdJsonConverter.cs`
+**File:** `TaleWorlds.PlayerServices/PlayerServices/PlayerIdJsonConverter.cs`
 
 ## 概述
 
@@ -17,6 +17,12 @@ description: "PlayerIdJsonConverter 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.PlayerServices` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `CanWrite` | `public override bool CanWrite { get; }` |
 
 ## 主要方法
 

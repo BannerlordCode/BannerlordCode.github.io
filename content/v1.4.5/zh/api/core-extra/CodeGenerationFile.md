@@ -8,7 +8,7 @@ description: "CodeGenerationFile 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class CodeGenerationFile`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/CodeGenerationFile.cs`
+**File:** `TaleWorlds.Library/CodeGeneration/CodeGenerationFile.cs`
 
 ## 概述
 

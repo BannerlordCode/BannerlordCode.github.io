@@ -8,7 +8,7 @@ description: "CheckClanParameterValidResult 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class CheckClanParameterValidResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/CheckClanParameterValidResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/CheckClanParameterValidResult.cs`
 
 ## 概述
 

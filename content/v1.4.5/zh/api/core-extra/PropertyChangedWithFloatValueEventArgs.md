@@ -8,7 +8,7 @@ description: "PropertyChangedWithFloatValueEventArgs 的自动生成类参考。
 **Module:** TaleWorlds.Library
 **Type:** `public struct PropertyChangedWithFloatValueEventArgs`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithFloatValueEventArgs.cs`
+**File:** `TaleWorlds.Library/PropertyChangedWithFloatValueEventArgs.cs`
 
 ## 概述
 
@@ -25,25 +25,11 @@ description: "PropertyChangedWithFloatValueEventArgs 的自动生成类参考。
 | `PropertyName` | `public string PropertyName { get; }` |
 | `Value` | `public float Value { get; }` |
 
-## 主要方法
-
-### PropertyChangedWithFloatValueEventArgs
-`public struct PropertyChangedWithFloatValueEventArgs(string propertyName, float value)`
-
-**用途 / Purpose:** 调用 PropertyChangedWithFloatValueEventArgs 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 PropertyChangedWithFloatValueEventArgs 实例
-PropertyChangedWithFloatValueEventArgs propertyChangedWithFloatValueEventArgs = ...;
-var result = propertyChangedWithFloatValueEventArgs.PropertyChangedWithFloatValueEventArgs("example", 0);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-PropertyChangedWithFloatValueEventArgs propertyChangedWithFloatValueEventArgs = ...;
-propertyChangedWithFloatValueEventArgs.PropertyChangedWithFloatValueEventArgs("example", 0);
+// 从对应子系统 API 获取实例
+PropertyChangedWithFloatValueEventArgs instance = ...;
 ```
 
 ## 参见

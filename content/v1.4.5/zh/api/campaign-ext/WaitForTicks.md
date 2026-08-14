@@ -8,7 +8,7 @@ description: "WaitForTicks 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public class WaitForTicks : CoroutineState`
 **Base:** `CoroutineState`
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/WaitForTicks.cs`
+**File:** `TaleWorlds.Network/WaitForTicks.cs`
 
 ## 概述
 

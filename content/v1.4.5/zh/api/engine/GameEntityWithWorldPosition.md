@@ -8,7 +8,7 @@ description: "GameEntityWithWorldPosition 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class GameEntityWithWorldPosition`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/GameEntityWithWorldPosition.cs`
+**File:** `TaleWorlds.Engine/GameEntityWithWorldPosition.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "GameEntityWithWorldPosition 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `GameEntity` | `public WeakGameEntity GameEntity { get; }` |
 | `WorldPosition` | `public WorldPosition WorldPosition { get; }` |
 | `WorldFrame` | `public WorldFrame WorldFrame { get; }` |
 | `AsVec2` | `public Vec2 AsVec2 { get; }` |

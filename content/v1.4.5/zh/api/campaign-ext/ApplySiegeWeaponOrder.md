@@ -8,7 +8,7 @@ description: "ApplySiegeWeaponOrder 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class ApplySiegeWeaponOrder : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/ApplySiegeWeaponOrder.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/ApplySiegeWeaponOrder.cs`
 
 ## 概述
 

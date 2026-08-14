@@ -8,7 +8,7 @@ description: "IInputContext 的自动生成类参考。"
 **Module:** TaleWorlds.InputSystem
 **Type:** `public interface IInputContext`
 **Base:** 无
-**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/IInputContext.cs`
+**File:** `TaleWorlds.InputSystem/IInputContext.cs`
 
 ## 概述
 

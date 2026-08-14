@@ -8,7 +8,7 @@ description: "CultureVoteTypes 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum CultureVoteTypes`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CultureVoteTypes.cs`
+**File:** `TaleWorlds.MountAndBlade/CultureVoteTypes.cs`
 
 ## 概述
 

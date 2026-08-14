@@ -8,7 +8,7 @@ description: "WallSegment 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class WallSegment : SynchedMissionObject, IPointDefendable, ICastleKeyPosition`
 **Base:** `SynchedMissionObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/WallSegment.cs`
+**File:** `TaleWorlds.MountAndBlade/WallSegment.cs`
 
 ## 概述
 

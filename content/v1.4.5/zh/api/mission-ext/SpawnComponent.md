@@ -8,7 +8,7 @@ description: "SpawnComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SpawnComponent : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SpawnComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/SpawnComponent.cs`
 
 ## 概述
 

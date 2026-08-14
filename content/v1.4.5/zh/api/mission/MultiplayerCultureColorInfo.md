@@ -8,7 +8,7 @@ description: "MultiplayerCultureColorInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `struct MultiplayerCultureColorInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Multiplayer/MultiplayerBattleColors.cs`
+**File:** `TaleWorlds.MountAndBlade/Missions/Multiplayer/MultiplayerBattleColors.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "QueryLibrary 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class QueryLibrary`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/QueryLibrary.cs`
+**File:** `TaleWorlds.MountAndBlade/QueryLibrary.cs`
 
 ## 概述
 

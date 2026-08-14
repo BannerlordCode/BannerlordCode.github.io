@@ -8,7 +8,7 @@ description: "Coroutine 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public class Coroutine`
 **Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/Coroutine.cs`
+**File:** `TaleWorlds.Network/Coroutine.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "BattlePeerQuitType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum BattlePeerQuitType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BattlePeerQuitType.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/BattlePeerQuitType.cs`
 
 ## 概述
 

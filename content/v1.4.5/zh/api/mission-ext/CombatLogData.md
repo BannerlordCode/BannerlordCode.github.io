@@ -8,7 +8,7 @@ description: "CombatLogData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct CombatLogData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CombatLogData.cs`
+**File:** `TaleWorlds.MountAndBlade/CombatLogData.cs`
 
 ## 概述
 
@@ -22,9 +22,21 @@ description: "CombatLogData 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `TotalDamage` | `public int TotalDamage { get; set; }` |
 | `AttackProgress` | `public float AttackProgress { get; set; }` |
 
 ## 主要方法
+
+### GetLogString
+`public List<ValueTuple<string, uint>> GetLogString()`
+
+**用途 / Purpose:** 读取并返回当前对象中 log string 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CombatLogData 实例
+CombatLogData combatLogData = ...;
+var result = combatLogData.GetLogString();
+```
 
 ### SetVictimAgent
 `public void SetVictimAgent(Agent victimAgent)`

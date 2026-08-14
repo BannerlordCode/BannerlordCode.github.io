@@ -8,7 +8,7 @@ description: "ObjectLoadData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class ObjectLoadData`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/ObjectLoadData.cs`
+**File:** `TaleWorlds.SaveSystem/Load/ObjectLoadData.cs`
 
 ## 概述
 
@@ -38,17 +38,6 @@ description: "ObjectLoadData 的自动生成类参考。"
 // 先通过子系统 API 拿到 ObjectLoadData 实例
 ObjectLoadData objectLoadData = ...;
 var result = objectLoadData.GetDataBySaveId(0);
-```
-
-### GetMemberValueBySaveId
-`public object GetMemberValueBySaveId(int localSaveId, int typeLevel)`
-
-**用途 / Purpose:** 读取并返回当前对象中 member value by save id 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 ObjectLoadData 实例
-ObjectLoadData objectLoadData = ...;
-var result = objectLoadData.GetMemberValueBySaveId(0, 0);
 ```
 
 ### GetMemberValueBySaveId
@@ -93,17 +82,6 @@ var result = objectLoadData.GetPropertyValueBySaveId(0);
 // 先通过子系统 API 拿到 ObjectLoadData 实例
 ObjectLoadData objectLoadData = ...;
 var result = objectLoadData.HasMember(0);
-```
-
-### HasMember
-`public bool HasMember(int localSaveId, int typeLevel)`
-
-**用途 / Purpose:** 判断当前对象是否已经持有 member。
-
-```csharp
-// 先通过子系统 API 拿到 ObjectLoadData 实例
-ObjectLoadData objectLoadData = ...;
-var result = objectLoadData.HasMember(0, 0);
 ```
 
 ### InitializeReaders

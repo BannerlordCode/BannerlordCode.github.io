@@ -8,7 +8,7 @@ description: "MBMethodNameNotFoundException 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MBMethodNameNotFoundException : MBException`
 **Base:** `MBException`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBMethodNameNotFoundException.cs`
+**File:** `TaleWorlds.Core/MBMethodNameNotFoundException.cs`
 
 ## 概述
 

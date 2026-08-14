@@ -8,7 +8,7 @@ description: "SquareFormation 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SquareFormation : LineFormation`
 **Base:** `LineFormation`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SquareFormation.cs`
+**File:** `TaleWorlds.MountAndBlade/SquareFormation.cs`
 
 ## 概述
 
@@ -23,7 +23,9 @@ description: "SquareFormation 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `Width` | `public override float Width { get; set; }` |
+| `Depth` | `public override float Depth { get; }` |
 | `MinimumWidth` | `public override float MinimumWidth { get; }` |
+| `MaximumWidth` | `public override float MaximumWidth { get; }` |
 
 ## 主要方法
 

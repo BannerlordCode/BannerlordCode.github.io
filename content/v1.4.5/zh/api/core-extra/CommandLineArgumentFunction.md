@@ -8,7 +8,7 @@ description: "CommandLineArgumentFunction 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class CommandLineArgumentFunction : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/CommandLineFunctionality.cs`
+**File:** `TaleWorlds.Library/CommandLineFunctionality.cs`
 
 ## 概述
 

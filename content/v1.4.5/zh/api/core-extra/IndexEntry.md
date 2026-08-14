@@ -8,7 +8,7 @@ description: "IndexEntry 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public struct IndexEntry`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBFastRandomSelector.cs`
+**File:** `TaleWorlds.Core/MBFastRandomSelector.cs`
 
 ## 概述
 
@@ -18,25 +18,11 @@ description: "IndexEntry 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要方法
-
-### IndexEntry
-`public struct IndexEntry(ushort index, ushort version)`
-
-**用途 / Purpose:** 调用 IndexEntry 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 IndexEntry 实例
-IndexEntry indexEntry = ...;
-var result = indexEntry.IndexEntry(0, 0);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-IndexEntry indexEntry = ...;
-indexEntry.IndexEntry(0, 0);
+// 从对应子系统 API 获取实例
+IndexEntry instance = ...;
 ```
 
 ## 参见

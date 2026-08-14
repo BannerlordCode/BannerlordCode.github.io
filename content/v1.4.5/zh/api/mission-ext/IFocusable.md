@@ -8,7 +8,7 @@ description: "IFocusable 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface IFocusable`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IFocusable.cs`
+**File:** `TaleWorlds.MountAndBlade/IFocusable.cs`
 
 ## 概述
 

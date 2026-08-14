@@ -8,7 +8,7 @@ description: "Texture 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class Texture`
 **Base:** 无
-**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/Texture.cs`
+**File:** `TaleWorlds.TwoDimension/Texture.cs`
 
 ## 概述
 
@@ -23,6 +23,9 @@ description: "Texture 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `PlatformTexture` | `public ITexture PlatformTexture { get; }` |
+| `IsValid` | `public bool IsValid { get; }` |
+| `Width` | `public int Width { get; }` |
+| `Height` | `public int Height { get; }` |
 
 ## 主要方法
 

@@ -8,7 +8,7 @@ description: "GetPremadeGameListMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class GetPremadeGameListMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetPremadeGameListMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/GetPremadeGameListMessage.cs`
 
 ## 概述
 

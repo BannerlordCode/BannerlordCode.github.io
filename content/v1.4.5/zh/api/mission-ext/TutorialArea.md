@@ -8,7 +8,7 @@ description: "TutorialArea 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TutorialArea : MissionObject`
 **Base:** `MissionObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TutorialArea.cs`
+**File:** `TaleWorlds.MountAndBlade/TutorialArea.cs`
 
 ## 概述
 
@@ -22,7 +22,8 @@ description: "TutorialArea 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `TypeOfTraining` | `public TrainingType TypeOfTraining { get; }` |
+| `TrainingIconsReadOnly` | `public MBReadOnlyList<TrainingIcon> TrainingIconsReadOnly { get; }` |
+| `TypeOfTraining` | `public TutorialArea.TrainingType TypeOfTraining { get; }` |
 
 ## 主要方法
 

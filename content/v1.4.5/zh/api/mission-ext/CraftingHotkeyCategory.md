@@ -8,7 +8,7 @@ description: "CraftingHotkeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class CraftingHotkeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CraftingHotkeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/CraftingHotkeyCategory.cs`
 
 ## 概述
 

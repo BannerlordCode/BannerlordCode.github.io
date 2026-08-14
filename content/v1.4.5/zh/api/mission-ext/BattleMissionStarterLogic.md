@@ -8,7 +8,7 @@ description: "BattleMissionStarterLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleMissionStarterLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleMissionStarterLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/BattleMissionStarterLogic.cs`
 
 ## 概述
 

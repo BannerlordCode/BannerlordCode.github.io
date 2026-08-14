@@ -8,7 +8,7 @@ description: "TwoDimensionEnginePlatform 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class TwoDimensionEnginePlatform : ITwoDimensionPlatform`
 **Base:** `ITwoDimensionPlatform`
-**File:** `bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/TwoDimensionEnginePlatform.cs`
+**File:** `TaleWorlds.Engine.GauntletUI/TwoDimensionEnginePlatform.cs`
 
 ## 概述
 

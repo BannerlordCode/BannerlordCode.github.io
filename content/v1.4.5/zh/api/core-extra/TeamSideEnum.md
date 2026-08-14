@@ -8,7 +8,7 @@ description: "TeamSideEnum 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum TeamSideEnum`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TeamSideEnum.cs`
+**File:** `TaleWorlds.Core/TeamSideEnum.cs`
 
 ## 概述
 

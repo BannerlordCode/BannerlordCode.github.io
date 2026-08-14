@@ -8,7 +8,7 @@ description: "EngineTexture 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class EngineTexture : ITexture`
 **Base:** `ITexture`
-**File:** `bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/EngineTexture.cs`
+**File:** `TaleWorlds.Engine.GauntletUI/EngineTexture.cs`
 
 ## 概述
 

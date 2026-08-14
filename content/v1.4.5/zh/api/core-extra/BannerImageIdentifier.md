@@ -8,7 +8,7 @@ description: "BannerImageIdentifier 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class BannerImageIdentifier : ImageIdentifier`
 **Base:** `ImageIdentifier`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core.ImageIdentifiers/BannerImageIdentifier.cs`
+**File:** `TaleWorlds.Core/ImageIdentifiers/BannerImageIdentifier.cs`
 
 ## 概述
 

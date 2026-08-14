@@ -8,7 +8,7 @@ description: "LocalizedTextManager 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `public static class LocalizedTextManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization/LocalizedTextManager.cs`
+**File:** `TaleWorlds.Localization/LocalizedTextManager.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ColorBasicTypeSerializer 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class ColorBasicTypeSerializer : IBasicTypeSerializer`
 **Base:** `IBasicTypeSerializer`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/ColorBasicTypeSerializer.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/ColorBasicTypeSerializer.cs`
 
 ## 概述
 

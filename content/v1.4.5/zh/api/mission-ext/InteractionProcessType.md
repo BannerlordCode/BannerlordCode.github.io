@@ -8,7 +8,7 @@ description: "InteractionProcessType 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum InteractionProcessType`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/RecentPlayersManager.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/RecentPlayersManager.cs`
 
 ## 概述
 

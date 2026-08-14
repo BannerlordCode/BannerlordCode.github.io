@@ -8,7 +8,7 @@ description: "ArmyManagementHotkeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class ArmyManagementHotkeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ArmyManagementHotkeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/ArmyManagementHotkeyCategory.cs`
 
 ## 概述
 

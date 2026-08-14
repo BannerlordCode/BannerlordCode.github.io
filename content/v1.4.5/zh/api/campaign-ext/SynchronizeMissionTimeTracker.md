@@ -8,7 +8,7 @@ description: "SynchronizeMissionTimeTracker 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SynchronizeMissionTimeTracker : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SynchronizeMissionTimeTracker.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SynchronizeMissionTimeTracker.cs`
 
 ## 概述
 

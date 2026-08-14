@@ -8,7 +8,7 @@ description: "PropertyDefinition 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class PropertyDefinition : MemberDefinition`
 **Base:** `MemberDefinition`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/PropertyDefinition.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/PropertyDefinition.cs`
 
 ## 概述
 

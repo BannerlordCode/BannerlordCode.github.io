@@ -8,7 +8,7 @@ description: "FloaterVolumeDynamicUpAxis 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum FloaterVolumeDynamicUpAxis : byte`
 **Base:** `byte`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/FloaterVolumeDynamicUpAxis.cs`
+**File:** `TaleWorlds.Engine/FloaterVolumeDynamicUpAxis.cs`
 
 ## 概述
 

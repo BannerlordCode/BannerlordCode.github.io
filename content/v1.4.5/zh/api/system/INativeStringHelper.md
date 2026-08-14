@@ -8,7 +8,7 @@ description: "INativeStringHelper 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `internal interface INativeStringHelper`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/INativeStringHelper.cs`
+**File:** `TaleWorlds.DotNet/INativeStringHelper.cs`
 
 ## 概述
 

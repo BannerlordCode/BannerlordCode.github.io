@@ -8,7 +8,7 @@ description: "ListChangedEventArgs 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class ListChangedEventArgs : EventArgs`
 **Base:** `EventArgs`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ListChangedEventArgs.cs`
+**File:** `TaleWorlds.Library/ListChangedEventArgs.cs`
 
 ## 概述
 

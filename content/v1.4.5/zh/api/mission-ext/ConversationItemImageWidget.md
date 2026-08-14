@@ -8,7 +8,7 @@ description: "ConversationItemImageWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ConversationItemImageWidget : ImageWidget`
 **Base:** `ImageWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation/ConversationItemImageWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Conversation/ConversationItemImageWidget.cs`
 
 ## 概述
 

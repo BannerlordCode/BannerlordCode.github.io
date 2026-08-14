@@ -8,7 +8,7 @@ description: "HumanBone 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum HumanBone : sbyte`
 **Base:** `sbyte`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/HumanBone.cs`
+**File:** `TaleWorlds.Core/HumanBone.cs`
 
 ## 概述
 

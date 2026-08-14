@@ -8,7 +8,7 @@ description: "PollResponse 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class PollResponse : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/PollResponse.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/PollResponse.cs`
 
 ## 概述
 

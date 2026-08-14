@@ -8,7 +8,7 @@ description: "PlayerIdProvidedTypes 的自动生成类参考。"
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public enum PlayerIdProvidedTypes`
 **Base:** 无
-**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices/PlayerIdProvidedTypes.cs`
+**File:** `TaleWorlds.PlayerServices/PlayerServices/PlayerIdProvidedTypes.cs`
 
 ## 概述
 

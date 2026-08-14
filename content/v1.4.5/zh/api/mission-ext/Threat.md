@@ -8,7 +8,7 @@ description: "Threat 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class Threat`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Threat.cs`
+**File:** `TaleWorlds.MountAndBlade/Threat.cs`
 
 ## 概述
 
@@ -36,6 +36,17 @@ description: "Threat 的自动生成类参考。"
 // 先通过子系统 API 拿到 Threat 实例
 Threat threat = ...;
 var result = threat.GetHashCode();
+```
+
+### ComputeGlobalTargetingBoundingBoxMinMax
+`public ValueTuple<Vec3, Vec3> ComputeGlobalTargetingBoundingBoxMinMax()`
+
+**用途 / Purpose:** 调用 ComputeGlobalTargetingBoundingBoxMinMax 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Threat 实例
+Threat threat = ...;
+var result = threat.ComputeGlobalTargetingBoundingBoxMinMax();
 ```
 
 ### GetGlobalVelocity

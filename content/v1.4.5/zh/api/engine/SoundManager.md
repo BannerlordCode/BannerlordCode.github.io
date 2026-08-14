@@ -8,7 +8,7 @@ description: "SoundManager 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public static class SoundManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/SoundManager.cs`
+**File:** `TaleWorlds.Engine/SoundManager.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "TauntUsageFlag 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `class TauntUsageFlag`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TauntUsageManager.cs`
+**File:** `TaleWorlds.Core/TauntUsageManager.cs`
 
 ## 概述
 
@@ -21,7 +21,7 @@ description: "TauntUsageFlag 的自动生成类参考。"
 ## 主要方法
 
 ### Compare
-`public int Compare(TauntUsage.TauntUsageFlag x, TauntUsage.TauntUsageFlag y)`
+`public int Compare(TauntUsageManager.TauntUsage.TauntUsageFlag x, TauntUsageManager.TauntUsage.TauntUsageFlag y)`
 
 **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 

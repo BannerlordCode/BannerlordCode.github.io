@@ -8,7 +8,7 @@ description: "BasicTypeDefinition 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class BasicTypeDefinition : TypeDefinitionBase`
 **Base:** `TypeDefinitionBase`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/BasicTypeDefinition.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/BasicTypeDefinition.cs`
 
 ## 概述
 

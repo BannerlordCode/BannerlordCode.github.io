@@ -8,7 +8,7 @@ description: "SiegeDeploymentMissionController 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeDeploymentMissionController : DeploymentMissionController`
 **Base:** `DeploymentMissionController`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeDeploymentMissionController.cs`
+**File:** `TaleWorlds.MountAndBlade/SiegeDeploymentMissionController.cs`
 
 ## 概述
 

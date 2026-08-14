@@ -13,7 +13,7 @@ description: "v1.4.5 SandBox 对战役自动存档策略和成功存档配置回
 
 `SandBoxSaveManager` 是战役存档调度与 `BannerlordConfig` 之间的三方法桥接器。它报告自动存档间隔，把 `-1` 定义为禁用，并且只在存档成功后更新 `BannerlordConfig.LatestSaveGameName`。它不序列化战役对象，也不发起物理存档。
 
-## 心智模型：策略与回调，不是存储层
+## 心智模型
 
 ```text
 Campaign.SaveHandler
@@ -75,7 +75,7 @@ if (saveManager != null)
 
 真正的存档请求仍应通过 `Campaign.Current.SaveHandler.SaveAs(name)`、`QuickSaveCurrentGame()` 或宿主的自动存档 tick。不要手动调用 `OnSaveOver` 来伪造成功；它是 `MBSaveLoad` 返回结果后的完成回调。
 
-## 依赖与不负责的事情
+## 依赖
 
 - [ISaveManager](../../campaign/ISaveManager) 定义这三个成员的契约。
 - [SandBoxSubModule](../SandBoxSubModule) 在新战役和读档后安装实例。

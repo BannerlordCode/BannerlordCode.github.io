@@ -8,7 +8,7 @@ description: "VirtualPlayer 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class VirtualPlayer`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/VirtualPlayer.cs`
+**File:** `TaleWorlds.Core/VirtualPlayer.cs`
 
 ## 概述
 
@@ -22,12 +22,14 @@ description: "VirtualPlayer 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `PeerComponents` | `public static Dictionary<Type, object> PeerComponents { get; }` |
 | `BannerCode` | `public string BannerCode { get; set; }` |
 | `BodyProperties` | `public BodyProperties BodyProperties { get; }` |
 | `Race` | `public int Race { get; }` |
 | `IsFemale` | `public bool IsFemale { get; }` |
 | `Id` | `public PlayerId Id { get; }` |
 | `Index` | `public int Index { get; }` |
+| `IsMine` | `public bool IsMine { get; }` |
 | `UserName` | `public string UserName { get; }` |
 | `ChosenBadgeIndex` | `public int ChosenBadgeIndex { get; set; }` |
 

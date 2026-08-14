@@ -8,7 +8,7 @@ description: "EmptyWidget 的自动生成类参考。"
 **Module:** TaleWorlds.GauntletUI
 **Type:** `internal class EmptyWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/EmptyWidget.cs`
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/EmptyWidget.cs`
 
 ## 概述
 

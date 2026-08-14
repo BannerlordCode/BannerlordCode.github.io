@@ -8,7 +8,7 @@ description: "PlayerConnectionInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerConnectionInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/PlayerConnectionInfo.cs`
+**File:** `TaleWorlds.MountAndBlade/PlayerConnectionInfo.cs`
 
 ## 概述
 

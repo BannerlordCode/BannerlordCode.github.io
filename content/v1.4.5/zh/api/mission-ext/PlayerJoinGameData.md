@@ -8,7 +8,7 @@ description: "PlayerJoinGameData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerJoinGameData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerJoinGameData.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerJoinGameData.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "PlayerJoinGameData 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `PlayerData` | `public PlayerData PlayerData { get; set; }` |
+| `PlayerId` | `public PlayerId PlayerId { get; set; }` |
 | `Name` | `public string Name { get; }` |
 | `PartyId` | `public Guid? PartyId { get; }` |
 | `UsedCosmetics` | `public Dictionary<string, List<string>> UsedCosmetics { get; }` |

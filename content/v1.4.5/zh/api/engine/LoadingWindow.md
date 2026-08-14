@@ -8,7 +8,7 @@ description: "LoadingWindow 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public static class LoadingWindow`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/LoadingWindow.cs`
+**File:** `TaleWorlds.Engine/LoadingWindow.cs`
 
 ## 概述
 

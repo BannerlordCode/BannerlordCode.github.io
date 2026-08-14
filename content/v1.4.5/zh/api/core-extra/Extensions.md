@@ -8,7 +8,7 @@ description: "Extensions 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class Extensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Extensions.cs`
+**File:** `TaleWorlds.Library/Extensions.cs`
 
 ## 概述
 

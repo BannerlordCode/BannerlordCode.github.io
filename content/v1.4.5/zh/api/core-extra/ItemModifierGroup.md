@@ -8,7 +8,7 @@ description: "ItemModifierGroup 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class ItemModifierGroup : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemModifierGroup.cs`
+**File:** `TaleWorlds.Core/ItemModifierGroup.cs`
 
 ## 概述
 
@@ -24,6 +24,7 @@ description: "ItemModifierGroup 的自动生成类参考。"
 |------|-----------|
 | `NoModifierLootScore` | `public int NoModifierLootScore { get; }` |
 | `NoModifierProductionScore` | `public int NoModifierProductionScore { get; }` |
+| `ItemModifiers` | `public MBReadOnlyList<ItemModifier> ItemModifiers { get; }` |
 
 ## 主要方法
 

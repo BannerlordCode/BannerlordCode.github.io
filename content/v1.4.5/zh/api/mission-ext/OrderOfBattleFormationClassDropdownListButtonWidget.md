@@ -8,7 +8,7 @@ description: "OrderOfBattleFormationClassDropdownListButtonWidget 的自动生�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal class OrderOfBattleFormationClassDropdownListButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle/OrderOfBattleFormationClassDropdownListButtonWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/OrderOfBattle/OrderOfBattleFormationClassDropdownListButtonWidget.cs`
 
 ## 概述
 

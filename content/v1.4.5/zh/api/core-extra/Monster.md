@@ -8,7 +8,7 @@ description: "Monster 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class Monster : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/Monster.cs`
+**File:** `TaleWorlds.Core/Monster.cs`
 
 ## 概述
 
@@ -106,6 +106,7 @@ description: "Monster 的自动生成类参考。"
 | `ReinHeadLeftAttachmentBoneIndex` | `public sbyte ReinHeadLeftAttachmentBoneIndex { get; }` |
 | `ReinRightHandBoneIndex` | `public sbyte ReinRightHandBoneIndex { get; }` |
 | `ReinLeftHandBoneIndex` | `public sbyte ReinLeftHandBoneIndex { get; }` |
+| `MonsterMissionData` | `public IMonsterMissionData MonsterMissionData { get; }` |
 
 ## 主要方法
 

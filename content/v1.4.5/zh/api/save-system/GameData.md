@@ -8,7 +8,7 @@ description: "GameData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class GameData`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/GameData.cs`
+**File:** `TaleWorlds.SaveSystem/GameData.cs`
 
 ## 概述
 
@@ -63,7 +63,7 @@ var result = gameData.GetData();
 ```
 
 ### Write
-`public static void Write(System.IO.BinaryWriter writer, GameData gameData)`
+`public static void Write(BinaryWriter writer, GameData gameData)`
 
 **用途 / Purpose:** 将当前对象的数据写入目标位置。
 
@@ -73,7 +73,7 @@ GameData.Write(writer, gameData);
 ```
 
 ### Read
-`public static GameData Read(System.IO.BinaryReader reader)`
+`public static GameData Read(BinaryReader reader)`
 
 **用途 / Purpose:** 从当前实例读取数据或状态。
 

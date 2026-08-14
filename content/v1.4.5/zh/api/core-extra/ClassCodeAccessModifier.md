@@ -8,7 +8,7 @@ description: "ClassCodeAccessModifier 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum ClassCodeAccessModifier`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/ClassCodeAccessModifier.cs`
+**File:** `TaleWorlds.Library/CodeGeneration/ClassCodeAccessModifier.cs`
 
 ## 概述
 

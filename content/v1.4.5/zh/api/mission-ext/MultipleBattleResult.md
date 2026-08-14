@@ -8,7 +8,7 @@ description: "MultipleBattleResult 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultipleBattleResult`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MultipleBattleResult.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/MultipleBattleResult.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "PeerId 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public struct PeerId`
 **Base:** 无
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/PeerId.cs`
+**File:** `TaleWorlds.Diamond/PeerId.cs`
 
 ## 概述
 
@@ -23,6 +23,7 @@ description: "PeerId 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `IsValid` | `public bool IsValid { get; }` |
+| `Empty` | `public static PeerId Empty { get; }` |
 
 ## 主要方法
 

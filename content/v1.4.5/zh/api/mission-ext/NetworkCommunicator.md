@@ -8,7 +8,7 @@ description: "NetworkCommunicator 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class NetworkCommunicator : ICommunicator`
 **Base:** `ICommunicator`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/NetworkCommunicator.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkCommunicator.cs`
 
 ## 概述
 
@@ -29,12 +29,17 @@ description: "NetworkCommunicator 的自动生成类参考。"
 | `JustReconnecting` | `public bool JustReconnecting { get; }` |
 | `AveragePingInMilliseconds` | `public double AveragePingInMilliseconds { get; }` |
 | `AverageLossPercent` | `public double AverageLossPercent { get; }` |
+| `IsMine` | `public bool IsMine { get; }` |
 | `IsAdmin` | `public bool IsAdmin { get; }` |
+| `Index` | `public int Index { get; }` |
+| `UserName` | `public string UserName { get; set; }` |
 | `ControlledAgent` | `public Agent ControlledAgent { get; set; }` |
 | `IsMuted` | `public bool IsMuted { get; set; }` |
 | `ForcedAvatarIndex` | `public int ForcedAvatarIndex { get; set; }` |
+| `IsNetworkActive` | `public bool IsNetworkActive { get; }` |
 | `IsConnectionActive` | `public bool IsConnectionActive { get; }` |
 | `IsSynchronized` | `public bool IsSynchronized { get; }` |
+| `IsServerPeer` | `public bool IsServerPeer { get; }` |
 | `ServerPerformanceProblemState` | `public ServerPerformanceState ServerPerformanceProblemState { get; }` |
 
 ## 主要方法

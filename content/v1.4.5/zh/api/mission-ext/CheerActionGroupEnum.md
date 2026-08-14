@@ -8,7 +8,7 @@ description: "CheerActionGroupEnum 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum CheerActionGroupEnum`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/AgentVictoryLogic.cs`
 
 ## 概述
 

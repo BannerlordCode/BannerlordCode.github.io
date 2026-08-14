@@ -8,7 +8,7 @@ description: "TWParallel 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class TWParallel`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TWParallel.cs`
+**File:** `TaleWorlds.Library/TWParallel.cs`
 
 ## 概述
 
@@ -19,28 +19,6 @@ description: "TWParallel 的自动生成类参考。"
 先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### ParallelForAuxPredicate
-`public delegate void ParallelForAuxPredicate(int localStartIndex, int localEndIndex)`
-
-**用途 / Purpose:** 调用 ParallelForAuxPredicate 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 TWParallel 实例
-TWParallel tWParallel = ...;
-tWParallel.ParallelForAuxPredicate(0, 0);
-```
-
-### ParallelForWithDtAuxPredicate
-`public delegate void ParallelForWithDtAuxPredicate(int localStartIndex, int localEndIndex, float dt)`
-
-**用途 / Purpose:** 调用 ParallelForWithDtAuxPredicate 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 TWParallel 实例
-TWParallel tWParallel = ...;
-tWParallel.ParallelForWithDtAuxPredicate(0, 0, 0);
-```
 
 ### InitializeAndSetImplementation
 `public static void InitializeAndSetImplementation(IParallelDriver parallelDriver)`
@@ -53,7 +31,7 @@ TWParallel.InitializeAndSetImplementation(parallelDriver);
 ```
 
 ### For
-`public static void For(int fromInclusive, int toExclusive, ParallelForAuxPredicate body, int grainSize = 16)`
+`public static void For(int fromInclusive, int toExclusive, TWParallel.ParallelForAuxPredicate body, int grainSize = 16)`
 
 **用途 / Purpose:** 调用 For 对应的操作。
 
@@ -63,7 +41,7 @@ TWParallel.For(0, 0, body, 0);
 ```
 
 ### ForWithoutRenderThread
-`public static void ForWithoutRenderThread(int fromInclusive, int toExclusive, ParallelForAuxPredicate body, int grainSize = 16)`
+`public static void ForWithoutRenderThread(int fromInclusive, int toExclusive, TWParallel.ParallelForAuxPredicate body, int grainSize = 16)`
 
 **用途 / Purpose:** 调用 ForWithoutRenderThread 对应的操作。
 
@@ -72,18 +50,8 @@ TWParallel.For(0, 0, body, 0);
 TWParallel.ForWithoutRenderThread(0, 0, body, 0);
 ```
 
-### ForWithoutRenderThreadDt
-`public static void ForWithoutRenderThreadDt(int fromInclusive, int toExclusive, float deltaTime, ParallelForWithDtAuxPredicate body, int grainSize = 16)`
-
-**用途 / Purpose:** 调用 ForWithoutRenderThreadDt 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-TWParallel.ForWithoutRenderThreadDt(0, 0, 0, body, 0);
-```
-
 ### For
-`public static void For(int fromInclusive, int toExclusive, float deltaTime, ParallelForWithDtAuxPredicate body, int grainSize = 16)`
+`public static void For(int fromInclusive, int toExclusive, float deltaTime, TWParallel.ParallelForWithDtAuxPredicate body, int grainSize = 16)`
 
 **用途 / Purpose:** 调用 For 对应的操作。
 
@@ -112,12 +80,32 @@ TWParallel.AssertIsMainThread();
 TWParallel.IsMainThread();
 ```
 
+### ParallelForAuxPredicate
+`public delegate void ParallelForAuxPredicate(int localStartIndex, int localEndIndex)`
+
+**用途 / Purpose:** 调用 ParallelForAuxPredicate 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TWParallel 实例
+TWParallel tWParallel = ...;
+tWParallel.ParallelForAuxPredicate(0, 0);
+```
+
+### ParallelForWithDtAuxPredicate
+`public delegate void ParallelForWithDtAuxPredicate(int localStartIndex, int localEndIndex, float dt)`
+
+**用途 / Purpose:** 调用 ParallelForWithDtAuxPredicate 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TWParallel 实例
+TWParallel tWParallel = ...;
+tWParallel.ParallelForWithDtAuxPredicate(0, 0, 0);
+```
+
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-TWParallel tWParallel = ...;
-tWParallel.ParallelForAuxPredicate(0, 0);
+TWParallel.InitializeAndSetImplementation(parallelDriver);
 ```
 
 ## 参见

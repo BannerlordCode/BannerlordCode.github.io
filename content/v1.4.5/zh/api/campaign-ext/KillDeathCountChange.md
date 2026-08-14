@@ -8,7 +8,7 @@ description: "KillDeathCountChange 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class KillDeathCountChange : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/KillDeathCountChange.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/KillDeathCountChange.cs`
 
 ## 概述
 

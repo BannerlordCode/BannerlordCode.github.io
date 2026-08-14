@@ -8,7 +8,7 @@ description: "IMBGame 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBGame`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBGame.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBGame.cs`
 
 ## 概述
 

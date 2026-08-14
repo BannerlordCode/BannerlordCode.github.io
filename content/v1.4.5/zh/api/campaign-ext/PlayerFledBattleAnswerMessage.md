@@ -8,7 +8,7 @@ description: "PlayerFledBattleAnswerMessage 的自动生成类参考。"
 **Module:** Messages.FromBattleServer
 **Type:** `public class PlayerFledBattleAnswerMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/PlayerFledBattleAnswerMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromBattleServer/ToBattleServerManager/PlayerFledBattleAnswerMessage.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IArchiveContext 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal interface IArchiveContext`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/IArchiveContext.cs`
+**File:** `TaleWorlds.SaveSystem/IArchiveContext.cs`
 
 ## 概述
 

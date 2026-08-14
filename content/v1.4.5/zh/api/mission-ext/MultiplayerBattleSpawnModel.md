@@ -8,7 +8,7 @@ description: "MultiplayerBattleSpawnModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerBattleSpawnModel : BattleSpawnModel`
 **Base:** `BattleSpawnModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerBattleSpawnModel.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerBattleSpawnModel.cs`
 
 ## 概述
 
@@ -17,6 +17,30 @@ description: "MultiplayerBattleSpawnModel 的自动生成类参考。"
 ## 心智模型
 
 把 `MultiplayerBattleSpawnModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要方法
+
+### GetInitialSpawnAssignments
+`public override List<ValueTuple<IAgentOriginBase, int>> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
+
+**用途 / Purpose:** 读取并返回当前对象中 initial spawn assignments 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerBattleSpawnModel 实例
+MultiplayerBattleSpawnModel multiplayerBattleSpawnModel = ...;
+var result = multiplayerBattleSpawnModel.GetInitialSpawnAssignments(battleSide, troopOrigins);
+```
+
+### GetReinforcementAssignments
+`public override List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
+
+**用途 / Purpose:** 读取并返回当前对象中 reinforcement assignments 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerBattleSpawnModel 实例
+MultiplayerBattleSpawnModel multiplayerBattleSpawnModel = ...;
+var result = multiplayerBattleSpawnModel.GetReinforcementAssignments(battleSide, troopOrigins);
+```
 
 ## 使用示例
 

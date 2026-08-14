@@ -8,7 +8,7 @@ description: "MissionSiegeEnginesLogic 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionSiegeEnginesLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionSiegeEnginesLogic.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionSiegeEnginesLogic.cs`
 
 ## 概述
 

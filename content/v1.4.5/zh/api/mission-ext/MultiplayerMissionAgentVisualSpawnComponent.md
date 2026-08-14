@@ -8,7 +8,7 @@ description: "MultiplayerMissionAgentVisualSpawnComponent 的自动生成类参�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerMissionAgentVisualSpawnComponent : MissionNetwork`
 **Base:** `MissionNetwork`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerMissionAgentVisualSpawnComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerMissionAgentVisualSpawnComponent.cs`
 
 ## 概述
 
@@ -19,28 +19,6 @@ description: "MultiplayerMissionAgentVisualSpawnComponent 的自动生成类参�
 把 `MultiplayerMissionAgentVisualSpawnComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
-
-### GetSpawnPointFrameForPlayer
-`public MatrixFrame GetSpawnPointFrameForPlayer(VirtualPlayer player, BattleSideEnum side, int agentVisualIndex, int totalTroopCount, bool isMounted = false)`
-
-**用途 / Purpose:** 读取并返回当前对象中 spawn point frame for player 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerMissionAgentVisualSpawnComponent 实例
-MultiplayerMissionAgentVisualSpawnComponent multiplayerMissionAgentVisualSpawnComponent = ...;
-var result = multiplayerMissionAgentVisualSpawnComponent.GetSpawnPointFrameForPlayer(player, side, 0, 0, false);
-```
-
-### FreeSpawnPointFromPlayer
-`public void FreeSpawnPointFromPlayer(VirtualPlayer player)`
-
-**用途 / Purpose:** 调用 FreeSpawnPointFromPlayer 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerMissionAgentVisualSpawnComponent 实例
-MultiplayerMissionAgentVisualSpawnComponent multiplayerMissionAgentVisualSpawnComponent = ...;
-multiplayerMissionAgentVisualSpawnComponent.FreeSpawnPointFromPlayer(player);
-```
 
 ### SpawnAgentVisualsForPeer
 `public void SpawnAgentVisualsForPeer(MissionPeer missionPeer, AgentBuildData buildData, int selectedEquipmentSetIndex = -1, bool isBot = false, int totalTroopCount = 0)`
@@ -84,6 +62,28 @@ multiplayerMissionAgentVisualSpawnComponent.OnMyAgentSpawned();
 // 先通过子系统 API 拿到 MultiplayerMissionAgentVisualSpawnComponent 实例
 MultiplayerMissionAgentVisualSpawnComponent multiplayerMissionAgentVisualSpawnComponent = ...;
 multiplayerMissionAgentVisualSpawnComponent.OnPreMissionTick(0);
+```
+
+### GetSpawnPointFrameForPlayer
+`public MatrixFrame GetSpawnPointFrameForPlayer(VirtualPlayer player, BattleSideEnum side, int agentVisualIndex, int totalTroopCount, bool isMounted = false)`
+
+**用途 / Purpose:** 读取并返回当前对象中 spawn point frame for player 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerMissionAgentVisualSpawnComponent 实例
+MultiplayerMissionAgentVisualSpawnComponent multiplayerMissionAgentVisualSpawnComponent = ...;
+var result = multiplayerMissionAgentVisualSpawnComponent.GetSpawnPointFrameForPlayer(player, side, 0, 0, false);
+```
+
+### FreeSpawnPointFromPlayer
+`public void FreeSpawnPointFromPlayer(VirtualPlayer player)`
+
+**用途 / Purpose:** 调用 FreeSpawnPointFromPlayer 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerMissionAgentVisualSpawnComponent 实例
+MultiplayerMissionAgentVisualSpawnComponent multiplayerMissionAgentVisualSpawnComponent = ...;
+multiplayerMissionAgentVisualSpawnComponent.FreeSpawnPointFromPlayer(player);
 ```
 
 ## 使用示例

@@ -8,7 +8,7 @@ description: "EngineApplicationInterface 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal class EngineApplicationInterface`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/EngineApplicationInterface.cs`
+**File:** `TaleWorlds.Engine/EngineApplicationInterface.cs`
 
 ## 概述
 

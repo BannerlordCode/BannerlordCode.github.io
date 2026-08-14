@@ -8,7 +8,7 @@ description: "ContainerSaveData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal class ContainerSaveData`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/ContainerSaveData.cs`
+**File:** `TaleWorlds.SaveSystem/Save/ContainerSaveData.cs`
 
 ## 概述
 

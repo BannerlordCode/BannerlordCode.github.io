@@ -8,7 +8,7 @@ description: "DefaultItemCategorySelector 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class DefaultItemCategorySelector : ItemCategorySelector`
 **Base:** `ItemCategorySelector`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/DefaultItemCategorySelector.cs`
+**File:** `TaleWorlds.Core/DefaultItemCategorySelector.cs`
 
 ## 概述
 

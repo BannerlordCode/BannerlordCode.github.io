@@ -8,7 +8,7 @@ description: "RankBarInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RankBarInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Ranked/RankBarInfo.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Ranked/RankBarInfo.cs`
 
 ## 概述
 

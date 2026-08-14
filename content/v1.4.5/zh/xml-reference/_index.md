@@ -1,25 +1,29 @@
 ---
-title: "XML 参考"
-description: "骑马与砍杀2：霸主 v1.4.5 模组的 XML 配置模式，包括 module.xml、子模块、游戏菜单、对话、聚落与物品等。"
+title: XML 参考 / XML Reference
+description: Bannerlord XML 配置文件完整参考 / Complete XML configuration reference
 ---
+# XML 参考 / XML Reference
 
-# XML 参考
+## 心智模型
 
-v1.4.5 的 XML 参考页面正在汇总中。大多数 XML 格式与 v1.3.15 保持一致；已有内容请先参考 v1.3.15 的 XML 参考。
+先把 `XML 参考` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
 
-## 覆盖格式
+Bannerlord 使用 XML 进行配置和数据存储。
 
-- `SubModule.xml` 与 `ModuleData/module.xml`
-- 游戏菜单、对话、聚落、物品、NPC 角色
-- 部队模板、文化、派系、兵种
-- 场景道具、材质、骨骼、动画
+Bannerlord uses XML for configuration and data storage.
 
-## 分析
+## 目录 / Contents
 
-- 常见 XML 错误及解析器报错方式
-- 运行时校验边界
+- [已知问题 / Bugs](./bugs)
 
-## 参见
+<!-- BEGIN SECTION INDEX -->
 
-- [v1.3.15 XML 参考](../../../v1.3.15/zh/xml-reference/)
-- [模块系统架构](../../../v1.3.15/zh/architecture/module-system/)
+## ↑ 上级导航
+
+- [版本首页](../)
+
+## ↓ 子页面目录
+
+- [bugs](./bugs)
+
+<!-- END SECTION INDEX -->

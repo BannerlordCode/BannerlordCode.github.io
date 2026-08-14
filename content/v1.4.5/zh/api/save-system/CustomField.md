@@ -8,7 +8,7 @@ description: "CustomField 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class CustomField`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/CustomField.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/CustomField.cs`
 
 ## 概述
 

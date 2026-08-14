@@ -8,7 +8,7 @@ description: "MatchmakingQueueStats 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MatchmakingQueueStats`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MatchmakingQueueStats.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/MatchmakingQueueStats.cs`
 
 ## 概述
 

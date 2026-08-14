@@ -8,7 +8,7 @@ description: "DefaultCharacterAttributes 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class DefaultCharacterAttributes`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/DefaultCharacterAttributes.cs`
+**File:** `TaleWorlds.Core/DefaultCharacterAttributes.cs`
 
 ## 概述
 
@@ -17,6 +17,17 @@ description: "DefaultCharacterAttributes 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Vigor` | `public static CharacterAttribute Vigor { get; }` |
+| `Control` | `public static CharacterAttribute Control { get; }` |
+| `Endurance` | `public static CharacterAttribute Endurance { get; }` |
+| `Cunning` | `public static CharacterAttribute Cunning { get; }` |
+| `Social` | `public static CharacterAttribute Social { get; }` |
+| `Intelligence` | `public static CharacterAttribute Intelligence { get; }` |
 
 ## 使用示例
 

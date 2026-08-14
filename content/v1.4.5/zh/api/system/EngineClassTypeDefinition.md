@@ -8,7 +8,7 @@ description: "EngineClassTypeDefinition 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `internal struct EngineClassTypeDefinition`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/EngineClassTypeDefinition.cs`
+**File:** `TaleWorlds.DotNet/EngineClassTypeDefinition.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "SceneNotificationVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class SceneNotificationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/SceneNotificationVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/Information/SceneNotificationVM.cs`
 
 ## 概述
 
@@ -26,6 +26,16 @@ description: "SceneNotificationVM 的自动生成类参考。"
 | `IsShown` | `public bool IsShown { get; set; }` |
 | `IsReady` | `public bool IsReady { get; set; }` |
 | `ClickToContinueText` | `public string ClickToContinueText { get; set; }` |
+| `TitleText` | `public string TitleText { get; }` |
+| `AffirmativeDescription` | `public string AffirmativeDescription { get; }` |
+| `CancelDescription` | `public string CancelDescription { get; }` |
+| `SceneID` | `public string SceneID { get; }` |
+| `ButtonOkLabel` | `public string ButtonOkLabel { get; }` |
+| `ButtonCancelLabel` | `public string ButtonCancelLabel { get; }` |
+| `IsButtonOkShown` | `public bool IsButtonOkShown { get; }` |
+| `IsButtonCancelShown` | `public bool IsButtonCancelShown { get; }` |
+| `AffirmativeTitleText` | `public string AffirmativeTitleText { get; }` |
+| `NegativeTitleText` | `public string NegativeTitleText { get; }` |
 | `Scene` | `public object Scene { get; set; }` |
 | `EndProgress` | `public float EndProgress { get; set; }` |
 | `AffirmativeHint` | `public BasicTooltipViewModel AffirmativeHint { get; set; }` |

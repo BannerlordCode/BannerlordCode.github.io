@@ -8,7 +8,7 @@ description: "IMouseManager 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IMouseManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IMouseManager.cs`
+**File:** `TaleWorlds.Engine/IMouseManager.cs`
 
 ## 概述
 

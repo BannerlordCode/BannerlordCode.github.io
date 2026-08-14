@@ -8,7 +8,7 @@ description: "BattlePeer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattlePeer`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BattlePeer.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/BattlePeer.cs`
 
 ## 概述
 
@@ -24,8 +24,10 @@ description: "BattlePeer 的自动生成类参考。"
 |------|-----------|
 | `Index` | `public int Index { get; }` |
 | `Name` | `public string Name { get; }` |
+| `PlayerId` | `public PlayerId PlayerId { get; }` |
 | `TeamNo` | `public int TeamNo { get; }` |
 | `BattleJoinType` | `public BattleJoinType BattleJoinType { get; }` |
+| `Quit` | `public bool Quit { get; }` |
 | `PlayerData` | `public PlayerData PlayerData { get; }` |
 | `UsedCosmetics` | `public Dictionary<string, List<string>> UsedCosmetics { get; }` |
 | `SessionKey` | `public int SessionKey { get; }` |

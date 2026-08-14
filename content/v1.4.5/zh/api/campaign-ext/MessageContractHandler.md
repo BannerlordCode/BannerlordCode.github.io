@@ -6,9 +6,9 @@ description: "MessageContractHandler 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
-**Type:** `internal abstract class MessageContractHandler`
-**Base:** 无
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/MessageContractHandler.cs`
+**Type:** `internal class MessageContractHandler<T> : MessageContractHandler where T : MessageContract`
+**Base:** `MessageContractHandler where T : MessageContract`
+**File:** `TaleWorlds.Network/MessageContractHandler.2.cs`
 
 ## 概述
 
@@ -21,7 +21,7 @@ description: "MessageContractHandler 的自动生成类参考。"
 ## 主要方法
 
 ### Invoke
-`public abstract void Invoke(MessageContract messageContract)`
+`public override void Invoke(MessageContract messageContract)`
 
 **用途 / Purpose:** 调用 Invoke 对应的操作。
 
@@ -34,8 +34,7 @@ messageContractHandler.Invoke(messageContract);
 ## 使用示例
 
 ```csharp
-// 通常通过子系统 API 或工厂获得派生实例
-MessageContractHandler instance = ...;
+var behavior = Mission.Current.GetMissionBehavior<MessageContractHandler>();
 ```
 
 ## 参见

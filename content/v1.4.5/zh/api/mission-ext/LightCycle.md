@@ -8,7 +8,7 @@ description: "LightCycle 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LightCycle : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/LightCycle.cs`
+**File:** `TaleWorlds.MountAndBlade/LightCycle.cs`
 
 ## 概述
 

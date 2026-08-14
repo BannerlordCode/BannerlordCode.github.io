@@ -8,7 +8,7 @@ description: "MarkerRect 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MarkerRect`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker/MarkerRect.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/NameMarker/MarkerRect.cs`
 
 ## 概述
 
@@ -26,6 +26,10 @@ description: "MarkerRect 的自动生成类参考。"
 | `Right` | `public float Right { get; }` |
 | `Top` | `public float Top { get; }` |
 | `Bottom` | `public float Bottom { get; }` |
+| `CenterX` | `public float CenterX { get; }` |
+| `CenterY` | `public float CenterY { get; }` |
+| `Width` | `public float Width { get; }` |
+| `Height` | `public float Height { get; }` |
 
 ## 主要方法
 

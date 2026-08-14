@@ -8,7 +8,7 @@ description: "ArrayReference 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class ArrayReference : TextExpression`
 **Base:** `TextExpression`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/ArrayReference.cs`
+**File:** `TaleWorlds.Localization/Expressions/ArrayReference.cs`
 
 ## 概述
 

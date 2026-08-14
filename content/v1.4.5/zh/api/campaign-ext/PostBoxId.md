@@ -8,7 +8,7 @@ description: "PostBoxId 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public class PostBoxId : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/PostBoxId.cs`
+**File:** `TaleWorlds.Network/PostBoxId.cs`
 
 ## 概述
 

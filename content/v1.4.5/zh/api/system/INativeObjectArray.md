@@ -8,7 +8,7 @@ description: "INativeObjectArray 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `internal interface INativeObjectArray`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/INativeObjectArray.cs`
+**File:** `TaleWorlds.DotNet/INativeObjectArray.cs`
 
 ## 概述
 

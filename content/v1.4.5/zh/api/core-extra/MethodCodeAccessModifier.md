@@ -8,7 +8,7 @@ description: "MethodCodeAccessModifier 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum MethodCodeAccessModifier`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/MethodCodeAccessModifier.cs`
+**File:** `TaleWorlds.Library/CodeGeneration/MethodCodeAccessModifier.cs`
 
 ## 概述
 

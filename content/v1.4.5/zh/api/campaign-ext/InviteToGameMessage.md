@@ -8,7 +8,7 @@ description: "InviteToGameMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class InviteToGameMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/InviteToGameMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/InviteToGameMessage.cs`
 
 ## 概述
 

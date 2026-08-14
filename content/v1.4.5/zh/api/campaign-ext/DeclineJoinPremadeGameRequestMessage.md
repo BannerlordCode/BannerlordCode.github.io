@@ -8,7 +8,7 @@ description: "DeclineJoinPremadeGameRequestMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class DeclineJoinPremadeGameRequestMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/DeclineJoinPremadeGameRequestMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/DeclineJoinPremadeGameRequestMessage.cs`
 
 ## 概述
 

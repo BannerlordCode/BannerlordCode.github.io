@@ -8,7 +8,7 @@ description: "Weighting 的自动生成类参考。"
 **Module:** psai.net
 **Type:** `public class Weighting`
 **Base:** 无
-**File:** `bin/TaleWorlds.PSAI/psai.net/Weighting.cs`
+**File:** `TaleWorlds.PSAI/net/Weighting.cs`
 
 ## 概述
 

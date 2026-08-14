@@ -8,7 +8,7 @@ description: "CampaignSaveMetaDataArgs 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `struct CampaignSaveMetaDataArgs`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/CampaignSaveMetaDataArgs.cs`
+**File:** `TaleWorlds.Core/CampaignSaveMetaDataArgs.cs`
 
 ## 概述
 

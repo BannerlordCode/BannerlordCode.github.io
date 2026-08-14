@@ -8,7 +8,7 @@ description: "ExtortionByDesertersQuestState 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal enum ExtortionByDesertersQuestState`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/ExtortionByDesertersIssueBehavior.cs`
+**File:** `TaleWorlds.CampaignSystem/Issues/ExtortionByDesertersIssueBehavior.cs`
 
 ## 概述
 

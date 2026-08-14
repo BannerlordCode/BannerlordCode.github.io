@@ -8,7 +8,7 @@ description: "MBMapScene 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBMapScene`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBMapScene.cs`
+**File:** `TaleWorlds.MountAndBlade/MBMapScene.cs`
 
 ## 概述
 

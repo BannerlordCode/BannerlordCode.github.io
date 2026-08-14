@@ -8,7 +8,7 @@ description: "CustomGameBannedPlayerManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class CustomGameBannedPlayerManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomGameBannedPlayerManager.cs`
+**File:** `TaleWorlds.MountAndBlade/CustomGameBannedPlayerManager.cs`
 
 ## 概述
 

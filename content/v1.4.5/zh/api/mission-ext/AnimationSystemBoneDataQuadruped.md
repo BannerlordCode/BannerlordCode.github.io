@@ -8,7 +8,7 @@ description: "AnimationSystemBoneDataQuadruped 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct AnimationSystemBoneDataQuadruped`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AnimationSystemBoneDataQuadruped.cs`
+**File:** `TaleWorlds.MountAndBlade/AnimationSystemBoneDataQuadruped.cs`
 
 ## 概述
 

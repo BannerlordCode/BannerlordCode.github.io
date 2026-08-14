@@ -8,7 +8,7 @@ description: "CharacterTableauWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterTableauWidget : TextureWidget`
 **Base:** `TextureWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/CharacterTableauWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/CharacterTableauWidget.cs`
 
 ## 概述
 
@@ -45,7 +45,6 @@ description: "CharacterTableauWidget 的自动生成类参考。"
 | `IsBannerShownInBackground` | `public bool IsBannerShownInBackground { get; set; }` |
 | `IsPlayingCustomAnimations` | `public bool IsPlayingCustomAnimations { get; set; }` |
 | `ShouldLoopCustomAnimation` | `public bool ShouldLoopCustomAnimation { get; set; }` |
-| `IsTableauEnabled` | `public bool IsTableauEnabled { get; set; }` |
 
 ## 使用示例
 

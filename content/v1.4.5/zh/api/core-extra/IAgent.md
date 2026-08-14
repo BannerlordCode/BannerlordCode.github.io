@@ -8,7 +8,7 @@ description: "IAgent 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public interface IAgent`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IAgent.cs`
+**File:** `TaleWorlds.Core/IAgent.cs`
 
 ## 概述
 

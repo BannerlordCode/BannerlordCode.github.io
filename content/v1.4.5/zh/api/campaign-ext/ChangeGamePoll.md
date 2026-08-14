@@ -8,7 +8,7 @@ description: "ChangeGamePoll 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class ChangeGamePoll : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/ChangeGamePoll.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/ChangeGamePoll.cs`
 
 ## 概述
 

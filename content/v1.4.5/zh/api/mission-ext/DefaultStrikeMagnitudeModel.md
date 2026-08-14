@@ -8,7 +8,7 @@ description: "DefaultStrikeMagnitudeModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultStrikeMagnitudeModel : StrikeMagnitudeCalculationModel`
 **Base:** `StrikeMagnitudeCalculationModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultStrikeMagnitudeModel.cs`
+**File:** `TaleWorlds.MountAndBlade/DefaultStrikeMagnitudeModel.cs`
 
 ## 概述
 
@@ -95,17 +95,6 @@ var result = defaultStrikeMagnitudeModel.GetBluntDamageFactorByDamageType(damage
 // 先通过子系统 API 拿到 DefaultStrikeMagnitudeModel 实例
 DefaultStrikeMagnitudeModel defaultStrikeMagnitudeModel = ...;
 var result = defaultStrikeMagnitudeModel.CalculateHorseArcheryFactor(characterObject);
-```
-
-### CalculateBaseBlowMagnitudeForPassiveUsage
-`public override float CalculateBaseBlowMagnitudeForPassiveUsage(in AttackInformation attackInformation, in AttackCollisionData collisionData, float extraLinearSpeed)`
-
-**用途 / Purpose:** 计算base blow magnitude for passive usage的当前值或结果。
-
-```csharp
-// 先通过子系统 API 拿到 DefaultStrikeMagnitudeModel 实例
-DefaultStrikeMagnitudeModel defaultStrikeMagnitudeModel = ...;
-var result = defaultStrikeMagnitudeModel.CalculateBaseBlowMagnitudeForPassiveUsage(attackInformation, collisionData, 0);
 ```
 
 ## 使用示例

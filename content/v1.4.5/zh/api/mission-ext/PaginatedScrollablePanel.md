@@ -8,7 +8,7 @@ description: "PaginatedScrollablePanel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PaginatedScrollablePanel : ScrollablePanel`
 **Base:** `ScrollablePanel`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/PaginatedScrollablePanel.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/PaginatedScrollablePanel.cs`
 
 ## 概述
 
@@ -25,7 +25,7 @@ description: "PaginatedScrollablePanel 的自动生成类参考。"
 | `ScrollToSelectedOnVisibilityChanged` | `public bool ScrollToSelectedOnVisibilityChanged { get; set; }` |
 | `ItemsPerPage` | `public int ItemsPerPage { get; set; }` |
 | `ScrollTime` | `public float ScrollTime { get; set; }` |
-| `ContainerDirection` | `public ContainerDirections ContainerDirection { get; set; }` |
+| `ContainerDirection` | `public PaginatedScrollablePanel.ContainerDirections ContainerDirection { get; set; }` |
 | `ListWidget` | `public ListPanel ListWidget { get; set; }` |
 | `PreviousButtonWidget` | `public ButtonWidget PreviousButtonWidget { get; set; }` |
 | `NextButtonWidget` | `public ButtonWidget NextButtonWidget { get; set; }` |

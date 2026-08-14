@@ -8,7 +8,7 @@ description: "DuelResponse 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class DuelResponse : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/DuelResponse.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/DuelResponse.cs`
 
 ## 概述
 

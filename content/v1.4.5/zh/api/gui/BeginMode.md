@@ -8,7 +8,7 @@ description: "BeginMode 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal enum BeginMode : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/BeginMode.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/BeginMode.cs`
 
 ## 概述
 

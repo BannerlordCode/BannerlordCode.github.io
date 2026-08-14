@@ -8,7 +8,7 @@ description: "MenuContextState 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal enum MenuContextState`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/MenuContext.cs`
+**File:** `TaleWorlds.CampaignSystem/GameState/MenuContext.cs`
 
 ## 概述
 

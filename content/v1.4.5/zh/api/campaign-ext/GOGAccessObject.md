@@ -8,7 +8,7 @@ description: "GOGAccessObject 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class GOGAccessObject : AccessObject`
 **Base:** `AccessObject`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/GOGAccessObject.cs`
+**File:** `TaleWorlds.Diamond/GOGAccessObject.cs`
 
 ## 概述
 

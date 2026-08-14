@@ -6,9 +6,9 @@ description: "KingdomDecisionFactionTypeVisualBrushWidget 的自动生成类参�
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class KingdomDecisionFactionTypeVisualBrushWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/KingdomDecisionFactionTypeVisualBrushWidget.cs`
+**Type:** `public class KingdomDecisionFactionTypeVisualBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Kingdom/KingdomDecisionFactionTypeVisualBrushWidget.cs`
 
 ## 概述
 
@@ -23,19 +23,6 @@ description: "KingdomDecisionFactionTypeVisualBrushWidget 的自动生成类参�
 | Name | Signature |
 |------|-----------|
 | `FactionName` | `public string FactionName { get; set; }` |
-
-## 主要方法
-
-### KingdomDecisionFactionTypeVisualBrushWidget
-`public class KingdomDecisionFactionTypeVisualBrushWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 KingdomDecisionFactionTypeVisualBrushWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 KingdomDecisionFactionTypeVisualBrushWidget 实例
-KingdomDecisionFactionTypeVisualBrushWidget kingdomDecisionFactionTypeVisualBrushWidget = ...;
-var result = kingdomDecisionFactionTypeVisualBrushWidget.KingdomDecisionFactionTypeVisualBrushWidget(context);
-```
 
 ## 使用示例
 

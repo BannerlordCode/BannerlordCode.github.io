@@ -8,7 +8,7 @@ description: "ThreadedClientSession 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class ThreadedClientSession : IClientSession`
 **Base:** `IClientSession`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/ThreadedClientSession.cs`
+**File:** `TaleWorlds.Diamond/ThreadedClientSession.cs`
 
 ## 概述
 

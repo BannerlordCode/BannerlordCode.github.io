@@ -8,7 +8,7 @@ description: "BehaviorDefendSiegeWeapon 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorDefendSiegeWeapon : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorDefendSiegeWeapon.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorDefendSiegeWeapon.cs`
 
 ## 概述
 

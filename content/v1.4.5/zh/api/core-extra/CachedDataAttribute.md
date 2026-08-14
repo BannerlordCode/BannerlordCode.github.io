@@ -8,7 +8,7 @@ description: "CachedDataAttribute 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class CachedDataAttribute : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/CachedDataAttribute.cs`
+**File:** `TaleWorlds.Library/CachedDataAttribute.cs`
 
 ## 概述
 

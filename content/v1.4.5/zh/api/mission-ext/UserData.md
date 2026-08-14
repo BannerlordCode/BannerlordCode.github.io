@@ -8,7 +8,7 @@ description: "UserData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class UserData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.UserDatas/UserData.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/UserDatas/UserData.cs`
 
 ## 概述
 

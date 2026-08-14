@@ -8,7 +8,7 @@ description: "UpdateShownBadgeIdMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class UpdateShownBadgeIdMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/UpdateShownBadgeIdMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/UpdateShownBadgeIdMessage.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "AdminUpdateMultiplayerOptions 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class AdminUpdateMultiplayerOptions : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/AdminUpdateMultiplayerOptions.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/AdminUpdateMultiplayerOptions.cs`
 
 ## 概述
 
@@ -22,13 +22,13 @@ description: "AdminUpdateMultiplayerOptions 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `Options` | `public List<AdminUpdateMultiplayerOptions.AdminMultiplayerOptionInfo> Options { get; }` |
+| `OptionCount` | `public int OptionCount { get; }` |
 | `OptionType` | `public MultiplayerOptions.OptionType OptionType { get; }` |
 | `AccessMode` | `public MultiplayerOptions.MultiplayerOptionsAccessMode AccessMode { get; }` |
 | `StringValue` | `public string StringValue { get; }` |
 | `BoolValue` | `public bool BoolValue { get; }` |
 | `IntValue` | `public int IntValue { get; }` |
-| `Options` | `public List<AdminMultiplayerOptionInfo> Options { get; }` |
-| `OptionCount` | `public int OptionCount { get; }` |
 
 ## 主要方法
 

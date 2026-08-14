@@ -8,7 +8,7 @@ description: "LibraryApplicationInterface 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `internal class LibraryApplicationInterface`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/LibraryApplicationInterface.cs`
+**File:** `TaleWorlds.DotNet/LibraryApplicationInterface.cs`
 
 ## 概述
 

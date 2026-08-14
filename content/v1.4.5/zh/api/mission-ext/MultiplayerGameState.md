@@ -8,7 +8,7 @@ description: "MultiplayerGameState 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum MultiplayerGameState`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionLobbyComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionLobbyComponent.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "BoardGameHotkeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class BoardGameHotkeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BoardGameHotkeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/BoardGameHotkeyCategory.cs`
 
 ## 概述
 

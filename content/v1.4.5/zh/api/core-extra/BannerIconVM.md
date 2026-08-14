@@ -8,7 +8,7 @@ description: "BannerIconVM 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class BannerIconVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.BannerEditor/BannerIconVM.cs`
+**File:** `TaleWorlds.Core.ViewModelCollection/BannerEditor/BannerIconVM.cs`
 
 ## 概述
 
@@ -22,7 +22,7 @@ description: "BannerIconVM 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
-| `IconID` | `public int IconID { get; set; }` |
+| `IconID` | `public int IconID { get; }` |
 | `IconPath` | `public string IconPath { get; set; }` |
 | `IsSelected` | `public bool IsSelected { get; set; }` |
 

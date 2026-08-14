@@ -8,7 +8,7 @@ description: "CustomBattleInitializationModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleInitializationModel : BattleInitializationModel`
 **Base:** `BattleInitializationModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleInitializationModel.cs`
+**File:** `TaleWorlds.MountAndBlade/CustomBattleInitializationModel.cs`
 
 ## 概述
 

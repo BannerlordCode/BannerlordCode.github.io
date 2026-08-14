@@ -8,7 +8,7 @@ description: "InMemDriver 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class InMemDriver : ISaveDriver`
 **Base:** `ISaveDriver`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/InMemDriver.cs`
+**File:** `TaleWorlds.SaveSystem/InMemDriver.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "BehaviorSergeantMPLastFlagLastStand 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorSergeantMPLastFlagLastStand : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorSergeantMPLastFlagLastStand.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorSergeantMPLastFlagLastStand.cs`
 
 ## 概述
 

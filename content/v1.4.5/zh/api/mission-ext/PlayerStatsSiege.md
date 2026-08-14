@@ -8,7 +8,7 @@ description: "PlayerStatsSiege 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerStatsSiege : PlayerStatsBase`
 **Base:** `PlayerStatsBase`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsSiege.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerStatsSiege.cs`
 
 ## 概述
 
@@ -27,6 +27,8 @@ description: "PlayerStatsSiege 的自动生成类参考。"
 | `SiegeEnginesDestroyed` | `public int SiegeEnginesDestroyed { get; set; }` |
 | `ObjectiveGoldGained` | `public int ObjectiveGoldGained { get; set; }` |
 | `Score` | `public int Score { get; set; }` |
+| `AverageScore` | `public int AverageScore { get; }` |
+| `AverageKillCount` | `public int AverageKillCount { get; }` |
 
 ## 主要方法
 

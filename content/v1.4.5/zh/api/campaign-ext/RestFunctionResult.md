@@ -8,7 +8,7 @@ description: "RestFunctionResult 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class RestFunctionResult : RestData`
 **Base:** `RestData`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/RestFunctionResult.cs`
+**File:** `TaleWorlds.Diamond/Rest/RestFunctionResult.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "IMBMission 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBMission`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBMission.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBMission.cs`
 
 ## 概述
 

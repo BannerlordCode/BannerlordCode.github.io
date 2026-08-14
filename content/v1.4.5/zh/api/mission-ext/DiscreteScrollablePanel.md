@@ -8,7 +8,7 @@ description: "DiscreteScrollablePanel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DiscreteScrollablePanel : ScrollablePanel`
 **Base:** `ScrollablePanel`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/DiscreteScrollablePanel.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/DiscreteScrollablePanel.cs`
 
 ## 概述
 

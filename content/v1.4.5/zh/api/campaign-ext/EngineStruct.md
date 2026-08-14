@@ -8,7 +8,7 @@ description: "EngineStruct 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `public class EngineStruct : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/EngineStruct.cs`
+**File:** `TaleWorlds.DotNet/EngineStruct.cs`
 
 ## 概述
 

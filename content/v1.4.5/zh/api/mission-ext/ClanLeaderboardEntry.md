@@ -8,7 +8,7 @@ description: "ClanLeaderboardEntry 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanLeaderboardEntry`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ClanLeaderboardEntry.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/ClanLeaderboardEntry.cs`
 
 ## 概述
 

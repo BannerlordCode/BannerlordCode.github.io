@@ -8,7 +8,7 @@ description: "MBInitialScreenBase 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBInitialScreenBase : ScreenBase, IGameStateListener`
 **Base:** `ScreenBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBInitialScreenBase.cs`
+**File:** `TaleWorlds.MountAndBlade/MBInitialScreenBase.cs`
 
 ## 概述
 

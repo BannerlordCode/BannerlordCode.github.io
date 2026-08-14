@@ -8,7 +8,7 @@ description: "AutoHideRichTextWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AutoHideRichTextWidget : RichTextWidget`
 **Base:** `RichTextWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/AutoHideRichTextWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/AutoHideRichTextWidget.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "RidingOrder 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct RidingOrder`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RidingOrder.cs`
+**File:** `TaleWorlds.MountAndBlade/RidingOrder.cs`
 
 ## 概述
 

@@ -6,9 +6,9 @@ description: "CharacterCreationStageSelectionBarListPanel 的自动生成类参�
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class CharacterCreationStageSelectionBarListPanel`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation/CharacterCreationStageSelectionBarListPanel.cs`
+**Type:** `public class CharacterCreationStageSelectionBarListPanel : ListPanel`
+**Base:** `ListPanel`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/CharacterCreation/CharacterCreationStageSelectionBarListPanel.cs`
 
 ## 概述
 
@@ -32,25 +32,11 @@ description: "CharacterCreationStageSelectionBarListPanel 的自动生成类参�
 | `EmptyButtonBrush` | `public string EmptyButtonBrush { get; set; }` |
 | `FullBrightButtonBrush` | `public string FullBrightButtonBrush { get; set; }` |
 
-## 主要方法
-
-### CharacterCreationStageSelectionBarListPanel
-`public class CharacterCreationStageSelectionBarListPanel(UIContext context)`
-
-**用途 / Purpose:** 调用 CharacterCreationStageSelectionBarListPanel 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 CharacterCreationStageSelectionBarListPanel 实例
-CharacterCreationStageSelectionBarListPanel characterCreationStageSelectionBarListPanel = ...;
-var result = characterCreationStageSelectionBarListPanel.CharacterCreationStageSelectionBarListPanel(context);
-```
-
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-CharacterCreationStageSelectionBarListPanel characterCreationStageSelectionBarListPanel = ...;
-characterCreationStageSelectionBarListPanel.CharacterCreationStageSelectionBarListPanel(context);
+// 从对应子系统 API 获取实例
+CharacterCreationStageSelectionBarListPanel instance = ...;
 ```
 
 ## 参见

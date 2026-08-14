@@ -8,7 +8,7 @@ description: "EquipmentIndex 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum EquipmentIndex`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/EquipmentIndex.cs`
+**File:** `TaleWorlds.Core/EquipmentIndex.cs`
 
 ## 概述
 

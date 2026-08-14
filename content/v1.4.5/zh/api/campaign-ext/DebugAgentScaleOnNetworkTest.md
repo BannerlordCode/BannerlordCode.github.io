@@ -8,7 +8,7 @@ description: "DebugAgentScaleOnNetworkTest 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `internal sealed class DebugAgentScaleOnNetworkTest : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/DebugAgentScaleOnNetworkTest.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/DebugAgentScaleOnNetworkTest.cs`
 
 ## 概述
 

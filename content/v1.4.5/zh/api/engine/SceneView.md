@@ -8,7 +8,7 @@ description: "SceneView 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class SceneView : View`
 **Base:** `View`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/SceneView.cs`
+**File:** `TaleWorlds.Engine/SceneView.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MultiplayerLocalDataContainer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MultiplayerLocalDataContainer<T>`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby/MultiplayerLocalDataContainer.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Lobby/MultiplayerLocalDataContainer.cs`
 
 ## 概述
 
@@ -19,47 +19,6 @@ description: "MultiplayerLocalDataContainer 的自动生成类参考。"
 先从命名空间 `TaleWorlds.MountAndBlade.Diamond.Lobby` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### CreateAsAdd
-`public static ContainerOperation CreateAsAdd(T item)`
-
-**用途 / Purpose:** 构建一个新的 as add 实体并返回给调用方。
-
-```csharp
-// 静态调用，不需要实例
-MultiplayerLocalDataContainer.CreateAsAdd(item);
-```
-
-### CreateAsRemove
-`public static ContainerOperation CreateAsRemove(T item)`
-
-**用途 / Purpose:** 构建一个新的 as remove 实体并返回给调用方。
-
-```csharp
-// 静态调用，不需要实例
-MultiplayerLocalDataContainer.CreateAsRemove(item);
-```
-
-### CreateAsInsert
-`public static ContainerOperation CreateAsInsert(T item, int index)`
-
-**用途 / Purpose:** 构建一个新的 as insert 实体并返回给调用方。
-
-```csharp
-// 静态调用，不需要实例
-MultiplayerLocalDataContainer.CreateAsInsert(item, 0);
-```
-
-### Compare
-`public int Compare(ContainerOperation x, ContainerOperation y)`
-
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerLocalDataContainer 实例
-MultiplayerLocalDataContainer multiplayerLocalDataContainer = ...;
-var result = multiplayerLocalDataContainer.Compare(x, y);
-```
 
 ### AddEntry
 `public void AddEntry(T item)`
@@ -103,6 +62,47 @@ multiplayerLocalDataContainer.RemoveEntry(item);
 // 先通过子系统 API 拿到 MultiplayerLocalDataContainer 实例
 MultiplayerLocalDataContainer multiplayerLocalDataContainer = ...;
 var result = multiplayerLocalDataContainer.GetEntries();
+```
+
+### CreateAsAdd
+`public static MultiplayerLocalDataContainer<T>.ContainerOperation CreateAsAdd(T item)`
+
+**用途 / Purpose:** 构建一个新的 as add 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerLocalDataContainer.CreateAsAdd(item);
+```
+
+### CreateAsRemove
+`public static MultiplayerLocalDataContainer<T>.ContainerOperation CreateAsRemove(T item)`
+
+**用途 / Purpose:** 构建一个新的 as remove 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerLocalDataContainer.CreateAsRemove(item);
+```
+
+### CreateAsInsert
+`public static MultiplayerLocalDataContainer<T>.ContainerOperation CreateAsInsert(T item, int index)`
+
+**用途 / Purpose:** 构建一个新的 as insert 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerLocalDataContainer.CreateAsInsert(item, 0);
+```
+
+### Compare
+`public int Compare(MultiplayerLocalDataContainer<T>.ContainerOperation x, MultiplayerLocalDataContainer<T>.ContainerOperation y)`
+
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerLocalDataContainer 实例
+MultiplayerLocalDataContainer multiplayerLocalDataContainer = ...;
+var result = multiplayerLocalDataContainer.Compare(x, y);
 ```
 
 ## 使用示例

@@ -8,7 +8,7 @@ description: "TeamSetIsEnemyOf 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class TeamSetIsEnemyOf : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/TeamSetIsEnemyOf.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/TeamSetIsEnemyOf.cs`
 
 ## 概述
 

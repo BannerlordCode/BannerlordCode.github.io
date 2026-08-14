@@ -6,9 +6,9 @@ description: "MultiplayerTeamPlayerAvatarButtonWidget 的自动生成类参考�
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class MultiplayerTeamPlayerAvatarButtonWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerTeamPlayerAvatarButtonWidget.cs`
+**Type:** `public class MultiplayerTeamPlayerAvatarButtonWidget : ButtonWidget`
+**Base:** `ButtonWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/MultiplayerTeamPlayerAvatarButtonWidget.cs`
 
 ## 概述
 
@@ -25,19 +25,6 @@ description: "MultiplayerTeamPlayerAvatarButtonWidget 的自动生成类参考�
 | `IsDead` | `public bool IsDead { get; set; }` |
 | `DeathAlphaFactor` | `public float DeathAlphaFactor { get; set; }` |
 | `AvatarImage` | `public ImageIdentifierWidget AvatarImage { get; set; }` |
-
-## 主要方法
-
-### MultiplayerTeamPlayerAvatarButtonWidget
-`public class MultiplayerTeamPlayerAvatarButtonWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 MultiplayerTeamPlayerAvatarButtonWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerTeamPlayerAvatarButtonWidget 实例
-MultiplayerTeamPlayerAvatarButtonWidget multiplayerTeamPlayerAvatarButtonWidget = ...;
-var result = multiplayerTeamPlayerAvatarButtonWidget.MultiplayerTeamPlayerAvatarButtonWidget(context);
-```
 
 ## 使用示例
 

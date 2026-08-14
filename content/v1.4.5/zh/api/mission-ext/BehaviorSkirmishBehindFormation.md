@@ -8,7 +8,7 @@ description: "BehaviorSkirmishBehindFormation 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorSkirmishBehindFormation : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorSkirmishBehindFormation.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorSkirmishBehindFormation.cs`
 
 ## 概述
 

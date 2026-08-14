@@ -8,7 +8,7 @@ description: "AgentReadOnlyList 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentReadOnlyList : MBReadOnlyList<Agent>`
 **Base:** `MBReadOnlyList<Agent>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions/AgentReadOnlyList.cs`
+**File:** `TaleWorlds.MountAndBlade/Missions/AgentReadOnlyList.cs`
 
 ## 概述
 

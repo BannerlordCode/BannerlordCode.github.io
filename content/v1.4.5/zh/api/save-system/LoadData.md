@@ -8,7 +8,7 @@ description: "LoadData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class LoadData`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/LoadData.cs`
+**File:** `TaleWorlds.SaveSystem/LoadData.cs`
 
 ## 概述
 

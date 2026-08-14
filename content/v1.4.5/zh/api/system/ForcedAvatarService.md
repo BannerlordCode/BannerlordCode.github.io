@@ -8,7 +8,7 @@ description: "ForcedAvatarService 的自动生成类参考。"
 **Module:** TaleWorlds.PlayerServices
 **Type:** `internal class ForcedAvatarService : IAvatarService`
 **Base:** `IAvatarService`
-**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/ForcedAvatarService.cs`
+**File:** `TaleWorlds.PlayerServices/PlayerServices/Avatar/ForcedAvatarService.cs`
 
 ## 概述
 
@@ -17,6 +17,12 @@ description: "ForcedAvatarService 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.PlayerServices.Avatar` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `AvatarCount` | `public int AvatarCount { get; }` |
 
 ## 主要方法
 

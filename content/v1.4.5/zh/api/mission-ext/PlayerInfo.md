@@ -8,7 +8,7 @@ description: "PlayerInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData/PlayerInfo.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Lobby/LocalData/PlayerInfo.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "BehaviorScreenedSkirmish 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorScreenedSkirmish : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorScreenedSkirmish.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorScreenedSkirmish.cs`
 
 ## 概述
 

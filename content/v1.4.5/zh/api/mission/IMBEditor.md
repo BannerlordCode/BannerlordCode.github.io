@@ -8,7 +8,7 @@ description: "IMBEditor 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal interface IMBEditor`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMBEditor.cs`
+**File:** `TaleWorlds.MountAndBlade/IMBEditor.cs`
 
 ## 概述
 

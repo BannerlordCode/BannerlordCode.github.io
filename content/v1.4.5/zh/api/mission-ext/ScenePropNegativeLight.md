@@ -8,7 +8,7 @@ description: "ScenePropNegativeLight 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ScenePropNegativeLight : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ScenePropNegativeLight.cs`
+**File:** `TaleWorlds.MountAndBlade/ScenePropNegativeLight.cs`
 
 ## 概述
 

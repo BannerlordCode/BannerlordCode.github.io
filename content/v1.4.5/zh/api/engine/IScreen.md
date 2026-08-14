@@ -8,7 +8,7 @@ description: "IScreen 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IScreen`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IScreen.cs`
+**File:** `TaleWorlds.Engine/IScreen.cs`
 
 ## 概述
 

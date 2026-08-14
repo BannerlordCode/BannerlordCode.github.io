@@ -8,7 +8,7 @@ description: "UserStatsAndAchievementsRetrieveListener 的自动生成类参考�
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class UserStatsAndAchievementsRetrieveListener : GlobalUserStatsAndAchievementsRetrieveListener`
 **Base:** `GlobalUserStatsAndAchievementsRetrieveListener`
-**File:** `bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/UserStatsAndAchievementsRetrieveListener.cs`
+**File:** `TaleWorlds.PlatformService.GOG/UserStatsAndAchievementsRetrieveListener.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "UserStatsAndAchievementsRetrieveListener 的自动生成类参考�
 先从命名空间 `TaleWorlds.PlatformService.GOG` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### UserStatsAndAchievementsRetrieved
-`public delegate void UserStatsAndAchievementsRetrieved(GalaxyID userID, bool success, FailureReason? failureReason)`
-
-**用途 / Purpose:** 调用 UserStatsAndAchievementsRetrieved 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 UserStatsAndAchievementsRetrieveListener 实例
-UserStatsAndAchievementsRetrieveListener userStatsAndAchievementsRetrieveListener = ...;
-userStatsAndAchievementsRetrieveListener.UserStatsAndAchievementsRetrieved(userID, false, failureReason);
-```
 
 ### OnUserStatsAndAchievementsRetrieveSuccess
 `public override void OnUserStatsAndAchievementsRetrieveSuccess(GalaxyID userID)`
@@ -43,7 +32,7 @@ userStatsAndAchievementsRetrieveListener.OnUserStatsAndAchievementsRetrieveSucce
 ```
 
 ### OnUserStatsAndAchievementsRetrieveFailure
-`public override void OnUserStatsAndAchievementsRetrieveFailure(GalaxyID userID, FailureReason failureReason)`
+`public override void OnUserStatsAndAchievementsRetrieveFailure(GalaxyID userID, IUserStatsAndAchievementsRetrieveListener.FailureReason failureReason)`
 
 **用途 / Purpose:** 在 user stats and achievements retrieve failure 事件触发时调用此回调。
 
@@ -53,12 +42,23 @@ UserStatsAndAchievementsRetrieveListener userStatsAndAchievementsRetrieveListene
 userStatsAndAchievementsRetrieveListener.OnUserStatsAndAchievementsRetrieveFailure(userID, failureReason);
 ```
 
+### UserStatsAndAchievementsRetrieved
+`public delegate void UserStatsAndAchievementsRetrieved(GalaxyID userID, bool success, IUserStatsAndAchievementsRetrieveListener.FailureReason? failureReason)`
+
+**用途 / Purpose:** 调用 UserStatsAndAchievementsRetrieved 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 UserStatsAndAchievementsRetrieveListener 实例
+UserStatsAndAchievementsRetrieveListener userStatsAndAchievementsRetrieveListener = ...;
+userStatsAndAchievementsRetrieveListener.UserStatsAndAchievementsRetrieved(userID, false, failureReason);
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 UserStatsAndAchievementsRetrieveListener userStatsAndAchievementsRetrieveListener = ...;
-userStatsAndAchievementsRetrieveListener.UserStatsAndAchievementsRetrieved(userID, false, failureReason);
+userStatsAndAchievementsRetrieveListener.OnUserStatsAndAchievementsRetrieveSuccess(userID);
 ```
 
 ## 参见

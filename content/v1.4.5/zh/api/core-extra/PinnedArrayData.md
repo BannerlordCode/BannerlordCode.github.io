@@ -8,7 +8,7 @@ description: "PinnedArrayData 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct PinnedArrayData<T>`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PinnedArrayData.cs`
+**File:** `TaleWorlds.Library/PinnedArrayData.cs`
 
 ## 概述
 
@@ -26,6 +26,7 @@ description: "PinnedArrayData 的自动生成类参考。"
 | `Pointer` | `public IntPtr Pointer { get; }` |
 | `Array` | `public T Array { get; }` |
 | `Array2D` | `public T Array2D { get; }` |
+| `Handle` | `public GCHandle Handle { get; }` |
 
 ## 主要方法
 

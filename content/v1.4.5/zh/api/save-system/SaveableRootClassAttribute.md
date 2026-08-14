@@ -8,7 +8,7 @@ description: "SaveableRootClassAttribute 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveableRootClassAttribute : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveableRootClassAttribute.cs`
+**File:** `TaleWorlds.SaveSystem/SaveableRootClassAttribute.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "LauncherCircleLoadingAnimWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherCircleLoadingAnimWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets/LauncherCircleLoadingAnimWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/CustomWidgets/LauncherCircleLoadingAnimWidget.cs`
 
 ## 概述
 
@@ -23,9 +23,12 @@ description: "LauncherCircleLoadingAnimWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `NumOfCirclesInASecond` | `public float NumOfCirclesInASecond { get; set; }` |
+| `NormalAlpha` | `public float NormalAlpha { get; set; }` |
 | `FullAlpha` | `public float FullAlpha { get; set; }` |
 | `CircleRadius` | `public float CircleRadius { get; set; }` |
 | `StaySeconds` | `public float StaySeconds { get; set; }` |
+| `IsMovementEnabled` | `public bool IsMovementEnabled { get; set; }` |
+| `IsReverse` | `public bool IsReverse { get; set; }` |
 | `FadeInSeconds` | `public float FadeInSeconds { get; set; }` |
 | `FadeOutSeconds` | `public float FadeOutSeconds { get; set; }` |
 

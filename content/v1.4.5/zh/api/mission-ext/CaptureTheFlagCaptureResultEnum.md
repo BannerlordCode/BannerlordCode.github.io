@@ -8,7 +8,7 @@ description: "CaptureTheFlagCaptureResultEnum 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum CaptureTheFlagCaptureResultEnum`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CaptureTheFlagCaptureResultEnum.cs`
+**File:** `TaleWorlds.MountAndBlade/CaptureTheFlagCaptureResultEnum.cs`
 
 ## 概述
 

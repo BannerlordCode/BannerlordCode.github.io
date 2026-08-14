@@ -8,7 +8,7 @@ description: "MultiplayerLobbyMatchmakingRegionConnectionQualityTextWidget 的�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyMatchmakingRegionConnectionQualityTextWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Matchmaking/MultiplayerLobbyMatchmakingRegionConnectionQualityTextWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Lobby/Matchmaking/MultiplayerLobbyMatchmakingRegionConnectionQualityTextWidget.cs`
 
 ## 概述
 

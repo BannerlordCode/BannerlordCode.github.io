@@ -8,7 +8,7 @@ description: "PhysicsShape 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class PhysicsShape : Resource`
 **Base:** `Resource`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/PhysicsShape.cs`
+**File:** `TaleWorlds.Engine/PhysicsShape.cs`
 
 ## 概述
 

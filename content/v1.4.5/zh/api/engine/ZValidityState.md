@@ -8,7 +8,7 @@ description: "ZValidityState 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public enum ZValidityState`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ZValidityState.cs`
+**File:** `TaleWorlds.Engine/ZValidityState.cs`
 
 ## 概述
 

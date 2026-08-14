@@ -8,7 +8,7 @@ description: "ManagedExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public static class ManagedExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ManagedExtensions.cs`
+**File:** `TaleWorlds.Engine/ManagedExtensions.cs`
 
 ## 概述
 

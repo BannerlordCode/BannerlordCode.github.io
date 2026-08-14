@@ -8,7 +8,7 @@ description: "DataType 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal enum DataType : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/DataType.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/DataType.cs`
 
 ## 概述
 

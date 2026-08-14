@@ -8,7 +8,7 @@ description: "TestLoginAccessProvider 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class TestLoginAccessProvider : ILoginAccessProvider`
 **Base:** `ILoginAccessProvider`
-**File:** `bin/TaleWorlds.Diamond.AccessProvider.Test/TaleWorlds.Diamond.AccessProvider.Test/TestLoginAccessProvider.cs`
+**File:** `TaleWorlds.Diamond.AccessProvider.Test/TestLoginAccessProvider.cs`
 
 ## 概述
 

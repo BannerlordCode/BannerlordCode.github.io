@@ -8,7 +8,7 @@ description: "InitializeSession 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class InitializeSession : LoginMessage`
 **Base:** `LoginMessage`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/InitializeSession.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/InitializeSession.cs`
 
 ## 概述
 

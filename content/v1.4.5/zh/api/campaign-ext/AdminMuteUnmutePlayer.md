@@ -8,7 +8,7 @@ description: "AdminMuteUnmutePlayer 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class AdminMuteUnmutePlayer : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/AdminMuteUnmutePlayer.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/AdminMuteUnmutePlayer.cs`
 
 ## 概述
 

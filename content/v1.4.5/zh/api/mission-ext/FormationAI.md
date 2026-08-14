@@ -8,7 +8,7 @@ description: "FormationAI 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FormationAI`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationAI.cs`
+**File:** `TaleWorlds.MountAndBlade/FormationAI.cs`
 
 ## 概述
 
@@ -23,8 +23,9 @@ description: "FormationAI 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `ActiveBehavior` | `public BehaviorComponent ActiveBehavior { get; }` |
-| `Side` | `public BehaviorSide Side { get; set; }` |
+| `Side` | `public FormationAI.BehaviorSide Side { get; set; }` |
 | `IsMainFormation` | `public bool IsMainFormation { get; set; }` |
+| `BehaviorCount` | `public int BehaviorCount { get; }` |
 
 ## 主要方法
 

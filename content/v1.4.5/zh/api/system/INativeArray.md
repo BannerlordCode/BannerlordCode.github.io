@@ -8,7 +8,7 @@ description: "INativeArray 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `internal interface INativeArray`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/INativeArray.cs`
+**File:** `TaleWorlds.DotNet/INativeArray.cs`
 
 ## 概述
 

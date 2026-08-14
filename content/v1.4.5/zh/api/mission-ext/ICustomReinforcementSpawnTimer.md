@@ -8,7 +8,7 @@ description: "ICustomReinforcementSpawnTimer 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public interface ICustomReinforcementSpawnTimer`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ICustomReinforcementSpawnTimer.cs`
+**File:** `TaleWorlds.MountAndBlade/ICustomReinforcementSpawnTimer.cs`
 
 ## 概述
 

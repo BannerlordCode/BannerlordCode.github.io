@@ -8,7 +8,7 @@ description: "BadgeCondition 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BadgeCondition`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/BadgeCondition.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/MultiplayerBadges/BadgeCondition.cs`
 
 ## 概述
 

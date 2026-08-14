@@ -6,9 +6,9 @@ description: "PerkSelectionBarWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class PerkSelectionBarWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/PerkSelectionBarWidget.cs`
+**Type:** `public class PerkSelectionBarWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/CharacterDeveloper/PerkSelectionBarWidget.cs`
 
 ## 概述
 
@@ -26,26 +26,12 @@ description: "PerkSelectionBarWidget 的自动生成类参考。"
 | `PercentageIndicatorWidget` | `public Widget PercentageIndicatorWidget { get; set; }` |
 | `FullLearningRateClip` | `public Widget FullLearningRateClip { get; set; }` |
 | `SeperatorContainer` | `public Widget SeperatorContainer { get; set; }` |
-| `LearningLimitIndicatorWidget` | `public Widget LearningLimitIndicatorWidget { get; set; }` |
 | `FullLearningRateClipInnerContent` | `public Widget FullLearningRateClipInnerContent { get; set; }` |
 | `PerksList` | `public Widget PerksList { get; set; }` |
 | `PercentageIndicatorTextWidget` | `public TextWidget PercentageIndicatorTextWidget { get; set; }` |
 | `MaxLevel` | `public int MaxLevel { get; set; }` |
 | `FullLearningRateLevel` | `public int FullLearningRateLevel { get; set; }` |
 | `Level` | `public int Level { get; set; }` |
-
-## 主要方法
-
-### PerkSelectionBarWidget
-`public class PerkSelectionBarWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 PerkSelectionBarWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 PerkSelectionBarWidget 实例
-PerkSelectionBarWidget perkSelectionBarWidget = ...;
-var result = perkSelectionBarWidget.PerkSelectionBarWidget(context);
-```
 
 ## 使用示例
 

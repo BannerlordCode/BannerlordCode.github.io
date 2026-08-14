@@ -8,7 +8,7 @@ description: "UiStringHelper 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public static class UiStringHelper`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/UiStringHelper.cs`
+**File:** `TaleWorlds.Library/UiStringHelper.cs`
 
 ## 概述
 

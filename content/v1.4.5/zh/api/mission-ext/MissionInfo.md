@@ -8,7 +8,7 @@ description: "MissionInfo 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionInfo`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionInfo.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionInfo.cs`
 
 ## 概述
 

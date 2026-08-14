@@ -8,7 +8,7 @@ description: "AgentMovementMode 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum AgentMovementMode : byte`
 **Base:** `byte`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/AgentMovementMode.cs`
+**File:** `TaleWorlds.Core/AgentMovementMode.cs`
 
 ## 概述
 

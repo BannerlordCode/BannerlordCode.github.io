@@ -8,7 +8,7 @@ description: "SpawnerEntityEditorHelper 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SpawnerEntityEditorHelper`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SpawnerEntityEditorHelper.cs`
+**File:** `TaleWorlds.MountAndBlade/SpawnerEntityEditorHelper.cs`
 
 ## 概述
 
@@ -26,17 +26,6 @@ description: "SpawnerEntityEditorHelper 的自动生成类参考。"
 | `SpawnedGhostEntity` | `public GameEntity SpawnedGhostEntity { get; }` |
 
 ## 主要方法
-
-### Permission
-`public struct Permission(PermissionType permission, Axis axis)`
-
-**用途 / Purpose:** 调用 Permission 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 SpawnerEntityEditorHelper 实例
-SpawnerEntityEditorHelper spawnerEntityEditorHelper = ...;
-var result = spawnerEntityEditorHelper.Permission(permission, axis);
-```
 
 ### GetGhostEntityOrChild
 `public GameEntity GetGhostEntityOrChild(string name)`
@@ -61,7 +50,7 @@ spawnerEntityEditorHelper.Tick(0);
 ```
 
 ### GivePermission
-`public void GivePermission(string childName, Permission permission, Action<float> onChangeFunction)`
+`public void GivePermission(string childName, SpawnerEntityEditorHelper.Permission permission, Action<float> onChangeFunction)`
 
 **用途 / Purpose:** 调用 GivePermission 对应的操作。
 

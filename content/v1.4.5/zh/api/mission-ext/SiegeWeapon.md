@@ -8,7 +8,7 @@ description: "SiegeWeapon 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class SiegeWeapon : UsableMachine, ITargetable`
 **Base:** `UsableMachine`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeWeapon.cs`
+**File:** `TaleWorlds.MountAndBlade/SiegeWeapon.cs`
 
 ## 概述
 
@@ -24,6 +24,8 @@ description: "SiegeWeapon 的自动生成类参考。"
 |------|-----------|
 | `ForcedUse` | `public bool ForcedUse { get; }` |
 | `IsUsed` | `public bool IsUsed { get; }` |
+| `Side` | `public virtual BattleSideEnum Side { get; }` |
+| `HitObjectName` | `public override TextObject HitObjectName { get; }` |
 | `HasWaitFrame` | `public override bool HasWaitFrame { get; }` |
 | `IsDeactivated` | `public override bool IsDeactivated { get; }` |
 
@@ -52,7 +54,7 @@ var result = siegeWeapon.GetSiegeEngineType();
 ```
 
 ### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
 **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
@@ -170,6 +172,17 @@ var result = siegeWeapon.IsDestructable();
 // 先通过子系统 API 拿到 SiegeWeapon 实例
 SiegeWeapon siegeWeapon = ...;
 var result = siegeWeapon.Entity();
+```
+
+### ComputeGlobalPhysicsBoundingBoxMinMax
+`public ValueTuple<Vec3, Vec3> ComputeGlobalPhysicsBoundingBoxMinMax()`
+
+**用途 / Purpose:** 调用 ComputeGlobalPhysicsBoundingBoxMinMax 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeWeapon 实例
+SiegeWeapon siegeWeapon = ...;
+var result = siegeWeapon.ComputeGlobalPhysicsBoundingBoxMinMax();
 ```
 
 ### OnShipCaptured

@@ -8,7 +8,7 @@ description: "SyncRelevantGameOptionsToServer 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class SyncRelevantGameOptionsToServer : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/SyncRelevantGameOptionsToServer.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/SyncRelevantGameOptionsToServer.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MBTextManager 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `public static class MBTextManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization/MBTextManager.cs`
+**File:** `TaleWorlds.Localization/MBTextManager.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "MBTextManager 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `ActiveTextLanguage` | `public static string ActiveTextLanguage { get; set; }` |
 | `LocalizationDebugMode` | `public static bool LocalizationDebugMode { get; set; }` |
 
 ## 主要方法

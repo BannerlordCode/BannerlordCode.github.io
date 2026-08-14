@@ -6,9 +6,9 @@ description: "SettlementNameplateManagerWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class SettlementNameplateManagerWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate/SettlementNameplateManagerWidget.cs`
+**Type:** `public class SettlementNameplateManagerWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Nameplate/SettlementNameplateManagerWidget.cs`
 
 ## 概述
 
@@ -17,19 +17,6 @@ description: "SettlementNameplateManagerWidget 的自动生成类参考。"
 ## 心智模型
 
 把 `SettlementNameplateManagerWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
-
-## 主要方法
-
-### SettlementNameplateManagerWidget
-`public class SettlementNameplateManagerWidget(UIContext context)`
-
-**用途 / Purpose:** 为 tlement nameplate manager widget 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 SettlementNameplateManagerWidget 实例
-SettlementNameplateManagerWidget settlementNameplateManagerWidget = ...;
-var result = settlementNameplateManagerWidget.SettlementNameplateManagerWidget(context);
-```
 
 ## 使用示例
 

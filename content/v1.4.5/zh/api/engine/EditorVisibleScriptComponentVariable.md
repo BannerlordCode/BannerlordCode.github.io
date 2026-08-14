@@ -8,7 +8,7 @@ description: "EditorVisibleScriptComponentVariable 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class EditorVisibleScriptComponentVariable : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/EditorVisibleScriptComponentVariable.cs`
+**File:** `TaleWorlds.Engine/EditorVisibleScriptComponentVariable.cs`
 
 ## 概述
 

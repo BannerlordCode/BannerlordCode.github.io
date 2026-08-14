@@ -8,7 +8,7 @@ description: "IMesh 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `internal interface IMesh`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IMesh.cs`
+**File:** `TaleWorlds.Engine/IMesh.cs`
 
 ## 概述
 

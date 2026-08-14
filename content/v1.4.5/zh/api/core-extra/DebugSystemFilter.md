@@ -8,7 +8,7 @@ description: "DebugSystemFilter 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public enum DebugSystemFilter : ulong`
 **Base:** `ulong`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Debug.cs`
+**File:** `TaleWorlds.Library/Debug.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "DataSourceProperty 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class DataSourceProperty : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/DataSourceProperty.cs`
+**File:** `TaleWorlds.Library/DataSourceProperty.cs`
 
 ## 概述
 

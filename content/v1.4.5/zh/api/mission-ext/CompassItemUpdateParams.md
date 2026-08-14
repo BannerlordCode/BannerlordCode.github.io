@@ -8,7 +8,7 @@ description: "CompassItemUpdateParams 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct CompassItemUpdateParams`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CompassItemUpdateParams.cs`
+**File:** `TaleWorlds.MountAndBlade/CompassItemUpdateParams.cs`
 
 ## 概述
 

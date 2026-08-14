@@ -8,7 +8,7 @@ description: "MBIllegalRegisterException 的自动生成类参考。"
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public class MBIllegalRegisterException : ObjectSystemException`
 **Base:** `ObjectSystemException`
-**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBIllegalRegisterException.cs`
+**File:** `TaleWorlds.ObjectSystem/MBIllegalRegisterException.cs`
 
 ## 概述
 

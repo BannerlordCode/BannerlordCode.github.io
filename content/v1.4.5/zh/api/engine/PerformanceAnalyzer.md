@@ -8,7 +8,7 @@ description: "PerformanceAnalyzer 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class PerformanceAnalyzer`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/PerformanceAnalyzer.cs`
+**File:** `TaleWorlds.Engine/PerformanceAnalyzer.cs`
 
 ## 概述
 
@@ -19,28 +19,6 @@ description: "PerformanceAnalyzer 的自动生成类参考。"
 先从命名空间 `TaleWorlds.Engine` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### AddFps
-`public void AddFps(float fps, float main, float renderer)`
-
-**用途 / Purpose:** 将 fps 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 PerformanceAnalyzer 实例
-PerformanceAnalyzer performanceAnalyzer = ...;
-performanceAnalyzer.AddFps(0, 0, 0);
-```
-
-### Write
-`public void Write(XmlNode node, XmlDocument document)`
-
-**用途 / Purpose:** 将当前对象的数据写入目标位置。
-
-```csharp
-// 先通过子系统 API 拿到 PerformanceAnalyzer 实例
-PerformanceAnalyzer performanceAnalyzer = ...;
-performanceAnalyzer.Write(node, document);
-```
 
 ### Start
 `public void Start(string name)`
@@ -86,12 +64,34 @@ PerformanceAnalyzer performanceAnalyzer = ...;
 performanceAnalyzer.Tick(0);
 ```
 
+### AddFps
+`public void AddFps(float fps, float main, float renderer)`
+
+**用途 / Purpose:** 将 fps 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 PerformanceAnalyzer 实例
+PerformanceAnalyzer performanceAnalyzer = ...;
+performanceAnalyzer.AddFps(0, 0, 0);
+```
+
+### Write
+`public void Write(XmlNode node, XmlDocument document)`
+
+**用途 / Purpose:** 将当前对象的数据写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 PerformanceAnalyzer 实例
+PerformanceAnalyzer performanceAnalyzer = ...;
+performanceAnalyzer.Write(node, document);
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 PerformanceAnalyzer performanceAnalyzer = ...;
-performanceAnalyzer.AddFps(0, 0, 0);
+performanceAnalyzer.Start("example");
 ```
 
 ## 参见

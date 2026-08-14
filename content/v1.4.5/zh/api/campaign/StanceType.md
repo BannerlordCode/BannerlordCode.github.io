@@ -8,7 +8,7 @@ description: "StanceType 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal enum StanceType`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/StanceType.cs`
+**File:** `TaleWorlds.CampaignSystem/StanceType.cs`
 
 ## 概述
 

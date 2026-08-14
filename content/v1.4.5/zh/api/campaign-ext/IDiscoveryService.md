@@ -8,7 +8,7 @@ description: "IDiscoveryService 的自动生成类参考。"
 **Module:** TaleWorlds.ServiceDiscovery
 **Type:** `public interface IDiscoveryService`
 **Base:** 无
-**File:** `bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/IDiscoveryService.cs`
+**File:** `TaleWorlds.ServiceDiscovery.Client/IDiscoveryService.cs`
 
 ## 概述
 

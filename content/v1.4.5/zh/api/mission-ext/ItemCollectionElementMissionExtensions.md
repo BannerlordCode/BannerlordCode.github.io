@@ -8,7 +8,7 @@ description: "ItemCollectionElementMissionExtensions 的自动生成类参考。
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ItemCollectionElementMissionExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ItemCollectionElementMissionExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/ItemCollectionElementMissionExtensions.cs`
 
 ## 概述
 

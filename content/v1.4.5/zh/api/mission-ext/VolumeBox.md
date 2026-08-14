@@ -8,7 +8,7 @@ description: "VolumeBox 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class VolumeBox : MissionObject`
 **Base:** `MissionObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/VolumeBox.cs`
+**File:** `TaleWorlds.MountAndBlade/VolumeBox.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "VolumeBox 的自动生成类参考。"
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### VolumeBoxDelegate
-`public delegate void VolumeBoxDelegate(VolumeBox volumeBox, List<Agent> agentsInVolume)`
-
-**用途 / Purpose:** 调用 VolumeBoxDelegate 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 VolumeBox 实例
-VolumeBox volumeBox = ...;
-volumeBox.VolumeBoxDelegate(volumeBox, agentsInVolume);
-```
 
 ### AddToCheckList
 `public void AddToCheckList(Agent agent)`
@@ -54,7 +43,7 @@ volumeBox.RemoveFromCheckList(agent);
 ```
 
 ### SetIsOccupiedDelegate
-`public void SetIsOccupiedDelegate(VolumeBoxDelegate volumeBoxDelegate)`
+`public void SetIsOccupiedDelegate(VolumeBox.VolumeBoxDelegate volumeBoxDelegate)`
 
 **用途 / Purpose:** 为 is occupied delegate 赋新值，并同步更新对象内部状态。
 
@@ -86,12 +75,23 @@ VolumeBox volumeBox = ...;
 var result = volumeBox.IsPointIn(point);
 ```
 
+### VolumeBoxDelegate
+`public delegate void VolumeBoxDelegate(VolumeBox volumeBox, List<Agent> agentsInVolume)`
+
+**用途 / Purpose:** 调用 VolumeBoxDelegate 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VolumeBox 实例
+VolumeBox volumeBox = ...;
+volumeBox.VolumeBoxDelegate(volumeBox, agentsInVolume);
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 VolumeBox volumeBox = ...;
-volumeBox.VolumeBoxDelegate(volumeBox, agentsInVolume);
+volumeBox.AddToCheckList(agent);
 ```
 
 ## 参见

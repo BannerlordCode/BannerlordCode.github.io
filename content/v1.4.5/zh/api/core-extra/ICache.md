@@ -8,7 +8,7 @@ description: "ICache 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public interface ICache`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ICache.cs`
+**File:** `TaleWorlds.Library/ICache.cs`
 
 ## 概述
 

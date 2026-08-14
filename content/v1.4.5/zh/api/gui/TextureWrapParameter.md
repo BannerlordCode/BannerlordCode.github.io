@@ -8,7 +8,7 @@ description: "TextureWrapParameter 的自动生成类参考。"
 **Module:** TaleWorlds.TwoDimension
 **Type:** `internal enum TextureWrapParameter`
 **Base:** 无
-**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/TextureWrapParameter.cs`
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/TextureWrapParameter.cs`
 
 ## 概述
 

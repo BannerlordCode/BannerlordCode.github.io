@@ -8,7 +8,7 @@ description: "DefaultFormationArrangementModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultFormationArrangementModel : FormationArrangementModel`
 **Base:** `FormationArrangementModel`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultFormationArrangementModel.cs`
+**File:** `TaleWorlds.MountAndBlade/DefaultFormationArrangementModel.cs`
 
 ## 概述
 
@@ -20,19 +20,8 @@ description: "DefaultFormationArrangementModel 的自动生成类参考。"
 
 ## 主要方法
 
-### GetArrangementPosition
-`public ArrangementPosition GetArrangementPosition(int fileCount, int rankCount)`
-
-**用途 / Purpose:** 读取并返回当前对象中 arrangement position 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 DefaultFormationArrangementModel 实例
-DefaultFormationArrangementModel defaultFormationArrangementModel = ...;
-var result = defaultFormationArrangementModel.GetArrangementPosition(0, 0);
-```
-
 ### GetBannerBearerPositions
-`public override List<ArrangementPosition> GetBannerBearerPositions(Formation formation, int maxCount)`
+`public override List<FormationArrangementModel.ArrangementPosition> GetBannerBearerPositions(Formation formation, int maxCount)`
 
 **用途 / Purpose:** 读取并返回当前对象中 banner bearer positions 的结果。
 
@@ -40,6 +29,17 @@ var result = defaultFormationArrangementModel.GetArrangementPosition(0, 0);
 // 先通过子系统 API 拿到 DefaultFormationArrangementModel 实例
 DefaultFormationArrangementModel defaultFormationArrangementModel = ...;
 var result = defaultFormationArrangementModel.GetBannerBearerPositions(formation, 0);
+```
+
+### GetArrangementPosition
+`public FormationArrangementModel.ArrangementPosition GetArrangementPosition(int fileCount, int rankCount)`
+
+**用途 / Purpose:** 读取并返回当前对象中 arrangement position 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultFormationArrangementModel 实例
+DefaultFormationArrangementModel defaultFormationArrangementModel = ...;
+var result = defaultFormationArrangementModel.GetArrangementPosition(0, 0);
 ```
 
 ## 使用示例

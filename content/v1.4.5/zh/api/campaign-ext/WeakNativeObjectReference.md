@@ -6,9 +6,9 @@ description: "WeakNativeObjectReference 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
-**Type:** `public sealed class WeakNativeObjectReference`
+**Type:** `public sealed class WeakNativeObjectReference<T>`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/WeakNativeObjectReference.cs`
+**File:** `TaleWorlds.DotNet/WeakNativeObjectReference.2.cs`
 
 ## 概述
 

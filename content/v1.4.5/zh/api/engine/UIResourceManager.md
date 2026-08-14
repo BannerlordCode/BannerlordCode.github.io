@@ -8,7 +8,7 @@ description: "UIResourceManager 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public static class UIResourceManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/UIResourceManager.cs`
+**File:** `TaleWorlds.Engine.GauntletUI/UIResourceManager.cs`
 
 ## 概述
 

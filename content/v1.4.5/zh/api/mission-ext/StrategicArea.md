@@ -8,7 +8,7 @@ description: "StrategicArea 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class StrategicArea : MissionObject, IDetachment`
 **Base:** `MissionObject`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/StrategicArea.cs`
+**File:** `TaleWorlds.MountAndBlade/StrategicArea.cs`
 
 ## 概述
 
@@ -22,6 +22,10 @@ description: "StrategicArea 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `IsLoose` | `public bool IsLoose { get; }` |
+| `UserFormations` | `public MBReadOnlyList<Formation> UserFormations { get; }` |
+| `DistanceToCheck` | `public float DistanceToCheck { get; set; }` |
+| `IgnoreHeight` | `public bool IgnoreHeight { get; set; }` |
 | `IsActive` | `public bool IsActive { get; set; }` |
 
 ## 主要方法
@@ -159,14 +163,14 @@ var result = strategicArea.GetWeightOfAgentAtNextSlot(newAgents, match);
 ```
 
 ### GetWeightOfAgentAtNextSlot
-`public float? GetWeightOfAgentAtNextSlot(List<(Agent, float)> agentTemplateScores, out Agent match)`
+`public float? GetWeightOfAgentAtNextSlot(List<ValueTuple<Agent, float>> agentTemplateScores, out Agent match)`
 
 **用途 / Purpose:** 读取并返回当前对象中 weight of agent at next slot 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StrategicArea 实例
 StrategicArea strategicArea = ...;
-var result = strategicArea.GetWeightOfAgentAtNextSlot(list<(Agent, 0, match);
+var result = strategicArea.GetWeightOfAgentAtNextSlot(list<ValueTuple<Agent, 0, match);
 ```
 
 ### GetWeightOfAgentAtOccupiedSlot

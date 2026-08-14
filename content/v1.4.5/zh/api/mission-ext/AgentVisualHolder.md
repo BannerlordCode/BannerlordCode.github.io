@@ -8,7 +8,7 @@ description: "AgentVisualHolder 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentVisualHolder : IAgentVisual`
 **Base:** `IAgentVisual`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVisualHolder.cs`
+**File:** `TaleWorlds.MountAndBlade/AgentVisualHolder.cs`
 
 ## 概述
 

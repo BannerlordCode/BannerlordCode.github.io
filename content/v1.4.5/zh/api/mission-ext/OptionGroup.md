@@ -8,7 +8,7 @@ description: "OptionGroup 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OptionGroup`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options/OptionGroup.cs`
+**File:** `TaleWorlds.MountAndBlade/Options/OptionGroup.cs`
 
 ## 概述
 

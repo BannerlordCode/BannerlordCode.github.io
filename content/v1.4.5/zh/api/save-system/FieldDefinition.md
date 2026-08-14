@@ -8,7 +8,7 @@ description: "FieldDefinition 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class FieldDefinition : MemberDefinition`
 **Base:** `MemberDefinition`
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/FieldDefinition.cs`
+**File:** `TaleWorlds.SaveSystem/Definition/FieldDefinition.cs`
 
 ## 概述
 

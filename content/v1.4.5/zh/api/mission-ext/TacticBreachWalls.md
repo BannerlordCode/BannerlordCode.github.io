@@ -8,7 +8,7 @@ description: "TacticBreachWalls 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticBreachWalls : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticBreachWalls.cs`
+**File:** `TaleWorlds.MountAndBlade/TacticBreachWalls.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "TacticBreachWalls 的自动生成类参考。"
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### GetRetreatThresholdRatio
-`public float GetRetreatThresholdRatio(List<SiegeLane> lanes, int insideFormationCount)`
-
-**用途 / Purpose:** 读取并返回当前对象中 retreat threshold ratio 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 TacticBreachWalls 实例
-TacticBreachWalls tacticBreachWalls = ...;
-var result = tacticBreachWalls.GetRetreatThresholdRatio(lanes, 0);
-```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
@@ -42,12 +31,23 @@ TacticBreachWalls tacticBreachWalls = ...;
 tacticBreachWalls.TickOccasionally();
 ```
 
+### GetRetreatThresholdRatio
+`public float GetRetreatThresholdRatio(List<SiegeLane> lanes, int insideFormationCount)`
+
+**用途 / Purpose:** 读取并返回当前对象中 retreat threshold ratio 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TacticBreachWalls 实例
+TacticBreachWalls tacticBreachWalls = ...;
+var result = tacticBreachWalls.GetRetreatThresholdRatio(lanes, 0);
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 TacticBreachWalls tacticBreachWalls = ...;
-tacticBreachWalls.GetRetreatThresholdRatio(lanes, 0);
+tacticBreachWalls.TickOccasionally();
 ```
 
 ## 参见

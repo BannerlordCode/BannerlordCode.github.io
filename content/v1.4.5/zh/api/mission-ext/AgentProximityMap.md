@@ -8,7 +8,7 @@ description: "AgentProximityMap 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentProximityMap`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentProximityMap.cs`
+**File:** `TaleWorlds.MountAndBlade/AgentProximityMap.cs`
 
 ## 概述
 
@@ -37,7 +37,7 @@ AgentProximityMap.CanSearchRadius(0);
 ```
 
 ### BeginSearch
-`public static ProximityMapSearchStruct BeginSearch(Mission mission, Vec2 searchPos, float searchRadius, bool extendRangeByBiggestAgentCollisionPadding = false)`
+`public static AgentProximityMap.ProximityMapSearchStruct BeginSearch(Mission mission, Vec2 searchPos, float searchRadius, bool extendRangeByBiggestAgentCollisionPadding = false)`
 
 **用途 / Purpose:** 调用 BeginSearch 对应的操作。
 
@@ -47,7 +47,7 @@ AgentProximityMap.BeginSearch(mission, searchPos, 0, false);
 ```
 
 ### FindNext
-`public static void FindNext(Mission mission, ref ProximityMapSearchStruct searchStruct)`
+`public static void FindNext(Mission mission, ref AgentProximityMap.ProximityMapSearchStruct searchStruct)`
 
 **用途 / Purpose:** 在当前集合/范围内查找满足条件的next。
 

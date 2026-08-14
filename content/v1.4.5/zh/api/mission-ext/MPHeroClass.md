@@ -8,7 +8,7 @@ description: "MPHeroClass 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPHeroClass : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerClassDivisions.cs`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerClassDivisions.cs`
 
 ## 概述
 
@@ -26,7 +26,7 @@ description: "MPHeroClass 的自动生成类参考。"
 | `TroopCharacter` | `public BasicCharacterObject TroopCharacter { get; }` |
 | `BannerBearerCharacter` | `public BasicCharacterObject BannerBearerCharacter { get; }` |
 | `Culture` | `public BasicCultureObject Culture { get; }` |
-| `ClassGroup` | `public MPHeroClassGroup ClassGroup { get; }` |
+| `ClassGroup` | `public MultiplayerClassDivisions.MPHeroClassGroup ClassGroup { get; }` |
 | `HeroIdleAnim` | `public string HeroIdleAnim { get; }` |
 | `HeroMountIdleAnim` | `public string HeroMountIdleAnim { get; }` |
 | `TroopIdleAnim` | `public string TroopIdleAnim { get; }` |
@@ -48,6 +48,8 @@ description: "MPHeroClass 的自动生成类参考。"
 | `HeroInformation` | `public TextObject HeroInformation { get; }` |
 | `TroopInformation` | `public TextObject TroopInformation { get; }` |
 | `IconType` | `public TargetIconType IconType { get; }` |
+| `HeroName` | `public TextObject HeroName { get; }` |
+| `TroopName` | `public TextObject TroopName { get; }` |
 
 ## 主要方法
 

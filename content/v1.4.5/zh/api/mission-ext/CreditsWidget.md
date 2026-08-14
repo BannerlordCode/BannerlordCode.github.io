@@ -6,9 +6,9 @@ description: "CreditsWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Credits
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class CreditsWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Credits/CreditsWidget.cs`
+**Type:** `public class CreditsWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Credits/CreditsWidget.cs`
 
 ## 概述
 
@@ -25,19 +25,6 @@ description: "CreditsWidget 的自动生成类参考。"
 | `RootItemWidget` | `public Widget RootItemWidget { get; set; }` |
 | `ScrollPixelsPerSecond` | `public float ScrollPixelsPerSecond { get; set; }` |
 | `ManualScrollWaitTimer` | `public float ManualScrollWaitTimer { get; set; }` |
-
-## 主要方法
-
-### CreditsWidget
-`public class CreditsWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 CreditsWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 CreditsWidget 实例
-CreditsWidget creditsWidget = ...;
-var result = creditsWidget.CreditsWidget(context);
-```
 
 ## 使用示例
 

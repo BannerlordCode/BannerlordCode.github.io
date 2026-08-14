@@ -8,7 +8,7 @@ description: "MBGameModel 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class MBGameModel<T> : GameModel where T : GameModel`
 **Base:** `GameModel where T : GameModel`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBGameModel.cs`
+**File:** `TaleWorlds.Core/MBGameModel.cs`
 
 ## 概述
 

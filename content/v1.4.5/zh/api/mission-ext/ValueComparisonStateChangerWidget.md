@@ -8,7 +8,7 @@ description: "ValueComparisonStateChangerWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ValueComparisonStateChangerWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ValueComparisonStateChangerWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/ValueComparisonStateChangerWidget.cs`
 
 ## 概述
 
@@ -23,7 +23,7 @@ description: "ValueComparisonStateChangerWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `TargetWidget` | `public Widget TargetWidget { get; set; }` |
-| `WatchType` | `public WatchTypes WatchType { get; set; }` |
+| `WatchType` | `public ValueComparisonStateChangerWidget.WatchTypes WatchType { get; set; }` |
 | `FirstValueInt` | `public int FirstValueInt { get; set; }` |
 | `SecondValueInt` | `public int SecondValueInt { get; set; }` |
 | `FirstValueFloat` | `public float FirstValueFloat { get; set; }` |

@@ -8,7 +8,7 @@ description: "DebugValueUpdateSlider 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DebugValueUpdateSlider : SliderWidget`
 **Base:** `SliderWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/DebugValueUpdateSlider.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/DebugValueUpdateSlider.cs`
 
 ## 概述
 

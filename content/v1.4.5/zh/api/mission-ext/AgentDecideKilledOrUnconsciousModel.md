@@ -8,7 +8,7 @@ description: "AgentDecideKilledOrUnconsciousModel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class AgentDecideKilledOrUnconsciousModel : MBGameModel<AgentDecideKilledOrUnconsciousModel>`
 **Base:** `MBGameModel<AgentDecideKilledOrUnconsciousModel>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/AgentDecideKilledOrUnconsciousModel.cs`
+**File:** `TaleWorlds.MountAndBlade/ComponentInterfaces/AgentDecideKilledOrUnconsciousModel.cs`
 
 ## 概述
 

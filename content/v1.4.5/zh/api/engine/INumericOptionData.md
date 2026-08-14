@@ -8,7 +8,7 @@ description: "INumericOptionData 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public interface INumericOptionData : IOptionData`
 **Base:** `IOptionData`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/INumericOptionData.cs`
+**File:** `TaleWorlds.Engine/Options/INumericOptionData.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "GameKeyTextExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class GameKeyTextExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameKeyTextExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/GameKeyTextExtensions.cs`
 
 ## 概述
 

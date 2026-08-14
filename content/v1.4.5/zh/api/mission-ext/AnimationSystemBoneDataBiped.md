@@ -8,7 +8,7 @@ description: "AnimationSystemBoneDataBiped 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct AnimationSystemBoneDataBiped`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AnimationSystemBoneDataBiped.cs`
+**File:** `TaleWorlds.MountAndBlade/AnimationSystemBoneDataBiped.cs`
 
 ## 概述
 

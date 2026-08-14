@@ -8,7 +8,7 @@ description: "IFriendListService 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public interface IFriendListService`
 **Base:** 无
-**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/IFriendListService.cs`
+**File:** `TaleWorlds.PlatformService/IFriendListService.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "BattleServerReadyMessage 的自动生成类参考。"
 **Module:** Messages.FromBattleServer
 **Type:** `public class BattleServerReadyMessage : LoginMessage`
 **Base:** `LoginMessage`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/BattleServerReadyMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromBattleServer/ToBattleServerManager/BattleServerReadyMessage.cs`
 
 ## 概述
 

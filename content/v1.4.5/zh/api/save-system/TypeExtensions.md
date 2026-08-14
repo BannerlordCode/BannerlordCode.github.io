@@ -8,7 +8,7 @@ description: "TypeExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `internal static class TypeExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/TypeExtensions.cs`
+**File:** `TaleWorlds.SaveSystem/TypeExtensions.cs`
 
 ## 概述
 

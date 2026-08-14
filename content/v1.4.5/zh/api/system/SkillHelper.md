@@ -128,7 +128,7 @@ SkillHelper.AddSkillBonusForCharacter(
 
 这些调用只向调用方拥有的计算累加贡献，不会自动把结果写回 model，也不会自动存档。
 
-## 依赖与所有权
+## 依赖
 
 - [SkillEffect](../../campaign/SkillEffect) 提供受影响技能、role、增量类型、描述和按等级计算的方法。
 - [ExplainedNumber](../../campaign/ExplainedNumber) 持有基础值、因子/加法行和最终结果；`SkillHelper` 通过引用修改它。

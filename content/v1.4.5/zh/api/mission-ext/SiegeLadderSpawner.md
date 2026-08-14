@@ -8,7 +8,7 @@ description: "SiegeLadderSpawner 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeLadderSpawner : SpawnerBase`
 **Base:** `SpawnerBase`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Siege/SiegeLadderSpawner.cs`
+**File:** `TaleWorlds.MountAndBlade/Objects/Siege/SiegeLadderSpawner.cs`
 
 ## 概述
 
@@ -17,6 +17,13 @@ description: "SiegeLadderSpawner 的自动生成类参考。"
 ## 心智模型
 
 先从命名空间 `TaleWorlds.MountAndBlade.Objects.Siege` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `UpperStateRotationRadian` | `public float UpperStateRotationRadian { get; }` |
+| `DownStateRotationRadian` | `public float DownStateRotationRadian { get; }` |
 
 ## 主要方法
 

@@ -8,7 +8,7 @@ description: "Color 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public struct Color`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Color.cs`
+**File:** `TaleWorlds.Library/Color.cs`
 
 ## 概述
 
@@ -18,18 +18,14 @@ description: "Color 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Black` | `public static Color Black { get; }` |
+| `White` | `public static Color White { get; }` |
+
 ## 主要方法
-
-### Color
-`public struct Color(float red, float green, float blue, float alpha = 1f)`
-
-**用途 / Purpose:** 调用 Color 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Color 实例
-Color color = ...;
-var result = color.Color(0, 0, 0, 0);
-```
 
 ### ToVector3
 `public Vector3 ToVector3()`
@@ -183,7 +179,7 @@ Color.UIntToColorString(0);
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 Color color = ...;
-color.Color(0, 0, 0, 0);
+color.ToVector3();
 ```
 
 ## 参见

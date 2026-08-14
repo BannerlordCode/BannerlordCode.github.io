@@ -8,7 +8,7 @@ description: "SelectAllSiegeWeapons 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class SelectAllSiegeWeapons : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/SelectAllSiegeWeapons.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/SelectAllSiegeWeapons.cs`
 
 ## 概述
 

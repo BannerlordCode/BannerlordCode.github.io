@@ -8,7 +8,7 @@ description: "IntermissionVoteItemListExtensions 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class IntermissionVoteItemListExtensions`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IntermissionVoteItemListExtensions.cs`
+**File:** `TaleWorlds.MountAndBlade/IntermissionVoteItemListExtensions.cs`
 
 ## 概述
 

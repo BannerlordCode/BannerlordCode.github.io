@@ -8,7 +8,7 @@ description: "RemoveAgentVisualsForPeer 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class RemoveAgentVisualsForPeer : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RemoveAgentVisualsForPeer.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/RemoveAgentVisualsForPeer.cs`
 
 ## 概述
 

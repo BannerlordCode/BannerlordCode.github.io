@@ -8,7 +8,7 @@ description: "BannerBuilderState 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BannerBuilderState : GameState`
 **Base:** `GameState`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BannerBuilderState.cs`
+**File:** `TaleWorlds.MountAndBlade/BannerBuilderState.cs`
 
 ## 概述
 
@@ -22,6 +22,7 @@ description: "BannerBuilderState 的自动生成类参考。"
 
 | Name | Signature |
 |------|-----------|
+| `IsMenuState` | `public override bool IsMenuState { get; }` |
 | `DefaultBannerKey` | `public string DefaultBannerKey { get; }` |
 
 ## 使用示例

@@ -6,9 +6,9 @@ description: "SettlementNameplateWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class SettlementNameplateWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate/SettlementNameplateWidget.cs`
+**Type:** `public class SettlementNameplateWidget : Widget, IComparable<SettlementNameplateWidget>`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Nameplate/SettlementNameplateWidget.cs`
 
 ## 概述
 
@@ -39,17 +39,6 @@ description: "SettlementNameplateWidget 的自动生成类参考。"
 | `EventsListPanel` | `public ListPanel EventsListPanel { get; set; }` |
 
 ## 主要方法
-
-### SettlementNameplateWidget
-`public class SettlementNameplateWidget(UIContext context)`
-
-**用途 / Purpose:** 为 tlement nameplate widget 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 SettlementNameplateWidget 实例
-SettlementNameplateWidget settlementNameplateWidget = ...;
-var result = settlementNameplateWidget.SettlementNameplateWidget(context);
-```
 
 ### CompareTo
 `public int CompareTo(SettlementNameplateWidget other)`

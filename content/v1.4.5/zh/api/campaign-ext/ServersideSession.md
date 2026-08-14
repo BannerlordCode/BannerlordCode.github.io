@@ -8,7 +8,7 @@ description: "ServersideSession 的自动生成类参考。"
 **Module:** TaleWorlds.Network
 **Type:** `public abstract class ServersideSession : NetworkSession`
 **Base:** `NetworkSession`
-**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/ServersideSession.cs`
+**File:** `TaleWorlds.Network/ServersideSession.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "GetClanLeaderboardMessage 的自动生成类参考。"
 **Module:** Messages.FromClient
 **Type:** `public class GetClanLeaderboardMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetClanLeaderboardMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromClient/ToLobbyServer/GetClanLeaderboardMessage.cs`
 
 ## 概述
 

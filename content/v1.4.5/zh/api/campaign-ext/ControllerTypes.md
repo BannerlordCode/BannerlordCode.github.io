@@ -8,7 +8,7 @@ description: "ControllerTypes 的自动生成类参考。"
 **Module:** TaleWorlds.InputSystem
 **Type:** `public enum ControllerTypes`
 **Base:** 无
-**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/Input.cs`
+**File:** `TaleWorlds.InputSystem/Input.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "RetreatPositionCacheSystem 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RetreatPositionCacheSystem`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Formation.cs`
+**File:** `TaleWorlds.MountAndBlade/Formation.cs`
 
 ## 概述
 

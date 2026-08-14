@@ -1,168 +1,186 @@
 ---
 title: "Village"
-description: "依附据点的可存档村庄组件：管理炉灶、生产、库存、贸易绑定、民兵与突袭状态，并由战役行为维护其生命周期。"
+description: "村庄组件：挂在 Settlement 上，记录村庄归属哪个城镇（Bound）、卖货去哪个城镇（TradeBound）、炉火繁荣度（Hearth）与每日产出；不要自己创建，也不要直接改 Hearth/Bound 引用。"
 ---
 # Village
 
-**命名空间：** `TaleWorlds.CampaignSystem.Settlements`  
-**模块：** `TaleWorlds.CampaignSystem`  
-**类型：** `public class Village : SettlementComponent`  
-**基类：** `SettlementComponent`  
-**源文件：** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Village.cs`  
-**持久化角色：** 附着在村庄 `Settlement` 的经济组件；炉灶、状态、绑定据点、市场和税等进入 Campaign 存档图。
+**Namespace:** TaleWorlds.CampaignSystem.Settlements  
+**Module:** TaleWorlds.CampaignSystem  
+**Type:** `public class Village : SettlementComponent`  
+**Base:** `SettlementComponent`  
+**源文件路径:** `TaleWorlds.CampaignSystem/Settlements/Village.cs`（1.3.15；API 已对照 1.4.5 交叉校验）
 
-## 概述与心智模型
+## 一句话职责
 
-`Village` 是一个村庄 Settlement 的生产和民生状态，不是独立派系或独立领地。`Settlement.Village` 才是从地图位置、村庄派对和遭袭状态进入它的路径；`Village.Settlement` 反向回到实体。它的政治归属来自 `Bound` 据点，因此 `Village.MapFaction` 委托给 `Bound.MapFaction`，而村庄 `Settlement.OwnerClan` 同样经该绑定据点解析。
+`Village` 是某个村庄据点 `Settlement` 身上的**经济组件**：它告诉你这个村庄归哪个城镇管、把货卖到哪个城镇、炉火（人口繁荣）还剩多少、每天产什么，以及当前是正常/被劫掠/被强征/废弃中的哪种状态。
 
-`Bound` 是行政/领地绑定：设置时会同步维护 `Settlement.BoundVillages`。当绑定对象是城镇时，`TradeBound` 固定就是该城镇；当绑定对象是城堡时，`TradeBound` 是可变的贸易目的地，由原生行为选择邻近、可达且政治关系允许的城镇。不要把两者混为一谈，也不要把 `TradeBound` 当永久存档配置。
+## 心智模型
 
-在启动后的 Campaign Behavior、据点/村庄事件或日结后，用 `Village.All`、`Settlement.All` 或某个 `Town.Villages` 取得对象。静态集合依赖 `Campaign.Current`，故不适合主菜单、未完成读档或战役销毁期。不要直接构造 `Village`、`VillageMarketData` 或村民派对来拼接世界对象。
+把它想成 **`Settlement` 的「村庄经济卡片」**，而不是一个独立实体：
 
-## 何时使用，何时停在 Settlement 边界
+- **它不是独立对象，挂在 Settlement 上。** 拿到村庄的入口永远是 `someSettlement.Village`——每个村庄型 `Settlement` 有且只有一个 `Village` 组件。你永远不会自己 `new Village()`；它由引擎在加载/初始化时随 `Settlement` 一起建立并 `Deserialize`（从 XML 读 `hearth`、`bound`、`village_type`）。
+- **纯战役层数据，不进战斗场景。** `Village` 只活在战役地图（Campaign）里，代表地图上的村庄据点；进入战斗后才有 `PartyBase`/`Agent`，但那是另一回事。
+- **生命周期：** `OnInit()`（被设为 `Normal` 并给 1000 金）→ 每个战役日由 `Campaign` 的每日 tick 循环统一调用 `DailyTick()`（累加 `Hearth`、`Militia`，金币封顶 1000）→ 被袭击/强征/洗劫时通过 `ChangeVillageStateAction.Apply*` 改变 `VillageState`，并触发 `CampaignEventDispatcher` 事件。
+- **谁持有/枚举：** 由所属 `Settlement` 持有；全图所有村庄用 `Village.All`（`= Campaign.Current.AllVillages`）枚举。
 
-当需求是“这一个村庄当前能生产什么、处于什么袭击状态、依附哪个领地、该由哪个城镇定价”时，先取得 `Settlement`，确认 `settlement.IsVillage`，再读取 `settlement.Village`。这条路径既保留地图位置、`Party`、库存与民兵，也不会把城镇或城堡的 `Town` 组件误当成村庄。
+## 何时用 / 何时不要用
 
-不要在以下情形从 `Village` 开始写世界状态：
+**用它的场景：**
+- 读村庄经济/产出/状态：`Hearth`、`GetHearthLevel()`、`VillageType.Productions`、`IsProducing(...)`、`GetWarehouseCapacity()`。
+- 在对话或任务里把村庄和城镇关联起来：`Bound`（归属城镇）、`TradeBound`（卖货城镇）。
+- 监听村庄状态变化：订阅 `OnVillageBecomeNormal` / `OnVillageBeingRaided` / `OnVillageLooted` 等事件。
 
-- **领地归属或绑定村清单：** 领主、所有权与 `Settlement.BoundVillages` 由宿主据点及其所有权 Action 维护。`Bound` 没有公共 setter；重新接线会破坏 Town 的村庄视图和贸易缓存。
-- **袭击、强征或恢复：** 它们是 [MapEvent](../MapEvent/) 的结算结果，不是“把枚举改成另一项”。[RaidEventComponent](../RaidEventComponent/) 在开始时设为 `BeingRaided`，按结算把村庄设为 `Looted` 或 `Normal`；强征志愿兵/物资组件分别使用对应的 forced 状态。模组只应在自身确有等价完整流程时走 [ChangeVillageStateAction](../../campaign-ext/ChangeVillageStateAction/)。
-- **商队与军团集结：** 原生商队创建在传入村庄时只把 `Village.TradeBound` 作为出发城镇候选；这不让村庄成为商队市场。军团的 `FindBestGatheringSettlementAndMoveTheLeader` 选择的是一般 `Settlement`，而非 Village 的经济组件。传给这些系统的是当前 `Settlement`，不能用 `Village` 虚构位置或替换 AI 目标。
-- **经济规则：** 改变“每日会产多少”应替换/扩展活动的 [VillageProductionCalculatorModel](../VillageProductionCalculatorModel/)；改变城堡绑定村应贸易往何处，应由 [VillageTradeModel](../VillageTradeModel/) 和原生 Behavior 的重算路径决定。读取模型结果不能代替它们。
+**不要用 / 正确替代：**
+- ❌ 自己 `new Village()` 或运行时替换 `VillageType` / `Bound` / `TradeBound` 引用——这些是序列化字段，加载时由 `MBObjectManager` 重建，乱改会坏档且破坏城镇↔村庄双向登记表。
+- ❌ 手动把 `Hearth` 或 `Gold` 设成任意值。炉火的「每天变化量」来自 `SettlementProsperityModel`；增减金币请走 `ChangeGold(int)`（下限 0）。想影响炉火应替换/扩展模型或触发对应事件，而不是硬写字段。
+- ❌ 手动调 `DailyTick()`。它由 `Campaign` 的每日 tick 统一驱动（`Campaign.cs` 中对每个 `settlement.Village.DailyTick()`），自己调会重复结算。
+- ❌ 直接给 `VillageState` 赋值来切换状态。应改用 `ChangeVillageStateAction.ApplyBySettingToNormal / ApplyBySettingToBeingRaided / ApplyBySettingToLooted` 等，这样才会正确维护登记表并广播事件。
 
-## 依赖、生产与贸易路径
+## 依赖图（可点击）
 
-```mermaid
-graph TD
-    Settlement[Village Settlement] --> Village
-    Bound[Bound town or castle] --> Village
-    TradeBound[TradeBound town] --> Market[price and sale destination]
-    Type[VillageType Productions] --> Production[VillageProductionCalculatorModel]
-    Hearth[Hearth level] --> Production
-    Campaign[Campaign daily settlement tick] --> Village
-    StateAction[ChangeVillageStateAction] --> State[VillageState]
-    TradeBehavior[VillageTradeBoundCampaignBehavior] --> TradeBound
-    VillagerBehavior[VillagerCampaignBehavior] --> Market
+```
+                Settlement (持有组件, .Village)
+                     │  上游
+       ┌─────────────┼───────────────────────────────┐
+       ▼             ▼                                ▼
+    Town           VillageType                    MBObjectManager
+ (Bound 通常是   (决定 Productions)            (Deserialize 时重建引用)
+  Town 组件)                                          │
+       │                                             │ 存档重建
+       └──────────────┬──────────────────────────────┘
+                      ▼  本对象 Village
+   ┌─────────── 经济/产出/状态  ───────────────────────────┐
+   │ Hearth ← SettlementProsperityModel                    │
+   │ 产出  ← VillageProductionCalculatorModel              │
+   │ Militia ← SettlementMilitiaModel                      │
+   │ MarketData (库存) ← VillageMarketData                  │
+   │ VillagerPartyComponent (村民商队)                     │
+   └───────────────────────────────────────────────────────┘
+                      │  下游 / 副作用
+       ┌──────────────┼───────────────────────────────┐
+       ▼              ▼                               ▼
+  VillageGoodProduction   VillageHeal             VillageHostileAction
+   CampaignBehavior        CampaignBehavior         CampaignBehavior
+  (食物/产出)            (炉火恢复)              (袭击/强征)
+       │              VillageTradeBound           Raid/Force* EventComponents
+       │              CampaignBehavior                  │
+       ▼                                               ▼
+  CampaignEventDispatcher.OnVillage*            ChangeVillageStateAction /
+   (BecomeNormal/BeingRaided/Looted)            IncreaseSettlementHealthAction
 ```
 
-| 关系 | 实际职责 |
-| --- | --- |
-| [Settlement](../Settlement/) | 保存村庄实体、`Party`、库存、民兵与 `IsRaided`；`Settlement.Village` / `Village.Settlement` 是双向组件入口。 |
-| [Town](../Town/) | `Bound` 决定归属；若 `Bound.IsTown`，该 Town 也是贸易绑定。城堡绑定村的 `TradeBound` 会被贸易行为重算。 |
-| [Campaign](../Campaign/) | `Campaign.DailyTickSettlement` 调用 `Village.DailyTick`；模型从 `Campaign.Current.Models` 计算炉灶、生产、民兵与贸易规则。 |
-| [VillageType](../VillageType/) | `Productions` 定义该村可产出的物品和基础数量；`IsProducing(item)` 仅检查这份配置。 |
-| [VillageTradeBoundCampaignBehavior](../VillageTradeBoundCampaignBehavior/) / [VillagerCampaignBehavior](../VillagerCampaignBehavior/) | 前者重算城堡绑定村的 `TradeBound`，后者按库存与状态维护村民贸易派对；两者都是生命周期所有者，不是 Village setter 的替代品。 |
-| campaign-ext Actions | [ChangeVillageStateAction](../../campaign-ext/ChangeVillageStateAction/) 负责村庄状态变化；它会发布状态事件并把据点等级遮罩标脏。所有权变化仍属于 `ChangeOwnerOfSettlementAction`，而不是 Village setter。 |
-| [SaveManager](../../save-system/SaveManager/) | 所有跨读档的扩展状态需用 Behavior 的 `SyncData` 管理；不要持久化村民派对或价格缓存的旧引用。 |
+- **上游（它依赖谁）：**[Settlement](../Settlement/)（持有组件，`settlement.Village`）、[Town](../../campaign-ext/Town/)（`Bound` 通常是 Town，其 `Town` 组件负责登记 trade-bound）、[VillageType](../../campaign-ext/VillageType/)（决定生产列表）、[MBObjectManager](../../campaign-ext/MBObjectManager/)（反序列化时 `ReadObjectReferenceFromXml` 重建引用）。
+- **下游（谁消费它）：**[SettlementProsperityModel](../../campaign-ext/SettlementProsperityModel/)（`HearthChange`）、[VillageProductionCalculatorModel](../../campaign-ext/VillageProductionCalculatorModel/)（`GetWarehouseCapacity`、产出）、`SettlementMilitiaModel`（`MilitiaChange`，入口见 [Models 家族手册](../../campaign-ext/models/)）、[VillageMarketData](../../campaign-ext/VillageMarketData/)（库存/市场）、[VillagerPartyComponent](../../campaign-ext/VillagerPartyComponent/)（村民商队）。
+- **相关事件 / Action / Behavior：** `CampaignEventDispatcher.OnVillageBecomeNormal / OnVillageBeingRaided / OnVillageLooted`；[ChangeVillageStateAction](../../campaign-ext/ChangeVillageStateAction/) 与 `IncreaseSettlementHealthAction`；`VillageGoodProductionCampaignBehavior`、`VillageHealCampaignBehavior`、`VillageHostileActionCampaignBehavior`、`VillageTradeBoundCampaignBehavior`、`VillagerCampaignBehavior`。
+- **存档点：** `[SaveableField]`/`[SaveableProperty]`（`Hearth`、`TradeTaxAccumulated`、`_villageState`、`_bound`、`_marketData`）、`[CachedData]`（`VillagerPartyComponent`）。
 
-## 炉灶、生产、库存与民兵
+## 风险与崩溃边界（必读）
 
-`Hearth` 是村庄规模的连续值，而不是货币。`GetHearthLevel()` 用 200 和 600 作为低/中/高分层：小于 200 为 0，200 到 599 为 1，至少 600 为 2；`GetProsperityLevel()` 直接映射这个等级。`HearthChange` 来自活动的 `SettlementProsperityModel.CalculateHearthChange`，解释版可显示模型的当日原因。v1.4.5 的默认模型只给 `Normal` 状态基础增长，给 `Looted` 状态 -1 的袭击项；正常村庄还会读取 `Bound` 的总督 Perk 和要塞建筑效果，并叠加政策、文化与议题效果。它是一次模型观察，不是待调用的增量命令。
+1. **错误阶段直接改 `Hearth` / `Gold`。** `DailyTick()` 只在战役「每日 tick」跑，里面会 `Hearth += HearthChange` 并在炉火等级跨越阈值时调用 `Settlement.Party.SetLevelMaskIsDirty()`。如果你在 HourlyTick、事件回调或别处直接写 `Hearth`，会与 DailyTick 的累加冲突/被覆盖，还可能跳过等级掩码更新（影响该村庄部队的等级显示）。想改炉火应改 `SettlementProsperityModel` 或等 DailyTick。
+2. **跨存档缓存引用导致悬空/坏档。** `Bound` / `TradeBound` / `VillageType` 在读档时由 `MBObjectManager` 通过 `ReadObjectReferenceFromXml` 按 `stringId` 重建对象图。不要把你自己的模块状态（静态字段、非 `[Saveable]` 容器）里长期持有 `Village` / `Settlement` 实例；读档后应通过 `Campaign.Current` 现取或按 `stringId` 重新查询，避免引用指向已被丢弃的旧对象。
+3. **直接写 `Hearth` 而非经模型/事件。** `Hearth` 是 `[SaveableProperty]`，但「为什么变」由 `SettlementProsperityModel.CalculateHearthChange` 决定。硬写字段会绕过解释链，且 DailyTick 次日还会再 `+= HearthChange`，造成不可预期的叠加；`Hearth < 10` 还会被夹回 10。
+4. **`Bound` / `TradeBound` 引用失同步。** `Bound` 的 setter 会同步调用 `Settlement.AddBoundVillageInternal` / `RemoveBoundVillageInternal`；`TradeBound` 的 setter（仅当 `Bound` 不是 Town 时生效）会维护 `Town.SetTradeBoundVillageInternal` / `RemoveTradeBoundVillageInternal` 双登记表。绕过属性直接改私有字段（反射）或手动改 `Bound` 而不触发 setter，会让城镇↔村庄绑定、税收、产出、村民商队全部失同步。注意：**当 `Bound` 本身是 Town 时，`TradeBound` 直接返回 `Bound`**，单独设置 trade-bound 无效。
 
-原生 `DailyTick` 先记录日结前炉灶等级，再加 `HearthChange`；跨等级时将 Settlement Party 的等级遮罩标脏；炉灶最低钳到 10；随后将民兵模型变化加入宿主 `Settlement.Militia`，最后把村庄金币压回 1,000。因此不要额外调用该方法，也不要把读取的 `HearthChange` 手动再加一次。
+## 成员说明（按主题分组）
 
-默认生产模型只在 `VillageState.Normal` 时出产。每种 [VillageType](../VillageType/) 的 `Productions` 物品先需要有效 `TradeBound` 才会加入基础产量，再按 `(炉灶等级 + 1) * 0.5` 缩放，并叠加贸易绑定城镇总督 Perk、文化特性和绑定领地的 `VillageProduction` 建筑效果。没有贸易绑定时，默认物品产量保持为零；食物计算不要求贸易绑定，但同样只接受正常状态，并以炉灶等级加一为基础，再受本村活跃议题影响。`GetWarehouseCapacity()` 通过活动的 [VillageProductionCalculatorModel](../VillageProductionCalculatorModel/) 分别调用 `CalculateDailyFoodProductionAmount` 与每项 `CalculateDailyProductionAmount`，将结果相加后取至少 1 的五日容量；这是村民贸易行为判断是否该发货的实际阈值，而不是一个固定仓库字段。
+### 归属与经济
 
-| 成员 | 安全含义 |
-| --- | --- |
-| `HearthChange` / `HearthChangeExplanation` | 只读模型查询；日结负责写 `Hearth`。 |
-| `Militia` / `MilitiaChange` | `Militia` 实际读取宿主 `Settlement.Militia`；村庄默认变化含基础 0.5、退役项和 `Hearth / 400`。 |
-| `MarketData` / `GetItemPrice` | 村庄价格转交给 `TradeBound.Town.MarketData`；若没有贸易绑定，价格函数返回 1，不能据此推断真实市场经济。 |
-| `TradeTaxAccumulated` | 可保存的累计村庄关税池。默认 `ClanFinanceModel.CalculateVillageIncome` 对 `Looted` / `BeingRaided` 村庄给出零收入；其他状态先按 `RevenueSmoothenFraction()` 平滑，再计算政策和总督 Perk。仅当财务流程传入 `applyWithdrawals: true` 时，模型才从税池扣除本次未修正的基础份额。读取预览不会提取，自行减值则会绕过这套结算。 |
-| `GetWarehouseCapacity` / `IsProducing` | 前者是模型驱动的库存容量，后者只检验产物配置，不表示此刻真的在生产。 |
+- **`Settlement Bound { get; }`** — 该村庄归属的城镇/城堡。`MapFaction` 直接取自它。引用是私有的，只在加载时由 XML 的 `bound` 引用设定；设置它会维护双向登记表。外部不要改。
+- **`Settlement TradeBound { get; set; }`** — 卖货/贸易的城镇。若 `Bound` 本身就是 Town，则直接返回 `Bound`；否则返回独立的 `_tradeBound`。setter 仅当 `Bound` 不是 Town 时生效，并维护 `Town` 的 trade-bound 登记表。`GetItemPrice` 用它取城镇市价。
+- **`IFaction MapFaction { get; }`** — 等于 `Bound.MapFaction`，村庄的外交归属（用于判断敌我）。
+- **`int Gold`（继承自 `SettlementComponent`，仅 `ChangeGold` 可改）** — 村庄金库。`OnInit` 给 1000；`DailyTick` 里若 `> 1000` 会回落到 1000。增减走 `ChangeGold(int)`（下限 0）。
+- **`VillageMarketData MarketData { get; }`** — 村庄市场/库存数据，`GetWarehouseCapacity` 与贸易定价会用到。
+- **`int TradeTaxAccumulated`（`[SaveableProperty]`）** — 累计的贸易税。
+- **`float LastDemandSatisfiedTime`（`[SaveableProperty]`，私有 set）** — 上次满足领主需求的时间，领主需求/任务事件会读它。
 
-## 状态、贸易绑定与 Action 边界
+### 状态与战斗
 
-`VillageStates` 包含 `Normal`、`BeingRaided`、`ForcedForVolunteers`、`ForcedForSupplies` 和 `Looted`。`IsDeserted` 只在 `Looted` 时为真，`Settlement.IsRaided` 同样由 `Looted` 推导。`VillageState` setter 本身会为 Normal / BeingRaided / Looted 发送有限的 dispatcher 回调，但完整状态转换还必须由 `ChangeVillageStateAction` 发布旧/新状态和袭击者，并刷新等级遮罩。因此：
+- **`VillageStates VillageState { get; set; }`** — `Normal` / `BeingRaided` / `ForcedForVolunteers` / `ForcedForSupplies` / `Looted`。值变化时会广播 `CampaignEventDispatcher` 事件（`OnVillageBecomeNormal` / `OnVillageBeingRaided` / `OnVillageLooted`）。切换状态请用 `ChangeVillageStateAction.Apply*`。
+- **`bool IsDeserted { get; }`** — `_villageState == Looted`。废弃村庄（炉火归零后无法自行恢复）。
+- **`IEnumerable<PartyBase> GetDefenderParties(MapEvent.BattleTypes)` / `PartyBase GetNextDefenderParty(ref int, MapEvent.BattleTypes)`** — 村庄被袭击/强征时返回防守方（村庄自身 `Party` + 同阵营非商队部队；`Raid`/`Force` 类战斗额外纳入民兵与村民）。这是 `MapEvent` 侧调用，普通 mod 一般只读状态、不直接调。
 
-```mermaid
-stateDiagram-v2
-    [*] --> Normal: OnInit / ApplyBySettingToNormal
-    Normal --> BeingRaided: Raid OnInitialize / Action
-    BeingRaided --> Looted: raid depletes hit points / Action
-    BeingRaided --> Normal: raid ends before depletion / Action
-    Normal --> ForcedForSupplies: force supplies OnInitialize / Action
-    ForcedForSupplies --> Normal: force supplies OnFinalize / Action
-    Normal --> ForcedForVolunteers: force volunteers OnInitialize / Action
-    ForcedForVolunteers --> Normal: force volunteers OnFinalize / Action
-```
+### 生产与繁荣
 
-这张图描述原生 [MapEvent](../MapEvent/) 组件的路径，而不是允许的任意跳转表。[RaidEventComponent](../RaidEventComponent/) 初始化时进入 `BeingRaided`，在 `OnBeforeFinalize` 中按据点生命值转为 `Looted` 或 `Normal`，随后才派发 raid-completed 回调。两个强征组件则先在 `OnBeforeFinalize` 派发 supplies/volunteers-completed 回调，到 `OnFinalize` 才通过 Action 恢复 `Normal`；因此完成回调的监听器不能假定此刻状态已经恢复。
+- **`VillageType VillageType`** — 村庄类型（公开字段），决定 `Productions` 列表。加载时由 XML 的 `village_type` 引用设定；不要运行时替换（会破坏产出与反序列化一致性）。
+- **`bool IsProducing(ItemObject item)`** — 判断 `VillageType.Productions` 是否包含该物品。
+- **`int GetWarehouseCapacity()`** — 仓库容量 =（每日食物产出 + 各产物每日产出）× 5，向上取整、至少 1。用于库存上限。
+- **`float Hearth`（`[SaveableProperty]`）** — 炉火/繁荣度。`DailyTick` 累加 `HearthChange`，`< 10` 夹到 10。派生的 `HearthLevel` / `ProsperityLevel` 都来自它。
+- **`float HearthChange { get; }`** — 今天的炉火变化量 = `SettlementProsperityModel.CalculateHearthChange(this).ResultNumber`。只读查询。
+- **`float Militia` / `float MilitiaChange` / `ExplainedNumber MilitiaChangeExplanation`** — 民兵数量及其每日变化（来自 `SettlementMilitiaModel`）。`MilitiaChange` 在 `DailyTick` 里加到 `Settlement.Militia`。
+- **`ExplainedNumber HearthChangeExplanation`** — 带文字解释的炉火变化明细，调试/UI 用。
+- **`int GetHearthLevel()`** — `Hearth ≥ 600` → 2，`≥ 200` → 1，否则 0（对应常量 `MidHearthThreshold = 600`、`LowHearthThreshold = 200`）。
+- **`ProsperityLevel GetProsperityLevel()`** — 由炉火等级映射到 `High` / `Mid` / `Low`。
+- **`VillagerPartyComponent VillagerPartyComponent`（`[CachedData]`）** — 该村庄对应的村民商队组件，由 `VillagerCampaignBehavior` 驱动。
+- **`static MBReadOnlyList<Village> All`** — `= Campaign.Current.AllVillages`，全图村庄枚举入口。
 
-直接 setter 只为 `Normal`、`BeingRaided`、`Looted` 派发各自的专用回调，对两个 forced 状态没有对应分支。[ChangeVillageStateAction](../../campaign-ext/ChangeVillageStateAction/) 会在每次实际变化后统一派发 [CampaignEvents](../CampaignEvents/) 的 `VillageStateChanged` 所观察的旧状态、新状态和袭击者，并刷新据点等级遮罩。绕过 Action 会令 forced 转换尤其难以被通用监听器看到。
+## 最小真实示例
 
-- 使用 `ChangeVillageStateAction.ApplyBySettingToBeingRaided`、`ChangeVillageStateAction.ApplyBySettingToBeingForcedForSupplies`、`ChangeVillageStateAction.ApplyBySettingToBeingForcedForVolunteers`、`ChangeVillageStateAction.ApplyBySettingToLooted` 或 `ChangeVillageStateAction.ApplyBySettingToNormal` 改变状态；不要直接赋 `VillageState`。
-- `Bound` 是私有 setter，不能也不应重接。它的 setter 会同时从旧据点移除、加入新据点的绑定村庄集合。
-- 不要主动赋 `TradeBound`。`VillageTradeBoundCampaignBehavior` 在新局、读档、宣战/和平、Clan 王国变化、Clan 销毁和据点易主时为所有城堡绑定村重新计算；它会先选同阵营最近城镇，再选非交战的外国城镇，且必须在距离上限内。
-
-村民贸易也不是“调用一个卖货函数”。`VillagerCampaignBehavior` 仅在村庄正常、没有地图事件且仓库库存达到 `GetWarehouseCapacity()` 时，按概率创建或补充村民队；它从村庄库存装载货物并将队伍送到 `TradeBound`。遭袭、无绑定、村民队在战斗/筏上或村庄主人有地图事件时都会阻止这条路径。
-
-`GetDefenderParties` 与 `GetNextDefenderParty` 也是 MapEvent 的读取入口，而不是派对管理 API。两者都先交出宿主 `Settlement.Party`，再读取同阵营、非商队的驻留移动派对，但过滤并不完全相同：`GetDefenderParties` 只在 Raid / IsForcingSupplies / IsForcingVolunteers 类型中纳入民兵和村民；`GetNextDefenderParty` 的逐项游标路径不使用 `battleType` 做这层排除。调用方必须采用其 MapEvent 预期的遍历协议，不能混用结果或在枚举时改写 `Settlement.Parties`。让 `EncounterModel` 与 MapEvent 选择防守方，勿为“补一个守军”手动创建村民或把商队塞入枚举。
-
-## 真实获取与安全示例
-
-以下读取在启动后的 Campaign Behavior 或村庄相关事件中执行。`Settlement.CurrentSettlement` 按顺序反映玩家被囚禁的据点、当前遭遇据点或主队驻留据点，也可能返回 `null`。示例先取得这个实时 `Settlement`，确认它确为村庄，再通过 `settlement.Village` 进入组件；不构造对象，也不靠脱离上下文的 ID 查找：
+### 示例 1：从当前据点拿到 Village，读取归属与产出
 
 ```csharp
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.Settlements;
-
-public static class VillageInspection
+// 例如在对话/任务脚本里，当前所在据点就是村庄
+Settlement settlement = Settlement.CurrentSettlement;
+if (settlement != null && settlement.Village != null)
 {
-    public static int ReadCurrentVillageHearthLevel()
-    {
-        Settlement settlement = Settlement.CurrentSettlement;
-        Village village = settlement != null && settlement.IsVillage
-            ? settlement.Village
-            : null;
+    Village village = settlement.Village;
 
-        return village == null ? 0 : village.GetHearthLevel();
+    Settlement boundTown = village.Bound;       // 归属城镇（可能是 Town 或 Castle）
+    Settlement tradeTown = village.TradeBound;   // 卖货城镇；若 Bound 是 Town 则等于 Bound
+
+    // 遍历该村庄真实生产哪些物品（来自 VillageType.Productions）
+    foreach (var production in village.VillageType.Productions)
+    {
+        ItemObject producedItem = production.Item1;
+        float weight = production.Item2;
+        InformationManager.DisplayMessage(
+            new InformationMessage($"{village.Name} 产: {producedItem.Name} x{weight}"));
     }
+
+    bool producesFirst = village.IsProducing(village.VillageType.Productions[0].Item1);
+    int warehouseCap = village.GetWarehouseCapacity();
+    int level = village.GetHearthLevel();        // 0 / 1 / 2
+
+    InformationManager.DisplayMessage(
+        new InformationMessage(
+            $"{village.Name}: 归属={boundTown.Name}, 炉火={village.Hearth}, 等级={level}, 仓库={warehouseCap}"));
 }
 ```
 
-状态恢复必须通过 Action，才能同时通知状态接收者和刷新视觉等级：
+### 示例 2：遍历所有村庄并统计废弃村庄；用正规 Action 恢复正常
 
 ```csharp
-using TaleWorlds.CampaignSystem.Actions;
-using TaleWorlds.CampaignSystem.Settlements;
-
-public static class VillageRecovery
+int lootedCount = 0;
+foreach (Village v in Village.All)
 {
-    public static void MarkCurrentLootedVillageNormal()
+    if (v.VillageState == Village.VillageStates.Looted || v.IsDeserted)
     {
-        Settlement settlement = Settlement.CurrentSettlement;
-        Village village = settlement != null && settlement.IsVillage
-            ? settlement.Village
-            : null;
-
-        if (village != null && village.VillageState == Village.VillageStates.Looted)
-        {
-            ChangeVillageStateAction.ApplyBySettingToNormal(village.Settlement);
-        }
+        lootedCount++;
     }
+}
+
+// 想让某个村庄恢复正常：走 ChangeVillageStateAction，会正确维护登记表并广播事件
+// （不要直接 village.VillageState = Village.VillageStates.Normal）
+Settlement target = Settlement.CurrentSettlement; // 实际应取目标村庄的 Settlement
+if (target != null && target.Village != null)
+{
+    ChangeVillageStateAction.ApplyBySettingToNormal(target);
+    // 之后 target.Village.VillageState == Village.VillageStates.Normal
 }
 ```
 
-此示例只展示 Action 边界，不代表可以随意跳过游戏的掠夺后果。实际模组应在自身任务/事件完成且状态转换语义成立时调用相应 Action。
+## 跨版本提示
 
-## 加载、缓存与存档风险
+- **1.3.15（本页）↔ 1.4.5（权威源对照）：** 公开成员签名基本一致。差异仅在底层模型调用与 `GetItemPrice` 的额外参数——1.3.15 的 `HearthChange` / `MilitiaChange` / `HearthChangeExplanation` 用 `CalculateHearthChange(this, false)` / `CalculateHearthChange(this, true)`（bool 重载），1.4.5 改为具名参数 `includeDescriptions:`；`GetItemPrice` 在 1.3.15 末尾多一个 `null` 参数。读写这些属性对 mod 透明。
+- **1.3.0：** 源目录布局为 `TaleWorlds.CampaignSystem/Settlements/Village.cs`（未拆到 `Bannerlord.Source/bin` 下），API 表面同上，可同样使用 `settlement.Village`、`ChangeVillageStateAction`。
 
-- **绑定在加载后重建：** 新局 XML 反序列化会读取 `Bound` 并同步 Town 的贸易缓存；已保存 Campaign 则保留保存图中的引用。随后 `VillageTradeBoundCampaignBehavior.OnGameLoaded` 重新选择城堡绑定村的 `TradeBound`。勿将旧 TradeBound/Town/Village 对象引用当作跨读档句柄。
-- **状态会影响产出：** Looted、BeingRaided 或强征状态不满足默认生产模型的 Normal 条件。直接写炉灶、库存或状态会让生产、容量、村民派对和 UI 的观察值彼此矛盾。
-- **民兵有派对副作用：** 将变化写入 `Settlement.Militia` 可能产生或填充民兵派对。不要在枚举 `Settlement.Parties` 时同时手改民兵，也不要把 `Village.Militia` 缓存为脱离 Settlement 的数值。
-- **价格不是独立市场：** 无 `TradeBound` 时价格为 1 是故障回退；访问 `TradeBound.Town` 前应允许为空。不要创建自有市场数据来绕过贸易行为。
-- **市场数据属于存档图：** `MarketData` 是与该 Village 绑定并保存的 `VillageMarketData`，而物品报价仍转交当前 `TradeBound.Town.MarketData`。读档后不要继续使用旧的市场对象或其价格结果；应从当前 `settlement.Village` 重新进入关系并允许贸易绑定被重算。
-- **易主和移除使引用过期：** 村庄的阵营与所有者通过 `Bound` 解析；绑定据点易主会触发贸易行为重算城堡村的 `TradeBound`。遭袭结算、易主、村庄或 Campaign 被移除/销毁后，不要继续操作事件前缓存的 Village、Bound、TradeBound 或 defender-party 引用；在仍有效的战役回调中从当前 Settlement/集合重新取得对象。
-- **生命周期：** `OnInit` 用 Action 设为 Normal 并给村庄 1,000 金币。村民和贸易绑定行为依赖事件注册及已加载世界；在更早阶段调用生产或状态变更会产生不完整关系。
-- **可写字段不是操作协议：** `Hearth` 和 `TradeTaxAccumulated` 因保存图而公开可写，原生仍分别通过日结、袭击/结算与经济路径维持关联数据。把它们当作普通 setter 会让炉灶等级遮罩、民兵、库存、税收和 UI 观察值失步；需要自定义规则时放进兼容的 Model/Behavior，并把自己的持久化数据放进 `SyncData`。
+## 参见
 
-## 版本说明
-
-本页描述反编译得到的 Bannerlord v1.4.5：`Village.cs`、`Settlement.cs`、`Town.cs`、`DefaultVillageTradeModel.cs`、`DefaultVillageProductionCalculatorModel.cs`、`VillageTradeBoundCampaignBehavior.cs`、`VillagerCampaignBehavior.cs` 以及三个村庄 MapEvent 组件共同构成上述边界。跨版本或整体替换模型后，重查状态枚举、贸易距离规则、日结顺序和 Action 副作用；不要把这里的阈值或 Behavior 订阅顺序视为稳定扩展契约。
-
-## 导航
-
-- ↑ Parent: [Campaign API](../)
-- ↔ Siblings: [Settlement](../Settlement/) · [Town](../Town/) · [Campaign](../Campaign/)
-- Related: [VillageType](../VillageType/) · [VillageTradeModel](../VillageTradeModel/) · [VillageProductionCalculatorModel](../VillageProductionCalculatorModel/) · [MapEvent](../MapEvent/) · [RaidEventComponent](../RaidEventComponent/) · [CampaignEvents](../CampaignEvents/) · [ChangeVillageStateAction](../../campaign-ext/ChangeVillageStateAction/) · [SaveManager](../../save-system/SaveManager/)
+- [Settlement](../Settlement/) — 持有 Village 组件的父据点（↑ Parent）
+- [Town](../../campaign-ext/Town/) — Bound 通常指向的城镇组件（↔ Sibling 同级组件）
+- [VillageType](../../campaign-ext/VillageType/) — 决定村庄生产列表的上游类型
+- [Clan](../Clan/) — 村庄归属城镇背后的家族
+- [Campaign](../Campaign/) — `Campaign.Current.AllVillages` 与全局状态入口
+- [MBObjectManager](../../campaign-ext/MBObjectManager/) — 反序列化时重建 Bound/VillageType 引用
+- [ChangeVillageStateAction](../../campaign-ext/ChangeVillageStateAction/) — 切换村庄状态的正规 Action
+- [SettlementProsperityModel](../../campaign-ext/SettlementProsperityModel/) — 炉火变化量的来源模型
+- [VillageProductionCalculatorModel](../../campaign-ext/VillageProductionCalculatorModel/) — 产出与仓库容量模型

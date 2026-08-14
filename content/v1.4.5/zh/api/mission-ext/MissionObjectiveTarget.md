@@ -6,9 +6,9 @@ description: "MissionObjectiveTarget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Objectives
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public abstract class MissionObjectiveTarget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Objectives/MissionObjectiveTarget.cs`
+**Type:** `public abstract class MissionObjectiveTarget<T> : MissionObjectiveTarget`
+**Base:** `MissionObjectiveTarget`
+**File:** `TaleWorlds.MountAndBlade/Missions/Objectives/MissionObjectiveTarget.2.cs`
 
 ## 概述
 
@@ -18,40 +18,11 @@ description: "MissionObjectiveTarget 的自动生成类参考。"
 
 先从命名空间 `TaleWorlds.MountAndBlade.Missions.Objectives` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要方法
+## 主要属性
 
-### IsActive
-`public abstract bool IsActive()`
-
-**用途 / Purpose:** 判断当前对象是否处于 active 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 MissionObjectiveTarget 实例
-MissionObjectiveTarget missionObjectiveTarget = ...;
-var result = missionObjectiveTarget.IsActive();
-```
-
-### GetName
-`public abstract TextObject GetName()`
-
-**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MissionObjectiveTarget 实例
-MissionObjectiveTarget missionObjectiveTarget = ...;
-var result = missionObjectiveTarget.GetName();
-```
-
-### GetGlobalPosition
-`public abstract Vec3 GetGlobalPosition()`
-
-**用途 / Purpose:** 读取并返回当前对象中 global position 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MissionObjectiveTarget 实例
-MissionObjectiveTarget missionObjectiveTarget = ...;
-var result = missionObjectiveTarget.GetGlobalPosition();
-```
+| Name | Signature |
+|------|-----------|
+| `Target` | `public T Target { get; }` |
 
 ## 使用示例
 

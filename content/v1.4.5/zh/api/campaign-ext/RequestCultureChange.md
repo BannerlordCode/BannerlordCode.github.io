@@ -8,7 +8,7 @@ description: "RequestCultureChange 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class RequestCultureChange : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/RequestCultureChange.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/RequestCultureChange.cs`
 
 ## 概述
 

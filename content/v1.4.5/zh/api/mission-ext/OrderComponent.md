@@ -8,7 +8,7 @@ description: "OrderComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class OrderComponent`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/OrderComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/OrderComponent.cs`
 
 ## 概述
 

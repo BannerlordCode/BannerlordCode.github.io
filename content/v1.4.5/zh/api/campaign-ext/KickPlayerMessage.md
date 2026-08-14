@@ -8,7 +8,7 @@ description: "KickPlayerMessage 的自动生成类参考。"
 **Module:** Messages.FromBattleServer
 **Type:** `public class KickPlayerMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/KickPlayerMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromBattleServer/ToBattleServerManager/KickPlayerMessage.cs`
 
 ## 概述
 

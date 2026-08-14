@@ -1,169 +1,278 @@
 ---
 title: "Hero"
-description: "战役中可持久化的英雄实体：连接 CharacterObject、Clan、派对、关系、财富与死亡，并通过 Action 维持世界状态一致性。"
+description: "Bannerlord 战役世界的核心角色对象：玩家、领主、同伴、家族成员的数据与行为入口。"
 ---
 # Hero
 
-**命名空间：** `TaleWorlds.CampaignSystem`  
-**模块：** `TaleWorlds.CampaignSystem`  
-**类型：** `public sealed class Hero : MBObjectBase, ITrackableCampaignObject, ITrackableBase, IRandomOwner`  
-**源文件：** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Hero.cs`  
-**持久化角色：** Campaign 对象；由 Campaign 的对象管理器保存、重建和分类。
+**Namespace:** TaleWorlds.CampaignSystem  
+**Module:** TaleWorlds.CampaignSystem  
+**Type:** `public sealed class Hero : MBObjectBase, ITrackableCampaignObject, ITrackableBase, IRandomOwner`  
+**Base:** `MBObjectBase`  
+**File:** `TaleWorlds.CampaignSystem/Hero.cs`
 
 ## 概述
 
-`Hero` 是某一位已注册战役人物的持久化身份层。它把 CharacterObject 模板关联到家族、派对、关系、金币、生命、囚禁和死亡等会随战役存档变化的状态；读取可以直接从 Hero 进入，改变世界必须选择有完整副作用的 Action。
+`Hero` 代表 Bannerlord 战役地图上的**一个具体角色**：玩家自己、各王国领主、流浪者/同伴、家族成员、商队首领等。它连接了三块最重要的战役数据：
+
+- **外观与基础属性**（`CharacterObject`、`BodyProperties`、`Equipment`）
+- **社会身份**（`Clan`、`Kingdom`、`Occupation`、`IsClanLeader`）
+- **当前状态**（`PartyBelongedTo`、`CurrentSettlement`、`Gold`、`HeroState`）
+
+几乎所有战役 mod 都会与 `Hero` 打交道：给玩家加钱、修改关系、让某个领主加入王国、让英雄怀孕或负伤等。
 
 ## 心智模型
 
-`Hero` 是战役世界中的“这个人”，而不是一份兵种定义，也不是场景里的角色实例。它把身份、年龄、家族、个人财富、关系、装备、健康、囚禁和死亡放在同一个可存档对象上。`CharacterObject` 描述可复用的角色模板；`Hero` 为该模板承载一段具体战役人生。
+把 `Hero` 当作**“战役世界里的角色卡片”**，而不是可渲染的 3D 模型：
 
-这一区分决定了使用边界：
+- `Hero` 本身不处理战斗场景里的动作；进入战斗后，它会生成一个 `Agent` 作为战场化身。
+- 角色卡片是**全局唯一**的：每个 `Hero` 对应一个 `stringId`，可以通过 `Hero.Find(stringId)` 拿到同一实例。
+- 不要自己 `new Hero()`；创建新英雄走 `HeroCreator.CreateHero(...)` 或 `Hero.FindFirst`/`Hero.FindAll` 查询现有英雄。
+- `Hero` 保存战役状态，但不要用直接字段写入来模拟世界变更。涉及转账、关系、入队、死亡或外交时，优先调用对应的 `*Action.Apply`，让事件和关联对象一起更新。
+- `ChangeHeroGold` 是低层的单英雄余额调整；它不代表两端交易，也不会替付款方扣款或发布金币交易事件。需要从一个角色把钱转给另一个角色时使用 `GiveGoldAction`。
 
-- 用 `Hero` 查询或改变一位已进入当前战役的贵族、同伴、要人或玩家角色的长期状态。
-- 用 [CharacterObject](../CharacterObject/) 查询模板、职业、文化和基础角色数据；不要把它当成某一位英雄的关系或金币容器。
-- 用 [MobileParty](../MobileParty/) 表示地图上移动的队伍；`Hero.PartyBelongedTo` 只说明英雄当前所属队伍，不等于队伍本身。
-- 用 [PartyBase](../PartyBase/) 访问派对的底层实体和囚犯容器；囚犯英雄在 `PartyBelongedToAsPrisoner` 中，而非正常成员关系中。
-- Mission 内的 `Agent` 是临时战斗/场景实例。它可能对应一个 Hero，却会在进入、离开或重建 Mission 时失效；不要把 Agent 缓存当作 Hero 的替代品。
-
-**取得时机。**
-
-在已启动的 Campaign Behavior、对话回调或战役事件中，从 `Hero.MainHero` 取得玩家，或从 `Campaign.Current.AliveHeroes`、`Clan.Heroes`、`Hero.Find` 取得已注册对象。`MainHero` 实际来自 `CharacterObject.PlayerCharacter.HeroObject`；`AllAliveHeroes` 是 `Campaign.Current.AliveHeroes` 的视图。因此在主菜单、`OnSubModuleLoad`、战役销毁后或读档尚未完成时，都不能假设这些静态入口可用。
-
-不要在活动 Campaign 外 `new Hero(...)`。带参数构造函数会依赖 `Campaign.Current.CampaignObjectManager` 分配唯一 StringId、绑定 CharacterObject 并立即注册。创建英雄应经由 [HeroCreator](../HeroCreator/) 或原生工作流；它们会完成模板、出生日期、装备和注册所需的初始化。
-
-## 依赖与世界变更图
-
-```mermaid
-graph TD
-    Campaign[Campaign] --> Hero[Hero]
-    Character[CharacterObject template] --> Hero
-    Clan[Clan] --> Hero
-    Kingdom[Kingdom] --> Clan
-    Party[MobileParty] --> Hero
-    PartyBase[PartyBase prisoner holder] --> Hero
-    Relations[CharacterRelationManager] --> Hero
-    Gold[GiveGoldAction] --> Hero
-    Death[KillCharacterAction] --> Hero
-    RelationAction[ChangeRelationAction] --> Hero
-    Hero --> Events[CampaignEvents]
-    Hero --> Save[SaveManager]
-```
-
-| 关系 | 实际职责 |
-| --- | --- |
-| [Campaign](../Campaign/) | 持有 `CampaignObjectManager`、`AliveHeroes`、`DeadOrDisabledHeroes` 和 `CharacterRelationManager`；Hero 的静态集合依赖它。 |
-| [CharacterObject](../CharacterObject/) | `Hero.CharacterObject` 是这个人的角色定义；Hero 的技能、生命上限和装备初始化会使用它。 |
-| [Clan](../Clan/) 与 [Kingdom](../Kingdom/) | `Clan` setter 会从旧 Clan 移除、向新 Clan 加入并发送英雄改族通知；`MapFaction` 优先经 Clan 解析到 Kingdom。 |
-| [MobileParty](../MobileParty/) 与 [PartyBase](../PartyBase/) | 正常成员/领袖关系与囚犯关系分开保存。`CurrentSettlement` 会由所属队伍、囚犯持有者或停留据点即时计算。 |
-| [CharacterRelationManager](../CharacterRelationManager/) | 储存无向的基础个人关系。`SetPersonalRelation` 会先按 DiplomacyModel 的上下限裁剪，再写入该管理器。 |
-| [GiveGoldAction](../../campaign-ext/GiveGoldAction/) | 在扣款前限制付款方可支付金额，变更 Hero/派对/据点财富后发送交易事件。 |
-| [KillCharacterAction](../../campaign-ext/KillCharacterAction/) | 处理死亡前事件、继承、队伍/囚禁、配偶、同伴、据点角色和死亡后清理。 |
-| [ChangeRelationAction](../../campaign-ext/ChangeRelationAction/) | 按外交模型计算有效对象与增减系数，裁剪后写关系并发出关系变化事件。 |
-| [CampaignEvents](../CampaignEvents/) | Behavior 的公共订阅入口；Hero 的原生状态变更由内部 dispatcher 传递到相关接收者。 |
-| [SaveManager](../../save-system/SaveManager/) | Hero 及其引用是 Campaign 存档图的一部分；自定义持久化必须遵守保存边界。 |
-
-## 生命周期、位置与所有权
-
-**注册与枚举。**
-
-`Hero.MainHero` 适用于玩家专属逻辑；`Hero.AllAliveHeroes` 与 `Hero.DeadOrDisabledHeroes` 是当前 Campaign 的只读集合。遍历它们时不要立即执行会改变集合归类的死亡、放逐或派对 Action；先建立候选列表，再逐个执行变更。
-
-`Hero.Find(stringId)` 从当前 CampaignObjectManager 查找已注册英雄；找不到会返回 `null`。`FindFirst` 和 `FindAll` 在 `Campaign.Current.Characters` 中过滤 `IsHero` 的 CharacterObject。它们均不是跨存档的对象句柄：读档后应以 StringId 再查找，不能保存旧实例供下一局或下一次加载使用。
-
-**Clan、Kingdom 与队伍。**
-
-`Clan` 是英雄的政治归属。赋值时 Hero 会保存首个归属为 `OriginClan`、让旧 Clan 执行移除、让新 Clan 执行加入，并通知 dispatcher。因此读取 `Clan`、`IsClanLeader`、`IsKingdomLeader` 或 `MapFaction` 是安全的；改族、换领袖、进入/离开王国应使用其对应的原生 Action/流程，而非只改一个属性。
-
-`PartyBelongedTo` 由队伍 roster 流程维护且只有私有 setter。英雄作为囚犯时，`PartyBelongedToAsPrisoner` 会设置并清除普通派对归属。`CurrentSettlement` 是派对位置、囚犯持有者或 `StayingInSettlement` 的派生结果，适合显示与即时判定，不适合作为永久位置键。
-
-**健康、状态与死亡。**
-
-`HeroState` 区分 `Active`、`Prisoner`、`Fugitive`、`Traveling`、`Disabled` 和 `Dead` 等战役状态；`IsAlive` 只表示并非 `Dead`。`ChangeState` 会更新 Clan 的状态缓存、通知 CampaignObjectManager，并对 Traveling/Active 发送 dispatcher 通知。它不是通用的“杀死/释放/移动”按钮。
-
-`HitPoints` 的变化跨越受伤阈值时会更新成员 roster 或囚犯 roster 的英雄健康状态。`MakeWounded` 只标记死亡原因/凶手并把生命设为 1，不会完成死亡。真实死亡应使用 [KillCharacterAction](../../campaign-ext/KillCharacterAction/)；它先调用 `CanDie`，对地图战斗中的英雄可留下延后处理的 death mark，随后处理领袖继承、军团/队伍、囚禁、配偶、同伴与据点角色，最后发送死亡事件并清理非玩家 Hero 的运行时数据。
-
-## 关键成员：按副作用选择入口
-
-| 目标 | 读取入口 | 变更边界 |
-| --- | --- | --- |
-| 身份与模板 | `CharacterObject`、`Name`、`Age`、`Occupation`、`IsAlive` | 不要复制 Hero 替换已注册对象；创建走 HeroCreator。 |
-| 政治归属 | `Clan`、`MapFaction`、`IsClanLeader`、`IsKingdomLeader` | Clan setter 确实有通知，但改派系仍应走具体 Action，以保持王国、选举和派对状态一致。 |
-| 地图存在位置 | `PartyBelongedTo`、`PartyBelongedToAsPrisoner`、`StayingInSettlement`、`CurrentSettlement` | 不要把 `CurrentSettlement` 当存档键或用反射改队伍关系。 |
-| 家谱 | `Father`、`Mother`、`Spouse`、`Children`、`Siblings` | 父母和配偶 setter 会维护双向列表；婚姻及内容工作流仍应使用对应 Action。 |
-| 财富 | `Gold` | 多方转账使用 GiveGoldAction；`ChangeHeroGold` 只做非负/上限处理，不发布交易事件。 |
-| 关系 | `GetRelation`、`GetBaseHeroRelation`、`IsFriend`、`IsEnemy` | 世界叙事或玩家反馈的增减使用 ChangeRelationAction；不要绕过事件直接写管理器。 |
-| 能力 | `GetSkillValue`、`GetTraitLevel`、`GetPerkValue`、`Power` | 这些是长寿命发展数据；变更后不要假定派对统计、UI 或事件会自动刷新。 |
-
-## 安全示例
-
-以下代码应放在已经启动的 Campaign Behavior 或 Campaign 事件回调中。它使用真实的玩家和 Clan 集合取得路径，并让两项世界变更经过 Action：
+## 如何获取 Hero
 
 ```csharp
-using System.Linq;
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.Actions;
+// 玩家英雄
+Hero main = Hero.MainHero;
 
-public static class CompanionReward
+// 当前对话对象（酒馆、领主大厅等一对一对话）
+Hero talkTo = Hero.OneToOneConversationHero;
+
+// 按 ID 精确查找
+Hero arwa = Hero.Find("hero_arwa");
+
+// 按条件查找第一个匹配的英雄
+Hero woundedHero = Hero.FindFirst(h => h.IsWounded);
+
+// 遍历所有存活英雄
+foreach (Hero hero in Hero.AllAliveHeroes)
 {
-    public static void RewardFirstAvailableCompanion()
+    if (hero.IsPlayerCompanion)
     {
-        Hero player = Hero.MainHero;
-        Hero companion = Clan.PlayerClan.Companions
-            .FirstOrDefault(hero => hero.IsAlive && !hero.IsPrisoner);
-
-        if (player == null || companion == null)
-        {
-            return;
-        }
-
-        if (player.Gold >= 100)
-        {
-            GiveGoldAction.ApplyBetweenCharacters(
-                player, companion, 100, disableNotification: true);
-        }
-
-        ChangeRelationAction.ApplyRelationChangeBetweenHeroes(
-            player, companion, 2, showQuickNotification: false);
+        // ...
     }
+}
+
+// 从其他对象自然拿到 Hero
+Hero leader = MobileParty.MainParty.LeaderHero;
+Hero governor = Settlement.CurrentSettlement.Governor;
+```
+
+## 主要属性
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| `Name` | `TextObject` | 完整名称（含称号）。 |
+| `FirstName` | `TextObject` | 名。 |
+| `CharacterObject` | `CharacterObject` | 与该英雄绑定的人物模板；持有技能、装备槽、身体属性等。 |
+| `Clan` | `Clan` | 所属家族；玩家家族是 `Clan.PlayerClan`。 |
+| `Kingdom` | `Kingdom` | 所属王国（如果有）。 |
+| `Occupation` | `Occupation` | 职业身份：领主、商贩、流浪者、强盗等。 |
+| `Gold` | `int` | 当前携带金钱。 |
+| `PartyBelongedTo` | `MobileParty` | 该英雄所在部队；玩家部队是 `MobileParty.MainParty`。 |
+| `CurrentSettlement` | `Settlement` | 当前停留的据点（城镇/城堡/村庄），可为 `null`。 |
+| `HomeSettlement` | `Settlement` | 家乡据点。 |
+| `Spouse` | `Hero` | 配偶。 |
+| `ExSpouses` | `List<Hero>` | 前配偶列表。 |
+| `IsDead` / `IsWounded` / `IsPrisoner` / `IsFugitive` | `bool` | 生命状态标志。 |
+| `IsClanLeader` | `bool` | 是否家族首领。 |
+| `IsNoncombatant` | `bool` | 是否不能参战（如儿童、部分 NPC）。 |
+| `CanLeadParty` | `bool` | 是否能统领军团。 |
+
+## 主要方法
+
+### 查询与遍历
+
+#### `public static Hero Find(string stringId)`
+按 `stringId` 获取唯一英雄实例；若不存在返回 `null`。
+
+```csharp
+Hero derthert = Hero.Find("lord_derthert");
+if (derthert != null && !derthert.IsDead)
+{
+    InformationManager.DisplayMessage(new InformationMessage($"Found {derthert.Name}"));
 }
 ```
 
-死亡同样必须交给 Action，并把它视为会使之前的队伍、装备和开发者假设失效的世界级操作：
+#### `public static Hero FindFirst(Func<Hero, bool> predicate)`
+返回满足条件的第一个英雄。适合写简单查询。
 
 ```csharp
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.Actions;
+Hero richLord = Hero.FindFirst(h => h.IsLord && h.Gold > 100000);
+```
 
-public static class HeroRemoval
+#### `public static IEnumerable<Hero> FindAll(Func<Hero, bool> predicate)`
+返回所有满足条件的英雄。
+
+```csharp
+var playerFactionHeroes = Hero.FindAll(h => h.MapFaction == Hero.MainHero.MapFaction && h.IsAlive);
+```
+
+### 状态与关系
+
+#### `public float GetRelation(Hero otherHero)`
+返回与另一英雄的**个人关系**（-100 ~ 100）。
+
+```csharp
+int relation = Hero.MainHero.GetRelation(Hero.OneToOneConversationHero);
+if (relation < -20)
 {
-    public static void RemoveFromCampaign(Hero target)
-    {
-        if (target != null && target.IsAlive)
-        {
-            KillCharacterAction.ApplyByRemove(target, showNotification: false);
-        }
-    }
+    // 关系很差，可能需要贿赂或恐吓
 }
 ```
 
-`ApplyByRemove` 是强制的“Lost”路径；只有在你确实要从战役世界移除该 Hero 时才使用。一般战斗、处决或自然死亡应选用语义相符的 `ApplyByBattle`、`ApplyByExecution` 或 `ApplyByOldAge`。
+#### `public void SetPersonalRelation(Hero otherHero, int value)`
+低层设定两人关系值，会影响后续对话、任务、军团加入等判定。模组要改变关系时应使用 `ChangeRelationAction`，让外交模型进行修正、限制范围并发布 `OnHeroRelationChanged`；不要把这个 setter 当作公开事务入口。
 
-## 崩溃与存档边界
+```csharp
+using TaleWorlds.CampaignSystem.Actions;
 
-- **未注册或已移除：** 不要保存裸 Hero 引用作为跨局缓存。自定义 Behavior 保存 StringId 或自己稳定的数据，并在读档后的适当回调重新 `Hero.Find`；不要在 Campaign 不存在时访问静态集合。
-- **死亡和派对过渡：** 死亡可改领袖、解散队伍、结束囚禁并清理 Hero 内部运行时数据。Action 前缓存的 `PartyBelongedTo`、`CurrentSettlement`、装备或 `HeroDeveloper` 不能在 Action 后继续假定有效。
-- **Mission/Agent 混淆：** Agent 生命周期属于 Mission。离开 Mission 或重开场景后，重新从当前 Hero/战役状态取得所需信息，不要把旧 Agent 引用写进 Campaign 数据。
-- **直接字段/属性变更：** 直接调 `ChangeHeroGold`、`SetPersonalRelation` 或 `ChangeState` 只覆盖各自局部职责；交易、关系叙事、死亡、派对和派系变更应优先走 Action，避免漏事件和坏档式不一致。
-- **存档时对象引用：** Hero 的亲属、Clan、派对和据点引用已在 Campaign 图内。你的 Behavior 只能通过 `SyncData(IDataStore)` 保存已注册、可序列化的状态；不要持久化 Mission 对象、临时 LINQ 视图或上一次加载留下的静态缓存。
+int delta = 50 - Hero.MainHero.GetRelation(someLord);
+if (delta != 0)
+    ChangeRelationAction.ApplyPlayerRelation(someLord, delta);
+```
 
-## v1.3.15 与 v1.4.5
+#### `public bool CanLeadParty()`
+判断该英雄是否能作为部队领袖（年龄、状态、职业等综合考虑）。
 
-核心使用边界在两版中相同：`MainHero`/集合从 Campaign 取得，关系经 DiplomacyModel 与 CharacterRelationManager，金币和死亡应走 Action。1.4.5 源码明确包含 `OriginClan`，并在加载早于 v1.4.0 的存档时从父亲或当前 Clan 回填它；这是旧存档迁移逻辑，不是需要由模组主动调用的新工作流。不要依据未验证的签名差异编写版本分支。
+```csharp
+Hero companion = Hero.FindFirst(h => h.IsPlayerCompanion && h.CanLeadParty());
+if (companion != null)
+{
+    // 让他带一支新部队或商队
+}
+```
 
-## 导航
+### 经济与影响力
 
-- ↑ Parent: [Campaign API](../)
-- ↔ Siblings: [Campaign](../Campaign/) · [Clan](../Clan/) · [Kingdom](../Kingdom/) · [CharacterObject](../CharacterObject/) · [MobileParty](../MobileParty/) · [PartyBase](../PartyBase/)
-- Children / acquisition: [HeroCreator](../HeroCreator/)
-- Related: [CharacterRelationManager](../CharacterRelationManager/) · [CampaignEvents](../CampaignEvents/) · [GiveGoldAction](../../campaign-ext/GiveGoldAction/) · [KillCharacterAction](../../campaign-ext/KillCharacterAction/) · [ChangeRelationAction](../../campaign-ext/ChangeRelationAction/) · [SaveManager](../../save-system/SaveManager/)
+#### `public void ChangeHeroGold(int changeAmount)`
+对单个英雄的低层余额增减，可传入负数以扣钱。它不检查另一个资金端，也不发布 `GiveGoldAction` 的交易事件；正式角色间转账应使用 [GiveGoldAction](../../campaign-ext/GiveGoldAction/)。只有明确需要单账户奖励/扣款且业务不需要交易事件时才直接调用它。
+
+```csharp
+using TaleWorlds.CampaignSystem.Actions;
+
+Hero receiver = Hero.OneToOneConversationHero;
+if (receiver != null && Hero.MainHero.Gold >= 1000)
+{
+    GiveGoldAction.ApplyBetweenCharacters(Hero.MainHero, receiver, 1000);
+}
+```
+
+#### `public void AddInfluenceWithKingdom(float additionalInfluence)`
+如果英雄有王国，为其增加影响力（ influence ）。
+
+```csharp
+Hero.MainHero.AddInfluenceWithKingdom(25f);
+```
+
+### 技能与特性
+
+#### `public int GetSkillValue(SkillObject skill)`
+查询某技能等级。
+
+```csharp
+int oneHanded = Hero.MainHero.GetSkillValue(DefaultSkills.OneHanded);
+```
+
+#### `public void AddSkillXp(SkillObject skill, float xpAmount)`
+为某技能增加经验。
+
+```csharp
+Hero.MainHero.AddSkillXp(DefaultSkills.Riding, 1000f);
+```
+
+#### `public void SetSkillValue(SkillObject skill, int value)`
+直接设置技能等级。
+
+```csharp
+Hero.MainHero.SetSkillValue(DefaultSkills.Leadership, 200);
+```
+
+#### `public int GetTraitLevel(TraitObject trait)`
+获取某特性等级（如“仁慈”、“狡诈”）。
+
+```csharp
+int honor = Hero.MainHero.GetTraitLevel(DefaultTraits.Honor);
+```
+
+#### `public void SetTraitLevel(TraitObject trait, int value)`
+设置特性等级。
+
+```csharp
+Hero.MainHero.SetTraitLevel(DefaultTraits.Mercy, 1);
+```
+
+### 生命周期
+
+#### `public void MakeWounded(Hero killerHero = null, ...)`
+使英雄负伤（不会死亡）。常用于事件、任务。
+
+```csharp
+Hero enemyLord = Hero.FindFirst(h => h.MapFaction.IsAtWarWith(Hero.MainHero.MapFaction));
+enemyLord?.MakeWounded();
+```
+
+> 注意：彻底杀死英雄应使用 `KillCharacterAction.ApplyByOldAge(...)` 等专门 Action，而不是 `MakeWounded`。
+
+#### `public void SetImmuneToWound(bool value)`
+设置该英雄是否免疫负伤。
+
+```csharp
+Hero.MainHero.SetImmuneToWound(true); // 主角不会被打伤
+```
+
+## 典型用法示例
+
+### 示例 1：把玩家已有金币转给当前对话对象
+
+```csharp
+using TaleWorlds.CampaignSystem.Actions;
+
+Hero receiver = Hero.OneToOneConversationHero;
+if (receiver != null && Hero.MainHero.Gold >= 1000)
+{
+    GiveGoldAction.ApplyBetweenCharacters(Hero.MainHero, receiver, 1000);
+}
+```
+
+### 示例 2：让当前对话的领主与玩家关系变为 50
+
+```csharp
+Hero target = Hero.OneToOneConversationHero;
+if (target != null && target.IsLord)
+{
+    Hero.MainHero.SetPersonalRelation(target, 50);
+}
+```
+
+### 示例 3：提升主角某项技能一级对应的经验
+
+```csharp
+SkillObject skill = DefaultSkills.Trade;
+int current = Hero.MainHero.GetSkillValue(skill);
+int nextLevelXp = Campaign.Current.Models.CharacterDevelopmentModel.GetXpRequiredForLevel(current + 1);
+int currentXp = Hero.MainHero.HeroDeveloper.GetSkillXpProgress(skill);
+Hero.MainHero.AddSkillXp(skill, Math.Max(0, nextLevelXp - currentXp));
+```
+
+## 跨版本提示
+
+- v1.3.0：基础 API 相同，但 `Hero.MainHero` 之前可能写作 `CharacterObject.PlayerCharacter.HeroObject`。
+- v1.4.5：新增/拆分了部分 `HeroDeveloper` 与 `Hero.Skills` 相关访问；写跨版本 mod 时建议优先使用 `Hero.MainHero.HeroDeveloper`。
+
+## 依赖关系
+
+- 上游：[Campaign](../Campaign/) 与 [MBObjectManager](../../campaign-ext/MBObjectManager/) 创建并持有唯一的战役英雄对象。
+- 下游：[CharacterObject](../CharacterObject/) 提供模板，[MobileParty](../MobileParty/) 和 [Settlement](../Settlement/) 反映归属；Mission 中会生成短命的 [Agent](../../mission/Agent/)。
+- 变更：给钱、杀死、转移部队或改变外交关系调用对应 Action，并让 CampaignEvents 通知其它系统；不要只写字段或把低层 setter 当作事务入口。
+
+## 参见
+
+- [CharacterObject](../CharacterObject/) — 英雄背后的模板数据
+- [Clan](../Clan/) — 家族与英雄归属
+- [Kingdom](../Kingdom/) — 王国与阵营
+- [Settlement](../Settlement/) — 据点与城市
+- [MobileParty](../MobileParty/) — 英雄所在部队
+- [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase/) — 每日 tick 里批量操作 Hero
+- [Campaign](../Campaign/) — 访问 `Campaign.Current` 拿到整个世界

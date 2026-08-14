@@ -8,7 +8,7 @@ description: "UserDataManager 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class UserDataManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.UserDatas/UserDataManager.cs`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/UserDatas/UserDataManager.cs`
 
 ## 概述
 

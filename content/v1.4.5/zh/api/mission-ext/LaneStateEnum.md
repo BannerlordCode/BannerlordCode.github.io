@@ -8,7 +8,7 @@ description: "LaneStateEnum 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum LaneStateEnum`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeLane.cs`
+**File:** `TaleWorlds.MountAndBlade/SiegeLane.cs`
 
 ## 概述
 

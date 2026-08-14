@@ -8,7 +8,7 @@ description: "DropExtraWeaponOnStopUsageComponent 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal class DropExtraWeaponOnStopUsageComponent : UsableMissionObjectComponent`
 **Base:** `UsableMissionObjectComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DropExtraWeaponOnStopUsageComponent.cs`
+**File:** `TaleWorlds.MountAndBlade/DropExtraWeaponOnStopUsageComponent.cs`
 
 ## 概述
 

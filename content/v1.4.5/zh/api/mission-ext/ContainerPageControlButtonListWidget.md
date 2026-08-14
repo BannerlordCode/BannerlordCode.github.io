@@ -6,9 +6,9 @@ description: "ContainerPageControlButtonListWidget 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class ContainerPageControlButtonListWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ContainerPageControlButtonListWidget.cs`
+**Type:** `public class ContainerPageControlButtonListWidget : ContainerPageControlWidget`
+**Base:** `ContainerPageControlWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/ContainerPageControlButtonListWidget.cs`
 
 ## 概述
 
@@ -26,19 +26,6 @@ description: "ContainerPageControlButtonListWidget 的自动生成类参考。"
 | `FullButtonBrush` | `public string FullButtonBrush { get; set; }` |
 | `EmptyButtonBrush` | `public string EmptyButtonBrush { get; set; }` |
 | `PageButtonItemsListPanel` | `public ListPanel PageButtonItemsListPanel { get; set; }` |
-
-## 主要方法
-
-### ContainerPageControlButtonListWidget
-`public class ContainerPageControlButtonListWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 ContainerPageControlButtonListWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 ContainerPageControlButtonListWidget 实例
-ContainerPageControlButtonListWidget containerPageControlButtonListWidget = ...;
-var result = containerPageControlButtonListWidget.ContainerPageControlButtonListWidget(context);
-```
 
 ## 使用示例
 

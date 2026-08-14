@@ -8,7 +8,7 @@ description: "ObjectHeaderLoadData 的自动生成类参考。"
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class ObjectHeaderLoadData`
 **Base:** 无
-**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/ObjectHeaderLoadData.cs`
+**File:** `TaleWorlds.SaveSystem/Load/ObjectHeaderLoadData.cs`
 
 ## 概述
 

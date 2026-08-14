@@ -8,7 +8,7 @@ description: "ChatLogHotKeyCategory 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class ChatLogHotKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ChatLogHotKeyCategory.cs`
+**File:** `TaleWorlds.MountAndBlade/ChatLogHotKeyCategory.cs`
 
 ## 概述
 

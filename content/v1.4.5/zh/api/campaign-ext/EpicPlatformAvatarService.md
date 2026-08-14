@@ -8,7 +8,7 @@ description: "EpicPlatformAvatarService 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class EpicPlatformAvatarService : IAvatarService`
 **Base:** `IAvatarService`
-**File:** `bin/TaleWorlds.PlatformService.Epic/TaleWorlds.PlatformService.Epic/EpicPlatformAvatarService.cs`
+**File:** `TaleWorlds.PlatformService.Epic/EpicPlatformAvatarService.cs`
 
 ## 概述
 

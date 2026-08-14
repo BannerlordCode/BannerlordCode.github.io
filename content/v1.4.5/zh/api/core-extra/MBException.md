@@ -8,7 +8,7 @@ description: "MBException 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class MBException : ApplicationException`
 **Base:** `ApplicationException`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBException.cs`
+**File:** `TaleWorlds.Core/MBException.cs`
 
 ## 概述
 

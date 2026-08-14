@@ -8,7 +8,7 @@ description: "ItemCategorySelector 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class ItemCategorySelector : MBGameModel<ItemCategorySelector>`
 **Base:** `MBGameModel<ItemCategorySelector>`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemCategorySelector.cs`
+**File:** `TaleWorlds.Core/ItemCategorySelector.cs`
 
 ## 概述
 

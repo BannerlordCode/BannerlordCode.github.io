@@ -8,7 +8,7 @@ description: "EquipWeaponWithNewEntity 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class EquipWeaponWithNewEntity : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/EquipWeaponWithNewEntity.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/EquipWeaponWithNewEntity.cs`
 
 ## 概述
 

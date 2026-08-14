@@ -8,7 +8,7 @@ description: "SynchFlags 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum SynchFlags : uint`
 **Base:** `uint`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SynchedMissionObject.cs`
+**File:** `TaleWorlds.MountAndBlade/SynchedMissionObject.cs`
 
 ## 概述
 

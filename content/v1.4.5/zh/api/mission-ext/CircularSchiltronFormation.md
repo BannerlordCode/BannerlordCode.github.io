@@ -8,7 +8,7 @@ description: "CircularSchiltronFormation 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CircularSchiltronFormation : CircularFormation`
 **Base:** `CircularFormation`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CircularSchiltronFormation.cs`
+**File:** `TaleWorlds.MountAndBlade/CircularSchiltronFormation.cs`
 
 ## 概述
 

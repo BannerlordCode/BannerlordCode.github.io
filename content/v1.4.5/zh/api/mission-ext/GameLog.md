@@ -8,7 +8,7 @@ description: "GameLog 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameLog`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/GameLog.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/GameLog.cs`
 
 ## 概述
 

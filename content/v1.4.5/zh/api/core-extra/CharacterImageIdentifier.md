@@ -8,7 +8,7 @@ description: "CharacterImageIdentifier 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class CharacterImageIdentifier : ImageIdentifier`
 **Base:** `ImageIdentifier`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core.ImageIdentifiers/CharacterImageIdentifier.cs`
+**File:** `TaleWorlds.Core/ImageIdentifiers/CharacterImageIdentifier.cs`
 
 ## 概述
 

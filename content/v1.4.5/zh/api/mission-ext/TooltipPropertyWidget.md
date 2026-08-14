@@ -8,7 +8,7 @@ description: "TooltipPropertyWidget 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TooltipPropertyWidget : Widget`
 **Base:** `Widget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information/TooltipPropertyWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Information/TooltipPropertyWidget.cs`
 
 ## 概述
 
@@ -23,7 +23,12 @@ description: "TooltipPropertyWidget 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `IsTwoColumn` | `public bool IsTwoColumn { get; }` |
-| `PropertyModifierAsFlag` | `public TooltipPropertyFlags PropertyModifierAsFlag { get; }` |
+| `PropertyModifierAsFlag` | `public TooltipPropertyWidget.TooltipPropertyFlags PropertyModifierAsFlag { get; }` |
+| `IsMultiLine` | `public bool IsMultiLine { get; }` |
+| `IsBattleMode` | `public bool IsBattleMode { get; }` |
+| `IsBattleModeOver` | `public bool IsBattleModeOver { get; }` |
+| `IsCost` | `public bool IsCost { get; }` |
+| `IsRelation` | `public bool IsRelation { get; }` |
 | `RundownSeperatorSpriteName` | `public string RundownSeperatorSpriteName { get; set; }` |
 | `DefaultSeperatorSpriteName` | `public string DefaultSeperatorSpriteName { get; set; }` |
 | `TitleBackgroundSpriteName` | `public string TitleBackgroundSpriteName { get; set; }` |
@@ -35,7 +40,6 @@ description: "TooltipPropertyWidget 的自动生成类参考。"
 | `ModifyDefinitionColor` | `public bool ModifyDefinitionColor { get; set; }` |
 | `DefinitionLabel` | `public RichTextWidget DefinitionLabel { get; set; }` |
 | `ValueLabel` | `public RichTextWidget ValueLabel { get; set; }` |
-| `ItemModifierLabel` | `public TextWidget ItemModifierLabel { get; set; }` |
 | `ValueBackgroundSpriteWidget` | `public ListPanel ValueBackgroundSpriteWidget { get; set; }` |
 | `DefinitionLabelContainer` | `public Widget DefinitionLabelContainer { get; set; }` |
 | `ValueLabelContainer` | `public Widget ValueLabelContainer { get; set; }` |

@@ -8,7 +8,7 @@ description: "MissionMultiplayerTeamDeathmatchClient 的自动生成类参考。
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerTeamDeathmatchClient : MissionMultiplayerGameModeBaseClient`
 **Base:** `MissionMultiplayerGameModeBaseClient`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerTeamDeathmatchClient.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionMultiplayerTeamDeathmatchClient.cs`
 
 ## 概述
 
@@ -17,6 +17,15 @@ description: "MissionMultiplayerTeamDeathmatchClient 的自动生成类参考。
 ## 心智模型
 
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `IsGameModeUsingGold` | `public override bool IsGameModeUsingGold { get; }` |
+| `IsGameModeTactical` | `public override bool IsGameModeTactical { get; }` |
+| `IsGameModeUsingRoundCountdown` | `public override bool IsGameModeUsingRoundCountdown { get; }` |
+| `GameType` | `public override MultiplayerGameType GameType { get; }` |
 
 ## 主要方法
 

@@ -8,7 +8,7 @@ description: "PartyListPanel 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PartyListPanel : NavigatableListPanel`
 **Base:** `NavigatableListPanel`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyListPanel.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Party/PartyListPanel.cs`
 
 ## 概述
 

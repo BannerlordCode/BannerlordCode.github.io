@@ -8,7 +8,7 @@ description: "FinishedLoading 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class FinishedLoading : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/FinishedLoading.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/FinishedLoading.cs`
 
 ## 概述
 

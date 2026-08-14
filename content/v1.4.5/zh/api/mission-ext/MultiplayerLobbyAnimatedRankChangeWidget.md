@@ -6,9 +6,9 @@ description: "MultiplayerLobbyAnimatedRankChangeWidget 的自动生成类参考�
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public class MultiplayerLobbyAnimatedRankChangeWidget`
-**Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyAnimatedRankChangeWidget.cs`
+**Type:** `public class MultiplayerLobbyAnimatedRankChangeWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Multiplayer/Lobby/MultiplayerLobbyAnimatedRankChangeWidget.cs`
 
 ## 概述
 
@@ -28,19 +28,6 @@ description: "MultiplayerLobbyAnimatedRankChangeWidget 的自动生成类参考�
 | `NewRankName` | `public TextWidget NewRankName { get; set; }` |
 | `OldRankSprite` | `public MultiplayerLobbyRankItemButtonWidget OldRankSprite { get; set; }` |
 | `NewRankSprite` | `public MultiplayerLobbyRankItemButtonWidget NewRankSprite { get; set; }` |
-
-## 主要方法
-
-### MultiplayerLobbyAnimatedRankChangeWidget
-`public class MultiplayerLobbyAnimatedRankChangeWidget(UIContext context)`
-
-**用途 / Purpose:** 调用 MultiplayerLobbyAnimatedRankChangeWidget 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerLobbyAnimatedRankChangeWidget 实例
-MultiplayerLobbyAnimatedRankChangeWidget multiplayerLobbyAnimatedRankChangeWidget = ...;
-var result = multiplayerLobbyAnimatedRankChangeWidget.MultiplayerLobbyAnimatedRankChangeWidget(context);
-```
 
 ## 使用示例
 

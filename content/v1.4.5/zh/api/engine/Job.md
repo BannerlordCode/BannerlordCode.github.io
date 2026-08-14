@@ -8,7 +8,7 @@ description: "Job 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public class Job`
 **Base:** 无
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Job.cs`
+**File:** `TaleWorlds.Engine/Job.cs`
 
 ## 概述
 

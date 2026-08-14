@@ -8,7 +8,7 @@ description: "SettlementMenuPartyCharacterListsButtonWidget 的自动生成类�
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SettlementMenuPartyCharacterListsButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameMenu/SettlementMenuPartyCharacterListsButtonWidget.cs`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/GameMenu/SettlementMenuPartyCharacterListsButtonWidget.cs`
 
 ## 概述
 

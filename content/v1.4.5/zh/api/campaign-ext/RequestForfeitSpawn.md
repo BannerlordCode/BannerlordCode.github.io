@@ -8,7 +8,7 @@ description: "RequestForfeitSpawn 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class RequestForfeitSpawn : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/RequestForfeitSpawn.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/RequestForfeitSpawn.cs`
 
 ## 概述
 

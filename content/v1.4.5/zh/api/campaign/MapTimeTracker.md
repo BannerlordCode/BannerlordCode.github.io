@@ -8,7 +8,7 @@ description: "MapTimeTracker 的自动生成类参考。"
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `internal class MapTimeTracker`
 **Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/MapTimeTracker.cs`
+**File:** `TaleWorlds.CampaignSystem/MapTimeTracker.cs`
 
 ## 概述
 

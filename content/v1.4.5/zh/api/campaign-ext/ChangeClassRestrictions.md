@@ -8,7 +8,7 @@ description: "ChangeClassRestrictions 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class ChangeClassRestrictions : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/ChangeClassRestrictions.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/ChangeClassRestrictions.cs`
 
 ## 概述
 

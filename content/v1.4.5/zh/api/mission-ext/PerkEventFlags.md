@@ -8,7 +8,7 @@ description: "PerkEventFlags 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum PerkEventFlags`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkCondition.cs`
+**File:** `TaleWorlds.MountAndBlade/MPPerkCondition.cs`
 
 ## 概述
 

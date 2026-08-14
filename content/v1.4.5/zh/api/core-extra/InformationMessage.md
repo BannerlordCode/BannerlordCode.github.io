@@ -8,7 +8,7 @@ description: "InformationMessage 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public class InformationMessage`
 **Base:** 无
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/InformationMessage.cs`
+**File:** `TaleWorlds.Library/InformationMessage.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MultiplayerBattleColors 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `struct MultiplayerBattleColors`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Multiplayer/MultiplayerBattleColors.cs`
+**File:** `TaleWorlds.MountAndBlade/Missions/Multiplayer/MultiplayerBattleColors.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "MultiplayerBattleColors 的自动生成类参考。"
 先从命名空间 `TaleWorlds.MountAndBlade.Missions.Multiplayer` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### MultiplayerCultureColorInfo
-`public readonly struct MultiplayerCultureColorInfo(BasicCultureObject culture, bool swapColors)`
-
-**用途 / Purpose:** 调用 MultiplayerCultureColorInfo 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MultiplayerBattleColors 实例
-MultiplayerBattleColors multiplayerBattleColors = ...;
-var result = multiplayerBattleColors.MultiplayerCultureColorInfo(culture, false);
-```
 
 ### CreateWith
 `public static MultiplayerBattleColors CreateWith(BasicCultureObject attackerCulture, BasicCultureObject defenderCulture)`
@@ -42,7 +31,7 @@ MultiplayerBattleColors.CreateWith(attackerCulture, defenderCulture);
 ```
 
 ### GetPeerColors
-`public MultiplayerCultureColorInfo GetPeerColors(MissionPeer peer)`
+`public MultiplayerBattleColors.MultiplayerCultureColorInfo GetPeerColors(MissionPeer peer)`
 
 **用途 / Purpose:** 读取并返回当前对象中 peer colors 的结果。
 
@@ -55,9 +44,7 @@ var result = multiplayerBattleColors.GetPeerColors(peer);
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-MultiplayerBattleColors multiplayerBattleColors = ...;
-multiplayerBattleColors.MultiplayerCultureColorInfo(culture, false);
+MultiplayerBattleColors.CreateWith(attackerCulture, defenderCulture);
 ```
 
 ## 参见

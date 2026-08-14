@@ -8,7 +8,7 @@ description: "IPlatformServices 的自动生成类参考。"
 **Module:** TaleWorlds.PlatformService
 **Type:** `public interface IPlatformServices`
 **Base:** 无
-**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/IPlatformServices.cs`
+**File:** `TaleWorlds.PlatformService/IPlatformServices.cs`
 
 ## 概述
 

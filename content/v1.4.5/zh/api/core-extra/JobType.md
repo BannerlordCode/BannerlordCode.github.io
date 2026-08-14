@@ -8,7 +8,7 @@ description: "JobType 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public enum JobType`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/GameStateManager.cs`
+**File:** `TaleWorlds.Core/GameStateManager.cs`
 
 ## 概述
 

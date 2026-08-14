@@ -8,7 +8,7 @@ description: "SelectionExpression 的自动生成类参考。"
 **Module:** TaleWorlds.Localization
 **Type:** `internal class SelectionExpression : TextExpression`
 **Base:** `TextExpression`
-**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.Expressions/SelectionExpression.cs`
+**File:** `TaleWorlds.Localization/Expressions/SelectionExpression.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ReinforcementSpawnMethod 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum ReinforcementSpawnMethod`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionSpawnSettings.cs`
+**File:** `TaleWorlds.MountAndBlade/MissionSpawnSettings.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "MessageDescription 的自动生成类参考。"
 **Module:** TaleWorlds.Diamond
 **Type:** `public class MessageDescription : Attribute`
 **Base:** `Attribute`
-**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/MessageDescription.cs`
+**File:** `TaleWorlds.Diamond/MessageDescription.cs`
 
 ## 概述
 

@@ -8,7 +8,7 @@ description: "ProfileSelectionState 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ProfileSelectionState : GameState`
 **Base:** `GameState`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ProfileSelectionState.cs`
+**File:** `TaleWorlds.MountAndBlade/ProfileSelectionState.cs`
 
 ## 概述
 
@@ -25,17 +25,6 @@ description: "ProfileSelectionState 的自动生成类参考。"
 | `IsDirectPlayPossible` | `public bool IsDirectPlayPossible { get; }` |
 
 ## 主要方法
-
-### OnProfileSelectionEvent
-`public delegate void OnProfileSelectionEvent()`
-
-**用途 / Purpose:** 在 profile selection event 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 ProfileSelectionState 实例
-ProfileSelectionState profileSelectionState = ...;
-profileSelectionState.OnProfileSelectionEvent();
-```
 
 ### OnProfileSelected
 `public void OnProfileSelected()`
@@ -59,12 +48,23 @@ ProfileSelectionState profileSelectionState = ...;
 profileSelectionState.StartGame();
 ```
 
+### OnProfileSelectionEvent
+`public delegate void OnProfileSelectionEvent()`
+
+**用途 / Purpose:** 在 profile selection event 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ProfileSelectionState 实例
+ProfileSelectionState profileSelectionState = ...;
+profileSelectionState.OnProfileSelectionEvent();
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 ProfileSelectionState profileSelectionState = ...;
-profileSelectionState.OnProfileSelectionEvent();
+profileSelectionState.OnProfileSelected();
 ```
 
 ## 参见

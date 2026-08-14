@@ -8,7 +8,7 @@ description: "NewPlayerResponseMessage 的自动生成类参考。"
 **Module:** Messages.FromBattleServer
 **Type:** `public class NewPlayerResponseMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/NewPlayerResponseMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromBattleServer/ToBattleServerManager/NewPlayerResponseMessage.cs`
 
 ## 概述
 

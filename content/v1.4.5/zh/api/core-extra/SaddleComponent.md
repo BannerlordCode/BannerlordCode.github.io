@@ -8,7 +8,7 @@ description: "SaddleComponent 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class SaddleComponent : ItemComponent`
 **Base:** `ItemComponent`
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SaddleComponent.cs`
+**File:** `TaleWorlds.Core/SaddleComponent.cs`
 
 ## 概述
 

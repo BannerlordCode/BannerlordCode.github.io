@@ -8,7 +8,7 @@ description: "PremadeGameEligibilityStatusMessage 的自动生成类参考。"
 **Module:** Messages.FromLobbyServer
 **Type:** `public class PremadeGameEligibilityStatusMessage : Message`
 **Base:** `Message`
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PremadeGameEligibilityStatusMessage.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Messages/FromLobbyServer/ToClient/PremadeGameEligibilityStatusMessage.cs`
 
 ## 概述
 

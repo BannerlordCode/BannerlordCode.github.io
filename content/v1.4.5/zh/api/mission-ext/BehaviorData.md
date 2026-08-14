@@ -8,7 +8,7 @@ description: "BehaviorData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationAI.cs`
+**File:** `TaleWorlds.MountAndBlade/FormationAI.cs`
 
 ## 概述
 

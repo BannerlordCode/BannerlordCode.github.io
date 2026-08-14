@@ -8,7 +8,7 @@ description: "PlayerNotEligibleError 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum PlayerNotEligibleError`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerNotEligibleError.cs`
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerNotEligibleError.cs`
 
 ## 概述
 

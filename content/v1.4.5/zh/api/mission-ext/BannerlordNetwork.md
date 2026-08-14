@@ -8,7 +8,7 @@ description: "BannerlordNetwork 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class BannerlordNetwork`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BannerlordNetwork.cs`
+**File:** `TaleWorlds.MountAndBlade/BannerlordNetwork.cs`
 
 ## 概述
 

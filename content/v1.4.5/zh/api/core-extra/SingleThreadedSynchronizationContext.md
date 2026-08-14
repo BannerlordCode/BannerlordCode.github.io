@@ -8,7 +8,7 @@ description: "SingleThreadedSynchronizationContext 的自动生成类参考。"
 **Module:** TaleWorlds.Library
 **Type:** `public sealed class SingleThreadedSynchronizationContext : SynchronizationContext`
 **Base:** `SynchronizationContext`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SingleThreadedSynchronizationContext.cs`
+**File:** `TaleWorlds.Library/SingleThreadedSynchronizationContext.cs`
 
 ## 概述
 
@@ -19,17 +19,6 @@ description: "SingleThreadedSynchronizationContext 的自动生成类参考。"
 先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
-
-### Invoke
-`public void Invoke()`
-
-**用途 / Purpose:** 调用 Invoke 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 SingleThreadedSynchronizationContext 实例
-SingleThreadedSynchronizationContext singleThreadedSynchronizationContext = ...;
-singleThreadedSynchronizationContext.Invoke();
-```
 
 ### Send
 `public override void Send(SendOrPostCallback callback, object state)`
@@ -64,12 +53,23 @@ SingleThreadedSynchronizationContext singleThreadedSynchronizationContext = ...;
 singleThreadedSynchronizationContext.Tick();
 ```
 
+### Invoke
+`public void Invoke()`
+
+**用途 / Purpose:** 调用 Invoke 对应的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SingleThreadedSynchronizationContext 实例
+SingleThreadedSynchronizationContext singleThreadedSynchronizationContext = ...;
+singleThreadedSynchronizationContext.Invoke();
+```
+
 ## 使用示例
 
 ```csharp
 // 通常从对应子系统 API 获取实例后调用
 SingleThreadedSynchronizationContext singleThreadedSynchronizationContext = ...;
-singleThreadedSynchronizationContext.Invoke();
+singleThreadedSynchronizationContext.Send(callback, state);
 ```
 
 ## 参见

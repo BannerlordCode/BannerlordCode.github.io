@@ -6,9 +6,9 @@ description: "ItemTypeComparer 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `public class ItemTypeComparer : ItemComparer`
-**Base:** `ItemComparer`
-**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Inventory/SPInventorySortControllerVM.cs`
+**Type:** `public class ItemTypeComparer : SPInventorySortControllerVM.ItemComparer`
+**Base:** `SPInventorySortControllerVM.ItemComparer`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Inventory/SPInventorySortControllerVM.cs`
 
 ## 概述
 

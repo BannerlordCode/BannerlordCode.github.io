@@ -8,7 +8,7 @@ description: "SetWieldedItemIndex 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetWieldedItemIndex : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetWieldedItemIndex.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/SetWieldedItemIndex.cs`
 
 ## 概述
 

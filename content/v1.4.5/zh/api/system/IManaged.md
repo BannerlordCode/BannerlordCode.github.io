@@ -8,7 +8,7 @@ description: "IManaged 的自动生成类参考。"
 **Module:** TaleWorlds.DotNet
 **Type:** `internal interface IManaged`
 **Base:** 无
-**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/IManaged.cs`
+**File:** `TaleWorlds.DotNet/IManaged.cs`
 
 ## 概述
 

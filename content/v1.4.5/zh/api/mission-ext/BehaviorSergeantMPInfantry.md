@@ -8,7 +8,7 @@ description: "BehaviorSergeantMPInfantry 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorSergeantMPInfantry : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorSergeantMPInfantry.cs`
+**File:** `TaleWorlds.MountAndBlade/BehaviorSergeantMPInfantry.cs`
 
 ## 概述
 

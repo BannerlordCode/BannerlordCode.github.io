@@ -8,7 +8,7 @@ description: "RequestChangePreferredTroopType 的自动生成类参考。"
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class RequestChangePreferredTroopType : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/RequestChangePreferredTroopType.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromClient/RequestChangePreferredTroopType.cs`
 
 ## 概述
 

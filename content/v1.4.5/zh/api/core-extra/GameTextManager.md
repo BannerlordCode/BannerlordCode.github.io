@@ -8,7 +8,7 @@ description: "GameTextManager 的自动生成类参考。"
 **Module:** TaleWorlds.Core
 **Type:** `public class GameTextManager`
 **Base:** 无
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/GameTextManager.cs`
+**File:** `TaleWorlds.Core/GameTextManager.cs`
 
 ## 概述
 

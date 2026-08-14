@@ -8,7 +8,7 @@ description: "Texture 的自动生成类参考。"
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class Texture : Resource`
 **Base:** `Resource`
-**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Texture.cs`
+**File:** `TaleWorlds.Engine/Texture.cs`
 
 ## 概述
 
@@ -23,7 +23,14 @@ description: "Texture 的自动生成类参考。"
 | Name | Signature |
 |------|-----------|
 | `IsReleased` | `public bool IsReleased { get; }` |
+| `Width` | `public int Width { get; }` |
+| `Height` | `public int Height { get; }` |
+| `MemorySize` | `public int MemorySize { get; }` |
+| `IsRenderTarget` | `public bool IsRenderTarget { get; }` |
 | `Name` | `public string Name { get; set; }` |
+| `RenderTargetComponent` | `public RenderTargetComponent RenderTargetComponent { get; }` |
+| `TableauView` | `public TableauView TableauView { get; }` |
+| `UserData` | `public object UserData { get; }` |
 
 ## 主要方法
 

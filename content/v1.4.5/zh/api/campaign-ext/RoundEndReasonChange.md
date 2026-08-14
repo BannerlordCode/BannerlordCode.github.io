@@ -8,7 +8,7 @@ description: "RoundEndReasonChange 的自动生成类参考。"
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class RoundEndReasonChange : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RoundEndReasonChange.cs`
+**File:** `TaleWorlds.MountAndBlade/NetworkMessages/FromServer/RoundEndReasonChange.cs`
 
 ## 概述
 

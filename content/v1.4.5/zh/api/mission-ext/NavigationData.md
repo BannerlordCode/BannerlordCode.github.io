@@ -8,7 +8,7 @@ description: "NavigationData 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct NavigationData`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/NavigationData.cs`
+**File:** `TaleWorlds.MountAndBlade/NavigationData.cs`
 
 ## 概述
 

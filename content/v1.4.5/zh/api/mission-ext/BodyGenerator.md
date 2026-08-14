@@ -8,7 +8,7 @@ description: "BodyGenerator 的自动生成类参考。"
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BodyGenerator`
 **Base:** 无
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BodyGenerator.cs`
+**File:** `TaleWorlds.MountAndBlade/BodyGenerator.cs`
 
 ## 概述
 

@@ -25,8 +25,8 @@ graph TD
   ROOT --> DEP["依赖模块"]
 ```
 
-- [Campaign 战役](../../campaign/Campaign)
-- [CampaignBehaviorBase 行为基类](../../campaign-ext/CampaignBehaviorBase)
+- [Campaign 战役](../campaign/Campaign)
+- [CampaignBehaviorBase 行为基类](../campaign-ext/CampaignBehaviorBase)
 - [Quests 主线任务](./Quests/_index)
 - [GameComponents 剧情组件](./GameComponents/_index)
 
@@ -104,8 +104,8 @@ graph TD
 
 ## 参见
 
-- [Campaign 战役](../../campaign/Campaign)
-- [CampaignBehaviorBase 行为基类](../../campaign-ext/CampaignBehaviorBase)
+- [Campaign 战役](../campaign/Campaign)
+- [CampaignBehaviorBase 行为基类](../campaign-ext/CampaignBehaviorBase)
 - [Quests 主线任务](./Quests/_index)
 - [GameComponents 剧情组件](./GameComponents/_index)
 - [API 总览](../_index)

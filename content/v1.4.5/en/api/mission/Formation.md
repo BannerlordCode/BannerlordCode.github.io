@@ -11,11 +11,11 @@ description: "The Mission-time formation owned by a Team: it coordinates Agents,
 **Contract:** [`IFormation`](../../mission-ext/IFormation)  
 **Source:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Formation.cs`
 
-## One-line responsibility
+## Overview
 
 Within a Team, `Formation` organizes a group of Agents, their class identity, layout, movement and combat orders, detached state, and position caches for Mission updates.
 
-## Mental model
+## Mental Model
 
 `Formation` is not an independent campaign object. It is a Mission-time child owned by Team. A Team creates ordinary and special Formations, and mods normally obtain one through `team.GetFormation(FormationClass.Infantry)` or `team.FormationsIncludingEmpty`. `Team`, `Index`, and `FormationIndex` identify the owning Team and runtime slot; Team cleanup invalidates them when the Mission ends.
 
@@ -70,7 +70,7 @@ During Agent construction, `AgentBuildData.AgentFormation` supplies the initial 
 - `OnBeforeMovementOrderApplied` and `OnAfterArrangementOrderApplied` observe order boundaries; do not re-enter the same setter from its callback.
 - `OnTick` and `Tick(float dt)` are driven by Mission's Team update phase. `Reset`, `OnFormationDispersed`, and batch add/remove events are rebuild and cleanup boundaries, not places to create new battle objects after teardown.
 
-## Dependency graph
+## Dependencies
 
 - **Owner:** [`Team`](../../mission-ext/Team) creates and holds Formation; [`Mission`](../Mission) defines the lifetime of Team and Formation.
 - **Members:** [`Agent`](../Agent) joins, transfers, and leaves through its `Formation` setter; do not bypass that reverse reference.
@@ -136,7 +136,7 @@ public sealed class FormationOrderBehavior : MissionBehavior
 
 In 1.4.5, Formation is in `TaleWorlds.MountAndBlade`, with Team/Agent ownership, ordinary/special slots, and order APIs defined by the target `Formation.cs`. 1.3.15 is conceptually similar, but layout, AI, and network members can differ; verify public members and events against the version being compiled.
 
-## See also and bidirectional navigation
+## See Also
 
 - ↑ Parent module: [Mission API](../)
 - ↔ Siblings: [Mission](../Mission) · [Agent](../Agent) · [MissionBehavior](../MissionBehavior)

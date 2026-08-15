@@ -11,9 +11,11 @@ description: "The saveable component of a bound village: manages hearths, produc
 **Source:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Village.cs`  
 **Persistence role:** the economy component attached to a village `Settlement`; hearth, state, bound settlement, market, and tax participate in the Campaign save graph.
 
-## Overview and mental model
+## Overview
 
 `Village` is the production and livelihood state of one village Settlement, not an independent faction or fief. Enter it from map position, village party, and raid state through `Settlement.Village`; return to the entity through `Village.Settlement`. Its political ownership comes from `Bound`, so `Village.MapFaction` delegates to `Bound.MapFaction`, and a village `Settlement.OwnerClan` resolves through that bound settlement as well.
+
+## Mental Model
 
 `Bound` is the administrative/fief link. Its setter keeps `Settlement.BoundVillages` reciprocal. When that settlement is a town, `TradeBound` is necessarily the same town. When it is a castle, `TradeBound` is a mutable trade destination selected by native behavior from nearby, reachable towns permitted by political state. Do not treat the two links as interchangeable or treat `TradeBound` as permanent save configuration.
 
@@ -30,7 +32,7 @@ Do not start world changes from `Village` in these cases:
 - **Caravans and army gathering:** when native caravan creation receives a village, it uses `Village.TradeBound` only as a candidate departure town; that does not make the village a caravan market. An army's `FindBestGatheringSettlementAndMoveTheLeader` selects a general `Settlement`, not Village's economy component. Pass the current `Settlement` to those systems; do not invent a location from `Village` or replace an AI target.
 - **Economic rules:** change daily output by replacing/extending the active [VillageProductionCalculatorModel](../VillageProductionCalculatorModel/). Let the [VillageTradeModel](../VillageTradeModel/) and the native Behavior's recomputation path decide where a castle-bound village trades. Reading a model result does not replace either mechanism.
 
-## Dependencies, production, and trade path
+## Dependencies
 
 ```mermaid
 graph TD
@@ -161,7 +163,7 @@ The example demonstrates the Action boundary; it is not permission to skip the g
 
 This page describes the decompiled Bannerlord v1.4.5 implementation. `Village.cs`, `Settlement.cs`, `Town.cs`, `DefaultVillageTradeModel.cs`, `DefaultVillageProductionCalculatorModel.cs`, `VillageTradeBoundCampaignBehavior.cs`, `VillagerCampaignBehavior.cs`, and the three village MapEvent components establish the boundaries above. When moving to another release or replacing models wholesale, recheck the state enum, trade-distance rules, daily order, and Action side effects; neither the thresholds nor Behavior subscription order here is a stable extension contract.
 
-## Navigation
+## See Also
 
 - ↑ Parent: [Campaign API](../)
 - ↔ Siblings: [Settlement](../Settlement/) · [Town](../Town/) · [Campaign](../Campaign/)

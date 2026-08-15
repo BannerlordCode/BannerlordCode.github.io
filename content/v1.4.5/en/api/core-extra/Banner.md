@@ -1,43 +1,41 @@
 ---
-title: "Banner: Banner Data, Codes, and Visual Boundaries"
-description: "The v1.4.5 banner value object, covering BannerData, serialized codes, lazy visuals, Campaign ownership, and safe updates."
+title: "Banner"
+description: "The banner value object in v1.4.5: explains the BannerData list, BannerCode, visual cache, the Campaign ownership relationship, and the safe update path."
 ---
 # Banner
 
-## Metadata
+**Namespace:** `TaleWorlds.Core`  
+**Module:** `TaleWorlds.Core`  
+**Type:** `public class Banner`  
+**Base:** None  
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/Banner.cs`
 
-- **Namespace:** `TaleWorlds.Core`
-- **Module:** `TaleWorlds.Core`
-- **Type:** `public class Banner`
-- **Base:** none
-- **Source:** `bin/TaleWorlds.Core/TaleWorlds.Core/Banner.cs`
+## Overview
 
-## Responsibility in one sentence
+`Banner` combines the background and icon `BannerData` into a serializable banner code, and creates visual objects for the Campaign, UI, and engine when needed; what it links together are the banner value, the code cache, and the visual resources — not the item inventory or Clan / Kingdom ownership itself. Callers must therefore respect the data index, resource initialization, and the owner's lifecycle all at once.
 
-`Banner` combines background and icon `BannerData` into a serializable banner code and creates visual data for Campaign, UI, and engine consumers when requested.
+## Mental Model
 
-## Mental model
+`Banner` is a value object in the Core layer, not an `ItemObject`, and not a Clan or Kingdom itself. Internally it keeps at least the element at index 0 as the background data, and the following elements as icons; `BannerDataList` exposes these elements as a read-only list. `BannerCode` encodes the current list into a dot-separated string, caching / invalidating that string after the list is constructed or modified. `BannerVisual` is created lazily on access by calling `Game.Current.CreateBannerVisual(this)`, and clears the old visual cache on `Deserialize`.
 
-`Banner` is a Core value object, not an `ItemObject` and not a Clan or Kingdom itself. Its internal list uses element 0 for the background and later elements for icons; `BannerDataList` exposes a read-only view of that list. `BannerCode` serializes the current list to a dot-separated string and is cached until the banner's supported mutators invalidate it. `BannerVisual` is lazy: accessing it calls `Game.Current.CreateBannerVisual(this)`, while `Deserialize` clears the old visual cache.
+Campaign entities (such as `Hero.ClanBanner`, or a Clan's or Kingdom's `Banner`) hold the banner value; `BannerCampaignBehavior` also handles banner-related items separately from the hero's `BannerItem`. The UI / engine-side `BannerTableau` and `BannerTextureCreator` read the code and create textures. This layering matters: updating the banner data only changes the value object — it does not replace the Campaign owner's events / save semantics, nor should the old visual object keep being used after a Mission or UI is destroyed.
 
-Campaign entities such as `Hero.ClanBanner`, a Clan, or a Kingdom own banner values; `BannerCampaignBehavior` separately handles banner items through a Hero's `BannerItem`. On the UI and engine side, `BannerTableau` and `BannerTextureCreator` consume the code and create textures. Updating a banner value therefore does not replace the Campaign owner's event or save semantics, and an old visual must not survive a destroyed Mission or UI.
+## When to Use and When Not To
 
-## When to use it, and when not to
+### Suitable uses
 
-### Use it when
+- Read `Clan.Banner`, `Kingdom.Banner`, or `Hero.MainHero.ClanBanner` for UI, notifications, or texture generation.
+- Construct a temporary banner with `CreateRandomBanner`, `CreateOneColoredEmptyBanner`, or a valid code.
+- Update a banner value through `ChangePrimaryColor`, `ChangeBackgroundColor`, `ChangeIconColors`, and the icon add / remove methods, then read the new `BannerCode`.
 
-- Reading `Clan.Banner`, `Kingdom.Banner`, or `Hero.MainHero.ClanBanner` for UI, notifications, or texture generation.
-- Creating a temporary banner with `CreateRandomBanner`, `CreateOneColoredEmptyBanner`, or a validated code.
-- Updating a banner through `ChangePrimaryColor`, `ChangeBackgroundColor`, `ChangeIconColors`, and the icon collection methods before reading the new `BannerCode`.
+### Unsuitable uses
 
-### Do not use it when
+- Do not treat `Banner` as an item; the banner equipment is `EquipmentElement` / `ItemObject`, and the banner pattern value is a separate chain.
+- Do not modify elements of `BannerDataList` directly and then keep using the old `BannerCode` or old `BannerVisual`. Direct element modification may bypass code invalidation and visual refresh.
+- Do not use `new Banner()` in place of changing a Clan / Kingdom's Campaign state. Entity ownership, events, and saving must go back to the owner's contract.
+- Do not call the visual / color-table-dependent paths before `Game.Current`, `BannerManager`, or the UI layer have been initialized.
 
-- Do not treat `Banner` as an item. A banner item is an `EquipmentElement`/`ItemObject` chain; the visual pattern is a separate value chain.
-- Do not mutate elements obtained from `BannerDataList` and then continue using an old `BannerCode` or `BannerVisual`. Direct element mutation can bypass code invalidation and visual refresh.
-- Do not use `new Banner()` as a replacement for changing a Clan or Kingdom's Campaign state. Ownership, events, and saves belong to the owning entity's contract.
-- Do not use paths that require `Game.Current`, `BannerManager`, or visual resources before those systems are initialized.
-
-## Dependency graph
+## Dependencies
 
 ```text
 BannerManager + BannerData
@@ -50,28 +48,28 @@ Kingdom             ↓
 Campaign save/events
 ```
 
-- Upstream: `BannerData` describes mesh, colors, size, position, mirroring, and rotation; `BannerManager` supplies supported color and icon IDs.
-- Direct consumers: `Game.Current.CreateBannerVisual` creates `IBannerVisual`; `BannerTableau` and `BannerTextureCreator` turn it into UI and engine textures.
-- Campaign owners: [`Hero`](../../campaign/Hero), [`Clan`](../../campaign/Clan), and [`Kingdom`](../../campaign/Kingdom) expose banner state. Do not confuse that value with a banner item.
-- Related UI: `BannerViewModel` binds the editor; [`ViewModel`](../ViewModel) and [`GauntletLayer`](../../engine/GauntletLayer) own UI lifetime, not Campaign persistence.
+- Upstream: `BannerData` describes mesh, color, size, position, mirror, and rotation; `BannerManager` provides the color / icon resources and valid ids.
+- Direct consumers: `Game.Current.CreateBannerVisual` creates an `IBannerVisual`; `BannerTableau`, `BannerTextureCreator` turn it into UI / engine textures.
+- Campaign owners: the banner properties of [`Hero`](../../campaign/Hero), [`Clan`](../../campaign/Clan), and [`Kingdom`](../../campaign/Kingdom); do not confuse the banner value with the banner item.
+- Related UI: `BannerViewModel` handles editor binding; [`ViewModel`](../ViewModel) and [`GauntletLayer`](../../engine/GauntletLayer) manage the UI lifecycle, but do not replace Campaign saving.
 
-## Important members and timing
+## Key Members and Timing
 
-| Member | Use | Timing and side effects |
-|---|---|---|
-| `BannerDataList` | Read background and icon data. Index 0 is the background; index 1 and later are icons. | A read-only list does not make its element objects immutable. Check the count and avoid changing elements in place if code/visual state must stay coherent. |
-| `BannerCode` / `Serialize()` | Encode the current `BannerData` list as a stable string. | `BannerCode` caches the result; supported mutators clear the cache. Finish all edits before using the code for save or network data. |
-| `Deserialize(string)` | Clear old data, parse a code, store the new list, and clear `BannerVisual`. | Empty or invalid input can leave no usable background or icon. Do not assume the first icon exists after parsing. |
-| `BannerVisual` / `SetBannerVisual` | Lazily create or replace an `IBannerVisual`. | The first access depends on `Game.Current` and the engine visual factory. Holding the native visual across UI or Mission lifetimes creates stale resources. |
-| `GetPrimaryColor()`, `GetSecondaryColor()`, `GetFirstIconColor()` | Convert color IDs through `BannerManager`. | Empty data returns `uint.MaxValue`; still check the data count before treating the result as a color. |
-| `ChangePrimaryColor(uint)`, `ChangeBackgroundColor(uint,uint)`, `ChangeIconColors(uint)` | Map color values to supported color IDs and invalidate the code cache. | Unsupported colors leave the banner unchanged. |
-| `AddIconData`, `RemoveIconDataAtIndex`, `ClearAllIcons` | Modify the icon collection while preserving the background at index 0. | The limit is a background plus 32 icons; index 0 is not an icon and cannot be removed as one. Re-read the code and refresh consumers after edits. |
-| `CreateRandomBanner()`, `CreateRandomClanBanner(int)` | Build a valid random layout through `BannerManager`. | Requires the game and resource tables. A seed makes the Clan variant reproducible for tests, but it does not establish Campaign ownership. |
-| `IsValidBannerCode`, `TryGetBannerDataFromCode` | Validate or parse external banner codes. | A valid parse only proves the fields can be read; it does not prove that resources or the visual context are ready. |
+| Member | Purpose | Timing and side effects |
+|--------|---------|--------------------------|
+| `BannerDataList` | A read-only list view of the background and icon data. Index 0 is the background, index 1 onward are icons. | The list container being read-only does not mean its elements are immutable; modifying an element directly may leave a stale code. Confirm the count before reading; do not mix up the background / icon indices. |
+| `BannerCode` / `Serialize()` | Encodes the current `BannerData` list into a stable string. | `BannerCode` caches the result; the provided modification methods clear the cache. Finish all modifications before using the code for saves / network. |
+| `Deserialize(string)` | Clears old data, parses the code, writes the new list, and clears `BannerVisual`. | An empty string or invalid code may yield an empty list; after parsing, do not assume the background and first icon necessarily exist. |
+| `BannerVisual` / `SetBannerVisual` | Lazily creates or replaces an `IBannerVisual`. | First access depends on `Game.Current` and the engine visual factory; holding a reference across UI / Mission lifecycles produces stale native resources. |
+| `GetPrimaryColor()`, `GetSecondaryColor()`, `GetFirstIconColor()` | Convert a color id to a color value through `BannerManager`. | An empty data set returns `uint.MaxValue`; they cannot replace checking the `BannerDataList` count. |
+| `ChangePrimaryColor(uint)`, `ChangeBackgroundColor(uint,uint)`, `ChangeIconColors(uint)` | Map a color value to a valid color id and clear the code cache. | Only colors resolvable by `BannerManager` are updated; on failure the banner keeps its original value. |
+| `AddIconData`, `RemoveIconDataAtIndex`, `ClearAllIcons` | Modify the icon set; the background item stays at index 0. | At most background plus 32 icons are kept; index 0 cannot be deleted as an icon. After modifying, re-read the code and refresh consumers. |
+| `CreateRandomBanner()`, `CreateRandomClanBanner(int)` | Generate a valid random layout through `BannerManager`. | Depends on `Game.Current` / resource tables; the seeded Clan version suits reproducible tests, but is still not a Campaign ownership change. |
+| `IsValidBannerCode`, `TryGetBannerDataFromCode` | Validate or parse an external code. | The code is parsed by fixed field groups; validation passing only means the data is parseable, not that the current resources or visual context are ready. |
 
-## Real acquisition and update paths
+## How to Obtain and Update
 
-### Read a Campaign banner
+### Reading a Campaign banner
 
 ```csharp
 using TaleWorlds.CampaignSystem;
@@ -86,9 +84,9 @@ if (clanBanner != null && Banner.IsValidBannerCode(clanBanner.BannerCode))
 }
 ```
 
-`Hero.MainHero.ClanBanner` is a real Campaign acquisition path. For a Clan or Kingdom, obtain the entity first and use its `Banner` while that entity is still in a valid Campaign lifetime.
+`Hero.MainHero.ClanBanner` is the real Campaign acquisition path. When reading a Clan's or Kingdom's banner, first obtain the entity, then use its `Banner` property while the entity is still within a valid Campaign lifecycle.
 
-### Build, validate, and serialize a temporary banner
+### Construct, validate, and serialize a temporary banner
 
 ```csharp
 using TaleWorlds.Core;
@@ -102,22 +100,22 @@ if (Banner.IsValidBannerCode(candidateCode))
 }
 ```
 
-This creates only a value object. To make it the Campaign state of a Clan or Kingdom, use the entity's actual assignment/event path at a valid campaign stage; do not replace a global owner with a temporary copy.
+This path only creates a value object. To make a banner a Campaign state of some Clan / Kingdom, you must find the actual assignment / event path provided by that entity, and save it at the appropriate campaign stage; do not treat the temporary copy as a global object to be swapped in directly.
 
-## Risks and boundaries
+## Risks and Boundaries
 
-- **Index boundaries:** `GetPrimaryColorId` and related methods directly access the background or first icon. Empty data, a missing icon, or a negative index can produce an exception or meaningless color result; check `GetBannerDataListCount()` first.
-- **Code cache:** `BannerCode` is cached. Direct `BannerData` mutation does not necessarily clear the banner's cache, so save or network data can disagree with the visual list.
-- **Visual lifetime:** `BannerVisual` depends on `Game.Current` and is consumed by `BannerTableau` and `BannerTextureCreator`. Release consumers with their UI or Mission and do not retain `IBannerVisual` across scenes.
-- **Resource validity:** The maximum is 32 icons; mesh, color, and code fields must be supported by `BannerManager`. Invalid input may be rejected or result in an empty list.
-- **Ownership and saves:** Editing a Banner copy does not fire Campaign events for a Hero, Clan, or Kingdom and does not change a banner item. Persistent changes must follow the owner's and SaveSystem's lifecycle.
-- **Thread and stage:** Visual creation, `Game.Current`, and resource tables are constrained by the game lifecycle. Do not access them from arbitrary background threads or before module initialization completes.
+- **Index bounds:** methods such as `GetPrimaryColorId` access the background or first icon directly. An empty list, missing icon, or negative index will throw or yield meaningless colors; check `GetBannerDataListCount()` first.
+- **Code cache:** `BannerCode` is a cached field. Directly modifying `BannerData` elements does not automatically equal calling the banner's invalidation path, and may desync the save / network string from the on-screen data.
+- **Visual lifetime:** `BannerVisual` depends on `Game.Current`, and is used by consumers such as `BannerTableau` / `BannerTextureCreator`. Release the consumers when UI / Mission is destroyed; do not keep an `IBannerVisual` across scenes for a long time.
+- **Resource validity:** the maximum icon count is 32; mesh, color, and code fields must be supported by `BannerManager`. An invalid code may be rejected or parsed into an empty list.
+- **Ownership and saving:** modifying a `Banner` copy does not trigger the Campaign events of Hero, Clan, or Kingdom, nor does it automatically change the banner item. Persistent modifications must follow the owner's and the save system's lifecycle.
+- **Thread / stage:** UI visual creation, `Game.Current`, and resource tables are all game-lifecycle constraints; do not access them from an arbitrary background thread, nor construct visual-dependent objects before the module has finished initializing.
 
-## Version note
+## Cross-Version Notes
 
-This page follows the v1.4.5 `Banner.cs`, `BannerData.cs`, and call sites. When accepting codes across versions, use `IsValidBannerCode`/`TryGetBannerDataFromCode` and re-check resource IDs, icon limits, and Campaign ownership behavior.
+This page is based on the v1.4.5 `Banner.cs`, `BannerData.cs`, and call sites. When using codes across versions, check through `IsValidBannerCode` / `TryGetBannerDataFromCode`, and re-confirm the resource ids, maximum-icon rule, and Campaign banner ownership flow.
 
-## Navigation
+## See Also
 
 - [↑ Core Extra parent](../)
 - [↔ ItemObject](../ItemObject)

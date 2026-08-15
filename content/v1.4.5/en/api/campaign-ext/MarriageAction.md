@@ -1,30 +1,31 @@
 ---
 title: "MarriageAction"
-description: "Commits a model-approved Hero marriage, applies the relation and romance transitions, and reconciles Clan, governor, army, and party state."
+description: "Commits a Hero marriage already approved by the MarriageModel, applying relation and romance state and coordinating Clan, governor, army, and party state."
 ---
+
 # MarriageAction
 
 **Namespace:** `TaleWorlds.CampaignSystem.Actions`  
 **Module:** `TaleWorlds.CampaignSystem`  
 **Type:** `public static class MarriageAction`  
-**Base:** none (static class)  
-**Source:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/MarriageAction.cs`
+**Base:** None (static class)  
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/MarriageAction.cs`
 
-## One-line responsibility
+## Overview
 
-Commits a suitable pair of Heroes to marriage and performs the related spouse, relation, romance, Clan, governor, army, party, and home-settlement updates.
+Commits a real Hero pair that has already passed the current `MarriageModel` eligibility check and been accepted by romance, barter, or a Campaign owner as spouses, writing the bidirectional spouse and relation state, ending the courtship, and completing the linked updates that Clan, governor, army, party, home settlement, romance state, and event notifications require; it is not responsible for previewing or deciding marriage eligibility.
 
-## Mental model
+## Mental Model
 
-`MarriageAction` is the Campaign **commit step**. The active [MarriageModel](../../campaign/MarriageModel) decides whether the couple is suitable, what relation increase applies, and which Clan should own the married Heroes afterward. `MarriageAction.Apply` consumes those decisions and immediately mutates the world; it is not a proposal, preview, barter acceptance, or suitability query.
+`MarriageAction` is the campaign-layer **commit step**. The current [MarriageModel](../../campaign/MarriageModel) decides whether the two are suitable to marry, how much relation to add, and which Clan should own the membership after marriage. `MarriageAction.Apply` consumes those decisions and changes the world immediately; it is not a proposal, preview, barter-accept, or eligibility-query interface.
 
-When the model rejects the pair, the method prints a diagnostic and returns without changing either Hero. When it accepts the pair, the source first sets both `Spouse` references and applies the effective relation increase. It chooses the post-marriage Clan, dispatches `CampaignEvents.BeforeHeroesMarried`, then reconciles each Hero whose Clan differs from that result. That reconciliation can remove a governor, detach or disband an army, finish hostile actions, remove the Hero from a party roster, make the Hero fugitive, disband a Lord party, change the Hero's Clan, and update home settlements. Finally it ends both courtships and applies [ChangeRomanticStateAction](../ChangeRomanticStateAction) with `RomanceLevelEnum.Marriage`.
+When the model rejects, the method just emits diagnostics and returns, changing neither Hero. When the model accepts, the source first writes `Spouse` bidirectionally, then applies the effective relation delta, computes the post-marriage Clan, then raises `CampaignEvents.BeforeHeroesMarried`, then processes the Hero whose Clan differs. This cleanup may remove a governor, leave or disband an army, end hostile actions, remove the Hero from the party roster, turn the Hero into a fugitive, disband the lord party, update the Clan, and update the home settlement. Finally it ends the courtship for both and writes `RomanceLevelEnum.Marriage` via [ChangeRomanticStateAction](../ChangeRomanticStateAction).
 
-The event name contains `Before`, but in v1.4.5 it is dispatched **after** spouse and relation state have been written and **before** the Clan-change cleanup and final romantic-state action. Listeners must use the supplied Heroes and not assume every final side effect has already happened.
+The event name contains `Before`, but in v1.4.5 it is dispatched after the spouse and relation are written and the Clan cleanup and final romance state are not yet complete. Listeners must use the Hero from the parameters and must not assume all final side effects have finished.
 
-Use this Action only after the owning romance, barter, or campaign flow has acquired live Heroes and deliberately accepted the model result. Do not set `Hero.Spouse` directly, and do not call it merely to ask whether two Heroes can marry.
+Call it only after romance, barter, or the campaign flow have obtained live Heroes and explicitly accepted the model result. Do not set `Hero.Spouse` directly, and do not call it just to ask whether the two can marry.
 
-## Dependency graph
+## Dependencies
 
 ```text
 Romance / barter / campaign owner
@@ -36,11 +37,11 @@ Romance / barter / campaign owner
           -> ChangeRomanticStateAction(Marriage)
 ```
 
-**Upstream:** [MarriageModel](../../campaign/MarriageModel), [Hero](../../campaign/Hero), romance behaviors, and the [MarriageBarterable](../../campaign/MarriageBarterable) flow provide the pair and the acceptance decision.  
-**Downstream:** [CampaignEvents](../../campaign/CampaignEvents) and [CampaignEventDispatcher](../../campaign/CampaignEventDispatcher) notify Behaviors; [Clan](../../campaign/Clan), [MobileParty](../../campaign/MobileParty), and settlement/governor systems consume the resulting ownership and location changes.  
+**Upstream:** [MarriageModel](../../campaign/MarriageModel), [Hero](../../campaign/Hero), the romance Behavior, and the [MarriageBarterable](../../campaign/MarriageBarterable) flow supply the pairing and acceptance result.  
+**Downstream:** [CampaignEvents](../../campaign/CampaignEvents) and [CampaignEventDispatcher](../../campaign/CampaignEventDispatcher) notify Behaviors; [Clan](../../campaign/Clan), [MobileParty](../../campaign/MobileParty), and the settlement/governor systems consume the membership and position changes.  
 **Related Actions:** [ChangeRelationAction](../ChangeRelationAction), [ChangeRomanticStateAction](../ChangeRomanticStateAction), [ChangeGovernorAction](../ChangeGovernorAction), [DisbandArmyAction](../DisbandArmyAction), [MakeHeroFugitiveAction](../MakeHeroFugitiveAction).
 
-## Key entry point and state order
+## Key Entry Points & State Order
 
 ### `Apply`
 
@@ -48,32 +49,32 @@ Romance / barter / campaign owner
 public static void Apply(Hero firstHero, Hero secondHero, bool showNotification = true)
 ```
 
-`showNotification` is passed to `OnBeforeHeroesMarried`; the relation change itself is called with `showQuickNotification: false`. The method has no result or rollback object. The important observable order is:
+`showNotification` is passed to `OnBeforeHeroesMarried`; the relation Action is called with `showQuickNotification: false`. The important observable order is:
 
-1. `MarriageModel.IsCoupleSuitableForMarriage` gates the whole operation.
-2. `Spouse` is assigned in both directions.
-3. `ChangeRelationAction.ApplyRelationChangeBetweenHeroes` applies the model's effective increase.
-4. `MarriageModel.GetClanAfterMarriage` chooses the destination Clan; the Hero argument order may be swapped so the destination-side Hero is processed first.
-5. `CampaignEvents.BeforeHeroesMarried` is dispatched.
-6. Clan-change cleanup runs for each Hero that must move.
-7. Courtships end and `ChangeRomanticStateAction.Apply` marks the romance level as marriage.
+1. `MarriageModel.IsCoupleSuitableForMarriage` first decides whether the whole operation continues.
+2. Write `Spouse` bidirectionally.
+3. `ChangeRelationAction.ApplyRelationChangeBetweenHeroes` applies the relation delta computed by the model.
+4. `MarriageModel.GetClanAfterMarriage` chooses the target Clan; the source may swap the Hero argument order so the Hero on the target-Clan side is processed first.
+5. Dispatch `CampaignEvents.BeforeHeroesMarried`.
+6. Perform Clan cleanup for any Hero that needs to migrate.
+7. End the courtship and write the marriage romance state via `ChangeRomanticStateAction.Apply`.
 
-## Model versus Action
+## Model/Action Boundary
 
-Use the model to answer a question or build a proposal, and use the Action only after that proposal is accepted:
+Use the Model to query and construct proposals; call the Action only after the proposal/decision is accepted:
 
-| Goal | Correct boundary | Why |
+| Goal | Correct boundary | Reason |
 | --- | --- | --- |
-| Check whether a pair is eligible | `Campaign.Current.Models.MarriageModel.IsCoupleSuitableForMarriage` | It does not mutate Heroes. |
-| Compute relation or destination Clan | `GetEffectiveRelationIncrease` / `GetClanAfterMarriage` | The active model owns game-rule variation. |
-| Commit the accepted marriage | `MarriageAction.Apply` | It performs the coupled state and event cascade. |
-| Observe a committed marriage | `CampaignEvents.BeforeHeroesMarried` | It is a notification boundary, not a second commit path. |
+| Check pair eligibility | `Campaign.Current.Models.MarriageModel.IsCoupleSuitableForMarriage` | Does not change the Hero. |
+| Compute relation or target Clan | `GetEffectiveRelationIncrease` / `GetClanAfterMarriage` | The current Model holds the versioned rules. |
+| Commit an accepted marriage | `MarriageAction.Apply` | Performs the full state and event cascade. |
+| Observe a marriage commit | `CampaignEvents.BeforeHeroesMarried` | It is a notification boundary, not a second commit entry. |
 
-## Real current-Campaign examples
+## Real Current-Campaign Examples
 
-### Choose a live model-approved partner
+### Pick a model-approved spouse from the current Campaign
 
-The stock campaign obtains Heroes from the current romance/offer flow. This example uses the same live Campaign collection and asks the active model before committing:
+The vanilla campaign obtains Heroes from the current romance/offer flow. The example below uses the same set of live objects and queries the current Model before committing:
 
 ```csharp
 using System.Linq;
@@ -95,9 +96,9 @@ public static void MarryMainHeroWithEligibleHero()
 }
 ```
 
-This is an immediate world change. A real mod should place it behind its own accepted quest, barter, or decision state rather than using “first suitable Hero” as a player-facing marriage proposal system.
+This is an immediate world change. A real mod should place it after its own already-accepted quest, barter, or decision state, and should not treat "the first eligible person" as a player-facing proposal system.
 
-### Observe the pre-cleanup event
+### Observe the pre-marriage cleanup-stage event
 
 ```csharp
 using TaleWorlds.CampaignSystem;
@@ -113,21 +114,21 @@ private void OnBeforeHeroesMarried(Hero firstHero, Hero secondHero, bool showNot
 }
 ```
 
-Read the supplied Heroes at the callback. Do not assume the outgoing party, governor, or final romance cleanup is already complete at this point.
+Read the passed-in Hero in the callback; do not assume the outgoing party, governor, or final romance cleanup is already complete.
 
-## Risks and save boundaries
+## Risks & Save Boundaries
 
-- **The Action trusts Campaign state.** It immediately reads `Campaign.Current.Models`; calling it during module load, the main menu, or Campaign teardown can fail before any useful result is available.
-- **An unsuitable pair is a no-op, not a recoverable failure.** Check the active model first when a UI or quest needs to explain rejection; do not infer acceptance from a call returning.
-- **Spouse writes are coupled.** Directly setting one `Spouse` property skips relation, courtship, romantic-state, Clan, and party cleanup and can leave a save with asymmetric marriage state.
-- **Clan movement has destructive side effects.** A Hero who changes kingdom context may be detached from an army; an army leader can cause the army to disband. A Lord party led by the moving Hero can enter the disband path.
-- **Governor and party references can disappear during the call.** Behaviors listening to the event should copy stable IDs and reacquire live objects on later ticks instead of continuing to use a party or governor reference as if nothing changed.
-- **Event timing is not final-state timing.** `BeforeHeroesMarried` fires after spouse/relation writes but before Clan reconciliation and final romance state. Do not recursively call `MarriageAction.Apply` for the same pair from the listener.
-- **Save boundary:** persistent mod state should record stable Hero IDs and its own accepted decision state. Do not serialize a temporary pair reference or assume a saved event listener will be restored by `SyncData`.
+- **The Action trusts Campaign state.** It reads `Campaign.Current.Models` immediately; calling it during module load, the main menu, or the Campaign teardown phase may fail before returning.
+- **An unsuitable pair is a no-op.** If the UI or a quest needs to explain a rejection, query the current Model first; do not read "the call returned" as acceptance success.
+- **The Spouse write is a coupled operation.** Setting only one side's `Spouse` skips relation, courtship, romance state, Clan, and party cleanup, which can leave an asymmetric marriage in the save.
+- **Clan movement has destructive side effects.** When a Hero moves across kingdom contexts it may leave an army; an army leader may cause the army to disband; a lord party's leader may enter the disband path.
+- **Governor and party references may go stale during the call.** Event listeners should copy stable ids, re-acquire objects on later ticks, and not keep treating the old party or governor reference as unchanged.
+- **Event timing is not final-state timing.** `BeforeHeroesMarried` fires after spouse/relation are written but before Clan coordination and the final romance state. Do not recursively call `MarriageAction.Apply` on the same pair from a listener.
+- **Save boundary:** persist stable Hero ids and your own accepted-decision state, do not serialize transient pairing references, and do not assume the save's event listeners are restored by `SyncData`.
 
 ## Navigation
 
 - **Parent:** [Campaign extension API](../) · [Campaign system](../../campaign/)
 - **Siblings:** [ChangeRelationAction](../ChangeRelationAction) · [ChangeRomanticStateAction](../ChangeRomanticStateAction) · [ChangeKingdomAction](../ChangeKingdomAction)
 - **Related entities:** [Hero](../../campaign/Hero) · [Clan](../../campaign/Clan) · [MobileParty](../../campaign/MobileParty) · [MarriageModel](../../campaign/MarriageModel)
-- **Events and cleanup:** [CampaignEvents](../../campaign/CampaignEvents) · [ChangeGovernorAction](../ChangeGovernorAction) · [DisbandArmyAction](../DisbandArmyAction) · [MakeHeroFugitiveAction](../MakeHeroFugitiveAction)
+- **Events & cleanup:** [CampaignEvents](../../campaign/CampaignEvents) · [ChangeGovernorAction](../ChangeGovernorAction) · [DisbandArmyAction](../DisbandArmyAction) · [MakeHeroFugitiveAction](../MakeHeroFugitiveAction)

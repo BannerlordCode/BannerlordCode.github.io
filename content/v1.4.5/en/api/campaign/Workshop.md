@@ -1,6 +1,6 @@
 ---
 title: "Workshop"
-description: "A town workshop's persistent owner, production ledger, daily processing, and campaign-safe mutation boundaries."
+description: "A concrete workshop instance inside a town in the campaign: it binds its owning settlement, owning hero, and production type, and records working capital, profit/loss, and daily production progress — the carrier of workshop economy and player investment."
 ---
 # Workshop
 
@@ -8,176 +8,242 @@ description: "A town workshop's persistent owner, production ledger, daily proce
 **Module:** `TaleWorlds.CampaignSystem`  
 **Type:** `public class Workshop : SettlementArea`  
 **Base:** `SettlementArea`  
-**Source:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Workshops/Workshop.cs`  
-**Persistence role:** a saveable production area in a town; its host settlement, owner, type, capital, production progress, and last-run time are part of the Campaign object graph.
+**File:** `TaleWorlds.CampaignSystem/Settlements/Workshops/Workshop.cs`
 
-## Overview and mental model: what a workshop represents
+## Overview
 
-`Workshop` is one fixed production slot in a town. It connects four different concerns that should not be collapsed into one object:
+`Workshop` is the **runtime instance of one specific workshop in one specific town** in the Bannerlord campaign world — not the "type definition" of a workshop (that is [`WorkshopType`](../WorkshopType)), and not the daily production logic of a workshop (that lives in [`WorkshopsCampaignBehavior`](../WorkshopsCampaignBehavior)). It binds four things together:
 
-- **Place:** `Settlement` and `Tag` identify the slot. The collection that actually holds the slots is `Settlement.Town.Workshops`, so a workshop is not an independent map party or a free-standing settlement.
-- **Person:** `Owner` is a [Hero](../Hero), not a [Clan](../Clan). `Hero.OwnedWorkshops` is the saved reverse collection. A clan reaches workshop income through its leader's assets; it does not directly own a workshop list.
-- **Recipe:** `WorkshopType` is the XML/object-manager definition that supplies one or more production recipes. Its input/output categories and base conversion speeds are shared definition data, not per-workshop mutable data.
-- **Ledger:** `Capital`, `InitialCapital`, progress, and `LastRunCampaignTime` describe the running business state. They are not player gold and they are not a transaction log.
+- **Location and ownership**: which town ([`Settlement`](../Settlement/) / [`Town`](../Town/)) it belongs to, which hero ([`Hero`](../Hero/)) owns it, and its unique tag `Tag` in the town.
+- **Production type**: `WorkshopType` decides which raw materials ([`ItemCategory`](../../campaign-ext/)) it turns into which goods, and how fast.
+- **Ledger**: `Capital` (current working capital), `InitialCapital` (starting capital), `ProfitMade` (cumulative profit), `Expense` (daily overhead).
+- **Production progress**: `_productionProgress[]` (one 0~1 progress per `WorkshopType.Productions`).
 
-Use `Workshop` to inspect an existing town business or to give the native Campaign flow a real target. Do not construct one to add a business to a settlement. Town initialization, Hero reverse ownership, workshop behavior data, save registration, and Campaign events form one lifecycle.
+Nearly every "workshop mod" touches it: reading which shops the player runs in a town, seeing which one is profitable, switching one to another production, or injecting capital into one. Note that `Workshop` is only a **state and ownership container**; the actual "produce / sell / deduct money every day" is driven by `WorkshopsCampaignBehavior`'s daily tick and reads its economic parameters through [`WorkshopModel`](../WorkshopModel).
 
-## Dependencies and lifecycle boundary
+## Mental Model
 
-The upstream entities and rule entry points are [Settlement](../Settlement), [Town](../Town), [Hero](../Hero), and [WorkshopType](../WorkshopType); together they define the workshop's place, owner, definition, and active rules. The downstream [ClanFinanceModel](../ClanFinanceModel) only withdraws income during the finance workflow and does not replace the workshop's daily behavior.
+Think of `Workshop` as **"the business license plus ledger of one shopfront in a town"**:
 
-```mermaid
-graph TD
-    Settlement[Settlement] --> Town[Town.Workshops]
-    Town --> Workshop[Workshop slot and ledger]
-    Workshop --> Owner[Hero Owner]
-    Owner --> Owned[Hero.OwnedWorkshops]
-    Type[WorkshopType] --> Workshop
-    Model[WorkshopModel] --> Production[Speed, cost, limits]
-    Behavior[WorkshopsCampaignBehavior] --> Production
-    Finance[ClanFinanceModel] --> Owner
-    OwnerAction[ChangeOwnerOfWorkshopAction] --> Workshop
-    Events[CampaignEvents] --> Behavior
-```
+- It lives in the **campaign layer**, not in the battle scene (Mission). A workshop does not become an `Agent` when a battle starts.
+- One `Workshop` instance corresponds to one **fixed slot in a town** (unique `Tag`). The slots are allocated at game start by `Town.InitializeWorkshops(...)`, and the `Workshop[]` array length is fixed; the `Workshop` you get is an already-existing, serialized object, so **do not `new Workshop(...)` yourself**.
+- It **does not run the production calculation**: `ChangeGold`, `SetProgress`, `UpdateLastRunTime` are all "passive records", called by `WorkshopsCampaignBehavior.DailyTickTown` inside each town's daily tick. Calling them yourself is equivalent to editing the ledger by hand, and desyncs from the behavior's internal warehouse / progress data.
+- **When to call `Workshop`'s methods directly**: read-only (see profit, see ownership, see progress), or use `SetCustomName` to rename the shop.
+- **When not to call the mutation methods directly**: changing owner, changing production type, or changing capital should go through the corresponding Action (`ChangeOwnerOfWorkshopAction`, `ChangeProductionTypeOfWorkshopAction`, `InitializeWorkshopAction`), otherwise you bypass behavior data and events — see the Risks section below.
+- **Dependencies**: upstream it depends on `WorkshopType` (an `MBObjectBase` loaded from XML) and `WorkshopModel` (economic parameters); downstream it is read by `WorkshopsCampaignBehavior` (daily tick), the `Clan` finance panel, and the warehouse UI; changes are broadcast through `CampaignEventDispatcher`.
 
-## Find a real workshop first
+## Dependencies
 
-Choose the route that matches the question. Both routes are valid only after a Campaign has started.
+| Direction | Node | Relationship |
+|-----------|------|--------------|
+| Upstream (definition / parameters) | [WorkshopType](../WorkshopType) | Decides the production recipe `Productions`, name, and hidden state |
+| Upstream (parameters) | [WorkshopModel](../WorkshopModel) | Source of `InitialCapital` / `DailyExpense` / `CapitalLowLimit`, etc. |
+| Downstream (driver) | [WorkshopsCampaignBehavior](../WorkshopsCampaignBehavior) | Calls `SetProgress` / `ChangeGold` / `UpdateLastRunTime` in the daily tick |
+| Downstream (mutation entry) | [ChangeOwnerOfWorkshopAction](../../campaign-ext/ChangeOwnerOfWorkshopAction/) · [ChangeProductionTypeOfWorkshopAction](../../campaign-ext/ChangeProductionTypeOfWorkshopAction/) · [InitializeWorkshopAction](../../campaign-ext/InitializeWorkshopAction/) | Correct entries for changing owner / switching production / opening a shop at game start |
+| Events | [CampaignEventDispatcher](../CampaignEventDispatcher) | `OnItemProduced` / `OnItemConsumed`; `WorkshopOwnerChangedEvent` / `WorkshopTypeChangedEvent` |
+| Warehouse interface | [IWorkshopWarehouseCampaignBehavior](../IWorkshopWarehouseCampaignBehavior) | The player workshop's warehouse in/out ratio and raw-material checks |
+| Ownership | [Hero](../Hero/) · [Clan](../Clan/) | `Owner.OwnedWorkshops` holds the reverse reference; the player's shops count toward clan finances |
+| Container | [Town](../Town/) · [Settlement](../Settlement/) | `Town.Workshops` is the acquisition entry; `Settlement` is the geographic location |
 
-| Question | Real route | Why it matters |
-| --- | --- | --- |
-| "Which workshop is at this town?" | `Settlement.CurrentSettlement -> Town -> Workshops` | A workshop belongs to a town component; a village or a settlement without a `Town` has no workshop array. |
-| "Which businesses does this hero own?" | `Hero.MainHero.OwnedWorkshops` or another live hero's `OwnedWorkshops` | This is the owner-side reverse view used by the finance model. |
-| "Which definition is this?" | `workshop.WorkshopType`, then `WorkshopType.Find(id)` or `WorkshopType.All` | `WorkshopType.All` delegates to the active `Campaign`; it is not available before Campaign initialization. |
-| "What are the current rules?" | `Campaign.Current.Models.WorkshopModel` and `ClanFinanceModel` | Models supply the active rules and may differ from the native default implementation. |
+## Risks
 
-The inspection below deliberately starts at the current settlement, then confirms that the selected workshop is really player-owned. It also demonstrates the native `WorkshopType.Find` lookup with the `artisans` id used during new-game workshop setup.
+> Directly changing a `Workshop`'s low-level setter without going through an Action is the most common source of "save corruption / black-screen warehouse" bugs in workshop mods.
+
+1. **Changing owner / switching production must go through the Action — do not bare-call `ChangeOwnerOfWorkshop` / `ChangeWorkshopProduction`.** Those two methods only change fields; `WorkshopsCampaignBehavior` maintains the player workshop's `_workshopData` (warehouse progress, stock ratio) and `_warehouseRosterPerSettlement` only inside `OnWorkshopOwnerChanged` / `OnWorkshopTypeChanged`. A bare call desyncs the "warehouse data" from the actual workshop: when the player opens the "enter warehouse" menu in town they may get a mismatched `ItemRoster`, or even silently lose the warehouse because `_workshopData` cannot find the corresponding entry. See Example 2 for the correct approach.
+2. **`SetProgress(i, value)` throws `IndexOutOfRangeException` on out-of-range.** The `_productionProgress` array length is exactly `WorkshopType.Productions.Count`. Any `i` must satisfy `0 <= i < WorkshopType.Productions.Count`. After switching production the array is rebuilt by `ChangeWorkshopProduction`, and the old index meaning has changed.
+3. **Do not pump capital with `ChangeGold` arbitrarily.** `Capital` is managed by the daily tick's `HandlePlayerWorkshopExpense` / `HandleNotableWorkshopExpense`; when capital drops below `CapitalLowLimit` and the owner cannot pay the overhead, the behavior triggers `ChangeWorkshopOwnerByBankruptcy` (via `ChangeOwnerOfWorkshopAction.ApplyByBankruptcy`, the shop is taken over by a notable). Yanking `Capital` up hides the bankruptcy logic, and pulling it down directly triggers an early bankruptcy transfer.
+4. **Do not `new Workshop(...)` to build your own instance.** Slots and serialization are owned by the engine; on load, `AfterLoad()` corrects `_productionProgress` length to `WorkshopType.Productions.Count` and pushes instances with `LastRunCampaignTime == CampaignTime.Zero` to "now". A self-`new`'d object is neither saved nor present in `Town.Workshops`, and may instead become an orphan reference.
+5. **`WorkshopType` is an `MBObjectBase` (loaded from module XML), cannot be `new`'d.** Obtain it through `WorkshopType.Find(id)` or `WorkshopType.All`; passing a non-existent / `null` type to `InitializeWorkshop` / `ChangeWorkshopProduction` will crash at `type.Productions`.
+6. **Changing `Capital` / `ProductionProgress` outside the daily tick may desync from the behavior's `_workshopData`.** If you must change them, prefer operating inside a `CampaignBehaviorBase` `DailyTickTownEvent` subscription, where the behavior itself is running the same step.
+
+## How to Obtain
 
 ```csharp
-using System.Linq;
-using TaleWorlds.CampaignSystem;
+// 路径 1：从当前所在城镇拿到全部工坊（每个元素是 Workshop）
+Town town = Settlement.CurrentSettlement.Town;
+Workshop[] workshops = town.Workshops;
+foreach (Workshop w in workshops)
+{
+    // w 是一间具体工坊
+}
+
+// 路径 2：从某个英雄拿到其拥有的全部工坊
+MBReadOnlyList<Workshop> owned = Hero.MainHero.OwnedWorkshops;
+foreach (Workshop w in owned)
+{
+    // 玩家开的铺子
+}
+
+// 路径 3：从 WorkshopType 的定义反查“所有此类工坊”并没有直接索引，
+// 通常遍历 Town.Workshops 按 w.WorkshopType 过滤：
+foreach (Town t in Town.AllTowns)
+{
+    foreach (Workshop w in t.Workshops)
+    {
+        if (w.WorkshopType == WorkshopType.Find("brewery"))
+        {
+            // 找到所有酿酒坊
+        }
+    }
+}
+```
+
+> `Town.Workshops` is a `Workshop[]`; `Hero.OwnedWorkshops` is an `MBReadOnlyList<Workshop>`. Both reference the same set of instances.
+
+## Key Members (by topic)
+
+### Identity and ownership
+
+#### `public override Settlement Settlement { get; }`
+The town this workshop belongs to ([`Settlement`](../Settlement/)). Read-only, injected at construction by `Town.InitializeWorkshops`, and serialized. **When to call**: any logic that needs to know "where this shop is" (e.g. neighboring-village supply, town tax judgment).
+
+#### `public override string Tag { get; }`
+The workshop's unique short tag within the town (e.g. `"workshop_1"`). Participates in `GetHashCode()` together with `Settlement`. Read-only. **When to call**: when you need a stable way to distinguish multiple workshops in the same town (more robust than an array index).
+
+#### `public override Hero Owner { get; }`
+The current owning hero. Read-only property, but internally mutable; change should go through `ChangeOwnerOfWorkshopAction`. **Side-effect note**: `Owner.OwnedWorkshops` is maintained by the reverse list `AddOwnedWorkshop` / `RemoveOwnedWorkshop` — a bare `ChangeOwnerOfWorkshop` does sync that list, but does **not** sync the behavior's warehouse data (see Risks).
+
+#### `public override TextObject Name { get; }`
+Display name: prefers the custom name set by `SetCustomName`, otherwise `WorkshopType.Name`; if neither exists, returns `Empty Workshop`. Read-only. **When to call**: UI lists, logs, dialogue text.
+
+#### `public WorkshopType WorkshopType { get; private set; }`
+The workshop's current production type. Decides `Productions` (recipe), `IsHidden`, and name. **When to set**: only through `ChangeWorkshopProduction` or the corresponding `ChangeProductionTypeOfWorkshopAction`; do not assign `null`.
+
+### Operating state
+
+#### `public int Capital { get; private set; }`
+Current working capital. Increased / decreased by `ChangeGold`, deducted daily by overhead, increased when production is sold. **When to call**: to judge profitability or proximity to the bankruptcy threshold `WorkshopModel.CapitalLowLimit`.
+
+#### `public int InitialCapital { get; private set; }`
+The initial capital at game start / purchase. Set from `WorkshopModel.InitialCapital` inside `InitializeWorkshop`, then unchanged.
+
+#### `public int ProfitMade { get; }`
+Cumulative profit, computed as `MathF.Max(Capital - InitialCapital, 0)`. **Read-only, derived value**: the caller does not need to maintain it.
+
+#### `public int Expense { get; }`
+The fixed daily overhead, equal to `Campaign.Current.Models.WorkshopModel.DailyExpense`. **Read-only, derived value**; if `WorkshopType.IsHidden` is true, the behavior skips this overhead in the daily tick.
+
+#### `public CampaignTime LastRunCampaignTime { get; private set; }`
+The campaign time of the last production cycle. Written by `UpdateLastRunTime` as `CampaignTime.Now`. **When to call**: when you need to judge "how long since it last produced" or a cooldown.
+
+### Production progress
+
+#### `public float GetProductionProgress(int index)`
+Reads the progress (0~1) of the `index`-th recipe. `index` must be `< WorkshopType.Productions.Count`, otherwise out of range. **When to call**: read-only display of the progress bar, or to judge whether a recipe can produce this round.
+
+#### `public void SetProgress(int i, float value)`
+Writes the progress of the `i`-th recipe. `i` out of range throws `IndexOutOfRangeException`. **Side effect**: only changes this instance's array; `WorkshopsCampaignBehavior.RunTownWorkshop` accumulates `WorkshopModel.GetEffectiveConversionSpeedOfProduction` daily and writes back. **When to call**: generally do not call manually; if you must, do it inside a daily-tick subscription and ensure `i` is within `Productions.Count`.
+
+### Lifecycle and initialization
+
+#### `public Workshop(Settlement settlement, string tag)`
+**Engine-internal** constructor: allocates the slot, zeroes capital, does not bind `WorkshopType` and `Owner`. **Mods should not call it** — it is called by `Town.InitializeWorkshops`; afterwards, prefer `InitializeWorkshopAction.ApplyByNewGame`.
+
+#### `public void InitializeWorkshop(Hero owner, WorkshopType type)`
+Turns an empty slot into a real operating workshop: sets `WorkshopType`, `_owner` (and `owner.AddOwnedWorkshop(this)`), sets `Capital` / `InitialCapital` from `WorkshopModel.InitialCapital`, and allocates the progress array sized to `type.Productions.Count`. **The normal entry is** `InitializeWorkshopAction.ApplyByNewGame(workshop, owner, type)`; calling this method directly does not fire `WorkshopOwnerChangedEvent`, and for the player's shop does not build `_workshopData`.
+
+#### `internal void AfterLoad()`
+After save load, corrects: aligns `_productionProgress` length with `WorkshopType.Productions.Count` (rebuilds if inconsistent, == lost progress), and pushes `LastRunCampaignTime == Zero` to Now. **Not accessible to mods (internal)** — recorded here only so you do not mistakenly think you can manually "fix" progress.
+
+### Mutation operations (most should go through an Action)
+
+#### `public void ChangeOwnerOfWorkshop(Hero newOwner, WorkshopType type, int capital)`
+Low-level owner change: removes from old owner's `RemoveOwnedWorkshop`, adds to new owner's `AddOwnedWorkshop`, `Capital = capital`; if `type != WorkshopType`, also calls `ChangeWorkshopProduction`. **Side effect / risk**: syncs `Hero.OwnedWorkshops`, but does **not** sync `WorkshopsCampaignBehavior`'s warehouse data, and fires no event. Correct entry: `ChangeOwnerOfWorkshopAction.ApplyByPlayerBuying` / `ApplyByDeath` / `ApplyByBankruptcy`.
+
+#### `public void ChangeWorkshopProduction(WorkshopType newWorkshopType)`
+Changes production type and **rebuilds** the `_productionProgress` array (length = the new type's `Productions.Count`, old progress cleared). **Risk**: loses progress; a bare call fires no `WorkshopTypeChangedEvent`, and the player's shop's `_workshopData` is not refreshed. Correct entry: `ChangeProductionTypeOfWorkshopAction.Apply(workshop, newType, ignoreCost)`.
+
+#### `public void SetCustomName(TextObject customName)`
+Sets a custom shop name, overriding `WorkshopType.Name`. **Safe, can be called directly**: only changes the display name, no economic side effect. An empty name falls back to `WorkshopType.Name` or `Empty Workshop`.
+
+#### `public void ChangeGold(int goldChange)`
+`Capital += goldChange`. **Side effect**: directly touches the ledger. Called daily by `WorkshopsCampaignBehavior` when production is sold (added) and on overhead (subtracted). **When to call**: unless you explicitly want to inject / deduct capital, do not call it — it interferes with bankruptcy and profit/loss accounting.
+
+#### `public void UpdateLastRunTime()`
+`LastRunCampaignTime = CampaignTime.Now`. Called by `RunTownWorkshop` when there is production that day. **When to call**: after manually simulating a production cycle, if you need to refresh the timestamp, call it inside a daily-tick subscription.
+
+### Misc
+
+#### `public override int GetHashCode()`
+Hash based on `Settlement` and `Tag` (used to stably identify the same workshop in dictionaries / collections). Safe to use directly.
+
+#### `public override string ToString()`
+`Name.ToString() + " " + Settlement.ToString()`, for logs / debugging.
+
+## Typical Usage Examples
+
+### Example 1: List each workshop's name, type, and cumulative profit in the current town (read-only, safe)
+
+```csharp
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.CampaignSystem.Settlements.Workshops;
 
-public static class WorkshopInspection
+Town town = Settlement.CurrentSettlement.Town;
+foreach (Workshop workshop in town.Workshops)
 {
-    public static string ReadCurrentPlayerWorkshop()
-    {
-        Town town = Settlement.CurrentSettlement?.Town;
-        Workshop workshop = town?.Workshops.FirstOrDefault(
-            candidate => candidate.Owner == Hero.MainHero);
-
-        if (workshop == null)
-        {
-            return "No player-owned workshop at the current settlement.";
-        }
-
-        WorkshopType artisans = WorkshopType.Find("artisans");
-        int purchaseCost = Campaign.Current.Models.WorkshopModel
-            .GetCostForPlayer(workshop);
-
-        return $"{workshop.Name}: {workshop.WorkshopType.Name}; " +
-               $"capital={workshop.Capital}; price={purchaseCost}; " +
-               $"artisansRegistered={artisans != null}";
-    }
+    string name = workshop.Name.ToString();
+    string type = workshop.WorkshopType?.Name.ToString() ?? "(none)";
+    int profit = workshop.ProfitMade;
+    int capital = workshop.Capital;
+    InformationManager.DisplayMessage(
+        new InformationMessage($"{name} [{type}] 利润 {profit}, 资本 {capital}"));
 }
 ```
 
-`WorkshopType.Find` can return `null` when an id was not registered by the current module set. Check it before using the result. Do not cache a `WorkshopType`, `Workshop`, `Town`, or `Hero` across a save-load boundary; reacquire it from the current Campaign graph.
-
-## Production is a daily behavior, not an `IsRunning` flag
-
-There is no public `Workshop.IsRunning` property in 1.4.5. Do not invent one from capital, type, or the presence of a production recipe. The native `WorkshopsCampaignBehavior` subscribes to `DailyTickTownEvent`; for each `Town.Workshops` entry it:
-
-1. runs the production loop when the town is not rebellious;
-2. advances each `WorkshopType.Productions` entry by `WorkshopModel.GetEffectiveConversionSpeedOfProduction`;
-3. attempts input consumption and output production through the town market or the player warehouse path; and
-4. handles the daily expense even when production was skipped because the town is rebellious.
-
-`LastRunCampaignTime` is updated by the behavior only after its successful-run condition. It is useful diagnostic evidence, but it is not a general boolean answer to "is this workshop producing right now?" A recipe may exist yet have insufficient inputs, no affordable capital, a rebellious town, or a warehouse/market constraint. For an inspection UI, show the current type, each production's inputs/outputs, capital, and last-run time; describe that as state, not as a guaranteed production result.
-
-| Member | Read it for | Do not infer or do |
-| --- | --- | --- |
-| `WorkshopType.Productions` | configured input/output categories and base `ConversionSpeed` | Do not use a progress index after the type changes; the progress array is rebuilt to the new production count. |
-| `GetProductionProgress(index)` | per-recipe accumulated progress | Do not call with an index from an old type or assume progress `>= 1` guarantees a completed market transaction. |
-| `LastRunCampaignTime` | behavior-maintained execution evidence | Do not manually call `UpdateLastRunTime` to mark a workshop as running. |
-| `Expense` | the current `WorkshopModel.DailyExpense` | It is model-backed, not a saved per-workshop wage setting. |
-| `Capital` / `InitialCapital` | workshop ledger and its baseline | Neither is the owner's gold balance or a final profit report. |
-
-## Profit, expenses, and when income reaches a hero
-
-`ProfitMade` is exactly `max(Capital - InitialCapital, 0)`. It is an amount currently above the initial capital baseline, not a daily payout and not proof that the owner has already received gold.
-
-The default [ClanFinanceModel](../ClanFinanceModel) calculates owner income as the non-negative workshop profit divided by `RevenueSmoothenFraction()` (5 in the default implementation). During the clan's daily finance application, `ClanVariablesCampaignBehavior` asks `CalculateClanGoldChange(..., applyWithdrawals: true)`, the finance model withdraws a positive workshop share with `workshop.ChangeGold(-income)`, and the resulting clan total is transferred to the clan leader through `GiveGoldAction`. For the main hero, that withdrawal also raises the player asset-income event.
-
-This creates two separate daily paths:
-
-- **Town production and expense:** `DailyTickTownEvent` changes the workshop ledger. The player workshop normally pays its daily expense from capital while above the active low-capital limit; otherwise the behavior can use the owner's gold, fall back to capital, or transfer the workshop through bankruptcy. Notable workshops use their own capital and can also bankrupt.
-- **Clan finance withdrawal:** the finance behavior turns a positive part of the owner's workshop ledger into daily clan income and reduces that ledger when withdrawals are being applied.
-
-Consequently, a workshop can have positive `ProfitMade` before the finance pass, can lose capital to expense without producing, and can display a different value after the finance pass. Use `Campaign.Current.Models.ClanFinanceModel.CalculateOwnerIncomeFromWorkshop(workshop)` for the active-model estimate; do not pay the result yourself after also letting native daily finance run.
-
-## Mutation boundaries: Actions own the transaction and events
-
-The public low-level methods on `Workshop` are not a replacement for Campaign transactions. `ChangeOwnerOfWorkshop` does synchronize the old and new `Hero.OwnedWorkshops` collections, but it does not calculate the transaction, move gold, or broadcast the owner-change event. `ChangeWorkshopProduction` resets the progress array, but does not charge conversion cost or broadcast the type-change event. `ChangeGold` changes only the workshop ledger.
-
-| Intent | Use | What the Action preserves |
-| --- | --- | --- |
-| Player purchase | [ChangeOwnerOfWorkshopAction.ApplyByPlayerBuying](../../campaign-ext/ChangeOwnerOfWorkshopAction) | model purchase cost, initial capital, Hero reverse ownership, gold transfer, and `WorkshopOwnerChangedEvent` |
-| Player sale | `ApplyByPlayerSelling` after selecting a valid notable owner | notable sale value, reset capital, ownership lists, gold transfer, and the event |
-| Bankruptcy, war, or owner death | the matching `ApplyByBankruptcy`, `ApplyByWar`, or `ApplyByDeath` path | the scenario's capital/type policy plus ownership and event processing |
-| Production conversion | `ChangeProductionTypeOfWorkshopAction.Apply` | active-model conversion cost, progress reset, owner payment, and `WorkshopTypeChangedEvent` |
-| Native new-game initialization | `InitializeWorkshopAction.ApplyByNewGame` | initial capital, owner reverse list, generated owner name, and `WorkshopInitializedEvent` |
-
-These Actions are mutation mechanisms, not eligibility validators. The native conversation UI checks player gold and `GetMaxWorkshopCountForClanTier` before purchase, and uses `WorkshopModel.CanPlayerSellWorkshop`/`GetNotableOwnerForWorkshop` before a sale. A mod calling an Action directly must make equivalent phase and eligibility checks; otherwise the Action itself will still execute its limited transaction logic.
-
-This conversion example uses an existing player asset and a registered type. It pays the active model's cost through the Action, rather than trying to adjust capital or owner gold separately.
+### Example 2: Switch one of the player's workshops to "brewery" — through the correct Action
 
 ```csharp
-using System.Linq;
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Settlements.Workshops;
+using TaleWorlds.CampaignSystem.Actions;
 
-public static class WorkshopConversion
+// 获取目标工坊：玩家拥有的第一间，或任意 town.Workshops 元素
+Workshop playerShop = Hero.MainHero.OwnedWorkshops.FirstOrDefault();
+if (playerShop != null)
 {
-    public static bool ConvertFirstPlayerWorkshopToArtisans()
+    // 正确的转产入口：会扣转产费、同步 WorkshopsCampaignBehavior 的 _workshopData，
+    // 并广播 WorkshopTypeChangedEvent
+    WorkshopType brewery = WorkshopType.Find("brewery");
+    if (brewery != null && playerShop.WorkshopType != brewery)
     {
-        Workshop workshop = Hero.MainHero.OwnedWorkshops.FirstOrDefault();
-        WorkshopType targetType = WorkshopType.Find("artisans");
-
-        if (workshop == null || targetType == null ||
-            workshop.WorkshopType == targetType)
-        {
-            return false;
-        }
-
-        int cost = Campaign.Current.Models.WorkshopModel
-            .GetConvertProductionCost(targetType);
-        if (Hero.MainHero.Gold < cost)
-        {
-            return false;
-        }
-
-        ChangeProductionTypeOfWorkshopAction.Apply(workshop, targetType);
-        return true;
+        ChangeProductionTypeOfWorkshopAction.Apply(playerShop, brewery);
     }
 }
 ```
 
-Run such a world change from a valid Campaign interaction or behavior, not while enumerating a live ownership collection or inside an unrelated save/load callback. A type or ownership listener may rebuild player workshop/warehouse data immediately.
+> Contrast: directly calling `playerShop.ChangeWorkshopProduction(brewery)` also switches the type, but loses production progress and does not refresh the player's warehouse data, so over time the warehouse menu will disagree with reality. Always prefer `ChangeProductionTypeOfWorkshopAction` / `ChangeOwnerOfWorkshopAction`.
 
-## Save, event, and lifecycle risks
+### Example 3: Detect whether one of the player's workshops is near bankruptcy (read-only diagnosis)
 
-- **Saved graph, not detached data:** `Workshop` saves its settlement, owner, type, capital, initial capital, progress, and last-run time. `Town.Workshops` and `Hero.OwnedWorkshops` are saved from the other side. The workshop Campaign behavior separately saves player warehouse/workshop behavior data. Creating or replacing objects by hand can leave one of those structures absent.
-- **Load repair:** `Workshop.AfterLoad` resizes progress to the current `WorkshopType.Productions.Count` and gives a zero run time a current timestamp. The workshop behavior also rebuilds or removes player-specific data on game load. Reacquire references after loading instead of holding pre-load lists or production indices.
-- **Event observers:** owner and type Actions publish [CampaignEvents](../CampaignEvents) notifications. `WorkshopsCampaignBehavior` listens to both: when the player gains an asset it installs warehouse/workshop data; when ownership or type changes it refreshes or removes that data. Bypassing the Action can leave UI and warehouse state stale even if a field-level change appears correct.
-- **Settlement events can transfer assets:** the behavior also reacts to settlement ownership, war, clan-kingdom changes, and hero death. A player workshop in hostile territory can be transferred by the war path, and a dead notable owner is replaced through the death path. Do not assume `Owner` remains stable across one event callback or one daily tick.
-- **There is no independent destroy slot:** the v1.4.5 source exposes no public `DestroyWorkshopAction` or Workshop removal lifecycle. `Town.Workshops` is a fixed slot collection initialized by Town and included in the save graph; do not remove, null, or replace entries to simulate destruction. Use the native owner-change, bankruptcy, war, death, or production-change Action/Behavior for the relevant state transition so reverse collections, events, and save data stay coherent.
-- **No direct profitability write:** `Capital` has a private setter, but public `ChangeGold` is still a low-level ledger mutation. Writing a bonus directly skips the economic source, finance withdrawal timing, and any transaction semantics. Put a new economic rule in a suitable Model or controlled Campaign behavior and decide explicitly how it is saved.
+```csharp
+Workshop w = Hero.MainHero.OwnedWorkshops.FirstOrDefault();
+if (w != null)
+{
+    int lowLimit = Campaign.Current.Models.WorkshopModel.CapitalLowLimit;
+    bool nearBankruptcy = w.Capital <= lowLimit && w.Owner.Gold < w.Expense;
+    if (nearBankruptcy)
+    {
+        InformationManager.DisplayMessage(
+            new InformationMessage($"{w.Name} 即将破产（资本 {w.Capital} / 下限 {lowLimit}）"));
+    }
+}
+```
 
-## Navigation
+## Cross-Version Notes
 
-- ↑ Parent: [Campaign API](../)
-- ↔ Siblings: [Settlement](../Settlement) · [Town](../Town) · [Village](../Village) · [Clan](../Clan) · [Hero](../Hero)
-- Related: [WorkshopType](../WorkshopType) · [WorkshopModel](../WorkshopModel) · [ClanFinanceModel](../ClanFinanceModel) · [ChangeOwnerOfWorkshopAction](../../campaign-ext/ChangeOwnerOfWorkshopAction) · [CampaignEvents](../CampaignEvents) · [SaveManager](../../save-system/SaveManager)
+- **The `Workshop` public API is identical between v1.3.15 and v1.4.5**: `Workshop(Settlement, string)`, `InitializeWorkshop`, `ChangeOwnerOfWorkshop`, `ChangeWorkshopProduction`, `SetCustomName`, `ChangeGold`, `SetProgress`, `GetProductionProgress`, `UpdateLastRunTime`, `AfterLoad` (internal), `GetHashCode`, `ToString`, and all property names and signatures are unchanged.
+- `WorkshopType`'s `All` (`=> Campaign.Current.Workshops`) and `Find(string)` also exist in both versions; `Productions` is `MBReadOnlyList<WorkshopType.Production>`.
+- The behavior layer `WorkshopsCampaignBehavior`, the three Actions, and `WorkshopModel`'s economic parameters (`InitialCapital` / `DailyExpense` / `CapitalLowLimit`) also apply in v1.3.15, so cross-version mods can depend on them directly.
+
+## See Also
+
+- ↑ Parent: [Campaign API index](../../campaign/) · [API root](../../)
+- ↔ Siblings: [Town](../Town/) · [Settlement](../Settlement/) · [Village](../Village/) · [Hero](../Hero/) · [Clan](../Clan/) · [WorkshopData](../WorkshopData/) · [MobileParty](../MobileParty/) · [Campaign](../Campaign/)
+- Related types / behaviors / actions:
+  - [WorkshopType](../WorkshopType) — production type definition (recipe, name)
+  - [WorkshopModel](../WorkshopModel) — workshop economic parameters
+  - [WorkshopsCampaignBehavior](../WorkshopsCampaignBehavior) — daily-tick driver
+  - [InitializeWorkshopAction](../../campaign-ext/InitializeWorkshopAction/) — open a shop at game start
+  - [ChangeOwnerOfWorkshopAction](../../campaign-ext/ChangeOwnerOfWorkshopAction/) — change owner / buy / sell / bankruptcy
+  - [ChangeProductionTypeOfWorkshopAction](../../campaign-ext/ChangeProductionTypeOfWorkshopAction/) — switch production
+  - [CampaignEventDispatcher](../CampaignEventDispatcher) — production / consumption and workshop events
+  - [IWorkshopWarehouseCampaignBehavior](../IWorkshopWarehouseCampaignBehavior) — player warehouse in/out interface

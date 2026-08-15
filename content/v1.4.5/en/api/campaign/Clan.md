@@ -10,11 +10,11 @@ description: "The campaign political and economic container that connects a lead
 **Base:** [MBObjectBase](../../core/MBObjectBase)  
 **Source:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Clan.cs`
 
-## One-line responsibility
+## Overview
 
 `Clan` is the smallest political unit that groups `Hero` objects, fiefs, parties, and political resources; it may exist independently or belong to a `Kingdom`.
 
-## Mental model
+## Mental Model
 
 ### What it is
 
@@ -37,7 +37,7 @@ Treat a `Clan` as a family ledger and political boundary, not as an alias for on
 - **Do not write influence to simulate a transaction:** the `Influence` setter does not replace [ChangeClanInfluenceAction](../../campaign-ext/ChangeClanInfluenceAction), which raises the influence event.
 - **Do not treat a Clan as a Kingdom:** a clan may have no kingdom and may be a mercenary, bandit, or rebel faction. Check `Kingdom`, `IsBanditFaction`, `IsRebelClan`, and `IsEliminated` first.
 
-## Dependency graph
+## Dependencies
 
 ```mermaid
 graph TD
@@ -142,7 +142,7 @@ The Action raises the influence event; this is different from `clan.Influence +=
 
 This page uses the v1.4.5 `TaleWorlds.CampaignSystem/Clan.cs` and corresponding Action sources as its semantic authority. Cross-version mods should recheck `ChangeKingdomAction` reasons, mercenary behavior, and collection types instead of treating setter side effects from an older version as a stable contract.
 
-## Navigation
+## See Also
 
 - ↑ Parent: [Campaign API](../)
 - ↔ Siblings: [Hero](../Hero) · [Kingdom](../Kingdom) · [Settlement](../Settlement) · [MobileParty](../MobileParty) · [PartyBase](../PartyBase)

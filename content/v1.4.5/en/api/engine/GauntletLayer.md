@@ -1,42 +1,40 @@
 ---
-title: "GauntletLayer: Screen Layers, Movies, and Input Lifetime"
-description: "The v1.4.5 Gauntlet UI ScreenLayer implementation, covering UIContext, LoadMovie, ReleaseMovie, input order, and teardown."
+title: "GauntletLayer"
+description: "The ScreenLayer implementation behind the v1.4.5 Gauntlet UI: UIContext, LoadMovie, ReleaseMovie, input ordering, and release boundaries."
 ---
 # GauntletLayer
 
-## Metadata
+**Namespace:** `TaleWorlds.Engine.GauntletUI`  
+**Module:** `TaleWorlds.Engine.GauntletUI`  
+**Type:** `public class GauntletLayer`  
+**Base:** `ScreenLayer`  
+**File:** `bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/GauntletLayer.cs`
 
-- **Namespace:** `TaleWorlds.Engine.GauntletUI`
-- **Module:** `TaleWorlds.Engine.GauntletUI`
-- **Type:** `public class GauntletLayer`
-- **Base:** `ScreenLayer`
-- **Source:** `bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/GauntletLayer.cs`
+## Overview
 
-## Responsibility in one sentence
+`GauntletLayer` attaches one or more Gauntlet Movies to the input, focus, ordering, rendering, and destruction lifecycle of a `ScreenLayer`, and is responsible for the release ordering of the `UIContext` and Movie resources. It is one layer in the screen stack, not a global UI manager and not an object that can be kept alive across Missions.
 
-`GauntletLayer` attaches one or more Gauntlet movies to the `ScreenLayer` input, focus, render, and teardown lifetime.
+## Mental Model
 
-## Mental model
+It is a UI/Engine-layer screen layer, not a global UI manager and not a `ViewModel`. At construction it creates a `TwoDimensionContext`, a `UIContext`, and a gamepad navigation context. `LoadMovie` creates a `GauntletMovieIdentifier` / `IGauntletMovie` with a `ViewModel` data source and tracks it. The layer participates in input, layout, and rendering every frame, and `OnFinalize` checks whether any Movie is still unreleased.
 
-This is a UI/Engine screen layer, not a global UI manager and not a `ViewModel`. Construction creates a `TwoDimensionContext`, `UIContext`, and gamepad navigation context; `LoadMovie` creates and tracks a `GauntletMovieIdentifier`/`IGauntletMovie` for a `ViewModel` data source. The layer participates in input, layout, and render ticks, and `OnFinalize` checks for movies that were not released.
+A typical lifetime is: create the layer → configure `InputRestrictions` / focus → `LoadMovie` → add to `ScreenBase` or `MissionScreen` → on resource refresh, release and reload → on close, `ReleaseMovie`, remove the layer, finalize the VM. `UIContext` and the Movie depend on the UI resource table and the engine thread; a layer or movie must not be treated as a cross-screen reusable singleton.
 
-The normal lifetime is: create the layer → configure input restrictions/focus → `LoadMovie` → add it to a `ScreenBase` or `MissionScreen` → release and reload during resource refresh → `ReleaseMovie`, remove the layer, finalize the VM, and clear references on close. `UIContext` and movies depend on UI resource tables and the engine thread, so the layer or movie is not a cross-screen singleton.
+## When to Use / When Not to Use
 
-## When to use it, and when not to
+### When to Use
 
-### Use it when
+- A Screen or Mission needs to add a Gauntlet Movie to the screen stack as an orderable `ScreenLayer`.
+- You need to participate in input and focus management through `UIContext`, `GamepadNavigationContext`, `InputRestrictions`, or the layer's hit-test.
+- You need to preserve the Movie identifier, release the old resources, and reload from the same data source on a hot resource refresh.
 
-- A Screen or Mission needs a Gauntlet movie as a sortable `ScreenLayer` in the screen stack.
-- The UI needs `UIContext`, `GamepadNavigationContext`, `InputRestrictions`, or layer hit-testing for input and focus.
-- Resources may refresh and the layer must release movies and reload them from their original data sources.
+### When Not to Use
 
-### Do not use it when
+- Do not use it to replace `ScreenManager`, `ScreenBase`, or the Campaign/Mission lifecycle management.
+- Do not release only the ViewModel while leaving the Movie, and do not remove the layer without calling `ReleaseMovie`.
+- Do not load a Movie, access `UIContext`, or change bound data from a background thread; UI resources, input, and rendering must run in a stage the game supports.
 
-- Do not replace `ScreenManager`, `ScreenBase`, or Campaign/Mission lifetime management with a layer.
-- Do not finalize only the ViewModel while keeping a movie, or remove only the layer without calling `ReleaseMovie`.
-- Do not load movies, access `UIContext`, or change bound data from a background thread or unsupported game stage.
-
-## Dependency graph
+## Dependencies
 
 ```text
 ViewModel → GauntletLayer → UIContext / IGauntletMovie
@@ -46,28 +44,28 @@ ViewModel → GauntletLayer → UIContext / IGauntletMovie
           ScreenBase / MissionScreen
 ```
 
-- Upstream: [`ViewModel`](../../core-extra/ViewModel) supplies reflected properties, notifications, and commands; `GauntletMovieIdentifier` records a movie name, data source, and instance.
-- Base layer: `ScreenLayer` provides input context, ordering, activation/deactivation, focus, ticks, hit testing, and finalization.
-- Downstream: `UIContext`, `IGauntletMovie`, `TaleWorlds.GauntletUI.Data`, and TwoDimension resources turn the data source into widgets.
-- Host: `ScreenBase` or a [`Mission`](../../mission/Mission) screen adds and removes the layer and determines when it is valid.
+- Upstream: [`ViewModel`](../../core-extra/ViewModel) provides reflection-bound properties, notifications, and commands; `GauntletMovieIdentifier` records the movie name, data source, and instance.
+- Base class: `ScreenLayer` provides the input context, ordering, activate/deactivate, focus, tick, hit-test, and finalize.
+- Downstream: `UIContext`, `IGauntletMovie`, `TaleWorlds.GauntletUI.Data`, and the TwoDimension resources turn the data source into the interface.
+- Host: `ScreenBase` or [`Mission`](../../mission/Mission) screen objects add/remove the layer; they decide when the layer is valid.
 
-## Important members and timing
+## Key Members and Timing
 
-| Member | Use | Timing and side effects |
+| Member | Purpose | Timing and side effects |
 |---|---|---|
-| `GauntletLayer(string name, int localOrder, bool shouldClear)` | Create an ordered screen layer. | Construction initializes `UIContext` and the input/navigation bridge; create it only after the game UI system is ready. |
-| `UIContext` | Access the Gauntlet widget tree, events, scale, and usable area. | It is initialized and finalized by the layer; do not use it after the layer is destroyed. |
-| `GamepadNavigationContext` | Connect focused widgets to controller navigation. | It depends on the current layer's hit tests and screen order and cannot be shared across layers. |
-| `LoadMovie(string, ViewModel)` | Load a movie with a data source and return a `GauntletMovieIdentifier`. | The same layer must retain and release the identifier; the data source must expose bindable properties before loading. |
-| `GetMovieIdentifier(string)` | Find a tracked movie identifier by name. | A missing identifier is not non-null by contract; resource refresh may already have released it. |
-| `ReleaseMovie(GauntletMovieIdentifier)` | Release a movie and remove it from the layer's tracked collection. | Every successful load must be released, otherwise `OnFinalize` asserts and resources remain referenced. |
-| `OnResourceRefreshBegin/End` | Save identifiers, release movies, then reload them from their data sources. | Do not use an old `IGauntletMovie` during refresh; retrieve the identifier again after reload. |
-| `Tick`, `LateUpdate`, `RenderTick`, `Update` | Process input, layout, and rendering updates. | Scheduled by the screen/layer stack; do not simulate the complete lifetime from arbitrary business code. |
-| `OnFinalize`, `HitTest`, `FocusTest` | Tear down resources and participate in layer hit/focus decisions. | All movies must be released before finalization; order and restrictions affect other layers. |
+| `GauntletLayer(string name, int localOrder, bool shouldClear)` | Creates a screen layer with an ordering position. | Initializes `UIContext` and the input/navigation bridge at construction; must be created when the game UI system is ready. |
+| `UIContext` | Accesses the Gauntlet widget tree, event manager, scaling, and usable area. | Initialized and finalized by the layer; should not be used after the layer is destroyed. |
+| `GamepadNavigationContext` | Connects the focused widget with gamepad navigation. | Related to the current layer's hit-test and screen order; cannot be shared across layers. |
+| `LoadMovie(string, ViewModel)` | Loads a movie with a data source and returns a `GauntletMovieIdentifier`. | The identifier must be kept and released by the same layer; the data-source properties must be bindable before the movie loads. |
+| `GetMovieIdentifier(string)` | Finds an already-tracked movie identifier by name. | Do not assume non-null when not found; the identifier may already be released during a resource refresh. |
+| `ReleaseMovie(GauntletMovieIdentifier)` | Releases the movie and removes it from the layer's tracking list. | Every successfully loaded movie must be released, otherwise `OnFinalize` asserts and keeps the resource. |
+| `OnResourceRefreshBegin/End` | Saves the old identifier, releases the old movie, and reloads by data source. | Do not use the old `IGauntletMovie` during a refresh; re-fetch the identifier after reloading. |
+| `Tick`, `LateUpdate`, `RenderTick`, `Update` | Handle input, layout, and render updates. | Scheduled by `ScreenLayer` / the screen stack; do not manually simulate the full lifecycle from an arbitrary business thread. |
+| `OnFinalize`, `HitTest`, `FocusTest` | Finish resource cleanup and participate in layer hit/focus tests. | All movies must be released before finalize; input order and `InputRestrictions` affect upper/lower UI. |
 
-## Real Mission integration path
+## Real Mission Integration Path
 
-The v1.4.5 `MissionGauntletSiegeEngineMarker` call site shows the complete order:
+The v1.4.5 call site in `MissionGauntletSiegeEngineMarker` shows the full sequence:
 
 ```csharp
 _gauntletLayer = new GauntletLayer("MissionSiegeEngineMarker", ViewOrderPriority, false);
@@ -82,28 +80,28 @@ _gauntletLayer = null;
 _dataSource = null;
 ```
 
-This is the real Mission UI route: `MissionScreen` owns the layer and `_dataSource` is a concrete VM. The actual handler also unloads its sprite/resource category and must make the close hook idempotent.
+This is the real Mission UI path: `MissionScreen` hosts the layer, and `_dataSource` is the concrete VM. A real implementation must also handle sprite/resource categories in the close hook, and guarantee the close code runs exactly once.
 
-## Resource refresh and input
+## Resource Refresh and Input
 
-At refresh begin, the layer copies its current `GauntletMovieIdentifier` entries, releases each movie, and reloads them from the identifiers at refresh end. A cached old movie interface must therefore not be handed to a new layer or used during the gap.
+When a resource refresh begins, the layer copies the current `GauntletMovieIdentifier` list and calls `ReleaseMovie` on each; when the refresh ends it reloads by identifier. Therefore, during a refresh you must not cache the old Movie interface or hand it to a new layer.
 
-`ScreenLayer.InputRestrictions` controls which key, mouse, wheel, and controller inputs are allowed; `IsFocusLayer`, `FocusTest`, and `HitTest` determine which layer receives focus and input. Changing restrictions changes other layers on the same screen, so the host screen should configure them in order instead of taking focus every frame.
+`ScreenLayer.InputRestrictions` decides the allowed range of keyboard, mouse, wheel, and controller; `IsFocusLayer`, `FocusTest`, and `HitTest` together decide which layer input lands on. Changing input restrictions alters the behavior of other layers on the same screen, so it should be configured by the host screen in order, not by grabbing focus every frame.
 
-## Risks and boundaries
+## Risks and Boundaries
 
-- **Movie leaks:** `OnFinalize` checks `_movieIdentifiers`; finalizing without `ReleaseMovie` triggers an assertion and leaves resource references.
-- **Teardown order:** Remove or stop the host layer, release the movie, then call `OnFinalize` on the VM and clear the data source. Released objects must not receive event callbacks.
-- **UIContext lifetime:** `UIContext` becomes null after `ClearContext`; retaining a Widget, `IGauntletMovie`, or context for the next screen creates a stale reference.
-- **Input conflicts:** Layer order, focus, and `InputRestrictions` determine who consumes input. A wrong order can make a Mission control layer block a menu or let both UI and gameplay handle a key.
-- **Resource and thread boundary:** Movies, fonts, sprites, and TwoDimension resources require the supported initialization stage and game thread; do not create, refresh, or destroy a layer on a background thread.
-- **Mission lifetime:** After `MissionScreen` closes, a Mission behavior must not tick a removed layer. Clean it symmetrically in the corresponding destroy hook.
+- **Movie leak:** `OnFinalize` checks `_movieIdentifiers`; finalizing without calling `ReleaseMovie` triggers an assert and leaves a resource reference.
+- **Release order:** stop/remove the host layer first, then release the movie, then call the VM's `OnFinalize` and clear the data source. After the VM or movie is released, do not keep writing to it from event callbacks.
+- **UIContext lifecycle:** `UIContext` is null after `ClearContext`; keeping a `Widget`, `IGauntletMovie`, or context for the next screen produces a stale reference.
+- **Input conflict:** the layer's ordering, focus, and `InputRestrictions` together decide input consumption. The wrong order can let a mission action layer block the menu, or let UI and the game both respond to a key.
+- **Resource/thread boundary:** Movies, fonts, sprites, and TwoDimension resources require the correct game initialization stage and thread; do not create, refresh, or destroy a layer from a background thread.
+- **Mission lifecycle:** after `MissionScreen` closes, a Mission behavior must not keep ticking a removed layer; clean up symmetrically in the matching `OnDestroyView` / destroy hook.
 
-## Version note
+## Version Notes
 
-This page follows v1.4.5 `TaleWorlds.Engine.GauntletUI.GauntletLayer` and its Mission/UI call sites. Movie names, input resources, and concrete Screen hosts can vary by version; a movie name from one module is not a universal public API.
+This page is based on the v1.4.5 `TaleWorlds.Engine.GauntletUI.GauntletLayer` and the Mission/UI call sites. Gauntlet movie names, input resources, and the concrete Screen host may change across versions; do not treat one module's movie name as a public API across all versions.
 
-## Navigation
+## See Also
 
 - [↑ Engine API parent](../)
 - [↔ ViewModel](../../core-extra/ViewModel)

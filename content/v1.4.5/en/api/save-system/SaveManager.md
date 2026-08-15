@@ -1,6 +1,6 @@
 ---
 title: "SaveManager"
-description: "The static save-pipeline coordinator: establish type definitions, serialize a root object graph, and delegate persistence to an ISaveDriver."
+description: "The static orchestrator of the TaleWorlds.SaveSystem: it builds the DefinitionContext, drives SaveContext/LoadContext, and hands the result to an ISaveDriver."
 ---
 # SaveManager
 
@@ -8,127 +8,100 @@ description: "The static save-pipeline coordinator: establish type definitions, 
 **Module:** `TaleWorlds.SaveSystem`  
 **Type:** `public static class SaveManager`  
 **Base:** `System.Object`  
-**Source:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveManager.cs`
+**Source:** `TaleWorlds.SaveSystem/SaveManager.cs`
 
-## Overview and one-sentence role
+## Overview
 
-`SaveManager` coordinates one complete save or load: it collects save definitions from current assemblies, asks a context to traverse the root object graph, then lets an `ISaveDriver` persist or read the data. It is neither an inheritable mod service nor a per-Behavior save button.
+`SaveManager` is the flow controller of the save system, not the save-file-name manager and not a replacement API for Behavior state. It:
 
-## Mental model: ownership by layer
+- collects the save definitions in the current assembly through `InitializeGlobalDefinitionContext` and records definition errors;
+- creates a `SaveContext` with `Save(object target, MetaData metaData, string saveName, ISaveDriver driver)`, collects the object graph, and hands it to the driver to write the file;
+- creates a `LoadContext` with `Load(string saveName, ISaveDriver driver, bool loadAsLateInitialize)`, restores the root object, and returns a `LoadResult`;
+- exposes diagnostic/protocol entry points such as `CheckSaveableTypes()`, `LoadMetaData()`, and the `.sav` extension.
 
-Separate the pipeline into four layers before deciding where code belongs:
+Most mods should not replace the game's `ISaveDriver` or call the low-level contexts directly. A mod should first get its [SaveableTypeDefiner](../SaveableTypeDefiner/), field/property Attributes, and Behavior registration with [IDataStore](../../campaign/IDataStore) right, and let the game's existing save entry point handle them.
 
-1. **Definition layer.** `InitializeGlobalDefinitionContext()` creates the global `DefinitionContext` and calls `FillWithCurrentTypes()`. The scan instantiates non-abstract [SaveableTypeDefiner](../SaveableTypeDefiner) types in loaded assemblies, initializes each definer, then fills basic, class, struct, interface, enum, root-class, generic-struct, generic-class, and container definitions in order; conflict resolvers run **after** container definitions.
-2. **Object-graph layer.** `Save(target, ...)` creates a `SaveContext` from validated definitions and collects saveable members and references from `target`; `Load(...)` creates a fresh definition context and `LoadContext` for that operation and restores the root.
-3. **Storage layer.** `ISaveDriver` owns physical name, metadata, and byte-data I/O. `SaveManager` gives it version 1, `MetaData`, and `SaveData`, then exposes success, failure, or an in-progress result through `SaveOutput`.
-4. **Campaign Behavior layer.** [CampaignBehaviorManager](../../campaign/CampaignBehaviorManager) clears transient records on `OnBeforeSave` and calls [CampaignBehaviorBase](../../campaign/CampaignBehaviorBase) `SyncData(IDataStore)` for every behavior; on load it restores data by the behavior's `StringId`. This is the normal persistence route for a campaign mod's private state.
+## Mental Model
 
-So, **when a campaign feature needs a small amount of state**, register a `CampaignBehaviorBase` and use [IDataStore](../../campaign/IDataStore). **When a new reachable object type must participate in the object graph**, implement a `SaveableTypeDefiner`, mark members with `SaveableFieldAttribute` or `SaveablePropertyAttribute`, and preserve their IDs. **Do not use `SaveManager`** to read or write a campaign save from an event callback; the safe alternative is to let the game's campaign save flow call the behavior.
+Saving has four layers:
 
-## Dependency map
+1. Type-definition layer: `DefinitionContext.FillWithCurrentTypes()` reads the definers; on failure a save directly produces a `SaveOutput` error.
+2. Object-graph layer: `SaveContext.Save` collects members and references from `target`.
+3. File-driver layer: `ISaveDriver.Save` writes `SaveData` to the real storage and may return asynchronously.
+4. Restore layer: `LoadContext.Load` reads `LoadData`, then rebuilds the root object by definition; with late initialize it returns a callback initializer.
 
-```mermaid
-graph TD
-    DEF[SaveableTypeDefiner] --> CTX[DefinitionContext]
-    FIELD[SaveableFieldAttribute] --> CTX
-    PROP[SaveablePropertyAttribute] --> CTX
-    CTX --> SM[SaveManager]
-    SM --> SAVE[SaveContext]
-    SM --> LOAD[LoadContext]
-    SAVE --> DRIVER[ISaveDriver]
-    LOAD --> DRIVER
-    EVENTS[CampaignEvents.OnBeforeSaveEvent] --> CBM[CampaignBehaviorManager]
-    CBM --> BEHAVIOR[CampaignBehaviorBase.SyncData]
-    BEHAVIOR --> STORE[IDataStore]
-    CBM --> SAVE
-```
+`SaveManager` sets `_isLoading` to false during saving, to true during loading, and sets the current `OperatingVersion`. These are phase states internal to the save system, not a "pause switch" for a mod's business logic.
 
-- **Type definitions:** [SaveableTypeDefiner](../SaveableTypeDefiner) supplies type/container save IDs; [SaveableFieldAttribute](../SaveableFieldAttribute) and [SaveablePropertyAttribute](../SaveablePropertyAttribute) carry a member's `LocalSaveId`.
-- **Campaign bridge:** [CampaignBehaviorBase](../../campaign/CampaignBehaviorBase), [CampaignBehaviorManager](../../campaign/CampaignBehaviorManager), [IDataStore](../../campaign/IDataStore), and [CampaignEvents](../../campaign/CampaignEvents) bring behavior state into the campaign root graph.
-- **Same module:** [SaveContext](../SaveContext), [LoadContext](../LoadContext), [ISaveDriver](../ISaveDriver), [SaveOutput](../SaveOutput), and [LoadResult](../LoadResult) represent collection, restoration, I/O, and results.
+## Key Members
 
-## Key members and timing
+| Member | Role |
+| --- | --- |
+| `SaveFileExtension` | Fixed at `"sav"` |
+| `InitializeGlobalDefinitionContext()` | Creates and fills the global definition context, outputting definition errors |
+| `CheckSaveableTypes()` | Scans fields/properties types carrying a Saveable attribute but with no definition in the current context |
+| `Save(...)` | Builds the `SaveContext`, calls the driver to save, and returns `SaveOutput` |
+| `LoadMetaData(...)` | Asks only the driver to read the save metadata |
+| `Load(...)` | Builds the `LoadContext` and returns a `LoadResult` |
+| `ShouldResolveConflicts()` | Reflects whether a load flow is currently in progress, for the conflict-resolution logic |
 
-### Initialization and checking: `InitializeGlobalDefinitionContext`, `CheckSaveableTypes`
+## Real Example: Validate, Save, and Load
 
-`InitializeGlobalDefinitionContext()` replaces the global definition context and prints any definition errors it finds. `Save(...)` calls it when no context exists. If the context has errors, saving never starts object-graph traversal: every message becomes a `SaveError` in a failed `SaveOutput`.
-
-`CheckSaveableTypes()` is a pre-release diagnostic, and its timing precondition is strict: call it only after `InitializeGlobalDefinitionContext()` (or the host's equivalent save-system initialization) has completed. It directly dereferences the global `_definitionContext` while inspecting instance fields and properties in loaded assemblies; calling it before that definition context exists can null-reference. `Save(...)` has a lazy initialization branch, but `CheckSaveableTypes()` does not, so do not use this diagnostic as an early-startup probe. Once the context is initialized, a type marked through `SaveableFieldAttribute` or `SaveablePropertyAttribute` is returned when it lacks a definition, is not an interface, and has a `FullName`, with duplicates removed by `Type`. It is **not limited to value types**: a custom reference type such as `LedgerState` in an annotated field is returned just like an `int` when the current definition context does not know it. The list identifies “this member says it is saveable, but the definition layer does not know its type.” It does not register anything or repair duplicate IDs.
-
-A `SaveableTypeDefiner` combines its `saveBaseId` with each `saveId` to form type IDs, while fields and properties carry their own `LocalSaveId`. IDs, keys, and field types are long-lived data protocol. After release, they cannot be freely reordered as implementation details without changing how old saves are interpreted.
-
-### Saving: `Save`
-
-`Save` first clears its loading flag and records the application version from `MetaData`. With valid definitions it creates a `SaveContext`; only if `saveContext.Save(target, metaData, out errorMessage)` succeeds does it call `driver.Save(saveName, 1, metaData, saveContext.SaveData)`.
-
-The driver returns `Task<SaveResultWithMessage>`. If the task is already complete, `Save` reads `task.Result` inside its own `try/catch`: a non-success result becomes a failed `SaveOutput`, while an exception from the synchronous `driver.Save(...)` call or that immediate `Result` access becomes `GeneralFailure`. If the task is incomplete, `Save` returns a continuing `SaveOutput`; its later `ContinueWith` reads `t.Result.SaveResult` with no additional fault handling. Therefore, **a task that faults after `Save` has returned is not converted to `GeneralFailure` by that `Save` catch**, and can leave a faulted continuation or fail to populate a normal result. Continuing means neither that the file is durable nor that an asynchronous failure has been safely recorded. Before the operation returns, `OperatingVersion` is reset to empty, so it is not a mod's version-migration storage slot.
-
-### Loading: `LoadMetaData`, `Load`, `ShouldResolveConflicts`
-
-`LoadMetaData` only asks the driver for metadata and does not construct a root object. Every `Load` call creates and fills a new `DefinitionContext`, reads `LoadData`, then executes `LoadContext.Load`. The default overload passes `loadAsLateInitialize: false`; with true, a successful result carries a `LoadCallbackInitializator` for the host to run deferred initialization callbacks at the appropriate phase.
-
-From the beginning of loading until its result is returned, `ShouldResolveConflicts()` reflects the internal `_isLoading` flag. It is a phase signal for save-system conflict resolution, not proof that the world is stable or permission for a mod to cause side effects on partially restored objects.
-
-## Real integration example: let the campaign flow persist a Behavior
-
-This example does not call `SaveManager.Save` directly. It follows the game's real acquisition path: `MBSubModuleBase.InitializeGameStarter` receives a `CampaignGameStarter`, adds a behavior to it, then `CampaignBehaviorManager` registers events and calls `SyncData` before saving. The key is stable, namespaced, and versioned.
+This is the actual public call shape of `SaveManager` in the source. `ISaveDriver` and `MetaData` are normally provided by the game's save layer; a mod must not fake a driver to bypass the game's save UI.
 
 ```csharp
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.Core;
-using TaleWorlds.MountAndBlade;
+SaveManager.InitializeGlobalDefinitionContext();
+List<Type> missingTypes = SaveManager.CheckSaveableTypes();
 
-public sealed class DailyLedgerBehavior : CampaignBehaviorBase
+SaveOutput saveResult = SaveManager.Save(
+    Campaign.Current,
+    campaignMetaData,
+    "my_campaign_slot",
+    saveDriver);
+
+if (saveResult != null && saveResult.Successful)
 {
-    private int _observedDays;
-
-    public override void RegisterEvents()
+    LoadResult loadResult = SaveManager.Load("my_campaign_slot", saveDriver);
+    if (loadResult != null && loadResult.Successful)
     {
-        CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, OnDailyTick);
-    }
-
-    public override void SyncData(IDataStore dataStore)
-    {
-        dataStore.SyncData("ExampleMod.DailyLedger.ObservedDays.v1", ref _observedDays);
-    }
-
-    private void OnDailyTick()
-    {
-        _observedDays++;
-    }
-}
-
-public sealed class ExampleModSubModule : MBSubModuleBase
-{
-    protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
-    {
-        if (gameStarterObject is CampaignGameStarter campaignStarter)
-        {
-            campaignStarter.AddBehavior(new DailyLedgerBehavior());
-        }
+        Campaign loadedCampaign = (Campaign)loadResult.RootObject;
     }
 }
 ```
 
-On save, `CampaignBehaviorDataStore` puts each behavior's `SyncData` values in a record grouped by its `StringId`; on load it finds the same `StringId` and supplies the values back. Keep both the construction shape and storage keys stable, and do not invoke `RegisterEvents()` yourself more than once.
+The key point of the example is not to save actively inside a Behavior, but to guarantee that the object graph of `Campaign.Current` and all mod types are defined. If you only add Behavior fields, use [IDataStore](../../campaign/IDataStore); if you add a class that can be referenced by multiple objects, then add an Attribute and definer for that class.
 
-`SyncData` accepting a generic value does not make an arbitrary object graph serializable. The example only stores an `int`, for which a basic definition already exists. A custom class, a container with custom elements, or a runtime handle needs every reachable type/container defined, non-conflicting member IDs, and references that still have a valid owner after load. Delegates, UI objects, tasks, threads, transient caches, and objects that exist only during a Mission do not belong in a campaign save.
+## Load Phase and Late Initialization
 
-## Crash and corrupted-save boundaries
+`Load` defaults to `loadAsLateInitialize: false`. When you pass `true`, a successful result carries a `LoadCallbackInitializator` that the caller runs at an appropriate game stage to execute the deferred `[LoadInitializationCallback]`. This pairs with `MBObjectBase`'s `OnBeforeLoad`, `PreAfterLoad`, and `AfterLoad`; do not assume every derived system has finished its final initialization the instant `Load` returns.
 
-- **A missing definition is not a harmless warning.** Global definition errors make `Save` fail immediately; an Attribute identifies a member but cannot replace [SaveableTypeDefiner](../SaveableTypeDefiner) definitions for a new type or container.
-- **IDs, keys, and types are compatibility contracts.** Reusing a `saveBaseId` or local ID, changing a released `LocalSaveId`, or changing a `SyncData` key/value type can make an old save read the wrong field or fail to restore.
-- **An asynchronous failure is not always wrapped.** The internal catch protects a synchronous `driver.Save` call and `Result` access for an already-completed task; if a continuing task faults after return, `SaveOutput`'s continuation accesses `t.Result` outside that catch and does not turn it into `GeneralFailure`. Do not replace an older save, tear down dependent state, or report success merely because the output is continuing; the host must also handle the driver's task result.
-- **Do not mutate the world before load callbacks.** Late initialization lets the host defer callbacks. Creating/deleting Heroes, Parties, or Settlements, or re-registering events while restoration is incomplete, mixes side effects with incomplete references.
-- **Do not build an object graph in `OnBeforeSave`.** That event is suitable for preparing existing scalar state; actual persistence belongs in `SyncData`, and complex object definitions must be discoverable before saving starts.
-- **Do not bypass the campaign save entry point.** An ad hoc `ISaveDriver`, hand-assembled `MetaData`, or direct saving of `Campaign.Current` from an event bypasses the game's sequencing and UI management, risking races or overlapping saves.
+`LoadMetaData` only asks the driver and does not restore `RootObject`. `Save` may return a continuing state, because `ISaveDriver.Save` can complete asynchronously; the caller should handle the result from `SaveOutput` / the driver rather than immediately assuming the file is on disk.
 
-## Version note
+## Risks and Corrupt-Save Boundaries
 
-This page is grounded in the v1.4.5 source. Its public flow includes global definition initialization, missing-type checking, asynchronous driver results, `LoadMetaData`, and optional late initialization. Recheck source and your own save protocol before a cross-version release; a same-named method alone does not prove compatible IDs, definitions, or load order.
+- **Definition errors block saving.** The errors collected by `InitializeGlobalDefinitionContext` make `Save` return a failure; check [SaveableTypeDefiner](../SaveableTypeDefiner/) and all container/member definitions, and do not swallow the error with try/catch and keep publishing.
+- **The driver is not the definition layer.** `ISaveDriver` only handles metadata/data access; it will not fix a duplicated `LocalSaveId`, an unknown type, or an incompatible field.
+- **Saving is an async boundary.** `ISaveDriver.Save` returns `Task<SaveResultWithMessage>`; the save result may be continuing or failed. Do not overwrite the old save or exit a critical state before the result succeeds.
+- **Handle incompatible loads explicitly.** When `LoadResult` fails, the root object is null, or an old type does not match, do not feed a half-loaded object into the campaign tick.
+- **Do not treat phase state as game state.** `ShouldResolveConflicts()` is only the current load flag; `OperatingVersion` is not a substitute for a mod's own version field.
+- **Wrong late initialization.** Accessing a dependency object before the callback initializer runs produces null or order-dependent errors; put derived-reference restoration after an explicit `AfterLoad` / load-finished event.
 
-## Navigation
+## Cross-Version Notes
 
-- ↑ Parent: [save-system index](../)
-- ↔ Siblings: [SaveableTypeDefiner](../SaveableTypeDefiner) · [SaveableFieldAttribute](../SaveableFieldAttribute) · [SaveablePropertyAttribute](../SaveablePropertyAttribute) · [SaveContext](../SaveContext) · [LoadContext](../LoadContext)
-- Related: [CampaignBehaviorBase](../../campaign/CampaignBehaviorBase) · [CampaignBehaviorManager](../../campaign/CampaignBehaviorManager) · [IDataStore](../../campaign/IDataStore) · [CampaignEvents](../../campaign/CampaignEvents)
+Both 1.3.15 and 1.4.5 provide `.sav`, the definition context, `Save`, `LoadMetaData`, `Load`, and the late-initialize parameter. Internal implementations and official type definitions grow over time; a cross-version mod must keep its own type ID, member ID, key, and field types compatible, and must not rely on the absolute numbering of the official type table.
+
+## Dependencies
+
+- Definitions: [SaveableTypeDefiner](../SaveableTypeDefiner/), [SaveableFieldAttribute](../SaveableFieldAttribute/), [SaveablePropertyAttribute](../SaveablePropertyAttribute/).
+- Behavior: [IDataStore](../../campaign/IDataStore) is the correct entry point for a Behavior's private state.
+- Object identity: [MBObjectManager](../../campaign-ext/MBObjectManager/) and [MBObjectBase](../../campaign-ext/MBObjectBase/) provide restorable object references.
+- Campaign root: [Campaign](../../campaign/Campaign/) and its behavior data form the common `target` object graph.
+
+- Parent: [save-system API](./)
+- Sibling: [SaveableTypeDefiner](../SaveableTypeDefiner/) · [SaveableFieldAttribute](../SaveableFieldAttribute/)
+
+## See Also
+
+- [save-system API](./) — this bucket's index
+- [SaveableTypeDefiner](../SaveableTypeDefiner/) — declaring your saveable types
+- [IDataStore](../../campaign/IDataStore) — per-behavior save state
+- [Campaign](../../campaign/Campaign/) — the common save target

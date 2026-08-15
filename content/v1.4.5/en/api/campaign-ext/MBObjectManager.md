@@ -1,188 +1,124 @@
 ---
-title: "MBObjectManager: game-object registry and XML assembler"
-description: "The v1.4.5 per-Game registry of MBObjectBase types, StringId/MBGUID indexes, and XML object assembly. Covers Game initialization, registration/presumption/lookup, load callbacks, teardown, and crash or save-corruption boundaries around timing, duplicate IDs, and stale references."
+title: "MBObjectManager"
+description: "The central object registry of TaleWorlds.ObjectSystem: it registers types, creates objects, looks them up by StringId, and drives XML loading and cleanup."
 ---
 
-# MBObjectManager: game-object registry and XML assembler
+# MBObjectManager
 
 **Namespace:** `TaleWorlds.ObjectSystem`  
 **Module:** `TaleWorlds.ObjectSystem`  
 **Type:** `public sealed class MBObjectManager`  
-**Base:** none  
-**Source:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBObjectManager.cs`
+**Base:** `System.Object`  
+**Source:** `TaleWorlds.ObjectSystem/MBObjectManager.cs`
 
-## One-line responsibility
+## Overview
 
-Turns declared `MBObjectBase` subclasses into a registry that lives with a `Game` session, can be addressed by XML tag, `StringId`, or `MBGUID`, and coordinates XML/save assembly and session teardown.
+`MBObjectManager` is the central registry for `MBObjectBase` objects. A game type first declares, via `RegisterType<T>`, which C# type corresponds to a given XML element; afterward the XML loader and mod code access those instances through `RegisterObject`, `CreateObject`, `GetObject`, and the per-type list accessors.
 
-## Mental model: not a general DI container
+It solves the problem of "getting an object into the world and keeping it findable", not campaign business Actions, and not a global service locator for arbitrary objects. When you need to change the business state of a Hero, Settlement, or Kingdom, move to the matching Action/Model; the manager only gets you the correct object.
 
-`MBObjectManager` is a **registry of game-definition objects**, not a container for arbitrary mod services. Each registered type owns an internal `ObjectTypeRecord<T>` holding its singular XML element name (for example, `Item`), list-root name (for example, `Items`), stable type number, `StringId -> T` dictionary, `MBGUID -> T` dictionary, and ordered list.
+## Mental Model
 
-Both `Game.CreateGame` and `Game.LoadSaveGame` call `MBObjectManager.Init()` before `Game.RegisterTypes`, `GameType.BeforeRegisterTypes`, `GameType.OnRegisterTypes`, and the game manager declare the usable types. `Game.Current.ObjectManager` then owns that instance; `MBObjectManager.Instance` is the static shortcut to the same object. `Campaign.OnRegisterTypes`, for example, declares `MobileParty`, `Hero`, and `Settlement`; the base game declares `ItemObject`, `SkillObject`, and others.
+Think of it as three synchronized tables:
 
-The normal data flow is:
+- Type table: `RegisterType<T>(classPrefix, classListPrefix, typeId, ...)` binds the XML name, the list name, the type id, and the creation policy together.
+- Identity table: every registered object is indexed both by `StringId` and by `MBGUID`.
+- Type list: `GetObjectTypeList<T>()` returns the set of already-registered objects of that type, for loading, iteration, and diagnostics.
 
-```text
-Game.CreateGame / Game.LoadSaveGame
-  -> Init + RegisterTypes
-  -> GameType.OnRegisterTypes: RegisterType<T>(XML tag, list tag, type number)
-  -> LoadXML: merge module XML, obtain or create presumed objects
-  -> MBObjectBase.Deserialize -> AfterInitialized
-  -> gameplay looks up objects by StringId / MBGUID
-  -> Game.Destroy -> ClearAllObjects -> Instance = null
-```
+XML loading usually first obtains a presumed object, calls `Deserialize`, then `AfterInitialized`. Once all objects are restored, the manager broadcasts `PreAfterLoad` and `AfterLoad` per type. Therefore "the object is in the table" does not mean "all cross-object references are already usable".
 
-### When to use it
+## How to Obtain
 
-- In an established game session, obtain a real definition object by `StringId`, or enumerate one registered object type.
-- During game-type registration, declare a real `MBObjectBase` subclass that participates in that game type's XML, reference parsing, or saves.
-- In an engine-style data-loading path, use `LoadXML` / `ReadObjectReferenceFromXml` to parse module XML; ordinary gameplay normally only performs lookups.
-
-### When not to use it
-
-- Do not access `Instance` in an `MBSubModuleBase` constructor, module-discovery phase, or after `Game` teardown. It can be `null`, and unguarded access produces a `NullReferenceException`.
-- Do not treat it as a Campaign world-state mutation API. Giving a hero gold, moving a party, or changing ownership still belongs to the relevant [Action](../) and domain API; the registry answers “which object is this?”, not “is this world change valid?”.
-- Do not casually call `Init()`, `Destroy()`, or re-register engine types from ordinary mod initialization. Those operations replace or clear the global registry at the `Game` session boundary.
-
-## Dependencies and boundaries
-
-```text
-[Game](../../core/Game)
-  owns -> MBObjectManager
-  creates/loads -> [MBObjectBase](../MBObjectBase) records
-  exposes -> StringId and [MBGUID](../MBGUID) lookup
-  loads -> XML definitions and object references
-  is extended by -> [Campaign](../../campaign/Campaign) type registration
-  is consumed by -> [MobileParty](../../campaign/MobileParty) and [CharacterObject](../../campaign/CharacterObject)
-```
-
-- **Upstream:** [Game](../../core/Game) creates, owns, and destroys the manager. An [MBSubModuleBase](../../core/MBSubModuleBase) game-session hook is the proper mod timing for receiving a `Game`.
-- **Object contract:** [MBObjectBase](../MBObjectBase) holds `StringId`, `MBGUID`, initialization, and ready state. Registration invokes its `OnRegistered()` / `AfterRegister()`; unregistration invokes `OnUnregistered()`.
-- **Loading:** `MBObjectManagerExtensions.LoadXML` reads development mode and the game-type string from `Game.Current.GameType`, then calls `LoadXML`. That method merges module XML and finds a type record by list-root tag.
-- **Campaign and saves:** [Campaign](../../campaign/Campaign) assigns type numbers to Campaign objects in `OnRegisterTypes`. A save load registers types first, initializes saved objects, calls `ReInitialize()` to restore each record's next sub-ID, then completes load callbacks. [SaveManager](../../save-system/SaveManager) owns the persistence side of that save pipeline.
-
-## Two keys: `StringId` and `MBGUID`
-
-`StringId` is the name key most often used by XML and gameplay code. `MBGUID` is made from a record's `typeId` and an incrementing sub-ID: high bits identify the object type and the lower 26 bits identify the instance within that type. A successful new registration assigns the GUID and inserts the same object into both dictionaries.
-
-Use `GetObject<T>(stringId)` when consuming a configured or saved object name. Use `GetObject(MBGUID)` when a saved object already holds its GUID. Do not invent a type number yourself or retain a GUID from a previous game session.
-
-## Lifecycle and loading
-
-### Create, register, destroy
-
-| Stage | What actually happens | Mod boundary |
-|---|---|---|
-| `Init()` | Unconditionally creates a new static instance. `Game` calls it for a new game and save load. | Let `Game` call it; it is not a mod-startup API. |
-| `RegisterType<T>` | Adds a type record with singular/list XML tags, `typeId`, whether presumed instances may be auto-created, and whether the type is temporary. | Use only in game-type registration; check `HasType<T>()` before extension registration and do not register twice. |
-| `RegisterObject` | Puts a new object into its record, assigns a GUID, and makes it ready. | Use only for an already declared exact type with a controlled lifecycle. |
-| `LoadXML` | Obtains or creates a presumed object by `id`, runs `Deserialize`, then `AfterInitialized`. | Use the game loading flow; never reload definition XML from a gameplay tick. |
-| `Destroy()` | Clears every object in reverse record order, notifies unregistration handlers, then sets `Instance = null`. | Remove owned handlers and cached state before game end; do not use old object references afterwards. |
-
-### Presumed objects resolve forward references
-
-An XML reference may precede its object body. The internal `GetPresumedObject` first looks up a type-tag/ID pair. If missing and that type record permits `autoCreateInstance`, it constructs an object with a known `StringId` but `IsInitialized = false` and `IsReady = false`, then registers it as presumed. When its actual XML node arrives, the same registered object is deserialized and `AfterInitialized()` makes the registered object ready.
-
-`RegisterPresumedObject<T>` exposes matching semantics: if the ID already exists, presumed registration returns the existing object and does not replace it with the supplied instance. If a referenced XML type does not allow auto-creation, the internal loading path throws `MBCanNotCreatePresumedObjectException`. XML references therefore need a registered type prefix and real ID.
-
-## Key entry points: purpose, timing, and effects
-
-### Type records
-
-| Entry point | Purpose and timing | Effect / failure boundary |
-|---|---|---|
-| `RegisterType<T>(classPrefix, classListPrefix, typeId, autoCreateInstance, isTemporary)` | In `GameType.OnRegisterTypes`, declares `T`'s XML tags and GUID type number. `Campaign` uses this stage for `Hero`, `MobileParty`, and more. | Adds a record only; it does not load XML. Too many types reach the `MBTooManyRegisteredTypesException` assertion path. Conflicting type numbers, tags, or duplicate registration make references and save semantics unreliable. |
-| `HasType<T>()` / `HasType(Type)` | Checks whether a type record already exists before extension registration. A sealed type is exact; a base-class request accepts assignable registered subclasses. | Query only. `false` does not authorize registration at an arbitrary point; registration still belongs to game-type setup. |
-| `FindRegisteredClassPrefix(Type)` | Maps a CLR type back to its singular XML element name. | An unregistered type follows a failed-assert path and returns `null`; do not use the result as free-form input validation. |
-| `FindRegisteredType(classPrefix)` | Maps a singular XML element name to its CLR type for loaders or diagnostics. | An unknown tag likewise follows a failed-assert path and returns `null`. This takes a singular tag, not a list-root tag. |
-
-### Object registration and lookup
-
-| Entry point | Purpose and timing | Effect / failure boundary |
-|---|---|---|
-| `RegisterObject<T>(obj)` | Adds a formal object of an already registered `T`. The engine uses this family when creating controlled temporary Campaign objects. | Assigns a new GUID, writes both indexes, appends the list, marks ready, and calls `OnRegistered()`. A duplicate `StringId` does not throw: the new object's ID is renamed by incrementing its numeric tail until unique. XML/save references using the original ID can then resolve to the wrong object. |
-| `RegisterPresumedObject<T>(obj)` | Only for assembly logic that reserves an object before deserialization. | With an existing ID it returns the old object and discards the supplied one; a new object remains not-ready. Using it for ordinary entity creation creates half-initialized objects. |
-| `GetObject<T>(string)` | The normal gameplay lookup, called through `Game.Current.ObjectManager` or a `Game` supplied to a hook. | Returns `null` when absent. A sealed `T` searches only its exact record; a non-sealed base type scans assignable records. Check for `null` before dereferencing. |
-| `GetObject(MBGUID)` | Resolves an object from a saved or already held GUID, selecting a record from the GUID type number first. | An unknown type number follows a failed-assert path; an unknown object returns `null`. A GUID is meaningful only in the registered current session. |
-| `GetObject(typeName, objectName)` | XML-style lookup by singular type tag and ID. | An unregistered tag follows a failed-assert path; a missing object returns `null`. |
-| `GetObjectTypeList<T>()` / `CreateObjectTypeList(Type)` | Enumerates registered objects after loading. The first returns a read-only list for a sealed type; a base-class request aggregates assignable subclasses. | An unregistered sealed type follows a failed-assert path. Do not treat presumed/not-ready objects as complete definitions while XML is still assembling. |
-| `UnregisterObject(obj)` | Removes an object during controlled unload, temporary-type cleanup, or game end. | Removes the runtime **exact type** from both indexes and the list, then invokes `OnUnregistered()` and handlers. An unregistered type follows a failed-assert path; old references do not automatically become `null`. |
-
-### Loading, saves, and handlers
-
-| Entry point | Actual use | Timing and effect |
-|---|---|---|
-| `LoadXML(id, isDevelopment, gameType, ...)` | Merges module XML, finds the record matching its list-root tag, and for each non-comment node obtains a presumed object by `id`, calls `Deserialize(this, node)`, then `AfterInitialized()`. | Used during game data assembly. The core extension `LoadXML(id)` gets mode information from the current `Game`; missing `id`, malformed references, or wrong tags fail in the deserialization path. |
-| `ReadObjectReferenceFromXml<T>` | Reads an attribute in `TypePrefix.StringId` form and obtains a presumed object, allowing forward references. | A missing attribute returns `null`; no dot, empty prefix, or empty ID throws `MBInvalidReferenceException`. A value cast to the wrong `T` becomes `null`, so validate the type. |
-| `PreAfterLoad()` / `AfterLoad()` | `MBObjectManager` iterates `ObjectTypeRecords` in forward order; each `ObjectTypeRecord<T>` then iterates `RegisteredObjectsList` in reverse order and forwards to `MBObjectBase.PreAfterLoadInternal()` / `AfterLoadInternal()`. | Save-load workflow, not general initialization callbacks. Do not interleave manual calls to “repair” an object. |
-| `AddHandler` / `RemoveHandler` | Adds or removes an [IObjectManagerHandler](../IObjectManagerHandler). | `AfterCreateObject` fires **only** after formal registration through `CreateObject<T>`; it is not replayed for existing objects and does not fire on the XML `RegisterObject` path. `AfterUnregisterObject` fires for explicit unregistration, object clearing, and `Destroy()`. Remove a handler before its own game-lifetime state ends; calling `RemoveHandler` before any handler was added fails because the internal list is `null`. |
-
-`CreateObject<T>(stringId)` is the convenience path that combines `RegisterObject` with the handler notification. `Campaign.OnNewCampaignStart` uses it to create `"player_party"`. Its parameterless overload uses the type name plus `_1`, which is not a stable source for XML or save IDs.
-
-## Real lookup example
-
-When loading, engine siege weapons commonly resolve the current loading `Agent` equipment item's `Item.StringId` as `missileItemID` through the registry; that same string also matches a scene-entity tag. The lookup belongs after a `Game` exists, the type is registered, and XML has loaded:
+The active object manager usually comes from `MBObjectManager.Instance`; it is created by `MBObjectManager.Init()` during game initialization. Mod code should not keep its own alternate instance.
 
 ```csharp
-using TaleWorlds.Core;
-using TaleWorlds.ObjectSystem;
+MBObjectManager objects = MBObjectManager.Instance;
+Hero mainHero = objects.GetObject<Hero>("main_hero");
+Settlement town = objects.GetObject<Settlement>(s => s.IsTown);
 
-public static ItemObject ResolveMissile(string missileItemId)
+if (mainHero != null && town != null)
 {
-    ItemObject missile = Game.Current.ObjectManager.GetObject<ItemObject>(missileItemId);
-    if (missile == null)
+    MBReadOnlyList<Hero> heroes = objects.GetObjectTypeList<Hero>();
+    foreach (Hero hero in heroes)
     {
-        return null;
+        if (hero.IsLord && hero.Clan != null)
+        {
+            TaleWorlds.Library.Debug.Print(hero.StringId);
+        }
     }
-
-    return missile;
 }
 ```
 
-`missileItemId` should come from the current loading `Agent` equipment item's `Item.StringId`, not an invented ID; a scene entity with the same tag is what matches that ammunition. Its caller must choose whether a missing object skips a feature, reports a load error, or aborts that content; it must not construct a `MissionWeapon` or read properties through `null`.
+Lookup by `StringId` is the clearest common path; predicate lookup is for "the first object matching a condition", and `GetObjects<T>(predicate)` is for a filtered set. A reference to a non-existent object returns `null` — do not assume a module's XML always provides the target object.
 
-## Real creation path: how the engine registers a Campaign object
+## Key API
 
-The following is the actual pattern in `Campaign.OnNewCampaignStart`: `MobileParty` has already been declared by `Campaign.OnRegisterTypes`, then the engine creates and registers the main party through the singleton. It documents order, not a mandate to create a second main party from an arbitrary mod callback.
+| API | Responsibility | When to use |
+| --- | --- | --- |
+| `Init()` / `Destroy()` | Create or destroy the manager instance | Controlled by the game lifecycle; mods should not reset it arbitrarily |
+| `RegisterType<T>(...)` | Register an `MBObjectBase` derived type and its XML name | During the game type's `OnRegisterTypes` phase |
+| `CreateObject<T>(string)` | Construct, assign `StringId`, and register an object | Create a runtime object after its type is registered |
+| `RegisterObject<T>(T)` | Register an already-constructed object | When you need a custom construction flow |
+| `RegisterPresumedObject<T>(T)` | Register a presumed object during XML/restore | Only for load code that truly understands the presumed lifecycle |
+| `GetObject<T>(string)` | Look up by logical id | First choice when you know a stable `StringId` |
+| `GetObject<T>(Func<T,bool>)` | Find the first matching object | When you have a condition but no id |
+| `GetObjectTypeList<T>()` | Get the registered type list | Iteration, validation, and index building |
+| `LoadXML` / `LoadXml` | Merge XML and create objects | During game loading; do not repeat a full load at runtime |
+| `PreAfterLoad()` / `AfterLoad()` | Broadcast the global save-restore phase | Called by the load pipeline for object lifecycles |
+| `ClearAllObjects()` | Clear the current object table | Session switch/destroy phase; old references become invalid afterward |
+
+## Real Example: Register a Custom Type and Obtain an Instance
+
+The registration shape below matches how `Game`'s `OnRegisterTypes` is used in source; `typeId` belongs to the object system's global type-id namespace and must not collide with other types.
 
 ```csharp
-using TaleWorlds.CampaignSystem.Party;
-using TaleWorlds.ObjectSystem;
+public sealed class RelicObject : MBObjectBase
+{
+    public RelicObject() { }
+    public RelicObject(string stringId) : base(stringId) { }
+}
 
-MobileParty mainParty = MBObjectManager.Instance.CreateObject<MobileParty>("player_party");
+protected override void OnRegisterTypes(MBObjectManager objectManager)
+{
+    base.OnRegisterTypes(objectManager);
+    objectManager.RegisterType<RelicObject>(
+        "Relic", "Relics", 220u, autoCreateInstance: false, isTemporary: false);
+}
+
+RelicObject relic = MBObjectManager.Instance.CreateObject<RelicObject>("my_mod_relic_01");
+RelicObject lookedUp = MBObjectManager.Instance.GetObject<RelicObject>(relic.StringId);
 ```
 
-Before adding a persistent Campaign entity, establish which game type registers it, who initializes it, and which Action/Behavior maintains its relations and save state. The fact that `CreateObject` is callable does not make it a substitute for that domain lifecycle.
+`CreateObject` internally constructs the object, registers it, triggers `OnRegistered`, and notifies any added object-manager handlers. Do not `new` the same object yourself and then treat it as a registered object; when you need manual registration, use `RegisterObject` and check the returned object.
 
-## Crash, save-corruption, and reference risks
+## XML and Save Boundaries
 
-- **Access before initialization:** `Instance` is valid only after `Game.CreateGame` / `LoadSaveGame`. Reading it during SubModule loading or after session end commonly becomes a null-reference crash.
-- **Duplicate `StringId`:** formal registration silently renames the new object; presumed registration silently keeps the old one. Either can make an XML, network, or save ID resolve to the wrong definition. Use stable, module-namespaced IDs for cross-save objects and check conflicts before registration.
-- **Unregistered or mismatched types:** `RegisterObject<T>` finds a record by generic `T`; `UnregisterObject` finds one by exact runtime type. Missing records follow failed-assert paths; a wrong XML prefix or wrong base-type read returns `null` or crashes later on dereference.
-- **Consuming a presumed object early:** a placeholder is not ready until `Deserialize` and `AfterInitialized`. Using it for equipment, faction, or Campaign relations can expose null fields and crash during load.
-- **Keeping references after teardown:** `Destroy()` clears records and nulls the singleton but cannot turn your C# references into `null`. Reusing an old object or GUID in the next game brings state into the wrong session, producing null lookups, wrong resolutions, or save pollution.
-- **Manual XML reloads:** parsing reuses presumed objects rather than performing a general hot replacement and can swallow internal load exceptions. Do not reload registered definition tables from a running Campaign tick.
+`LoadXml` first locates the registered type by the list element, then obtains the presumed object by the XML `id`, and calls that object's `Deserialize` and `AfterInitialized`. `CreateObjectFromXmlNode` is the single-node version. Objects resolve other objects inside `AfterLoad` because the manager's `PreAfterLoad`/`AfterLoad` run uniformly only after every type record is complete.
 
-## Navigation
+`UnregisterNonReadyObjects` records and removes presumed objects that never reached the ready state; `ClearAllObjects` removes every object of the current session. Both mean previously held C# references must not be treated as new-session objects.
 
-**↑ Parent**
+## Risks and Crash Boundaries
 
-- [Campaign extension API index](../)
-- [v1.4.5 version home](../../../)
+- **Registering a type too late or duplicating it.** If a type is not registered before the XML arrives, the element will not be found; a duplicate or wrong `typeId` pollutes the type table or triggers an engine assertion. Put registration in the game type's unified registration phase and keep a fixed id for your mod.
+- **`StringId` collision renames it.** When records collide, a number is appended until a free key is found; the original string is not necessarily the object's final id. Use a mod prefix and read `StringId` from the returned object.
+- **Misusing presumed registration.** `RegisterPresumedObject` is an intermediate state of the load path; if the object never completes `Deserialize`/`AfterInitialized`, the cleanup phase removes it and later references become null.
+- **Treating an empty query as success.** `GetObject`, predicate queries, and XML references can all return `null`. Cross-module dependencies must check for null explicitly and choose to skip, fall back, or report when missing, rather than dereferencing directly.
+- **Modifying business at the wrong layer.** The manager only maintains identity and lifecycle; changing Hero gold, Settlement ownership, and the like should use the matching Action/Model, otherwise you may skip events, relations, and derived caches.
+- **Old references after clearing the manager.** After `Destroy`/`ClearAllObjects` you must re-query from `Instance`; caching object references or treating an `MBGUID` as a permanent id causes mispointing after a load.
 
-**↔ Siblings**
+## Cross-Version Notes
 
-- [MBObjectBase](../MBObjectBase)
-- [MBGUID](../MBGUID)
-- [IObjectManagerHandler](../IObjectManagerHandler)
+Both 1.3.15 and 1.4.5 provide `RegisterType`, `CreateObject`, string/predicate queries, XML loading, and `PreAfterLoad`/`AfterLoad`. The concrete module's type registry and XML content can still change; a cross-version mod should not rely on a `StringId` that exists in only one version.
 
-**Related**
+## Dependencies
 
-- [Game](../../core/Game)
-- [MBSubModuleBase](../../core/MBSubModuleBase)
-- [Campaign](../../campaign/Campaign)
-- [MobileParty](../../campaign/MobileParty)
-- [CharacterObject](../../campaign/CharacterObject)
-- [SaveManager](../../save-system/SaveManager)
-- [Doc contract](../../../architecture/doc-contract)
+- Root contract: [MBObjectBase](../MBObjectBase/) defines identity and the object lifecycle.
+- XML / game host: [Game](../../core-extra/Game/) and its `OnRegisterTypes` phase provide the type-registration entry point.
+- Campaign entry: [Campaign](../../campaign/Campaign/) manages campaign objects; [CampaignBehaviorBase](../CampaignBehaviorBase/) is a common business-call host.
+- Persistence: [SaveManager](../../save-system/SaveManager/) and [SaveableTypeDefiner](../../save-system/SaveableTypeDefiner/) own the object graph; the manager does not define field formats itself.
+
+## See Also
+
+- Parent: [campaign-ext API](./)
+- Sibling: [MBObjectBase](../MBObjectBase/) · [IDataStore](../../campaign/IDataStore)
+- Related: [Campaign](../../campaign/Campaign/) · [SaveManager](../../save-system/SaveManager/)

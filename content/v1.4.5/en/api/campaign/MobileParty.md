@@ -1,6 +1,6 @@
 ---
 title: "MobileParty"
-description: "The campaign map party entity that connects PartyBase rosters to a leader, faction, AI, position, armies, settlement targets, and map events."
+description: "The movable party entity on the campaign map: it wires PartyBase, the leader, troops, prisoners, AI, position, army and settlement objectives together."
 ---
 # MobileParty
 
@@ -8,36 +8,36 @@ description: "The campaign map party entity that connects PartyBase rosters to a
 **Module:** `TaleWorlds.CampaignSystem`  
 **Type:** `public sealed class MobileParty : CampaignObjectBase, ILocatable<MobileParty>, IMapPoint, ITrackableCampaignObject, ITrackableBase, IRandomOwner`  
 **Base:** `CampaignObjectBase`  
-**Source:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/MobileParty.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/MobileParty.cs`
 
-## One-line responsibility
+## Overview
 
-`MobileParty` is the campaign-map entity that moves, trades, fights, and joins armies; it connects the `PartyBase` roster and battle shell to heroes, factions, AI, paths, and Campaign events.
+`MobileParty` is the party entity that moves, trades, fights and joins armies on the campaign map; it connects the rosters and combat shell provided by `PartyBase` to the leader, faction, AI, path and Campaign events.
 
-## Mental model
+## Mental Model
 
 ### What it is
 
-`MobileParty` owns movement behavior. Its `Party` property is the [PartyBase](../PartyBase) shell used for encounters, rosters, and items. `LeaderHero`, `Owner`, `ActualClan`, `CurrentSettlement`, `Army`, `AttachedTo`, and `Ai` together describe the party's location and organization. `MemberRoster`, `PrisonRoster`, and `ItemRoster` are exposed through `Party`; do not maintain a second state outside PartyBase.
+`MobileParty` owns the movement behavior, and the `Party` property is the [PartyBase](../PartyBase) shell it uses for encounters, troops and items. `LeaderHero`, `Owner`, `ActualClan`, `CurrentSettlement`, `Army`, `AttachedTo` and `Ai` together describe where the party sits in the world and how it is organized. `MemberRoster`, `PrisonRoster` and `ItemRoster` are exposed through `Party` and must not be maintained separately from PartyBase.
 
-`MobileParty.MainParty`, `MobileParty.All`, and the category collections read from the current [Campaign](../Campaign). Speed, wage, food, morale, and seeing range are calculated by [GameModelsManager](../../core-extra/GameModelsManager/) from current conditions; they are results, not configuration fields for a mod to rewrite every tick.
+`MobileParty.MainParty`, `MobileParty.All` and the categorized collections all come from the current [Campaign](../Campaign). Values such as speed, wage, food, morale and visibility range are computed by [GameModelsManager](../../core-extra/GameModelsManager/); they are results under the current conditions, not configuration fields a mod should write to persistently.
 
-### Lifecycle and owners
+### Lifecycle and ownership
 
-- **Creation and registration:** `MobileParty.CreateParty(stringID, PartyComponent)` creates the party, PartyBase, and component, initializes the component, and registers the result with Campaign. `InitializeMobilePartyAtPosition` or a related initializer then places it on the map.
-- **Runtime ownership:** the party connects a leader Hero, Clan faction, Settlement target/current location, Army, attached parties, map events, and sieges.
-- **Movement and attachment:** `SetMove*`, `SetTargetSettlement`, and `AttachedTo` synchronize position, paths, visual state, army membership, and naval capability. Do not write only a position or target field.
-- **Destruction and loading:** [DestroyPartyAction](../../campaign-ext/DestroyPartyAction) eventually clears rosters, releases army/siege/attachment relationships, and removes the party from Campaign. Loading rebuilds the component, path, and AI, so an old object reference is not a permanent handle.
+- **Creation / registration:** `MobileParty.CreateParty(stringID, PartyComponent)` creates the party, the PartyBase and the component, calls the component initialization and registers the party with the Campaign; afterwards it must be placed on the map with `InitializeMobilePartyAtPosition` or a related initialization method.
+- **While running:** the party is connected to a `Hero` leader, a `Clan` faction, a `Settlement` target / current location, an `Army`, attached parties, map events and siege events.
+- **Movement / attachment:** `SetMove*`, `SetTargetSettlement` and `AttachedTo` synchronize position, path, visual state, army and land/sea capability; do not just change `Position` or a target field.
+- **Destruction / save-load:** [DestroyPartyAction](../../campaign-ext/DestroyPartyAction) eventually clears the rosters, releases the army / siege / attachment relationships and removes the party from the Campaign. Loading a save rebuilds the component, path and AI, so old object references must not be treated as permanent handles.
 
-### When to use it, and when not to
+### When to use, when not to
 
-- **Use it** to read the player party, leader, members/prisoners/items, position, target, army, faction, food, wage, and AI state.
-- **Use it** through `MobileParty.MainParty`, `MobileParty.All`, category collections, or the parties exposed by a `Settlement`.
-- **Do not create a half-initialized party:** use `CreateParty` plus the component and initialization path so PartyBase, events, and Campaign registration are complete.
-- **Do not treat calculated values as persistent fields:** `TotalWage`, `Food`, `SeeingRange`, speed, and morale depend on Models, rosters, and location. Change the governing Model when changing a rule; do not write the result each tick.
-- **Do not dismantle PartyBase directly:** use `DestroyPartyAction` and the party, prisoner, and leader Actions so Hero, roster, Army, and map locator state stay consistent.
+- **Use:** reading the player party, the party leader, troops / prisoners / items, current position, target, army, faction, speed, food and AI state.
+- **Use:** obtaining already-registered parties through `MobileParty.MainParty`, `MobileParty.All`, the categorized collections or `Settlement.Parties`.
+- **Do not create half-finished parties directly:** when creating a custom party, go through `CreateParty` + the component initialization path to ensure PartyBase, events and Campaign registration are all completed.
+- **Do not treat computed properties as persistent fields:** `TotalWage`, `Food`, `SeeingRange`, `Speed` and `Morale` depend on the current Model, Roster and position; to change the rules, replace / extend the Model instead of writing the result every tick.
+- **Do not destroy or dismantle PartyBase directly:** use `DestroyPartyAction` and the party / prisoner / leader related Actions to keep Hero, Roster, Army and the map locator consistent.
 
-## Dependency graph
+## Dependencies
 
 ```mermaid
 graph TD
@@ -54,66 +54,66 @@ graph TD
 
 ### Upstream and owners
 
-- [Campaign](../Campaign) provides party collections, Models, map time, and Campaign events; `MobileParty.All` is not a cross-save collection.
-- [PartyBase](../PartyBase) provides `MemberRoster`, `PrisonRoster`, `ItemRoster`, `MapEventSide`, and encounter behavior; [Hero](../Hero) connects through leader and membership relationships.
-- [Clan](../Clan), [Settlement](../Settlement), and [Kingdom](../Kingdom) provide faction, settlement, fief, and army context.
+- [Campaign](../Campaign) provides the party collections, models, map time and Campaign events; `MobileParty.All` is not a cross-save collection.
+- [PartyBase](../PartyBase) provides `MemberRoster`, `PrisonRoster`, `ItemRoster`, `MapEventSide` and combat interaction; [Hero](../Hero) plugs in through the leader / membership relationship.
+- [Clan](../Clan), [Settlement](../Settlement) and [Kingdom](../Kingdom) provide faction, garrison, fief and army context.
 
-### Downstream and mutation boundaries
+### Downstream and mutation entry points
 
-- Party creation/destruction, settlement entry, map-event, and army events in `CampaignEvents` are the observation points for long-lived Behaviors.
-- `PartySpeedModel`, `PartyWageModel`, `PartyMoraleModel`, and [MobilePartyAi](../MobilePartyAi) calculate or drive party results; Models and Actions have different responsibilities.
-- [DestroyPartyAction](../../campaign-ext/DestroyPartyAction), [AddHeroToPartyAction](../../campaign-ext/AddHeroToPartyAction), and roster/captivity Actions change party relationships.
+- The Party creation / destruction, entering-settlement, map-event and army events of `CampaignEvents` are the observation points for long-running Behaviors.
+- [PartySpeedModel](../PartySpeedModel), [PartyWageModel](../PartyWageModel), [PartyMoraleModel](../PartyMoraleModel) and [MobilePartyAi](../MobilePartyAi) compute or drive party results; Model / AI and Action have distinct responsibilities.
+- [DestroyPartyAction](../../campaign-ext/DestroyPartyAction), [AddHeroToPartyAction](../../campaign-ext/AddHeroToPartyAction) and the roster / captivity Actions are responsible for changing party relationships.
 
-## Key members and timing
+## Key Members and When to Call
 
 ### Party identity and rosters
 
-| Member | Purpose, side effects, and timing |
+| Member | Purpose, side effects and timing |
 | --- | --- |
-| `MainParty`, `All`, `AllLordParties`, `AllCaravanParties` | Acquire the current Campaign player party or category views. Check Campaign first and copy a result before destroying parties during enumeration. |
-| `Party`, `MemberRoster`, `PrisonRoster`, `ItemRoster` | Read or delegate member, prisoner, and item state. Roster changes call back into Hero membership and battle statistics; do not change only the Hero side. |
-| `PartyComponent`, `LordPartyComponent`, `CaravanPartyComponent`, `WarPartyComponent` | Read a party's specialized role. Component creation/replacement rebuilds banner, owner, AI, and category flags, so use the initialization flow. |
-| `LeaderHero`, `Owner`, `ActualClan` | Read the leader, economic owner, and actual clan. Death, leader changes, and faction changes affect wage, name, army, and map display. |
+| `MainParty`, `All`, `AllLordParties`, `AllCaravanParties` | Get the player party or a categorized collection of the current Campaign. Confirm the Campaign before reading, and copy the result before iterating if you will run a destruction Action afterwards. |
+| `Party`, `MemberRoster`, `PrisonRoster`, `ItemRoster` | Read / delegate troop, prisoner and item state. Roster changes callback into Hero membership and combat statistics, so you cannot just change the Hero side. |
+| `PartyComponent`, `LordPartyComponent`, `CaravanPartyComponent`, `WarPartyComponent` | Read the specific role of the party; creating / replacing a component re-establishes the banner, owner, AI and category flags, so the initialization flow should be used. |
+| `LeaderHero`, `Owner`, `ActualClan` | Read the party leader, economic owner and actual clan. The leader dying, changing leader or clan change affects wage, name, army and map display. |
 
-### Location, targets, and AI
+### Position, target and AI
 
-| Member | Purpose, side effects, and timing |
+| Member | Purpose, side effects and timing |
 | --- | --- |
-| `CurrentSettlement`, `Position`, `IsCurrentlyAtSea` | Read map location and naval state. The setter synchronizes settlement party caches, attachments, and visuals; it is not a simple coordinate assignment. |
-| `TargetParty`, `ShortTermTargetParty`, `ShortTermTargetSettlement` | Distinguish longer-term and AI short-term targets. A target can be recalculated on the next tick. |
-| `Ai`, `Objective`, `ThinkParamsCache` | Read current AI context. Use `SetMoveGoToSettlement`, `SetMoveEngageParty`, and related methods to change intent rather than editing a cache. |
-| `Army`, `AttachedTo`, `AttachedParties` | Read army and attachment state. Joining, detaching, disbanding, or sieges synchronize map events and position; never set just one side. |
+| `CurrentSettlement`, `Position`, `IsCurrentlyAtSea` | Query the current map position and land/sea status. The setter synchronizes the Settlement's party cache, attached parties and visual state, so do not treat it as a simple coordinate assignment. |
+| `TargetParty`, `ShortTermTargetParty`, `ShortTermTargetSettlement` | Distinguish the long-term objective from the AI's short-term target; the target may be recomputed by the AI on the next tick. |
+| `Ai`, `Objective`, `ThinkParamsCache` | Read the AI's current decision context. To change a movement intent, call `SetMoveGoToSettlement`, `SetMoveEngageParty` and similar methods, not by mutating the cache object. |
+| `Army`, `AttachedTo`, `AttachedParties` | Read the army / attachment relationship. Joining, splitting, disbanding or besieging synchronizes MapEvent, Siege and position, so you cannot just set one side. |
 
-### Calculated results
+### Computed results
 
-| Member | Purpose, side effects, and timing |
+| Member | Purpose, side effects and timing |
 | --- | --- |
-| `TotalWage`, `PaymentLimit` | Read current wage and payment limits from the roster and `PartyWageModel`; use for economic decisions, not as a budget to write back. |
-| `Food`, `BaseFoodChange`, `Morale`, `SeeingRange` | Calculated from inventory, time, location, and Campaign Models and can change each tick. Any cache needs an explicit expiry rule. |
-| `PartySizeRatio`, `TotalLandStrengthWithFollowers` | Read capacity and military context. Army and attached parties change the result; it is not permanent single-party strength. |
+| `TotalWage`, `PaymentLimit` | Current wage / payment cap derived from the roster and `PartyWageModel`; suitable for economic judgment, not a budget field you should write back. |
+| `Food`, `BaseFoodChange`, `Morale`, `SeeingRange` | Computed from inventory, time, position and Campaign Models, and may change with the tick. Any cached result must have an explicit expiry strategy. |
+| `PartySizeRatio`, `TotalLandStrengthWithFollowers` | Read capacity and military-strength context; army / attached parties change the result, so it cannot be treated as the permanent strength of a single party. |
 
-## Action, event, and Model boundaries
+## Action, Event and Model Boundaries
 
 | Goal | Correct entry point | Risk |
 | --- | --- | --- |
-| Create a custom party | `MobileParty.CreateParty` plus `InitializeMobileParty*` | Omitting PartyComponent, PartyBase, or registration creates a party without complete rosters or locator state. |
-| Move to a settlement or target | `SetMoveGoToSettlement`, `SetTargetSettlement` | Direct position/target writes bypass pathfinding, naval, and visual synchronization. |
-| Add or remove a hero | `AddHeroToPartyAction`, `LeavePartyAction`, and related Actions | PartyBase rosters and `Hero.PartyBelongedTo` must be updated together. |
-| Destroy a party | The matching `DestroyPartyAction.Apply` entry point | Clearing rosters does not release Army, siege, attachment, locator, or Campaign registration. |
-| Change wage or speed rules | `PartyWageModel`, `PartySpeedModel` | These Models calculate results; they are not Actions that submit a party mutation. |
+| Create a custom party | `MobileParty.CreateParty` + `InitializeMobileParty*` | Missing PartyComponent, PartyBase or registration yields a half-built party with no roster / locator. |
+| Move to a settlement / target | `SetMoveGoToSettlement`, `SetTargetSettlement` | Writing position or target directly skips path, land/sea and visual synchronization. |
+| Have a hero join / leave a party | `AddHeroToPartyAction`, `LeavePartyAction`, etc. | PartyBase roster and Hero `PartyBelongedTo` must be updated together. |
+| Destroy a party | The matching entry of `DestroyPartyAction.Apply` | Clearing the roster directly will not release the Army, Siege, attachment relationship and Campaign registration. |
+| Change wage / speed rules | `PartyWageModel`, `PartySpeedModel` | These Models compute results; they are not Actions used to commit party changes. |
 
-## Risk boundary
+## Risk Boundaries
 
-- **Registration:** `CreateParty` requires an active Campaign. Creating during module loading, the main menu, or Campaign teardown lacks the object manager and map context.
-- **Bidirectional synchronization:** PartyBase, Hero, Settlement, Army, and attached parties update one another. Changing only `CurrentSettlement`, a roster, or Hero membership can produce a party where a hero is in a roster but not in the party relationship.
-- **Destruction cleanup:** `DestroyPartyAction` clears troops, prisoners, and items and releases army, siege, and attachment relationships. A destroyed Party/PartyBase cache may be invalid on the next tick.
-- **Short-lived targets:** `TargetParty`, AI targets, MapEvents, and SiegeEvents can become `null` after the current callback; recheck and reacquire them in event handlers.
-- **Calculated timing:** food, wage, morale, speed, and seeing range depend on Models and map state. Do not overwrite fresh state with an old result from a daily tick.
-- **Save order:** loading rebuilds components, paths, anchors, and AI. Save a party StringId in custom Behavior data and find it again after load; do not save PartyBase or AI cache instances.
+- **Object registration:** `CreateParty` depends on the current Campaign; creating it during module load, the main menu or the Campaign-unload phase lacks the object manager and map context.
+- **Two-way synchronization:** `PartyBase`, Hero, Settlement, Army and `AttachedParties` update each other. Only changing one side of `CurrentSettlement`, the roster or `Hero.PartyBelongedTo` produces bad states such as "a hero is in the roster but does not belong to the party".
+- **Destruction cleanup:** `DestroyPartyAction` clears troops, prisoners and items and releases the army / siege / attachment relationships; the Party / PartyBase caches after destruction may be invalid, so do not keep using them in later ticks.
+- **Short-lived targets:** `TargetParty`, the AI target, MapEvent and SiegeEvent may all become `null` after the current callback; null-check and re-fetch inside event handling.
+- **Computation timing:** Food, wage, morale, speed and seeing range depend on the Models and the current map state; do not overwrite fresh state with stale results outside of the daily tick.
+- **Save order:** loading a save rebuilds the component, path, Anchor and AI. A custom Behavior should save the party StringId and re-look it up from the Campaign collections after loading completes, not hold `PartyBase` or AI caches.
 
-## Real examples
+## Real Examples
 
-### Read the player party and guard its target
+### Read the player party and safely inspect its target
 
 ```csharp
 using TaleWorlds.CampaignSystem;
@@ -127,9 +127,9 @@ if (party != null && party.LeaderHero != null && party.CurrentSettlement == null
 }
 ```
 
-These values come from the current player party and AI/Model calculations; the short-term target, food, and wage can change on the next tick.
+These values come from the current player party and the AI / Model results; `ShortTermTargetSettlement`, Food and wage can all change on the next tick.
 
-### Set a movement target through the party entry point
+### Set a movement target through the real party entry point
 
 ```csharp
 using TaleWorlds.CampaignSystem;
@@ -143,14 +143,14 @@ if (party != null && target != null && party.LeaderHero != null)
 }
 ```
 
-The movement method lets AI, paths, and position state use one entry point; it does not teleport the party. An encounter, siege, or map transition can still invalidate the target later.
+The movement method routes the AI, path and position through the same entry point; it does not teleport the party to the settlement. The target and party may still become invalid at execution time due to an encounter, siege or map-state change.
 
-## Version note
+## Version Notes
 
-This page uses the v1.4.5 `TaleWorlds.CampaignSystem.Party/MobileParty.cs`, PartyBase, PartyComponent, and related Action/Model sources as its semantic authority. Cross-version mods should recheck `CreateParty`, navigation arguments, naval members, and the party-component collection.
+This page is based on the v1.4.5 sources `TaleWorlds.CampaignSystem.Party/MobileParty.cs`, PartyBase, PartyComponent and the related Action / Model. When targeting other versions, re-check `CreateParty`, the navigation parameters, the naval properties and the party component collections.
 
-## Navigation
+## See Also
 
 - ↑ Parent: [Campaign API](../)
 - ↔ Siblings: [Hero](../Hero) · [Clan](../Clan) · [Kingdom](../Kingdom) · [Settlement](../Settlement) · [PartyBase](../PartyBase)
-- Children / related: [CampaignEvents](../CampaignEvents) · [PartyComponent](../PartyComponent) · [MobilePartyAi](../MobilePartyAi) · [PartySpeedModel](../PartySpeedModel) · [PartyWageModel](../PartyWageModel) · [AddHeroToPartyAction](../../campaign-ext/AddHeroToPartyAction) · [DestroyPartyAction](../../campaign-ext/DestroyPartyAction)
+- Child / related: [CampaignEvents](../CampaignEvents) · [PartyComponent](../PartyComponent) · [MobilePartyAi](../MobilePartyAi) · [PartySpeedModel](../PartySpeedModel) · [PartyWageModel](../PartyWageModel) · [AddHeroToPartyAction](../../campaign-ext/AddHeroToPartyAction) · [DestroyPartyAction](../../campaign-ext/DestroyPartyAction)

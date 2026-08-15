@@ -11,15 +11,17 @@ description: "The saveable town and castle fief component: connects a Settlement
 **Source:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Town.cs`  
 **Persistence role:** the town/castle component of a `Settlement`; its principal fields and object references live in the Campaign save graph.
 
-## Overview and mental model
+## Overview
 
 `Town` is not the map settlement itself. It is the fortification-economy and governance layer attached to one [Settlement](../Settlement/). The same type represents towns and castles: use `IsTown` / `IsCastle` to distinguish them, and enter from the spatial, party, and siege entity through `Settlement.Town`.
+
+## Mental Model
 
 Read the ownership boundary as three layers. `Settlement` owns map position, `Party`, `BoundVillages`, siege state, wall state, and the actual `Militia` value with its party-spawn/transfer side effects. The [Fief](../Fief/) base contributes saved `FoodStocks` plus a cached, nullable `GarrisonPartyComponent` exposed as `GarrisonParty`. `Town` contributes fortification economy and governance: owner clan, governor, building queue, workshops, market, prosperity, loyalty, security, and trade-tax accumulator. Thus `Town.Militia` is an inherited read-through to `Settlement.Militia`, not Town-owned stored state, and the food value written by `Town.DailyTick` is `Fief.FoodStocks`.
 
 Inside a started campaign event or Campaign Behavior, locate an object through `Settlement.All` or `Campaign.Current.AllTowns` / `AllCastles`, then read `settlement.Town`. `Town.AllFiefs` combines towns and castles; all are views of the current `Campaign.Current`. Do not access those static collections at the main menu, before Campaign creation, while a save is unfinished, or after Campaign teardown, and do not `new Town()` in place of native settlement XML/object-manager initialization.
 
-## Ownership, components, and dependencies
+## Dependencies
 
 ```mermaid
 graph TD
@@ -163,7 +165,7 @@ public static class GovernorAssignment
 
 This page describes the decompiled Bannerlord v1.4.5 implementation. Key cross-checks come from `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultClanPoliticsModel.cs`, `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/SellItemsAction.cs`, `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultClanFinanceModel.cs`, and `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/RebellionsCampaignBehavior.cs`. Recheck model thresholds, Action side effects, Behavior order, and save callbacks before carrying this guidance to another release or a total-conversion model set.
 
-## Navigation
+## See Also
 
 - ↑ Parent: [Campaign API](../)
 - ↔ Siblings: [Settlement](../Settlement/) · [Fief](../Fief/) · [Village](../Village/) · [Building](../Building/) · [Workshop](../Workshop/) · [Hero](../Hero/)

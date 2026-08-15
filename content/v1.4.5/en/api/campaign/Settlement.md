@@ -10,11 +10,11 @@ description: "The campaign map settlement container that organizes Town, Village
 **Base:** [MBObjectBase](../../core/MBObjectBase)  
 **Source:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Settlement.cs`
 
-## One-line responsibility
+## Overview
 
 `Settlement` is the campaign map node that contains a Town, Village, or Hideout component, a PartyBase, resident parties and heroes, ownership, and siege state.
 
-## Mental model
+## Mental Model
 
 ### What it is
 
@@ -37,7 +37,7 @@ The settlement's `Owner` is derived from `OwnerClan.Leader`. Changing an owner i
 - **Do not treat Town, Village, and Hideout as interchangeable:** check `IsTown`, `IsVillage`, and `IsHideout` before using a specialized component.
 - **Do not read `CurrentSettlement` before Campaign/map state exists:** the static entry point depends on the active Campaign and player map position.
 
-## Dependency graph
+## Dependencies
 
 ```mermaid
 graph TD
@@ -139,7 +139,7 @@ if (town != null && town.IsTown && town.Town != null)
 
 This page uses the v1.4.5 `TaleWorlds.CampaignSystem.Settlements/Settlement.cs`, Town, Village, Hideout, PartyBase, and ownership Action sources as its semantic authority. Cross-version mods should recheck component initialization, ownership setters, and siege event parameters.
 
-## Navigation
+## See Also
 
 - ↑ Parent: [Campaign API](../)
 - ↔ Siblings: [Hero](../Hero) · [Clan](../Clan) · [Kingdom](../Kingdom) · [MobileParty](../MobileParty) · [PartyBase](../PartyBase)

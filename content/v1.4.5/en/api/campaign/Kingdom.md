@@ -10,11 +10,11 @@ description: "The campaign kingdom container that maintains clans, a ruling clan
 **Base:** [MBObjectBase](../../core/MBObjectBase)  
 **Source:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Kingdom.cs`
 
-## One-line responsibility
+## Overview
 
 `Kingdom` is the strategic political container for multiple `Clan` objects, their ruling clan, policies, armies, unresolved decisions, and faction-level diplomacy.
 
-## Mental model
+## Mental Model
 
 ### What it is
 
@@ -37,7 +37,7 @@ A kingdom is not a larger Clan field. It is an `IFaction` with member clans and 
 - **Do not write `RulingClan`, `Clans`, or policy collections directly:** specialized flows maintain related clan, fief, UI, and diplomacy caches.
 - **Do not read `Kingdom.All` during module loading without a Campaign:** the static collection depends on `Campaign.Current`.
 
-## Dependency graph
+## Dependencies
 
 ```mermaid
 graph TD
@@ -152,7 +152,7 @@ This reads the active `DiplomacyModel` only. The score still needs the game flow
 
 This page uses the v1.4.5 `Kingdom.cs`, `KingdomManager.cs`, and kingdom/diplomacy Action sources as its semantic authority. Cross-version mods should recheck `KingdomDecision`, army creation parameters, and diplomacy Action reasons instead of treating old setter behavior as the complete API.
 
-## Navigation
+## See Also
 
 - ↑ Parent: [Campaign API](../)
 - ↔ Siblings: [Hero](../Hero) · [Clan](../Clan) · [Settlement](../Settlement) · [MobileParty](../MobileParty) · [PartyBase](../PartyBase)

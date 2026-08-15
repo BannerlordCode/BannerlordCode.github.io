@@ -14,7 +14,7 @@ description: "The persistent campaign person: connects CharacterObject, Clan, pa
 
 `Hero` is the persistent identity of one registered campaign person. It joins a CharacterObject template to clan, party, relation, gold, health, captivity, and death state that changes with the saved campaign; read through Hero, but choose an Action with complete side effects to change the world.
 
-## Mental model
+## Mental Model
 
 `Hero` is a particular person in the campaign world, not a troop definition and not a scene character instance. It keeps identity, age, clan, personal wealth, relations, equipment, health, captivity, and death on one saveable object. `CharacterObject` describes a reusable character template; `Hero` gives that template one concrete campaign life.
 
@@ -32,7 +32,7 @@ Inside a started Campaign Behavior, conversation callback, or campaign event, ob
 
 Do not `new Hero(...)` outside an active Campaign. The parameterized constructors depend on `Campaign.Current.CampaignObjectManager` to allocate a unique StringId, bind a CharacterObject, and register the object immediately. Create a new hero through [HeroCreator](../HeroCreator/) or the corresponding native workflow, which supplies the required template, birth date, equipment, and registration work.
 
-## Dependencies and world-change graph
+## Dependencies
 
 ```mermaid
 graph TD
@@ -161,7 +161,7 @@ public static class HeroRemoval
 
 The core usage boundary is the same in both source versions: `MainHero` and the collections come from Campaign, relations go through DiplomacyModel and CharacterRelationManager, and gold/death belong behind Actions. The 1.4.5 source explicitly has `OriginClan` and, when loading a save older than v1.4.0, reconstructs a missing value from the father or current Clan. That is old-save migration, not a new workflow a mod should call. Do not add version branches from unverified signature differences.
 
-## Navigation
+## See Also
 
 - ↑ Parent: [Campaign API](../)
 - ↔ Siblings: [Campaign](../Campaign/) · [Clan](../Clan/) · [Kingdom](../Kingdom/) · [CharacterObject](../CharacterObject/) · [MobileParty](../MobileParty/) · [PartyBase](../PartyBase/)

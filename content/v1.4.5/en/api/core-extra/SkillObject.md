@@ -1,73 +1,71 @@
 ---
-title: "SkillObject: Skill Definition and Attribute Association"
-description: "The registered v1.4.5 skill definition object, including stable IDs, attribute associations, localization, and the boundary from character skill values."
+title: "SkillObject"
+description: "The registered definition object for a skill in v1.4.5: explains the boundary between a skill's ID, attribute associations, text, and a hero's runtime skill values."
 ---
 # SkillObject
 
-## Metadata
+**Namespace:** `TaleWorlds.Core`  
+**Module:** `TaleWorlds.Core`  
+**Type:** `public sealed class SkillObject`  
+**Base:** `PropertyObject`  
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SkillObject.cs`
 
-- **Namespace:** `TaleWorlds.Core`
-- **Module:** `TaleWorlds.Core`
-- **Type:** `public sealed class SkillObject`
-- **Base:** `PropertyObject`
-- **Source:** `bin/TaleWorlds.Core/TaleWorlds.Core/SkillObject.cs`
+## Overview
 
-## Responsibility in one sentence
+`SkillObject` is a **registered skill definition**: it answers "what this skill is, what it is called, and which `CharacterAttribute` values it is grouped under", but it does not store how many skill points a given `Hero` currently has. Skills live in the static object-definition layer of Core, ahead of any campaign runtime character data. When the game boots or a module initializes, the default skills are created and registered through `DefaultSkills`, and `Skills.All` exposes the collection of registered definitions. `CharacterObject`, the character-creation flow, and the companion system all reference the same `SkillObject` as a dictionary key or template, while the actual levels, experience, and perk points remain part of the character's runtime skill data.
 
-`SkillObject` defines a registered skill: it answers what the skill is, how it is named, and which `CharacterAttribute` objects it belongs to; it does not store a particular Hero's current skill level.
+## Mental Model
 
-## Mental model
+Treat `SkillObject` as a **definition, not a per-hero state container**. It sits in Core's object-definition layer, before the campaign-side character runtime data. The default skills are created and registered through `DefaultSkills` during game start or module initialization, and `Skills.All` provides the set of registered definitions. `CharacterObject`, the character-creation system, and the companion system use the same `SkillObject` as a dictionary key or template reference; the real levels, experience, and perk allocation still belong to the character's skill data.
 
-This is a Core object-definition type, upstream of Campaign runtime data. During game or module initialization, the default skill definitions are created and registered through `DefaultSkills`; `Skills.All` exposes the registered set. `CharacterObject`, character creation, and companion systems use the same `SkillObject` reference as a dictionary key or template relationship. A character's level, experience, and perk progression remain in the character skill/development data.
+Therefore, mods usually read existing definitions and then use them to look up a character's skill value or to identify an item's `RelevantSkill`. Do not treat `SkillObject.Initialize` as a runtime entry point for changing a hero's skills, and do not create one definition object per hero. Duplicating a `StringId`, initializing after the registration phase on your own initiative, or passing an unregistered object to a system that expects a globally-registered definition will cause lookup failures, duplicate IDs, or inconsistent save/template references.
 
-A mod normally reads an existing definition, then uses it to query a character's skill value or identify an item's `RelevantSkill`. `SkillObject.Initialize` is not a runtime Hero progression API, and every Hero must not receive a new definition instance. Reusing a `StringId`, initializing after registration, or passing an unregistered object to code that expects a global definition can cause lookup failures, duplicate IDs, or inconsistent template and save references.
+## When to Use It and When Not To
 
-## When to use it, and when not to
+### Suitable uses
 
-### Use it when
+- Look up a skill in `Skills.All` and display its name, description, or associated attributes.
+- Read an existing `SkillObject` reference from a `CharacterObject`, equipment, or the development system.
+- Register a new skill definition that genuinely belongs to your module content during the module initialization phase, giving it a unique and stable `StringId`.
 
-- Looking up a skill in `Skills.All` and displaying its name, description, or associated attributes.
-- Reading the `SkillObject` already referenced by a `CharacterObject`, an item, or a development system.
-- Registering a genuinely new module skill during content initialization with a unique, stable `StringId`.
+### Unsuitable uses
 
-### Do not use it when
+- Do not use `SkillObject` in place of a hero's skill level, experience, or perk state; those belong to the character's runtime data and development system.
+- Do not repeatedly call `Initialize` inside a campaign tick, and do not modify the `Attributes` of an already-registered skill to "temporarily" change a character's attributes.
+- Do not guess a skill object from a string. Prefer `Skills.All`, the default skill definitions, or a reference passed in by the call site; string lookups must agree with the registration order and the ID contract.
 
-- Do not use `SkillObject` as a replacement for a Hero's skill level, experience, or perk state; those belong to character runtime data and development systems.
-- Do not call `Initialize` repeatedly during campaign ticks or mutate the registered `Attributes` array to change one character's attributes.
-- Do not guess skill objects from display text. Prefer `Skills.All`, a default definition, or the reference supplied by the call site; string lookup must respect the registration and ID contract.
-
-## Dependency graph
+## Dependencies
 
 ```text
 DefaultSkills / module registration
-             ↓
+        ↓
 MBObjectManager → SkillObject → Skills.All
-             ↓                    ↓
-CharacterObject / ItemObject   Hero skill data and development
-             ↓
+        ↓                         ↓
+CharacterObject / ItemObject   Hero's skill data and CharacterDevelopment
+        ↓
 CharacterCreationCampaignBehavior / CompanionsCampaignBehavior
 ```
 
-- Upstream: [`PropertyObject`](../PropertyObject), `TextObject`, and object registration. The stable `StringId` comes from the base object and must not be casually reused.
-- Peers: [`CharacterAttribute`](../CharacterAttribute) and [`DefaultSkills`](../DefaultSkills); `Skills.All` is the runtime collection entry point, not another definition type.
-- Downstream: [`CharacterObject`](../../campaign/CharacterObject) stores skill definitions in character and troop templates; Hero runtime data stores levels and experience against the same references.
-- Related content: an item can point to a definition through `ItemObject.RelevantSkill`; the item remains an [`ItemObject`](../ItemObject), not a skill object.
+- Upstream: [`PropertyObject`](../PropertyObject), `TextObject`, and the object registration flow. `StringId` comes from the base class and must not be reused arbitrarily.
+- Siblings: [`CharacterAttribute`](../CharacterAttribute) and [`DefaultSkills`](../DefaultSkills); `Skills.All` is the runtime collection entry point — do not mistake it on this page for another kind of definition object.
+- Downstream: [`CharacterObject`](../../campaign/CharacterObject) places the skill definition into character/troop templates; the hero's runtime skill system stores levels and experience under the same reference.
+- Related: an item can point at a skill definition through `ItemObject.RelevantSkill`; the item itself remains an [`ItemObject`](../ItemObject), not a skill object.
 
-## Important members and timing
+## Key Members and Timing
 
-| Member | Use | Timing and side effects |
-|---|---|---|
-| `Attributes` | Returns the `CharacterAttribute[]` associated with the skill. | It has module-defined meaning after `Initialize(name, description, attributes)`. It is not the Hero's current attribute value. |
-| `HowToLearnSkillText` | Looks up `str_how_to_learn_skill` with this object's `StringId`, returning `Not available` when the text is absent. | Depends on loaded `GameTexts`; missing localization is a content issue, not necessarily a broken object. Each access performs the lookup path. |
-| `StringId`, `Name`, `Description` | Stable identity and localized display state inherited from `PropertyObject`. | The ID participates in object references; display state should remain `TextObject` based and must not be used as a save key. |
-| `Initialize(TextObject, TextObject, CharacterAttribute[])` | Sets the name, description, and associated attributes, then calls `AfterInitialized`. | It belongs to definition construction and registration. Repeated calls mutate a shared object used by every template that references it. |
-| `ToString()` | Returns the localized `Name` when available, otherwise `StringId`. | Useful for diagnostics, not for a stable save key because the displayed name is language-dependent. |
+| Member | Purpose | Timing and side effects |
+|--------|---------|--------------------------|
+| `Attributes` | Returns the `CharacterAttribute[]` associated with this skill. For example, Strength, Control, or Intelligence affect which group the skill belongs to. | Only meaningful as a module definition after `Initialize(name, description, attributes)` completes. Do not read the array as the hero's current attribute values. |
+| `HowToLearnSkillText` | Looks up the `str_how_to_learn_skill` text by `StringId`. Returns "Not available" when not found. | Depends on `GameTexts` being loaded; a missing text means missing localization resources, not a broken skill object. Every access may trigger a text lookup. |
+| `StringId`, `Name`, `Description` | Stable identity and display text inherited from `PropertyObject`. | The registration ID is used for cross-system references; display text should go through `TextObject`, not hardcoded localization strings in runtime state. |
+| `Initialize(TextObject, TextObject, CharacterAttribute[])` | Sets the name, description, and attribute array during the definition phase, then calls `AfterInitialized`. | This is part of the construction/registration flow, not an API for adjusting character progress. Calling it repeatedly changes the shared definition and affects every template that references it. |
+| `ToString()` | Returns the `Name` text first, otherwise the `StringId`. | Suitable for logs and diagnostics; should not be used as a stable save key, because the display name changes with language. |
 
-The auto-collect methods are SaveSystem reflection support, not mod-facing business entry points. Save the character or behavior state that owns skill values and follow [`SaveableTypeDefiner`](../../save-system/SaveableTypeDefiner) and [`CampaignBehaviorBase`](../../campaign/CampaignBehaviorBase) contracts.
+The auto-collection methods belong to the SaveSystem reflection/code-generation implementation and are not a mod-facing business entry point. When you need to persist a character's skills, save the character or behavior state that owns the skill values, and honor the contracts of [`SaveableTypeDefiner`](../../save-system/SaveableTypeDefiner) and [`CampaignBehaviorBase`](../../campaign/CampaignBehaviorBase).
 
-## Real acquisition paths
+## How to Obtain
 
-### Read a registered default skill
+### Reading a definition from the default skill collection
 
 ```csharp
 using TaleWorlds.Core;
@@ -84,9 +82,9 @@ foreach (SkillObject skill in Skills.All)
 }
 ```
 
-`Skills.Riding` and `Skills.All` are real access points after the game's default skill registration. A mod UI may read `Name` and `Description`, but a Hero level query must return to character skill data rather than infer a value from the definition.
+`Skills.Riding` and `Skills.All` are the real entry points after the game's default skills are registered. A mod's own UI can read `Name` and `Description`, but when querying a hero's level you must go back to the character's skill data rather than inferring it from `SkillObject`.
 
-### Read the definition from a real item reference
+### Reading from a real call-site object
 
 ```csharp
 using TaleWorlds.Core;
@@ -100,21 +98,21 @@ if (relevantSkill != null)
 }
 ```
 
-An item's `RelevantSkill` identifies the skill associated with using that item. Weapon effects and the Hero's skill value are still calculated by their respective item and character systems.
+An item's `RelevantSkill` only indicates which skill is associated with using that item; weapon damage and the hero's skill value are still computed by the corresponding item/character systems.
 
-## Risks and boundaries
+## Risks and Boundaries
 
-- **Registration timing:** `SkillObject` depends on object-system and text initialization. Reading `Skills.All` too early or changing a registered definition late can produce an empty view or alter shared state.
-- **Unique IDs:** `StringId` participates in object lookup, template references, and cross-save identity. Do not reuse an original ID or generate a random ID on every startup.
-- **Definition versus value:** `Attributes` classifies the skill; it is not the character's current attribute. `SkillObject` carries no experience, level, or perk state. Crossing this boundary makes UI and campaign calculations disagree.
-- **Localization:** `HowToLearnSkillText` depends on `GameTexts.FindText`. Missing text returns a fallback object, so callers should handle that result instead of assuming it will be populated later.
-- **Shared references:** `CharacterObject`, items, and many Heroes can point to one definition. Do not mutate its attributes or display text during a campaign to affect only one character.
+- **Registration timing:** `SkillObject` depends on the initialization of the object system and text resources. Reading `Skills.All` too early, or modifying an already-registered definition too late, may yield an empty collection or change globally shared state.
+- **Unique ID:** `StringId` participates simultaneously in object lookup, template references, and cross-save identification. Do not reuse a vanilla ID, and do not generate a random ID on every startup.
+- **Definition versus values:** `Attributes` is the skill's classification association, not the character's current attributes; `SkillObject` also carries no experience, level, or perk. Getting the layer wrong will desync the UI display from the campaign calculation.
+- **Localization:** `HowToLearnSkillText` depends on `GameTexts.FindText`. A missing text returns a default string; the caller should accept that result rather than assuming a null reference will always be filled in.
+- **Shared reference:** `CharacterObject`, items, and multiple characters can share the same definition object. Do not modify `Attributes` or the name during the campaign to influence a single character.
 
-## Version note
+## Cross-Version Notes
 
-This page follows the v1.4.5 `TaleWorlds.Core` source. The default skill set and attribute associations may differ in v1.3.15. Version-tolerant code should test for a definition by stable ID and availability instead of assuming every version exposes the same skill.
+This page is based on the v1.4.5 `TaleWorlds.Core` source. The v1.3.15 skill collection and default definitions may differ in what is added or removed; cross-version code should check available definitions by `StringId` rather than assuming every version has the same skills or the same attribute associations.
 
-## Navigation
+## See Also
 
 - [↑ Core Extra parent](../)
 - [↔ ItemObject](../ItemObject)

@@ -11,11 +11,11 @@ description: "The registered character and troop template used for ID lookup, ro
 **Source:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CharacterObject.cs`  
 **Identity layer:** a registered character/troop definition. Its `StringId` and ObjectManager registration let XML definitions, roster entries, and save references point at the same object.
 
-## One-line responsibility
+## Overview
 
 It is the stable object by which campaign rules recognize a troop type or character template: upgrade, wage, equipment, culture, and roster entries refer to it rather than copying its values.
 
-## Mental model: template, person, and count are separate things
+## Mental Model
 
 `CharacterObject` is not “a particular hero” and it is not a service that adds a troop to a party. For a regular troop it is a template read from character XML and registered by the object manager; a `TroopRoster` uses it as an entry's type key while storing count, wounded count, and XP separately. For a hero it remains that hero's character face: a non-null `HeroObject` makes `IsHero` true, and reads such as name, age, culture, sex, hit points, and equipment delegate to the Hero's personal state.
 
@@ -72,7 +72,7 @@ foreach (CharacterObject character in Campaign.Current.Characters)
 
 Both snippets only read objects. Neither adds troops to a roster nor creates or moves a Hero.
 
-## Dependencies and downstream consumers
+## Dependencies
 
 ```mermaid
 graph TD
@@ -122,7 +122,7 @@ The upgrade model permits only a non-Hero character with targets, then checks re
 - **Do not `new CharacterObject` or alter a registered identity.** XML/ObjectManager registration, `StringId`, hero linkage, and the `[SaveableField]` `_heroObject` / `_originCharacter` fields form a loadable graph. An unregistered object cannot be found; changing IDs, unregistering a referenced object, or rewriting links during deserialization can break a load or corrupt a save.
 - **Respect timing and nullability.** `Campaign.Current`, a culture's equipment roster, Hero association, and an upgrade array may be unavailable at the wrong time. In particular, `FirstStealthEquipment` takes the first item from `Culture.DefaultStealthEquipmentRoster.AllEquipments`. Read only from a ready Campaign callback and protect failed queries and array indexes.
 
-## Navigation
+## See Also
 
 - ↑ Parent: [Campaign module index](../)
 - ↔ Siblings: [Campaign](../Campaign/), [Hero](../Hero/), [MobileParty](../MobileParty/), [PartyBase](../PartyBase/), [GameModels](../GameModels/)

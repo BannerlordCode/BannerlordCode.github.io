@@ -1,6 +1,6 @@
 ---
 title: "SaveableTypeDefiner"
-description: "The assembly-discovered definition registrar for Bannerlord saves: reserve a type-ID range, describe saveable types and containers, and let SaveManager build a DefinitionContext before serialization."
+description: "The auto-discovery entry point for the save definition context: it assigns stable SaveIds to types, root objects, generic containers, and compatibility migrations."
 ---
 
 # SaveableTypeDefiner
@@ -8,107 +8,63 @@ description: "The assembly-discovered definition registrar for Bannerlord saves:
 **Namespace:** `TaleWorlds.SaveSystem`  
 **Module:** `TaleWorlds.SaveSystem`  
 **Type:** `public abstract class SaveableTypeDefiner`  
-**Base:** `System.Object`  
-**Source:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveableTypeDefiner.cs`
+**Base:** none  
+**File:** `TaleWorlds.SaveSystem/SaveableTypeDefiner.cs`
 
-## Responsibility
+## Overview
 
-Choose a stable save-ID range for the types registered by this definer and use it to register the types, closed generics, and containers that may occur in a persisted object graph. A range is not automatically exclusive to one assembly: different definers can use the same base, so base IDs and local IDs must be coordinated across the global definition set.
+`SaveableTypeDefiner` adds the types owned by an assembly/module into the save system's `DefinitionContext`. It does not save instance data, nor does it replace [IDataStore](../../campaign/IDataStore). It defines "how a type is recognized, which numbers its members use, and how containers are built", and [SaveManager](../SaveManager) uses those definitions when saving/loading.
 
-## Mental model
+## Mental Model
 
-`SaveableTypeDefiner` is startup metadata, not a save service and not an object you obtain during gameplay. A concrete definer has a parameterless constructor and is discovered from loaded assemblies by [DefinitionContext](../DefinitionContext). During definition initialization it receives that context internally, then its hooks describe how CLR types map to save definitions. Later, the save/load pipeline uses those definitions to understand the object graph.
+Each definer is a stable save-schema table:
 
-The two ID layers must remain separate:
+1. The constructor supplies the module-wide `saveBaseId`.
+2. The override methods `DefineClassTypes`, `DefineStructTypes`, `DefineEnumTypes`, and so on declare types.
+3. Helpers like `AddClassDefinition(typeof(T), saveId)` finally write into the definition context using `saveBaseId + saveId`.
+4. The [SaveableFieldAttribute](../SaveableFieldAttribute) / [SaveablePropertyAttribute](../SaveablePropertyAttribute) on members then provide the type-internal `LocalSaveId`.
 
-- A definer gives a **type** a `TypeSaveId`: every `Add*Definition` helper adds its local `saveId` to the constructor's `saveBaseId`.
-- `[SaveableField(localId)]` and `[SaveableProperty(localId)]` give individual members a **local member** ID. [TypeDefinition](../TypeDefinition) reflects those attributes after type registration and combines each local ID with its declaring-class level.
-- `[SaveableRootClass(id)]` marks a root-class identity. In the engine, [Game](../../core/Game) carries `[SaveableRootClass(5000)]`, while `SaveableCoreTypeDefiner.DefineRootClassTypes()` separately calls `AddRootClassDefinition(typeof(Game), 4001)` under base ID `10000`. A root marker is therefore not a replacement for registering a definition.
+So `saveBaseId`/`saveId` and the member `LocalSaveId` are all compatibility contracts. A mod can define several classes in one definer, but it must not assign the numbers randomly on each startup.
 
-Use a definer only when a saveable member can reach a type that the existing global definitions do not already cover. For ordinary campaign feature state, prefer the campaign persistence route described by [SaveManager](../SaveManager), rather than creating a definer just to persist a primitive or a small behavior-owned value. Do not instantiate a definer, construct a `DefinitionContext`, or reset `SaveManager` from normal mod runtime code: those are engine-owned initialization operations, not a public acquisition path.
+## Auto-Discovery and Fixed Phases
 
-## Lifecycle and ownership
+`DefinitionContext.FillWithCurrentTypes()` only collects the SaveSystem assembly and the assemblies that reference it; it is not an unconditional scan of every current assembly. It creates non-abstract definers with a parameterless constructor, then calls every definer in phases, in this order:
 
-`SaveManager.InitializeGlobalDefinitionContext()` creates the global context and calls `FillWithCurrentTypes()`:
+1. `Initialize(context)`.
+2. `DefineBasicTypes`, `DefineClassTypes`, `DefineStructTypes`, `DefineInterfaceTypes`, `DefineEnumTypes`, `DefineRootClassTypes`.
+3. `DefineGenericStructDefinitions`, `DefineGenericClassDefinitions`, `DefineContainerDefinitions`, `DefineConflictResolvers`.
+4. Collect each type's initialization callbacks, `[SaveableProperty]` and `[SaveableField]`, then aggregate errors.
 
-1. `DefinitionContext` gathers the SaveSystem assembly plus loaded assemblies that reference it.
-2. It finds every non-abstract `SaveableTypeDefiner`, creates it with `Activator.CreateInstance`, and calls its internal `Initialize(context)`.
-3. It invokes hooks across **all** discovered definers in this order: basic, class, struct, interface, enum, root class, generic struct, generic class, container, then conflict resolvers.
-4. It asks registered [TypeDefinition](../TypeDefinition) instances to collect load callbacks, `[SaveableProperty]` members, and `[SaveableField]` members; definition errors are retained by the context.
-5. It discovers and initializes generated save managers. `SaveManager.Save(...)` refuses to begin graph serialization when the global context has errors; `Load(...)` builds a fresh context for that load.
+Therefore a container's element, key, and value types must already be defined before this; `Define*` only builds tables and should not touch `Campaign.Current`, create Heroes, or fire events.
 
-This is the actual engine-owned entry point, shown to explain ownership rather than as a mod startup recipe:
+## Real Native Pattern
 
-```csharp
-// TaleWorlds.SaveSystem.SaveManager
-public static void InitializeGlobalDefinitionContext()
-{
-    _definitionContext = new DefinitionContext();
-    _definitionContext.FillWithCurrentTypes();
-    foreach (string error in _definitionContext.Errors)
-    {
-        Debug.Print(error);
-    }
-}
-```
+In 1.4.5 source, `SaveableObjectSystemTypeDefiner` uses `base(10000)`, adds `MBGUID` in `DefineBasicTypes`, and calls `AddClassDefinition(typeof(MBObjectBase), 34)` in `DefineClassTypes`. `SaveableLocalizationTypeDefiner` uses `base(20000)`, registers `TextObject`, and builds the `Dictionary<string, TextObject>` container. This shows a definer covers basic types, classes, and containers at once, not just Attribute-marked fields.
 
-Global discovery means the definition class is not registered through a public `SaveManager.Register(...)` API. Its assembly must already be loaded and reference `TaleWorlds.SaveSystem`; its concrete definer must be constructible by the scan. Do not invent or document a runtime acquisition route that the source does not provide.
+## When to Use / When Not to Use
 
-## Constructor and definition hooks
+**Use:** when adding a custom class, struct, enum, interface, basic type, or generic container that will enter the `SaveManager` object graph; especially together with [SaveableFieldAttribute](../SaveableFieldAttribute) / [SaveablePropertyAttribute](../SaveablePropertyAttribute).
 
-### `SaveableTypeDefiner(int saveBaseId)`
+**Do not use:** creating a definer just for a few fields of a `CampaignBehaviorBase` — that should use [IDataStore](../../campaign/IDataStore). Nor register `MBObjectManager`'s XML object types with it — that is the `RegisterType<T>` contract of [MBObjectManager](../../campaign-ext/MBObjectManager).
 
-The constructor stores the base for this definer's numeric namespace. `AddClassDefinition(typeof(TextObject), 1)` from a definer constructed with `base(20000)` produces type save ID `20001`. The base is a persisted compatibility boundary, not a cosmetic category: keep it stable and allocate local IDs deliberately.
+## Key Extension Points
 
-```csharp
-// TaleWorlds.Localization.SaveableLocalizationTypeDefiner
-public SaveableLocalizationTypeDefiner()
-    : base(20000)
-{
-}
-```
+| Method | Role |
+| --- | --- |
+| `DefineBasicTypes()` | Register basic types and serializers via `AddBasicTypeDefinition` |
+| `DefineClassTypes()` | Register ordinary reference types via `AddClassDefinition` |
+| `DefineRootClassTypes()` | Register the save-graph root class via `AddRootClassDefinition` |
+| `DefineStructTypes()` / `DefineEnumTypes()` / `DefineInterfaceTypes()` | Register value types, enums, and interface definitions |
+| `DefineGenericClassDefinitions()` / `DefineGenericStructDefinitions()` | Build generic definitions via `ConstructGeneric...` |
+| `DefineContainerDefinitions()` | Register containers like `List<T>`, `Dictionary<TKey,TValue>` via `ConstructContainerDefinition` |
+| `DefineConflictResolvers()` | Declare compatibility conflict handling via `AddConflictResolver` |
 
-| Hook | When `DefinitionContext` calls it | Use it for |
-|---|---|---|
-| `DefineBasicTypes()` | first | CLR/basic values with an `IBasicTypeSerializer` |
-| `DefineClassTypes()` | after basic types | ordinary reference types and class custom fields |
-| `DefineStructTypes()` | after classes | value types and struct custom fields |
-| `DefineInterfaceTypes()` | after structs | interface definitions |
-| `DefineEnumTypes()` | after interfaces | enums, optionally with `IEnumResolver` |
-| `DefineRootClassTypes()` | after enums | a graph root with `AddRootClassDefinition` |
-| `DefineGenericStructDefinitions()` | after roots | concrete closed struct generic instantiations |
-| `DefineGenericClassDefinitions()` | after generic structs | concrete closed class generic instantiations |
-| `DefineContainerDefinitions()` | after generic definitions | arrays, lists, queues, and dictionaries whose element/key/value types are already known |
-| `DefineConflictResolvers()` | last | compatibility remapping for older save IDs |
-
-The order explains a common failure: `ConstructContainerDefinition(typeof(Dictionary<string, TextObject>))` needs definitions for `string` and `TextObject` before the container is constructed. A definer may register those dependencies earlier in the same `DefineContainerDefinitions()` hook, but it must construct the container only after that registration and must not register the same container twice.
-
-## Registration helpers and side effects
-
-- `AddBasicTypeDefinition`, `AddClassDefinition`, `AddStructDefinition`, `AddInterfaceDefinition`, `AddEnumDefinition`, and `AddRootClassDefinition` create a definition with `saveBaseId + saveId` and add it to `DefinitionContext`.
-- `AddClassDefinitionWithCustomFields` and `AddStructDefinitionWithCustomFields` additionally attach explicit `(fieldName, localId)` mappings. Use them for types whose fields cannot be attributed in source, such as engine-defined generic utility types; they do not remove the need for stable member IDs.
-- `ConstructGenericClassDefinition` and `ConstructGenericStructDefinition` materialize a **closed** generic from a generic definition already registered in an earlier hook. They are not a generic wildcard registration.
-- `ConstructContainerDefinition` derives a container save ID from its element, key, and value definitions. For `List<T>`, the context also registers compatible `MBList<T>` and `MBReadOnlyList<T>` definitions. It first checks `HasDefinition(type)` and emits `Debug.FailedAssert` for a duplicate container.
-- `AddConflictResolver` registers a resolver against `saveBaseId + saveId` only when the resolver's new target type already has a class definition. Because this hook is last, its target can be resolved before registration.
-
-The other `Add*` helpers flow into dictionaries keyed by both CLR `Type` and `SaveId`; duplicate types or duplicate IDs therefore fail during context construction rather than safely replacing an old definition. Treat every type ID, custom-field ID, and resolver ID as persisted data.
-
-## Concrete engine definitions
-
-The localization definer is a compact real example. It reserves `20000`, makes `TextObject` type ID `20001`, then defines the `Dictionary<string, TextObject>` container only after the class hook has run:
+## Real Example: the Native Localization Definer
 
 ```csharp
-using System.Collections.Generic;
-using TaleWorlds.SaveSystem;
-
-namespace TaleWorlds.Localization;
-
 public class SaveableLocalizationTypeDefiner : SaveableTypeDefiner
 {
-    public SaveableLocalizationTypeDefiner()
-        : base(20000)
-    {
-    }
+    public SaveableLocalizationTypeDefiner() : base(20000) { }
 
     protected override void DefineClassTypes()
     {
@@ -122,35 +78,41 @@ public class SaveableLocalizationTypeDefiner : SaveableTypeDefiner
 }
 ```
 
-`TaleWorlds.ObjectSystem.SaveableObjectSystemTypeDefiner` uses `base(10000)`, registers `MBGUID` as a basic type at local `1005` with `MBGUIDBasicTypeSerializer`, and registers `MBObjectBase` as a class at local `34`. The same base is also used by `TaleWorlds.Core.SaveableCoreTypeDefiner`; it demonstrates why local type IDs must be coordinated across all definitions sharing an ID range, not guessed per class.
+This is the real 1.4.5 declaration: `base(20000)` and the type-local id `1` together form the type SaveId; the concrete dictionary shape is registered separately by `ConstructContainerDefinition`. The definition context is built by [SaveManager](../SaveManager) at module init; mods should not `new` this definer manually. The native [SaveableCampaignTypeDefiner](../../campaign/SaveableCampaignTypeDefiner) uses the same pattern and registers Campaign types with `base(330000)`.
 
-## Type definition versus member attributes
+The engine collects and fills all definers during save-system init (mods should not instantiate this definer themselves):
 
-The definition and attributes answer different questions:
+```csharp
+SaveManager.InitializeGlobalDefinitionContext();
+List<Type> missingTypes = SaveManager.CheckSaveableTypes();
+```
 
-| Layer | Question answered | Engine evidence |
-|---|---|---|
-| Definer / `DefinitionContext` | Can this runtime type, generic instance, or container appear in the graph, and what is its type ID? | `AddClassDefinition`, `ConstructGenericClassDefinition`, `ConstructContainerDefinition` |
-| Root registration | Which registered class can start a save graph? | `AddRootClassDefinition(typeof(Game), 4001)` in `SaveableCoreTypeDefiner` |
-| Field/property attributes | Which instance members of a registered class/struct are serialized, and what are their local IDs? | `Game` has `[SaveableField(11)]` and `[SaveableProperty(3)]`, `(8)`, `(12)` |
+## Risks and Save Protection
 
-`TypeDefinition.CollectProperties()` and `CollectFields()` scan public and non-public instance members after registration. Duplicate `MemberTypeId` values are reported as context errors. Marking a field does not define its field type, and defining a class does not serialize all of its fields automatically: both sides of the contract must be present.
+- **`saveBaseId` collision.** The helper actually adds the base and local numbers; two overlapping module ranges produce the same type save id, causing a definition conflict or wrong parse. Reserve a clear range for your mod and keep it fixed.
+- **Changing the local `saveId`.** The `1` in `AddClassDefinition(typeof(T), 1)` is also the persistent type identity; do not reorder it casually after release.
+- **Missing container definition.** A field type may be a `List<T>` or dictionary; without a matching container definition, the `DefinitionContext`/`SaveManager` check reports an undefined type.
+- **Treating the Attribute as auto-registration.** Marking a field/property alone does not generate a class definition; likewise, the definer will not add your class to `MBObjectManager`'s XML type table for you.
+- **Changing a signature without considering old saves.** Deleting a class, changing a field type, changing `LocalSaveId`, or swapping a resolver all affect old saves; you need a compatible resolver, or new-version members and a migration strategy.
+- **Running game logic in the definition phase.** `Define...` methods are for building tables and should not touch `Campaign.Current`, create Heroes, or fire events; those objects may not be initialized yet.
 
-## Risk boundary
+- **Misreading the load order.** `SaveManager.Load` rebuilds the current-version definition table; `LoadContext` first creates objects, resolves references, fills fields/properties, then runs init and late-init callbacks. Fields may be filled in parallel across objects, so you cannot read complete state in a constructor or an over-eager event.
 
-- **Base-ID or local type-ID collisions:** two registrations targeting the same `Type` or final `SaveId` collide in `DefinitionContext`'s dictionaries. A duplicate container additionally triggers `Debug.FailedAssert`. The save pipeline receives definition errors or fails before producing a trustworthy save.
-- **Changing persisted IDs:** changing `saveBaseId`, a local type ID, a custom-field ID, or a `[SaveableField]`/`[SaveableProperty]` local ID changes the schema of existing saves. Renaming a member is not equivalent to preserving its ID. Add an explicit compatibility strategy before changing a released identifier.
-- **Unsupported object graphs:** a marked member whose type, closed generic, or container is not defined cannot be represented correctly. `SaveManager.CheckSaveableTypes()` can identify unregistered attributed field/property types; containers also require their component types to be defined first.
-- **Duplicate definitions and wrong timing:** a definer can be discovered globally beside engine and other mod definers. Do not register engine types or shared containers a second time, and do not try to add definitions after `DefinitionContext.FillWithCurrentTypes()` has already collected member metadata.
+- **Misusing the resolver as a renumbering tool.** `DefineConflictResolvers` should only provide migration maps for clearly old version type ids; a wrong resolver sends old data into the wrong type.
 
-## Dependencies and navigation
+## Cross-Version Notes
 
-- **Upstream:** [SaveManager](../SaveManager) creates the global context; [DefinitionContext](../DefinitionContext) discovers and invokes definers.
-- **Downstream:** [TypeDefinition](../TypeDefinition) collects the attributed members after type registration; [SaveableFieldAttribute](../SaveableFieldAttribute) and [SaveablePropertyAttribute](../SaveablePropertyAttribute) supply member-local IDs.
-- **Root example:** [Game](../../core/Game) and [SaveableRootClassAttribute](../SaveableRootClassAttribute).
+Both 1.3.15 and 1.4.5 provide the same base-class helpers and phase overrides. An official module's `saveBaseId`, type-local numbers, and type list may grow across versions; a mod should treat its own numbers as a permanent contract and not copy an official range from some version.
 
-## Navigation
+## Dependencies
 
-- Parent: [Save system index](../)
-- Sibling: [SaveManager](../SaveManager) and [DefinitionContext](../DefinitionContext)
-- Related: [TypeDefinition](../TypeDefinition), [SaveableFieldAttribute](../SaveableFieldAttribute), [SaveablePropertyAttribute](../SaveablePropertyAttribute), [SaveableRootClassAttribute](../SaveableRootClassAttribute), and [Game](../../core/Game)
+- Member declaration: [SaveableFieldAttribute](../SaveableFieldAttribute) · [SaveablePropertyAttribute](../SaveablePropertyAttribute).
+- Execution entry: [SaveManager](../SaveManager) builds the [DefinitionContext](../DefinitionContext) and reports definition errors.
+- Behavior's other route: [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase) and [IDataStore](../../campaign/IDataStore).
+- Object registration's other route: [MBObjectManager](../../campaign-ext/MBObjectManager).
+
+## See Also
+
+- Parent: [save-system API](../)
+- Sibling: [SaveManager](../SaveManager) · [SaveableFieldAttribute](../SaveableFieldAttribute)
+- Related: [ContainerDefinition](../ContainerDefinition) · [IConflictResolver](../IConflictResolver) · [Save and Crash Boundaries](../SaveManager)

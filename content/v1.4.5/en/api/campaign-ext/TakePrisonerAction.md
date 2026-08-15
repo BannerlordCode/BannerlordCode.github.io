@@ -1,50 +1,51 @@
 ---
 title: "TakePrisonerAction"
-description: "Moves a live Hero into a capturer party's prisoner roster and publishes the campaign prisoner events that other systems depend on."
+description: "Moves a living Hero into the capturer's prisoner roster and raises the Hero and party-screen prisoner events that the campaign system depends on."
 ---
+
 # TakePrisonerAction
 
 **Namespace:** `TaleWorlds.CampaignSystem.Actions`  
 **Module:** `TaleWorlds.CampaignSystem`  
 **Type:** `public static class TakePrisonerAction`  
-**Base:** none (static class)  
-**Source:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/TakePrisonerAction.cs`
+**Base:** None (static class)  
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/TakePrisonerAction.cs`
 
-## One-line responsibility
+## Overview
 
-Transfers a `Hero` from its current party or location into a capturer party's prisoner roster, updates captivity state, and dispatches the matching campaign notifications.
+Moves a real, still-alive `Hero` in the current Campaign from its original party or settlement state into the capturer's prisoner roster, updating captivity state, captivity start time, and related party relationships, and raising the campaign notification that combat, dialogue, party-screen, and quest flows all depend on; it only performs a capture migration already accepted by the owner and does not decide whether the target is eligible to be a prisoner.
 
-## Mental model
+## Mental Model
 
-This is the Campaign-layer **state transition**, not the decision that a battle, conversation, or quest is allowed to capture someone. The owner flow first decides that the target is a valid prisoner; this Action then performs the coupled changes that must happen together.
+This is a campaign-layer **state migration**, not the rule entry point that decides "whether combat, dialogue, or quests allow a capture". The upstream flow first confirms the target can become a prisoner; this Action then completes the state changes that must happen together.
 
-`Apply(PartyBase, Hero)` is the general Hero route. It removes the Hero from the old party roster, removes the party leader role when necessary, sets `CaptivityStartTime`, changes the Hero state to `Prisoner`, adds the Hero's `CharacterObject` to the capturer's prisoner roster, clears `StayingInSettlement`, and sends `CampaignEvents.HeroPrisonerTaken` through the dispatcher. If the prisoner is `Hero.MainHero`, it also starts player captivity, clears disorganization, and destroys the main party's ships when it is at sea.
+`Apply(PartyBase, Hero)` is the general entry point for a single Hero. It removes the Hero from the original party's roster, removes its party-leader role if needed, writes `CaptivityStartTime`, sets the Hero state to `Prisoner`, adds the Hero's `CharacterObject` to the capturer party's prisoner roster, clears `StayingInSettlement`, and finally raises `CampaignEvents.HeroPrisonerTaken` through the dispatcher. If the target is `Hero.MainHero`, it also ends the main party's disorganized state, starts the player's captivity, and destroys its ships if the main party is at sea.
 
-`ApplyByTakenFromPartyScreen(FlattenedTroopRoster)` is a different owner path. It scans the roster, applies the Hero transition to each Hero using `PartyBase.MainParty`, and then publishes `CampaignEvents.OnPrisonerTakenEvent` for the whole flattened roster. It is the boundary used by the party-screen transfer flow, not a convenience overload for an arbitrary list.
+`ApplyByTakenFromPartyScreen(FlattenedTroopRoster)` is another owner path. It scans the roster, uses `PartyBase.MainParty` as the capturer, performs the migration above for each Hero inside it, then raises the whole flattened roster's `CampaignEvents.OnPrisonerTakenEvent` after the scan ends. This is the boundary of the party-screen transfer flow, not a convenience overload for arbitrary lists.
 
-Use this Action after the capture owner has a live `PartyBase` and `Hero`. Do not use it to decide battle results, to move ordinary troops, or to imitate a party-screen transfer by manually changing `Hero.CharacterStates.Prisoner`.
+Call it only after the upstream has obtained a valid `PartyBase` and `Hero`. Do not use it to decide combat results, move ordinary troops, or simulate a party-screen transfer by setting `Hero.CharacterStates.Prisoner` directly.
 
-## Dependency graph
+## Dependencies
 
 ```text
-Battle / conversation / quest owner
+Combat / dialogue / quest owner
   -> TakePrisonerAction.Apply(capturerParty, prisoner)
-      -> old PartyBase roster and leader cleanup
-      -> Hero captivity state and capturer prisoner roster
+      -> clear old PartyBase roster and leader
+      -> write Hero captivity state and join capturer prisoner roster
       -> CampaignEventDispatcher.OnHeroPrisonerTaken
           -> CampaignEvents.HeroPrisonerTaken
 
 PartyScreenHelper
   -> ApplyByTakenFromPartyScreen(flattenedRoster)
-      -> Hero transitions for the main party
+      -> migrate each Hero for main party
       -> CampaignEvents.OnPrisonerTakenEvent
 ```
 
-**Upstream:** [MapEvent](../../campaign/MapEvent) resolution, [PartyBase](../../campaign/PartyBase), conversation flows, and issue quest owners provide the live capturer and target.  
-**Downstream:** [CampaignEvents](../../campaign/CampaignEvents), [CampaignEventDispatcher](../../campaign/CampaignEventDispatcher), captivity UI and campaign Behaviors react to `HeroPrisonerTaken` or `OnPrisonerTakenEvent`.  
-**Related state transitions:** [EndCaptivityAction](../EndCaptivityAction), [EnterSettlementAction](../EnterSettlementAction), [Hero](../../campaign/Hero), and [MobileParty](../../campaign/MobileParty).
+**Upstream:** [MapEvent](../../campaign/MapEvent) resolution, [PartyBase](../../campaign/PartyBase), the dialogue flow, and issue-quest owners supply the actual capturer and target.  
+**Downstream:** [CampaignEvents](../../campaign/CampaignEvents), [CampaignEventDispatcher](../../campaign/CampaignEventDispatcher), the captivity UI, and campaign Behaviors listening for `HeroPrisonerTaken` or `OnPrisonerTakenEvent`.  
+**Related migrations:** [EndCaptivityAction](../EndCaptivityAction), [EnterSettlementAction](../EnterSettlementAction), [Hero](../../campaign/Hero) and [MobileParty](../../campaign/MobileParty).
 
-## Key entry points and timing
+## Key Entry Points & Call Timing
 
 ### `Apply`
 
@@ -52,7 +53,7 @@ PartyScreenHelper
 public static void Apply(PartyBase capturerParty, Hero prisonerCharacter)
 ```
 
-Call this when one specific Hero has been accepted as a prisoner by the owning Campaign flow. The source does not return a success value or validate that the caller chose a legal target. The event is sent after the roster and Hero state changes, so listeners should read the post-transition objects.
+Call it once the capture owner has accepted some Hero as a prisoner. The source returns no success value and does not validate that the caller picked the right target; the event fires after the roster and Hero state are written, so listeners should read the migrated object.
 
 ### `ApplyByTakenFromPartyScreen`
 
@@ -60,13 +61,13 @@ Call this when one specific Hero has been accepted as a prisoner by the owning C
 public static void ApplyByTakenFromPartyScreen(FlattenedTroopRoster roster)
 ```
 
-Call this only from a party-screen transfer that already owns a `FlattenedTroopRoster`. Each Hero is processed individually, with its Hero event emitted by the internal path; the aggregate `OnPrisonerTakenEvent` is emitted after the scan. The method always uses `PartyBase.MainParty` as capturer.
+Call it only while the party-screen transfer flow still owns a real `FlattenedTroopRoster`. Each Hero's internal migration fires its own Hero event, and `OnPrisonerTakenEvent` fires after the whole scan ends. This entry always uses `PartyBase.MainParty` as the capturer.
 
-## Real current-Campaign examples
+## Real Current-Campaign Examples
 
-### Capture the live conversation Hero after the owner has validated the action
+### Capture a conversation target after the owner has validated it
 
-The stock conversation behaviors use `Hero.OneToOneConversationHero` and `PartyBase.MainParty` as real acquisition paths. A mod should add its own eligibility checks before calling the immediate mutation:
+The vanilla dialogue Behavior uses `Hero.OneToOneConversationHero` and `PartyBase.MainParty` as the real acquisition path. A mod should still do its own eligibility check before calling the immediate migration:
 
 ```csharp
 using TaleWorlds.CampaignSystem;
@@ -88,11 +89,11 @@ public static void CaptureConversationTarget()
 }
 ```
 
-This code does not construct a fake party or Hero. It still belongs in a Campaign conversation/quest owner that has already checked the encounter, faction, and quest rules; the Action itself does not perform those checks.
+This code constructs no fake party or Hero, yet it should still live inside the campaign dialogue/quest owner that has already checked the encounter, faction, and quest rules; the Action itself performs none of those checks.
 
-### Observe the result from a persistent Behavior
+### Observe the result in a persistent Behavior
 
-Register the listener from a [CampaignBehaviorBase](../../campaign/CampaignBehaviorBase) during Campaign startup, then copy stable IDs or other needed values in the callback:
+Register the listener from [CampaignBehaviorBase](../../campaign/CampaignBehaviorBase) during Campaign startup, and copy the stable id or needed values in the callback:
 
 ```csharp
 using TaleWorlds.CampaignSystem;
@@ -110,19 +111,19 @@ private void OnHeroPrisonerTaken(PartyBase capturer, Hero prisoner)
 }
 ```
 
-## Risks and save boundaries
+## Risks & Save Boundaries
 
-- **The inputs are live objects.** The implementation dereferences the Hero and capturer without a null or stage guard. Call only after `Campaign.Current` has created the object graph; never from module loading, the main menu, or Campaign teardown.
-- **The Action does not deduplicate prisoners.** Reapplying it to a Hero who is already a prisoner can add another prisoner-roster count because the former-party removal path no longer applies. Let the capture owner prove that the transition has not already happened.
-- **Do not bypass the old-party cleanup.** Assigning `CharacterStates.Prisoner` or adding a `CharacterObject` directly to a roster leaves the old leader, old roster, `CaptivityStartTime`, and event consumers out of sync.
-- **Main Hero has extra side effects.** Capturing `Hero.MainHero` starts player captivity and destroys every ship in the main party when it is at sea. Do not use the general route as a harmless status toggle.
-- **Events are part of the contract.** A listener may move UI, quest, or captivity state in response. Do not recursively call `TakePrisonerAction` for the same Hero from `HeroPrisonerTaken`, and do not publish a second synthetic event after a real Action call.
-- **Party-screen semantics are aggregate semantics.** Use the flattened-roster route only while the party-screen owner still owns the transfer. Replaying it later against a stale roster can capture the wrong current Hero state and duplicate downstream reactions.
-- **Save/load boundary:** persist your own stable IDs or quest state, not a transient `PartyBase`/`Hero` reference from the callback. Reacquire the live objects after load before performing another transition.
+- **Inputs must be live objects.** The implementation has no null or phase guards and dereferences the Hero and capturer directly. Call it only after `Campaign.Current` has built the object graph; do not call it from module load, the main menu, or the Campaign teardown phase.
+- **The Action does not de-duplicate prisoners.** When called repeatedly on a Hero that is already a prisoner, the old-party removal path no longer runs, yet the prisoner roster may still increment again. The capture owner must first prove the migration is not already complete.
+- **You cannot skip old-party cleanup.** Only setting `CharacterStates.Prisoner` or directly adding `CharacterObject` to the roster leaves old leader, old roster, `CaptivityStartTime`, and event consumers inconsistent.
+- **The main hero has extra side effects.** Capturing `Hero.MainHero` starts the player's captivity; if the main party is at sea, it also destroys all ships. Do not treat the general entry as a harmless state switch.
+- **Events are a contract.** Listeners may change UI, quests, and captivity state at the same time. Do not recursively call this Action on the same Hero inside `HeroPrisonerTaken`, and do not raise a fake event after the real call.
+- **Party-screen is aggregate semantics.** Only use the flattened-roster entry while the party-screen owner still owns the transfer flow; replaying an old roster afterward may duplicate downstream reactions or act on a Hero that has already changed.
+- **Save boundary:** persist your own stable id or quest state in the callback, not the one-shot `PartyBase`/`Hero` references. Re-acquire live objects from the current Campaign after a load, then perform the next migration.
 
 ## Navigation
 
 - **Parent:** [Campaign extension API](../) · [Campaign system](../../campaign/)
 - **Siblings:** [EndCaptivityAction](../EndCaptivityAction) · [EnterSettlementAction](../EnterSettlementAction) · [DestroyPartyAction](../DestroyPartyAction)
 - **Related entities:** [Hero](../../campaign/Hero) · [PartyBase](../../campaign/PartyBase) · [MobileParty](../../campaign/MobileParty) · [MapEvent](../../campaign/MapEvent)
-- **Events and owners:** [CampaignEvents](../../campaign/CampaignEvents) · [CampaignEventDispatcher](../../campaign/CampaignEventDispatcher) · [CampaignBehaviorBase](../../campaign/CampaignBehaviorBase)
+- **Events & owners:** [CampaignEvents](../../campaign/CampaignEvents) · [CampaignEventDispatcher](../../campaign/CampaignEventDispatcher) · [CampaignBehaviorBase](../../campaign/CampaignBehaviorBase)

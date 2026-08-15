@@ -1,6 +1,6 @@
 ---
 title: "SaveableFieldAttribute"
-description: "Assigns a stable LocalSaveId to an instance field of a registered save type; TypeDefinition later collects its field metadata."
+description: "The attribute that adds an instance field to the TaleWorlds.SaveSystem member definition; LocalSaveId is the type-internal persistence contract."
 ---
 
 # SaveableFieldAttribute
@@ -8,33 +8,36 @@ description: "Assigns a stable LocalSaveId to an instance field of a registered 
 **Namespace:** `TaleWorlds.SaveSystem`  
 **Module:** `TaleWorlds.SaveSystem`  
 **Type:** `public class SaveableFieldAttribute : Attribute`  
-**Source:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveableFieldAttribute.cs`
+**Base:** `Attribute`  
+**File:** `TaleWorlds.SaveSystem/SaveableFieldAttribute.cs`
 
-## Responsibility
+## Overview
 
-`SaveableFieldAttribute` is the SaveSystem contract for a field member. It carries a `LocalSaveId` for one instance field; it does not register the field type, create a `DefinitionContext`, or make an otherwise undefined CLR object saveable.
+`SaveableFieldAttribute(short localSaveId)` does exactly one thing: it tells the save system "this instance field is a save member and uses this type-internal local number". It does not create a type definition on its own, does not register a Behavior, and does not make a non-serializable field serializable.
 
-## Mental model
+## Mental Model
 
-Treat it as a stable save-slot number inside an already registered type, not as a runtime tag. The actual chain is:
+Treat `LocalSaveId` as a **schema number for the type member**, not a database auto-increment id. The save system reads the Attribute on the field, and then [SaveableTypeDefiner](../SaveableTypeDefiner/) puts the class containing that field into the definition context; [SaveManager](../SaveManager/) can then collect, write out, and restore the member.
 
-1. [SaveManager](../SaveManager) creates a [DefinitionContext](../DefinitionContext).
-2. `DefinitionContext` discovers and initializes [SaveableTypeDefiner](../SaveableTypeDefiner), which registers types, roots, generics, and containers.
-3. After type definitions exist, [TypeDefinition](../TypeDefinition) reflects over fields carrying this attribute.
-4. The field definition and `LocalSaveId` are used to locate member data while the object graph is saved or loaded.
+The field number must be unique within the **field table** of its declaring class level and stable across versions. `TypeDefinition` collects fields and properties separately, with separate read/write; they do not share a duplicate check. A field's `MemberTypeId` still contains the declaring class level and the `LocalSaveId`; field declaration order and private/public visibility must not be treated as a compatibility mechanism.
 
-When the goal is to save a small piece of state owned by a [CampaignBehaviorBase](../../campaign/CampaignBehaviorBase), start with `SyncData(IDataStore)`. Do not create a Saveable field schema just because a behavior has an `int`; the two mechanisms have different owners, keys, and load timing.
+## When to Use / When Not to Use
 
-## Source contract
+Good for: state that is an implementation detail of the class, needs to be saved with the object graph, and does not need to be exposed through a public property — for example a counter, persistent state outside a cache, or a reference to a defined `MBObjectBase`.
 
-The source definition is:
+Not good for:
+
+- A Behavior's private state should be registered first in `CampaignBehaviorBase.SyncData(IDataStore)`; see [IDataStore](../../campaign/IDataStore).
+- Pure runtime caches, thread handles, UI controls, and scene-entity handles should not be saved.
+- Do not use the Attribute as type registration; the class containing the field still must be registered by a definer.
+
+## Members
 
 ```csharp
 [AttributeUsage(AttributeTargets.Field)]
 public class SaveableFieldAttribute : Attribute
 {
     public short LocalSaveId { get; set; }
-
     public SaveableFieldAttribute(short localSaveId)
     {
         LocalSaveId = localSaveId;
@@ -42,83 +45,87 @@ public class SaveableFieldAttribute : Attribute
 }
 ```
 
-The practical consequences are:
+`LocalSaveId` is a readable/writable `short` property, but product code should treat it as an already-published schema number and not rewrite it at runtime. The source Attribute target includes only `Field`; property members should use [SaveablePropertyAttribute](../SaveablePropertyAttribute). `TypeDefinition.CollectFields()` forms the `MemberTypeId` from the declaring type's class level plus this id; the field name and declaration order do not participate in matching.
 
-- `AttributeTargets.Field` permits the attribute only on fields; applying it to a property or class is not a valid use of this attribute.
-- `AllowMultiple` and `Inherited` are omitted, so .NET defaults are `AllowMultiple = false` and `Inherited = true`. The engine still builds the member definition from the field's declaring type and reflection result; `Inherited = true` does not mean a derived class receives a new independent save slot automatically.
-- There is no parameterless constructor. `[SaveableField(11)]` calls the constructor that accepts a `short`.
-- `LocalSaveId` has a public setter, and the source constructor performs no range or duplicate validation. The engine reads the current value during collection; after release, treat it as a stable, non-negative, never-reused schema ID and do not mutate it at runtime.
-
-## Real source example
-
-`TaleWorlds.Core.Game` uses a private field for its next troop seed:
+## Real Example: Field, Type Definition, and Save
 
 ```csharp
-public sealed class Game : IGameStateManagerOwner
+public sealed class RelicState
 {
-    [SaveableField(11)]
-    private int _nextUniqueTroopSeed = 1;
+    [SaveableField(1)]
+    private int _discoveredCount;
+
+    [SaveableField(2)]
+    private Hero _discoverer;
+
+    public void RestoreDefaults()
+    {
+        _discoveredCount = Math.Max(_discoveredCount, 0);
+    }
+}
+
+public sealed class RelicSaveDefiner : SaveableTypeDefiner
+{
+    public RelicSaveDefiner() : base(910000) { }
+
+    protected override void DefineClassTypes()
+    {
+        AddClassDefinition(typeof(RelicState), 1);
+    }
+}
+
+public override void SyncData(IDataStore dataStore)
+{
+    dataStore.SyncData("_myMod_relicState_v1", ref _relicState);
 }
 ```
 
-Here `11` is the local member ID and `int` is the field type. The member is reachable in the object graph not because the attribute registers `int`, but because the core save definitions already know the basic type and `Game` is registered separately as a root.
+This example shows three different contracts: the Attribute marks the field, the definer assigns the type definition to `RelicState`, and the Behavior's `IDataStore` saves the root object. Writing only the first layer will not automatically put the field into a fully readable/writable save graph.
 
-The same `Game` type contrasts it with a property:
+## Real Native Declaration
 
-```csharp
-[SaveableProperty(3)]
-public GameType GameType { get; private set; }
-```
-
-That member must use [SaveablePropertyAttribute](../SaveablePropertyAttribute); the field attribute cannot be applied to a property. `Game`'s root marker and root definition additionally involve [SaveableRootClassAttribute](../SaveableRootClassAttribute) and [SaveableTypeDefiner](../SaveableTypeDefiner). These are three different ID layers and must not be mixed.
-
-## When collection happens
-
-`DefinitionContext.FillWithCurrentTypes()` first gathers saveable assemblies, instantiates non-abstract `SaveableTypeDefiner` types, and runs the basic, class, struct, interface, enum, root, generic, and container definition hooks, followed by conflict resolver definitions. Only then does it collect member metadata from root-class, class, and struct `TypeDefinition` instances.
-
-For ordinary root and class definitions, the source order is `CollectInitializationCallbacks()`, then `CollectProperties()`, then `CollectFields()`. The important behavior of `CollectFields()` is:
-
-- It examines instance public/non-public fields and keeps non-private fields exposed by the type.
-- It walks the inheritance chain to include private fields declared by base types.
-- The collection is for instance fields; static fields do not enter this path.
-- For each field it reads the first `SaveableFieldAttribute`, computes a class level from the field's `DeclaringType`, and constructs a `MemberTypeId`.
-- On success it adds a `FieldDefinition` to `TypeDefinition.FieldDefinitions` and `MemberDefinitions`.
-
-This is why a field is not saved at the moment the attribute is written. It is also why marking a field does not replace registering the field type or its containers through a definer.
-
-## MemberTypeId, inheritance, and duplicate IDs
-
-`LocalSaveId` is not the complete member identity. `TypeDefinition` combines the declaring type's class level with the local ID:
+In 1.4.5, `AllianceCampaignBehavior` uses a struct field and an outer Behavior `SyncData`:
 
 ```csharp
-MemberTypeId memberTypeId = new MemberTypeId(classLevel, saveableFieldAttribute.LocalSaveId);
+internal struct Alliance(Kingdom kingdom1, Kingdom kingdom2, CampaignTime endTime)
+{
+    [SaveableField(0)] public readonly Kingdom Kingdom1 = kingdom1;
+    [SaveableField(1)] public readonly Kingdom Kingdom2 = kingdom2;
+    [SaveableField(2)] public CampaignTime EndTime = endTime;
+}
+
+public override void SyncData(IDataStore dataStore)
+{
+    dataStore.SyncData("_alliances", ref _alliances);
+}
 ```
 
-`MemberTypeId.SaveId` is calculated from `(TypeLevel << 8) + LocalSaveId`. Therefore:
+The same file's `AllianceCampaignBehaviorTypeDefiner` registers the struct with `AddStructDefinition(typeof(Alliance), 1)` and the list with `ConstructContainerDefinition(typeof(List<Alliance>))`. Callers get the Behavior from `Campaign.Current.GetCampaignBehavior<IAllianceCampaignBehavior>()`; they do not create the definer manually. This example cleanly separates the outer string key, the type SaveId, and the field `LocalSaveId`.
 
-- Members declared at different levels of an inheritance chain can have different identities even when their local numbers match.
-- Moving a field to a base or derived type, or changing the inheritance structure, can change `TypeLevel`; the schema may change even if the field name and number remain the same.
-- `_fields` is a dictionary keyed by `MemberTypeId`. If two fields at the same declaration level use the same ID, `CollectFields()` records a duplicate SaveId error in `TypeDefinition.Errors` instead of overwriting the earlier definition.
-- Fields and properties use separate dictionaries. The same pair across the two member kinds is not the duplicate check performed by these methods, but a project should still keep one clear, stable numbering table per type.
+## Risks and Save Boundaries
 
-Duplicate IDs are not ignorable warnings. `DefinitionContext` aggregates `TypeDefinition.Errors`, and `SaveManager.Save` returns a failure when the context has errors instead of starting a trustworthy object-graph serialization.
+- **Duplicate number in the field table confuses members.** When two fields at the same declaring class level use the same `LocalSaveId`, `CollectFields()` records a definition error; properties are collected by a separate property table, so you cannot claim fields/properties share uniqueness on that basis.
+- **Do not renumber after release.** Changing a field from `1` to `3` is equivalent to changing the save schema; without a compatible resolver, an old save cannot find data by the original member.
+- **Do not change the field type in place.** `int` to `List<int>`, or an object to an incompatible type, can fail during collection or loading. Adding a versioned member and keeping an old-data conversion path is safer.
+- **A missing definer is not a harmless omission.** When a type is not in the `DefinitionContext`, `SaveManager.Save` may return failure due to a definition error rather than silently saving the field.
+- **Field values must be able to enter the object graph.** Putting a temporary engine object, a third-party handle, or an unresolvable cyclic object into a field will make save collection/load fail.
+- **Do not mix `IDataStore` and the Attribute.** `IDataStore` buckets by string key; `SaveableField` defines members by type and `LocalSaveId`; their compatibility rules differ.
 
-## Type dependencies and the `SyncData` boundary
+- **Load timing.** `SaveManager.Load` first builds the definition context; `LoadContext` creates objects, resolves references, fills fields/properties, and only then runs init and late-init callbacks. Do not assume a field is already restored in a constructor or an over-eager event; repairs that depend on other objects should go into a load callback or the Behavior's `OnGameLoaded`.
 
-The attribute answers only “which field, with which member ID.” It does not answer how the field type is serialized. If the field type is a custom class, struct, enum, closed generic, or container, confirm that [SaveableTypeDefiner](../SaveableTypeDefiner) and [DefinitionContext](../DefinitionContext) have a corresponding definition. [SaveManager.CheckSaveableTypes](../SaveManager) can help find attributed member types that are still undefined.
+## Cross-Version Notes
 
-`CampaignBehaviorBase.SyncData([IDataStore](../../campaign/IDataStore))` is a separate contract: the behavior manager creates a data record for the behavior and synchronizes fields by stable string keys. It is not an entirely unrelated file format: the internal `CampaignBehaviorDataStore.BehaviorSaveData` is itself saved by SaveSystem. `SyncData` first writes behavior state into key/value records, and that adapter then becomes part of the object graph. A behavior-owned `_daysObserved`, counter, or configuration value does not need `[SaveableField]` on the same field. Use this attribute only when the member belongs to a type already in the SaveSystem object graph and a member-level schema is actually required.
+1.3.15 and 1.4.5 have identical Attribute constructors and `LocalSaveId` type. A cross-version mod should fix the numbers, fix the field types, and design compatible loading before deleting/changing members; do not rely on field order from a decompiled file.
 
-## Compatibility and risks
+## Dependencies
 
-- **Do not reorder released IDs.** Changing `11` to `12`, reusing a retired `11`, changing the declaring type, or changing the field type changes how old saves are interpreted. Keep retired slots reserved and use an explicit conflict resolver or migration strategy when required.
-- **Do not rely on field names.** SaveSystem locates members through type level and `MemberTypeId`; renaming a field does not preserve its old ID, and moving it can change the level component.
-- **Do not hide duplicates.** A duplicate field ID at one type level becomes a context error. Fix the numbering table and test save/load rather than treating the message as ordinary logging.
-- **Do not persist transient runtime objects.** `Mission`, `Agent`, UI controls, delegates, threads, and engine handles should not enter a campaign save merely because a field can reference them; reacquire them at the correct lifecycle boundary.
-- **Do not bypass the game's save entry point.** A mod should not create a `DefinitionContext` or call `SaveManager.Save` on `Campaign.Current` from an event callback. Ordinary campaign state belongs in the behavior `SyncData` flow.
+- Upstream: [SaveableTypeDefiner](../SaveableTypeDefiner) puts the class declaring the field into the definition table.
+- Execution: [SaveManager](../SaveManager) initializes the definition context and performs save/load.
+- Comparison: [SaveablePropertyAttribute](../SaveablePropertyAttribute) marks properties; [IDataStore](../../campaign/IDataStore) handles Behavior key-value sync.
+- Common objects: the `StringId`, `Id` of [MBObjectBase](../../campaign-ext/MBObjectBase) are also defined by the save system.
 
-## Navigation
+## See Also
 
-- Parent: [Save system index](../)
-- Siblings: [SaveablePropertyAttribute](../SaveablePropertyAttribute) · [SaveableRootClassAttribute](../SaveableRootClassAttribute) · [SaveableTypeDefiner](../SaveableTypeDefiner) · [SaveManager](../SaveManager)
-- Related: [DefinitionContext](../DefinitionContext) · [TypeDefinition](../TypeDefinition) · [MemberTypeId](../MemberTypeId) · [CampaignBehaviorBase](../../campaign/CampaignBehaviorBase) · [Game](../../core/Game)
+- Parent: [save-system API](./)
+- Sibling: [SaveablePropertyAttribute](../SaveablePropertyAttribute) · [SaveableTypeDefiner](../SaveableTypeDefiner)
+- Related: [FieldDefinition](../FieldDefinition) · [MemberTypeId](../MemberTypeId) · [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase) · [Save and Crash Boundaries](../SaveManager)

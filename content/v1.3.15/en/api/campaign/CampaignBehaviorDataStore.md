@@ -21,7 +21,7 @@ The top-level `CampaignBehaviorDataStore` and nested `BehaviorSaveData` are both
 
 The visible `IsSaving`, `IsLoading`, and `SyncData<T>` members are the `BehaviorSaveData` implementation of `IDataStore`; they are not a public mod-facing API on the outer `CampaignBehaviorDataStore` type.
 
-## Mental model: two dictionaries, one temporary tray
+## Mental Model
 
 A save/load pass can be represented as:
 

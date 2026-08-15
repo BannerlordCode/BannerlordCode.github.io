@@ -49,7 +49,7 @@ The source performs these steps:
 
 There is no count parameter, so each call moves exactly one character. If more than one copy must move, take a stable roster snapshot and repeat for the intended count. Do not freely mutate the same roster while iterating its `GetTroopRoster()` result.
 
-## Dependencies and downstream effects
+## Dependencies
 
 | Direction | Type / system | Relationship |
 |---|---|---|

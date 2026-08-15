@@ -19,7 +19,7 @@ An army is a temporary strategic wrapper around independent `MobileParty` instan
 
 Use an `ApplyBy*` method when the army itself is ending. Do not set `party.Army = null`, clear `army.Parties`, or null `army.Kingdom` yourself. Do not use it to finish a battle, transfer troops, or remove a party from the map; those are `MapEvent`, roster, and party-lifecycle concerns.
 
-## Dependencies and official path
+## Dependencies
 
 ```text
 DisbandArmyAction.ApplyByReason(army)

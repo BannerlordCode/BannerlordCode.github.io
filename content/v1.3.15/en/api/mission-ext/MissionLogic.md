@@ -131,7 +131,7 @@ public sealed class BossDefeatLogic : MissionLogic
 
 This stores only a boolean, not the removed Agent reference. Extract the needed Agent/Team identity immediately in `OnAgentRemoved`; apply campaign rewards, relations, or Hero changes only after the Mission result is handed back to the campaign layer.
 
-## Dependencies and risks
+## Dependencies
 
 - [`Mission`](../../mission/Mission/) owns `MissionBehaviors` and `MissionLogics`, and decides when to poll `MissionEnded`.
 - [`MissionBehavior`](../../mission/MissionBehavior/) supplies Agent, Team, tick, interaction, and cleanup callbacks.

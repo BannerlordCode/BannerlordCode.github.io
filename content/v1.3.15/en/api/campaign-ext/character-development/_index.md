@@ -19,7 +19,7 @@ Read this family as four connected layers rather than as thirty unrelated classe
 
 The practical reading order is `Campaign.Current` -> `Hero.HeroDeveloper` or a `SkillLevelingManager` event boundary -> `SkillObject` / `PerkObject` / `TraitObject` -> `CharacterDevelopmentModel`. Use [CharacterDevelopmentModel](../CharacterDevelopmentModel) for XP thresholds, learning rates, and level decisions. Use [Models](../models/) for replaceable calculations and [Actions](../actions/) for world mutations. A perk catalog is not a replacement for either one.
 
-## Dependencies and boundaries
+## Dependencies
 
 - **Upstream:** [Campaign](../../campaign/Campaign), [Hero](../../campaign/Hero), [MobileParty](../../campaign/MobileParty), [Settlement](../../campaign/Settlement), [SkillObject](../../core-extra/SkillObject), and [GameModels](../GameModels).
 - **Downstream:** campaign behaviors, [CampaignEvents](../CampaignEvents), persuasion, trade, combat, siege, settlement management, and the [save system](../../save-system/).

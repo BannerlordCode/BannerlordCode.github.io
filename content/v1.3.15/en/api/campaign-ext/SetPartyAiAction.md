@@ -58,7 +58,7 @@ The Action dispatches no dedicated `CampaignEvent`. Its downstream cascade comes
 
 `MobileParty.NavigationType` is a Flags enum: `Default` means land routing, `Naval` means sea routing, and `All` permits both. `isFromPort` means that this command starts by leaving a port; when no transition is active, the Action sets `StartTransitionNextFrameToExitFromPort`. It does not mean that the destination is a port. `isTargetingPort` selects the settlement's port position instead of its gate position. Do not interchange the two flags.
 
-## Dependencies and upstream/downstream state
+## Dependencies
 
 | Dependency | Relationship |
 |---|---|

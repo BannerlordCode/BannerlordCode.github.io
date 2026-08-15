@@ -123,7 +123,7 @@ The save contains the template value and variable objects; after a language chan
 
 Both 1.3.15 and 1.4.5 expose `Value`, `Attributes`, variable overloads, copying, ID extraction, and load callbacks. Use the smallest common API for cross-version mods; `Format(float)` relies on the `A0` variable convention, while explicit `SetTextVariable` is easier to reason about.
 
-## Dependencies and navigation
+## Dependencies
 
 - Resolver: [MBTextManager](../MBTextManager/) owns language, tokenization, and final rendering.
 - Persistence: [SaveableFieldAttribute](../../save-system/SaveableFieldAttribute/) / [SaveablePropertyAttribute](../../save-system/SaveablePropertyAttribute/) and `SaveableLocalizationTypeDefiner` define the object graph.

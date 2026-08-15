@@ -34,7 +34,7 @@ Do not use it to recruit a companion, transfer a hero between clans, or replace 
 
 The private `ApplyInternal` method performs no validation, no null guard, no party migration, and no event dispatch. The caller must complete all checks before invoking `Apply`.
 
-## Dependencies and Event Boundary
+## Dependencies
 
 - **Parent:** [`Hero.MainHero`](../../campaign/Hero) supplies the parent and must belong to the active campaign.
 - **Target:** [`Hero`](../../campaign/Hero) is mutated directly; the target is not added to a party or companion roster by this Action.

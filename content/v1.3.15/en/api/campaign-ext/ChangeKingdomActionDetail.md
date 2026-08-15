@@ -36,7 +36,7 @@ Choose the Action entry point whose name matches the business cause. Do not cons
 
 The numeric ordering is not a save contract. Branch on names rather than storing integers such as `0` or `1` in mod data.
 
-## Dependencies and Event Consumers
+## Dependencies
 
 - **Upstream:** [`ChangeKingdomAction`](../ChangeKingdomAction) receives [`Clan`](../../campaign/Clan), old/new [`Kingdom`](../../campaign/Kingdom), and mercenary timing state.
 - **Event:** [`CampaignEvents`](../CampaignEvents) exposes `OnClanChangedKingdomEvent` as `IMbEvent<Clan, Kingdom, Kingdom, ChangeKingdomAction.ChangeKingdomActionDetail, bool>`.

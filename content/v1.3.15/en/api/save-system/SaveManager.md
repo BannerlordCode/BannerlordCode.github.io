@@ -89,7 +89,7 @@ The important point is not to save from a behavior manually; it is to ensure the
 
 Both 1.3.15 and 1.4.5 expose `.sav`, definition-context initialization, `Save`, `LoadMetaData`, `Load`, and the late-initialize parameter. Official definitions grow between versions; keep a mod's type IDs, member IDs, behavior keys, and field types compatible instead of relying on absolute official table numbers.
 
-## Dependencies and navigation
+## Dependencies
 
 - Definitions: [SaveableTypeDefiner](../SaveableTypeDefiner/), [SaveableFieldAttribute](../SaveableFieldAttribute/), and [SaveablePropertyAttribute](../SaveablePropertyAttribute/).
 - Behavior state: [IDataStore](../../campaign-ext/IDataStore/) is the correct behavior-private route.

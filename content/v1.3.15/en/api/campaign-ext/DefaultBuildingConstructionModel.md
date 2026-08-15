@@ -20,7 +20,7 @@ The default baseline is `town.Prosperity * 0.01`. The implementation then adds r
 
 The result is still only today's construction amount. `Town.Construction` reads it, and `BuildingsCampaignBehavior` writes it to the current building and consumes reserve. The model does not complete buildings or remove queue entries.
 
-## Dependencies and consumers
+## Dependencies
 
 | Type or flow | Relationship |
 | --- | --- |

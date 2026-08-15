@@ -27,7 +27,7 @@ Treat `Hero.VolunteerTypes` as a six-slot candidate queue owned by the hero, and
 - Change the troop-tree upgrade ceiling through `MaxVolunteerTier`; do not use it to resize `Hero.VolunteerTypes`.
 - Do not cache heroes, settlements, or random results in this model. It is a runtime rule object without its own save synchronization boundary.
 
-## Dependencies and consumers
+## Dependencies
 
 | Type or flow | Relationship |
 | --- | --- |

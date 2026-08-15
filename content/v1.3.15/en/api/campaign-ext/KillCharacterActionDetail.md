@@ -59,7 +59,7 @@ ApplyBy*(victim, killer, reason)
 
 `ApplyByDeathMark(victim)` and `ApplyByDeathMarkForced(victim)` reuse the stored reason and killer. The forced variant bypasses `CanDie` and should only be used by the upstream flow that already made the irreversible decision.
 
-## Dependencies and Downstream Effects
+## Dependencies
 
 | Direction | Type or subsystem | Contract |
 |---|---|---|

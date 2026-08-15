@@ -20,7 +20,7 @@ The implementation has two independent paths. The first decides which seller slo
 
 There are six volunteer slots, indexed `0..5`. `MaxVolunteerTier` returns `4` and is used by the daily upgrade path to stop a troop at the configured Tier; it is not a slot limit. Every default slot upper bound is ultimately capped at `6`.
 
-## Dependencies and consumers
+## Dependencies
 
 | Type or flow | Relationship |
 | --- | --- |

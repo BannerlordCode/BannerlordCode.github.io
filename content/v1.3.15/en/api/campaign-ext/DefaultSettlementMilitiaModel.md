@@ -20,7 +20,7 @@ Daily change is an incremental formula: castles and towns start at `2`, villages
 
 Post-siege reinforcement, daily change, veteran chance, and melee/ranged distribution are separate public contracts. `Town.DailyTick`, `MilitiasCampaignBehavior`, and `Settlement` apply results to `Settlement.Militia` or the militia party; the Model does not own those writes.
 
-## Dependencies and consumers
+## Dependencies
 
 | Type or flow | Relationship |
 | --- | --- |

@@ -20,7 +20,7 @@ The default implementation is query-only: it searches `Town.Buildings` for a lev
 
 The 1.4.5 default does not implement a separate naval-template branch, but callers must still pass the contract's `naval` argument. A custom naval policy should make that difference explicit.
 
-## Dependencies and consumers
+## Dependencies
 
 | Type or flow | Relationship |
 | --- | --- |

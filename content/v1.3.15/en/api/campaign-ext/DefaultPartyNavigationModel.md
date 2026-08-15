@@ -42,7 +42,7 @@ The default constructor enumerates `TerrainType` and caches every value outside 
 - Do not append to, sort, or clear the array returned by `GetInvalidTerrainTypesForNavigationType`. The default `Default`/`All` result is a shared array cached by the instance.
 - Do not claim to support naval movement by changing only `HasNavalNavigationCapability` to `true`. Ships, naval paths, transitions, speed, and return-to-land behavior must also exist.
 
-## Dependencies and consumers
+## Dependencies
 
 ### Inputs
 

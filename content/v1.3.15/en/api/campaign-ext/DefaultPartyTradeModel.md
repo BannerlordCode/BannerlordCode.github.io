@@ -29,7 +29,7 @@ When the price model calls it, it receives only a factor. The default implementa
 - Do not mutate a party or market from `GetTradePenaltyFactor`; price calculation may invoke it more than once.
 - Do not call `AddModel` during a running campaign and expect a hot replacement. Registration must happen in `InitializeGameStarter`, with module ordering taken into account.
 
-## Dependencies and consumers
+## Dependencies
 
 - [PartyTradeModel](../PartyTradeModel/) defines the two required members.
 - [GameModels](../GameModels/) collects models by type and exposes the selected instance.

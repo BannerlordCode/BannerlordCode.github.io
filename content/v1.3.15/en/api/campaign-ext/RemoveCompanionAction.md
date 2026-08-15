@@ -42,7 +42,7 @@ Do not call a wrapper merely to remove a hero from a roster. It can alter captiv
 
 The internal method is not mod-visible. The event receives the post-mutation `Hero` and reason synchronously.
 
-## Dependencies and Event Consumers
+## Dependencies
 
 - **Inputs:** [`Clan`](../../campaign/Clan) and [`Hero`](../../campaign/Hero); party state comes from `companion.PartyBelongedTo`.
 - **Related actions:** [`DestroyPartyAction`](../DestroyPartyAction), [`DisbandPartyAction`](../DisbandPartyAction), [`EndCaptivityAction`](../EndCaptivityAction), [`MakeHeroFugitiveAction`](../MakeHeroFugitiveAction), and [`ChangeGovernorAction`](../ChangeGovernorAction) own parts of the cascade.

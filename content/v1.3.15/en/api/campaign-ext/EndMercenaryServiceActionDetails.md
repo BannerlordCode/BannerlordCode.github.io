@@ -48,7 +48,7 @@ The built-in call points show the three boundaries: `ChangeKingdomAction` uses `
 
 All three values currently clear the same mercenary flag and raise the same event shape. Do not collapse them in a mod's event handler: SandBox cutscene logic and other consumers can use the reason to distinguish a vassal conversion from a departure.
 
-## Dependencies and Boundary Map
+## Dependencies
 
 | Direction | Type or subsystem | Contract |
 |---|---|---|

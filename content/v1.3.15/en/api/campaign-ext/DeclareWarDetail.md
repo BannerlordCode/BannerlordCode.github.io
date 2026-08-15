@@ -50,7 +50,7 @@ DeclareWarAction.ApplyBy*(faction1, faction2)
 
 The enum's order is not a stable save-format contract. Branch on the named values, not on their underlying integers.
 
-## Dependencies and Downstream Effects
+## Dependencies
 
 | Direction | Type or subsystem | Contract |
 |---|---|---|

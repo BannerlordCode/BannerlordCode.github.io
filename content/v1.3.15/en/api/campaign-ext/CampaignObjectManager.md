@@ -15,7 +15,7 @@ description: "Campaign object classification lists and exact-type lookup; not a 
 
 `CampaignObjectManager` maintains the campaign's registered `Hero`, `Clan`, `Kingdom`, and `MobileParty` collections and exposes exact-ID, predicate, and unique-string-ID operations for them. It is not a universal registry for every `MBObjectBase`.
 
-## Mental model: two object paths
+## Mental Model
 
 Treat this as the campaign-owned object index, not as a service that a mod should freely construct:
 

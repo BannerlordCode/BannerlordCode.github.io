@@ -50,7 +50,7 @@ Each public parent entry point selects exactly one reason:
 
 Both values perform the same ownership removal; only the event reason differs. Current `AiPatrollingBehavior` rechecks the former owner after either value. If a lord party is patrolling at sea but has lost naval navigation capability, it switches to Hold. Mod listeners can further separate economy statistics, notifications, and quest progress by reason.
 
-## Dependencies and upstream/downstream state
+## Dependencies
 
 | Dependency | Relationship |
 |---|---|

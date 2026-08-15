@@ -58,7 +58,7 @@ The `JoinAsMercenary` branch of `ChangeKingdomAction.ApplyInternal` invokes the 
 
 Ordinary mods should also prefer `ChangeKingdomAction.ApplyByJoinFactionAsMercenary`. Calling `StartMercenaryServiceAction.ApplyByDefault` directly skips outer faction-stance adjustment, `DebtToKingdom` reset, `ShouldStayInKingdomUntil`, war-party Hold handling, map-visual checks, and `OnClanChangedKingdom`.
 
-## Dependencies and upstream/downstream state
+## Dependencies
 
 | Dependency | Relationship |
 |---|---|

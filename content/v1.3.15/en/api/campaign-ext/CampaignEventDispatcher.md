@@ -16,7 +16,7 @@ description: "The synchronous campaign event forwarder: it fans out OnXxx calls 
 
 It does not own business state or create world changes; it synchronously fans out `OnXxx` calls already emitted by campaign code to a set of `CampaignEventReceiver` instances.
 
-## Mental model: the forwarding layer behind the bus
+## Mental Model
 
 `CampaignEventDispatcher` is the **receiver fan-out layer**, not the event container that most mods should subscribe to.
 

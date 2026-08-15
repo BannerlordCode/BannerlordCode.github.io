@@ -30,7 +30,7 @@ Call `ApplyAftermath` at the siege-resolution boundary while the contribution ma
 
 The enum contains no cost, prosperity delta, or reward amount; those are calculated by the active campaign behavior and models.
 
-## Dependencies and Event Consumers
+## Dependencies
 
 - **Upstream:** [`SiegeAftermathAction`](../SiegeAftermathAction), [`SiegeEvent`](../SiegeEvent/), [`MobileParty`](../../campaign/MobileParty), and [`Settlement`](../../campaign/Settlement).
 - **Contribution data:** `Dictionary<MobileParty, float>` must come from the current siege battle; do not reuse another map event's contribution map.

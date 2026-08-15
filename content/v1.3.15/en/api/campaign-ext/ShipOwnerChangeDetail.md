@@ -32,7 +32,7 @@ Use `ApplyByTrade`, `ApplyByTransferring`, or another matching public entry. Do 
 
 The `ApplyBy` spelling is part of each enum name, but its integer ordering is not a persistence contract.
 
-## Dependencies and Event Consumers
+## Dependencies
 
 - **Upstream:** [`ChangeShipOwnerAction`](../ChangeShipOwnerAction), `Ship`, [`PartyBase`](../../campaign/PartyBase), and `ShipCostModel`.
 - **Payment boundary:** Only `ApplyByTrade` enters value calculation and [`GiveGoldAction`](../GiveGoldAction); the other reasons are not free-trade variants.

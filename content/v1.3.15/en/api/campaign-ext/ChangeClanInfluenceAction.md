@@ -19,7 +19,7 @@ Apply one influence delta to a [Clan](../../campaign/Clan) and publish that same
 
 Use this action when a campaign feature has decided that influence must change and listeners must observe it. Do not use it to decide the amount, to transfer gold, or as a substitute for the kingdom-decision and army workflows that own their own prerequisites.
 
-## Dependencies and execution order
+## Dependencies
 
 | Role | Connection | Why it matters |
 |---|---|---|

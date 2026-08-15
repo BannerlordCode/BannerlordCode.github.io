@@ -20,7 +20,7 @@ Default daily town tax starts at `prosperity * 0.35`, then applies policy cuts, 
 
 The ratio path is separate: town commission starts at `0.7`, village commission at `1.0`; Crown Duty raises the town ratio by `5%`, while Land Grants for Veterans reduces the village ratio by `5%`. Town security below `75` can reduce a trade commission by up to `10%`.
 
-## Dependencies and consumers
+## Dependencies
 
 | Type or flow | Relationship |
 | --- | --- |

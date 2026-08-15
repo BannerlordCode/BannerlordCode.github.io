@@ -18,7 +18,7 @@ description: "The model contract for patrol eligibility, spawn timing, and settl
 
 `PatrolPartiesCampaignBehavior` owns the lifecycle. During campaign ticks it asks the Model for eligibility, keeps a generation queue, obtains a template, and only then calls `PatrolPartyComponent.CreatePatrolParty`. Thus `CanSettlementHavePatrolParties` is the gate, `GetPatrolPartySpawnDuration` is the queue delay, and `GetPartyTemplateForPatrolParty` is the spawn configuration. Calling the template method a factory bypasses queue and cleanup behavior.
 
-## Dependencies and consumers
+## Dependencies
 
 | Type or flow | Relationship |
 | --- | --- |

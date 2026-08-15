@@ -78,6 +78,11 @@ public class SaveableLocalizationTypeDefiner : SaveableTypeDefiner
 
 ```
 
+```csharp
+// The game discovers definers through reflection and folds them into the global definition context at module load
+SaveManager.InitializeGlobalDefinitionContext();
+```
+
 This is a real 1.4.5 declaration: `base(20000)` and local type ID `1` form the type SaveId, while the concrete dictionary shape is registered separately. The module calls [SaveManager](../SaveManager) to build the context; a mod should not manually construct this definer. Native [SaveableCampaignTypeDefiner](../../campaign-ext/SaveableCampaignTypeDefiner) follows the same pattern with `base(330000)`.
 
 `saveBaseId + local save id` is a type ID; a field's `LocalSaveId` forms a separate `MemberTypeId`. Both layers must remain stable after release.
@@ -99,7 +104,7 @@ This is a real 1.4.5 declaration: `base(20000)` and local type ID `1` form the t
 
 The same base helpers and override stages exist in 1.3.15 and 1.4.5. Official module base IDs, local type IDs, and type lists can grow between versions; a mod should treat its own range as a permanent protocol and never copy a version-specific official range.
 
-## Dependencies and navigation
+## Dependencies
 
 - Member declarations: [SaveableFieldAttribute](../SaveableFieldAttribute) · [SaveablePropertyAttribute](../SaveablePropertyAttribute).
 - Execution: [SaveManager](../SaveManager) builds [DefinitionContext](../DefinitionContext) and reports definition errors.

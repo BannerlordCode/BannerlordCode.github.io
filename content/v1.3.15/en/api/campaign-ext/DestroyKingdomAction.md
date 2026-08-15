@@ -27,7 +27,7 @@ Kingdom (marked eliminated)
 
 Use it only for an irrecoverable kingdom-collapse outcome. It is not a shortcut for changing rulers, removing one clan, making peace, or removing a policy. The built-in faction-discontinuation behavior first moves any relevant surviving clans out through `ChangeKingdomAction`, clears `RulingClan`, and only then applies this action.
 
-## Dependencies and event order
+## Dependencies
 
 | Direction | Types and effect |
 |---|---|

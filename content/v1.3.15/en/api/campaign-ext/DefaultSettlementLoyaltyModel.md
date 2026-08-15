@@ -20,7 +20,7 @@ description: "The source-backed default implementation for town loyalty drift, t
 
 The calculation builds an `ExplainedNumber` and adds food stocks, governor and owner culture, policies, building projects, issues, security, notable relations, perks, and drift toward `LoyaltyDriftMedium`. `includeDescriptions` controls explanation retention; it does not select a different formula. Use this Model to change a policy answer; use Actions and Behaviors to change ownership, trigger rebellion, or write state.
 
-## Dependencies and consumers
+## Dependencies
 
 | Type or flow | Relationship |
 | --- | --- |

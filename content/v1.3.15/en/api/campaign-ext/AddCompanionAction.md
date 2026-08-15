@@ -34,7 +34,7 @@ Do not use it to change an ordinary clan member into a companion, to transfer a 
 
 The private `ApplyInternal` method is not a mod entry point. The order above matters: observers see the new relationship, and an old owner may already have received a removal event.
 
-## Dependencies and Event Consumers
+## Dependencies
 
 - **Inputs:** [`Clan`](../../campaign/Clan) owns the relationship and [`Hero`](../../campaign/Hero) is the companion being attached.
 - **Previous owner:** [`RemoveCompanionAction`](../RemoveCompanionAction) is used with `RemoveCompanionDetail.Fire` if `companion.CompanionOf` is already set.

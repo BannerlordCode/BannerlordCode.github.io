@@ -29,7 +29,7 @@ Replacing this Model changes the rule; it does not mark every party disorganized
 - Do not call `SetDisorganized`, write party fields, or fire map events from an override; that bypasses the phase checks in [DisorganizedStateCampaignBehavior](../../campaign/DisorganizedStateCampaignBehavior/).
 - Do not interpret `GetSiegeExpectedVulnerabilityTime` as a duration; it is a time-of-day value.
 
-## Dependencies and consumers
+## Dependencies
 
 - [PartyImpairmentModel](../PartyImpairmentModel/) is the abstract contract.
 - [GameModels](../GameModels/) controls registration order and runtime exposure.

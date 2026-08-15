@@ -47,7 +47,7 @@ Clears raft state, keeps `Army` detached, enables AI, recalculates short-term be
 
 The private `ApplyInternal(MobileParty, bool)` performs both transitions synchronously. It has no null check, current-state check, or phase check.
 
-## Dependencies and call sites
+## Dependencies
 
 The upstream object is a live [MobileParty](../../campaign/MobileParty). In the 1.4.5 source, `PlayerEncounter` activates the main party and eligible defeated parties after naval encounter resolution; `MobileParty.FinishNavigationTransitionInternal` deactivates the party once its navigation position is updated. The Action calls [EndCaptivityAction](../EndCaptivityAction) for every hero found in the prisoner roster, then publishes [CampaignEvents](../CampaignEvents)' `OnMobilePartyRaftStateChangedEvent` for [CampaignBehaviorBase](../CampaignBehaviorBase) listeners.
 

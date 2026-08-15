@@ -19,7 +19,7 @@ Governor assignment is not just a property assignment because a governor must be
 
 Use `RemoveGovernorOf(hero)` only when `hero.GovernorOf` is known to be non-null; it dereferences that town immediately. Use `RemoveGovernorOfIfExists(town)` when clearing an optional assignment. Vanilla's town-management UI uses the latter for an empty selection, while settlement-ownership and hero-removal flows use the former after they have established that the hero is a governor.
 
-## Dependencies and execution order
+## Dependencies
 
 | Role | Connection | Why it matters |
 |---|---|---|

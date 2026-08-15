@@ -29,7 +29,7 @@ The enum is not the war state and is not a tribute field. Use `ApplyByKingdomDec
 
 The numeric ordering is not a save contract. Persist the resulting diplomatic state and any mod-owned explanation by name.
 
-## Dependencies and Event Consumers
+## Dependencies
 
 - **Upstream:** [`MakePeaceAction`](../MakePeaceAction), [`IFaction`](../IFaction), `FactionManager`, and kingdom decision resolution.
 - **State:** The `StanceLink` becomes neutral and tribute is written through `SetDailyTributePaid`; player-visible map entities may be marked dirty.

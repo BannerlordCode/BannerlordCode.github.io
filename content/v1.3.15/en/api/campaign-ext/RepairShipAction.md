@@ -48,7 +48,7 @@ If the ship is below 80 percent of `MaxHitPoints`, repairs it to exactly 80 perc
 
 The private `ApplyInternal(Ship, float, Settlement)` is the synchronous commit point. It reports the hit-point delta before writing hit points, then dispatches the event after the new value is visible.
 
-## Dependencies and call-site evidence
+## Dependencies
 
 The upstream state is a [Ship](../Ship) acquired from a [PartyBase](../../campaign/PartyBase) or [MobileParty](../../campaign/MobileParty), plus a validated [Settlement](../../campaign/Settlement) for the paid entry. The price comes from [ShipCostModel](../ShipCostModel); payment uses `GiveGoldAction`, skill progression is notified through `SkillLevelingManager`, and [CampaignEvents](../CampaignEvents) exposes `OnShipRepairedEvent`.
 

@@ -20,7 +20,7 @@ The default implementation keeps two ledgers: `bonuses` are food sources, while 
 
 The defaults also shape the UI explanation: base storage is `300`, every `40` prosperity consumes one food, every `20` garrison members consumes one food, and a castle receives an additional `150` storage capacity.
 
-## Dependencies and consumers
+## Dependencies
 
 | Type or flow | Relationship |
 | --- | --- |

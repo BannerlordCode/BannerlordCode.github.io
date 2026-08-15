@@ -53,7 +53,7 @@ The main hero is never sold through this path. A hero is ransom-released when th
 | `ApplyForSelectedPrisoners(PartyBase sellerParty, PartyBase buyerParty, TroopRoster prisoners)` | Processes only the supplied manifest, but does not verify that those counts belong to the seller. Removes prisoners, pays ransom, grants skill progress, and dispatches events. | Used by `PartiesSellPrisonerCampaignBehavior` for AI sales and by the town command that sells all player prisoners eligible for ransom. |
 | `ApplyByPartyScreen(TroopRoster prisoners)` | Assumes Party Screen already changed the rosters and skips regular-troop removal and payment. It still reads `Hero.MainHero.CurrentSettlement.Party`. | Reserved for the corresponding Party Screen completion path; ordinary mod commands should normally avoid it. |
 
-## Dependencies and event cascade
+## Dependencies
 
 | Dependency | Upstream / downstream role |
 |---|---|

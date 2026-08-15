@@ -16,7 +16,7 @@ description: "The Campaign-owned scheduler: it advances MobileParty, Settlement,
 
 It is the `Campaign`-owned time scheduler: it turns game time into sliced entity ticks and advances custom periodic events; it is not a constructible public service or the `CampaignEvents` event bus.
 
-## Mental model: two clocks, one owner
+## Mental Model
 
 Treat it as a **scheduler owned by the campaign**:
 

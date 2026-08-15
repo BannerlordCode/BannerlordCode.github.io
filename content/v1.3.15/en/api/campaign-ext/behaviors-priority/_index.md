@@ -14,7 +14,7 @@ weight: 10
 
 This page covers the first priority set: aging and character creation, alliances and war, bandits and caravans, banners and buildings, battle recovery, and management. Return to [Actions](../actions/) for world-state mutations and [Models](../models/) for formula replacement. The `TypeDefiner` rows only describe save type registration; they are not business behaviors.
 
-## Dependencies and boundaries
+## Dependencies
 
 - **Upstream:** [Campaign](../../campaign/Campaign), [CampaignGameStarter](../CampaignGameStarter), [CampaignEvents](../CampaignEvents), and `Campaign.Current`.
 - **Downstream:** [Actions](../actions/), [Models](../models/), campaign events, dialog/quest systems, and the [save system](../../save-system/).

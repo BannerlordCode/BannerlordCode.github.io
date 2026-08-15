@@ -52,7 +52,7 @@ The 1.4.5 callers show the intended timing: `PartyScreenHelper` transfers ships 
 
 The enum is an event reason, not a second API for changing ownership. Mods should call the matching wrapper and inspect `ShipOwnerChangeDetail` only when reacting to an event.
 
-## Dependencies and Downstream Consumers
+## Dependencies
 
 | Direction | Type or subsystem | Contract |
 |---|---|---|

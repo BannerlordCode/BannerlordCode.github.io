@@ -15,7 +15,7 @@ description: "The Campaign-layer entry for creating scene Missions, plus the cam
 
 It passes encounter, location, and battle inputs to the current `Campaign` Mission manager to open the appropriate scene Mission, while exposing the campaign adapter state for the active scene through `Current`.
 
-## Mental model: two entry points, two Current properties
+## Mental Model
 
 `CampaignMission` is not a `Mission` constructor and it is not a container for saveable campaign data. It contains two different API directions:
 
@@ -205,7 +205,7 @@ MissionLogic behavior = mission.GetMissionBehavior<MissionLogic>();
 
 This obtains campaign location/mode separately from the Mission agent/behavior. `Mission.Current` and its Agent references can become invalid at the next scene transition, so use these locals only within one Mission callback or another confirmed Mission phase.
 
-## Dependencies, events, and save risks
+## Dependencies
 
 ### Actual dependency chain
 

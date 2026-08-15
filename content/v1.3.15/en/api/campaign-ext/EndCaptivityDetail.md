@@ -34,7 +34,7 @@ The reason does not itself say whether the hero is still a prisoner or contain e
 
 The numeric ordering is not a save format. Save the mod's resulting business state and reacquire the hero on load.
 
-## Dependencies and Event Consumers
+## Dependencies
 
 - **Upstream:** [`EndCaptivityAction`](../EndCaptivityAction), [`Hero`](../../campaign/Hero), [`PartyBase`](../../campaign/PartyBase), and the prison roster.
 - **Event:** [`CampaignEvents`](../CampaignEvents) exposes `HeroPrisonerReleased` as `IMbEvent<Hero, PartyBase, IFaction, EndCaptivityDetail, bool>`; it covers ordinary releases and the player branch, but must not be treated as guaranteed for every `Death` cleanup.

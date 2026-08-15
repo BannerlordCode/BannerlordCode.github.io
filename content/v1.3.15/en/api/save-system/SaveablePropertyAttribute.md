@@ -75,6 +75,11 @@ public sealed class RelicSaveDefiner : SaveableTypeDefiner
 }
 ```
 
+```csharp
+// The save manager discovers the definer (via its base ID) and builds the definition context that includes RelicInfo
+SaveManager.InitializeGlobalDefinitionContext();
+```
+
 This is one complete save chain: `TextObject` and `Hero` must already be present in the save definition graph, and the definer registers `RelicInfo`. A private setter is an encapsulation boundary, not a way around the save system; it lets the loader restore the value while normal runtime callers still cannot assign it.
 
 ## Risks and crash boundaries
@@ -90,7 +95,7 @@ This is one complete save chain: `TextObject` and `Hero` must already be present
 
 The constructor, Attribute target, and `LocalSaveId` type are the same in 1.3.15 and 1.4.5. `TextObject.Attributes` still uses `[SaveableProperty(2)]`, demonstrating the encapsulated-property route; it does not mean that every property can be added to an existing schema safely.
 
-## Dependencies and navigation
+## Dependencies
 
 - Definition: [SaveableTypeDefiner](../SaveableTypeDefiner/) registers the containing class and type ID.
 - Execution: [SaveManager](../SaveManager/) builds the definition context and performs `Save`/`Load`.

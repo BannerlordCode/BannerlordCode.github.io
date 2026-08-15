@@ -20,7 +20,7 @@ description: "The source-backed default implementation for town security drift, 
 
 The default daily formula considers nearby hideouts, looted villages, siege state, prosperity, garrison, policies, governor, projects, issues, perks, security drift, and patrols. Garrison strength is calculated through `MilitaryPowerModel`; the explanation entries are intended for UI and diagnostics.
 
-## Dependencies and consumers
+## Dependencies
 
 | Type or flow | Relationship |
 | --- | --- |

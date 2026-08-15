@@ -19,7 +19,7 @@ Leader replacement crosses several ownership boundaries. The action moves all go
 
 `ApplyWithSelectedNewLeader` is for a workflow that has already chosen an eligible successor. Vanilla uses it for the player-heir action and for a king-selection outcome. `ApplyWithoutSelectedNewLeader` asks `Clan.GetHeirApparents()` for scores, selects randomly among the highest score, and returns without changing anything when there are no candidates. Vanilla uses that branch after a leader dies or is found outside their clan. It is not a general-purpose "pick the next leader" helper when your feature needs custom eligibility, UI choice, or a non-vanilla succession rule.
 
-## Dependencies and execution order
+## Dependencies
 
 | Role | Connection | Side effect |
 |---|---|---|

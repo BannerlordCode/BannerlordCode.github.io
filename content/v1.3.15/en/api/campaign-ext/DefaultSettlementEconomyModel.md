@@ -20,7 +20,7 @@ description: "The source-backed default rules for market supply and demand smoot
 
 The key parameters create a stable feedback loop: supply is `85%` old value plus `15%` daily supply, demand is smoothed the same way, demand is based on prosperity and category coefficients, luxury demand starts only above `3000` prosperity, and the daily budget multiplies demand by the price index to the `0.3` power.
 
-## Dependencies and consumers
+## Dependencies
 
 | Type or flow | Relationship |
 | --- | --- |

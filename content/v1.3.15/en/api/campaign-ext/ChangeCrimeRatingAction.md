@@ -34,7 +34,7 @@ Do not write `IFaction.MainHeroCrimeRating` directly, assume the requested delta
 
 The internal method is not mod-visible. An effective delta of zero does not produce the normal notification or useful state change, so a call is not a guarantee that listeners will observe a meaningful change.
 
-## Dependencies and Event Consumers
+## Dependencies
 
 - **Target:** [`IFaction`](../IFaction) supplies `MainHeroCrimeRating`, `Name`, `Leader`, and war state.
 - **Model:** `Campaign.Current.Models.CrimeModel` supplies the maximum rating and `DeclareWarCrimeRatingThreshold`.

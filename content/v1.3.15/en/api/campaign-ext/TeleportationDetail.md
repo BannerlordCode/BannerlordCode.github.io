@@ -34,7 +34,7 @@ The event is therefore a synchronous dispatch boundary followed by a branch atte
 
 The enum order is not the delayed queue's save format. `TeleportationCampaignBehavior` saves the hero, target, time, and role flags as its own `TeleportationData`.
 
-## Dependencies and Event Consumers
+## Dependencies
 
 - **Upstream:** [`TeleportHeroAction`](../TeleportHeroAction), [`Hero`](../../campaign/Hero), [`Settlement`](../../campaign/Settlement), [`MobileParty`](../../campaign/MobileParty), and `DelayedTeleportationModel`.
 - **Event:** [`CampaignEvents`](../CampaignEvents) exposes `OnHeroTeleportationRequestedEvent` as `IMbEvent<Hero, Settlement, MobileParty, TeleportHeroAction.TeleportationDetail>`.

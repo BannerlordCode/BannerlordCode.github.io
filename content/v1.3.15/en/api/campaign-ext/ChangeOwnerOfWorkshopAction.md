@@ -38,7 +38,7 @@ Do not set `Workshop.Owner`, type, capital, or hero gold independently. Do not p
 
 Every path captures the old owner, mutates the workshop, settles applicable gold, and emits `WorkshopOwnerChangedEvent(Workshop, Hero oldOwner)`.
 
-## Dependencies and Event Consumers
+## Dependencies
 
 - **State:** [`Workshop`](../../campaign/Workshop) owns the current owner, type, and capital; [`Hero`](../../campaign/Hero) identifies old and new owners.
 - **Model:** `Campaign.Current.Models.WorkshopModel` supplies initial capital and player/notable costs.

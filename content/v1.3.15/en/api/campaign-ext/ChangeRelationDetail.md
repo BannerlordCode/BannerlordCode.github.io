@@ -29,7 +29,7 @@ The detail identifies the source, not the relation value, and should not be writ
 
 Positive changes may be scaled and randomized by the diplomacy model. The event's `relationChange` is the scaled value before the storage clamp; the actual stored delta is "clamped new relation - old relation", so the two can differ at `-100` or `100`, including an actual delta of zero.
 
-## Dependencies and Event Consumers
+## Dependencies
 
 - **Upstream:** [`ChangeRelationAction`](../ChangeRelationAction), [`Hero`](../../campaign/Hero), and `Campaign.Current.Models.DiplomacyModel`.
 - **State:** `CharacterRelationManager.GetHeroRelation` reads the old relation; `effectiveHero.SetPersonalRelation(...)` writes the clamped value for the effective heroes. The original heroes remain available in the event arguments.

@@ -38,7 +38,7 @@ The hero entry point still works through `Hero.PartyBelongedTo.Party.ItemRoster`
 
 Both entries encode the reason in the event's giver/receiver tuples: the party entry passes null heroes, while the hero entry passes null parties. Listeners must handle the actual non-null object instead of assuming every event contains both a hero and a party.
 
-## Dependencies and event flow
+## Dependencies
 
 ```mermaid
 graph TD

@@ -31,7 +31,7 @@ The actual purchase is triggered by [PartiesBuyFoodCampaignBehavior](../PartiesB
 - Read `Campaign.Current.Models.PartyFoodBuyingModel` to inspect the active policy; do not create a separate default instance and assume it is the selected one.
 - Do not call `SellItemsAction` or mutate `Settlement.ItemRoster` inside `FindItemToBuy`, because the behavior loop applies the transaction afterward.
 
-## Dependencies and consumers
+## Dependencies
 
 - [PartyFoodBuyingModel](../PartyFoodBuyingModel/) defines the three threshold properties and `FindItemToBuy`.
 - [GameModels](../GameModels/) retains the Sandbox default or a later mod override during campaign assembly.

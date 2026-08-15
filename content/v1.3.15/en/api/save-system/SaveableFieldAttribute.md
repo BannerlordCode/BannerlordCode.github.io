@@ -116,7 +116,7 @@ The same file's `AllianceCampaignBehaviorTypeDefiner` registers `Alliance` with 
 
 The Attribute constructor and `LocalSaveId` type are the same in 1.3.15 and 1.4.5. A cross-version mod should keep IDs and field types stable and plan compatibility before removing or changing members; declaration order is not a compatibility mechanism.
 
-## Dependencies and navigation
+## Dependencies
 
 - Upstream: [SaveableTypeDefiner](../SaveableTypeDefiner) adds the containing class to the definition table.
 - Execution: [SaveManager](../SaveManager) initializes the definition context and performs save/load.

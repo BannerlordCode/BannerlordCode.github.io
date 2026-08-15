@@ -26,7 +26,7 @@ Use these entries only after the campaign flow has decided that the subject is l
 
 Both methods require a real current settlement. The source captures `mobileParty.CurrentSettlement` or `hero.CurrentSettlement` and later dereferences that settlement; passing a party or Hero with no current settlement can fail before cleanup completes.
 
-## Dependencies and ordering
+## Dependencies
 
 ```mermaid
 graph TD

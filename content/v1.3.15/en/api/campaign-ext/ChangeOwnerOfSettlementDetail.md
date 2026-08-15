@@ -35,7 +35,7 @@ Carry the reason for a settlement ownership transfer through `OnSettlementOwnerC
 
 The numeric ordering is not a save format. Persist the resulting settlement state and any mod-owned explanation, not the enum integer.
 
-## Dependencies and Event Consumers
+## Dependencies
 
 - **Upstream:** [`ChangeOwnerOfSettlementAction`](../ChangeOwnerOfSettlementAction), [`Settlement`](../../campaign/Settlement), new/old [`Hero`](../../campaign/Hero), and siege or barter context.
 - **Event:** [`CampaignEvents`](../CampaignEvents) exposes `OnSettlementOwnerChangedEvent` as `IMbEvent<Settlement, bool, Hero, Hero, Hero, ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail>`.

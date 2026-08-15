@@ -20,7 +20,7 @@ The default model feeds three consumers. Daily reinforcement is applied by `Garr
 
 Base garrison growth is conditional: a rebel-owned town or castle that is not part of a kingdom gets `2`, then settlement-garrison issue effects are added. The default auto-recruitment limit is one troop per day.
 
-## Dependencies and consumers
+## Dependencies
 
 | Type or flow | Relationship |
 | --- | --- |

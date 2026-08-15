@@ -138,7 +138,7 @@ Do not use it to:
 - Call it with a defender, garrison, settlement party, or a party that has already left the siege.
 - Set `Settlement.SiegeEvent = null` manually or call `SiegeEvent.FinalizeSiegeEvent()` as a shortcut. Those bypass the intended ordering and can leave party/camp state inconsistent.
 
-## Dependencies and side effects
+## Dependencies
 
 The action depends on:
 

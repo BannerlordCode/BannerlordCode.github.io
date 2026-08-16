@@ -103,11 +103,26 @@ Campaign.Tick
 
 属性体实际返回 `Campaign.Current.Models.EncounterModel`。它是规则读取入口，不是 `EncounterManager` 内部缓存。只在 Campaign 已创建并完成 Models 注册后读取；不要把 `null` 模型替换当作关闭遭遇系统的方法。
 
+```csharp
+// 只读规则入口；Campaign 已初始化后读取：
+if (Campaign.Current != null)
+{
+    EncounterModel model = EncounterManager.EncounterModel;
+    // 通过 model 查询遭遇规则，而不是自己复制一套判定
+}
+```
+
 ### `Tick(float dt)`
 
 `public static void Tick(float dt)`
 
 它只转发到私有的 `HandleEncounters(dt)`。后者在 `Campaign.Current.TimeControlMode != CampaignTimeControlMode.Stop` 时遍历当前 `MobileParties`，并把每支队伍交给 `HandleEncounterForMobileParty`。`Campaign.cs` 在地图状态更新后调用它；`dt` 可能为零，所以不要把这个参数解释成「必然经过的战役时间」。
+
+```csharp
+// Tick 由 Campaign 地图 tick 驱动；mod 不应手动调用。
+// 需要观察遭遇时订阅事件，而不是轮询 Tick：
+CampaignEvents.MapEventStarted.AddNonSerializedListener(this, OnMapEventStarted);
+```
 
 ### `HandleEncounterForMobileParty(MobileParty mobileParty, float dt)`
 
@@ -116,6 +131,12 @@ Campaign.Tick
 这是「资格检查 + AI 交互」入口，不是创建战斗的低级 API。源码会先拒绝不活动、已附属、已有 `MapEventSide`、正在普通据点内、被围城但不是突击状态的队伍；还会拒绝无有效交互目标、主队已经有玩家遭遇等情况。通过后才调用 `mobileParty.Ai.AiBehaviorInteractable.CanPartyInteract(mobileParty, dt)`，并在成功时调用 `OnPartyInteraction(mobileParty)`。
 
 副作用完全取决于具体 `IInteractablePoint`：它可能最终调用本页两个 `Start*Encounter` 入口。调用时机通常是 `Campaign.Tick` 或 AI 行为变化后的 `MobilePartyAi.CheckPartyNeedsUpdate`，而不是模组自己的渲染/战场 tick。
+
+```csharp
+// 资格检查入口由引擎调用；mod 不应直接调用。
+// 自定义任务若要促成一次遭遇，应在菜单/任务回调中用公开的 Start*Encounter：
+// EncounterManager.StartPartyEncounter(mainParty.Party, targetParty.Party);
+```
 
 ### `StartPartyEncounter(PartyBase attackerParty, PartyBase defenderParty)`
 
@@ -130,6 +151,15 @@ Campaign.Tick
 
 因此它不是「强制两个任意对象开一场新战斗」的纯函数。`PartyBase` 必须来自当前战役对象，队伍要处于可交互/活动状态，且调用者要能接受已有玩家遭遇被重启的副作用。
 
+```csharp
+MobileParty mainParty = MobileParty.MainParty;
+MobileParty targetParty = mainParty.ShortTermTargetParty;
+if (targetParty != null && targetParty.IsActive && !PlayerEncounter.IsActive)
+{
+    EncounterManager.StartPartyEncounter(mainParty.Party, targetParty.Party);
+}
+```
+
 ### `StartSettlementEncounter(MobileParty attackerParty, Settlement settlement)`
 
 `public static void StartSettlementEncounter(MobileParty attackerParty, Settlement settlement)`
@@ -143,6 +173,14 @@ Campaign.Tick
 - 军团领袖处理完后，源码会递归处理未进入事件的附属 `MobileParty`；普通到达据点的队伍则走 `EnterSettlementAction.ApplyForParty`。
 
 调用完成不代表已经创建了 `Mission`。它通常只建立菜单/战役事件的前置状态；真正的场景创建发生在后续 `PlayerEncounter` / `CampaignMission` 路径。
+
+```csharp
+Settlement settlement = Settlement.CurrentSettlement;
+if (settlement != null && !PlayerEncounter.IsActive)
+{
+    EncounterManager.StartSettlementEncounter(MobileParty.MainParty, settlement);
+}
+```
 
 ### 私有阶段：`RestartPlayerEncounter`
 

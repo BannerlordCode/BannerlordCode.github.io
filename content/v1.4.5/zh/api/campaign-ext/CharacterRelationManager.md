@@ -67,13 +67,38 @@ if (Campaign.Current != null && mainHero != null && derthert != null && mainHero
 
 这是底层存储边界，不是“给两个英雄加关系”的 Action 替代品。除非是在明确控制迁移/恢复的内部代码中，否则 mod 不应直接调用它；直接写会让技能成长、通知、关系变化监听器和 effective-hero 映射全部缺席。
 
+```csharp
+Hero a = Hero.MainHero;
+Hero b = Hero.Find("lord_derthert");
+if (a != null && b != null && a != b)
+{
+    // 直接替换基础关系：不经过 DiplomacyModel、不夹紧 -100..100、不广播 HeroRelationChanged。
+    // 一般 gameplay mod 不应直接调用；需要改变关系请用 ChangeRelationAction。
+    CharacterRelationManager.SetHeroRelation(a, b, 10);
+}
+```
+
 ### `public void AfterLoad()`
 
 读档初始化钩子。仅当 `MBSaveLoad.LastLoadedGameVersion < v1.1.0` 时，它才调用内部 `HeroRelations.ClearOldData()`：遍历当前 `CampaignObjectManager.AliveHeroes`，删除存档中不再对应存活英雄的键。它不是每次读档都重算关系，也不是 mod 用来手动“刷新关系”的方法；由 Campaign 的加载顺序调用。
 
+```csharp
+// 由 Campaign 加载顺序调用；只在旧存档 (< v1.1.0) 时才触发 ClearOldData。
+// mod 不应手动调用，也不要把它当作“刷新关系”的入口。
+```
+
 ### `public void RemoveHero(Hero deadHero)`
 
 从关系图中删除一个英雄作为 key 或 value 的所有记录。官方 `CharacterRelationCampaignBehavior.OnHeroUnregistered` 在英雄从对象系统注销时调用它。它没有事件广播，也不会执行死亡、替换英雄或其他世界变更；不要用它代替 `KillCharacterAction`，也不要对仍在使用的英雄调用，否则会静默丢失关系并在后续行为中表现为 `0`。
+
+```csharp
+// 官方注销清理路径（CharacterRelationCampaignBehavior.OnHeroUnregisteredEvent）：
+Hero deadHero = null; // 已从 CampaignObjectManager 注销的英雄
+if (deadHero != null)
+{
+    Campaign.Current.CharacterRelationManager.RemoveHero(deadHero);
+}
+```
 
 ### 构造函数与内部成员
 

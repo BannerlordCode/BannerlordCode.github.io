@@ -91,11 +91,25 @@ description: "战役层的同步事件转发器：把 Action、Campaign 生命�
 
 返回当前 `Campaign` 的 dispatcher；当 `Campaign.Current == null` 时返回 `null`。它是运行时观察/清理入口，不代表能安全调用任意 `OnXxx`。不要把返回值保存到全局静态字段。
 
+```csharp
+// 运行时获取；战役外为 null，必须判空后再用：
+CampaignEventDispatcher dispatcher = CampaignEventDispatcher.Instance;
+if (dispatcher != null)
+{
+    // 仅用于清理监听或转发调用；不要缓存到静态字段或跨战役持有
+}
+```
+
 ### `public override void RemoveListeners(object o)`
 
 把 `RemoveListeners(o)` 转发给数组中的每一个 receiver。对默认的 `CampaignEvents` 来说，这会在所有 `MbEvent` 上按 owner 清除监听；对自定义 receiver 则取决于它的重写实现。它只清除监听，不从 dispatcher 数组中移除 receiver。
 
 行为被 `CampaignBehaviorManager.RemoveBehavior<T>()` 移除时，管理器正是通过 `CampaignEventDispatcher.Instance.RemoveListeners(behavior)` 清理该行为。一次性 quest/issue 也在结束时走同一入口。若 mod 自己动态管理 listener，应使用稳定的 owner，并在 owner 结束时清理。
+
+```csharp
+// 行为被移除时清理自身监听（与 CampaignBehaviorManager 同一入口）：
+CampaignEventDispatcher.Instance?.RemoveListeners(this);
+```
 
 ### `internal CampaignEventDispatcher(IEnumerable<CampaignEventReceiver>)` 与 `internal void AddCampaignEventReceiver(...)`
 

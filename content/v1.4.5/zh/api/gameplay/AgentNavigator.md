@@ -118,19 +118,46 @@ public override void OnAgentCreated(Agent agent)
 
 只有在机器、站位、所有者 Agent 和 Mission 场景都存活时调用。这个方法会改变机器占用和 Agent 移动，不是只写一个字段。
 
+```csharp
+// 在机器、站位、所有者 Agent 与 Mission 场景都存活时接入：
+UsableMachine targetMachine = null; // 从场景 / 交互上下文取得的可用机器
+if (targetMachine != null && navigator != null)
+{
+    navigator.SetTarget(targetMachine, isInitialTarget: false);
+}
+```
+
 ### `SetTargetFrame(WorldPosition position, float rotation, float rangeThreshold = 1f, float rotationThreshold = -10f, AIScriptedFrameFlags flags = 0, bool disableClearTargetWhenTargetIsReached = false)`
 
 清除非 `NoTarget` 状态，保存目标位置、方向和阈值；如果目标已经到达则立即标记为 `NoTarget`，否则调用 `Agent.SetScriptedPositionAndDirection` 并进入 `GoToTarget`。之后 `Tick` 会在到达时切换到 `AtTargetPosition`；除非最后一个参数为 `true`，否则还会清除原生目标帧。
 
 位置必须属于当前 Mission 场景。旋转阈值实际通过目标方向与 Agent 移动方向的点积比较，因此虽然参数名包含 `rotation`，它不是角度值。
 
+```csharp
+WorldPosition destination = null; // 当前 Mission 场景内的合法位置
+if (navigator != null && destination != null)
+{
+    navigator.SetTargetFrame(destination, rotation: 0f, rangeThreshold: 1f);
+}
+```
+
 ### `ClearTarget()`
 
 `SetTarget(null, isInitialTarget: false, customFlags: 0)` 的便捷包装。它释放机器 detachment 并清除脚本移动。目标 Agent 或机器即将被移除时应先调用；不要在原生对象已经释放后把它当作 Mission teardown 替代品。
 
+```csharp
+// 目标 Agent / 机器即将移除时清理：
+navigator.ClearTarget();
+```
+
 ### `Tick(float dt, bool isSimulation = false)`
 
 执行行为组选择与 tick，处理对话 Agent tick，运行可使用机器 AI 行为或移动目标；在模拟模式下还会通过机器行为把使用者传送到机器。正常情况下由 `CampaignAgentComponent.OnTick` 驱动，不应由 UI 或 Campaign 行为自行伪造帧循环。
+
+```csharp
+// Tick 由 CampaignAgentComponent.OnTick（AllowAiTicking && IsAIControlled）驱动；
+// 不要在 UI 或 Campaign 行为里手动调用。
+```
 
 ### `OnStopUsingGameObject()` 与 `OnAgentRemoved(Agent agent)`
 

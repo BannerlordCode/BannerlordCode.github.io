@@ -70,11 +70,21 @@ description: "Clan 的声望等级、资格门槛、队伍上限和同伴上限�
 
 在 Clan 已有等级、需要为其建立初始声望时计算一个值。默认实现按 `clan.Tier` 读取等级下限数组，先取当前等级下限，再取下一级下限（最高级使用最高级下限加 `1500`），最后把随机上界设为 `nextLower - (nextLower - currentLower) * 0.4` 的整数结果，也就是区间向下一级方向推进约 60% 的位置；`Clan.Deserialize` 在 XML 初始化读取等级后调用它。这段 XML 初始化不等同于存档加载：`Tier` 是可保存状态，不能据此断言读取同一存档会重新随机化声望。因此它不是“把当前声望重新算回去”的通用刷新函数。
 
+```csharp
+// 仅在 Clan 已完成 XML/初始化后调用；不要把它当作随时刷新当前声望的入口
+int renown = clanTierModel.CalculateInitialRenown(playerClan);
+```
+
 ### CalculateInitialInfluence
 
 `public abstract int CalculateInitialInfluence(Clan clan)`
 
 为需要初始化的 Clan 计算影响力。默认实现使用初始声望计算结果和随机项组成整数。新游戏创建时，`ClanVariablesCampaignBehavior.OnNewGameCreated` 只对非玩家、拥有领袖、领袖属于王国阵营且声望为正的 Clan 调用它，然后通过 `ChangeClanInfluenceAction.Apply` 写入影响力；模型本身不执行这次写入。
+
+```csharp
+// 模型只算值；写入影响力走 ChangeClanInfluenceAction，而非直接赋值
+int influence = clanTierModel.CalculateInitialInfluence(playerClan);
+```
 
 ### CalculateTier
 
@@ -82,11 +92,21 @@ description: "Clan 的声望等级、资格门槛、队伍上限和同伴上限�
 
 根据 Clan 当前状态计算应处于的等级。默认实现从最低等级开始，逐个比较 `clan.Renown` 与各等级下限，返回最后一个满足条件的等级。`Clan.AddRenown` 在正向增加声望后调用它，只在计算结果高于当前等级时写回并分发等级变化；`Clan.ResetClanRenown` 清零声望后也调用它并以不显示通知的方式分发变化。
 
+```csharp
+// 仅读取当前等级；真正写回 Tier 与分发事件由 Clan.AddRenown 负责
+int tier = clanTierModel.CalculateTier(playerClan);
+```
+
 ### HasUpcomingTier
 
 `public abstract (ExplainedNumber, bool) HasUpcomingTier(Clan clan, out TextObject extraExplanation, bool includeDescriptions = false)`
 
 判断当前 Clan 是否低于最高等级，并返回“升到下一级会增加什么”的可解释数值以及是否存在下一级。默认实现会比较当前与下一级的队伍上限、同伴上限、领袖的下一级队伍规模效果和工坊数量；若下一级达到雇佣兵、效忠或建国门槛，还会通过 `extraExplanation` 返回对应文本。`includeDescriptions` 传给 `ExplainedNumber`，UI 的 Clan 管理页和声望提示会在展示时调用它。
+
+```csharp
+(bool hasNext, ExplainedNumber changes) =
+    clanTierModel.HasUpcomingTier(playerClan, out TextObject explanation, includeDescriptions: true);
+```
 
 ### GetRequiredRenownForTier
 
@@ -94,17 +114,32 @@ description: "Clan 的声望等级、资格门槛、队伍上限和同伴上限�
 
 返回进入指定等级所需的声望下限。默认实现直接返回 `{ 0, 50, 150, 350, 900, 2350, 6150 }` 中对应索引的值。`Clan.RenownRequirementForNextTier` 会以 `Tier + 1` 调用它；只有在确认 `Tier < MaxClanTier` 后才能读取这个便捷属性，否则最高等级会访问越界索引。
 
+```csharp
+if (playerClan.Tier < clanTierModel.MaxClanTier)
+{
+    int need = clanTierModel.GetRequiredRenownForTier(playerClan.Tier + 1);
+}
+```
+
 ### GetPartyLimitForTier
 
 `public abstract int GetPartyLimitForTier(Clan clan, int clanTierToCheck)`
 
 计算指定 Clan 在指定等级下可拥有的队伍数量。默认实现对普通 Clan 在等级 `< 3`、`< 5`、更高等级分别给出 `1`、`2`、`3` 的基础值；对小派系则把等级限制在 `1` 到 `4`，最后再加入领袖 `Talent Magnet` perk 的效果并四舍五入。领主生成行为用它决定还可生成多少队伍，外交模型也用它估算 Clan 的军事力量。
 
+```csharp
+int partyLimit = clanTierModel.GetPartyLimitForTier(playerClan, playerClan.Tier);
+```
+
 ### GetCompanionLimit
 
 `public abstract int GetCompanionLimit(Clan clan)`
 
 计算 Clan 当前等级允许的同伴数量。默认实现的基础值是 `clan.Tier + 3`，并叠加领袖的 `We Pledge Our Swords` 与 `Camaraderie` perk。`Clan.CompanionLimit` 通过它提供便捷读取，因此应在 Clan 和领袖已完成初始化后调用。
+
+```csharp
+int companionLimit = clanTierModel.GetCompanionLimit(playerClan);
+```
 
 ## 实际获取与读取示例
 

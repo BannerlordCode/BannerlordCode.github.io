@@ -50,6 +50,14 @@ description: "战役行为的最小契约：只负责注册事件，实际 mod �
 
 监听器应使用行为实例作为 owner；若某个类可能被重复初始化，注册逻辑还必须具备幂等性。[`CampaignBehaviorManager.RemoveBehavior<T>()`](../CampaignBehaviorManager) 会移除行为，并让 `CampaignEventDispatcher` 解除该行为的监听；手动重复调用 `RegisterEvents()` 则可能让每日 tick 或世界变更回调执行多次。
 
+```csharp
+public void RegisterEvents()
+{
+    // 用 this 作为 owner 订阅；管理器在战役初始化时统一调用
+    CampaignEvents.HeroKilledEvent.AddNonSerializedListener(this, OnHeroKilled);
+}
+```
+
 ## 真实实现与注册
 
 正常 mod 形态是 `CampaignBehaviorBase`，而不是裸实现 `ICampaignBehavior`。下面使用真实的 `CampaignEvents.OnGameLoadFinishedEvent`、`IDataStore.SyncData` 和 `CampaignGameStarter.AddBehavior` 路径：

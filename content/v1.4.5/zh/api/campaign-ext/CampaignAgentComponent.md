@@ -92,9 +92,25 @@ if (component != null)
 
 `public AgentNavigator AgentNavigator { get; private set; }` 返回为此组件创建的可选导航器。setter 是私有的；新挂载或刻意精简的战役 Agent 返回 `null` 是合法状态。两个 `CreateAgentNavigator` 重载都会替换这个属性。
 
+```csharp
+AgentNavigator navigator = component.AgentNavigator; // 可能为 null
+if (navigator != null)
+{
+    AgentBehaviorGroup group = navigator.GetActiveBehaviorGroup();
+}
+```
+
 ### `OwnerParty`
 
 `public PartyBase OwnerParty { get; }` 读取 `Agent.Origin.BattleCombatant` 并转换为 `PartyBase`。Agent 没有 origin、combatant 不是 Party，或不在 Campaign Party 流程中时，它可能为 `null`。不要把它当作持久所有权赋值，也不要在 Agent 被移除后继续缓存。
+
+```csharp
+PartyBase ownerParty = component.OwnerParty; // 可能为 null，使用前判空
+if (ownerParty != null)
+{
+    // 仅作为读取上下文，不要把它当作可持久化的所有权
+}
+```
 
 ## 导航器创建与生命周期
 
@@ -104,25 +120,53 @@ if (component != null)
 
 应在 Sandbox `MissionAgentHandler` 相同的阶段调用，也就是 Agent 的场景视觉和 `LocationCharacter` 数据就绪之后。重复调用会替换旧导航器，不会迁移行为组、机器目标或临时视觉状态。
 
+```csharp
+// 仅在 Agent 场景视觉与 LocationCharacter 就绪后调用（与 MissionAgentHandler 同阶段）
+AgentNavigator navigator = component.CreateAgentNavigator(locationCharacter);
+```
+
 ### `CreateAgentNavigator()`
 
 构造 `new AgentNavigator(Agent)`，赋给 `AgentNavigator` 并返回空的地点角色上下文。Sandbox 对不来自 `LocationCharacter`、但仍需要行为/导航的 Agent 使用这个重载。
 
 返回对象仍然只属于当前 Mission。创建它不会注册新 Agent、挂载 Campaign 行为，也不会让 Agent 变成 AI 控制。
 
+```csharp
+// 对不来自 LocationCharacter 但仍需导航/行为的 Agent 使用；返回对象只属于当前 Mission
+AgentNavigator navigator = component.CreateAgentNavigator();
+```
+
 ### `OnAgentRemoved(Agent agent)`
 
 把被移除 Agent 的通知转发给 `AgentNavigator?.OnAgentRemoved(agent)`。这样行为组可以在相关 Agent 离开 Mission 时释放运行时目标引用。组件不会保存或复活被移除的 Agent。
 
+```csharp
+// 引擎在 Agent 离开 Mission 时调用；组件转发给导航器以释放运行时目标引用
+AgentNavigator navigator = component.AgentNavigator;
+navigator?.OnAgentRemoved(agent); // 等价于组件内部的转发
+```
+
 ### `OnStopUsingGameObject()`
 
 所有者受 AI 控制时，把停止使用游戏对象事件转发给 `AgentNavigator?.OnStopUsingGameObject()`。玩家控制的 Agent 不进入这个分支。回调会清除导航器中的机器目标状态，不是所有行为组的通用重置。
+
+```csharp
+// 仅当所有者受 AI 控制时由引擎调用；清除导航器中的机器目标状态
+AgentNavigator navigator = component.AgentNavigator;
+navigator?.OnStopUsingGameObject();
+```
 
 ### `OnTick(float dt)`
 
 覆盖 `AgentComponent.OnTick`。只有 `Agent.Mission.AllowAiTicking` 和 `Agent.IsAIControlled` 同时为真时，才调用 `AgentNavigator?.Tick(dt)`。没有导航器时不会 tick，玩家控制的 Agent 也不会通过这里运行导航器。
 
 不要手动调用它来绕过 Mission 的暂停/结束状态。如果自定义模拟需要不同节奏，应明确拥有那套模拟，不要和正常 Agent 组件生命周期混用。
+
+```csharp
+// 引擎每个 AI tick 调用；其门禁等价于：
+if (agent.Mission.AllowAiTicking && agent.IsAIControlled)
+    component.AgentNavigator?.Tick(dt);
+```
 
 ## 士气输入
 
@@ -136,6 +180,10 @@ if (component != null)
 
 此方法不修改 Party 士气，也不保存结果；它只是当前战斗上下文存在时供 Agent 士气系统使用的输入。
 
+```csharp
+float decrease = component.GetMoraleDecreaseConstant();
+```
+
 ### `GetMoraleAddition()`
 
 根据当前 `MapEvent` 返回临时的士气加成：
@@ -145,6 +193,10 @@ if (component != null)
 - 使用 `MapEvent.GetStrengthsRelativeToParty(OwnerParty.Side, ...)` 得到相对兵力后，加上 `relativeStrength / (relativeStrength + opposingStrength) * 10f - 5f`。
 
 它只读取当前 Party/事件值，没有存档或写入副作用；随着战斗和 Party 士气变化，同一方法的结果也会变化。
+
+```csharp
+float addition = component.GetMoraleAddition();
+```
 
 ## 风险与崩溃边界
 

@@ -57,11 +57,28 @@ graph TD
 
 如果行为需要长期兼容旧存档，不要随意改变显式 `StringId`；如果重命名类型，显式保留旧 ID 比让默认构造函数自动改 ID 更安全。
 
+显式固定 ID 的写法（用于旧存档兼容）：
+
+```csharp
+public sealed class MyBehavior : CampaignBehaviorBase
+{
+    // 用固定字符串而不是默认类型名，跨版本升级时旧存档仍能按 ID 找到这份行为数据
+    public MyBehavior() : base("MyMod.MyBehavior.StableId") { }
+}
+```
+
 ### `RegisterEvents()`
 
 抽象注册钩子。这里订阅 `CampaignEvents`，例如 `DailyTickEvent` 或 `HeroKilledEvent`。管理器在战役初始化后调用它；运行中通过管理器添加行为时，`CampaignBehaviorManager.AddBehavior` 也会立即调用它。
 
 事件监听器是运行时对象关系，不会因为你在 `SyncData()` 中保存一个字段就自动恢复。注册逻辑必须是幂等的，避免同一行为实例被重复注册后每天执行两次。
+
+```csharp
+public override void RegisterEvents()
+{
+    CampaignEvents.HeroPrisonerTakenEvent.AddNonSerializedListener(this, OnPrisonerTaken);
+}
+```
 
 ### `SyncData(IDataStore dataStore)`
 
@@ -69,9 +86,24 @@ graph TD
 
 行为字段使用 `SyncData` 时不需要再用 `[SaveableField]` 标注同一字段。`[SaveableField]` 属于 SaveSystem 对象图契约，而 `CampaignBehaviorBase.SyncData` 是行为数据容器的键值契约；重复建立两套身份会让加载顺序和迁移更难判断。
 
+```csharp
+public override void SyncData(IDataStore dataStore)
+{
+    dataStore.SyncData("MyMod.MyBehavior.Count", ref _count);
+}
+```
+
 ### `static T GetCampaignBehavior<T>()`
 
 把查找转发给 `Campaign.Current.GetCampaignBehavior<T>()`。它只适用于战役已经建立且目标行为已经注册的阶段，例如地图运行、战役事件回调或 `OnGameLoaded` 之后。主菜单、模块装载期和行为注册之前调用可能得到 `null`，不能无条件解引用。
+
+```csharp
+var behavior = CampaignBehaviorBase.GetCampaignBehavior<MyBehavior>();
+if (behavior != null)
+{
+    // 读取其只读查询方法；不要从外部改行为的存档字段
+}
+```
 
 ## 真实示例：注册、事件与存档
 

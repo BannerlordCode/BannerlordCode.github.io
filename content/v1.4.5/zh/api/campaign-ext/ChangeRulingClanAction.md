@@ -76,9 +76,22 @@ description: "把某个王国（Kingdom）的「统治家族」换成另一个�
 - **副作用**：①设置 `kingdom.RulingClan = clan`；②通过 `CampaignEventDispatcher.Instance.OnRulingClanChanged(kingdom, ...)` 通知所有订阅者（新/旧君主装备刷新等）。
 - **何时调用**：任何需要在战役地图上更换王国统治家族的地方——领袖死亡继承、作弊登基、创建新王国指定开国家族、旧版本存档迁移修正脏数据。务必只从战役层（有效 `Campaign.Current`）调用。
 
+```csharp
+// 真实调用（与 CampaignCheats 同源）：让玩家家族登上当前阵营王座
+Kingdom playerKingdom = Clan.PlayerClan.Kingdom;
+if (playerKingdom != null && playerKingdom.RulingClan != Clan.PlayerClan)
+    ChangeRulingClanAction.Apply(playerKingdom, Clan.PlayerClan);
+```
+
 ### `private static void ApplyInternal(Kingdom kingdom, Clan clan)`
 
 真正的实现，但**对 mod 不可见**（私有静态）。`Apply` 只是直接转发给它。它内部先取得旧统治家族（v1.4.5 会保存进局部变量 `rulingClan` 并作为事件第二参广播；v1.3.15/1.3.0 则直接广播传入的 `clan`），再赋值，再发事件。mod 不应也无法调用它；在此说明是为了让你理解 `Apply` 与事件广播之间的边界。
+
+```csharp
+// ApplyInternal 是私有实现；Apply 直接转发给它，mod 只能走公开入口：
+//   ChangeRulingClanAction.Apply(kingdom, clan);
+// 内部等价：保存旧统治家族 → kingdom.RulingClan = clan → 广播 OnRulingClanChanged
+```
 
 ## 最小真实示例
 

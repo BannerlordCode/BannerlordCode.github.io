@@ -72,6 +72,17 @@ description: "通过向据点累计支付贿赂金，抬高该据点的 BribePai
   3. `settlement.BribePaid += gold`：抬高据点累计贿赂。
 - **何时调用**：在玩家处于某据点且 `SettlementAccessModel.CanMainHeroEnterDungeon` 给出 `LimitedAccess` + `LimitedAccessSolution.Bribe` 时；或你自己实现的 Issue/任务代价里，按“还差多少”调用。
 
+```csharp
+// 真实调用（与 GuardsCampaignBehavior 同源）：在受限访问据点、剩余所需贿赂足够时调用
+Settlement settlement = Settlement.CurrentSettlement;
+if (settlement != null)
+{
+    int stillNeeded = Campaign.Current.Models.BribeCalculationModel.GetBribeToEnterDungeon(settlement);
+    if (stillNeeded > 0 && Hero.MainHero.Gold >= stillNeeded)
+        BribeGuardsAction.Apply(settlement, stillNeeded); // 抬高 settlement.BribePaid，累积到阈值后解锁
+}
+```
+
 > 没有 `Apply` 的其它重载，也没有返回 `bool` / `BribeReason` 枚举等成员。`ApplyInternal` 是私有实现细节，mod 不应直接调用。
 
 ## 真实示例

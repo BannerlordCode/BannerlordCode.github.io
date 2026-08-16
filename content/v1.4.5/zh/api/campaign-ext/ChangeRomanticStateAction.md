@@ -79,6 +79,14 @@ ChangeRomanticStateAction.Apply(person1, person2, level)
   3. 不改变 `Hero.Spouse`、不改个人关系、不改家族——这些由其它 Action 负责。
 - **何时调用**：在你的 `CampaignBehavior`（周期 tick / 事件回调）或对话 consequence 中、战役阶段、`Campaign.Current != null` 时调用；两个 `Hero` 必须都是 `Campaign.Current` 持有的真实英雄；`toWhat` 的取值应与业务阶段匹配（取值顺序见 [RomanceLevelEnum](../RomanceLevelEnum/)）。
 
+```csharp
+// 真实调用（与 RomanceCampaignBehavior 同源）：仅在“由家族安排”阶段推进到“开始追求”
+Hero player = Hero.MainHero;
+Hero suitor = Hero.OneToOneConversationHero;
+if (suitor != null && Romance.GetRomanticLevel(player, suitor) == Romance.RomanceLevelEnum.MatchMadeByFamily)
+    ChangeRomanticStateAction.Apply(player, suitor, Romance.RomanceLevelEnum.CourtshipStarted);
+```
+
 `RomanceLevelEnum` 的取值（从小到大，用于 `toWhat`）：
 
 | 值 | 含义 |

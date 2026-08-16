@@ -64,9 +64,22 @@ description: "战役中“军团已集结”事件的触发入口：读取领袖
 - **副作用**：读取 `leaderParty.Army`，调用 `CampaignEventDispatcher.Instance.OnArmyGathered(army, gatheringPoint)`；根据 `leaderParty` 是否为主角部队设置玩家卷入度（1 或 0）。不修改任何世界状态，只派发事件。
 - **何时调用**：军团已经组建、各成员 `Army` 字段已就绪之后；通常由 `Army.Gather` 在末尾调用，mod 一般无需直接调用。
 
+```csharp
+// 真实调用：在军团已组建、leaderParty.Army 就绪后广播集结事件（通常由 Army.Gather 在末尾调用）
+MobileParty leaderParty = someLord.Party;
+if (leaderParty != null && leaderParty.Army != null)
+    GatherArmyAction.Apply(leaderParty, someSettlement); // someSettlement 实现了 IMapPoint
+```
+
 ### `private static void ApplyInternal(MobileParty leaderParty, IMapPoint gatheringPoint, float playerInvolvement = 0f)`
 
 内部工作方法，对 mod 不可见。它执行真正的读取与事件派发；`Apply` 只是给它包了一层“玩家卷入度”的默认值（`MobileParty.MainParty` → 1f，否则 0f）。文档列出它是为了说明 `Apply` 的真实行为——**不要**从 mod 直接调用私有方法。
+
+```csharp
+// ApplyInternal 是私有实现；Apply 仅补一个玩家卷入度默认值后转发：
+//   GatherArmyAction.Apply(leaderParty, gatheringPoint);
+// 内部读取 leaderParty.Army 并广播 OnArmyGathered(army, gatheringPoint)
+```
 
 ## 最小真实示例
 

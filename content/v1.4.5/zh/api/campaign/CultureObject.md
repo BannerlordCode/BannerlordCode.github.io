@@ -11,13 +11,13 @@ description: "由 XML 与 MBObjectManager 注册的战役文化定义：提供�
 **源文件：** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CultureObject.cs`  
 **对象角色：** 由 XML 和 `MBObjectManager` 注册的稳定定义对象；`Settlement`、`Clan`、`Kingdom`、`Hero`、`CharacterObject` 引用它作为文化输入。
 
-## 一句话职责与心智模型
+## 心智模型
 
 `CultureObject` 是“一个文化的注册定义及其默认资源集合”，不是一个会自己推进的战役行为，也不是王国或据点所有权。它继承 `BasicCultureObject` 的名称和 `StringId`，再把该文化的基础兵种、民兵/商队/守卫模板、默认装备、名称池、政策、文化特性、船体和模型加成连接起来。
 
 对象的创建和引用解析发生在对象管理器读取 XML 时。`CultureObject.Deserialize` 通过 `MBObjectManager` 解析 `CharacterObject`、`PartyTemplateObject`、`ItemObject`、`PolicyObject`、`FeatObject` 等引用；随后 `Settlement.Culture`、`Clan.Culture`、`Kingdom.Culture` 或 `CharacterObject.Culture` 从已注册对象进入它。mod 的常规职责是读取这些定义并在模块初始化阶段注册自己的 XML 内容，而不是在战役中 `new CultureObject()` 或替换一个正在被实体引用的文化。
 
-## 对象图与依赖
+## 依赖图
 
 ```mermaid
 graph TD

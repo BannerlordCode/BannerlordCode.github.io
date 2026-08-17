@@ -43,7 +43,7 @@ Kingdom.CreateArmy
 - **何时使用：** 读取正在运行的军团状态、判断一个队伍是否是领袖、读取总兵力/凝聚力/士气、创建玩家军团，或在确实需要外部解散时调用有明确原因的 DisbandArmyAction。
 - **何时不要使用：** 不要直接 new Army、直接清空 Parties、直接把 AttachedTo 或 Army 的一侧置空，也不要把 FinishArmyObjective 当作解散。需要改变世界关系时让 Kingdom.CreateArmy、GatherArmyAction、DisbandArmyAction 和 MobileParty.Army 的既有级联完成工作。
 
-## 父级与依赖
+## 依赖图
 
 ### 依赖关系
 

@@ -43,6 +43,12 @@ SettlementSecurityModel 是一个纯计算的规则扩展点：`Campaign` 在启
 - [CampaignBehaviorBase](../CampaignBehaviorBase) —— `TownSecurityCampaignBehavior` / `CharacterRelationCampaignBehavior` 的基类，是实际驱动调用方。
 - [Hero](../Hero) —— 要人（`Notables`）的关系/威望被 `CharacterRelationCampaignBehavior` 依据安全度阈值改写。
 
+共享/相关类型（建筑与安全度）：
+
+- [BuildingModel](../BuildingModel) —— `CalculateSecurityChange` 经 `Town.AddEffectOfBuildings(BuildingEffectEnum.SecurityPerDay, ...)` 读取建筑每日安全度加成；[BuildingEffectModel](../BuildingEffectModel) 负责该类 `SecurityPerDay` 效果的具体数值（建筑等级越高、每日安全度加成越大）。
+- [BuildingsCampaignBehavior](../BuildingsCampaignBehavior) —— 城镇建筑等级（含 `DefaultBuildingTypes.SettlementGuardHouse` 巡逻队加成）逐日推进，是 `CalculateSettlementPatrolPartiesBonuses`（`(建筑等级 * 0.5f + 0.5f)`）的输入来源。
+- [BuildingConstructionModel](../BuildingConstructionModel) —— 同属定居点建筑规则簇，常与本模型一起被派生替换以联合调校建筑产出。
+
 ## 风险
 
 - **跨战役重载缓存实例**：`Campaign.Current.Models.SettlementSecurityModel` 在每次新战役/读档时由 `GameModels` 重新解析。把实例缓存进静态字段或长生命周期对象，会在重载后指向旧战役的已销毁对象，调用即崩溃或读到陈旧规则。每次需要时都重新走 `Campaign.Current.Models` 获取。
@@ -84,7 +90,7 @@ SettlementSecurityModel 是一个纯计算的规则扩展点：`Campaign` 在启
   - 用途：清除藏身处后给范围内每个城镇直接追加的安全度，默认 `6`。`OnHideoutDeactivated` 直接 `Town.Security += 该值`。
   - 副作用：无（读取侧）；真正写 `Town.Security` 的是行为。调用时机：藏身处清除事件处理内部读取。
 
-- **`ThresholdForTaxCorruption`**（属性，`int`）/ **`ThresholdForTaxCorruption` 的“更深”版本 `ThresholdForHigherTaxCorruption`**（属性，`int`）
+- **`ThresholdForTaxCorruption`**（属性，`int`）/ **`ThresholdForHigherTaxCorruption`**（属性，`int`）
   - 用途：安全度低于 `ThresholdForTaxCorruption`(50) 即开始产生腐败税收惩罚；`ThresholdForHigherTaxCorruption`(0) 是“更深腐败”的更低下界，用于 `CalculateGoldCutDueToLowSecurity` 的 `MBMath.Map(security, 0, 50, 惩罚%, 0)` 映射。
   - 副作用：无。调用时机：`DefaultSettlementTaxModel.CalculateSettlementTaxDueToSecurity` 内部读取。
 
@@ -153,4 +159,4 @@ Campaign.Current.Models.SettlementSecurityModel
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)
-- ↔ 相关：[Campaign](../Campaign) · [GameModels](../GameModels) · [Settlement](../Settlement) · [Town](../Town) · [Village](../Village) · [SettlementLoyaltyModel](../SettlementLoyaltyModel) · [SettlementMilitiaModel](../SettlementMilitiaModel) · [SettlementTaxModel](../SettlementTaxModel) · [IssueModel](../IssueModel) · [TownSecurityCampaignBehavior](../TownSecurityCampaignBehavior) · [CharacterRelationCampaignBehavior](../CharacterRelationCampaignBehavior) · [ExplainedNumber](../ExplainedNumber) · [Hero](../Hero) · [CampaignBehaviorBase](../CampaignBehaviorBase)
+- ↔ 相关：[Campaign](../Campaign) · [GameModels](../GameModels) · [Settlement](../Settlement) · [Town](../Town) · [Village](../Village) · [SettlementLoyaltyModel](../SettlementLoyaltyModel) · [SettlementMilitiaModel](../SettlementMilitiaModel) · [SettlementTaxModel](../SettlementTaxModel) · [IssueModel](../IssueModel) · [TownSecurityCampaignBehavior](../TownSecurityCampaignBehavior) · [CharacterRelationCampaignBehavior](../CharacterRelationCampaignBehavior) · [BuildingModel](../BuildingModel) · [BuildingEffectModel](../BuildingEffectModel) · [BuildingConstructionModel](../BuildingConstructionModel) · [BuildingsCampaignBehavior](../BuildingsCampaignBehavior) · [ExplainedNumber](../ExplainedNumber) · [Hero](../Hero) · [CampaignBehaviorBase](../CampaignBehaviorBase)

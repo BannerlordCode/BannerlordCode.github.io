@@ -16,7 +16,7 @@ description: "决定城镇/城堡每日建筑施工产出、一次性加速（Bo
 
 ## 心智模型
 
-BuildingConstructionModel 是一个纯计算的规则扩展点：战役（[Campaign](../Campaign)）在启动时通过 `GameModels` 从已注册的 `GameModel` 集合中按类型解析出 `DefaultBuildingConstructionModel` 唯一实例并缓存，运行时统一用 `Campaign.Current.Models.BuildingConstructionModel` 取得；它不参与存档序列化，也不会在每个 tick 被重新构造。领地行为 `BuildingsCampaignBehavior` 在其 `TickCurrentBuildingForTown` 里把 `Town.Construction`（即 `CalculateDailyConstructionPower` 的结果）加到队首在建建筑的 `BuildingProgress` 上，并依据模型暴露的 `GetBoostCost` / `TownBoostCost` 去扣减加速储备 `town.BoostBuildingProcess`；而 [Town](../Town) 的 `Construction` / `ConstructionExplanation` 属性与城镇管理界面（VM）则在每日结算或界面刷新时读取当日产出。`DefaultBuildingConstructionModel` 内部会逐项累加：繁荣度、加速储备贡献、总督技能/专长、市集生产类售出、在建建筑类型相关的军事/市集加成、`BuildingEffectModel` 的每日建设效应，以及忠诚度区间修正与巴丹文化特性。要改规则就继承并注册一个替换实现，要读结果就走模型，绝不要直接改模型字段或亲自累加 `Building.BuildingProgress`。
+BuildingConstructionModel 是一个纯计算的规则扩展点：战役（[Campaign](../Campaign)）在启动时通过 `GameModels` 从已注册的 `GameModel` 集合中按类型解析出 `DefaultBuildingConstructionModel` 唯一实例并缓存，运行时统一用 `Campaign.Current.Models.BuildingConstructionModel` 取得；它不参与存档序列化，也不会在每个 tick 被重新构造。领地行为 `BuildingsCampaignBehavior` 在其 `TickCurrentBuildingForTown` 里把 `Town.Construction`（即 `CalculateDailyConstructionPower` 的结果）加到队首在建建筑的 `BuildingProgress` 上，并依据模型暴露的加速成本属性（`GetBoostCost`，即 `TownBoostCost` / `CastleBoostCost`）去扣减加速储备 `town.BoostBuildingProcess`；而 [Town](../Town) 的 `Construction` / `ConstructionExplanation` 属性与城镇管理界面（VM）则在每日结算或界面刷新时读取当日产出。`DefaultBuildingConstructionModel` 内部会逐项累加：繁荣度、加速储备贡献、总督技能/专长、市集生产类售出、在建建筑类型相关的军事/市集加成、`BuildingEffectModel` 的每日建设效应，以及忠诚度区间修正与巴丹文化特性。要改规则就继承并注册一个替换实现，要读结果就走模型，绝不要直接改模型字段或亲自累加 `Building.BuildingProgress`。
 
 ## 何时使用 / 何时不要使用
 
@@ -43,6 +43,8 @@ BuildingConstructionModel 是一个纯计算的规则扩展点：战役（[Campa
 - [BuildingType](../BuildingType) —— 模型依据 `building.BuildingType.IsMilitaryProject`、`DefaultBuildingTypes.SettlementMarketplace` 等做分支加成。
 - [CampaignBehaviorBase](../CampaignBehaviorBase) —— `BuildingsCampaignBehavior` 的基类，是实际驱动建筑 tick 的调用者。
 - [ExplainedNumber](../ExplainedNumber) —— `CalculateDailyConstructionPower` 的返回类型，用于携带带说明项的数值，便于 tooltip 分解。
+- [SettlementLoyaltyModel](../SettlementLoyaltyModel) —— `DefaultBuildingConstructionModel` 最关键的修正项来自 `town.Loyalty`：高忠诚（75~100）给施工产出加成、低/极低忠诚（≤50 / ≤25）施加惩罚甚至把当日产出钳到 0。建筑产出与城镇忠诚相互牵动，二者常被一起派生替换或一起调参。
+- [SettlementSecurityModel](../SettlementSecurityModel) —— 同属城镇/定居点规则模型簇，常与本项目一起被派生替换，以统一调校城镇运转效率。
 
 ## 风险
 
@@ -110,4 +112,4 @@ int boostAmount = Campaign.Current.Models.BuildingConstructionModel.GetBoostAmou
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)
-- ↔ 相关：[Campaign](../Campaign) · [GameModels](../GameModels) · [DefaultBuildingConstructionModel](../DefaultBuildingConstructionModel) · [Town](../Town) · [Settlement](../Settlement) · [Building](../Building) · [BuildingsCampaignBehavior](../BuildingsCampaignBehavior) · [BuildingEffectModel](../BuildingEffectModel) · [BuildingScoreCalculationModel](../BuildingScoreCalculationModel) · [BuildingModel](../BuildingModel) · [BuildingType](../BuildingType) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [ExplainedNumber](../ExplainedNumber)
+- ↔ 相关：[Campaign](../Campaign) · [GameModels](../GameModels) · [DefaultBuildingConstructionModel](../DefaultBuildingConstructionModel) · [Town](../Town) · [Settlement](../Settlement) · [Building](../Building) · [BuildingsCampaignBehavior](../BuildingsCampaignBehavior) · [BuildingEffectModel](../BuildingEffectModel) · [BuildingScoreCalculationModel](../BuildingScoreCalculationModel) · [BuildingModel](../BuildingModel) · [BuildingType](../BuildingType) · [SettlementLoyaltyModel](../SettlementLoyaltyModel) · [SettlementSecurityModel](../SettlementSecurityModel) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [ExplainedNumber](../ExplainedNumber)

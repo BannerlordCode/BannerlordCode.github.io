@@ -1,238 +1,290 @@
 ---
 title: "DiplomacyModel"
-description: "战役外交规则的模型契约：计算战争、和平、关系、影响力和派系价值，但不直接改变外交状态。"
+description: "集中裁决王国间战争/和平评分、外交姿态、关系边界、影响力与贡金成本以及派系价值，由 Campaign 在运行时通过 Campaign.Current.Models.DiplomacyModel 解析，被宣战/和平决议、外交行为与各 Action 调用。"
 ---
+
 # DiplomacyModel
 
-**命名空间：** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
-**模块：** `TaleWorlds.CampaignSystem`  
-**类型：** `public abstract class DiplomacyModel : MBGameModel<DiplomacyModel>`  
-**基类：** `MBGameModel<DiplomacyModel>`  
-**源文件：** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/DiplomacyModel.cs`
+**命名空间：** TaleWorlds.CampaignSystem.ComponentInterfaces
+**模块：** TaleWorlds.CampaignSystem
+**类型：** public abstract class DiplomacyModel : MBGameModel<DiplomacyModel>
+**源文件：** Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/DiplomacyModel.cs
 
-## 一句话职责
+## 概述
 
-`DiplomacyModel` 为战役系统提供外交决策所需的规则结果，例如战争/和平评分、战争进度、关系上限、影响力成本、贡金和外交姿态；它不会自己宣布战争、缔结和平或写入派系状态。
+该模型集中裁决外交系统的全部纯规则结果：两个派系之间是否处于恒定战争、战争与和平的评分、关系上下限、影响力与贡金成本、加入/离开王国与雇佣佣兵的评分，以及派系与英雄的综合实力。它只做判定与纯计算，真正改变外交状态（宣战、缔和、改关系、给影响力）的是 [DeclareWarAction](../../campaign-ext/DeclareWarAction)、[MakePeaceAction](../../campaign-ext/MakePeaceAction)、[ChangeRelationAction](../../campaign-ext/ChangeRelationAction) 等 Action 与对应的王国决议。
 
-## 心智模型：规则计算，不是外交事务
+## 心智模型
 
-把它放在战役模型链的中间层理解：
+DiplomacyModel 是一个纯裁决的 Model 型扩展点：`Campaign` 在启动时通过 `GameModels` 从已注册的 `GameModel` 集合中按类型解析出 `DefaultDiplomacyModel` 唯一实例并缓存，运行时统一用 `Campaign.Current.Models.DiplomacyModel` 取得；它不参与存档序列化，也不在每个 tick 被重新构造。外交决议（如 [DeclareWarDecision](../DeclareWarDecision)）与行为在评估是否提出/通过宣战或和平时调用 `GetScoreOfDeclaringWar`、`GetScoreOfDeclaringPeace`、`IsPeaceSuitable`、`GetDecisionMakingThreshold`；而真正落定战争/和平的 [DeclareWarAction](../../campaign-ext/DeclareWarAction) 与 [MakePeaceAction](../../campaign-ext/MakePeaceAction) 则独立执行关系变更与事件派发。要改外交规则就继承并注册一个替换实现；要“执行”外交动作必须走对应 Action，绝不要把模型当成写世界的入口或直接改 `IFaction` 的战争状态。
 
-```mermaid
-graph TD
-    Starter[CampaignGameStarter] --> Models[Campaign.Models]
-    Models --> Diplomacy[DiplomacyModel]
-    Diplomacy --> Decisions[DeclareWarDecision / MakePeaceKingdomDecision]
-    Diplomacy --> Barter[外交 Barterable]
-    Diplomacy --> Behaviors[Campaign behaviors and AI]
-    Decisions --> WarAction[DeclareWarAction]
-    Decisions --> PeaceAction[MakePeaceAction]
-    WarAction --> FactionState[IFaction war state and WarDeclared]
-    PeaceAction --> FactionState
-```
+## 何时使用 / 何时不要使用
 
-- **谁创建和持有：** `SandBoxManager` 在战役启动阶段把 `DefaultDiplomacyModel` 加入 `CampaignGameStarter`；`Campaign` 随后把模型集合构造成 `GameModels`，运行期通过 `Campaign.Current.Models.DiplomacyModel` 暴露当前实现。
-- **什么时候使用：** 战役已经完成模型组装后，用它读取当前规则或在决策、对话、Barterable、AI 和行为中计算候选结果。战争评分、和平评分和 `GetWarProgressScore` 的参数方向必须与调用者一致。
-- **什么时候不要使用：** 不要用它直接修改 `IFaction` 的战争关系、Hero 关系、Clan 影响力或贡金。已经决定要改变世界状态时，应转到 [DeclareWarAction](../../campaign-ext/DeclareWarAction)、[MakePeaceAction](../../campaign-ext/MakePeaceAction) 或对应的关系/影响力 Action。
-- **如何扩展：** 在 `InitializeGameStarter` 阶段通过 [CampaignGameStarter](../CampaignGameStarter) 加入一个 `DiplomacyModel` 实现。`AddModel` 的后加入模型会遮蔽前一个同类型模型，因此替换应在 `GameModels` 创建前完成。
+- **使用**：需要查询或自定义“谁和谁处于战争、宣战/和平评分如何算、关系上限是多少、影响力与贡金成本是多少、派系价值多大”等规则时，读取 `Campaign.Current.Models.DiplomacyModel` 的返回值，或提供一个新的派生类覆盖其抽象成员并通过子模块在 `InitializeGameStarter` 阶段注册替换默认实现。
+- **不要使用**：不要用模型去“执行”外交——它只会判定，真正改 `IFaction` 战争关系、`Hero` 关系、`Clan` 影响力或贡金的是对应的 Action 与决议。不要因为 `GetScoreOfDeclaringWar` 返回正值就直接调用 `DeclareWarAction`，除非调用者已完成决议来源、资格与重复战争检查；也不要把模型返回值当作持久世界状态（它是无状态纯函数）。修改世界状态应走 Campaign 行为或对应 Action，而非篡改模型。
 
-## 依赖关系与调用边界
+## 依赖图
 
-**上游**
+上游类型与系统：
 
-- [Campaign](../Campaign) 创建战役并在初始化期间组装模型门面。
-- [CampaignGameStarter](../CampaignGameStarter) 收集默认模型和 mod 的替换模型。
-- [GameModels](../GameModels) 通过强类型属性提供运行期 `DiplomacyModel`。
-- `Hero`、`Clan`、`Kingdom`、`Settlement`、`MobileParty` 和 `IFaction` 提供模型计算所需的当前战役状态。
+- [Campaign](../Campaign) —— 持有 `Models` 集合，是运行时获取该模型的入口。
+- [GameModels](../GameModels) —— 在构造时通过 `GetGameModel<DiplomacyModel>()` 解析并缓存实例。
+- [ClanTierModel](../ClanTierModel) —— `DefaultDiplomacyModel` 计算战争实力时读取 `GetPartyLimitForTier`。
+- [AllianceModel](../AllianceModel) —— `GetScoreOfDeclaringWar` / `GetScoreOfDeclaringPeace` 读取 `GetAllianceFactorForDeclaringWar` / `…Peace`。
+- [MinorFactionsModel](../MinorFactionsModel) —— `GetScoreOfMercenaryToJoinKingdom` 读取 `GetMercenaryAwardFactorToJoinKingdom`。
 
-**下游**
+下游与协同系统（调用方）：
 
-- [DeclareWarDecision](../DeclareWarDecision) 和 `MakePeaceKingdomDecision` 用评分、阈值和影响力成本决定是否提出或通过王国决议。
-- Barterable 与 `DiplomaticBartersBehavior` 用派系加入/离开、宣战/和平评分和 [BarterGroup](../BarterGroup) 组织谈判选项。
-- `KingdomDecisionProposalBehavior`、`FactionHelper`、联盟行为和派系 AI 用姿态、战争进度、恒定战争及实力结果筛选行为。
-- [CampaignEvents](../CampaignEvents) 和 Behavior 接收状态 Action 产生的事件；它们不是模型的写入通道。
+- [FactionManager](../FactionManager) —— 在创建/查询 `StanceLink` 时调用 `GetShallowDiplomaticStance`、`GetDefaultDiplomaticStance`、`IsAtConstantWar`。
+- [KingdomManager](../KingdomManager) —— 创建王国、封臣变动、赠城时调用 `IsAtConstantWar`、`GetInfluenceAwardForSettlementCapturer`、`GiftingTownRelationshipBonus`/`GiftingCastleRelationshipBonus`。
+- [Hero](../Hero) —— `GetEffectiveRelation` / `GetBaseRelation` 实例方法转发到本模型；关系赋值经 `MinRelationLimit`/`MaxRelationLimit` 截断。
+- [Clan](../Clan) / [Kingdom](../Kingdom) —— 多个实力与评分方法操作家族/王国对象；`Kingdom` 在吸收家族时调用 `IsAtConstantWar`。
+- [Army](../Army) —— 计算军团每小时影响力时调用 `GetHourlyInfluenceAwardForRaidingEnemyVillage` / `GetHourlyInfluenceAwardForBesiegingEnemyFortification`。
+- [DeclareWarDecision](../DeclareWarDecision) —— 评估是否提出/通过宣战决议时调用 `GetScoreOfDeclaringWar`、`GetDecisionMakingThreshold`。
+- [FactionHelper](../../campaign-ext/FactionHelper) —— 判断家族能否加入/离开王国时调用 `IsAtConstantWar`、`GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom`、`MinimumRelationWithConversationCharacterToJoinKingdom`。
+- [ChangeRelationAction](../../campaign-ext/ChangeRelationAction) —— 实际改关系前调用 `GetRelationIncreaseFactor`、`GetHeroesForEffectiveRelation`。
+- [ChangeClanLeaderAction](../../campaign-ext/ChangeClanLeaderAction) —— 领袖死亡时调用 `GetRelationChangeAfterClanLeaderIsDead`。
+- [DisbandArmyAction](../../campaign-ext/DisbandArmyAction) —— 解散军团时调用 `GetInfluenceCostOfDisbandingArmy`、`GetRelationCostOfDisbandingArmy`。
+- [GainKingdomInfluenceAction](../../campaign-ext/GainKingdomInfluenceAction) —— 夺城影响力奖励取 `GetInfluenceAwardForSettlementCapturer`。
+- [KillCharacterAction](../../campaign-ext/KillCharacterAction) —— 选新统治者时调用 `IsClanEligibleToBecomeRuler`、`GetClanStrength`。
+- [BarterData](../BarterData) / [BarterGroup](../BarterGroup) —— 外交谈判初始化时调用 `GetBarterGroups` 枚举六类谈判组。
+- [ExplainedNumber](../ExplainedNumber) —— `GetWarProgressScore`、各影响力成本的内部累加类型。
 
-**Model 与 Action 的硬边界**
+## 风险
 
-| 需求 | 正确入口 | 这里发生什么 |
-| --- | --- | --- |
-| 评估是否值得宣战 | `GetScoreOfDeclaringWar`、`GetDecisionMakingThreshold` | 返回规则结果和可选的 `TextObject` 原因，不改变关系。 |
-| 评估是否适合和平 | `IsPeaceSuitable`、`GetScoreOfDeclaringPeace` | 返回判断或评分，不支付贡金，也不结束战争。 |
-| 读取战争进度 | `GetWarProgressScore` | 返回 `ExplainedNumber`，可能带解释项；不更新战役战争记录。 |
-| 实际开始战争 | `DeclareWarAction.ApplyByKingdomDecision`、`ApplyByDefault`、`ApplyByPlayerHostility`、`ApplyByRebellion`、`ApplyByCrimeRatingChange`、`ApplyByKingdomCreation`、`ApplyByClaimOnThrone` 或 `ApplyByCallToWarAgreement` | 更新派系关系、相关政治状态并派发 `WarDeclared`。 |
-| 实际结束战争 | `MakePeaceAction.Apply` 或 `ApplyByKingdomDecision` | 更新派系关系并执行和平相关事件/贡金流程。 |
-| 直接给派系影响力或改英雄关系 | 对应的 `*Action` | 负责事件级联和合法状态变更；不要把 Model 的返回值当作写入 API。 |
+- **跨战役重载缓存实例**：`Campaign.Current.Models.DiplomacyModel` 在每次新战役/读档时由 `GameModels` 重新解析。把实例缓存进静态字段或长生命周期对象，会在重载后指向旧战役的已销毁对象，调用即崩溃或读到陈旧规则。每次需要时都重新走 `Campaign.Current.Models` 获取。
+- **战役开始前访问**：`Campaign.Current` 或 `Campaign.Current.Models` 在战役未启动时为 `null`。在 `MainMenu`、子模块加载早期或编辑器上下文里调用会直接空引用。
+- **误判状态层**：该模型是无状态纯函数，没有需要持久化的字段，也不含 `[SaveableField]`。若你新增的派生类里加了可变字段并期望它随存档恢复，会发现这些值永远不会被序列化，从而产生隐蔽的规则漂移。
+- **在 Mission/战斗层调用**：模型属于 Campaign 层，仅在战役模拟中存在；在 `Mission` 或战场逻辑里取 `Campaign.Current.Models` 是错误的访问层。
+- **只替换模型不改写入路径**：派生类放松了宣战评分，但真正落定战争的是 [DeclareWarAction](../../campaign-ext/DeclareWarAction)，而宣战/缔和是由决议驱动的——只替换模型、却让调用方按旧假设处理关系与贡金，会出现“评分通过却流程不推进”或状态不一致。
+- **参数方向颠倒**：`GetScoreOfDeclaringWar(factionDeclaresWar, factionDeclaredWar, …)`、`GetWarProgressScore(factionDeclaresWar, factionDeclaredWar, …)` 与 `GetDailyTributeToPay` 都依赖“宣战方/被宣战方”的方向；交换双方会产生看似合法但政治含义相反的结果，并影响贡金与和平判断。
+- **把计算当成事务**：评分、成本、阈值和姿态都只返回结果。直接改关系/金币/影响力会跳过 `*Action` 的事件级联、政治状态和存档语义，可能让 UI、AI 和存档互相不一致。
+- **原因输出被忽略**：`GetScoreOfDeclaringWar` / `GetScoreOfDeclaringPeaceForClan` 的 `includeReason` 为真时才保证 `out TextObject reason` 被填充；不要复用未初始化的 `TextObject`，也不要把原因文本当稳定 ID 存档。
 
-## 真实获取路径
+## 成员说明
 
-运行中的 mod 不应 `new DefaultDiplomacyModel()` 来查询当前规则，也不要缓存 starter。应从当前 Campaign 的模型门面重新取得对象：
+### 外交姿态与战争状态
 
-```csharp
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.ComponentInterfaces;
+- **`GetShallowDiplomaticStance(IFaction faction1, IFaction faction2)`**
+  - 用途：对派系对做快速浅层判断，返回 `DiplomacyStance?`。默认实现：若一方是匪帮派系而另一方不是，返回 `War`；否则返回 `null`（表示没有可用显式判断）。`null` 不能当成 `Neutral`。
+  - 副作用：无，纯判定。
+  - 调用时机：[FactionManager](../FactionManager) 在创建/查询/移除 `StanceLink` 时调用；[KingdomManager](../KingdomManager) 在建国时据此过滤可建交的敌对派系。
 
-public static float ReadWarScore(IFaction declaringFaction, IFaction targetFaction, Clan evaluatingClan)
-{
-    Campaign campaign = Campaign.Current;
-    if (campaign == null || campaign.Models == null ||
-        declaringFaction == null || targetFaction == null || evaluatingClan == null)
-    {
-        return 0f;
-    }
+- **`GetDefaultDiplomaticStance(IFaction faction1, IFaction faction2)`**
+  - 用途：返回派系对的默认姿态——若 `IsAtConstantWar` 为真返回 `War`，否则 `Neutral`。这是规则结果，不是设置姿态的 setter。
+  - 副作用：无。
+  - 调用时机：[FactionManager](../FactionManager) 在 `AddStanceLink` 构造新的 `StanceLink` 时调用，决定初值是 `StanceType.War` 还是 `Neutral`。
 
-    DiplomacyModel model = campaign.Models.DiplomacyModel;
-    if (model == null)
-    {
-        return 0f;
-    }
+- **`IsAtConstantWar(IFaction faction1, IFaction faction2)`**
+  - 用途：判断双方是否处于“恒定战争”——即无法通过普通和平流程解除。默认实现：一方是 outlaw 且 minor 家族、另一方是王国且文化相同，或浅层姿态为 `War` 时返回 `true`。
+  - 副作用：无。
+  - 调用时机：[FactionHelper](../../campaign-ext/FactionHelper)、[Kingdom](../Kingdom)、[KingdomManager](../KingdomManager)、[ChangeKingdomAction](../../campaign-ext/ChangeKingdomAction)、[KillCharacterAction](../../campaign-ext/KillCharacterAction) 都用它筛选加入/合并条件与战争判定。
 
-    TextObject reason;
-    return model.GetScoreOfDeclaringWar(
-        declaringFaction, targetFaction, evaluatingClan, out reason, true);
-}
-```
+- **`MaxRelationLimit` / `MinRelationLimit`**（属性，返回 `int`）
+  - 用途：关系值的全局上/下限，默认 `100` / `-100`。`Hero` 在写入关系时被它们截断。
+  - 副作用：无。调用时机：关系赋值与 UI 解释均读取。
 
-这个例子只读取评分。评分的正负含义和阈值由当前实现决定，不能在 mod 中假定所有版本都有相同数值。需要真正开战时，应在调用者完成派系有效性、重复战争和游戏阶段检查后，根据来源选择上述具体的 `DeclareWarAction` 方法，而不是根据评分方法名猜测一个写入入口。
+- **`MaxNeutralRelationLimit` / `MinNeutralRelationLimit`**（属性，返回 `int`）
+  - 用途：非战争中性关系的边界，默认 `50` / `-50`；不要把它们当作所有关系值的上下限。`Hero.IsNeutralWithHero` / `IsFriend` / `IsEnemy` 用它们判断。
+  - 副作用：无。调用时机：关系分类内部读取。
 
-### 在启动阶段替换规则模型
+### 英雄关系计算
 
-`CampaignGameStarter` 的实际注册形状如下。`MyDiplomacyModel` 必须实现 `DiplomacyModel` 的全部抽象成员，并保持返回值的单位、参数方向和生命周期契约；它不是可以只覆写一个方法的接口。
+- **`GetEffectiveRelation(Hero hero1, Hero hero2)`**
+  - 用途：返回考虑有效关系代理后的关系值：先经 `GetHeroesForEffectiveRelation` 取双方家族领袖，再叠加人格特质效果（`Honor`/`Valor`/`Mercy`），最后用 `MinRelationLimit`/`MaxRelationLimit` 截断。
+  - 副作用：无。
+  - 调用时机：[Hero](../Hero) 的 `GetEffectiveRelation` 实例方法直接转发；UI 与决策在需要外交语义关系时优先用它。
 
-```csharp
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.Core;
-using TaleWorlds.MountAndBlade;
+- **`GetBaseRelation(Hero hero1, Hero hero2)`**
+  - 用途：返回不叠加有效关系修正的基础关系，即 `CharacterRelationManager.GetHeroRelation`。适合诊断与比较，不能当作最终关系。
+  - 副作用：无。调用时机：[Hero](../Hero) 的 `GetBaseRelation` 实例方法转发。
 
-public sealed class DiplomacySubModule : MBSubModuleBase
-{
-    protected override void InitializeGameStarter(
-        Game game, IGameStarter gameStarterObject)
-    {
-        if (gameStarterObject is CampaignGameStarter starter)
-        {
-            starter.AddModel(new MyDiplomacyModel());
-        }
-    }
-}
-```
+- **`GetHeroesForEffectiveRelation(Hero hero1, Hero hero2, out Hero effectiveHero1, out Hero effectiveHero2)`**
+  - 用途：为有效关系计算选出实际参与比较的两个英雄（通常取双方家族领袖；若领袖相同或为玩家随从组合则回退到原英雄），结果通过 `out` 参数返回。
+  - 副作用：仅写入两个 `out` 参数，不改动任何世界状态。
+  - 调用时机：[ChangeRelationAction](../../campaign-ext/ChangeRelationAction) 在改关系前用它取实际受影响的双方英雄。
 
-源码中的默认注册是 `gameStarter.AddModel(new DefaultDiplomacyModel())`。`CampaignGameStarter.AddModel(GameModel)` 把新对象追加到列表，而 `GameModelsManager.GetGameModel<T>()` 从列表尾部向前找，因此该替换必须发生在 Campaign 创建 `GameModels` 之前。若需要包装默认实现，则继承 `MBGameModel<DiplomacyModel>`，并在 `Initialize` 收到 `BaseModel` 后处理它可能为 `null` 的情况。
+- **`GetRelationIncreaseFactor(Hero hero1, Hero hero2, float relationValue)`**
+  - 用途：按魅力专长/特性（如 `CharmRelationBonus`、`InBloom`、`YoungAndRespectful`）对拟议的关系变化量做缩放，返回调整后的因子。
+  - 副作用：无。
+  - 调用时机：[ChangeRelationAction](../../campaign-ext/ChangeRelationAction) 在应用关系变化前调用，决定最终增量。
 
-## 公共成员按任务理解
+- **`GetRelationChangeAfterClanLeaderIsDead(Hero deadLeader, Hero relationHero)`**
+  - 用途：返回 Clan 领袖死亡后另一位英雄的关系变化，默认取双方当前关系的 `0.7` 倍。
+  - 副作用：无。
+  - 调用时机：仅 [ChangeClanLeaderAction](../../campaign-ext/ChangeClanLeaderAction) 在换领袖时调用，作为 `ChangeRelationAction` 的增量参数。
 
-下面覆盖 1.4.5 `DiplomacyModel.cs` 的全部公共抽象属性、枚举和方法。表格描述的是调用时机和影响面，不是把签名重新排列成字典。
+- **`GetRelationChangeAfterVotingInSettlementOwnerPreliminaryDecision(Hero supporter, bool hasHeroVotedAgainstOwner)`**
+  - 用途：返回聚落所有权初步决议投票后的关系变化：投反对票扣 `20`（斯托吉亚文化特性再追加惩罚），投赞成加 `5`。
+  - 副作用：无。
+  - 调用时机：聚落所有权决议随后用关系 Action 应用该结果。
 
-### 常量规则与外交姿态
+- **`GetCharmExperienceFromRelationGain(Hero hero, float relationChange, ChangeRelationAction.ChangeRelationDetail detail)`**
+  - 用途：把关系增长与变更原因转换为魅力经验（基础 `20`，按是否为要人/派系领袖/使者等放大）。
+  - 副作用：无，不直接给 Hero 加经验。
+  - 调用时机：[ChangeRelationAction](../../campaign-ext/ChangeRelationAction) 在关系变化后调用，给相关英雄加魅力经验。
 
-| 成员 | 用途、调用时机和影响 |
-| --- | --- |
-| `DiplomacyStance.Neutral` / `War` | `GetShallowDiplomaticStance` 和 `GetDefaultDiplomaticStance` 使用的两种姿态；`null` 表示浅层查询没有可用的显式判断，不能当成 Neutral。 |
-| `MaxRelationLimit` / `MinRelationLimit` | 关系值的全局上、下限；关系 Action、对话和 Persuasion 会用它们限制或解释结果。 |
-| `MaxNeutralRelationLimit` / `MinNeutralRelationLimit` | 非战争中性关系的边界；不要把它们当作所有关系值的上下限。 |
-| `MinimumRelationWithConversationCharacterToJoinKingdom` | 对话或派系加入流程判断领袖关系是否达到门槛；它只提供门槛，不替代加入 Kingdom 的事务流程。 |
-| `GiftingTownRelationshipBonus` / `GiftingCastleRelationshipBonus` | 赠送城镇或城堡时的关系加成输入；真正的所有权、赠送和关系变更由相应 Action/决议完成。 |
-| `WarDeclarationScorePenaltyAgainstTradePartners` | 默认外交评分对贸易伙伴宣战的惩罚因子；替换它会影响战争决策和谈判，不会自动撤销贸易协议。 |
-| `GetShallowDiplomaticStance(IFaction, IFaction)` | 读取当前派系对的浅层战争/中立判断，可能返回 `null`；用于快速筛选，不应作为完整关系写入。 |
-| `GetDefaultDiplomaticStance(IFaction, IFaction)` | 为派系对返回默认姿态，`IsAtConstantWar` 等规则会参与判断；它是规则结果，不是设置姿态的 setter。 |
-| `IsAtConstantWar(IFaction, IFaction)` | 判断双方是否处于规则上不可通过普通和平流程解除的恒定战争；Barter、加入王国和行为筛选会调用它。 |
+- **`MinimumRelationWithConversationCharacterToJoinKingdom`**（属性，返回 `int`）
+  - 用途：对话或派系加入流程判断与领袖关系是否达到门槛，默认 `-10`。
+  - 副作用：无。调用时机：[FactionHelper](../../campaign-ext/FactionHelper) 在判断玩家家族能否加入/成为佣兵时读取。
 
-### 关系和英雄影响
+### 影响力、贡金与决议成本
 
-| 成员 | 用途、调用时机和影响 |
-| --- | --- |
-| `GetRelationIncreaseFactor(Hero, Hero, float)` | 根据两个 Hero 和拟议的关系变化计算缩放因子；用于关系增长，不直接写双方关系。 |
-| `GetEffectiveRelation(Hero, Hero)` | 返回考虑有效关系代理后的关系值；决策和 UI 应在需要外交语义时优先使用它，而不是擅自读取一个原始字段。 |
-| `GetBaseRelation(Hero, Hero)` | 返回不叠加有效关系修正的基础关系；适合诊断和比较，不能当作最终关系。 |
-| `GetHeroesForEffectiveRelation(Hero, Hero, out Hero, out Hero)` | 为有效关系计算选出实际参与比较的两个 Hero；调用者必须使用输出对象，不要继续假定输入 Hero 是最终双方。 |
-| `GetRelationChangeAfterClanLeaderIsDead(Hero, Hero)` | 计算 Clan 领袖死亡后另一位 Hero 的关系变化；死亡 Action/行为负责应用变化和事件。 |
-| `GetRelationChangeAfterVotingInSettlementOwnerPreliminaryDecision(Hero, bool)` | 计算聚落所有权初步决议投票后的关系变化；决议随后使用关系 Action 应用结果。 |
-| `GetCharmExperienceFromRelationGain(Hero, float, ChangeRelationAction.ChangeRelationDetail)` | 把关系增长和变更原因转换为魅力经验；不直接给 Hero 加经验。 |
+- **`GetInfluenceAwardForSettlementCapturer(Settlement settlement)`**
+  - 用途：返回攻占聚落者得到的影响力：城镇 `30`、城堡 `10`，并递归累加其附属村庄（各 `10`）。
+  - 副作用：无，纯计算；真正的奖励由调用方应用。
+  - 调用时机：[KingdomManager](../KingdomManager) 在夺城时传给 `GainKingdomInfluenceAction.ApplyForCapturingEnemySettlement`。
 
-### 影响力、贡金和决策成本
+- **`GetHourlyInfluenceAwardForRaidingEnemyVillage(MobileParty mobileParty)` / `GetHourlyInfluenceAwardForBesiegingEnemyFortification(MobileParty mobileParty)` / `GetHourlyInfluenceAwardForBeingArmyMember(MobileParty mobileParty)`**
+  - 用途：分别返回袭击敌方村庄、围攻敌方堡垒、作为军团成员时每小时获得的影响力（基于参战人数平方根等公式）。
+  - 副作用：无，纯计算；由地图/Campaign tick 消费，不能在读取时重复发奖。
+  - 调用时机：[Army](../Army) 在每小时结算影响力时调用前两者；军团成员影响力由对应 tick 调用后者。
 
-| 成员 | 用途、调用时机和影响 |
-| --- | --- |
-| `GetInfluenceAwardForSettlementCapturer(Settlement)` | 计算攻占聚落者得到的影响力；战斗/聚落结算负责应用奖励。 |
-| `GetHourlyInfluenceAwardForRaidingEnemyVillage(MobileParty)` | 计算正在袭击敌方村庄的党派每小时影响力；由地图/战役 tick 消费，不能在读取时重复发奖。 |
-| `GetHourlyInfluenceAwardForBesiegingEnemyFortification(MobileParty)` | 计算围攻敌方堡垒的每小时影响力；依赖当前 Siege/党派状态，结束围攻后不要缓存结果继续使用。 |
-| `GetHourlyInfluenceAwardForBeingArmyMember(MobileParty)` | 计算军团成员每小时影响力；它不是给 `MobileParty` 直接写入影响力的 Action。 |
-| `GetRelationCostOfExpellingClanFromKingdom()` | 返回驱逐 Clan 的关系代价；驱逐决议和关系 Action 负责应用。 |
-| `GetInfluenceCostOfSupportingClan()` | 返回支持 Clan 决议所需的影响力成本；只提供成本。 |
-| `GetInfluenceCostOfExpellingClan(Clan)` | 结合提案 Clan 计算驱逐成本；需要使用提出者的真实 Clan。 |
-| `GetInfluenceCostOfProposingPeace(Clan)` / `GetInfluenceCostOfProposingWar(Clan)` | 计算提出和平或战争决议的成本；决议成功后才由决议流程扣除影响力。 |
-| `GetInfluenceValueOfSupportingClan()` / `GetRelationValueOfSupportingClan()` | 提供支持 Clan 的影响力/关系收益；投票系统按当前规则使用，不代表调用即支持。 |
-| `GetInfluenceCostOfAnnexation(Clan)` | 计算吞并聚落提案成本；`SettlementClaimantDecision` 使用它，不能拿它当作自动吞并入口。 |
-| `GetInfluenceCostOfChangingLeaderOfArmy()` / `GetInfluenceCostOfDisbandingArmy()` | 返回军团换领袖/解散军团的固定影响力成本；行为负责检查余额并扣除。 |
-| `GetRelationCostOfDisbandingArmy(bool)` | 按是否为军团领袖返回解散军团的关系代价；不要只用影响力成本模拟完整后果。 |
-| `GetInfluenceCostOfPolicyProposalAndDisavowal(Clan)` | 计算提出或废除政策的成本；政策决议负责应用。 |
-| `GetInfluenceCostOfAbandoningArmy()` | 返回离开军团的影响力成本；原生行为会在确认选项后用 Action 扣除。 |
-| `GetDailyTributeToPay(Clan, Clan, out int)` | 计算两个 Clan 关系下的每日贡金并输出持续天数；它读取双方当前派系/战争进度，不能直接改金币或贡金协议。 |
-| `GetDecisionMakingThreshold(IFaction)` | 返回派系进行决策时使用的阈值；必须和同一模型实现返回的评分一起解释。 |
-| `DenarsToInfluence()` | 提供金币到影响力的换算系数；常用于决议 merit 计算，不是把 denar 自动转换到账户的操作。 |
+- **`GetInfluenceCostOfProposingWar(Clan proposingClan)` / `GetInfluenceCostOfProposingPeace(Clan proposingClan)`**
+  - 用途：返回提出战争（`200` 起）或和平（`100` 起）决议所需的影响力成本，并叠加 `WarTax` 等政策与 `Charm.Firebrand` 特性修正。
+  - 副作用：无，只提供成本。
+  - 调用时机：决议成功后才由决议流程扣除影响力。
+
+- **`GetInfluenceCostOfSupportingClan()` / `GetInfluenceCostOfExpellingClan(Clan proposingClan)` / `GetInfluenceCostOfAnnexation(Clan proposingClan)` / `GetInfluenceCostOfPolicyProposalAndDisavowal(Clan proposerClan)`**
+  - 用途：分别返回支持家族（`50`）、驱逐家族（`200` 起）、吞并聚落（`200` 起）、提议/废除政策（`100` 起）的影响力成本，均经特性修正。
+  - 副作用：无。
+  - 调用时机：对应王国决议负责应用与扣除。
+
+- **`GetInfluenceCostOfChangingLeaderOfArmy()` / `GetInfluenceCostOfDisbandingArmy()` / `GetRelationCostOfDisbandingArmy(bool isLeaderParty)` / `GetInfluenceCostOfAbandoningArmy()`**
+  - 用途：返回军团换领袖（`30`）、解散军团（`30`，玩家统治家族减半）、解散关系代价（领袖 `-4`、否则 `-1`）、离开军团（`2`）的成本。
+  - 副作用：无。
+  - 调用时机：[DisbandArmyAction](../../campaign-ext/DisbandArmyAction) 在确认选项后调用并扣除。
+
+- **`GetDailyTributeToPay(Clan factionToPay, Clan factionToReceive, out int tributeDurationInDays)`**
+  - 用途：计算战败方向获胜方每日支付的贡金与持续天数（综合和平评分、决策阈值、双方战争进度差与繁荣度），结果通过 `out` 返回天数。
+  - 副作用：仅写入 `out` 参数，不改动金币或贡金协议。
+  - 调用时机：和平谈判/缔结时由 [MakePeaceAction](../../campaign-ext/MakePeaceAction) 相关流程调用。
+
+- **`DenarsToInfluence()`**（属性，返回 `float`）
+  - 用途：提供金币到影响力的换算系数，默认 `0.002f`；常用于决议 merit 计算，不是把 denar 自动转账户的写入操作。
+  - 副作用：无。
+
+- **`GetDecisionMakingThreshold(IFaction consideringFaction)`**
+  - 用途：返回派系决策时使用的阈值，默认取 `GetValueOfSettlementsForFaction(consideringFaction) / 6`。
+  - 副作用：无。
+  - 调用时机：[DeclareWarDecision](../DeclareWarDecision)、`IsPeaceSuitable` 用它与评分比较。
 
 ### 王国、Clan 与外交评分
 
-| 成员 | 用途、调用时机和影响 |
-| --- | --- |
-| `GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom(Kingdom)` | 判断加入王国时可忽略的非互相战争实力阈值；`FactionHelper` 用它筛选加入条件。 |
-| `GetScoreOfClanToJoinKingdom(Clan, Kingdom)` / `GetScoreOfClanToLeaveKingdom(Clan, Kingdom)` | 计算 Clan 加入或离开 Kingdom 的谈判/决策评分；不执行 ChangeKingdom。 |
-| `GetScoreOfKingdomToGetClan(Kingdom, Clan)` / `GetScoreOfKingdomToSackClan(Kingdom, Clan)` | 从 Kingdom 角度评估接纳或驱逐 Clan；方向很重要，不能交换参数后沿用同一解释。 |
-| `GetScoreOfMercenaryToJoinKingdom(Clan, Kingdom)` / `GetScoreOfMercenaryToLeaveKingdom(Clan, Kingdom)` | 计算佣兵 Clan 加入/离开的评分；佣兵状态和 Kingdom 所属关系仍由 Barter/Action 流程处理。 |
-| `GetScoreOfKingdomToHireMercenary(Kingdom, Clan)` / `GetScoreOfKingdomToSackMercenary(Kingdom, Clan)` | 从雇佣方角度计算雇佣或解雇佣兵的评分；不直接更改 `IsUnderMercenaryService`。 |
-| `GetScoreOfDeclaringWar(IFaction, IFaction, Clan, out TextObject, bool)` | 以宣战方、被宣战方和评估 Clan 计算宣战评分；`includeReason` 为真时填充原因文本。它不调用 `DeclareWarAction`。 |
-| `GetScoreOfDeclaringPeace(IFaction, IFaction)` | 计算双方结束战争的基础和平评分；不发起 `MakePeaceAction`。 |
-| `GetScoreOfDeclaringPeaceForClan(IFaction, IFaction, Clan, out TextObject, bool)` | 从具体 Clan 立场评估和平并可输出原因；决议/Barterable 用它决定是否支持。 |
-| `IsPeaceSuitable(IFaction, IFaction)` | 判断当前双方是否适合和平；这是资格/规则判断，不是和平事务。 |
-| `GetWarProgressScore(IFaction, IFaction, bool)` | 返回包含可选解释项的战争进度 `ExplainedNumber`；战争进度方向按宣战方/被宣战方传入，反转会改变贡金和和平判断。 |
-| `GetScoreOfLettingPartyGo(MobileParty, MobileParty)` | 评估放走某个党派的外交/战术价值；它不释放俘虏、不结束地图事件。 |
-| `GetValueOfHeroForFaction(Hero, IFaction, bool)` | 计算派系看待某 Hero 的价值，可区分婚姻场景；不执行婚姻或派系变更。 |
-| `GetValueOfSettlementsForFaction(IFaction)` | 估算派系拥有的聚落价值，用于战争/和平和联盟评分；不是给 Settlement 设置价值字段。 |
-| `CanSettlementBeGifted(Settlement)` | 读取当前规则是否允许赠送聚落；真正的转让仍需对应决议或 Action。 |
-| `IsClanEligibleToBecomeRuler(Clan)` | 判断 Clan 是否符合成为统治者的规则；王位选举流程负责使用结果。 |
-| `GetClanStrength(Clan)` | 计算 Clan 的综合实力；王位选择、加入王国和外交评分会调用，不能把它等同于某一支部队人数。 |
-| `GetHeroCommandingStrengthForClan(Hero)` / `GetHeroGoverningStrengthForClan(Hero)` | 分别计算 Hero 的领军/治理实力贡献；用于 Clan 变量和决策模型，不直接改变 Hero 或 Clan 的实力字段。 |
+- **`GetScoreOfDeclaringWar(IFaction factionDeclaresWar, IFaction factionDeclaredWar, Clan evaluatingClan, out TextObject reason, bool includeReason = false)`**
+  - 用途：以宣战方、被宣战方和评估 Clan 计算宣战评分。默认实现：若宣战方总实力 `<= 500` 或作战党派 `< 2` 返回 `-10000000`；否则综合利益、暴露度、联盟因子、贸易协定惩罚（`WarDeclarationScorePenaltyAgainstTradePartners`）、风险与关系得出。`includeReason` 为真时填充原因文本。它不调用 `DeclareWarAction`。
+  - 副作用：无，纯计算；可能输出 `reason`。
+  - 调用时机：[DeclareWarDecision](../DeclareWarDecision) 评估是否提出/通过宣战决议时调用。
+
+- **`GetScoreOfDeclaringPeace(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace)` / `GetScoreOfDeclaringPeaceForClan(IFaction, IFaction, Clan, out TextObject, bool)`**
+  - 用途：计算双方结束战争的基础和平评分（从某 Clan 立场评估的变体还能输出原因）。基于暴露度、利益/风险、战争规模、同文化城镇与联盟因子综合取负。不发起 `MakePeaceAction`。
+  - 副作用：无。
+  - 调用时机：和平决议与谈判评估时调用；`IsPeaceSuitable` 复用其结果。
+
+- **`IsPeaceSuitable(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace)`**
+  - 用途：判断当前双方是否适合和平——任一方被消灭、或（和平收益不足且战争已持续 `< 150` 天且差距超过阈值）时返回 `false`，否则 `true`。这是资格/规则判断，不是和平事务。
+  - 副作用：无。
+  - 调用时机：和平提议与 AI 决策在决定是否推进和平时调用。
+
+- **`GetWarProgressScore(IFaction factionDeclaresWar, IFaction factionDeclaredWar, bool includeDescriptions = false)`**
+  - 用途：返回包含可选说明项的战争进度 `ExplainedNumber`，累加击杀、攻城（城镇/城堡）、袭击四类贡献，并 `LimitMin(0)`、`LimitMax(750)`。进度方向按宣战方/被宣战方传入，反转会改变贡金与和平判断。
+  - 副作用：无。
+  - 调用时机：和平评分、`GetDailyTributeToPay` 与风险调整内部调用。
+
+- **`GetScoreOfClanToJoinKingdom(Clan clan, Kingdom kingdom)` / `GetScoreOfClanToLeaveKingdom(Clan clan, Kingdom kingdom)` / `GetScoreOfKingdomToGetClan(Kingdom kingdom, Clan clan)` / `GetScoreOfKingdomToSackClan(Kingdom kingdom, Clan clan)`**
+  - 用途：从 Clan 或 Kingdom 角度评估接纳/驱逐家族的评分；方向很重要，交换参数会得到政治含义相反的结果。不执行 `ChangeKingdom`。
+  - 副作用：无。
+  - 调用时机：[FactionHelper](../../campaign-ext/FactionHelper) 与加入王国流程调用。
+
+- **`GetScoreOfMercenaryToJoinKingdom` / `GetScoreOfMercenaryToLeaveKingdom` / `GetScoreOfKingdomToHireMercenary` / `GetScoreOfKingdomToSackMercenary`**
+  - 用途：计算佣兵家族加入/离开王国，或王国雇佣/解雇佣兵的评分。佣兵状态与所属关系仍由 Barter/Action 流程处理。
+  - 副作用：无。
+  - 调用时机：佣兵招募与外交谈判评估时调用。
+
+- **`GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom(Kingdom kingdomToJoin)`**
+  - 用途：返回加入王国时可忽略的非互相战争实力阈值，默认取 `kingdomToJoin.CurrentTotalStrength * 0.05f`。
+  - 副作用：无。
+  - 调用时机：[FactionHelper](../../campaign-ext/FactionHelper) 筛选加入条件时调用。
+
+- **`GetClanStrength(Clan clan)` / `GetHeroCommandingStrengthForClan(Hero hero)` / `GetHeroGoverningStrengthForClan(Hero hero)`**
+  - 用途：`GetClanStrength` 汇总家族英雄领军实力 + 影响力 `*1.2` + 聚落数 `*4`；领军实力按战术/管理/贸易/领导专长与金币、家族关系、是否领袖/总督等加权；治理实力按治理相关专长、配偶/血亲关系与金币加权。不能等同于某支部队人数。
+  - 副作用：无。
+  - 调用时机：[KillCharacterAction](../../campaign-ext/KillCharacterAction) 选新统治者时调用 `GetClanStrength`；实力评分内部互相调用。
+
+- **`GetValueOfHeroForFaction(Hero examinedHero, IFaction targetFaction, bool forMarriage = false)`**
+  - 用途：返回派系看待某英雄的价值，默认取领军实力 `* 10`；不执行婚姻或派系变更。
+  - 副作用：无。
+  - 调用时机：家族/王国价值与外交评分内部调用。
+
+- **`GetValueOfSettlementsForFaction(IFaction faction)`**
+  - 用途：估算派系拥有聚落的价值（城镇 `2000`/城堡 `1000` 基础 + 繁荣度 `*0.33` + 村庄 `*300`，再 `*50` 并过 `AdjustValueOfSettlements` 平滑）。用于战争/和平与联盟评分，不是给 Settlement 设值。
+  - 副作用：无。
+  - 调用时机：和平/战争评分、`GetDecisionMakingThreshold`、`GetDailyTributeToPay` 内部调用。
+
+- **`CanSettlementBeGifted(Settlement settlement)`**
+  - 用途：读取当前规则是否允许赠送聚落（城镇且所有者已分配才允许，否则 `false`）。真正的转让仍需对应决议或 Action。
+  - 副作用：无。
+  - 调用时机：赠城谈判与 [KingdomManager](../KingdomManager) 评估时用。
+
+- **`IsClanEligibleToBecomeRuler(Clan clan)`**
+  - 用途：判断 Clan 是否符合成为统治者的规则：未被消灭、领袖存活且非佣兵服务。
+  - 副作用：无。
+  - 调用时机：[KillCharacterAction](../../campaign-ext/KillCharacterAction) 在随机选新统治者时调用。
 
 ### 其他规则入口
 
-| 成员 | 用途、调用时机和影响 |
-| --- | --- |
-| `GetNotificationColor(ChatNotificationType)` | 返回外交/聊天通知使用的颜色值；只影响通知表现，不改变外交状态。 |
-| `GetBarterGroups()` | 返回当前外交 Barter 分组；Barter 初始化会枚举它们。不要在运行中返回带有已销毁派系引用的缓存集合。 |
+- **`GetNotificationColor(ChatNotificationType notificationType)`**
+  - 用途：返回外交/聊天通知使用的颜色值（`uint`），按通知类型映射不同 RGB。只影响通知表现，不改变外交状态。
+  - 副作用：无。
+  - 调用时机：通知生成时调用。
 
-## 何时用、何时不要用
+- **`GetScoreOfLettingPartyGo(MobileParty party, MobileParty partyToLetGo)`**
+  - 用途：评估放走某个党派的外交/战术价值，综合双方物品与成员价值、英雄赎金、贸易金币与是否包围定居点得出分数。它不释放俘虏、不结束地图事件。
+  - 副作用：无。
+  - 调用时机：释放俘虏的谈判/决策流程调用。
 
-### 适合使用
+- **`GetBarterGroups()`**
+  - 用途：返回当前外交 Barter 分组集合（金币、物品、俘虏、领地、其他、默认共六类）。Barter 初始化会枚举它们。不要在运行中返回带已销毁派系引用的缓存集合。
+  - 副作用：无。
+  - 调用时机：[BarterData](../BarterData) 在构造时调用 `GetBarterGroups().ToList()`。
 
-- 在 Campaign 行为、决议或 Barterable 中，从 `Campaign.Current.Models.DiplomacyModel` 读取与当前版本匹配的评分、阈值或成本。
-- 需要实现新的外交规则时，在启动阶段替换 `DiplomacyModel`，并完整保留其它抽象入口的语义，而不是只改一个战争分数方法后返回默认值或零。
-- 需要解释玩家看到的外交结果时，使用带 `out TextObject reason` 的评分方法和 `ExplainedNumber`，让 UI/日志保留当前模型提供的解释。
+- **`GiftingTownRelationshipBonus` / `GiftingCastleRelationshipBonus`**（属性，返回 `int`）
+  - 用途：赠送城镇（`20`）或城堡（`10`）时的关系加成输入；真正的所有权与关系变更由相应 Action/决议完成。
+  - 副作用：无。调用时机：[KingdomManager](../KingdomManager) 赠城时读取。
 
-### 不要这样使用
+- **`WarDeclarationScorePenaltyAgainstTradePartners`**（属性，返回 `float`）
+  - 用途：对贸易伙伴宣战的评分惩罚因子，默认 `0.7f`。替换它会影响战争决策与谈判，不会自动撤销贸易协议。
+  - 副作用：无。调用时机：`GetTradeAgreementFactor` 内部读取。
 
-- 不要用 `GetScoreOfDeclaringWar` 的正值直接调用 `DeclareWarAction`，除非调用者还完成了决议/谈判的来源、资格和重复状态检查。
-- 不要在模型里修改 `Hero`, `Clan`, `Kingdom`, `Settlement` 或 `MobileParty`；模型在读取期间写状态会让同一计算被重复调用时产生不可预测副作用。
-- 不要缓存跨读档、跨战役的模型、Faction、Clan 或 `BarterGroup` 引用。读档后从当前 `Campaign` 对象图重新获取。
-- 不要在 Campaign 模型管理器创建前或战役结束后的 Mission/UI 回调中解引用 `Campaign.Current.Models`。
+## 示例
 
-## 风险与崩溃/坏档边界
+评估一个王国是否值得向另一个王国宣战，并拿到原因文本：
 
-- **模型尚未组装：** `Campaign.Current`、`Models` 或具体 `DiplomacyModel` 可能为空。启动阶段注册模型，运行期读取模型；不要在静态初始化中提前访问。
-- **替换顺序错误：** `AddModel` 使用列表尾部优先。包装模型如果在默认模型之前加入，可能拿到 `null`；在 `GameModels` 已创建后加入则不会更新现有门面。
-- **把计算当成事务：** 评分、成本、阈值和姿态都只返回结果。直接改关系/金币/影响力会跳过 `*Action` 的事件级联、政治状态和存档语义，可能让 UI、AI 和存档互相不一致。
-- **参数方向颠倒：** `GetScoreOfDeclaringWar(factionDeclaresWar, factionDeclaredWar, evaluatingClan, out reason, includeReason)`、`GetWarProgressScore(factionDeclaresWar, factionDeclaredWar, includeDescriptions)` 和贡金方法都依赖参数方向；交换双方会产生看似合法但政治含义相反的结果。
-- **原因输出被忽略：** `includeReason` 为真时才保证评分原因被填充；不要复用未初始化的 `TextObject`，也不要把原因文本当稳定 ID 存档。
-- **重复或错误阶段 Action：** Model 不会替调用者防止重复宣战。派系、FactionManager、CampaignEventDispatcher 和相关对象必须仍处于有效战役生命周期；错误阶段执行 Action 会触发重复事件、空引用或不完整的存档状态。
-- **读档与引用寿命：** 模型实例和派系状态属于当前 Campaign 组装。读档或结束战役后继续用旧引用，可能把旧规则应用到新对象图。
-- **契约漂移：** `DiplomacyModel` 的抽象成员、默认实现和默认注册属于版本契约。1.3.x mod 跨到 1.4.5 时必须重新编译/核对全部抽象成员，不能只按同名方法反射。
+```csharp
+IFaction declareWar = Kingdom.All.GetRandomElement();
+IFaction declaredWar = Kingdom.All.GetRandomElement();
+if (declareWar != declaredWar && !declareWar.IsAtWarWith(declaredWar))
+{
+    TextObject reason;
+    float warScore = Campaign.Current.Models.DiplomacyModel
+        .GetScoreOfDeclaringWar(declareWar, declaredWar, declareWar.Leader.Clan, out reason, true);
+    // 模型只负责“评分”，真正开战请走 DeclareWarAction，且需先完成决议/重复战争检查
+}
+```
 
-## 版本注记
+读取某场战争的进度与战败方应付的每日贡金：
 
-本页按 1.4.5 的 `TaleWorlds.CampaignSystem.ComponentInterfaces.DiplomacyModel` 和 `DefaultDiplomacyModel` 编写。1.3.x 的模型成员、默认分数和模块注册顺序可能不同；跨版本代码应以目标版本的抽象契约重新实现和测试。`DefaultDiplomacyModel` 是原版实现，不是稳定的 mod 扩展 API，需把“替换规则”与“读取规则”分别对待。
+```csharp
+ExplainedNumber progress = Campaign.Current.Models.DiplomacyModel
+    .GetWarProgressScore(factionDeclaresWar, factionDeclaredWar, includeDescriptions: false);
+float progressValue = progress.ResultNumber;
 
-## 导航
+int durationInDays;
+int dailyTribute = Campaign.Current.Models.DiplomacyModel
+    .GetDailyTributeToPay(factionToPay, factionToReceive, out durationInDays);
+```
 
-- ↑ 父级：[Campaign API](../)
-- ↔ 同级：[Campaign](../Campaign) · [CampaignGameStarter](../CampaignGameStarter) · [GameModels](../GameModels) · [DefaultDiplomacyModel](../DefaultDiplomacyModel)
-- 相关 Action：[DeclareWarAction](../../campaign-ext/DeclareWarAction) · [MakePeaceAction](../../campaign-ext/MakePeaceAction) · [ChangeRelationAction](../../campaign-ext/ChangeRelationAction)
-- 相关系统：[CampaignEvents](../CampaignEvents) · [DeclareWarDecision](../DeclareWarDecision) · [CampaignBehaviorBase](../CampaignBehaviorBase)
-- 架构边界：[GameModelsManager](../../core-extra/GameModelsManager) · [MBGameModel](../../core-extra/MBGameModel) · [崩溃边界](../../../architecture/crash-boundary) · [文档契约](../../../architecture/doc-contract)
+## 参见
+
+- ↑ 父级：[战役 API 索引](../)
+- ↔ 相关：[Campaign](../Campaign) · [GameModels](../GameModels) · [Clan](../Clan) · [Kingdom](../Kingdom) · [Hero](../Hero) · [Settlement](../Settlement) · [MobileParty](../MobileParty) · [FactionManager](../FactionManager) · [KingdomManager](../KingdomManager) · [Army](../Army) · [DeclareWarDecision](../DeclareWarDecision) · [FactionHelper](../../campaign-ext/FactionHelper) · [BarterData](../BarterData) · [BarterGroup](../BarterGroup) · [ExplainedNumber](../ExplainedNumber) · [AllianceModel](../AllianceModel) · [ClanTierModel](../ClanTierModel) · [MinorFactionsModel](../MinorFactionsModel) · [DefaultDiplomacyModel](../DefaultDiplomacyModel) · [CampaignGameStarter](../CampaignGameStarter) · [DeclareWarAction](../../campaign-ext/DeclareWarAction) · [MakePeaceAction](../../campaign-ext/MakePeaceAction) · [ChangeRelationAction](../../campaign-ext/ChangeRelationAction) · [ChangeKingdomAction](../../campaign-ext/ChangeKingdomAction) · [ChangeClanLeaderAction](../../campaign-ext/ChangeClanLeaderAction) · [DisbandArmyAction](../../campaign-ext/DisbandArmyAction) · [GainKingdomInfluenceAction](../../campaign-ext/GainKingdomInfluenceAction) · [KillCharacterAction](../../campaign-ext/KillCharacterAction)

@@ -1,73 +1,114 @@
 ---
 title: "DefinitionContext"
-description: "DefinitionContext 的自动生成类参考。"
+description: "存档类型 schema 的运行时注册表：以一组字典把运行时 Type 与稳定 SaveId 映射到 TypeDefinition / ContainerDefinition / StructDefinition 等，是保存与加载两侧对称解析类型与字段的共同契约。"
 ---
+
 # DefinitionContext
 
-**Namespace:** TaleWorlds.SaveSystem.Definition
-**Module:** TaleWorlds.SaveSystem
-**Type:** `public class DefinitionContext`
-**Base:** 无
-**File:** `TaleWorlds.SaveSystem/Definition/DefinitionContext.cs`
+**命名空间：** `TaleWorlds.SaveSystem.Definition`
+**模块：** `TaleWorlds.SaveSystem`
+**类型：** `public class DefinitionContext`
+**源文件：** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/DefinitionContext.cs`
 
 ## 概述
 
-`DefinitionContext` 位于 `TaleWorlds.SaveSystem.Definition`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`DefinitionContext` 是存档系统启动期建立、之后在每次保存与加载之间共享的「类型 schema 注册表」。它内部维护十余个字典，把运行时的 `Type`（类 / 结构 / 枚举 / 接口 / 容器 / 基础类型）以及稳定的 `SaveId` 映射到对应的 `TypeDefinition` 及其派生定义。引擎在保存时凭它把对象图按编号序列化，在加载时凭它按编号还原类型与成员——它才是保存端 [SaveContext](../SaveContext) 与加载端 [LoadContext](../LoadContext) 能够对称工作的真正契约本体。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.SaveSystem.Definition` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+把 `DefinitionContext` 想成「存档世界的类型黄页」：它不保存任何游戏状态，只保存「这个 Type 叫什么编号、有哪些字段/属性、容器如何重建、旧版本编号如何迁移」的元数据。`SaveManager` 在 `InitializeGlobalDefinitionContext()` 里 `new` 出唯一一个全局实例，调用 `FillWithCurrentTypes()` 扫描所有引用了 `TaleWorlds.SaveSystem` 的程序集、用反射实例化全部非抽象的 [SaveableTypeDefiner](../SaveableTypeDefiner) 子类，并依次跑它们的 `Initialize` 与十几个 `Define*` 回调，把结果沉淀进这些字典。此后保存阶段 [SaveContext](../SaveContext) 通过 `GetClassDefinition` / `GetContainerDefinition` 查类型定义来落盘，加载阶段 [LoadContext](../LoadContext) 通过 `TryGetTypeDefinition(SaveId)` 把存档里的编号映射回 `TypeDefinition` 来重建对象。因此「定义阶段只建表、运行阶段才查表」——`DefinitionContext` 在任意一次 `Save` / `Load` 之前就已经完整就绪，且保存与加载用的是同一张表，这正是跨版本旧档能被正确解析的前提。
 
-## 主要属性
+## 何时使用 / 何时不要使用
 
-| Name | Signature |
-|------|-----------|
-| `GotError` | `public bool GotError { get; }` |
-| `Errors` | `public IEnumerable<string> Errors { get; }` |
+**理解层面使用：** 当你排查「为什么我的自定义字段没存进去」「为什么加载时报找不到类型定义」，或在编写自定义 `SaveableTypeDefiner`、理解编号如何从 `saveBaseId + localId` 落到字典、`TryGetTypeDefinition` 如何处理泛型与版本冲突时。
 
-## 主要方法
+**不要使用：**
 
-### FillWithCurrentTypes
-`public void FillWithCurrentTypes()`
+- 不要在模组运行时 `new DefinitionContext(...)`——它由 `SaveManager` 内部构造并在初始化全局定义上下文时填充，构造后字典为空、不可用。
+- 不要在 `Define*` 阶段访问游戏对象（`Campaign.Current` / `Hero` / `MBObjectManager`）——那时世界对象图尚未就绪，definer 只负责建表。
+- 不要在加载回调里假设可以改定义表——`DefinitionContext` 在加载前已冻结，运行期改动不会反映到本次读档。
 
-**用途 / Purpose:** 调用 FillWithCurrentTypes 对应的操作。
+## 依赖图
+
+- 上游驱动：[SaveManager](../SaveManager) 在 `InitializeGlobalDefinitionContext` 中构造并填充全局实例；保存/加载都复用这一个实例。
+- 类型来源：所有 [SaveableTypeDefiner](../SaveableTypeDefiner) 子类的 `Define*` 回调经 `Initialize(DefinitionContext)` 注入后，把类/结构/枚举/接口/根类/泛型/容器/基础类型登记进本上下文。
+- 消费方：保存端 [SaveContext](../SaveContext) 与加载端 [LoadContext](../LoadContext) 均持有该实例，分别用于 `GetClassDefinition` / `TryGetTypeDefinition`。
+- 沉淀结构：登记结果落入 [TypeDefinition](../TypeDefinition)、[TypeDefinitionBase](../TypeDefinitionBase)、[ContainerDefinition](../ContainerDefinition)、[StructDefinition](../StructDefinition)、[EnumDefinition](../EnumDefinition)、[InterfaceDefinition](../InterfaceDefinition) 与 [MemberTypeId](../MemberTypeId)。
+- 版本迁移：通过 [IConflictResolver](../IConflictResolver) 在 `AddConflictResolver` / `DefineConflictResolvers` 中声明旧编号到新 `Type` 的映射。
+- 成员标注：`[SaveableField]` / `[SaveableProperty]`（见 [SaveableFieldAttribute](../SaveableFieldAttribute)）上的局部编号最终参与 `TypeDefinition` 的成员收集。
+
+## 风险
+
+- **定义阶段晚于运行阶段会崩。** `FillWithCurrentTypes()` 必须在首次 `Save` / `Load` 之前完成；若某 definer 漏登记类型，`GetClassDefinition` 返回 `null`，保存收集期会抛 `Exception("Could not find type definition of type: ...")`。
+- **`saveBaseId` 冲突即坏档种子。** helper 把 `_saveBaseId + localId` 算成最终 `SaveId` 写入字典；两个模组编号段重叠会产生相同 key，破坏旧档解析。
+- **泛型与容器必须显式构造。** `List<T>` / `Dictionary<K,V>` / 数组若没有 `ConstructContainerDefinition`，加载时 `TryGetTypeDefinition` 无法为容器编号找到定义；泛型 `List<int>`、`PropertyOwner<SkillObject>` 之类则靠 `ConstructGenericClassDefinition` / `ConstructGenericStructDefinition` 在首次遇到时惰性构建并缓存。
+- **版本冲突只在开启时生效。** `TryGetTypeDefinition` 与 `GetConflicted*MemberTypeId` 仅在 `SaveManager.ShouldResolveConflicts()` 且 resolver `IsApplicable(OperatingVersion)` 为真时才重定向编号；声明了 resolver 却没在正确版本激活，等于没迁移。
+- **`GotError` 不是异常。** `FillWithCurrentTypes` 把各类型收集到的错误累加进 `Errors`，本身不抛；必须检查 `GotError` / `Errors` 才能发现「重复定义」「字段编号重复」等问题，否则会带着残缺 schema 进入保存。
+
+## 成员说明
+
+### 公开状态
+
+- `bool GotError { get; }`：是否在本上下文中累计过定义错误（`_errors.Count > 0`）。填充完成后若为真，说明某些类型/字段/容器定义失败，不应继续保存。
+- `IEnumerable<string> Errors { get; }`：只读的错误文本集合（由各 `TypeDefinition` 收集期 `CollectProperties` / `CollectFields` 后 `AddRange` 进来），例如重复字段编号、根类未登记等。
+
+### 填充入口
+
+- `void FillWithCurrentTypes()`：核心构建方法。先 `GetSaveableAssemblies()` 收集所有引用了 `TaleWorlds.SaveSystem` 的程序集，再 `CollectTypes(assembly)` 用反射实例化非抽象 `SaveableTypeDefiner` 子类；随后按固定顺序对全部 definer 依次执行 `Initialize` → `DefineBasicTypes` → `DefineClassTypes` → `DefineStructTypes` → `DefineInterfaceTypes` → `DefineEnumTypes` → `DefineRootClassTypes` → `DefineGenericStructDefinitions` → `DefineGenericClassDefinitions` → `DefineContainerDefinitions` → `DefineConflictResolvers`；最后对根类/普通类/结构并行 `CollectInitializationCallbacks` / `CollectProperties` / `CollectFields`，汇总错误，并 `FindAutoGeneratedSaveManagers` + `InitializeAutoGeneratedSaveManagers`。**只在 `SaveManager` 初始化全局定义上下文时调用一次。**
+
+### 类型查询（加载与保存共用）
+
+- `TypeDefinitionBase GetTypeDefinition(Type type)`：按运行时 `Type` 取定义；查不到返回 `null`。
+- `TypeDefinition GetClassDefinition(Type type)`：按 `Type` 取类/根类/泛型类定义；容器类型直接返回 `null`。保存端序列化对象时主要用它。
+- `TypeDefinitionBase TryGetTypeDefinition(SaveId saveId)`：加载端的主查询。先处理版本冲突（`SaveManager.ShouldResolveConflicts()` 且满足 resolver 适用性时改用 `GetTypeDefinition(resolver.GetNewType())`），再按 `SaveId` 查总表；遇到 `GenericSaveId` 会惰性 `ConstructTypeFrom` 构建泛型定义并缓存。**返回 `null` 意味着存档中的编号在当前 schema 里无解——通常是 definer 漏登记或版本漂移。**
+- `StructDefinition GetStructDefinition(Type)` / `InterfaceDefinition GetInterfaceDefinition(Type)` / `EnumDefinition GetEnumDefinition(Type)` / `ContainerDefinition GetContainerDefinition(Type)` / `BasicTypeDefinition GetBasicTypeDefinition(Type)`：各类别按 `Type` 的定向查询。
+- `bool HasDefinition(Type type)`：该 `Type` 是否已登记进总表。
+
+### 定义构造（主要由 definer 经引擎间接调用）
+
+- `ConstructContainerDefinition(Type type, Assembly definedAssembly)`：为 `List` / `Queue` / `Dictionary` / `Array` 及其 `MBList<>` / `MBReadOnlyList<>` 变体构建 `ContainerDefinition`，写入 key/value 的 `SaveId`；`List` 还会顺带登记 `CustomList` / `CustomReadOnlyList` 两种等价容器。无对应定义时会被 `Debug.FailedAssert` 报重复定义。
+- `ConstructGenericClassDefinition(Type)` / `ConstructGenericStructDefinition(Type)`：首次遇到开放泛型实例化（如 `List<Hero>`、`PropertyOwner<SkillObject>`）时，基于其泛型定义 + 实参类型 `SaveId` 构建 `GenericSaveId` 与 `GenericTypeDefinition` 并缓存。
+- `AddRootClassDefinition` / `AddClassDefinition` / `AddStructDefinition` / `AddInterfaceDefinition` / `AddEnumDefinition` / `AddContainerDefinition` / `AddBasicTypeDefinition`：`internal` 登记入口，把定义同时写入「按 Type」与「按 SaveId」两套字典。
+
+### 版本冲突
+
+- `AddConflictResolver(TypeSaveId saveId, IConflictResolver conflictResolver)`：为某个旧 `SaveId` 挂接 resolver；仅在 resolver 的目标 `Type` 能在定义表里查到时才登记。
+- `bool GetConflictedFieldMemberTypeId(TypeDefinitionBase, ref MemberTypeId)` / `GetConflictedPropertyMemberTypeId(...)`：在开启冲突解决且 resolver 适用当前版本时，把字段/属性的 `MemberTypeId` 重定向到新编号。
+
+### 代码生成（遗留）
+
+- `void GenerateCode(SaveCodeGenerationContext context)`：把已收集的类/结构/容器定义导出给代码生成上下文（`SaveCodeGenerationContext`），属历史代码生成管线；手写存档逻辑一般不需要。
+
+## 示例
+
+引擎在游戏启动 / 新游戏 / 读档前调用的真实序列（模组无需手动 `new` 实例）——`InitializeGlobalDefinitionContext` 内部就是 `new DefinitionContext()` 后 `FillWithCurrentTypes()`：
 
 ```csharp
-// 先通过子系统 API 拿到 DefinitionContext 实例
-DefinitionContext definitionContext = ...;
-definitionContext.FillWithCurrentTypes();
+// 真实入口：扫描所有引用 TaleWorlds.SaveSystem 的程序集、收集非抽象 definer、跑 Define* 回调。
+SaveManager.InitializeGlobalDefinitionContext();
+
+// 若想排查“某 [Saveable*] 标记类型为何没存进去”，可让 SaveManager 校验漏登记的类型：
+List<Type> missingTypes = SaveManager.CheckSaveableTypes();
+
+// 在 SaveableTypeDefiner.DefineContainerDefinitions 内部，context 已注入；
+// 通过它把字段用到的容器登记进定义表（方法真实存在，参数即运行时容器 Type）：
+protected override void DefineContainerDefinitions()
+{
+    ConstructContainerDefinition(typeof(Dictionary<string, MyCampaignData>));
+    ConstructContainerDefinition(typeof(List<Hero>));
+}
 ```
 
-### TryGetTypeDefinition
-`public TypeDefinitionBase TryGetTypeDefinition(SaveId saveId)`
-
-**用途 / Purpose:** 尝试获取 get type definition 的值，通常通过 out 参数返回是否成功。
+加载阶段，`LoadContext` 正是用 `TryGetTypeDefinition` 把存档里的 `SaveId` 解析回定义（此例展示其对称调用路径的语义）：
 
 ```csharp
-// 先通过子系统 API 拿到 DefinitionContext 实例
-DefinitionContext definitionContext = ...;
-var result = definitionContext.TryGetTypeDefinition(saveId);
-```
-
-### GenerateCode
-`public void GenerateCode(SaveCodeGenerationContext context)`
-
-**用途 / Purpose:** 生成code的实例、数据或表示。
-
-```csharp
-// 先通过子系统 API 拿到 DefinitionContext 实例
-DefinitionContext definitionContext = ...;
-definitionContext.GenerateCode(context);
-```
-
-## 使用示例
-
-```csharp
-// 通常从对应子系统 API 获取实例后调用
-DefinitionContext definitionContext = ...;
-definitionContext.FillWithCurrentTypes();
+// 引擎读档时，对每个对象头的 SaveId 查定义；找不到则返回 null 并导致该对象无法重建。
+TypeDefinitionBase def = definitionContext.TryGetTypeDefinition(objectHeader.SaveId);
+if (def == null)
+    Debug.FailedAssert("存档编号在当前定义表中无解，可能 definer 漏登记或版本漂移");
 ```
 
 ## 参见
 
-- [本区域目录](../)
+- ↑ 父级：[存档系统 API 索引](../)
+- ↔ 相关：[SaveManager](../SaveManager) · [SaveContext](../SaveContext) · [LoadContext](../LoadContext) · [SaveableTypeDefiner](../SaveableTypeDefiner) · [TypeDefinition](../TypeDefinition) · [ContainerDefinition](../ContainerDefinition) · [IConflictResolver](../IConflictResolver) · [IDataStore](../../campaign-ext/IDataStore)

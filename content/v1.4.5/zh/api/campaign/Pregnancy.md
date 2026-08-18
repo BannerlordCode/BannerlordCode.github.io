@@ -1,66 +1,132 @@
 ---
 title: "Pregnancy"
-description: "Pregnancy 的自动生成类参考。"
+description: "PregnancyCampaignBehavior 内部记录单次妊娠的不可变状态对象：持有母亲、父亲与预产期，由行为在受孕时创建、每日 tick 推进分娩、分娩后从 _heroPregnancies 移除，并随战役存档序列化。"
 ---
 # Pregnancy
 
-**Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public class Pregnancy`
-**Base:** 无
-**File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/PregnancyCampaignBehavior.cs`
+**命名空间：** `TaleWorlds.CampaignSystem.CampaignBehaviors`  
+**模块：** `TaleWorlds.CampaignSystem`  
+**类型：** `internal class Pregnancy`（嵌套于 `PregnancyCampaignBehavior`）  
+**源文件：** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/PregnancyCampaignBehavior.cs`
 
 ## 概述
 
-`Pregnancy` 位于 `TaleWorlds.CampaignSystem.CampaignBehaviors`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`Pregnancy` 是 `PregnancyCampaignBehavior` 内部用来记录一次**妊娠实例**的轻量状态对象：它只持有三个不可变字段——母亲 `Mother`、父亲 `Father` 与预产期 `DueDate`（`CampaignTime`），由行为在女性英雄受孕时创建、在每日 tick 中比对 `DueDate` 检查到期、在分娩完成后从内部列表移除。它自身不计算任何规则，也不对外暴露业务逻辑；所有读写、推进与序列化都通过持有它的 `PregnancyCampaignBehavior` 完成，是战役存档中 `_heroPregnancies` 列表的直接元素。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.CampaignSystem.CampaignBehaviors` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+把 `Pregnancy` 理解成「挂在某个女性英雄身上、由妊娠行为统一托管的一条妊娠记录」，而不是你能在 mod 里随手 `new` 出来的服务。它位于 Campaign 状态/存档层，生命周期完全由 `PregnancyCampaignBehavior` 驱动：受孕事件（`OnChildConceivedEvent`，由 `MakePregnantAction.Apply` 触发）让行为 `new` 出一个 `Pregnancy` 并加入 `_heroPregnancies`；之后每个游戏日的 `DailyTickHero` 如果发现 `hero.IsPregnant` 为 true，就调用 `CheckOffspringsToDeliver` 按 `Mother` 找到这条记录、比对 `DueDate` 是否到期来推进分娩；分娩完成后行为把 `hero.IsPregnant` 置回 false 并把该记录从列表移除。因为三个字段都是 `readonly` 且只在构造时赋值，`Pregnancy` 一旦创建就不可变——想改变妊娠状态（提前分娩、改预产期、取消妊娠）必须改 `Hero.IsPregnant` 或走行为/Action，绝不能直接改动它的字段，否则会破坏行为内部 `_heroPregnancies` 与 `Hero.IsPregnant` 的双向一致性，并污染存档。读它时只在行为 tick/事件回调里进行，不要跨存档持有其引用。
 
-## 主要方法
+## 何时使用 / 何时不要使用
 
-### RegisterEvents
-`public override void RegisterEvents()`
+- **用**：了解某次妊娠挂的是谁（`Mother` / `Father`）、何时到期（`DueDate`）；在自定义 `CampaignBehavior` 里订阅 `OnChildConceivedEvent` / `OnGivenBirthEvent` 观察妊娠与分娩；通过 `Hero.IsPregnant` 判定一个女性英雄当前是否处于妊娠。
+- **不要用（优先替代）**：不要直接 `new Pregnancy(...)`——构造发生在行为内部，外部构造的对象不会被加入 `_heroPregnancies`，也不会随存档序列化。不要改 `Mother` / `Father` / `DueDate` 字段（它们是 `readonly`，即使反射改写也不会触发分娩推进与 `OnGivenBirth` 广播）。不要在妊娠进行中跨存档保存 `Pregnancy` 引用，应保存 `Mother.StringId`，读档完成后再用 `Hero.Find` 取回英雄并据此判断 `IsPregnant`。
 
-**用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
+## 依赖图
+
+- **上游 / 持有者：**
+  - [PregnancyCampaignBehavior](../PregnancyCampaignBehavior) 是唯一创建并持有 `Pregnancy` 的地方：它在 `_heroPregnancies`（`List<Pregnancy>`）中维护全部进行中的妊娠，并经由 `SyncData` 把整张列表写入存档。
+  - [Hero](../Hero) 提供 `Mother` 与 `Father`；`Hero.IsPregnant` 标志与 `_heroPregnancies` 互为镜像，是判断是否进入分娩检查的外部门面。
+  - [Campaign](../Campaign) 提供 `Campaign.Current.Models.PregnancyModel`（预产天数与各项概率）与 `CampaignEventDispatcher`（广播 `OnGivenBirth`）。
+- **下游 / 变更入口：**
+  - [MakePregnantAction](../../campaign-ext/MakePregnantAction) 是触发受孕的唯一入口，它派发 `OnChildConceivedEvent`，行为随后构造 `Pregnancy`。
+  - [HeroCreator](../../campaign-ext/HeroCreator) 的 `DeliverOffSpring(mother, father, isFemale)` 在到期时按 `Mother` / `Father` 生成新生儿。
+  - [KillCharacterAction](../../campaign-ext/KillCharacterAction) 的 `ApplyInLabor` 在母亲因难产死亡时调用。
+  - [PregnancyModel](../PregnancyModel) 提供 `PregnancyDurationInDays`、`DeliveringTwinsProbability`、`StillbirthProbability`、`DeliveringFemaleOffspringProbability`、`MaternalMortalityProbabilityInLabor`。
+  - [CampaignEvents](../CampaignEvents) 的 `OnChildConceivedEvent` / `OnGivenBirthEvent` 是观察妊娠生命周期的安全点。
+  - [CampaignTime](../CampaignTime) 是 `DueDate` 的类型，`CheckOffspringToDeliver` 用 `DueDate.IsFuture` 判断到期。
+
+## 风险
+
+- **直接改字段绕过分娩传播**：`Mother` / `Father` / `DueDate` 都是 `readonly`。即便通过反射改值，也不会触发 `CheckOffspringToDeliver` 与 `OnGivenBirth` 广播，结果可能是新生儿永不生成、或 `Hero.IsPregnant` 卡在 true 无法复位。
+- **引用已死 Hero 的不一致**：若 `Mother` 在预产期前死亡，`CheckOffspringToDeliver` 会因 `!Mother.IsAlive` 直接 return 而不分娩；若 `Mother` 已被 `OnHeroKilled` 从 `_heroPregnancies` 移除、但 `IsPregnant` 仍为 true，则 `CheckOffspringsToDeliver` 找不到记录会把 `IsPregnant` 复位——说明 `_heroPregnancies` 与 `Hero.IsPregnant` 必须保持一致，外部只能经行为维护。
+- **存档反序列化**：`Pregnancy` 经 `PregnancyCampaignBehaviorTypeDefiner`（class type id 2）及 `List<Pregnancy>` 容器定义序列化。若自定义 `SaveableTypeDefiner` 未注册该类型、或版本号冲突，读档会失败或丢失妊娠记录。
+- **tick 中突变**：到期判定依赖 `CampaignTime` 的当前值；在每日 tick 之外（读档中途、Mission 战斗内）读取 `DueDate` 比对可能得到不一致的结论，应只在 Campaign 层、行为 tick/事件里读取。
+- **分娩时的母亲死亡**：`CheckOffspringToDeliver` 在分娩后可能调用 `KillCharacterAction.ApplyInLabor(mother)`（非主角的母亲有概率死于难产）。若你此前持有该 `Hero` 引用且未判空/未判 `IsAlive`，后续使用会读到已死英雄。
+
+## 成员说明
+
+### 不可变状态字段
+
+| 成员 | 用途、副作用与调用时机 |
+| --- | --- |
+| `Mother`（`Hero`，`[SaveableField(1)]`，`readonly`） | 妊娠的母亲英雄。构造时赋值，是 `_heroPregnancies` 中查找该记录的键（`_heroPregnancies.Find(x => x.Mother == hero)`）。分娩后行为据此把 `Mother.IsPregnant` 复位为 false。 |
+| `Father`（`Hero`，`[SaveableField(2)]`，`readonly`） | 孩子的父亲，构造时取 `mother.Spouse`。用于到期时 `HeroCreator.DeliverOffSpring(mother, father, isFemale)` 决定血统；父亲在妊娠期间可能已死亡或离婚，但记录仍保留原始值。 |
+| `DueDate`（`CampaignTime`，`[SaveableField(3)]`，`readonly`） | 预产期，构造时 `CampaignTime.DaysFromNow(PregnancyModel.PregnancyDurationInDays)`。`CheckOffspringToDeliver` 用 `!DueDate.IsFuture` 判断是否到期；到期前该方法直接 return，不推进分娩。 |
+
+### 构造与序列化
+
+| 成员 | 用途、副作用与调用时机 |
+| --- | --- |
+| `Pregnancy(Hero pregnantHero, Hero father, CampaignTime dueDate)` | 唯一创建入口，由 `ChildConceived(Hero mother)` 在 `OnChildConceivedEvent` 回调里调用：`new Pregnancy(mother, mother.Spouse, CampaignTime.DaysFromNow(PregnancyDurationInDays))`。外部不应直接调用。 |
+| `AutoGeneratedStaticCollectObjectsPregnancy` / `AutoGeneratedInstanceCollectObjects` | SaveSystem 序列化时收集 `Mother` / `Father` / `DueDate` 引用的对象，确保存档对象图完整；为自动生成胶水代码，切勿手动调用。 |
+| `AutoGeneratedGetMemberValueMother` / `...Father` / `...DueDate` | SaveSystem 反序列化时读取三个字段值的访问器；同样是自动生成胶水，不用于业务读取。 |
+
+## 示例
+
+### 示例 1：在自定义行为中观察妊娠与分娩
+
+`Pregnancy` 本身 `internal`，mod 通过事件与 `Hero.IsPregnant` 与之交互——受孕由 `MakePregnantAction.Apply` 经 `OnChildConceivedEvent` 进入，分娩经 `OnGivenBirthEvent` 广播：
 
 ```csharp
-// 先通过子系统 API 拿到 Pregnancy 实例
-Pregnancy pregnancy = ...;
-pregnancy.RegisterEvents();
+using System.Collections.Generic;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Events;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.SaveSystem;
+
+public class MyPregnancyObserver : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        // 受孕时触发：mother 已通过 MakePregnantAction 进入妊娠，此时 mother.IsPregnant == true
+        CampaignEvents.OnChildConceivedEvent.AddNonSerializedListener(this, OnConceived);
+        // 分娩时触发：children 为存活新生儿（由 HeroCreator.DeliverOffSpring 生成），stillbornCount 为死胎数
+        CampaignEvents.OnGivenBirthEvent.AddNonSerializedListener(this, OnDelivered);
+    }
+
+    private void OnConceived(Hero mother)
+    {
+        // 预产期 = 受孕时刻 + PregnancyModel.PregnancyDurationInDays 天
+        float duration = Campaign.Current.Models.PregnancyModel.PregnancyDurationInDays;
+        CampaignTime due = CampaignTime.DaysFromNow(duration);
+    }
+
+    private void OnDelivered(Hero mother, List<Hero> children, int stillbornCount)
+    {
+        foreach (Hero child in children)
+        {
+            // 在此对新生成的孩子做初始化/登记；不要改写 child 的家族与血统，那由 DeliverOffSpring 决定
+        }
+    }
+
+    public override void SyncData(IDataStore dataStore) { }
+}
 ```
 
-### OnHeroKilled
-`public void OnHeroKilled(Hero victim, Hero killer, KillCharacterAction.KillCharacterActionDetail detail, bool showNotification)`
+### 示例 2：在每日 tick 中读取妊娠标志
 
-**用途 / Purpose:** 在 hero killed 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Pregnancy 实例
-Pregnancy pregnancy = ...;
-pregnancy.OnHeroKilled(victim, killer, detail, true);
-```
-
-### SyncData
-`public override void SyncData(IDataStore dataStore)`
-
-**用途 / Purpose:** 将data同步到相关上下文或系统中。
+真实预产期由 `PregnancyCampaignBehavior` 内部持有，mod 只能看到 `Hero.IsPregnant` 与自己用 `PregnancyModel` 复算的天数；推进分娩是行为的事，本例只读取与判定：
 
 ```csharp
-// 先通过子系统 API 拿到 Pregnancy 实例
-Pregnancy pregnancy = ...;
-pregnancy.SyncData(dataStore);
-```
+using TaleWorlds.CampaignSystem;
 
-## 使用示例
+public override void DailyTickHero(Hero hero)
+{
+    if (!hero.IsFemale || !hero.IsPregnant || !hero.IsAlive)
+        return;
 
-```csharp
-// 通常从对应子系统 API 获取实例后调用
-Pregnancy pregnancy = ...;
-pregnancy.RegisterEvents();
+    // 预产天数由 PregnancyModel 提供；引擎在 PregnancyCampaignBehavior.ChildConceived 中
+    // 用 CampaignTime.DaysFromNow(PregnancyDurationInDays) 记录每个妊娠的 DueDate
+    float pregnancyDays = Campaign.Current.Models.PregnancyModel.PregnancyDurationInDays;
+
+    // 真正推进分娩的是 PregnancyCampaignBehavior（DailyTickHero -> CheckOffspringsToDeliver），
+    // 此处不要自行 new/移除 Pregnancy，也不要改写 Hero.IsPregnant。
+}
 ```
 
 ## 参见
 
-- [本区域目录](../)
+- ↑ 父级：[战役 API 索引](../)
+- ↔ 相关：[Hero](../Hero) · [Campaign](../Campaign) · [PregnancyCampaignBehavior](../PregnancyCampaignBehavior) · [PregnancyModel](../PregnancyModel) · [CampaignEvents](../CampaignEvents) · [CampaignTime](../CampaignTime)
+- 变更入口：[MakePregnantAction](../../campaign-ext/MakePregnantAction) · [HeroCreator](../../campaign-ext/HeroCreator) · [KillCharacterAction](../../campaign-ext/KillCharacterAction)

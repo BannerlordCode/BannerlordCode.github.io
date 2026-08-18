@@ -1,30 +1,134 @@
 ---
 title: "CraftedItemInitializationData"
-description: "CraftedItemInitializationData 的自动生成类参考。"
+description: "锻造系统用于保存与重建预锻武器设计的内部数据载体：记录完整 WeaponDesign、显示名称与文化语境，供存档加载时重新实例化对应的 ItemObject。"
 ---
 # CraftedItemInitializationData
 
-**Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `internal class CraftedItemInitializationData`
-**Base:** 无
-**File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/CraftingCampaignBehavior.cs`
+**命名空间：** `TaleWorlds.CampaignSystem.CampaignBehaviors`  
+**模块：** `TaleWorlds.CampaignSystem`  
+**类型：** `internal class CraftedItemInitializationData`（嵌套于 `CraftingCampaignBehavior` 内的数据载体，非 `MBObjectBase`）  
+**源文件：** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CraftingCampaignBehavior.cs`
 
 ## 概述
 
-`CraftedItemInitializationData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+`CraftedItemInitializationData` 是 `CraftingCampaignBehavior` 私有维护的一个内部数据快照：它把一件已锻造（或预锻订单）武器的**完整设计**（`WeaponDesign`）、**显示名称**（`TextObject`）和**所属文化**（`CultureObject`）三者打包在一起，作为“钥匙”存入以 `ItemObject` 为键的字典中。它本身不表示仓库里的物品，而是为了在存档加载、版本迁移、订单恢复时，能够不依赖原始 `ItemObject` 引用，仅凭这些数据通过 `Crafting.InitializePreCraftedWeaponOnLoad` 把对应武器物品重新生成出来。
 
 ## 心智模型
 
-把 `CraftedItemInitializationData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+把它想成**锻造设计的一张“存根收据”**，而不是物品本身。战役运行时，`CraftingCampaignBehavior` 在玩家锻造出武器（`OnNewItemCrafted`）或为城镇订单预生成武器（`CraftingOrder` 构造）时 `new` 出它，并塞进私有的 `_craftedItemDictionary`；该字典整体作为战役存档的一部分被 `SaveableTypeDefiner` 序列化（本类型注册为 class id 10，容器 `Dictionary<ItemObject, CraftedItemInitializationData>` 注册为容器定义）。加载阶段行为走 `OnBeforeNonReadyObjectsDeleted` → `InitializeCraftedItemData`，用保存下来的 `CraftedData`/`ItemName`/`Culture` 把每个物品重新 `InitializePreCraftedWeaponOnLoad` 出来，失败则降级为 `DefaultItems.Trash` 并反注册。它是纯 Campaign 层经济/内容数据，没有任何决策逻辑；要改变“谁锻造了什么、耐力多少”，必须走 `ICraftingCampaignBehavior` 的公开方法或对应 Action，而非修改这个载体。**不要在 Mission 上下文里访问它**——它只存在于地图战役状态中。
 
-## 使用示例
+## 何时使用 / 何时不要使用
+
+### 适合使用
+
+- 在 `CraftingCampaignBehavior` / `CraftingOrder` 内部，需要把“武器设计 + 名字 + 文化”作为一个不可变三元组暂存、传递或跨存档保存时。
+- 理解预锻订单武器为何能在读档后无损还原：因为真正的可重建信息都打包在这个载体里，而不是依赖 `ItemObject` 引用本身。
+
+### 不要这样用
+
+- 不要把它当作可写的世界状态去修改——三个字段全是 `readonly`，且它只是某个时间点的快照；改世界状态请走 `ICraftingCampaignBehavior`（`SetHeroCraftingStamina`、`CreateCraftedWeapon*`、`CompleteOrder` 等）或 Action。
+- 不要在 Mod 里 `new CraftedItemInitializationData(...)` 或读取 `_craftedItemDictionary`：该类型是 `internal`，字典是私有的，外部只能经由公开接口间接产生/消费它。
+- 不要在 Mission 中访问它，也不要假设它在游戏未进入战役、或未加载完非就绪对象前就已就绪。
+
+## 依赖图
+
+```text
+CraftingOrder(构造/读档) ─┐
+                          ├─> CraftedItemInitializationData(CraftedData, ItemName, Culture)
+OnNewItemCrafted ─────────┘            │
+                                       │ 存入 _craftedItemDictionary[ItemObject]
+                                       ▼
+CraftingCampaignBehavior(存档/读档) ──> Crafting.InitializePreCraftedWeaponOnLoad
+                                       │
+                          ┌────────────┴─────────────┐
+                   重新生成 ItemObject          取回 CultureObject(按 StringId)
+```
+
+- **上游创建方：** [CraftingCampaignBehavior](../CraftingCampaignBehavior) 在 `OnNewItemCrafted`、`InitializeCraftedItemData` 与版本迁移路径中构造它；[CraftingOrder](../CraftingOrder) 在其构造函数与 `InitializeCraftingOrderOnLoad` 中构造并回放 `_preCraftedWeaponDesignItemData`。
+- **它携带的数据：** 设计来自 [WeaponDesign](../../core-extra/WeaponDesign)，物品身份来自 [ItemObject](../../core-extra/ItemObject)，文化语境来自 [CultureObject](../CultureObject)。
+- **归属与消费：** 以 `ItemObject` 为键挂在行为字典中；预锻订单挂在具体 [Town](../Town) 的订单槽，订单主人是 [Hero](../Hero)，其锻造耐力由 [HeroCraftingRecord](../HeroCraftingRecord) 跟踪；相关工坊 / 城镇经济语境见 [Settlement](../Settlement) 与 [Workshop](../Workshop)。
+- **技能语境：** 锻造难度与耐力恢复依赖 [SkillObject](../../core-extra/SkillObject)（`DefaultSkills.Crafting`）。
+
+## 风险
+
+- **创建 / 序列化时机：** 它只有在行为调用 `OnNewItemCrafted` 或 `CraftingOrder` 构造时才进入字典；若武器未被登记，`_craftedItemDictionary` 中就没有对应条目，读档时该物品不会被重建。整个字典随战役存档序列化，因此它的三个字段都必须可被保存系统解析（已用 `[SaveableField]` 标注）。
+- **加载顺序 / 非就绪对象：** 读档时在 `OnBeforeNonReadyObjectsDeleted` 里重建；若 `CultureObject` 尚未就绪，`OnNewItemCrafted`（第 634 行）会先按 `StringId` 从 `MBObjectManager` 重新取回文化，避免悬空引用。若重建返回 `Trash` 或 `null`，行为会反注册该 `ItemObject`——这意味着“数据在、物品没了”。
+- **Mission vs Campaign：** 这是纯 Campaign 层内容数据。锻造交互发生在地图界面的锻造状态（crafting game state）中，Mission 战斗逻辑不应访问它；在战斗场景里读它会拿到未定义/过期状态。
+- **把它当可变状态改：** 字段是 `readonly`，且它只是快照。想改玩家的锻造产出或耐力，必须调用 `ICraftingCampaignBehavior` 的公开方法（`CreateCraftedWeaponInFreeBuildMode`、`SetHeroCraftingStamina` 等）或对应 `Actions`，直接改这个内部字典不会触发任何副作用，也会被反序列化覆盖。
+- **内部类型不可见：** `internal` + 嵌套，Mod 程序集无法 `new` 或读取；只能通过公开接口间接产生与消费它。
+
+## 成员说明
+
+三个字段均为 `readonly` 且带 `[SaveableField]`，构造后不可变；它们共同回答“如何仅凭数据把这件武器重新造出来”。
+
+| 成员 | 真正表示 / 计算什么 | 调用时机 |
+|---|---|---|
+| `CraftedData`（`WeaponDesign`，[SaveableField(10)]） | 武器的**完整可重建设计**：模板、所用部件 `UsedPieces`、武器名与 `StringId`。它是重建物品的全部几何/数值来源，相当于这份“收据”的主体。 | 构造时由传入的 `WeaponDesign` 固定；读档时作为 `InitializePreCraftedWeaponOnLoad` 的第一个重建参数。 |
+| `ItemName`（`TextObject`，[SaveableField(20)]） | 这件武器被赋予的**本地化显示名**（玩家命名或订单命名），读档时原样还原到重新生成的物品上，使名称不随文化/语言重置而丢失。 | 与 `CraftedData` 同时设定；重建时作为名称参数回传。 |
+| `Culture`（`CultureObject`，[SaveableField(30)]） | 生成该武器时所处的**文化语境**（来自订单主人 `Hero.Culture` 或物品自身文化），影响命名规则与外观/前缀等文化相关表现。 | 构造时捕获；读档时（连同 `CraftedData`/`ItemName`）交给 `InitializePreCraftedWeaponOnLoad` 重新套用。 |
+
+> 构造函数 `CraftedItemInitializationData(WeaponDesign craftedData, TextObject itemName, CultureObject culture)` 仅做这三者的不可变绑定；其余 `AutoGenerated*` 方法是保存系统自动生成的收集/取值辅助，不应在业务逻辑中调用。
+
+## 示例
+
+下方片段还原源码中的真实用法：第一处是行为在玩家锻出武器时登记初始化数据，第二处是读档时用保存的数据把物品重建出来。两者都使用真实 API 与真实类型。
+
+### 1. 登记一件新锻造武器的初始化数据（对应 `OnNewItemCrafted`）
 
 ```csharp
-// 该数据对象通常由战役/任务 API 返回
-CraftedItemInitializationData entry = ...;
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
+using TaleWorlds.CampaignSystem.Settlements;
+using TaleWorlds.Core;
+using TaleWorlds.ObjectSystem;
+
+// 玩家在锻造台完成 itemObject 后，行为把设计/名称/文化打包进字典
+CultureObject culture = MBObjectManager.Instance.GetObject<CultureObject>(itemObject.Culture.StringId);
+CraftedItemInitializationData initData =
+    new CraftedItemInitializationData(itemObject.WeaponDesign, itemObject.Name, culture);
+_craftedItemDictionary.Add(itemObject, initData);
+```
+
+### 2. 读档时凭保存的数据重建武器本体（对应 `InitializeCraftedItemData`）
+
+```csharp
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
+using TaleWorlds.CampaignSystem.CraftingSystem;
+using TaleWorlds.Core;
+
+// 对字典中每个条目，用存下的设计/名称/文化重新实例化 ItemObject
+foreach (KeyValuePair<ItemObject, CraftedItemInitializationData> entry in _craftedItemDictionary)
+{
+    ItemObject rehydrated = Crafting.InitializePreCraftedWeaponOnLoad(
+        entry.Key, entry.Value.CraftedData, entry.Value.ItemName, entry.Value.Culture);
+    if (rehydrated == DefaultItems.Trash || rehydrated == null)
+    {
+        MBObjectManager.Instance.UnregisterObject(entry.Key);
+    }
+    else
+    {
+        ItemObject.InitAsPlayerCraftedItem(ref rehydrated);
+        rehydrated.IsReady = true;
+    }
+}
+```
+
+### 3. Mod 的正确入口：用公开接口而非触碰内部载体
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
+using TaleWorlds.CampaignSystem.CraftingSystem;
+
+// 不要 new 内部类型；通过 ICraftingCampaignBehavior 创建预锻订单
+ICraftingCampaignBehavior crafting = Campaign.Current.GetCampaignBehavior<ICraftingCampaignBehavior>();
+CraftingOrder order = crafting.CreateCustomOrderForHero(hero, -1f, weaponDesign, craftingTemplate);
 ```
 
 ## 参见
 
-- [本区域目录](../)
+- ↑ 父级：[战役 API 索引](../)
+- ↔ 相关：[CraftingCampaignBehavior](../CraftingCampaignBehavior)（创建并持有这些初始化数据的行为）
+- ↔ 相关：[CraftingOrder](../CraftingOrder)（在构造与读档中打包/回放 `_preCraftedWeaponDesignItemData`）
+- ↔ 相关：[HeroCraftingRecord](../HeroCraftingRecord)（同一行为内、按英雄跟踪的锻造耐力记录）
+- ↔ 相关：[WeaponDesign](../../core-extra/WeaponDesign)（被 `CraftedData` 携带的完整武器设计）
+- ↔ 相关：[ItemObject](../../core-extra/ItemObject)（字典的键，即被重建的本体物品）

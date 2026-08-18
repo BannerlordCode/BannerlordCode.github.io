@@ -29,13 +29,13 @@ description: "战役层共享的只读常量表：出生点场景标签、定居
 
 - [Campaign](../Campaign) —— 战役模块根；`CampaignData` 的常量服务于该模块下的英雄、队伍与定居点逻辑（类本身不依赖它，而是被它之下的代码引用）。
 - [CultureObject](../CultureObject) —— `CharacterHelper` 取英雄所属文化的 `StringId`（"empire" 等），再据此到 `CampaignData` 的六组布料色板中匹配。
-- [TextObject](../localization/TextObject) —— `NeutralFactionName` 属性直接 `new TextObject("{=JQNKrAI3}Neutral Faction")` 返回中立阵营名。
+- [TextObject](../../localization/TextObject) —— `NeutralFactionName` 属性直接 `new TextObject("{=JQNKrAI3}Neutral Faction")` 返回中立阵营名。
 
 下游与协同系统（调用方）：
 
-- [CharacterHelper](../campaign-ext/CharacterHelper) —— `GetHeroClothColorsForCharacter` 用 `CampaignData.EmpireHeroClothColors` / `SturgiaHeroClothColors` / `AseraiHeroClothColors` / `VlandiaHeroClothColors` / `BattaniaHeroClothColors` / `KhuzaitHeroClothColors` 决定英雄布料色（第 85–91 行）。
-- [TeleportHeroAction](../campaign-ext/TeleportHeroAction) —— 第 107 行把英雄传送到无阵营队伍时，用 `CampaignData.NeutralFactionName` 回退填充阵营名。
-- [DisbandPartyAction](../campaign-ext/DisbandPartyAction) —— 第 37 行解散无阵营队伍时同样回退到 `CampaignData.NeutralFactionName`。
+- [CharacterHelper](../../campaign-ext/CharacterHelper) —— `GetHeroClothColorsForCharacter` 用 `CampaignData.EmpireHeroClothColors` / `SturgiaHeroClothColors` / `AseraiHeroClothColors` / `VlandiaHeroClothColors` / `BattaniaHeroClothColors` / `KhuzaitHeroClothColors` 决定英雄布料色（第 85–91 行）。
+- [TeleportHeroAction](../../campaign-ext/TeleportHeroAction) —— 第 107 行把英雄传送到无阵营队伍时，用 `CampaignData.NeutralFactionName` 回退填充阵营名。
+- [DisbandPartyAction](../../campaign-ext/DisbandPartyAction) —— 第 37 行解散无阵营队伍时同样回退到 `CampaignData.NeutralFactionName`。
 - [Hero](../Hero) / [Clan](../Clan) —— 出生点标签与阵营命名常量广泛用于英雄出生场景与对话标签（如 `MainHeroTag`、`PlayerTag`、`NotableTag`）。
 - [Settlement](../Settlement) / [Town](../Town) / [Village](../Village) —— 地点分区常量（`LocationCenter`、`LocationArena`、`LocationPrison`、`LocationTavern`、`LocationLordsHall`、`LocationHideout`、`LocationPort` 等）用于定居点场景分区与逻辑定位。
 
@@ -72,7 +72,7 @@ description: "战役层共享的只读常量表：出生点场景标签、定居
 ### 文化 StringId 与匪帮文化
 
 - **`CultureEmpire` / `CultureSturgia` / `CultureAserai` / `CultureVlandia` / `CultureBattania` / `CultureKhuzait` / `CultureNord` / `CultureDarshi` / `CultureVakken` / `CultureNeutral`**
-  - 用途：各主要文化及中立文化的 `StringId`（如 `"empire"`、`"sturgia"`），等价于 [CultureObject](../CultureObject) 的 `StringId`，供按文化匹配逻辑使用（如 [CharacterHelper](../campaign-ext/CharacterHelper) 选布料色）。无状态写入。
+  - 用途：各主要文化及中立文化的 `StringId`（如 `"empire"`、`"sturgia"`），等价于 [CultureObject](../CultureObject) 的 `StringId`，供按文化匹配逻辑使用（如 [CharacterHelper](../../campaign-ext/CharacterHelper) 选布料色）。无状态写入。
   - 调用时机：文化相关的分支判断与色板匹配。
 - **`CultureForestHideout` / `CultureSeaHideout` / `CultureMountainHideout` / `CultureDesertHideout` / `CultureSteppeHideout`**
   - 用途：五类匪帮藏身处的文化 id（`"forest_bandits"` 等），用于区分不同藏身地的敌对势力。调用时机：藏身处/匪帮相关逻辑读取。
@@ -80,7 +80,7 @@ description: "战役层共享的只读常量表：出生点场景标签、定居
 ### 英雄布料色板
 
 - **`EmpireHeroClothColors` / `SturgiaHeroClothColors` / `AseraiHeroClothColors` / `VlandiaHeroClothColors` / `BattaniaHeroClothColors` / `KhuzaitHeroClothColors`**（均为 `static readonly uint[]`）
-  - 用途：每个主要文化一组英雄布料候选色（ARGB 数值数组），[CharacterHelper](../campaign-ext/CharacterHelper) 按英雄所属文化的 `StringId` 取对应数组，再 `GetDeterministicColorFromListForHero` 选一个作为英雄布料 `color2`。无状态写入，但数组本身为共享只读。
+  - 用途：每个主要文化一组英雄布料候选色（ARGB 数值数组），[CharacterHelper](../../campaign-ext/CharacterHelper) 按英雄所属文化的 `StringId` 取对应数组，再 `GetDeterministicColorFromListForHero` 选一个作为英雄布料 `color2`。无状态写入，但数组本身为共享只读。
   - 调用时机：仅由 `CharacterHelper.GetHeroClothColorsForCharacter` 在第 85–91 行按文化 `StringId` 取用。
 
 ### 阵营名称与颜色
@@ -91,8 +91,8 @@ description: "战役层共享的只读常量表：出生点场景标签、定居
   - 用途：中立阵营与潜行（伪装）用色的 ARGB 常量（均为 `4291609515u` / `4279111698u`），供阵营/伪装配色回退使用。调用时机：无阵营实体取色时作默认值。
 - **`NeutralFactionName`**（属性，返回 `TextObject`）
   - 用途：中立阵营的本地化名称，直接 `new TextObject("{=JQNKrAI3}Neutral Faction")` 构造。供无阵营队伍/派对命名时回退填充。
-  - 副作用：每次访问都 `new` 一个 [TextObject](../localization/TextObject)；无世界状态写入。
-  - 调用时机：[TeleportHeroAction](../campaign-ext/TeleportHeroAction) 第 107 行、[DisbandPartyAction](../campaign-ext/DisbandPartyAction) 第 37 行在 `ActualClan == null` 时取此名回填 `CLAN_NAME` 文本变量。
+  - 副作用：每次访问都 `new` 一个 [TextObject](../../localization/TextObject)；无世界状态写入。
+  - 调用时机：[TeleportHeroAction](../../campaign-ext/TeleportHeroAction) 第 107 行、[DisbandPartyAction](../../campaign-ext/DisbandPartyAction) 第 37 行在 `ActualClan == null` 时取此名回填 `CLAN_NAME` 文本变量。
 
 ### 装备更新标签与事件参数
 
@@ -134,4 +134,4 @@ uint[] clothColors = character.HeroObject.MapFaction.Culture.StringId switch
 ## 参见
 
 - ↑ 父级：[战役 API 索引](../)
-- ↔ 相关：[Campaign](../Campaign) · [Hero](../Hero) · [Clan](../Clan) · [Settlement](../Settlement) · [Town](../Town) · [Village](../Village) · [CultureObject](../CultureObject) · [TextObject](../localization/TextObject) · [CharacterHelper](../campaign-ext/CharacterHelper) · [TeleportHeroAction](../campaign-ext/TeleportHeroAction) · [DisbandPartyAction](../campaign-ext/DisbandPartyAction) · [MarriageModel](../MarriageModel)
+- ↔ 相关：[Campaign](../Campaign) · [Hero](../Hero) · [Clan](../Clan) · [Settlement](../Settlement) · [Town](../Town) · [Village](../Village) · [CultureObject](../CultureObject) · [TextObject](../../localization/TextObject) · [CharacterHelper](../../campaign-ext/CharacterHelper) · [TeleportHeroAction](../../campaign-ext/TeleportHeroAction) · [DisbandPartyAction](../../campaign-ext/DisbandPartyAction) · [MarriageModel](../MarriageModel)

@@ -73,7 +73,11 @@ BannerlordCode.github.io/
 - Frontmatter: `title`, `description`.
 - Bilingual: every content page exists in both `zh/` and `en/` (parallel structure).
 - Class-reference doc format: H1 → metadata (命名空间/模块/类型) → 概述 → 主要属性 table → 主要方法 (csharp signatures) → 使用示例 → 参见 (relative links). See `api/save-system/SaveManager.md`.
-- Links: relative paths, no absolute paths. Prefer linking to a section with `./` or `../<section>/` rather than to `_index.md`.
+- Links: relative paths, no absolute paths. The link gate (`AUDIT_MODE=url node tools/audit-links.mjs`) treats **each page route as its own directory**, so relative links must step up before stepping across:
+  - **Sibling leaf page in the same `api/<subdir>/`**: write `[X](../X)` — **NOT** `./X` (`./X` resolves to a child of the current page and breaks).
+  - **Parent section index**: write `[…](../)` — **NOT** `./`.
+  - **Cross top-level `api` subdir**: write `[X](../../<subdir>/<X>)`.
+  - No trailing slash after the target name. Never link to `_index.md` directly.
 - **Generics in prose**: wrap `<T>`-style refs in backticks (`` `List<Hero>` ``) so the static site generator does not parse them as HTML.
 - Sidebar is handled by Zola Tera macros; v1.3.15 menus are hard-coded, others are rendered from section trees.
 

@@ -1,121 +1,89 @@
 ---
 title: "InMemDriver"
-description: "InMemDriver 的自动生成类参考。"
+description: "把 GameData 全部保留在进程内存一个 byte[] 里、完全不落盘的驱动：Save 把元数据+对象图字节塞进缓冲，Load 再还原；不写文件、不列举、进程退出即丢，且只保留最后一次写入。用于存档前预览、单元测试与临时场景。"
 ---
+
 # InMemDriver
 
-**Namespace:** TaleWorlds.SaveSystem
-**Module:** TaleWorlds.SaveSystem
-**Type:** `public class InMemDriver : ISaveDriver`
-**Base:** `ISaveDriver`
-**File:** `TaleWorlds.SaveSystem/InMemDriver.cs`
+**Namespace：** `TaleWorlds.SaveSystem`
+**Module：** `TaleWorlds.SaveSystem`
+**类型：** `public class InMemDriver : ISaveDriver`
+**Base：** `ISaveDriver`
+**源文件路径：** `TaleWorlds.SaveSystem/InMemDriver.cs`
+
+## 一句话职责
+
+在内存里「假存档」：`Save` 把元数据与对象图字节拼进一个 `byte[]`，`Load` 再从中还原；不写任何文件、不列举、进程一退出什么都没留下，而且只记得最后一次写入。
 
 ## 概述
 
-`InMemDriver` 位于 `TaleWorlds.SaveSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`InMemDriver` 是 `ISaveDriver` 的**纯内存实现**，背后只有一个私有字段 `byte[] _data`。一次 `Save` 的流程是：用 `gameData.GetData()` 取出原始对象图字节，把 `MetaData` 序列化进 `MemoryStream` 后把对象图字节追加其后，再 `this._data = memoryStream.GetBuffer()` 存起来。`LoadMetaData` / `Load` 则从这个缓冲反序列化：`Load` 先读 `MetaData`，再把剩余字节交给 `GameData.CreateFrom` 还原成 `LoadData`。它与 `FileDriver` 的关键差异在于：`GetSaveGameFileInfos`/`GetSaveGameFileNames` 返回**空数组**、`IsSaveGameFileExists` 永远 `false`、`Delete` 只是把 `_data` 清空。也就是说它对外「表现得像一个没有文件的介质」。`IsWorkingAsync()` 返回 `false`，所有操作在调用线程瞬时完成。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.SaveSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+- **单槽内存缓冲：** `_data` 只保存**最近一次** `Save`；再次 `Save` 直接覆盖，`saveName` 参数被忽略（没有多槽概念）。
+- **不持久化：** 进程退出即丢失，没有 `.sav` 落盘，也不出现在任何存档列表里。
+- **同步但极快：** 纯内存操作，`IsWorkingAsync` 为 `false`，适合频繁调用。
+- **何时用：** 存档前的「预览/校验」（先 `Save` 再读字节查大小、查完整性）、自动化测试、临时沙盒场景。何时不要用：作为真实战役的唯一存档手段——玩家一关游戏就没了；也不要用于需要多存档槽的 UI。
 
-## 主要方法
+## 依赖图
 
-### Save
-`public Task<SaveResultWithMessage> Save(string saveName, int version, MetaData metaData, GameData gameData)`
+- 上游调用方：[SaveManager](../SaveManager) 同样可接收本驱动（但一般不用于正式存档）。
+- 数据载体：[GameData](../GameData)（`GetData`/`CreateFrom`）· [MetaData](../MetaData)（`Serialize`/`Deserialize`）。
+- 接口与兄弟：[ISaveDriver](../ISaveDriver) · [FileDriver](../FileDriver) · [AsyncFileSaveDriver](../AsyncFileSaveDriver)。
+- 跨模块：[Game](../../core-extra/Game) 是对象图根，`Campaign` 是其派生类。
 
-**用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
+## 风险段
 
-```csharp
-// 先通过子系统 API 拿到 InMemDriver 实例
-InMemDriver inMemDriver = ...;
-var result = inMemDriver.Save("example", 0, metaData, gameData);
-```
+- **进程退出即丢失：** 只适合预览/测试，绝不能当作正式存档的落盘机制。
+- **单槽覆盖：** 多次 `Save` 只留最后一次；若逻辑依赖多个命名槽，会静默丢掉之前的写入。
+- **对外表现为「无存档」：** `GetSaveGameFileInfos` 永远空、`IsSaveGameFileExists` 永远 `false`；存档列表 UI 用本驱动会显示没有任何存档。
+- **字节长度一致性：** `Save` 用 `MemoryStream.GetBuffer()`（含未用容量）存缓冲，`Load` 用 `memoryStream.Length - memoryStream.Position` 读剩余字节。只要 `Save`/`Load` 的长度计算口径一致即可还原；任何对 `_data` 的额外写入或截断都会导致还原错位。
 
-### LoadMetaData
-`public MetaData LoadMetaData(string saveName)`
+## 成员说明
 
-**用途 / Purpose:** 从持久化存储或流中读取 meta data。
+### 写档 / 读档
 
-```csharp
-// 先通过子系统 API 拿到 InMemDriver 实例
-InMemDriver inMemDriver = ...;
-var result = inMemDriver.LoadMetaData("example");
-```
+| 成员 | 说明 |
+| --- | --- |
+| `Task<SaveResultWithMessage> Save(...)` | 把 `MetaData` + `gameData.GetData()` 拼进 `MemoryStream`，`this._data = memoryStream.GetBuffer()`；返回 `Task.FromResult(SaveResultWithMessage.Default)`（同步、恒成功）。 |
+| `MetaData LoadMetaData(string saveName)` | 从 `_data` 反序列化元数据；`saveName` 实际被忽略。 |
+| `LoadData Load(string saveName)` | 从 `_data` 读 `MetaData`，剩余字节交 `GameData.CreateFrom` 还原；`saveName` 被忽略。 |
 
-### Load
-`public LoadData Load(string saveName)`
+### 列举 / 删除 / 查询（内存语义）
 
-**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+| 成员 | 说明 |
+| --- | --- |
+| `SaveGameFileInfo[] GetSaveGameFileInfos()` | 返回空数组（无文件）。 |
+| `string[] GetSaveGameFileNames()` | 返回空数组。 |
+| `bool Delete(string saveName)` | 把 `_data` 清空并返回 `true`；不区分 `saveName`。 |
+| `bool IsSaveGameFileExists(string saveName)` | 恒返回 `false`。 |
+| `bool IsWorkingAsync()` | 恒返回 `false`。 |
 
-```csharp
-// 先通过子系统 API 拿到 InMemDriver 实例
-InMemDriver inMemDriver = ...;
-var result = inMemDriver.Load("example");
-```
-
-### GetSaveGameFileInfos
-`public SaveGameFileInfo GetSaveGameFileInfos()`
-
-**用途 / Purpose:** 读取并返回当前对象中 save game file infos 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 InMemDriver 实例
-InMemDriver inMemDriver = ...;
-var result = inMemDriver.GetSaveGameFileInfos();
-```
-
-### GetSaveGameFileNames
-`public string GetSaveGameFileNames()`
-
-**用途 / Purpose:** 读取并返回当前对象中 save game file names 的结果。
+## 真实示例
 
 ```csharp
-// 先通过子系统 API 拿到 InMemDriver 实例
-InMemDriver inMemDriver = ...;
-var result = inMemDriver.GetSaveGameFileNames();
+// 用内存驱动做「存档前预览」：检查大小/完整性，不落盘、不污染真实存档
+ISaveDriver previewDriver = new InMemDriver();
+
+// Game 对象图（Campaign 是 Game 的派生根）已序列化进 previewDriver 的内存缓冲
+SaveOutput output = SaveManager.Save(Campaign.Current, campaignMetaData, "preview", previewDriver);
+
+if (output != null && output.Successful)
+{
+    // 可在此读取元数据/字节做校验，确认没问题后再用 FileDriver 写真实 .sav
+    MetaData m = previewDriver.LoadMetaData("preview");
+}
 ```
 
-### Delete
-`public bool Delete(string saveName)`
+## 导航块
 
-**用途 / Purpose:** 调用 Delete 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 InMemDriver 实例
-InMemDriver inMemDriver = ...;
-var result = inMemDriver.Delete("example");
-```
-
-### IsSaveGameFileExists
-`public bool IsSaveGameFileExists(string saveName)`
-
-**用途 / Purpose:** 判断当前对象是否处于 save game file exists 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 InMemDriver 实例
-InMemDriver inMemDriver = ...;
-var result = inMemDriver.IsSaveGameFileExists("example");
-```
-
-### IsWorkingAsync
-`public bool IsWorkingAsync()`
-
-**用途 / Purpose:** 判断当前对象是否处于 working async 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 InMemDriver 实例
-InMemDriver inMemDriver = ...;
-var result = inMemDriver.IsWorkingAsync();
-```
-
-## 使用示例
-
-```csharp
-// 通常从对应子系统 API 获取实例后调用
-InMemDriver inMemDriver = ...;
-inMemDriver.Save("example", 0, metaData, gameData);
-```
+- ↑ Parent：[save-system 目录](../)
+- ↔ Sibling：[FileDriver](../FileDriver) · [AsyncFileSaveDriver](../AsyncFileSaveDriver) · [ISaveDriver](../ISaveDriver) · [SaveManager](../SaveManager)
+- 相关类型：[GameData](../GameData) · [MBObjectManager](../../campaign-ext/MBObjectManager/)
 
 ## 参见
 
-- [本区域目录](../)
+- 模块索引：[save-system 目录](../)
+- 上游枢纽：[SaveManager](../SaveManager)
+- 相关：[FileDriver](../FileDriver) · [Game](../../core-extra/Game)

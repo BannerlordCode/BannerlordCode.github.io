@@ -1,89 +1,84 @@
 ---
 title: "ObjectHeaderLoadData"
-description: "ObjectHeaderLoadData 的自动生成类参考。"
+description: "加载时每个对象先于数据而存在的登记卡：记录归档编号、类型与属性/子结构数量，并负责用 TypeDefinition 把未初始化的空壳对象造出来。"
 ---
+
 # ObjectHeaderLoadData
 
-**Namespace:** TaleWorlds.SaveSystem.Load
-**Module:** TaleWorlds.SaveSystem
-**Type:** `public class ObjectHeaderLoadData`
-**Base:** 无
-**File:** `TaleWorlds.SaveSystem/Load/ObjectHeaderLoadData.cs`
+**命名空间：** `TaleWorlds.SaveSystem.Load`
+**模块：** `TaleWorlds.SaveSystem`
+**类型：** `public class ObjectHeaderLoadData`
+**基类/Base：** `System.Object`
+**源文件路径/Source：** `TaleWorlds.SaveSystem/Load/ObjectHeaderLoadData.cs`
 
-## 概述
+## 一句话职责
 
-`ObjectHeaderLoadData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+加载时每个对象先于数据而存在的「登记卡」——记录它在归档里的编号、类型与属性/子结构数量，并负责用 [TypeDefinition](../TypeDefinition) 把空壳对象造出来。
 
 ## 心智模型
 
-把 `ObjectHeaderLoadData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+`ObjectHeaderLoadData` 是 [LoadContext](../LoadContext) 在扫描归档头部时为每个对象建立的「登记卡」。所有对象头先被 `new` 出来（此时还没有任何运行时实例），`InitialieReaders` 从 Basics 条目读出 `SaveId`、属性数与子 struct 数；随后 `CreateObject` 用 `SaveId` 在 [DefinitionContext](../DefinitionContext) 里查到 [TypeDefinition](../TypeDefinition)，再经 `FormatterServices.GetUninitializedObject` 造一个**未调用构造函数**的空壳（`LoadedObject`），把它同时设为 `Target`。这一步对应保存侧 `ObjectSaveData` 的「分配 ObjectId + 确定类型」；区别在于这里只是头，真正的成员回填留给 [ObjectLoadData](../ObjectLoadData) 与 `FieldLoadData`/`PropertyLoadData`。它存活在加载的早期阶段，被 `LoadContext` 放进 `_objectHeaderLoadDatas` 数组，`id == 0` 的那个会成为 `RootObject`。它是 `public` 但由引擎构造，模组不该碰。
 
-## 主要属性
+## 何时用 / 何时不要用
 
-| Name | Signature |
-|------|-----------|
-| `Id` | `public int Id { get; }` |
-| `LoadedObject` | `public object LoadedObject { get; }` |
-| `Target` | `public object Target { get; }` |
-| `PropertyCount` | `public short PropertyCount { get; }` |
-| `ChildStructCount` | `public short ChildStructCount { get; }` |
-| `TypeDefinition` | `public TypeDefinition TypeDefinition { get; }` |
-| `Context` | `public LoadContext Context { get; }` |
-| `SaveId` | `public SaveId SaveId { get; }` |
+**理解层面使用：** 当你排查「为什么对象创建了但字段是默认值」「为什么构造函数逻辑没跑」「`RootObject` 从哪来」「类型带 `IObjectResolver` 时对象被替换成什么」时。
 
-## 主要方法
+**不要使用：**
 
-### InitialieReaders
-`public void InitialieReaders(SaveEntryFolder saveEntryFolder)`
+- 不要在模组里 `new ObjectHeaderLoadData(context, id)`——它由 `LoadContext` 在扫描头部阶段构造，且 `context` 是引擎内部上下文。
+- 不要期待它在 `LoadContext.Load` 早期就有 `Target`——`CreateObject` 之前 `Target` 为 null。
+- 不要依赖它的构造函数初始化——空壳对象绕过了构造函数，初始化逻辑要靠 `[LoadCallback]` 或 resolver 兜底。
 
-**用途 / Purpose:** 为 ialie readers 初始化必要的资源、状态或绑定。
+## 依赖图
 
-```csharp
-// 先通过子系统 API 拿到 ObjectHeaderLoadData 实例
-ObjectHeaderLoadData objectHeaderLoadData = ...;
-objectHeaderLoadData.InitialieReaders(saveEntryFolder);
-```
+- 构造来源：[LoadContext](../LoadContext) 在头部扫描阶段 `new ObjectHeaderLoadData(this, i)`。
+- 类型解析：经 [DefinitionContext](../DefinitionContext) 的 `TryGetTypeDefinition(SaveId)` 得到 [TypeDefinition](../TypeDefinition)。
+- 后续承接：[ObjectLoadData](../ObjectLoadData) 以 `headerLoadData` 为源构造，承接其 `Target`/`TypeDefinition`。
+- 加载总览见 [存档系统架构](../../../architecture/save-system)。
 
-### CreateObject
-`public void CreateObject()`
+## 风险段
 
-**用途 / Purpose:** 构建一个新的 object 实体并返回给调用方。
+- **SaveId 查不到 TypeDefinition。** `CreateObject` 后 `TypeDefinition` 为 null，`Target` 保持 null，后续 `AdvancedResolveObject`/`FillObject` 全部失效——通常意味着该类型漏登记在 [SaveableTypeDefiner](../SaveableTypeDefiner)。
+- **空壳对象不跑构造函数。** 任何依赖构造函数赋值的状态都不会执行，需要 `[LoadCallback]` 或 `IObjectResolver` 显式兜底。
+- **Basics 条目必须存在。** `InitialieReaders` 读取 `EntryId(-1, Basics)`；归档损坏会导致读流异常。
 
-```csharp
-// 先通过子系统 API 拿到 ObjectHeaderLoadData 实例
-ObjectHeaderLoadData objectHeaderLoadData = ...;
-objectHeaderLoadData.CreateObject();
-```
+## 成员说明
 
-### AdvancedResolveObject
-`public void AdvancedResolveObject(MetaData metaData, ObjectLoadData objectLoadData)`
+### 构造与身份
 
-**用途 / Purpose:** 调用 AdvancedResolveObject 对应的操作。
+- `ObjectHeaderLoadData(LoadContext context, int id)`：唯一构造函数，只设 `Context` 与 `Id`。
+- `int Id { get; }`：归档中该对象的稳定编号，`id == 0` 即根对象。
+- `object LoadedObject { get; }`：由 `CreateObject` 造出的空壳实例。
+- `object Target { get; }`：`CreateObject` 后等于 `LoadedObject`；若类型有 resolver，`AdvancedResolveObject` 可把它替换为 resolver 产物。
+- `short PropertyCount { get; }` / `short ChildStructCount { get; }`：从 Basics 读出的头部计数，决定 [ObjectLoadData](../ObjectLoadData) 预分配多少成员与子 struct。
+- `TypeDefinition TypeDefinition { get; }`：由 `SaveId` 解析出的类定义。
+- `LoadContext Context { get; }`：所属加载上下文。
+- `SaveId SaveId { get; }`：类型标识，由 `InitialieReaders` 读出。
 
-```csharp
-// 先通过子系统 API 拿到 ObjectHeaderLoadData 实例
-ObjectHeaderLoadData objectHeaderLoadData = ...;
-objectHeaderLoadData.AdvancedResolveObject(metaData, objectLoadData);
-```
+### 读取与构造
 
-### ResolveObject
-`public void ResolveObject()`
+- `void InitialieReaders(SaveEntryFolder saveEntryFolder)`：从 `EntryId(-1, Basics)` 读出 `SaveId`、`PropertyCount`、`ChildStructCount`。**何时调用：** `LoadContext` 头部扫描阶段，每个对象头创建后立刻调用。
+- `void CreateObject()`：`TryGetTypeDefinition(SaveId)` → `FormatterServices.GetUninitializedObject(type)` 造空壳。**何时调用：** 所有头读完、进入造实例阶段（`LoadContext` 第二阶段）。
+- `void AdvancedResolveObject(MetaData metaData, ObjectLoadData objectLoadData)`：若类型带 `IObjectResolver`，用 resolver 把 `LoadedObject` 换成最终对象并令 `Target` 指向它；`metaData` 与 `objectLoadData` 透传给 resolver。**何时调用：** `LoadContext` 高级解析阶段。
+- `void ResolveObject()`：无 resolver 时直接 `Target = TypeDefinition.ResolveObject(LoadedObject)`（通常就是原对象）。**何时调用：** 无 resolver 类型的解析阶段。
 
-**用途 / Purpose:** 调用 ResolveObject 对应的操作。
+## 最小真实示例
+
+`ObjectHeaderLoadData` 由 `LoadContext` 在重建对象图时创建——先读出类型与计数，再造空壳，最后在带 resolver 时替换为最终对象：
 
 ```csharp
-// 先通过子系统 API 拿到 ObjectHeaderLoadData 实例
-ObjectHeaderLoadData objectHeaderLoadData = ...;
-objectHeaderLoadData.ResolveObject();
+// LoadContext 为每个对象先建登记卡，再从 Basics 读出类型与计数，最后造空壳对象：
+ObjectHeaderLoadData header = new ObjectHeaderLoadData(loadContext, objectId);
+header.InitialieReaders(childFolder);   // 读出 SaveId / PropertyCount / ChildStructCount
+header.CreateObject();                  // FormatterServices.GetUninitializedObject 造空壳
+// 若类型带 IObjectResolver，则在 LoadContext 里用存档元数据做高级解析（替换 Target）：
+header.AdvancedResolveObject(SaveManager.LoadMetaData(saveName, driver), objectLoadData);
 ```
 
-## 使用示例
+注意：`SaveManager.LoadMetaData(saveName, driver)` 返回 `MetaData`，对应 `LoadCallbackInitializator` 注入回调时使用的同一份元数据。
 
-```csharp
-// 该数据对象通常由战役/任务 API 返回
-ObjectHeaderLoadData entry = ...;
-```
+## 导航块
 
-## 参见
-
-- [本区域目录](../)
+- 父级：[LoadContext](../LoadContext)
+- 同级：[ObjectLoadData](../ObjectLoadData) · [ContainerHeaderLoadData](../ContainerHeaderLoadData)
+- 相关：[DefinitionContext](../DefinitionContext) · [TypeDefinition](../TypeDefinition) · [SaveableTypeDefiner](../SaveableTypeDefiner) · [SaveManager](../SaveManager)

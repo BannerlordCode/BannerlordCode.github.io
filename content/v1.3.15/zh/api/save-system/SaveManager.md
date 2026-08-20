@@ -96,5 +96,5 @@ if (saveResult != null && saveResult.Successful)
 - 对象身份：[MBObjectManager](../../campaign-ext/MBObjectManager/) 与 [MBObjectBase](../../campaign-ext/MBObjectBase/) 提供可恢复对象引用。
 - 战役根：[Campaign](../../campaign/Campaign/) 及其行为数据构成常见 `target` 对象图。
 
-- 父级：[save-system API](./)
+- 父级：[save-system API](../)
 - 同级：[SaveableTypeDefiner](../SaveableTypeDefiner/) · [SaveableFieldAttribute](../SaveableFieldAttribute/)

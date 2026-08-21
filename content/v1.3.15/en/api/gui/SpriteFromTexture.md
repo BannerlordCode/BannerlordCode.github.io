@@ -1,6 +1,6 @@
 ---
 title: "SpriteFromTexture"
-description: "Gauntlet's internal adapter that exposes a single standalone Texture as one whole sprite — UVs span the full image (0,0)→(1,1), the name is the fixed string \"Sprite\", and it has no nine-patch; the engine builds it from a runtime texture while MaskedTextureWidget renders, drawing it as a Brush overlay layer."
+description: 'Gauntlet''s internal adapter that exposes a single standalone Texture as one whole sprite — UVs span the full image (0,0)→(1,1), the name is the fixed string \"Sprite\", and it has no nine-patch; the engine builds it from a runtime texture while MaskedTextureWidget renders, drawing it as a Brush overlay layer.'
 ---
 
 # SpriteFromTexture

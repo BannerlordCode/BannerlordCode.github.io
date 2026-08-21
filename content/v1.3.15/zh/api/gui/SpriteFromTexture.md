@@ -1,6 +1,6 @@
 ---
 title: "SpriteFromTexture"
-description: "Gauntlet 内部把「一张独立 Texture 当作整张精灵」使用的适配器：UV 覆盖整图 (0,0)→(1,1)、名为固定 \"Sprite\"、无九宫格；引擎在 MaskedTextureWidget 渲染时从运行时纹理构造它，作为 Brush 叠加层绘制。"
+description: 'Gauntlet 内部把「一张独立 Texture 当作整张精灵」使用的适配器：UV 覆盖整图 (0,0)→(1,1)、名为固定 \"Sprite\"、无九宫格；引擎在 MaskedTextureWidget 渲染时从运行时纹理构造它，作为 Brush 叠加层绘制。'
 ---
 
 # SpriteFromTexture

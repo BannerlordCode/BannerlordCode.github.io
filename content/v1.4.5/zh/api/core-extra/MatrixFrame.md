@@ -1,6 +1,6 @@
 ---
 title: "MatrixFrame"
-description: "TaleWorlds.Library 的局部坐标系帧（Mat3 旋转 + Vec3 原点）：把"位置 + 三轴朝向 + 缩放"打包成一个值类型，用于 Agent/实体的放置、朝向与父子空间变换。"
+description: 'TaleWorlds.Library 的局部坐标系帧（Mat3 旋转 + Vec3 原点）：把"位置 + 三轴朝向 + 缩放"打包成一个值类型，用于 Agent/实体的放置、朝向与父子空间变换。'
 ---
 # MatrixFrame
 

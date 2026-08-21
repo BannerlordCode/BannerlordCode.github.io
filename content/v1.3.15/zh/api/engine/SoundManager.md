@@ -1,431 +1,65 @@
 ---
 title: "SoundManager"
-description: "SoundManager 的自动生成类参考。"
+description: "SoundManager 是声音系统的静态门面，封装监听者姿态、一次性音效事件、音库加载、全局参数与语音聊天，全部转发到原生 ISoundManager。"
 ---
 # SoundManager
 
-**Namespace:** TaleWorlds.Engine
-**Module:** TaleWorlds.Engine
-**Type:** `public static class SoundManager`
-**Base:** 无
-**File:** `TaleWorlds.Engine/SoundManager.cs`
+**Namespace:** `TaleWorlds.Engine`  
+**Module:** `TaleWorlds.Engine`  
+**类型：** `public static class SoundManager`  
+**Base:** `System.Object`  
+**Source:** `TaleWorlds.Engine/SoundManager.cs`
 
 ## 概述
 
-`SoundManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+`SoundManager` 是声音系统的静态门面，把听者姿态、一次性音效、持续音效事件、音库加载、全局参数（RTPC）、总线暂停以及语音聊天/联机语音等功能统一收口。每个方法体都只有一行 `EngineApplicationInterface.ISoundManager.Method(...)`，把调用转发到原生声音引擎（Wwise 封装）。mod 播放 3D 音效通常用 `StartOneShotEvent`，需要持续控制的循环音效用 `CreateEvent` 拿到 `SoundEvent` 自行管理，而 `SetListenerFrame` 必须随相机每帧更新，否则所有 3D 音效的定位都会失真。
 
 ## 心智模型
 
-把 `SoundManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+`SoundManager` 是 mod 面对声音系统的门面，全部调用经 `EngineApplicationInterface.ISoundManager` 转发到原生层；它分几类：听者姿态（`SetListenerFrame`/`GetListenerFrame`）应每帧跟随相机更新，否则 3D 音效定位错误；一次性事件（`StartOneShotEvent`）是「开火即忘」的 3D 音效，最常用；持续事件用 `CreateEvent` 取回 `SoundEvent` 后由调用方管理生命周期；`SetState`/`SetGlobalParameter` 是 Wwise 风格的全局状态与参数。那些 `XBOX`/`Voice` 开头的方法属于联机语音与主机平台，普通单机 mod 不应调用。`LoadEventFileAux` 只在首次加载音库时执行一次（内部有 `_loaded` 守卫）。它只是调度入口，不持有音效实例本身。
 
-## 主要方法
+## 关键成员
 
-### SetListenerFrame
-`public static void SetListenerFrame(MatrixFrame frame)`
+| 成员 | 作用 |
+| --- | --- |
+| `SetListenerFrame(MatrixFrame)` / `GetListenerFrame()` | 设置/读取听者姿态，应每帧随相机更新以维持 3D 定位 |
+| `StartOneShotEvent(eventFullName, position)` | 在指定世界坐标播放一次性音效事件，返回是否成功 |
+| `CreateEvent(eventFullName, scene)` | 创建可持续控制的 `SoundEvent` 实例，由调用方管理 |
+| `SetState(stateGroup, state)` | 设置 Wwise 风格的全局状态（如环境/天气） |
+| `SetGlobalParameter(name, value)` | 设置全局 RTPC 参数，影响所有相关音效 |
+| `LoadEventFileAux(soundBank, decompress)` | 加载音库，内部保证只执行一次 |
+| `PauseBus` / `UnpauseBus` | 按总线名暂停/恢复一组音效 |
 
-**用途 / Purpose:** 为 listener frame 赋新值，并同步更新对象内部状态。
+## 真实示例
 
-```csharp
-// 静态调用，不需要实例
-SoundManager.SetListenerFrame(frame);
-```
-
-### SetListenerFrame
-`public static void SetListenerFrame(MatrixFrame frame, Vec3 attenuationPosition)`
-
-**用途 / Purpose:** 为 listener frame 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.SetListenerFrame(frame, attenuationPosition);
-```
-
-### GetListenerFrame
-`public static MatrixFrame GetListenerFrame()`
-
-**用途 / Purpose:** 读取并返回当前对象中 listener frame 的结果。
+下面在战斗命中时播放一次性 3D 音效，并切换战斗状态、推高全局强度参数。`agent.Position` 提供世界坐标，`event.combat.sword_hit` 是音库里配置的事件名：
 
 ```csharp
-// 静态调用，不需要实例
-SoundManager.GetListenerFrame();
+Vec3 impactPoint = agent.Position;
+SoundManager.StartOneShotEvent("event.combat.sword_hit", impactPoint);
+SoundManager.SetState("combat", "in_battle");
+SoundManager.SetGlobalParameter("combat_intensity", 1.0f);
 ```
 
-### GetAttenuationPosition
-`public static Vec3 GetAttenuationPosition()`
+持续音效应改用 `CreateEvent` 并保存返回的 `SoundEvent`，在合适时机 `Stop` 与释放，避免音效泄漏。
 
-**用途 / Purpose:** 读取并返回当前对象中 attenuation position 的结果。
+## 风险与崩溃边界
 
-```csharp
-// 静态调用，不需要实例
-SoundManager.GetAttenuationPosition();
-```
+- **听者姿态必须每帧更新。** 不调用 `SetListenerFrame` 时，所有 3D 音效都用过时/默认姿态定位，听感会整体错位。
+- **`StartOneShotEvent` 的事件名须存在。** 传入音库里不存在的 `eventFullName` 会返回 `false` 且不发声，不会抛异常，需自行校验。
+- **`CreateEvent` 返回的实例要管理。** 持续 `SoundEvent` 不自动释放，忘记 `Stop`/`Clear` 会泄漏音效通道。
+- **`XBOX`/`Voice` 方法平台相关。** 非主机或不需要联机语音时调用它们无意义，且依赖未初始化的原生子系统。
 
-### Reset
-`public static void Reset()`
+## 跨版本提示
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+1.3.15 与 1.4.5 的 `SoundManager` 公开方法数量与签名完全一致（均约 39 个），`StartOneShotEvent`、`CreateEvent`、`SetListenerFrame`、`SetState`、`LoadEventFileAux` 等转发目标 `ISoundManager` 均未变。跨版本 mod 可稳定依赖上述音效播放入口。
 
-```csharp
-// 静态调用，不需要实例
-SoundManager.Reset();
-```
+## 依赖关系
 
-### StartOneShotEvent
-`public static bool StartOneShotEvent(string eventFullName, in Vec3 position, string paramName, float paramValue)`
+- 上游（转发目标）：[EngineApplicationInterface](../EngineApplicationInterface/) 提供 `ISoundManager` 原生实现。
+- 下游（协作对象）：[mission/Mission](../../mission/Mission/) 提供相机与场景以驱动听者姿态；[mission/Agent](../../mission/Agent/) 提供音效发生的世界坐标。
+- 相关阅读：[native-interop 架构说明](../../../architecture/native-interop/) 解释 `ISoundManager` 桥接；[崩溃边界](../../../architecture/crash-boundaries/) 解释原生调用失败后果。
+- 配对门面：[MBDebug](../MBDebug/) 同为经 `EngineApplicationInterface` 转发的静态门面。
 
-**用途 / Purpose:** 启动one shot event流程或状态机。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.StartOneShotEvent("example", position, "example", 0);
-```
-
-### StartOneShotEvent
-`public static bool StartOneShotEvent(string eventFullName, in Vec3 position)`
-
-**用途 / Purpose:** 启动one shot event流程或状态机。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.StartOneShotEvent("example", position);
-```
-
-### StartOneShotEventWithIndex
-`public static bool StartOneShotEventWithIndex(int index, in Vec3 position)`
-
-**用途 / Purpose:** 启动one shot event with index流程或状态机。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.StartOneShotEventWithIndex(0, position);
-```
-
-### SetState
-`public static void SetState(string stateGroup, string state)`
-
-**用途 / Purpose:** 为 state 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.SetState("example", "example");
-```
-
-### CreateEvent
-`public static SoundEvent CreateEvent(string eventFullName, Scene scene)`
-
-**用途 / Purpose:** 构建一个新的 event 实体并返回给调用方。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.CreateEvent("example", scene);
-```
-
-### LoadEventFileAux
-`public static void LoadEventFileAux(string soundBank, bool decompressSamples)`
-
-**用途 / Purpose:** 从持久化存储或流中读取 event file aux。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.LoadEventFileAux("example", false);
-```
-
-### AddSoundClientWithId
-`public static void AddSoundClientWithId(ulong clientId)`
-
-**用途 / Purpose:** 将 sound client with id 添加到当前容器或状态中。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.AddSoundClientWithId(0);
-```
-
-### DeleteSoundClientWithId
-`public static void DeleteSoundClientWithId(ulong clientId)`
-
-**用途 / Purpose:** 调用 DeleteSoundClientWithId 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.DeleteSoundClientWithId(0);
-```
-
-### SetGlobalParameter
-`public static void SetGlobalParameter(string parameterName, float value)`
-
-**用途 / Purpose:** 为 global parameter 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.SetGlobalParameter("example", 0);
-```
-
-### GetEventGlobalIndex
-`public static int GetEventGlobalIndex(string eventFullName)`
-
-**用途 / Purpose:** 读取并返回当前对象中 event global index 的结果。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.GetEventGlobalIndex("example");
-```
-
-### PauseBus
-`public static void PauseBus(string busName)`
-
-**用途 / Purpose:** 调用 PauseBus 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.PauseBus("example");
-```
-
-### UnpauseBus
-`public static void UnpauseBus(string busName)`
-
-**用途 / Purpose:** 调用 UnpauseBus 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.UnpauseBus("example");
-```
-
-### InitializeVoicePlayEvent
-`public static void InitializeVoicePlayEvent()`
-
-**用途 / Purpose:** 为 voice play event 初始化必要的资源、状态或绑定。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.InitializeVoicePlayEvent();
-```
-
-### CreateVoiceEvent
-`public static void CreateVoiceEvent()`
-
-**用途 / Purpose:** 构建一个新的 voice event 实体并返回给调用方。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.CreateVoiceEvent();
-```
-
-### DestroyVoiceEvent
-`public static void DestroyVoiceEvent(int id)`
-
-**用途 / Purpose:** 调用 DestroyVoiceEvent 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.DestroyVoiceEvent(0);
-```
-
-### FinalizeVoicePlayEvent
-`public static void FinalizeVoicePlayEvent()`
-
-**用途 / Purpose:** 调用 FinalizeVoicePlayEvent 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.FinalizeVoicePlayEvent();
-```
-
-### StartVoiceRecording
-`public static void StartVoiceRecording()`
-
-**用途 / Purpose:** 启动voice recording流程或状态机。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.StartVoiceRecording();
-```
-
-### StopVoiceRecording
-`public static void StopVoiceRecording()`
-
-**用途 / Purpose:** 停止voice recording流程或状态机。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.StopVoiceRecording();
-```
-
-### GetVoiceData
-`public static void GetVoiceData(byte voiceBuffer, int chunkSize, out int readBytesLength)`
-
-**用途 / Purpose:** 读取并返回当前对象中 voice data 的结果。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.GetVoiceData(0, 0, readBytesLength);
-```
-
-### UpdateVoiceToPlay
-`public static void UpdateVoiceToPlay(byte voiceBuffer, int length, int index)`
-
-**用途 / Purpose:** 重新计算并更新 voice to play 的最新表示。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.UpdateVoiceToPlay(0, 0, 0);
-```
-
-### AddXBOXRemoteUser
-`public static void AddXBOXRemoteUser(ulong XUID, ulong deviceID, bool canSendMicSound, bool canSendTextSound, bool canSendText, bool canReceiveSound, bool canReceiveText)`
-
-**用途 / Purpose:** 将 x b o x remote user 添加到当前容器或状态中。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.AddXBOXRemoteUser(0, 0, false, false, false, false, false);
-```
-
-### InitializeXBOXSoundManager
-`public static void InitializeXBOXSoundManager()`
-
-**用途 / Purpose:** 为 x b o x sound manager 初始化必要的资源、状态或绑定。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.InitializeXBOXSoundManager();
-```
-
-### ApplyPushToTalk
-`public static void ApplyPushToTalk(bool pushed)`
-
-**用途 / Purpose:** 将 push to talk 的效果应用到当前对象。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.ApplyPushToTalk(false);
-```
-
-### ClearXBOXSoundManager
-`public static void ClearXBOXSoundManager()`
-
-**用途 / Purpose:** 清空当前对象中的x b o x sound manager。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.ClearXBOXSoundManager();
-```
-
-### UpdateXBOXLocalUser
-`public static void UpdateXBOXLocalUser()`
-
-**用途 / Purpose:** 重新计算并更新 x b o x local user 的最新表示。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.UpdateXBOXLocalUser();
-```
-
-### UpdateXBOXChatCommunicationFlags
-`public static void UpdateXBOXChatCommunicationFlags(ulong XUID, bool canSendMicSound, bool canSendTextSound, bool canSendText, bool canReceiveSound, bool canReceiveText)`
-
-**用途 / Purpose:** 重新计算并更新 x b o x chat communication flags 的最新表示。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.UpdateXBOXChatCommunicationFlags(0, false, false, false, false, false);
-```
-
-### RemoveXBOXRemoteUser
-`public static void RemoveXBOXRemoteUser(ulong XUID)`
-
-**用途 / Purpose:** 从当前容器或状态中移除 x b o x remote user。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.RemoveXBOXRemoteUser(0);
-```
-
-### ProcessDataToBeReceived
-`public static void ProcessDataToBeReceived(ulong senderDeviceID, byte data, uint dataSize)`
-
-**用途 / Purpose:** 调用 ProcessDataToBeReceived 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.ProcessDataToBeReceived(0, 0, 0);
-```
-
-### ProcessDataToBeSent
-`public static void ProcessDataToBeSent(ref int numData)`
-
-**用途 / Purpose:** 调用 ProcessDataToBeSent 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.ProcessDataToBeSent(numData);
-```
-
-### HandleStateChanges
-`public static void HandleStateChanges()`
-
-**用途 / Purpose:** 响应 state changes 事件，执行对应的处理逻辑。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.HandleStateChanges();
-```
-
-### GetSizeOfDataToBeSentAt
-`public static void GetSizeOfDataToBeSentAt(int index, ref uint byteCount, ref uint numReceivers)`
-
-**用途 / Purpose:** 读取并返回当前对象中 size of data to be sent at 的结果。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.GetSizeOfDataToBeSentAt(0, byteCount, numReceivers);
-```
-
-### GetDataToBeSentAt
-`public static bool GetDataToBeSentAt(int index, byte buffer, ulong receivers, ref bool transportGuaranteed)`
-
-**用途 / Purpose:** 读取并返回当前对象中 data to be sent at 的结果。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.GetDataToBeSentAt(0, 0, 0, transportGuaranteed);
-```
-
-### ClearDataToBeSent
-`public static void ClearDataToBeSent()`
-
-**用途 / Purpose:** 清空当前对象中的data to be sent。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.ClearDataToBeSent();
-```
-
-### CompressData
-`public static void CompressData(int clientID, byte buffer, int length, byte compressedBuffer, out int compressedBufferLength)`
-
-**用途 / Purpose:** 调用 CompressData 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.CompressData(0, 0, 0, 0, compressedBufferLength);
-```
-
-### DecompressData
-`public static void DecompressData(int clientID, byte compressedBuffer, int compressedBufferLength, byte decompressedBuffer, out int decompressedBufferLength)`
-
-**用途 / Purpose:** 调用 DecompressData 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-SoundManager.DecompressData(0, 0, 0, 0, decompressedBufferLength);
-```
-
-## 使用示例
-
-```csharp
-var manager = SoundManager.Current;
-```
-
-## 参见
-
-- [本区域目录](../)
+- 父级：[engine API](../)
+- 同级：[EngineApplicationInterface](../EngineApplicationInterface/) · [MBDebug](../MBDebug/)

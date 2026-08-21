@@ -1,271 +1,68 @@
 ---
 title: "Camera"
-description: "Camera 的自动生成类参考。"
+description: "TaleWorlds.Engine 中描述视锥的托管包装：决定渲染视角与视野，并提供屏幕空间/世界空间的投影换算。"
 ---
 # Camera
 
-**Namespace:** TaleWorlds.Engine
-**Module:** TaleWorlds.Engine
+**Namespace:** `TaleWorlds.Engine`
+**Module:** `TaleWorlds.Engine`
 **Type:** `public sealed class Camera : NativeObject`
 **Base:** `NativeObject`
-**File:** `TaleWorlds.Engine/Camera.cs`
+**Source:** `TaleWorlds.Engine/Camera.cs`
 
 ## 概述
 
-`Camera` 位于 `TaleWorlds.Engine`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`Camera` 是引擎里描述「一个视锥（view frustum）」的托管包装：它持有原生相机对象，决定某一帧从哪个位置、以多大视野、朝哪个方向渲染世界，也提供屏幕空间与世界空间之间的投影换算。任务（[Mission](../../mission/Mission/)）的主相机就是它的一个实例；渲染流程每帧用它的 `Frame`、`Fov`、`Near`/`Far` 构造视图投影矩阵。对 mod 而言，`Camera` 最常见的用途不是「创建新相机」，而是读取 `Mission.Current.Camera` 来做射线拾取、可见性判断或自定义渲染。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.Engine` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+`Camera` 处在渲染管线的入口：它把一根位置（`Position`）、朝向（`Direction`/`Frame`）、视野（`SetFovVertical`/`SetFovHorizontal`）与远近裁剪面（`Near`/`Far`）描述成一次完整的取景。你通常从 `Mission.Current.Camera` 拿到已配置好的主相机，只有在做离屏渲染（如物品预览）时才用 `CreateCamera()` 自建一个，并在用完后调用 `ReleaseCamera()` 把原生引用还回去。相机可以绑定到一个 `GameEntity`：设置 `Entity` 属性后，相机的 `Frame` 会跟随该实体的全局坐标系，常用于第一/三人称视角。做 UI 之外的世界交互（如点击地面、瞄准实体）时，用 `ViewportPointToWorldRay` 把屏幕坐标变成世界射线，再配合 [Scene](../Scene/) 的射线查询；纯 UI 拾取请不要混用 [GauntletLayer](../GauntletLayer/) 的鼠标逻辑。读取属性（`GetFovVertical`、`GetAspectRatio`、`GetViewProjMatrix`）不会触发原生写入，而 `LookAt`/`SetFov*`/`FillParametersFrom` 会改动相机状态。
 
-## 主要属性
+## 关键成员
 
-| Name | Signature |
-|------|-----------|
-| `Entity` | `public GameEntity Entity { get; set; }` |
-| `Position` | `public Vec3 Position { get; set; }` |
-| `Direction` | `public Vec3 Direction { get; }` |
-| `Frame` | `public MatrixFrame Frame { get; set; }` |
-| `Near` | `public float Near { get; }` |
-| `Far` | `public float Far { get; }` |
-| `HorizontalFov` | `public float HorizontalFov { get; }` |
+| 成员 | 作用 |
+| --- | --- |
+| `Entity` | 绑定的 [GameEntity](../GameEntity/)，设置后相机 Frame 跟随该实体 |
+| `Position` / `Direction` / `Frame` | 相机的位置、朝前的反方向与世界变换矩阵 |
+| `Near` / `Far` / `HorizontalFov` | 远近裁剪面与水平视野，均为只读快照 |
+| `LookAt(Vec3, Vec3, Vec3)` | 按眼睛位置、目标点与上方向量直接摆好相机 |
+| `ViewportPointToWorldRay(...)` | 把视口坐标转换为一条世界射线，用于射线拾取 |
+| `ReleaseCamera()` | 释放原生相机引用，自建相机后必须调用 |
 
-## 主要方法
-
-### CreateCamera
-`public static Camera CreateCamera()`
-
-**用途 / Purpose:** 构建一个新的 camera 实体并返回给调用方。
+## 真实示例
 
 ```csharp
-// 静态调用，不需要实例
-Camera.CreateCamera();
+// 从当前任务拿到主相机（Mission.Current.Camera 是真实属性）
+Camera camera = Mission.Current.Camera;
+camera.LookAt(new Vec3(0f, 0f, 2f), new Vec3(0f, 10f, 0f), new Vec3(0f, 0f, 1f));
+
+// 把屏幕中心坐标转成一条世界射线，用于拾取实体
+Vec3 rayBegin = Vec3.Zero;
+Vec3 rayEnd = Vec3.Zero;
+camera.ViewportPointToWorldRay(ref rayBegin, ref rayEnd, new Vec2(0.5f, 0.5f));
+
+// 判断某个实体是否在当前相机视野内
+bool seesEntity = camera.CheckEntityVisibility(targetEntity);
 ```
 
-### ReleaseCamera
-`public void ReleaseCamera()`
+## 风险与崩溃边界
 
-**用途 / Purpose:** 调用 ReleaseCamera 对应的操作。
+- **自建相机必须释放。** 用 `CreateCamera()` 得到的实例在不再需要时务必 `ReleaseCamera()`（或 `ReleaseCameraEntity()`），否则泄漏原生相机对象。
+- **`Entity` 绑定是单向跟随。** 设置 `Entity` 后相机 `Frame` 由该实体驱动，再手动 `SetFrame` 可能被下一帧覆盖；解绑需把 `Entity` 设为 null。
+- **`ViewportPointToWorldRay` 的视口坐标范围。** 传入的 `Vec2` 应为归一化视口坐标（通常 0~1），越界会得到无意义的射线。
+- **`ScreenSpaceRayProjection` 会折算到 `Entity` 空间。** 当相机绑定了实体时，返回的 `rayBegin`/`rayEnd` 会被变换到实体全局坐标系，使用时注意坐标系，不要和世界空间混用。
+- **不要把它当成 UI 相机。** 与界面层 [GauntletLayer](../GauntletLayer/) 的鼠标命中逻辑无关，世界拾取才用本类。
 
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-camera.ReleaseCamera();
-```
+## 跨版本提示
 
-### ReleaseCameraEntity
-`public void ReleaseCameraEntity()`
+`Camera` 的公开 API（`CreateCamera`、`ReleaseCamera`、`LookAt`、`SetFovVertical`/`SetFovHorizontal`、`ViewportPointToWorldRay`、`CheckEntityVisibility`、`Entity` 属性）在 1.3.15 与 1.4.5 间保持稳定。两个版本均提供静态 `ConstructCameraFromPositionElevationBearing` 用于从球坐标构造相机帧，跨版本可直接复用。
 
-**用途 / Purpose:** 调用 ReleaseCameraEntity 对应的操作。
+## 依赖关系
 
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-camera.ReleaseCameraEntity();
-```
+- 上游：[NativeObject](../NativeObject/) 提供 `Pointer` 与引用计数；渲染主循环每帧读取 `Frame`/`Fov` 构造视图投影矩阵。
+- 下游：被 [Mission](../../mission/Mission/) 持有主相机；可绑定到 [GameEntity](../GameEntity/) 实现跟随视角。
+- 相关：屏幕空间拾取的结果通常交给 [Scene](../Scene/) 做射线查询；界面层另见 [GauntletLayer](../GauntletLayer/)。
+- 架构参考：[native-interop](../../../architecture/native-interop/) 解释托管相机与原生 `rglCamera_object` 的绑定。
 
-### LookAt
-`public void LookAt(Vec3 position, Vec3 target, Vec3 upVector)`
-
-**用途 / Purpose:** 调用 LookAt 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-camera.LookAt(position, target, upVector);
-```
-
-### ScreenSpaceRayProjection
-`public void ScreenSpaceRayProjection(Vec2 screenPosition, ref Vec3 rayBegin, ref Vec3 rayEnd)`
-
-**用途 / Purpose:** 调用 ScreenSpaceRayProjection 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-camera.ScreenSpaceRayProjection(screenPosition, rayBegin, rayEnd);
-```
-
-### CheckEntityVisibility
-`public bool CheckEntityVisibility(GameEntity entity)`
-
-**用途 / Purpose:** 检查entity visibility在当前对象中是否成立。
-
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-var result = camera.CheckEntityVisibility(entity);
-```
-
-### SetViewVolume
-`public void SetViewVolume(bool perspective, float dLeft, float dRight, float dBottom, float dTop, float dNear, float dFar)`
-
-**用途 / Purpose:** 为 view volume 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-camera.SetViewVolume(false, 0, 0, 0, 0, 0, 0);
-```
-
-### GetNearPlanePointsStatic
-`public static void GetNearPlanePointsStatic(ref MatrixFrame cameraFrame, float verticalFov, float aspectRatioXY, float newDNear, float newDFar, Vec3 nearPlanePoints)`
-
-**用途 / Purpose:** 读取并返回当前对象中 near plane points static 的结果。
-
-```csharp
-// 静态调用，不需要实例
-Camera.GetNearPlanePointsStatic(cameraFrame, 0, 0, 0, 0, nearPlanePoints);
-```
-
-### GetNearPlanePoints
-`public void GetNearPlanePoints(Vec3 nearPlanePoints)`
-
-**用途 / Purpose:** 读取并返回当前对象中 near plane points 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-camera.GetNearPlanePoints(nearPlanePoints);
-```
-
-### SetFovVertical
-`public void SetFovVertical(float verticalFov, float aspectRatioXY, float newDNear, float newDFar)`
-
-**用途 / Purpose:** 为 fov vertical 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-camera.SetFovVertical(0, 0, 0, 0);
-```
-
-### SetFovHorizontal
-`public void SetFovHorizontal(float horizontalFov, float aspectRatioXY, float newDNear, float newDFar)`
-
-**用途 / Purpose:** 为 fov horizontal 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-camera.SetFovHorizontal(0, 0, 0, 0);
-```
-
-### GetViewProjMatrix
-`public void GetViewProjMatrix(ref MatrixFrame viewProj)`
-
-**用途 / Purpose:** 读取并返回当前对象中 view proj matrix 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-camera.GetViewProjMatrix(viewProj);
-```
-
-### GetFovVertical
-`public float GetFovVertical()`
-
-**用途 / Purpose:** 读取并返回当前对象中 fov vertical 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-var result = camera.GetFovVertical();
-```
-
-### GetFovHorizontal
-`public float GetFovHorizontal()`
-
-**用途 / Purpose:** 读取并返回当前对象中 fov horizontal 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-var result = camera.GetFovHorizontal();
-```
-
-### GetAspectRatio
-`public float GetAspectRatio()`
-
-**用途 / Purpose:** 读取并返回当前对象中 aspect ratio 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-var result = camera.GetAspectRatio();
-```
-
-### FillParametersFrom
-`public void FillParametersFrom(Camera otherCamera)`
-
-**用途 / Purpose:** 调用 FillParametersFrom 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-camera.FillParametersFrom(otherCamera);
-```
-
-### RenderFrustrum
-`public void RenderFrustrum()`
-
-**用途 / Purpose:** 调用 RenderFrustrum 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-camera.RenderFrustrum();
-```
-
-### ViewportPointToWorldRay
-`public void ViewportPointToWorldRay(ref Vec3 rayBegin, ref Vec3 rayEnd, Vec2 viewportPoint)`
-
-**用途 / Purpose:** 调用 ViewportPointToWorldRay 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-camera.ViewportPointToWorldRay(rayBegin, rayEnd, viewportPoint);
-```
-
-### WorldPointToViewPortPoint
-`public Vec3 WorldPointToViewPortPoint(ref Vec3 worldPoint)`
-
-**用途 / Purpose:** 调用 WorldPointToViewPortPoint 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-var result = camera.WorldPointToViewPortPoint(worldPoint);
-```
-
-### EnclosesPoint
-`public bool EnclosesPoint(Vec3 pointInWorldSpace)`
-
-**用途 / Purpose:** 调用 EnclosesPoint 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Camera 实例
-Camera camera = ...;
-var result = camera.EnclosesPoint(pointInWorldSpace);
-```
-
-### ConstructCameraFromPositionElevationBearing
-`public static MatrixFrame ConstructCameraFromPositionElevationBearing(Vec3 position, float elevation, float bearing)`
-
-**用途 / Purpose:** 调用 ConstructCameraFromPositionElevationBearing 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-Camera.ConstructCameraFromPositionElevationBearing(position, 0, 0);
-```
-
-## 使用示例
-
-```csharp
-Camera.CreateCamera();
-```
-
-## 参见
-
-- [本区域目录](../)
+- 父级：[engine API 索引](../)
+- 同级：[Scene](../Scene/) · [GameEntity](../GameEntity/) · [NativeObject](../NativeObject/) · [GauntletLayer](../GauntletLayer/)

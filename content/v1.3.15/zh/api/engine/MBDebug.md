@@ -1,448 +1,64 @@
 ---
 title: "MBDebug"
-description: "MBDebug 的自动生成类参考。"
+description: "MBDebug 是面向 mod 的调试与日志门面，几乎所有方法都经 EngineApplicationInterface.IDebug 转发到原生层，断言与调试绘制多数受条件编译保护。"
 ---
 # MBDebug
 
-**Namespace:** TaleWorlds.Engine
-**Module:** TaleWorlds.Engine
-**Type:** `public static class MBDebug`
-**Base:** 无
-**File:** `TaleWorlds.Engine/MBDebug.cs`
+**Namespace:** `TaleWorlds.Engine`  
+**Module:** `TaleWorlds.Engine`  
+**类型：** `public static class MBDebug`  
+**Base:** `System.Object`  
+**Source:** `TaleWorlds.Engine/MBDebug.cs`
 
 ## 概述
 
-`MBDebug` 位于 `TaleWorlds.Engine`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`MBDebug` 是引擎给 mod 和最上层代码用的静态调试门面。它把日志、警告、错误、断言、消息框与屏幕调试绘制统一收口，几乎所有方法体都只有一行 `EngineApplicationInterface.IDebug.Method(...)`，把调用转发到原生调试实现。其中 `Print`/`ShowWarning`/`ShowError`/`ShowMessageBox` 在正式构建里依然有效；而大量 `Assert*`、`ConsolePrint`、`RenderDebug*` 方法被 `[Conditional("_RGL_KEEP_ASSERTS")]` 或 `[Conditional("DEBUG_MORE")]` 标记，在发布版编译时整段消失。理解哪些方法「永远生效」、哪些「只在调试构建存在」，是安全使用它的关键。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.Engine` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+`MBDebug` 是 mod 面对的调试门面，几乎所有输出都经 `EngineApplicationInterface.IDebug` 转发到原生层；它分两类：一类是始终生效的（如 `Print`、`ShowWarning`、`ShowError`、`ShowMessageBox`），另一类只在特定编译符号下存在（带 `[Conditional]` 的 `Assert`、`ConsolePrint`、`RenderDebug*`）。因此不要把断言当运行时校验——`Assert` 失败在发布版不会执行，真正的输入校验要写在业务代码里。调试绘制（`RenderDebugText`、`RenderDebugSphere` 等）也只在调试构建出现，不能在上面叠加任何游戏逻辑。它只是诊断工具，不是游戏系统；日志还受静态开关 `DisableLogging` 与 `DisableAllUI` 影响。
 
-## 主要属性
+## 关键成员
 
-| Name | Signature |
-|------|-----------|
-| `DebugVector` | `public static Vec3 DebugVector { get; set; }` |
-| `ShowDebugInfoState` | `public static int ShowDebugInfoState { get; set; }` |
+| 成员 | 作用 |
+| --- | --- |
+| `Print(string, logLevel, color, debugFilter)` | 写日志行，受 `DisableLogging` 与 `debugFilter` 过滤；始终生效 |
+| `ShowMessageBox(lpText, lpCaption, uType)` | 弹出模态消息框，`uType` 用 `MessageBoxTypeFlag` 组合；始终生效 |
+| `ShowWarning` / `ShowError` | 输出警告/错误；若调试器已附加且原生返回真则中断 |
+| `Assert(condition, message, ...)` | 条件为假时记录失败断言；`[Conditional]` 故发布版不编译 |
+| `SilentAssert(condition, message, getDump)` | 不弹 UI 的断言，仍受条件编译控制 |
+| `RenderDebugText` / `RenderDebugSphere` 等 | 屏幕/世界空间调试绘制，全部 `[Conditional]`，仅调试构建有效 |
+| `DisableLogging` / `DisableAllUI` | 静态开关，分别关闭日志与界面渲染 |
 
-## 主要方法
+## 真实示例
 
-### DisableUI
-`public static string DisableUI(List<string> strings)`
-
-**用途 / Purpose:** 调用 DisableUI 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.DisableUI(strings);
-```
-
-### AssertMemoryUsage
-`public static void AssertMemoryUsage(int memoryMB)`
-
-**用途 / Purpose:** 调用 AssertMemoryUsage 对应的操作。
+下面演示三种始终生效的调用：弹错、写日志、做不变式检查。注意 `Assert` 仅作开发期辅助，不应承担发布版必须执行的校验：
 
 ```csharp
-// 静态调用，不需要实例
-MBDebug.AssertMemoryUsage(0);
+MBDebug.ShowMessageBox("存档已损坏", "错误", (uint)MBDebug.MessageBoxTypeFlag.Error);
+MBDebug.Print("开始加载模组配置", 0, Debug.DebugColor.White);
+MBDebug.Assert(config != null, "配置对象未初始化");
 ```
 
-### AbortGame
-`public static void AbortGame(int ExitCode = 5)`
+`MessageBoxTypeFlag` 是 `MBDebug` 内的 `[Flags]` 枚举，`Ok`/`Warning`/`Error`/`YesNo` 等可按位组合成 `uType`。
 
-**用途 / Purpose:** 调用 AbortGame 对应的操作。
+## 风险与崩溃边界
 
-```csharp
-// 静态调用，不需要实例
-MBDebug.AbortGame(0);
-```
+- **断言在发布版不存在。** `Assert`/`SilentAssert` 被 `[Conditional("_RGL_KEEP_ASSERTS")]` 标记，正式构建里整段移除；绝不能用它做运行时保护。
+- **`ShowMessageBox` 会阻塞。** 它是模态框，游戏会停住等待用户；不要在 tick 或加载热路径里频繁调用。
+- **调试绘制不可依赖。** `RenderDebug*` 在发布版被剔除，任何叠加在其上的逻辑都会一起消失。
+- **`Print` 受过滤开关影响。** `DisableLogging` 为真或 `debugFilter` 被清零时，`Print` 静默返回，不写任何内容。
 
-### ShowWarning
-`public static void ShowWarning(string message)`
+## 跨版本提示
 
-**用途 / Purpose:** 显示warning对应的界面或元素。
+1.3.15 与 1.4.5 的 `MBDebug` 公开方法数量与签名完全一致（均约 40 个），`MessageBoxTypeFlag` 枚举、各 `[Conditional]` 标注与转发目标 `IDebug` 均未变。跨版本 mod 可稳定依赖 `Print`、`ShowMessageBox`、`Assert` 等入口。
 
-```csharp
-// 静态调用，不需要实例
-MBDebug.ShowWarning("example");
-```
+## 依赖关系
 
-### ContentWarning
-`public static void ContentWarning(string message)`
+- 上游（转发目标）：[EngineApplicationInterface](../EngineApplicationInterface/) 提供 `IDebug` 原生实现，是 `MBDebug` 所有方法的落点。
+- 下游（典型调用方）：几乎所有子系统的诊断代码，以及 [SoundManager](../SoundManager/) 等门面。
+- 相关阅读：[崩溃边界](../../../architecture/crash-boundaries/) 解释断言失败与错误报告的后果；[native-interop 架构说明](../../../architecture/native-interop/) 解释 `IDebug` 桥接。
+- 同层门面：[SoundManager](../SoundManager/) 也经 `EngineApplicationInterface` 转发。
 
-**用途 / Purpose:** 调用 ContentWarning 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.ContentWarning("example");
-```
-
-### ConditionalContentWarning
-`public static void ConditionalContentWarning(bool condition, string message)`
-
-**用途 / Purpose:** 调用 ConditionalContentWarning 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.ConditionalContentWarning(false, "example");
-```
-
-### ShowError
-`public static void ShowError(string message)`
-
-**用途 / Purpose:** 显示error对应的界面或元素。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.ShowError("example");
-```
-
-### ShowMessageBox
-`public static void ShowMessageBox(string lpText, string lpCaption, uint uType)`
-
-**用途 / Purpose:** 显示message box对应的界面或元素。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.ShowMessageBox("example", "example", 0);
-```
-
-### Assert
-`public static void Assert(bool condition, string message, string callerFile = "", string callerMethod = "", int callerLine = 0)`
-
-**用途 / Purpose:** 调用 Assert 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.Assert(false, "example", "example", "example", 0);
-```
-
-### FailedAssert
-`public static void FailedAssert(string message, string callerFile = "", string callerMethod = "", int callerLine = 0)`
-
-**用途 / Purpose:** 调用 FailedAssert 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.FailedAssert("example", "example", "example", 0);
-```
-
-### SilentAssert
-`public static void SilentAssert(bool condition, string message = "", bool getDump = false, string callerFile = "", string callerMethod = "", int callerLine = 0)`
-
-**用途 / Purpose:** 调用 SilentAssert 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.SilentAssert(false, "example", false, "example", "example", 0);
-```
-
-### AssertConditionOrCallerClassName
-`public static void AssertConditionOrCallerClassName(bool condition, string name)`
-
-**用途 / Purpose:** 调用 AssertConditionOrCallerClassName 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.AssertConditionOrCallerClassName(false, "example");
-```
-
-### AssertConditionOrCallerClassNameSearchAllCallstack
-`public static void AssertConditionOrCallerClassNameSearchAllCallstack(bool condition, string name)`
-
-**用途 / Purpose:** 调用 AssertConditionOrCallerClassNameSearchAllCallstack 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.AssertConditionOrCallerClassNameSearchAllCallstack(false, "example");
-```
-
-### Print
-`public static void Print(string message, int logLevel = 0, Debug.DebugColor color = Debug.DebugColor.White, ulong debugFilter = 17592186044416UL)`
-
-**用途 / Purpose:** 调用 Print 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.Print("example", 0, debug.DebugColor.White, 0);
-```
-
-### ConsolePrint
-`public static void ConsolePrint(string message, Debug.DebugColor color = Debug.DebugColor.White, ulong debugFilter = 17592186044416UL)`
-
-**用途 / Purpose:** 调用 ConsolePrint 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.ConsolePrint("example", debug.DebugColor.White, 0);
-```
-
-### WriteDebugLineOnScreen
-`public static void WriteDebugLineOnScreen(string str)`
-
-**用途 / Purpose:** 将debug line on screen写入目标位置。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.WriteDebugLineOnScreen("example");
-```
-
-### RenderDebugText
-`public static void RenderDebugText(float screenX, float screenY, string text, uint color = 4294967295U, float time = 0f)`
-
-**用途 / Purpose:** 调用 RenderDebugText 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.RenderDebugText(0, 0, "example", 0, 0);
-```
-
-### RenderText
-`public static void RenderText(float screenX, float screenY, string text, uint color = 4294967295U, float time = 0f)`
-
-**用途 / Purpose:** 调用 RenderText 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.RenderText(0, 0, "example", 0, 0);
-```
-
-### RenderDebugRect
-`public static void RenderDebugRect(float left, float bottom, float right, float top)`
-
-**用途 / Purpose:** 调用 RenderDebugRect 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.RenderDebugRect(0, 0, 0, 0);
-```
-
-### RenderDebugRectWithColor
-`public static void RenderDebugRectWithColor(float left, float bottom, float right, float top, uint color = 4294967295U)`
-
-**用途 / Purpose:** 调用 RenderDebugRectWithColor 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.RenderDebugRectWithColor(0, 0, 0, 0, 0);
-```
-
-### RenderDebugFrame
-`public static void RenderDebugFrame(MatrixFrame frame, float lineLength, float time = 0f)`
-
-**用途 / Purpose:** 调用 RenderDebugFrame 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.RenderDebugFrame(frame, 0, 0);
-```
-
-### RenderDebugText3D
-`public static void RenderDebugText3D(Vec3 worldPosition, string str, uint color = 4294967295U, int screenPosOffsetX = 0, int screenPosOffsetY = 0, float time = 0f)`
-
-**用途 / Purpose:** 调用 RenderDebugText3D 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.RenderDebugText3D(worldPosition, "example", 0, 0, 0, 0);
-```
-
-### RenderDebugDirectionArrow
-`public static void RenderDebugDirectionArrow(Vec3 position, Vec3 direction, uint color = 4294967295U, bool depthCheck = false)`
-
-**用途 / Purpose:** 调用 RenderDebugDirectionArrow 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.RenderDebugDirectionArrow(position, direction, 0, false);
-```
-
-### RenderDebugLine
-`public static void RenderDebugLine(Vec3 position, Vec3 direction, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
-
-**用途 / Purpose:** 调用 RenderDebugLine 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.RenderDebugLine(position, direction, 0, false, 0);
-```
-
-### RenderDebugSphere
-`public static void RenderDebugSphere(Vec3 position, float radius, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
-
-**用途 / Purpose:** 调用 RenderDebugSphere 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.RenderDebugSphere(position, 0, 0, false, 0);
-```
-
-### RenderDebugCapsule
-`public static void RenderDebugCapsule(Vec3 p0, Vec3 p1, float radius, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
-
-**用途 / Purpose:** 调用 RenderDebugCapsule 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.RenderDebugCapsule(p0, p1, 0, 0, false, 0);
-```
-
-### RenderDebugBoundingBoxOfEntity
-`public static void RenderDebugBoundingBoxOfEntity(GameEntity entity, MatrixFrame frame, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
-
-**用途 / Purpose:** 调用 RenderDebugBoundingBoxOfEntity 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.RenderDebugBoundingBoxOfEntity(entity, frame, 0, false, 0);
-```
-
-### RenderDebugBoundingBox
-`public static void RenderDebugBoundingBox(BoundingBox box, MatrixFrame frame, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
-
-**用途 / Purpose:** 调用 RenderDebugBoundingBox 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.RenderDebugBoundingBox(box, frame, 0, false, 0);
-```
-
-### ClearRenderObjects
-`public static void ClearRenderObjects()`
-
-**用途 / Purpose:** 清空当前对象中的render objects。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.ClearRenderObjects();
-```
-
-### RenderDebugBoxObject
-`public static void RenderDebugBoxObject(Vec3 min, Vec3 max, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
-
-**用途 / Purpose:** 调用 RenderDebugBoxObject 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.RenderDebugBoxObject(min, max, 0, false, 0);
-```
-
-### RenderDebugBoxObject
-`public static void RenderDebugBoxObject(Vec3 min, Vec3 max, MatrixFrame frame, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
-
-**用途 / Purpose:** 调用 RenderDebugBoxObject 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.RenderDebugBoxObject(min, max, frame, 0, false, 0);
-```
-
-### PostWarningLine
-`public static void PostWarningLine(string line)`
-
-**用途 / Purpose:** 调用 PostWarningLine 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.PostWarningLine("example");
-```
-
-### IsErrorReportModeActive
-`public static bool IsErrorReportModeActive()`
-
-**用途 / Purpose:** 判断当前对象是否处于 error report mode active 状态或条件。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.IsErrorReportModeActive();
-```
-
-### IsErrorReportModePauseMission
-`public static bool IsErrorReportModePauseMission()`
-
-**用途 / Purpose:** 判断当前对象是否处于 error report mode pause mission 状态或条件。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.IsErrorReportModePauseMission();
-```
-
-### SetErrorReportScene
-`public static void SetErrorReportScene(Scene scene)`
-
-**用途 / Purpose:** 为 error report scene 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.SetErrorReportScene(scene);
-```
-
-### SetDumpGenerationDisabled
-`public static void SetDumpGenerationDisabled(bool value)`
-
-**用途 / Purpose:** 为 dump generation disabled 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.SetDumpGenerationDisabled(false);
-```
-
-### EchoCommandWindow
-`public static void EchoCommandWindow(string content)`
-
-**用途 / Purpose:** 调用 EchoCommandWindow 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.EchoCommandWindow("example");
-```
-
-### ClearConsole
-`public static string ClearConsole(List<string> strings)`
-
-**用途 / Purpose:** 清空当前对象中的console。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.ClearConsole(strings);
-```
-
-### EchoCommandWindow
-`public static string EchoCommandWindow(List<string> strings)`
-
-**用途 / Purpose:** 调用 EchoCommandWindow 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.EchoCommandWindow(strings);
-```
-
-### EchoCommandWindowTest
-`public static string EchoCommandWindowTest(List<string> strings)`
-
-**用途 / Purpose:** 调用 EchoCommandWindowTest 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.EchoCommandWindowTest(strings);
-```
-
-### IsTestMode
-`public static bool IsTestMode()`
-
-**用途 / Purpose:** 判断当前对象是否处于 test mode 状态或条件。
-
-```csharp
-// 静态调用，不需要实例
-MBDebug.IsTestMode();
-```
-
-## 使用示例
-
-```csharp
-MBDebug.DisableUI(strings);
-```
-
-## 参见
-
-- [本区域目录](../)
+- 父级：[engine API](../)
+- 同级：[EngineApplicationInterface](../EngineApplicationInterface/) · [SoundManager](../SoundManager/)

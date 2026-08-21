@@ -1,621 +1,95 @@
 ---
 title: "MathF"
-description: "MathF 的自动生成类参考。"
+description: 'Bannerlord 里替代 System.Math 的浮点/标量数学工具箱：三角函数、插值、夹取、取整，以及一批编译期数学常量。'
 ---
 # MathF
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class MathF`
-**Base:** 无
+**Base:** 无（静态类，直接继承自 `System.Object`）
 **File:** `TaleWorlds.Library/MathF.cs`
 
-## 概述
+## 一句话职责
 
-`MathF` 位于 `TaleWorlds.Library`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+它把 `System.Math` 包装成一套始终返回 `float`（而不是 `double`）的方法集合，外加角度夹取、插值、PingPong 等游戏常用运算和一批数学常量，避免 mod 代码里到处写 `(float)Math.Sin(...)` 这种强制转换。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+`MathF` 是 `TaleWorlds.Library` 里的静态工具类，属于 Foundation（基础数学）层，没有任何实例、不持有状态、不依赖任何游戏系统——纯函数集合。调用方随时可从任意线程、任意层（Campaign / Mission / UI）直接 `MathF.Xxx(...)` 使用，无需获取实例。它和 `MBMath`（`TaleWorlds.Core`，偏玩法/概率/平滑曲线）是两套互补工具：底层标量运算走 `MathF`，玩法相关（如平滑朝向、加权随机）走 `MBMath`。注意 `MathF` 的方法大量是 `float` 重载，和 `System.Math` 的 `double` 默认不同，混用容易因类型不匹配触发那些标了 `[Obsolete("Types must match!", true)]` 的重载而编译失败。
 
-## 主要方法
+生命周期：不需要创建，全程存在。
 
-### Sqrt
-`public static float Sqrt(float x)`
+## 何时用 / 何时不要用
 
-**用途 / Purpose:** 调用 Sqrt 对应的操作。
+- **用**：需要 `float` 版本的 `Sin/Cos/Sqrt/Atan2`、把值夹在 `[min,max]`（`Clamp`）、做线性插值（`Lerp`）、角度插值（`AngleLerp`/`AngleClamp`）、取整/地板/天花板、取最值（`Max`/`Min`/`MinMax`）、以及使用 `PI`/`TwoPI`/`DegToRad` 等常量。
+- **不要用**：需要 `double` 高精度长周期积分——直接用 `System.Math`；需要玩法曲线/概率/朝向平滑——用 `MBMath`；需要向量/矩阵运算——用 `Vec3`/`MatrixFrame`。另：那几个 `Pow(float,double)`、`Min(int,float)` 等重载已被标 `Obsolete` 且会编译报错，别用，改用自己的类型一致版本。
 
-```csharp
-// 静态调用，不需要实例
-MathF.Sqrt(0);
-```
-
-### Sin
-`public static float Sin(float x)`
-
-**用途 / Purpose:** 调用 Sin 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Sin(0);
-```
-
-### Asin
-`public static float Asin(float x)`
-
-**用途 / Purpose:** 调用 Asin 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Asin(0);
-```
-
-### Cos
-`public static float Cos(float x)`
-
-**用途 / Purpose:** 调用 Cos 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Cos(0);
-```
-
-### Acos
-`public static float Acos(float x)`
-
-**用途 / Purpose:** 调用 Acos 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Acos(0);
-```
-
-### Tan
-`public static float Tan(float x)`
-
-**用途 / Purpose:** 调用 Tan 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Tan(0);
-```
-
-### Tanh
-`public static float Tanh(float x)`
-
-**用途 / Purpose:** 调用 Tanh 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Tanh(0);
-```
-
-### Atan
-`public static float Atan(float x)`
-
-**用途 / Purpose:** 调用 Atan 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Atan(0);
-```
-
-### Atan2
-`public static float Atan2(float y, float x)`
-
-**用途 / Purpose:** 调用 Atan2 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Atan2(0, 0);
-```
-
-### Pow
-`public static double Pow(double x, double y)`
-
-**用途 / Purpose:** 调用 Pow 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Pow(0, 0);
-```
-
-### Pow
-`public static double Pow(float x, double y)`
-
-**用途 / Purpose:** 调用 Pow 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Pow(0, 0);
-```
-
-### Pow
-`public static double Pow(double x, float y)`
-
-**用途 / Purpose:** 调用 Pow 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Pow(0, 0);
-```
-
-### Pow
-`public static float Pow(float x, float y)`
-
-**用途 / Purpose:** 调用 Pow 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Pow(0, 0);
-```
-
-### PowTwo32
-`public static int PowTwo32(int x)`
-
-**用途 / Purpose:** 调用 PowTwo32 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.PowTwo32(0);
-```
-
-### PowTwo64
-`public static ulong PowTwo64(int x)`
-
-**用途 / Purpose:** 调用 PowTwo64 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.PowTwo64(0);
-```
-
-### IsValidValue
-`public static bool IsValidValue(float f)`
-
-**用途 / Purpose:** 判断当前对象是否处于 valid value 状态或条件。
-
-```csharp
-// 静态调用，不需要实例
-MathF.IsValidValue(0);
-```
-
-### Clamp
-`public static float Clamp(float value, float minValue, float maxValue)`
-
-**用途 / Purpose:** 调用 Clamp 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Clamp(0, 0, 0);
-```
-
-### AngleClamp
-`public static float AngleClamp(float angle)`
-
-**用途 / Purpose:** 调用 AngleClamp 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.AngleClamp(0);
-```
-
-### Lerp
-`public static float Lerp(float valueFrom, float valueTo, float amount, float minimumDifference = 1E-05f)`
-
-**用途 / Purpose:** 调用 Lerp 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Lerp(0, 0, 0, 0);
-```
-
-### AngleLerp
-`public static float AngleLerp(float angleFrom, float angleTo, float amount, float minimumDifference = 1E-05f)`
-
-**用途 / Purpose:** 调用 AngleLerp 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.AngleLerp(0, 0, 0, 0);
-```
-
-### Round
-`public static int Round(double f)`
-
-**用途 / Purpose:** 调用 Round 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Round(0);
-```
-
-### Round
-`public static int Round(float f)`
-
-**用途 / Purpose:** 调用 Round 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Round(0);
-```
-
-### Round
-`public static float Round(float f, int digits)`
-
-**用途 / Purpose:** 调用 Round 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Round(0, 0);
-```
-
-### Round
-`public static int Round(int f)`
-
-**用途 / Purpose:** 调用 Round 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Round(0);
-```
-
-### Floor
-`public static int Floor(double f)`
-
-**用途 / Purpose:** 调用 Floor 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Floor(0);
-```
-
-### Floor
-`public static int Floor(float f)`
-
-**用途 / Purpose:** 调用 Floor 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Floor(0);
-```
-
-### Floor
-`public static int Floor(int f)`
-
-**用途 / Purpose:** 调用 Floor 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Floor(0);
-```
-
-### Ceiling
-`public static int Ceiling(double f)`
-
-**用途 / Purpose:** 调用 Ceiling 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Ceiling(0);
-```
-
-### Ceiling
-`public static int Ceiling(float f)`
-
-**用途 / Purpose:** 调用 Ceiling 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Ceiling(0);
-```
-
-### Ceiling
-`public static int Ceiling(int f)`
-
-**用途 / Purpose:** 调用 Ceiling 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Ceiling(0);
-```
-
-### Abs
-`public static double Abs(double f)`
-
-**用途 / Purpose:** 调用 Abs 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Abs(0);
-```
-
-### Abs
-`public static float Abs(float f)`
-
-**用途 / Purpose:** 调用 Abs 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Abs(0);
-```
-
-### Abs
-`public static int Abs(int f)`
-
-**用途 / Purpose:** 调用 Abs 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Abs(0);
-```
-
-### Max
-`public static double Max(double a, double b)`
-
-**用途 / Purpose:** 调用 Max 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Max(0, 0);
-```
-
-### Max
-`public static float Max(float a, float b)`
-
-**用途 / Purpose:** 调用 Max 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Max(0, 0);
-```
-
-### MinMax
-`public static ValueTuple<float, float> MinMax(float a, float b)`
-
-**用途 / Purpose:** 调用 MinMax 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.MinMax(0, 0);
-```
-
-### Max
-`public static float Max(float a, int b)`
-
-**用途 / Purpose:** 调用 Max 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Max(0, 0);
-```
-
-### Max
-`public static float Max(int a, float b)`
-
-**用途 / Purpose:** 调用 Max 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Max(0, 0);
-```
-
-### Max
-`public static int Max(int a, int b)`
-
-**用途 / Purpose:** 调用 Max 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Max(0, 0);
-```
-
-### Max
-`public static long Max(long a, long b)`
-
-**用途 / Purpose:** 调用 Max 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Max(0, 0);
-```
-
-### Max
-`public static uint Max(uint a, uint b)`
-
-**用途 / Purpose:** 调用 Max 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Max(0, 0);
-```
-
-### Max
-`public static float Max(float a, float b, float c)`
-
-**用途 / Purpose:** 调用 Max 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Max(0, 0, 0);
-```
-
-### Min
-`public static double Min(double a, double b)`
-
-**用途 / Purpose:** 调用 Min 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Min(0, 0);
-```
-
-### Min
-`public static float Min(float a, float b)`
-
-**用途 / Purpose:** 调用 Min 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Min(0, 0);
-```
-
-### Min
-`public static short Min(short a, short b)`
-
-**用途 / Purpose:** 调用 Min 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Min(0, 0);
-```
-
-### Min
-`public static int Min(int a, int b)`
-
-**用途 / Purpose:** 调用 Min 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Min(0, 0);
-```
-
-### Min
-`public static long Min(long a, long b)`
-
-**用途 / Purpose:** 调用 Min 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Min(0, 0);
-```
-
-### Min
-`public static uint Min(uint a, uint b)`
-
-**用途 / Purpose:** 调用 Min 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Min(0, 0);
-```
-
-### Min
-`public static int Min(int a, float b)`
-
-**用途 / Purpose:** 调用 Min 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Min(0, 0);
-```
-
-### Min
-`public static int Min(float a, int b)`
-
-**用途 / Purpose:** 调用 Min 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Min(0, 0);
-```
-
-### Min
-`public static float Min(float a, float b, float c)`
-
-**用途 / Purpose:** 调用 Min 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Min(0, 0, 0);
-```
-
-### PingPong
-`public static float PingPong(float min, float max, float time)`
-
-**用途 / Purpose:** 调用 PingPong 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.PingPong(0, 0, 0);
-```
-
-### GreatestCommonDivisor
-`public static int GreatestCommonDivisor(int a, int b)`
-
-**用途 / Purpose:** 调用 GreatestCommonDivisor 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.GreatestCommonDivisor(0, 0);
-```
-
-### Log
-`public static float Log(float a)`
-
-**用途 / Purpose:** 调用 Log 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Log(0);
-```
-
-### Log
-`public static float Log(float a, float newBase)`
-
-**用途 / Purpose:** 调用 Log 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Log(0, 0);
-```
-
-### Sign
-`public static int Sign(float f)`
-
-**用途 / Purpose:** 调用 Sign 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Sign(0);
-```
-
-### Sign
-`public static int Sign(int f)`
-
-**用途 / Purpose:** 调用 Sign 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Sign(0);
-```
-
-### SinCos
-`public static void SinCos(float a, out float sa, out float ca)`
-
-**用途 / Purpose:** 调用 SinCos 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.SinCos(0, sa, ca);
-```
-
-### Log10
-`public static float Log10(float val)`
-
-**用途 / Purpose:** 调用 Log10 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-MathF.Log10(0);
-```
-
-## 使用示例
-
-```csharp
-MathF.Sqrt(0);
-```
-
-## 参见
-
+## 依赖图
 - [本区域目录](../)
+- [MBMath —— Core 层的玩法数学助手，与 MathF 互补](../MBMath)
+- [Vec3 —— 三维向量， MathF 常量常用于其构造](../Vec3)
+- [MatrixFrame —— Rotate 内部调用 MathF.SinCos](../MatrixFrame)
+- [SDK 总览：各层职责与边界](../../../architecture/sdk-overview)
+- [崩溃边界：类型不匹配与浮点陷阱](../../../architecture/crash-boundaries)
+
+## 风险段
+
+- **类型不匹配即编译失败**：`Pow(float, double)`、`Max(float, int)`、`Min(int, float)`、`Round(int)`、`Floor(int)`、`Ceiling(int)` 都标了 `[Obsolete(..., true)]`，`true` 代表编译期就报错。务必保证实参类型一致（都 `float` 或都 `int`）。
+- **`float` 精度**：`MathF` 全程 `float`，累加循环（如逐帧 `Lerp`）会累积误差；对精度敏感的逻辑（如大世界坐标距离）考虑 `double` 或自行容差。
+- **`PingPong` 的整数截断**：它先把 `min/max/time` 各乘 100 转 `int` 再算，入参超出约 ±2 千万或小数位超过 0.01 会失真，只适合小范围归一化时间。
+- **`AngleClamp` 不归一化到 [-π,π]**：它把角度折回 `[0, 2π)`，若你的逻辑期望负角要先自行处理。
+- **除零/非法值**：`IsValidValue(f)` 可快速筛掉 `NaN`/`Infinity`，在把外部数据喂给 `Atan2`/`Log`/`Pow` 前先校验，避免传播脏值。
+
+## 成员说明
+
+### 三角函数（均返回 `float`）
+- `Sqrt/Sin/Cos/Tan/Asin/Acos/Atan/Atan2/Tanh`：对应 `System.Math` 的 `float` 版本；`Atan2(y, x)` 注意参数顺序是 y 在前。
+- `void SinCos(float a, out float sa, out float ca)`：一次调用同时拿到 `sin` 与 `cos`，`MatrixFrame.Rotate` 内部就用它；比分别调两次更快。
+- `Log(float)` / `Log(float, float newBase)` / `Log10(float)`：自然对数、指定底对数、以 10 为底。
+
+### 幂与常量
+- `Pow`：`Pow(double,double)` 与 `Pow(float,float)` 可用；其余重载已废弃。
+- `PowTwo32(int)` / `PowTwo64(int)`：返回 `1 << x`（或 `1UL << x`），算 2 的整数次幂。
+- 常量：`PI`(3.1415927)、`TwoPI`(6.2831855)、`HalfPI`(1.5707964)、`E`(2.7182817)、`DegToRad`(0.017453292)、`RadToDeg`(57.29578)、`Epsilon`(1E-05)。用于 `a * MathF.DegToRad` 这类角度换算。
+
+### 夹取、插值、循环
+- `float Clamp(float value, float minValue, float maxValue)`：把值限制在 `[min,max]`，越界返回边界，无 side-effect。
+- `float AngleClamp(float angle)`：把角度折回 `[0, 2π)`。
+- `float Lerp(float valueFrom, float valueTo, float amount, float minimumDifference = 1E-05f)`：线性插值；当两端差小于 `minimumDifference` 直接返回 `valueTo`，可避免抖动。
+- `float AngleLerp(float angleFrom, float angleTo, float amount, ...)`：考虑环绕的最短路径角度插值（走 `[-π,π]` 最近方向）。
+- `float PingPong(float min, float max, float time)`：时间在 `[min,max]` 间往返。
+
+### 取整与最值
+- `Round/Floor/Ceiling`：均有 `float`/`double` 重载（返回 `int`）；`int` 重载已废弃。
+- `Abs`：`float`/`double`/`int` 重载。
+- `Max`/`Min`：多组 `float`/`int`/`long`/`uint` 重载，并有三参 `Max(a,b,c)`/`Min(a,b,c)`；`MinMax(float a, float b)` 以 `(小, 大)` 元组返回。
+- `GreatestCommonDivisor(int a, int b)`：欧几里得算法求最大公约数。
+- `Sign(float)` / `Sign(int)`：符号（-1/0/1）。
+- `IsValidValue(float f)`：非 `NaN` 且非无穷时返回 `true`。
+
+## 最小真实示例
+
+示例 1：把角度在每帧朝目标插值，并换算成朝向向量。
+
+```csharp
+float currentYaw = MathF.AngleLerp(currentYaw, targetYaw, 0.1f);
+Vec3 forward = new Vec3(MathF.Sin(currentYaw), MathF.Cos(currentYaw), 0f, -1f);
+```
+
+示例 2：把生命值比例夹到 [0,1]，并用 Clamp 防止越界后做插值。
+
+```csharp
+float ratio = MathF.Clamp(hp / maxHp, 0f, 1f);
+float smoothed = MathF.Lerp(smoothed, ratio, 0.2f);
+if (!MathF.IsValidValue(smoothed))
+{
+    smoothed = 0f;
+}
+```
+
+## 导航
+
+- ↑ Parent（本区域目录）：[../](../)
+- ↔ Sibling：[MBMath](../MBMath)、[Vec3](../Vec3)、[MatrixFrame](../MatrixFrame)
+- 相关：[崩溃边界](../../../architecture/crash-boundaries)、[SDK 总览](../../../architecture/sdk-overview)

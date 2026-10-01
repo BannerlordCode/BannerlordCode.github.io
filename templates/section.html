@@ -6,8 +6,26 @@
 
 {% block content %}
 <article>
-  {{ breadcrumb::render_breadcrumb(current_url=section.path, lang=lang) }}
-  {% if section.title %}<h1>{{ section.title }}</h1>{% endif %}
+  {% set path_parts = section.path | split(pat="/") %}
+  {% set url_lang = path_parts | nth(n=2) | default(value="") %}
+  {% set_global crumb_lang = lang %}
+  {% if url_lang == "zh" or url_lang == "en" %}
+    {% set_global crumb_lang = url_lang %}
+  {% endif %}
+  {{ breadcrumb::render_breadcrumb(current_url=section.path, lang=crumb_lang) }}
+  {% set is_zh = url_lang == "zh" %}
+  {% set md_body = load_data(path="@/" ~ section.relative_path) %}
+  <div class="page-header-actions">
+    {% if section.title %}<h1>{{ section.title }}</h1>{% endif %}
+    <button type="button" class="copy-md-btn"
+            data-md-source="{{ md_body | base64_encode }}"
+            data-default-text="{% if is_zh %}复制 Markdown{% else %}Copy Markdown{% endif %}"
+            data-copied-text="{% if is_zh %}已复制！{% else %}Copied!{% endif %}"
+            data-failed-text="{% if is_zh %}复制失败{% else %}Failed{% endif %}"
+            aria-label="{% if is_zh %}复制 Markdown{% else %}Copy Markdown{% endif %}">
+      {%- if is_zh %}复制 Markdown{% else %}Copy Markdown{% endif -%}
+    </button>
+  </div>
   {{ section.content | safe }}
 </article>
 <hr>

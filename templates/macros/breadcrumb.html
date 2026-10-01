@@ -8,8 +8,19 @@
       <span aria-hidden="true"> → </span>
       {% for anc in item.ancestors %}
         {% set sec = get_section(path=anc) %}
-        <a href="{{ sec.permalink }}">{{ sec.title | default(value=sec.components | last) }}</a>
+        {%- if sec.components | length > 0 -%}
+        {%- set_global crumb_title = sec.title | default(value=sec.components | last) -%}
+        {%- if crumb_title is containing(" / ") -%}
+          {%- set crumb_parts = crumb_title | split(pat=" / ") -%}
+          {%- if lang == "zh" -%}
+            {%- set_global crumb_title = crumb_parts | first -%}
+          {%- else -%}
+            {%- set_global crumb_title = crumb_parts | last -%}
+          {%- endif -%}
+        {%- endif -%}
+        <a href="{{ sec.permalink }}">{{ crumb_title }}</a>
         <span aria-hidden="true"> → </span>
+        {%- endif -%}
       {% endfor %}
       <span class="current">{{ item.title }}</span>
     </nav>

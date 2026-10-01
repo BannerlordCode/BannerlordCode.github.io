@@ -13,7 +13,7 @@ description: "战役地图上的王国决议通知数据对象：在决议被提
 
 ## 一句话职责
 
-`KingdomDecisionMapNotification` 是贴在战役地图上的「王国决议弹窗数据」：它不计算规则、不推进流程，只是把**某条 `KingdomDecision` 已经发生（被提出 / 已落定）**这件事连同所属 `[Kingdom](../Kingdom)` 一起打包成一个 `InformationData`，交给 `[Campaign](../../Campaign).CampaignInformationManager.NewMapNoticeAdded` 推到地图通知栏，等待玩家点击查看详情。
+`KingdomDecisionMapNotification` 是贴在战役地图上的「王国决议弹窗数据」：它不计算规则、不推进流程，只是把**某条 `KingdomDecision` 已经发生（被提出 / 已落定）**这件事连同所属 `[Kingdom](../Kingdom)` 一起打包成一个 `InformationData`，交给 `[Campaign](../Campaign).CampaignInformationManager.NewMapNoticeAdded` 推到地图通知栏，等待玩家点击查看详情。
 
 ## 心智模型
 
@@ -42,7 +42,7 @@ graph TD
     NOTICE -.序列化.-> SAVE[SaveableProperty]
 ```
 
-- 上游（谁驱动 / 谁构造）：[KingdomDecisionProposalBehavior](../../campaign-ext/KingdomDecisionProposalBehavior) 推进提案与裁定并广播 `KingdomDecisionAdded` / `KingdomDecisionConcluded`；[CampaignEvents](../CampaignEvents) 是这些事件的暴露点；[DefaultLogsCampaignBehavior](../../campaign-ext/DefaultLogsCampaignBehavior) 在回调里 `new` 出本通知；[KingdomDecision](../../campaign-ext/KingdomDecision) 提供标题与正文文本；[Campaign](../../Campaign) 持有 `CampaignInformationManager` 与存档上下文。
+- 上游（谁驱动 / 谁构造）：[KingdomDecisionProposalBehavior](../../campaign-ext/KingdomDecisionProposalBehavior) 推进提案与裁定并广播 `KingdomDecisionAdded` / `KingdomDecisionConcluded`；[CampaignEvents](../CampaignEvents) 是这些事件的暴露点；[DefaultLogsCampaignBehavior](../../campaign-ext/DefaultLogsCampaignBehavior) 在回调里 `new` 出本通知；[KingdomDecision](../../campaign-ext/KingdomDecision) 提供标题与正文文本；[Campaign](../Campaign) 持有 `CampaignInformationManager` 与存档上下文。
 - 下游（谁消费 / 谁被呈现）：具体决议如 [KingdomPolicyDecision](../../campaign-ext/KingdomPolicyDecision) 的 `Policy.IsReady` 影响 `IsValid()`；[KingdomDecisionConcludedLogEntry](../../campaign-ext/KingdomDecisionConcludedLogEntry) 提供落定文本；[Kingdom](../Kingdom) 与 [Clan](../Clan) 决定玩家是否参与、是否该弹通知；[InformationData](../../core-extra/InformationData) 是基类、定义标题/描述/音效抽象契约。
 
 ## 风险
@@ -139,4 +139,4 @@ if (decision.Kingdom == Hero.MainHero.MapFaction && decision.NotifyPlayer && !de
 
 - ↑ 父级：[战役 API 索引](../)
 - ↔ 同级（决策框架）：[KingdomDecision](../../campaign-ext/KingdomDecision) · [KingdomDecisionProposalBehavior](../../campaign-ext/KingdomDecisionProposalBehavior) · [KingdomDecisionConcludedLogEntry](../../campaign-ext/KingdomDecisionConcludedLogEntry) · [KingdomPolicyDecision](../../campaign-ext/KingdomPolicyDecision) · [DefaultLogsCampaignBehavior](../../campaign-ext/DefaultLogsCampaignBehavior)
-- 相关（王国与战役）：[Kingdom](../Kingdom) · [Clan](../Clan) · [Campaign](../../Campaign) · [CampaignEvents](../CampaignEvents) · [InformationData](../../core-extra/InformationData)
+- 相关（王国与战役）：[Kingdom](../Kingdom) · [Clan](../Clan) · [Campaign](../Campaign) · [CampaignEvents](../CampaignEvents) · [InformationData](../../core-extra/InformationData)

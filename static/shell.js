@@ -104,4 +104,24 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+
+  var switchLinks = document.querySelectorAll('[data-switch-version]');
+  if (switchLinks.length) {
+    var segments = window.location.pathname.split('/').filter(Boolean);
+    var relkey = segments.slice(2).join('/');
+    if (relkey) {
+      if (relkey.charAt(relkey.length - 1) !== '/') relkey += '/';
+      fetch('/relkey_map.json').then(function (response) {
+        return response.ok ? response.json() : null;
+      }).then(function (map) {
+        var byVersion = map && map[relkey];
+        if (!byVersion) return;
+        switchLinks.forEach(function (link) {
+          var entry = byVersion[link.getAttribute('data-switch-version')];
+          var target = entry && entry[link.getAttribute('data-switch-lang')];
+          if (target) link.setAttribute('href', target);
+        });
+      }).catch(function () {});
+    }
+  }
 });

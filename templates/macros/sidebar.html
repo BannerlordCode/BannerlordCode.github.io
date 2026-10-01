@@ -3,7 +3,7 @@
    folders that navigation does not already list. Version and language links
    are resolved with relkey_map.json.
 #}
-{%- macro switch_href(nav, alt_map, current_relkey, version, lang_code) -%}
+{%- macro switch_href(nav, version, lang_code) -%}
 {%- set_global switch_target = "/" ~ version ~ "/" ~ lang_code ~ "/" -%}
 {%- if not (nav.routes[switch_target] is defined) -%}
   {%- for fallback_lang in nav.meta.languages -%}
@@ -13,12 +13,6 @@
       {%- break -%}
     {%- endif -%}
   {%- endfor -%}
-{%- endif -%}
-{%- if current_relkey and alt_map is containing(current_relkey) -%}
-  {%- set mapped = alt_map[current_relkey] -%}
-  {%- if mapped is containing(version) and mapped[version] is containing(lang_code) -%}
-    {%- set_global switch_target = mapped[version][lang_code] -%}
-  {%- endif -%}
 {%- endif -%}
 {{- switch_target | safe -}}
 {%- endmacro switch_href -%}
@@ -140,7 +134,6 @@
 {%- macro render_nav(current_url, lang) -%}
 {%- set nav = load_data(path="data/navigation.json") -%}
 {%- set tree = load_data(path="data/section-tree.json") -%}
-{%- set alt_map = load_data(path="data/relkey_map.json") -%}
 {%- set_global page_url = current_url -%}
 {%- if not page_url -%}
   {%- set_global page_url = "/" -%}
@@ -163,13 +156,6 @@
 {%- if nav.meta.versions is containing(current_version) and nav.meta.languages is containing(current_lang) -%}
   {%- set_global in_version = true -%}
   {%- set_global root_key = "/" ~ current_version ~ "/" ~ current_lang ~ "/" -%}
-{%- endif -%}
-{%- set_global current_relkey = "" -%}
-{%- if in_version -%}
-  {%- set version_lang_prefix = "/" ~ current_version ~ "/" ~ current_lang ~ "/" -%}
-  {%- if page_url is starting_with(version_lang_prefix) -%}
-    {%- set_global current_relkey = page_url | replace(from=version_lang_prefix, to="") | trim_start_matches(pat="/") -%}
-  {%- endif -%}
 {%- endif -%}
 {%- set_global mapped_url = "/" -%}
 {%- set_global matched_len = 1 -%}
@@ -224,7 +210,7 @@
     {%- else -%}
       <a class="leaf{% if page_url == '/' %} active{% endif %}" href="{{ '/' | safe }}">{{ nav.routes['/'].label[shell_lang] }}</a>
       {%- for version in nav.meta.versions -%}
-        <a class="leaf" href="{{ self::switch_href(nav=nav, alt_map=alt_map, current_relkey='', version=version, lang_code=shell_lang) }}">{{ version }}</a>
+        <a class="leaf" href="{{ self::switch_href(nav=nav, version=version, lang_code=shell_lang) }}" data-switch-version="{{ version }}" data-switch-lang="{{ shell_lang }}">{{ version }}</a>
       {%- endfor -%}
       {%- if nav.routes["/versions/"] is defined -%}
         <a class="leaf{% if page_url is starting_with('/versions/') %} active{% endif %}" href="{{ '/versions/' | safe }}">{{ nav.routes['/versions/'].label[shell_lang] }}</a>
@@ -244,7 +230,7 @@
     </summary>
     <div class="switcher-menu">
       {%- for version in nav.meta.versions -%}
-        <a href="{{ self::switch_href(nav=nav, alt_map=alt_map, current_relkey=current_relkey, version=version, lang_code=shell_lang) }}"{% if in_version and version == current_version %} aria-current="true"{% endif %}>{{ version }}</a>
+        <a href="{{ self::switch_href(nav=nav, version=version, lang_code=shell_lang) }}" data-switch-version="{{ version }}" data-switch-lang="{{ shell_lang }}"{% if in_version and version == current_version %} aria-current="true"{% endif %}>{{ version }}</a>
       {%- endfor -%}
     </div>
   </details>
@@ -255,7 +241,7 @@
     </summary>
     <div class="switcher-menu">
       {%- for lang_code in nav.meta.languages -%}
-        <a href="{{ self::switch_href(nav=nav, alt_map=alt_map, current_relkey=current_relkey, version=lang_version, lang_code=lang_code) }}"{% if in_version and lang_code == current_lang %} aria-current="true"{% endif %}>{% if lang_code == 'zh' %}中文{% else %}English{% endif %}</a>
+        <a href="{{ self::switch_href(nav=nav, version=lang_version, lang_code=lang_code) }}" data-switch-version="{{ lang_version }}" data-switch-lang="{{ lang_code }}"{% if in_version and lang_code == current_lang %} aria-current="true"{% endif %}>{% if lang_code == 'zh' %}中文{% else %}English{% endif %}</a>
       {%- endfor -%}
     </div>
   </details>

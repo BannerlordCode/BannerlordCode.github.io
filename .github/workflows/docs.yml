@@ -25,6 +25,9 @@ jobs:
       - name: Build Zola site
         run: zola build
 
+      - name: Publish relkey map
+        run: cp data/relkey_map.json public/relkey_map.json
+
       - name: Generate llm.txt
         run: node tools/gen-llm-txt.mjs
 

@@ -21,7 +21,14 @@
       {%- endif -%}
     {%- endfor -%}
     {%- set navigation = load_data(path="data/navigation.json") -%}
-    {%- set related_parent = navigation.routes[parent_section.path] -%}
+    {%- set_global route_key = parent_section.path -%}
+    {%- if not (navigation.routes[route_key] is defined) -%}
+      {%- set_global route_key = "/" ~ parent_section.path -%}
+    {%- endif -%}
+    {%- set_global related_parent = false -%}
+    {%- if navigation.routes[route_key] is defined -%}
+      {%- set_global related_parent = navigation.routes[route_key] -%}
+    {%- endif -%}
     <nav class="page-navigation" aria-label="{% if lang == 'zh' %}页面导航{% else %}Page navigation{% endif %}">
       <div class="page-navigation-row">
         <div class="page-navigation-parent">
@@ -41,7 +48,7 @@
           {% endif %}
         </div>
       </div>
-      {% if related_parent is defined and related_parent.children is defined and related_parent.children | length > 0 %}
+      {% if related_parent and related_parent.children is defined and related_parent.children | length > 0 %}
         <div class="page-navigation-related">
           <span class="page-navigation-label">{% if lang == 'zh' %}相关入口{% else %}Related{% endif %}</span>
           {% for related_route in related_parent.children %}

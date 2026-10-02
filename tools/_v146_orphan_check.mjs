@@ -5,6 +5,13 @@ import path from 'node:path';
 const SITE='content';
 function walk(d,a=[]){for(const e of fs.readdirSync(d,{withFileTypes:true})){const p=path.join(d,e.name);e.isDirectory()?walk(p,a):(e.name.endsWith('.md')||e.name.endsWith('.txt'))&&a.push(p);}return a;}
 const files=walk(SITE);
+
+// 空 universe 守卫：一个什么都没遍历到的检查器，与「正确地什么都没找到」输出完全一样。
+// 因此空集必须报错退出，而不是报出一个漂亮的 0。
+if (!files.length) {
+  console.error('EMPTY_UNIVERSE: 未遍历到任何文件 —— 检查器无法工作，拒绝出结论（这不等于「一切正常」）');
+  process.exit(2);
+}
 const routeOf=(rel)=>{const q=rel.split(path.sep).join('/').replace(/\.md$/,'');return q.endsWith('_index')?q.replace(/_index$/,''):q+'/';};
 function res(from,href){if(/^(https?:|#|mailto:)/.test(href))return null;const h=href.split('#')[0];if(!h)return null;const s=from.split('/').filter(Boolean);for(const x of h.split('/')){if(x==='.'||x==='')continue;if(x==='..')s.pop();else s.push(x);}const r=s.join('/');return r.endsWith('/')?r:r+'/';}
 const routes=new Map(); for(const f of files) routes.set(routeOf(path.relative(SITE,f)),f);

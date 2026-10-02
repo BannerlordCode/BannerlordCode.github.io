@@ -180,7 +180,11 @@ foreach (CraftingPiece piece in template.Pieces)
 
 ## 跨版本提示
 
-`bannerlord-1.3.15/TaleWorlds.Core/CraftingPiece.cs` 与 `bannerlord-1.4.6/TaleWorlds.Core/CraftingPiece.cs` 逐行比对，**public 表面完全一致**：42 条 public 成员（27 个数据属性 + `MaterialsUsed` / `IsEmptyPiece` + `All` + `GetInvalidCraftingPiece` + 两个公开字段 `AdditionalWeaponFlags` / `AdditionalItemFlags` + `Deserialize` + 两个构造器 + 嵌套 `PieceTypes` 枚举的 6 个值）。`bannerlord-1.4.5/` 本机只有 DLL、无 C# 源码，未能核对。
+`bannerlord-1.3.15/TaleWorlds.Core/CraftingPiece.cs` 与 `bannerlord-1.4.6/TaleWorlds.Core/CraftingPiece.cs` 逐行比对，**public 表面完全一致**：42 条 public 成员（27 个数据属性 + `MaterialsUsed` / `IsEmptyPiece` + `All` + `GetInvalidCraftingPiece` + 两个公开字段 `AdditionalWeaponFlags` / `AdditionalItemFlags` + `Deserialize` + 两个构造器 + 嵌套 `PieceTypes` 枚举的 6 个值）。
+
+**1.4.5 侧结论**：打开 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/CraftingPiece.cs`（299 行）与 `bannerlord-1.4.6/TaleWorlds.Core/CraftingPiece.cs`（466 行）逐成员比对 public/protected 表面。**与 1.4.6 的 public 表面 0 新增 / 0 移除 / 0 签名变化 / 0 可访问性变化**。`MaterialsUsed` 这个属性**三版都有**（1.3.15 与 1.4.6 在第 218 行、1.4.5 在第 92 行），写法差异属**反编译形态**：1.4.5 是表达式体 `public MBReadOnlyList<(CraftingMaterials, int)> MaterialsUsed => _materialsUsed;`，1.3.15 与 1.4.6 反编译成块体并把元组展开写成 `ValueTuple<CraftingMaterials, int>`。**类型完全相同，不是新增成员。**
+
+**为什么这份源码之前被判为「不存在」**：`bannerlord-1.4.5/` 的 C# 源码在 `Bannerlord.Source/bin/` 下**双层嵌套** `bin/<Assembly>/<Assembly>/<Type>.cs`，而 `bin/` 的一层里没有任何 `.cs`（实测 `find bannerlord-1.4.5/Bannerlord.Source/bin -maxdepth 1 -name "*.cs"` 命中 0），只扫一层就会误判成无源码。**1.4.5 是原始源码形态**（file-scoped namespace、无 `// Token:` 注释），1.4.6 与 1.3.15 是反编译产物，所以两边的行数不可直接比大小。
 
 ## 依赖关系
 

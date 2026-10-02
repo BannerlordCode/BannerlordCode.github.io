@@ -152,7 +152,11 @@ Debug.Print("=> Invalid 无法与真实 0 值区分，需要自己另带标记",
 
 ## 跨版本提示
 
-`bannerlord-1.3.15/TaleWorlds.Core/DynamicBodyProperties.cs` 与 `bannerlord-1.4.6/TaleWorlds.Core/DynamicBodyProperties.cs` 逐行比对，**public 表面完全一致**：15 条 public 成员（三个公开字段 + 构造器 + `Equals` 泛型 / `Equals` object / `GetHashCode` / `ToString` / `operator ==` / `operator !=` + `Default` / `Invalid` 两个 `static readonly` 字段 + `MaxAge` / `MaxAgeTeenager` 两个常量），`[Serializable]` 标记与 `ToString()` 的格式串也没变。`bannerlord-1.4.5/` 本机只有 DLL、无 C# 源码，未能核对。
+`bannerlord-1.3.15/TaleWorlds.Core/DynamicBodyProperties.cs` 与 `bannerlord-1.4.6/TaleWorlds.Core/DynamicBodyProperties.cs` 逐行比对，**public 表面完全一致**：15 条 public 成员（三个公开字段 + 构造器 + `Equals` 泛型 / `Equals` object / `GetHashCode` / `ToString` / `operator ==` / `operator !=` + `Default` / `Invalid` 两个 `static readonly` 字段 + `MaxAge` / `MaxAgeTeenager` 两个常量），`[Serializable]` 标记与 `ToString()` 的格式串也没变。
+
+**1.4.5 侧结论**：打开 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/DynamicBodyProperties.cs`（86 行）与 `bannerlord-1.4.6/TaleWorlds.Core/DynamicBodyProperties.cs`（85 行）逐成员比对 public/protected 表面。**与 1.4.6 的 public 表面 0 新增 / 0 移除 / 0 签名变化 / 0 可访问性变化**；嵌套写法差异属反编译形态（1.4.5 用 C# 12 主构造器单行声明，1.4.6 反编译成块体）。**并且 1.4.5 的原始源码解开了本段上文标记为无法判定的那一条**：该文件第 23–35 行的 `operator ==` 原始写法是 `if ((object)a == (object)b) { return true; }` 再 `if ((object)a == null || (object)b == null) { return false; }` 之后逐字段比 —— **首项确实是装箱后的引用相等比较，不是自身递归调用**。1.4.6 反编译产物里那个 `a == b` 首项是渲染丢失装箱转换造成的假象。
+
+**为什么这份源码之前被判为「不存在」**：`bannerlord-1.4.5/` 的 C# 源码在 `Bannerlord.Source/bin/` 下**双层嵌套** `bin/<Assembly>/<Assembly>/<Type>.cs`，而 `bin/` 的一层里没有任何 `.cs`（实测 `find bannerlord-1.4.5/Bannerlord.Source/bin -maxdepth 1 -name "*.cs"` 命中 0），只扫一层就会误判成无源码。**1.4.5 是原始源码形态**（file-scoped namespace、无 `// Token:` 注释），1.4.6 与 1.3.15 是反编译产物，所以两边的行数不可直接比大小。
 
 ## 依赖关系
 

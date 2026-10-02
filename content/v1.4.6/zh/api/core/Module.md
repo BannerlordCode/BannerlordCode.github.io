@@ -158,7 +158,11 @@ Debug.Print("can load on this platform: " + canLoad, 0);
 
 ## 跨版本提示
 
-`bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.MountAndBlade/Module.cs` 逐行比对，**public 表面只有一处变化**：`ShutDownWithDelay` 在 1.4.6 里从 `public void ShutDownWithDelay(string reason, int seconds)` 变成了 `public async void ShutDownWithDelay(string reason, int seconds)`。其余成员（`CurrentModule`、`GlobalGameStateManager`、`MultiplayerRequested`、`StartupInfo`、`JobManager`、`CollectSubModules`、`GetSubModuleType`、`CheckIfSubmoduleCanBeLoadable`、四个 `InitialStateOption` 方法、两个多人模式方法、`ActivateModule` / `DeactiveModule`、两个事件、三个静态 mesh 方法、嵌套枚举）全都没变。`bannerlord-1.4.5/` 本机未解出 C# 源码，未能核对。
+`bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.MountAndBlade/Module.cs` 逐行比对，**public 表面只有一处变化**：`ShutDownWithDelay` 在 1.4.6 里从 `public void ShutDownWithDelay(string reason, int seconds)` 变成了 `public async void ShutDownWithDelay(string reason, int seconds)`。其余成员（`CurrentModule`、`GlobalGameStateManager`、`MultiplayerRequested`、`StartupInfo`、`JobManager`、`CollectSubModules`、`GetSubModuleType`、`CheckIfSubmoduleCanBeLoadable`、四个 `InitialStateOption` 方法、两个多人模式方法、`ActivateModule` / `DeactiveModule`、两个事件、三个静态 mesh 方法、嵌套枚举）全都没变。
+
+**1.4.5 侧结论**：打开 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Module.cs`（1768 行）与 `bannerlord-1.4.6/TaleWorlds.MountAndBlade/Module.cs`（1940 行）逐成员比对 public/protected 表面。**1.4.5 与 1.4.6 的 public 表面 0 新增 / 0 移除 / 0 签名变化 / 0 可访问性变化**（各 66 个成员）。**本段上文说的 `ShutDownWithDelay` 签名变化，实为反编译形态差异、不是语义差异**：1.4.5 的 `Module.cs` 第 1663 行与 1.4.6 的第 1771 行**都是 `public async void ShutDownWithDelay(string reason, int seconds)`**，两侧一字不差；只有 1.3.15 的第 1711 行显示为 `public void`，那是反编译器把 `async` 状态机展开后的呈现（紧邻的第 1713–1720 行就是 `<ShutDownWithDelay>d__137` 状态机与 `AsyncVoidMethodBuilder`）。**语义上这个方法从 1.3.x 起就是 async 的，没有发生版本变更。**
+
+**为什么这份源码之前被判为「不存在」**：`bannerlord-1.4.5/` 的 C# 源码在 `Bannerlord.Source/bin/` 下**双层嵌套** `bin/<Assembly>/<Assembly>/<Type>.cs`，而 `bin/` 的一层里没有任何 `.cs`（实测 `find bannerlord-1.4.5/Bannerlord.Source/bin -maxdepth 1 -name "*.cs"` 命中 0），只扫一层就会误判成无源码。**1.4.5 是原始源码形态**（file-scoped namespace、无 `// Token:` 注释），1.4.6 与 1.3.15 是反编译产物，所以两边的行数不可直接比大小。
 
 ## 依赖关系
 

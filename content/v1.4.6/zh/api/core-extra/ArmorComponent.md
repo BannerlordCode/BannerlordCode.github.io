@@ -183,7 +183,11 @@ public class MyCloakComponent : ItemComponent
 
 ## 跨版本提示
 
-与 `bannerlord-1.3.15/TaleWorlds.Core/ArmorComponent.cs` 的公开表面逐行比对：1.3.15 有 31 个公开成员，1.4.6 有 32 个，**唯一差异是新增的 `public bool IsNoSlim { get; private set; }`**（XML 属性 `no_slim`）。其余 31 个成员、七个嵌套枚举、`ArmorComponent(ItemObject)` 构造器、`GetCopy()`、`Deserialize()` 全部一致。`bannerlord-1.4.5/` 本机只有 `Bannerlord.Source/bin/`，无解出的 C#，未能核对。
+与 `bannerlord-1.3.15/TaleWorlds.Core/ArmorComponent.cs` 的公开表面逐行比对：1.3.15 有 31 个公开成员，1.4.6 有 32 个，**唯一差异是新增的 `public bool IsNoSlim { get; private set; }`**（XML 属性 `no_slim`）。其余 31 个成员、七个嵌套枚举、`ArmorComponent(ItemObject)` 构造器、`GetCopy()`、`Deserialize()` 全部一致。
+
+**1.4.5 侧结论**：打开 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ArmorComponent.cs`（229 行）与 `bannerlord-1.4.6/TaleWorlds.Core/ArmorComponent.cs`（345 行）逐成员比对 public/protected 表面。**public/protected 表面与 1.4.6 完全一致（0 新增 / 0 移除 / 0 签名变化 / 0 可访问性变化）**。1.4.5 **已经带有 `IsNoSlim`** —— 也就是说本段上文说的「1.4.6 新增」在时间上要提前：`IsNoSlim` 是 **1.3.15 → 1.4.5 之间**落地的，1.4.5 与 1.4.6 都一样。
+
+**为什么这份源码之前被判为「不存在」**：`bannerlord-1.4.5/` 的 C# 源码在 `Bannerlord.Source/bin/` 下**双层嵌套** `bin/<Assembly>/<Assembly>/<Type>.cs`，而 `bin/` 的一层里没有任何 `.cs`（实测 `find bannerlord-1.4.5/Bannerlord.Source/bin -maxdepth 1 -name "*.cs"` 命中 0），只扫一层就会误判成无源码。**1.4.5 是原始源码形态**（file-scoped namespace、无 `// Token:` 注释），1.4.6 与 1.3.15 是反编译产物，所以两边的行数不可直接比大小。
 
 ## 依赖关系
 

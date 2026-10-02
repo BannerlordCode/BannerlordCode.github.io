@@ -1,0 +1,8 @@
+# tools/_v146_prose_name_ruler.mjs --mode=M3 使用的白名单。
+# 一行一个 PascalCase token；不是类型的名字写在这里，人工维护。
+AssemblyInfo
+Suffixes
+TypoNamespaces
+PointDirs
+Sibling
+Gaps

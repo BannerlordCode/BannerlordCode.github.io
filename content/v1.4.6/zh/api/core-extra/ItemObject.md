@@ -244,7 +244,11 @@ Debug.Print("arrow air friction = " + friction, 0);
 
 ## 跨版本提示
 
-`bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.Core/ItemObject.cs` 逐行比对，**public 表面完全一致**：60 余个成员（组件访问器、XML 数据属性、位标志计算属性、3 个构造器、`InitializeTradeGood` / `InitAsPlayerCraftedItem` / `GetCraftedItemObjectFromHashedCode` / `GetItemFromWeaponKind` / `GetAmmoTypeForItemType` / `GetAirFrictionConstant`、`Deserialize` / `SetItemFlagsForCosmetics` / `DetermineItemCategoryForItem` / `GetWeaponWithUsageIndex`、`ToString` / `GetHashCode`）、`DefaultAppearanceValue` / `MaxHolsterSlotCount` 两个常量、`Type` 公开字段与 `ItemUsageSetFlags` / `ItemTypeEnum` / `ItemTiers` 三个嵌套枚举全都没变；`Game.RegisterTypes` 里 `ItemObject` 的 typeId 仍是 4。`bannerlord-1.4.5/` 本机未解出 C# 源码，未能核对。
+`bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.Core/ItemObject.cs` 逐行比对，**public 表面完全一致**：60 余个成员（组件访问器、XML 数据属性、位标志计算属性、3 个构造器、`InitializeTradeGood` / `InitAsPlayerCraftedItem` / `GetCraftedItemObjectFromHashedCode` / `GetItemFromWeaponKind` / `GetAmmoTypeForItemType` / `GetAirFrictionConstant`、`Deserialize` / `SetItemFlagsForCosmetics` / `DetermineItemCategoryForItem` / `GetWeaponWithUsageIndex`、`ToString` / `GetHashCode`）、`DefaultAppearanceValue` / `MaxHolsterSlotCount` 两个常量、`Type` 公开字段与 `ItemUsageSetFlags` / `ItemTypeEnum` / `ItemTiers` 三个嵌套枚举全都没变；`Game.RegisterTypes` 里 `ItemObject` 的 typeId 仍是 4。
+
+**1.4.5 侧结论**：打开 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ItemObject.cs`（960 行）与 `bannerlord-1.4.6/TaleWorlds.Core/ItemObject.cs`（1379 行）逐成员比对 public/protected 表面。**三版 public 表面完全一致（各 84 个成员，0 新增 / 0 移除 / 0 签名变化 / 0 可访问性变化）**。1.4.5 是 960 行、1.4.6 是 1379 行，**约 420 行的差全部是反编译注释与 namespace 换行**，不是成员增减。
+
+**为什么这份源码之前被判为「不存在」**：`bannerlord-1.4.5/` 的 C# 源码在 `Bannerlord.Source/bin/` 下**双层嵌套** `bin/<Assembly>/<Assembly>/<Type>.cs`，而 `bin/` 的一层里没有任何 `.cs`（实测 `find bannerlord-1.4.5/Bannerlord.Source/bin -maxdepth 1 -name "*.cs"` 命中 0），只扫一层就会误判成无源码。**1.4.5 是原始源码形态**（file-scoped namespace、无 `// Token:` 注释），1.4.6 与 1.3.15 是反编译产物，所以两边的行数不可直接比大小。
 
 ## 依赖关系
 

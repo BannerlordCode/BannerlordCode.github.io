@@ -134,7 +134,11 @@ if (depth >= 4)
 
 ## 跨版本提示
 
-用源码逐行比对 `bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.Localization/TextObject.cs`，**唯一差异是 1.4.6 新增了 `public int GetDepth(int maxDepth)`**（1.3.15 没有这个方法）。其余 public 表面完全一致：三个公开构造、`GetEmpty`、`IsEmpty`、`IsNullOrEmpty`、`ToString` / `ToStringWithoutClear` / `Format`、两个 `Contains`、`GetID`、`AddIDToValue`、四个 `SetTextVariable` 重载、`GetVariableValue`、`GetValueHashCode`、`HasSameValue`、`Equals` ×2、`GetHashCode`、`CopyTextObject`、`CacheTokens`、`operator ==` / `operator !=`、`ConvertToStringList`、`Value` 字段、`Attributes` / `Length` / `IsLink` 属性全都没变。`bannerlord-1.4.5/` 本机未解出 C# 源码，未能核对。
+用源码逐行比对 `bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.Localization/TextObject.cs`，**唯一差异是 1.4.6 新增了 `public int GetDepth(int maxDepth)`**（1.3.15 没有这个方法）。其余 public 表面完全一致：三个公开构造、`GetEmpty`、`IsEmpty`、`IsNullOrEmpty`、`ToString` / `ToStringWithoutClear` / `Format`、两个 `Contains`、`GetID`、`AddIDToValue`、四个 `SetTextVariable` 重载、`GetVariableValue`、`GetValueHashCode`、`HasSameValue`、`Equals` ×2、`GetHashCode`、`CopyTextObject`、`CacheTokens`、`operator ==` / `operator !=`、`ConvertToStringList`、`Value` 字段、`Attributes` / `Length` / `IsLink` 属性全都没变。
+
+**1.4.5 侧结论**：打开 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.Localization/TaleWorlds.Localization/TextObject.cs`（433 行）与 `bannerlord-1.4.6/TaleWorlds.Localization/TextObject.cs`（454 行）逐成员比对 public/protected 表面。**与 1.4.6 的 public 表面 0 新增 / 0 移除 / 0 签名变化 / 0 可访问性变化**（各 33 个成员）。**本段上文说 `GetDepth` 是「1.4.6 新增」在时间上要提前**：1.4.5 **已经带有 `GetDepth(int maxDepth)`**，所以它是 **1.3.15 → 1.4.5 之间**落地的，1.4.5 与 1.4.6 一样。1.4.5 是 433 行、1.4.6 是 454 行。
+
+**为什么这份源码之前被判为「不存在」**：`bannerlord-1.4.5/` 的 C# 源码在 `Bannerlord.Source/bin/` 下**双层嵌套** `bin/<Assembly>/<Assembly>/<Type>.cs`，而 `bin/` 的一层里没有任何 `.cs`（实测 `find bannerlord-1.4.5/Bannerlord.Source/bin -maxdepth 1 -name "*.cs"` 命中 0），只扫一层就会误判成无源码。**1.4.5 是原始源码形态**（file-scoped namespace、无 `// Token:` 注释），1.4.6 与 1.3.15 是反编译产物，所以两边的行数不可直接比大小。
 
 ## 依赖关系
 

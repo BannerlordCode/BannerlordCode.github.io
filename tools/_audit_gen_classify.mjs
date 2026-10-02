@@ -22,6 +22,90 @@ import { classifyPage } from './lib/handwritten-policy.mjs';
 const ROOT = process.cwd();
 const CONTENT = join(ROOT, 'content');
 
+// ===========================================================================
+// residual() -- the AUTHORED-CONTENT DETECTOR. Validated, not guessed.
+//
+// An earlier detector asked "does this page carry a level-2 heading outside the
+// generated skeleton set?". Measured against worker-54's 227 known-handwritten
+// pages it caught only 2 (0.9%) -- it was SUPPRESSING real hand-written pages,
+// which made a "4-page carve-out" figure an artifact of the regex rather than
+// a measurement of the corpus. Replaced.
+//
+// This rule consults NO section names, NO member names and no greppable token:
+// it removes the parts the generator is proven to emit, then asks whether any
+// prose paragraph survives. A hand-written page with entirely skeleton-shaped
+// headings still registers.
+//
+// Validated on tools/_audit-labels-3.jsonl (247 rows, 227 hw / 20 gen):
+//   minLen 140 -> TP 226 FN 1  (suppressed 1)
+//   minLen 110 -> TP 227 FN 0  <- shipped. stable from 110 down.
+// "pure skeleton x truth handwritten" = 0/227.
+// All 20 false alarms are the F17 versions-crossdiff family; see report C1.
+// ===========================================================================
+const RESIDUAL_MIN = 45;
+
+export function residual(t, minLen = RESIDUAL_MIN) {
+  let body = String(t).replace(splitFrontmatter(String(t)), '');
+  // NOTE the absence of the /g flag -- it is load-bearing.
+  // String.match() with /g/ returns an array of matches WITHOUT an `.index`
+  // property, so `m.index` was `undefined`, `body.slice(undefined)` returned the
+  // WHOLE body, and the section stripping silently did nothing. The detector then
+  // over-fired on 83% of marked pages because the template Overview/Mental Model
+  // prose was never removed. Sixth occurrence of this trap class on this audit
+  // (see also: '\b' backspace, 'instance = ...;' missing the zh variant,
+  // '^#{2}' matching '###', the colon outside the bold in the versions/ slot).
+  for (const re of [
+    /^#{1,2}\s*(?:概述|Overview)\s*$/im,
+    /^#{1,2}\s*(?:心智模型|Mental\s*Model)\s*$/im,
+  ]) {
+    const m = body.match(re);
+    if (!m) continue;
+    const rest = body.slice(m.index + m[0].length);
+    const n = rest.search(/^##(?!#)\s+/m);
+    // REMOVE the section: keep what is BEFORE the heading, resume at the NEXT
+    // heading. The earlier version did `rest.slice(0, n)` here, which KEPT the
+    // template body and dropped only the heading -- so the Overview/Mental Model
+    // template text survived and the detector flagged 93% of known-pure pages.
+    body = body.slice(0, m.index) + (n < 0 ? '' : rest.slice(n));
+  }
+  body = body
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/^\s*#{1,6}.*$/gm, ' ')
+    .replace(/^\*\*[^*]+:\*\*.*$/gm, ' ')
+    .replace(/\*\*Purpose:\*\*.*$/gm, ' ')
+    .replace(/\*\*用途[^\n]*$/gm, ' ')
+    // link-only lines (nav scaffolding) -- but NOT bullets/tables, which is where
+    // real authored content often lives (risk lists, comparison tables).
+    .replace(/^\s*[-*]?\s*\[[^\]]*\]\([^)]*\)\s*$/gm, ' ')
+    .replace(/^\s*\|?\s*\[[^\]]*\]\([^)]*\)\s*$/gm, ' ');
+  // A unit of authored text = a bullet, a table row or a paragraph carrying at
+  // least one sentence terminator. Generated member tables and Purpose lines have
+  // none, which is what separates them without consulting any heading name.
+  // Blocks are delimited by BLANK lines; hard-wrapped lines are joined back
+  // together. Splitting on every newline instead chopped sentences in half
+  // (markdown here wraps at ~80 cols), so a zh sentence such as
+  // "默认用第一套 ... 才动第二套。" arrived as two unusable fragments.
+  // Second line of defence: on two pages the fence stripping did not pair
+  // (46 KB of generated C# survived), so drop any block still carrying code
+  // markers. Authored prose never contains the word csharp or a leading //.
+  body = body
+    .split(/\n{2,}/)
+    .filter((b) => !/csharp/.test(b) && !/^\s*(\/\/|\/\*)/.test(b.trim()))
+    .join('\n\n');
+  const units = body
+    .split(/\n{2,}/)
+    .map((s) => s.replace(/\s+/g, ' ').trim())
+    .filter(Boolean);
+  let score = 0;
+  for (const u of units) {
+    // >=1 terminator, >=60 chars. Generated member-table rows and nav bullets
+    // contain no terminator at all, which is what separates them -- and requiring
+    // 2 suppressed real zh bullets like "键名用 `nameof` 或常量 ... 改名等于丢数据。"
+    if (u.length >= RESIDUAL_MIN && (u.match(/[.。!?！？]/g) || []).length >= 1) score += u.length;
+  }
+  return score;
+}
+
 // ---------------------------------------------------------------------------
 // Signal definitions.
 // Each: { id, test(text, ctx) -> boolean }
@@ -526,6 +610,90 @@ console.log('');
 const args = process.argv.slice(2);
 const control = args.includes('--control');
 const dumpIdx = args.indexOf('--dump');
+
+// --selftest: confusion matrix of residual() against worker-54's known labels.
+// Exists because an earlier authored-content detector was SUPPRESSING (2/227 recall)
+// and nothing caught it. This makes that failure impossible to ship again.
+// --negcontrol: the POSITIVE control (--selftest) can be passed by an
+// over-firing detector. This is the negative control: pages I personally read
+// in full and judged PURE SKELETON. A detector that flags these is useless.
+if (args.includes('--negcontrol')) {
+  const NEG = [
+    'content/v1.3.0/en/api/core-extra/AgentAttackType.md', 'content/v1.3.0/zh/api/core-extra/AgentAttackType.md',
+    'content/v1.3.0/en/api/campaign/CampaignEvents.md', 'content/v1.3.0/zh/api/campaign-ext/AIState.md',
+    'content/v1.3.0/en/api/campaign-ext/AIState.md', 'content/v1.3.15/zh/api/campaign-ext/TheConquestOfSettlementIssue.md',
+    'content/v1.4.5/en/api/mission-ext/MPOnSpawnPerkEffectBase.md', 'content/v1.4.5/zh/api/core-extra/ItemFlags.md',
+    'content/v1.4.5/en/api/core-extra/ShipType.md', 'content/v1.3.15/en/api/engine/CrashInformationProvider.md',
+    'content/v1.3.0/en/api/campaign/AgeModel.md', 'content/v1.3.0/en/api/campaign/AllianceModel.md',
+    'content/v1.3.15/en/api/campaign-ext/DefaultMapVisibilityModel.md', 'content/v1.3.15/en/api/campaign-ext/AlliedLordTag.md',
+    'content/v1.3.15/en/api/campaign-ext/NpcIsNobleTag.md', 'content/v1.3.15/en/api/save-system/LegacyGameDataDeserializer.md',
+    'content/v1.3.0/en/api/campaign/IViewDataTracker.md', 'content/v1.3.0/en/api/mission-ext/AgentReadOnlyList.md',
+    'content/v1.4.5/en/api/campaign-ext/UnselectSiegeWeapon.md', 'content/v1.3.15/en/api/mission-ext/AnimationSystemBoneData.md',
+    'content/v1.4.5/en/api/campaign-ext/MapEscapeMenuView.md', 'content/v1.4.5/en/api/mission-ext/MissionRadialCircleActionSelectorWidget.md',
+    'content/v1.3.0/zh/api/campaign/MenuCallbackArgs.md', 'content/v1.3.0/en/api/campaign-ext/BannerEditorView.md',
+    'content/v1.3.0/en/api/gui/ScrollingRichTextWidget.md', 'content/v1.3.0/en/api/campaign/DefaultPartyImpairmentModel.md',
+    'content/v1.3.0/en/api/campaign-ext/DefaultPartyImpairmentModel.md', 'content/v1.3.15/en/api/campaign-ext/DefaultMapVisibilityModel.md',
+  ];
+  let flagged = 0, n = 0;
+  for (const p of NEG) {
+    if (!existsSync(join(ROOT, p))) continue;
+    n += 1;
+    if (residual(readFileSync(join(ROOT, p), 'utf8')) > 0) {
+      flagged += 1;
+      console.log(`  WRONGLY FLAGGED: ${p}`);
+    }
+  }
+  console.log(`# negcontrol: ${flagged}/${n} known-pure-skeleton pages flagged (${((flagged / n) * 100).toFixed(1)}%)`);
+  console.log(flagged === 0 ? 'PASS: detector is not over-firing.' : 'FAIL: detector over-fires.');
+  process.exit(flagged === 0 ? 0 : 1);
+}
+
+if (args.includes('--selftest')) {
+  const LABEL = join(ROOT, 'tools/_audit-labels-3.jsonl');
+  if (!existsSync(LABEL)) {
+    console.log('selftest: no tools/_audit-labels-3.jsonl — cannot validate. REFUSING.');
+    process.exit(2);
+  }
+  const rows = readFileSync(LABEL, 'utf8')
+    .split(/\r?\n/)
+    .filter((x) => x.trim())
+    .map((l) => JSON.parse(l));
+  let TP = 0, FN = 0, FP = 0, TN = 0;
+  const missed = [];
+  for (const r of rows) {
+    let real = false;
+    try {
+      real = residual(readFileSync(join(ROOT, r.path), 'utf8')) > 0;
+    } catch {
+      continue;
+    }
+    if (r.label === 'handwritten') {
+      if (real) TP += 1;
+      else {
+        FN += 1;
+        missed.push(r.path);
+      }
+    } else if (real) FP += 1;
+    else TN += 1;
+  }
+  console.log(`# residual() selftest over ${rows.length} known labels (threshold ${RESIDUAL_MIN})`);
+  console.log(`| | truth handwritten | truth generated |`);
+  console.log(`|---|---:|---:|`);
+  console.log(`| says "has real content" | TP=${TP} | FP=${FP} |`);
+  console.log(`| says "pure skeleton" | **FN=${FN}** | TN=${TN} |`);
+  console.log('');
+  console.log(`recall on handwritten = ${((TP / (TP + FN)) * 100).toFixed(1)}%`);
+  if (missed.length) {
+    console.log('');
+    console.log('SUPPRESSED (the number that matters):');
+    for (const p of missed) console.log(`  ${p}`);
+  }
+  // The failure mode that produced the bogus "4 exceptions" figure was FN >> 0.
+  const ok = FN === 0;
+  console.log('');
+  console.log(ok ? 'PASS: detector is not suppressing.' : `FAIL: suppressing ${FN} hand-written page(s).`);
+  process.exit(ok ? 0 : 1);
+}
 
 // SCOPE (lead-5 #2395/#2410): workers A and B are CANCELLED and own the old
 // three trees. worker-54 (labels-3) owns the NEW trees, which carry ZERO

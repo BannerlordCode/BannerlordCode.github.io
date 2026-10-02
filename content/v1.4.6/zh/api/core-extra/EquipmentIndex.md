@@ -127,7 +127,11 @@ Debug.Print("sentinel equals Horse? " + (EquipmentIndex.ArmorItemEndSlot == Equi
 
 ## 跨版本提示
 
-`bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.Core/EquipmentIndex.cs` **完全一致**（1 个公开成员，19 个枚举值，隐式值全部相同）。`bannerlord-1.4.5/` 本机只有 `Bannerlord.Source/bin/`，无解出的 C#，未能核对。
+`bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.Core/EquipmentIndex.cs` **完全一致**（1 个公开成员，19 个枚举值，隐式值全部相同）。
+
+**1.4.5 侧结论**：打开 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/EquipmentIndex.cs`（27 行）与 `bannerlord-1.4.6/TaleWorlds.Core/EquipmentIndex.cs`（52 行）逐成员比对 public/protected 表面。**三版全部 20 个枚举值的数值完全相同**。1.4.5 把隐式值全部写成了显式值（如 `None = -1`、`WeaponItemBeginSlot = 0`、`Horse = 10`、`NumEquipmentSetSlots = 12`），1.3.15 与 1.4.6 的反编译产物省略了隐式值（如只留 `Weapon0 = 0`、`NumPrimaryWeaponSlots = 4`）；**逐值回填后两边数值一致，这是反编译形态差异、不是语义差异**。注意本段上文写的是「19 个枚举值」，实际是 20 个。
+
+**为什么这份源码之前被判为「不存在」**：`bannerlord-1.4.5/` 的 C# 源码在 `Bannerlord.Source/bin/` 下**双层嵌套** `bin/<Assembly>/<Assembly>/<Type>.cs`，而 `bin/` 的一层里没有任何 `.cs`（实测 `find bannerlord-1.4.5/Bannerlord.Source/bin -maxdepth 1 -name "*.cs"` 命中 0），只扫一层就会误判成无源码。**1.4.5 是原始源码形态**（file-scoped namespace、无 `// Token:` 注释），1.4.6 与 1.3.15 是反编译产物，所以两边的行数不可直接比大小。
 
 ## 依赖关系
 

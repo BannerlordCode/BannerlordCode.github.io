@@ -160,7 +160,11 @@ Debug.Print("steal: " + stolen.Item.StringId, 0);
 
 ## 跨版本提示
 
-`bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.Core/Equipment.cs` 逐行比对，**public 表面完全一致**：3 个构造器、两个索引器、`Horse` / `ItemEquipmentType` / `IsCivilian` / `IsBattle` / `IsStealth`、`Clone` / `FillFrom` / `Deserialize` / `DeserializeNode`、`GetEquipmentIndexFromOldEquipmentIndexName`、`IsEmpty`、8 个重量/护甲汇总方法、5 个遮蔽/形变属性、`GetUnderwearType`、`HasWeapon` / `HasWeaponOfClass`、`CreateFromEquipmentCode` / `CalculateEquipmentCode`、`AddEquipmentToSlotWithoutAgent` / `GetEquipmentFromSlot` / `IsItemFitsToSlot` / `GetWeaponPickUpSlotIndex` / `IsEquipmentEqualTo` / `GetRandomEquipmentElements` / `SwapWeapons` / `GetInitialWeaponIndicesToEquip`、`EquipmentSlotLength` / `NullCode` / `SyncEquipments` 与三个嵌套枚举全都没变；`Equipment(EquipmentType)` 里的重复 new 数组、`GetUnderwearType` 的 `FullUnderwear` 默认都在两版一致。`bannerlord-1.4.5/` 本机未解出 C# 源码，未能核对。
+`bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.Core/Equipment.cs` 逐行比对，**public 表面完全一致**：3 个构造器、两个索引器、`Horse` / `ItemEquipmentType` / `IsCivilian` / `IsBattle` / `IsStealth`、`Clone` / `FillFrom` / `Deserialize` / `DeserializeNode`、`GetEquipmentIndexFromOldEquipmentIndexName`、`IsEmpty`、8 个重量/护甲汇总方法、5 个遮蔽/形变属性、`GetUnderwearType`、`HasWeapon` / `HasWeaponOfClass`、`CreateFromEquipmentCode` / `CalculateEquipmentCode`、`AddEquipmentToSlotWithoutAgent` / `GetEquipmentFromSlot` / `IsItemFitsToSlot` / `GetWeaponPickUpSlotIndex` / `IsEquipmentEqualTo` / `GetRandomEquipmentElements` / `SwapWeapons` / `GetInitialWeaponIndicesToEquip`、`EquipmentSlotLength` / `NullCode` / `SyncEquipments` 与三个嵌套枚举全都没变；`Equipment(EquipmentType)` 里的重复 new 数组、`GetUnderwearType` 的 `FullUnderwear` 默认都在两版一致。
+
+**1.4.5 侧结论**：打开 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/Equipment.cs`（653 行）与 `bannerlord-1.4.6/TaleWorlds.Core/Equipment.cs`（930 行）逐成员比对 public/protected 表面。**与 1.4.6 的 public 表面 0 新增 / 0 移除 / 0 签名变化 / 0 可访问性变化**（各 46 个成员）。**本段上文「1.3.15 与 1.4.6 完全一致」的说法要修正**：1.4.5 的 `Equipment.cs` 第 48 行已有 `public EquipmentType ItemEquipmentType => _equipmentType;`，而 1.3.15 整份 `Equipment.cs` 搜不到 `ItemEquipmentType` —— 该属性是 **1.3.15 → 1.4.5 之间**新增的，1.4.5 与 1.4.6 一致。
+
+**为什么这份源码之前被判为「不存在」**：`bannerlord-1.4.5/` 的 C# 源码在 `Bannerlord.Source/bin/` 下**双层嵌套** `bin/<Assembly>/<Assembly>/<Type>.cs`，而 `bin/` 的一层里没有任何 `.cs`（实测 `find bannerlord-1.4.5/Bannerlord.Source/bin -maxdepth 1 -name "*.cs"` 命中 0），只扫一层就会误判成无源码。**1.4.5 是原始源码形态**（file-scoped namespace、无 `// Token:` 注释），1.4.6 与 1.3.15 是反编译产物，所以两边的行数不可直接比大小。
 
 ## 依赖关系
 

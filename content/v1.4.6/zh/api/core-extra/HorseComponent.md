@@ -160,7 +160,11 @@ foreach (HorseComponent.MaterialProperty material in horse.HorseMaterialNames)
 
 ## 跨版本提示
 
-`bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.Core/HorseComponent.cs` 公开表面**完全一致**（25 行公开成员，含两个公开字段、嵌套 `MaterialProperty` 结构体与全部 `private set` 属性）。`bannerlord-1.4.5/` 本机只有 `Bannerlord.Source/bin/`，无解出的 C#，未能核对。
+`bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.Core/HorseComponent.cs` 公开表面**完全一致**（25 行公开成员，含两个公开字段、嵌套 `MaterialProperty` 结构体与全部 `private set` 属性）。
+
+**1.4.5 侧结论**：打开 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/HorseComponent.cs`（210 行）与 `bannerlord-1.4.6/TaleWorlds.Core/HorseComponent.cs`（281 行）逐成员比对 public/protected 表面。**与 1.4.6 的 public/protected 表面 0 新增 / 0 移除 / 0 签名变化 / 0 可访问性变化**。嵌套结构体 `MaterialProperty` 两边都有，**写法差异属反编译形态**：1.4.5 用 C# 12 主构造器写成一行 `public struct MaterialProperty(string name)`，1.4.6 反编译成块体（第 262 行的 `public struct MaterialProperty` + 第 265 行的构造器），语义相同。
+
+**为什么这份源码之前被判为「不存在」**：`bannerlord-1.4.5/` 的 C# 源码在 `Bannerlord.Source/bin/` 下**双层嵌套** `bin/<Assembly>/<Assembly>/<Type>.cs`，而 `bin/` 的一层里没有任何 `.cs`（实测 `find bannerlord-1.4.5/Bannerlord.Source/bin -maxdepth 1 -name "*.cs"` 命中 0），只扫一层就会误判成无源码。**1.4.5 是原始源码形态**（file-scoped namespace、无 `// Token:` 注释），1.4.6 与 1.3.15 是反编译产物，所以两边的行数不可直接比大小。
 
 ## 依赖关系
 

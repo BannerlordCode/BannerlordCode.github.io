@@ -94,7 +94,11 @@ if (loadResult.Successful)
 
 ## 跨版本提示
 
-用 `bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.SaveSystem/SaveManager.cs` 逐行比对，**public 表面完全一致**：`.sav` 常量、`InitializeGlobalDefinitionContext`、`CheckSaveableTypes`、四参 `Save`、两参/三参 `Load`、`LoadMetaData`、`ShouldResolveConflicts` 全都在，签名一字未改。`bannerlord-1.4.5/` 目录在本机只解出了 Native 侧产物，没有 C# 源码，因此 1.4.5 这一档我没能实际核对——不是「一致」，是「未核实」。
+用 `bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.SaveSystem/SaveManager.cs` 逐行比对，**public 表面完全一致**：`.sav` 常量、`InitializeGlobalDefinitionContext`、`CheckSaveableTypes`、四参 `Save`、两参/三参 `Load`、`LoadMetaData`、`ShouldResolveConflicts` 全都在，签名一字未改。
+
+**1.4.5 侧结论**：打开 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveManager.cs`（174 行）与 `bannerlord-1.4.6/TaleWorlds.SaveSystem/SaveManager.cs`（201 行）逐成员比对 public/protected 表面。**三版 public 表面完全一致（各 8 个成员，0 新增 / 0 移除 / 0 签名变化 / 0 可访问性变化）** —— 本段上文说「不是『一致』，是没能实际核对」，该保留意见**现已撤销**：1.4.5 的 `SaveManager.cs` 里 `.sav` 常量、`InitializeGlobalDefinitionContext`、`CheckSaveableTypes`、四参 `Save`、两参/三参 `Load`、`LoadMetaData`、`ShouldResolveConflicts` 的签名与 1.4.6 逐个一致。
+
+**为什么这份源码之前被判为「不存在」**：`bannerlord-1.4.5/` 的 C# 源码在 `Bannerlord.Source/bin/` 下**双层嵌套** `bin/<Assembly>/<Assembly>/<Type>.cs`，而 `bin/` 的一层里没有任何 `.cs`（实测 `find bannerlord-1.4.5/Bannerlord.Source/bin -maxdepth 1 -name "*.cs"` 命中 0），只扫一层就会误判成无源码。**1.4.5 是原始源码形态**（file-scoped namespace、无 `// Token:` 注释），1.4.6 与 1.3.15 是反编译产物，所以两边的行数不可直接比大小。
 
 ## 依赖关系
 

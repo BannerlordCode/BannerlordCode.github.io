@@ -174,7 +174,11 @@ if (item != null)
 
 ## 跨版本提示
 
-`bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.Core/Crafting.cs` 逐行比对，**public 表面完全一致**：3 个构造器路径、全部属性、19 个方法、6 个 `WeightOf*` 常量、嵌套类 `RefiningFormula` 及其 8 个只读属性、`GenerateCraftedItem` / `FillWeapon` 全都没变。`bannerlord-1.3.15` 里 `GetXmlCodeForCurrentItem` 同样只导出 `IsValid` 的部件、`SetCraftedWeaponName` 同样用 `weaponName.Equals(...)` 判断。`bannerlord-1.4.5/` 本机未解出 C# 源码，未能核对。
+`bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.Core/Crafting.cs` 逐行比对，**public 表面完全一致**：3 个构造器路径、全部属性、19 个方法、6 个 `WeightOf*` 常量、嵌套类 `RefiningFormula` 及其 8 个只读属性、`GenerateCraftedItem` / `FillWeapon` 全都没变。`bannerlord-1.3.15` 里 `GetXmlCodeForCurrentItem` 同样只导出 `IsValid` 的部件、`SetCraftedWeaponName` 同样用 `weaponName.Equals(...)` 判断。
+
+**1.4.5 侧结论**：打开 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/Crafting.cs`（1108 行）与 `bannerlord-1.4.6/TaleWorlds.Core/Crafting.cs`（1284 行）逐成员比对 public/protected 表面。**与 1.4.6 的 public 表面 0 新增 / 0 移除 / 0 可访问性变化**，唯一一处签名写法差异是 `TryGetWeaponPropertiesFromXmlCode`，且它属于**反编译形态差异、不是语义差异**：1.4.5 写 `out (CraftingPiece, int) pieces`，1.4.6 写 `out ValueTuple<CraftingPiece, int> pieces` —— 元组语法与展开写法的区别，两个 `out` 参数的类型完全相同。
+
+**为什么这份源码之前被判为「不存在」**：`bannerlord-1.4.5/` 的 C# 源码在 `Bannerlord.Source/bin/` 下**双层嵌套** `bin/<Assembly>/<Assembly>/<Type>.cs`，而 `bin/` 的一层里没有任何 `.cs`（实测 `find bannerlord-1.4.5/Bannerlord.Source/bin -maxdepth 1 -name "*.cs"` 命中 0），只扫一层就会误判成无源码。**1.4.5 是原始源码形态**（file-scoped namespace、无 `// Token:` 注释），1.4.6 与 1.3.15 是反编译产物，所以两边的行数不可直接比大小。
 
 ## 依赖关系
 

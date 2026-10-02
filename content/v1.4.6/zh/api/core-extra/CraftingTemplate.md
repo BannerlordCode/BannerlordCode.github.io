@@ -170,7 +170,11 @@ foreach (CraftingPiece piece in template.Pieces)
 
 ## 跨版本提示
 
-`bannerlord-1.3.15/TaleWorlds.Core/CraftingTemplate.cs` 与 `bannerlord-1.4.6/TaleWorlds.Core/CraftingTemplate.cs` 逐行比对，**public 表面完全一致**：24 条 public 成员（11 个 `private set` 数据属性 + `TemplateName` 公开字段 + 两个构造器 + `GetIndexOfUsageDataWithId` / `IsPieceTypeHiddenOnHolster` / `GetStatDatas` / `ToString` / `IsPieceTypeUsable` / `Deserialize` / `All` / `GetTemplateFromId` + 嵌套 `CraftingStatTypes` 枚举的 12 个值）。`bannerlord-1.4.5/` 本机只有 DLL、无 C# 源码，未能核对。
+`bannerlord-1.3.15/TaleWorlds.Core/CraftingTemplate.cs` 与 `bannerlord-1.4.6/TaleWorlds.Core/CraftingTemplate.cs` 逐行比对，**public 表面完全一致**：24 条 public 成员（11 个 `private set` 数据属性 + `TemplateName` 公开字段 + 两个构造器 + `GetIndexOfUsageDataWithId` / `IsPieceTypeHiddenOnHolster` / `GetStatDatas` / `ToString` / `IsPieceTypeUsable` / `Deserialize` / `All` / `GetTemplateFromId` + 嵌套 `CraftingStatTypes` 枚举的 12 个值）。
+
+**1.4.5 侧结论**：打开 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/CraftingTemplate.cs`（261 行）与 `bannerlord-1.4.6/TaleWorlds.Core/CraftingTemplate.cs`（351 行）逐成员比对 public/protected 表面。**三版 public/protected 表面完全一致（各 22 个成员，0 新增 / 0 移除 / 0 签名变化 / 0 可访问性变化）**。
+
+**为什么这份源码之前被判为「不存在」**：`bannerlord-1.4.5/` 的 C# 源码在 `Bannerlord.Source/bin/` 下**双层嵌套** `bin/<Assembly>/<Assembly>/<Type>.cs`，而 `bin/` 的一层里没有任何 `.cs`（实测 `find bannerlord-1.4.5/Bannerlord.Source/bin -maxdepth 1 -name "*.cs"` 命中 0），只扫一层就会误判成无源码。**1.4.5 是原始源码形态**（file-scoped namespace、无 `// Token:` 注释），1.4.6 与 1.3.15 是反编译产物，所以两边的行数不可直接比大小。
 
 ## 依赖关系
 

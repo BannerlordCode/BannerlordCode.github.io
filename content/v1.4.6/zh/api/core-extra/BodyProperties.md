@@ -126,7 +126,11 @@ Debug.Print("round-trip ok: " + parsed, 0);
 
 ## 跨版本提示
 
-`bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.Core/BodyProperties.cs` 逐行比对，**public 表面完全一致**：构造器、`StaticProperties` / `DynamicProperties` / `Age` / `Weight` / `Build`、8 个 `KeyPartN`、`Default`、`FromXmlNode` / `FromString` / `GetRandomBodyProperties` / `ClampForMultiplayer`、`ToString` / `Equals` / `GetHashCode` 和两个运算符全都没变；`ToString()` 里写死的仍是 `version="4"`，`ClampForMultiplayer` 的年龄区间仍是 22–128、weight/build 仍重置为 0.5/0.5。`bannerlord-1.4.5/` 本机未解出 C# 源码，未能核对。
+`bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.Core/BodyProperties.cs` 逐行比对，**public 表面完全一致**：构造器、`StaticProperties` / `DynamicProperties` / `Age` / `Weight` / `Build`、8 个 `KeyPartN`、`Default`、`FromXmlNode` / `FromString` / `GetRandomBodyProperties` / `ClampForMultiplayer`、`ToString` / `Equals` / `GetHashCode` 和两个运算符全都没变；`ToString()` 里写死的仍是 `version="4"`，`ClampForMultiplayer` 的年龄区间仍是 22–128、weight/build 仍重置为 0.5/0.5。
+
+**1.4.5 侧结论**：打开 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/BodyProperties.cs`（220 行）与 `bannerlord-1.4.6/TaleWorlds.Core/BodyProperties.cs`（354 行）逐成员比对 public/protected 表面。**三版 public 表面完全一致（各 22 个成员，0 新增 / 0 移除 / 0 签名变化 / 0 可访问性变化）**。1.4.5 只有 220 行而 1.4.6 有 354 行，这个**近一倍的行数差全部是反编译形态**（1.4.5 是原始源码，1.4.6 是反编译产物），不代表 1.4.6 逻辑变复杂了。
+
+**为什么这份源码之前被判为「不存在」**：`bannerlord-1.4.5/` 的 C# 源码在 `Bannerlord.Source/bin/` 下**双层嵌套** `bin/<Assembly>/<Assembly>/<Type>.cs`，而 `bin/` 的一层里没有任何 `.cs`（实测 `find bannerlord-1.4.5/Bannerlord.Source/bin -maxdepth 1 -name "*.cs"` 命中 0），只扫一层就会误判成无源码。**1.4.5 是原始源码形态**（file-scoped namespace、无 `// Token:` 注释），1.4.6 与 1.3.15 是反编译产物，所以两边的行数不可直接比大小。
 
 ## 依赖关系
 

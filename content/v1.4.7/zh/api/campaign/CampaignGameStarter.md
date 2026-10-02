@@ -86,8 +86,14 @@ description: "战役期扩展点的注册台：在 MBSubModuleBase.OnGameStart �
 
 ```csharp
 using TaleWorlds.Core;
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.MountAndBlade;
+
+// 下面这个 Behavior 是「读者自己写的」，不是游戏 API
+public class VisitCounterBehavior : CampaignBehaviorBase
+{
+    public VisitCounterBehavior() : base("MyMod.VisitCounter") { }
+    public override void RegisterEvents() { }
+    public override void SyncData(IDataStore dataStore) { }
+}
 
 public class MySubModule : MBSubModuleBase
 {
@@ -98,7 +104,6 @@ public class MySubModule : MBSubModuleBase
         if (gameStarterObject is CampaignGameStarter campaignStarter)
         {
             campaignStarter.AddBehavior(new VisitCounterBehavior());   // 只注册，不执行
-            campaignStarter.AddBehavior(new DiplomacyBehavior());
         }
     }
 }
@@ -151,6 +156,14 @@ public class MenuBehavior : CampaignBehaviorBase
 ```csharp
 using TaleWorlds.Core;
 using TaleWorlds.CampaignSystem;
+
+// DiplomacyBehavior 与 MyCustomModel 都是「读者自己写的」类型，不是游戏 API
+public class DiplomacyBehavior : CampaignBehaviorBase
+{
+    public DiplomacyBehavior() : base("MyMod.Diplomacy") { }
+    public override void RegisterEvents() { }
+    public override void SyncData(IDataStore dataStore) { }
+}
 
 protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
 {

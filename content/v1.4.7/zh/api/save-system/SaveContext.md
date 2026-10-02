@@ -136,17 +136,10 @@ public class CounterBehavior : CampaignBehaviorBase
 
     public override void SyncData(IDataStore dataStore)
     {
-        if (dataStore.IsLoading())
-        {
-            _visits = dataStore.GetDataAsInt("Counter.Visits");
-            _lastSettlement = dataStore.GetDataAsString("Counter.LastSettlement");
-        }
-        else
-        {
-            // 两个字段都写出去，读档时也都要读回来
-            dataStore.SyncData("Counter.Visits", ref _visits);
-            dataStore.SyncData("Counter.LastSettlement", ref _lastSettlement);
-        }
+        // IDataStore 只有 SyncData<T>(string, ref T)、IsSaving、IsLoading 三个成员。
+        // 写与读调用形状完全相同，方向由存档流程决定；两个字段都要出现在这里。
+        dataStore.SyncData("Counter.Visits", ref _visits);
+        dataStore.SyncData("Counter.LastSettlement", ref _lastSettlement);
     }
 
     private void OnEntered(MobileParty party, Settlement settlement, Hero hero)

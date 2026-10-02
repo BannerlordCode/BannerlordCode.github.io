@@ -217,13 +217,13 @@ MBDebug.TestModeEnabled = true;
 ## 依赖关系
 
 - 上游 / 提供者：
-  - [MBObjectManager](../campaign-ext/MBObjectManager) 的 `AddHandler` / `DebugPrint` / `DebugDump` 与本类同属引擎调试面，常一起使用。
-  - [Mission](../mission/Mission) 与 [Agent](../mission/Agent) 的调试图元在世界坐标系里绘制。
+  - [MBObjectManager](../../campaign-ext/MBObjectManager) 的 `AddHandler` / `DebugPrint` / `DebugDump` 与本类同属引擎调试面，常一起使用。
+  - [Mission](../../mission/Mission) 与 [Agent](../../mission/Agent) 的调试图元在世界坐标系里绘制。
 - 相互 / 下游：
-  - [ScreenManager](../gui/ScreenManager) 的 `SetScreenDebugInformationEnabled` 是 UI 侧的对应开关。
-  - [MBSubModuleBase](../core/MBSubModuleBase) 是 mod 侧启用这些调试能力的时机。
+  - [ScreenManager](../../gui/ScreenManager) 的 `SetScreenDebugInformationEnabled` 是 UI 侧的对应开关。
+  - [MBSubModuleBase](../../core/MBSubModuleBase) 是 mod 侧启用这些调试能力的时机。
 
 ## 参见
 
 - ↑ 父级：[engine 索引](../)
-- ↔ 相关：[MBObjectManager](../campaign-ext/MBObjectManager) · [Mission](../mission/Mission) · [Agent](../mission/Agent) · [ScreenManager](../gui/ScreenManager) · [MBSubModuleBase](../core/MBSubModuleBase)
+- ↔ 相关：[MBObjectManager](../../campaign-ext/MBObjectManager) · [Mission](../../mission/Mission) · [Agent](../../mission/Agent) · [ScreenManager](../../gui/ScreenManager) · [MBSubModuleBase](../../core/MBSubModuleBase)

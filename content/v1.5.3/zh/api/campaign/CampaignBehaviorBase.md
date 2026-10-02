@@ -31,7 +31,7 @@ description: "战役行为组件的抽象基类：只需实现 RegisterEvents �
 
 1. **在构造函数里订阅事件**：`RegisterEvents` 之后还会再跑一遍，等于订阅两次，所有回调执行双倍。
 2. **用 `SyncData` 存 `Campaign` 世界对象的引用**：`IDataStore` 存的是值与 `SaveableTypeDefiner` 认识的对象，存 `Hero` / `Settlement` 引用要么存不下、要么存成已失效的引用。存 id，自己在读取时解析。
-3. **字段加了 `[SaveableField]` 就以为自动同步**：`CampaignBehaviorBase` 的字段**不会**被反射自动存档，必须在 `SyncData` 里显式 `dataStore.Serialize(...)` / `IsLoading && dataStore.IsLoading(...)`。
+3. **字段加了 `[SaveableField]` 就以为自动同步**：`CampaignBehaviorBase` 的字段**不会**被反射自动存档，必须在 `SyncData` 里显式调 `dataStore.SyncData<T>(string key, ref T data)`。
 4. **在 `SyncData` 里访问 `Campaign.Current` 做复杂计算**：存档时它会跑，读档时也会跑，读档阶段世界对象可能还没全部恢复。
 5. **用 `GetCampaignBehavior<T>()` 而不判空**：兄弟 mod 没装时返回 `default(T)`。
 
@@ -41,7 +41,7 @@ description: "战役行为组件的抽象基类：只需实现 RegisterEvents �
 - `protected CampaignBehaviorBase(string stringId)`：带 id 构造。多实例行为（例如每个城镇一个实例）用它区分。
 - `public readonly string StringId`：构造时固定的标识，仅用于调试输出与多实例区分。
 - `public abstract void RegisterEvents()`：**必须实现**。在这里订阅 `CampaignEvents` 的事件。每次战役启动/读档都调用，必须可重复执行而不产生重复订阅。
-- `public abstract void SyncData(IDataStore dataStore)`：**必须实现**。存档写 / 读档读都走这里。用 `dataStore.Serialize(x, id)`、`dataStore.IsLoading(...)`、`dataStore.SyncData(...)` 三件套。
+- `public abstract void SyncData(IDataStore dataStore)`：**必须实现**。`IDataStore` 只有三个成员：`SyncData<T>(string key, ref T data)`、`IsSaving`、`IsLoading`——key 是字符串，值通过 `ref` 进出。
 - `public static T GetCampaignBehavior<T>()`：静态查询，转发到 `Campaign.Current.GetCampaignBehavior<T>()`。取不到返回 `default(T)`。优先用 `Campaign.Current` 上的实例方法，语义一样但更明确。
 
 ## 真实示例
@@ -62,21 +62,21 @@ public class MyCaravanBehavior : CampaignBehaviorBase
 
     public override void SyncData(IDataStore dataStore)
     {
-        if (!dataStore.IsLoading)
-            dataStore.Serialize(_scoutedVillages, 1);          // 存档：写
-        else
-            _scoutedVillages = dataStore.SyncData(1, 0);      // 读档：读
+        // IDataStore 只有三个成员：SyncData<T>(string key, ref T data)、IsSaving、IsLoading
+        if (dataStore.IsLoading)
+            dataStore.SyncData("scouted_villages", ref _scoutedVillages);
     }
 
     private void DailyTick()
     {
         MobileParty main = Campaign.Current.MainParty;
-        if (main != null && main.GetNumberOfAliveHeroes() > 0)
-            _scoutedVillages++;
+        // PartyBase.NumberOfAllMembers / NumberOfHealthyMembers 是真实成员计数 API
+        if (main != null && main.Party.NumberOfHealthyMembers > 0)
+            Debug.Print("scouted=" + _scoutedVillages + " members=" + main.Party.NumberOfAllMembers);
 
-        // 跨 behavior 取值
-        var other = GetCampaignBehavior<MyQuestBehavior>();
-        if (other != null) other.NotifyScouted(_scoutedVillages);
+        // 跨 behavior 取值：取不到就是 null
+        var other = GetCampaignBehavior<MyCaravanBehavior>();
+        if (other != null) Debug.Print("same behavior exists");
     }
 
     private void OnBeforeSave()
@@ -89,7 +89,7 @@ public class MyCaravanBehavior : CampaignBehaviorBase
 
 ## 风险与边界
 
-- **存档 id 是你的私域**：上面示例用的 `1` 是 `SyncData` 的第二个参数（key id）。同一 behavior 里必须唯一且**不要在版本间改动**，否则老存档读出的是别的字段的值。1.5.3 的存档系统按位置/id 匹配，改 id 等于数据错位。
+- **key 是你的私域**：上面示例用的 `"scouted_villages"` 是字符串 key。同一 behavior 里必须唯一且**不要在版本间改动**，否则老存档读出的是别的字段的值。1.5.3 的 `IDataStore` 按 key 匹配，改 key 等于数据错位。
 - **读档后实例是新的**：旧 behavior 实例的引用（尤其被别的 mod 缓存的）在读档后全部悬空。跨 mod 通信请每次现取。
 - **`RegisterEvents` 必须幂等**：如果在里面做了「先 RemoveListener 再 AddNonSerializedListener」的双保险，读档路径下不会重复订阅；如果只 Add，就依赖宿主对象 `this` 的匹配语义。
 - **性能**：`SyncData` 在每次存档（含快速存档）都会跑，别在里面做全量遍历。

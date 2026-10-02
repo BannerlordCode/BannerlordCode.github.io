@@ -1,0 +1,50 @@
+---
+title: "ThumbnailCreatorView"
+description: "ThumbnailCreatorView: a public class in TaleWorlds.Engine, inheriting View; 11 exposed members (10 methods, 0 properties, 0 fields). Canonical bucket engine. Source: TaleWorlds.Engine/ThumbnailCreatorView.cs."
+---
+
+<!-- generated-by: tools/_v146_stubs.mjs -->
+# ThumbnailCreatorView
+
+**Namespace:** `TaleWorlds.Engine`
+**Module:** `TaleWorlds.Engine`
+**Type:** `public sealed class ThumbnailCreatorView : View`
+**File:** `TaleWorlds.Engine/ThumbnailCreatorView.cs`
+**Bucket:** `engine` (rule:TaleWorlds.Engine)
+
+## Overview
+
+ThumbnailCreatorView lives in the TaleWorlds.Engine module, source file TaleWorlds.Engine/ThumbnailCreatorView.cs. It is a public class (sealed), implementing/inheriting View; the inheritance chain is ThumbnailCreatorView → View → NativeObject. It exposes 11 public/protected members: 10 methods, 1 nested types.
+
+> Batch first draft: every signature is taken verbatim from the decompiled bannerlord-1.4.6 source. The bucket is resolved live from `tools/_dir-map-canonical.json`. What each method actually does, when to call it and where it breaks must be read from the method body in the source file.
+
+## Mental Model
+
+Structural facts: ThumbnailCreatorView lands in canonical bucket `engine` (matched rule `rule:TaleWorlds.Engine`), namespace `TaleWorlds.Engine`, inheritance chain ThumbnailCreatorView → View → NativeObject. The surface is method-led (methods 10/11, properties 0/11), so it mostly exposes operations. This page lists real signatures only: what each method does, when to call it and where it breaks must be read from TaleWorlds.Engine/ThumbnailCreatorView.cs or the deep page for this type.
+
+## Key Members
+
+| Member | Signature | Kind |
+| --- | --- | --- |
+| `CreateThumbnailCreatorView` | `public static ThumbnailCreatorView CreateThumbnailCreatorView()` | method |
+| `RegisterScene` | `public void RegisterScene(Scene scene, bool usePostFx = true)` | method |
+| `RegisterCachedEntity` | `public void RegisterCachedEntity(Scene scene, GameEntity entity, string cacheId)` | method |
+| `UnregisterCachedEntity` | `public void UnregisterCachedEntity(string cacheId)` | method |
+| `RegisterRenderRequest` | `public void RegisterRenderRequest(ref ThumbnailRenderRequest request)` | method |
+| `ClearRequests` | `public void ClearRequests()` | method |
+| `CancelRequest` | `public void CancelRequest(string renderID)` | method |
+| `GetNumberOfPendingRequests` | `public int GetNumberOfPendingRequests()` | method |
+| `IsMemoryCleared` | `public bool IsMemoryCleared()` | method |
+| `OnThumbnailRenderCompleteDelegate` | `public delegate void OnThumbnailRenderCompleteDelegate(string renderId, Texture renderTarget);` | method |
+| `OnThumbnailRenderCompleteDelegate` | `public delegate void OnThumbnailRenderCompleteDelegate(string renderId, Texture renderTarget)` | nested type |
+
+## See Also
+
+- [↑ bucket index](..//)
+- [↑ API reference](../..//)
+- [↑ version home](../../..//)
+- [base / interface View](../View/)
+- [same namespace AnimResult](../AnimResult/)
+- [same namespace ApplicationHealthChecker](../ApplicationHealthChecker/)
+- [same namespace AsyncTask](../AsyncTask/)
+- [same namespace BillboardType](../BillboardType/)

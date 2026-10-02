@@ -1,0 +1,72 @@
+---
+title: "BoardGameSeega"
+description: "BoardGameSeega：SandBox.BoardGames 的 public 类，继承 BoardGameBase；公开成员 33 个（方法 19、属性 8、字段 2）。canonical 桶 sandbox。源文件 SandBox/BoardGames/BoardGameSeega.cs。"
+---
+
+<!-- generated-by: tools/_v146_stubs.mjs -->
+# BoardGameSeega
+
+**Namespace:** `SandBox.BoardGames`
+**Module:** `SandBox`
+**Type:** `public class BoardGameSeega : BoardGameBase`
+**File:** `SandBox/BoardGames/BoardGameSeega.cs`
+**Bucket:** `sandbox` (rule:SandBox)
+
+## 概述
+
+BoardGameSeega 位于 SandBox 模块，源文件 SandBox/BoardGames/BoardGameSeega.cs。它是一个 public 类，实现/继承 BoardGameBase，继承链为 BoardGameSeega → BoardGameBase。public/protected 成员共 33 个：19 方法、8 属性、2 字段、1 构造函数、3 嵌套类型。
+
+> 本页为批量初稿：签名逐条取自 bannerlord-1.4.6 反编译源码，未经改写。桶归属由 `tools/_dir-map-canonical.json` 现算。每个方法实际做什么、何时调用、有什么风险，请对照源文件方法体阅读。
+
+## 心智模型
+
+结构事实：BoardGameSeega 落在 canonical 桶 `sandbox`（命中规则 `rule:SandBox`），命名空间 `SandBox.BoardGames`，继承链 BoardGameSeega → BoardGameBase。成员构成以方法为主（方法 19/33，属性 8/33），对外主要以操作入口暴露。本页只列真实签名：每个方法做什么用、何时调用、有哪些坑，需要对照 SandBox/BoardGames/BoardGameSeega.cs 的方法体或该类型的深写页确认。
+
+## 主要成员
+
+| 成员 | 签名 | 种类 |
+| --- | --- | --- |
+| `TileCount` | `public override int TileCount` | 属性 |
+| `UnitsToPlacePerTurnInPreMovementStage` | `protected override int UnitsToPlacePerTurnInPreMovementStage` | 属性 |
+| `RotateBoard` | `protected override bool RotateBoard` | 属性 |
+| `PreMovementStagePresent` | `protected override bool PreMovementStagePresent` | 属性 |
+| `DiceRollRequired` | `protected override bool DiceRollRequired` | 属性 |
+| `BoardGameSeega` | `public BoardGameSeega(MissionBoardGameLogic mission, PlayerTurn startingPlayer) : base(mission, new TextObject(" ", null), startingPlayer)` | 构造函数 |
+| `InitializeUnits` | `public override void InitializeUnits()` | 方法 |
+| `InitializeTiles` | `public override void InitializeTiles()` | 方法 |
+| `InitializeSound` | `public override void InitializeSound()` | 方法 |
+| `Reset` | `public override void Reset()` | 方法 |
+| `List` | `public override List<Move>CalculateValidMoves(PawnBase pawn)` | 方法 |
+| `SetPawnCaptured` | `public override void SetPawnCaptured(PawnBase pawn, bool aiSimulation = false)` | 方法 |
+| `OnPawnArrivesGoalPosition` | `protected override void OnPawnArrivesGoalPosition(PawnBase pawn, Vec3 prevPos, Vec3 currentPos)` | 方法 |
+| `SwitchPlayerTurn` | `protected override void SwitchPlayerTurn()` | 方法 |
+| `SelectPawn` | `protected override PawnBase SelectPawn(PawnBase pawn)` | 方法 |
+| `MovePawnToTileDelayed` | `protected override void MovePawnToTileDelayed(PawnBase pawn, TileBase tile, bool instantMove, bool displayMessage, float delay)` | 方法 |
+| `HandlePreMovementStage` | `protected override void HandlePreMovementStage(float dt)` | 方法 |
+| `HandlePreMovementStageAI` | `protected override void HandlePreMovementStageAI(Move move)` | 方法 |
+| `CheckGameEnded` | `protected override bool CheckGameEnded()` | 方法 |
+| `OnAfterBoardSetUp` | `protected override void OnAfterBoardSetUp()` | 方法 |
+| `AIMakeMove` | `public void AIMakeMove(Move move)` | 方法 |
+| `int>GetBlockingPawns` | `public Dictionary<PawnBase, int>GetBlockingPawns(bool playerOneBlocked)` | 方法 |
+| `TakeBoardSnapshot` | `public BoardGameSeega.BoardInformation TakeBoardSnapshot()` | 方法 |
+| `UndoMove` | `public void UndoMove(ref BoardGameSeega.BoardInformation board)` | 方法 |
+| `GetTile` | `public TileBase GetTile(int x, int y)` | 方法 |
+| `BoardWidth` | `public static readonly int BoardWidth` | 字段 |
+| `BoardHeight` | `public static readonly int BoardHeight` | 字段 |
+| `BarrierInfo` | `public class BarrierInfo` | 属性 |
+| `BoardInformation` | `public struct BoardInformation` | 属性 |
+| `PawnInformation` | `public struct PawnInformation` | 属性 |
+| `BarrierInfo` | `public class BarrierInfo` | 嵌套类型 |
+| `BoardInformation` | `public struct BoardInformation` | 嵌套类型 |
+| `PawnInformation` | `public struct PawnInformation` | 嵌套类型 |
+
+## 参见
+
+- [↑ 本桶目录](..//)
+- [↑ API 参考](../..//)
+- [↑ 版本首页](../../..//)
+- [基类/接口 BoardGameBase](../BoardGameBase/)
+- [同命名空间 BoardGameBaghChal](../BoardGameBaghChal/)
+- [同命名空间 BoardGameBase](../BoardGameBase/)
+- [同命名空间 BoardGameKonane](../BoardGameKonane/)
+- [同命名空间 BoardGameMuTorere](../BoardGameMuTorere/)

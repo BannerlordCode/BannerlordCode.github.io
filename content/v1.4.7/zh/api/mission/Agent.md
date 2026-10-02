@@ -239,7 +239,7 @@ if (victim != null && victim.Mission != null)
 Agent remote = mission.GetClosestEnemyAgent(Agent.Main);
 if (remote != null)
 {
-    remote.SetPreciseRangedAimingEnabledAsClient(false);
+    remote.SetWeaponAmmoAsClient(EquipmentIndex.Weapon, 0);
 }
 ```
 

@@ -24,10 +24,49 @@ const OUT = resolve(REPO_ROOT, arg('--out', 'tools/_v153_inventory.json'));
 // ------------------------------------------------------- canonical dir mapping
 
 // Boss-owned 权威映射；不硬编码副本，直接读 tools/_dir-map-canonical.json。
+// FAIL-CLOSED：schemaVersion 不认就报错退出，绝不静默降级。
+// entryPointDirs 在 v2 从 {dir:[slugArray]} 变成 {exactTypeName:dir}，当时只懂旧形状的
+// 解析器静默丢掉了整个覆写层（mission/ 与 core/ 归零）且不报错——这是本断言存在的原因。
+const DIR_MAP_SCHEMA = 3;
 const DIR_MAP_PATH = resolve(REPO_ROOT, 'tools/_dir-map-canonical.json');
-const DIR_MAP = existsSync(DIR_MAP_PATH)
-  ? JSON.parse(readFileSync(DIR_MAP_PATH, 'utf8'))
-  : { rules: [], defaultDir: 'core-extra', entryPointDirs: {} };
+
+function loadDirMap() {
+  if (!existsSync(DIR_MAP_PATH)) {
+    throw new Error('canonical 映射表缺失：' + DIR_MAP_PATH + '（拒绝回退到内置默认，避免映射与源码静默脱节）');
+  }
+  const m = JSON.parse(readFileSync(DIR_MAP_PATH, 'utf8'));
+
+  if (m.schemaVersion !== DIR_MAP_SCHEMA) {
+    throw new Error(
+      'canonical 映射表 schemaVersion=' + m.schemaVersion + '，本工具只认 ' + DIR_MAP_SCHEMA +
+      '。FAIL-CLOSED：拒绝解析不认识的形状（否则会静默丢覆写层 / 噪声层）。先读 _parseContract 再改本工具。'
+    );
+  }
+  if (!Array.isArray(m.rules) || m.rules.some((r) => typeof r?.prefix !== 'string' || typeof r?.dir !== 'string')) {
+    throw new Error('canonical.rules 形状不认：必须是 {prefix:string, dir:string} 数组');
+  }
+  for (const [key, val] of Object.entries(m.entryPointDirs || {})) {
+    if (key.startsWith('_')) continue;
+    if (typeof val !== 'string') {
+      throw new Error(
+        'canonical.entryPointDirs["' + key + '"] 形状不认：v3 要求 {精确类型名: 桶字符串}，' +
+        '收到 ' + (Array.isArray(val) ? '数组（v1 的 {dir:[slugArray]} 旧形状）' : typeof val) +
+        '。FAIL-CLOSED 退出。'
+      );
+    }
+  }
+  for (const k of ['excludeNamespaces', 'excludeSuffixes', 'sourceTypoNamespaces']) {
+    if (m[k] !== undefined && !Array.isArray(m[k])) {
+      throw new Error('canonical.' + k + ' 形状不认：必须是字符串数组');
+    }
+  }
+  if (typeof m.defaultDir !== 'string' || !m.defaultDir) {
+    throw new Error('canonical.defaultDir 缺失或非字符串');
+  }
+  return m;
+}
+
+const DIR_MAP = loadDirMap();
 
 // 前缀规则按前缀长度降序，最长前缀优先（CustomBattle 必须赢过 MountAndBlade）。
 const PREFIX_RULES = [...(DIR_MAP.rules || [])]

@@ -70,6 +70,8 @@ The Save layer cuts across all of them: `TaleWorlds.SaveSystem` belongs to none 
 
 ## Three minimal skeletons
 
+> The callback signatures below come from `bannerlord-1.4.6/TaleWorlds.MountAndBlade/MBSubModuleBase.cs` and `TaleWorlds.MountAndBlade/MissionBehavior.cs`, the behaviour base from `TaleWorlds.CampaignSystem/CampaignBehaviorBase.cs`, and the event subscription idiom from `TaleWorlds.CampaignSystem/IMbEvent.cs` plus `StoryMode/GameComponents/CampaignBehaviors/AchievementsCampaignBehavior.cs`. **Shape only — the API itself is defined by the source.**
+
 ```csharp
 // 1) Module entry: attach your campaign behaviour the way the official modules do.
 //    OnGameStart is `protected internal virtual` upstream, so an override in another

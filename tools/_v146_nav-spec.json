@@ -1,84 +1,127 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "spec": "v1.4.6 tree-navigation patch",
   "target_version": "v1.4.6",
   "author": "worker-10",
-  "generated_for_repo": "C:/WorkSpace/Bannerlord/BannerlordCode.github.io",
+  "dirMapSchemaVersion": 3,
+  "dirMapPath": "tools/_dir-map-canonical.json",
   "read_only_note": "This spec describes patches to shared files. worker-10 did NOT apply them. Whoever applies them must re-run tools/_v146_nav-check.mjs afterwards.",
+
+  "scope_note": {
+    "authorized": ["content/v1.4.6/zh/_index.md", "content/v1.4.6/en/_index.md", "content/v1.4.6/{zh,en}/architecture/**", "tools/_v146_*"],
+    "not_authorized": ["content/v1.4.6/_index.md (no language suffix)"],
+    "unauthorized_artifact_present": {
+      "path": "content/v1.4.6/_index.md",
+      "observed": "exists in the worktree, authored outside this dispatch's scope; route /v1.4.6/ therefore exists while its language ownership is undefined",
+      "worker10_action": "left it untouched after the first report (one link in it was fixed while the file was still believed to be worker-10's own), and removed every link from worker-10 pages that pointed at it. Reported to lead for Boss-level disposition."
+    }
+  },
+
+  "bucket_authority": {
+    "source": "tools/_dir-map-canonical.json (schemaVersion 3, 36 rules, 7 overrides, 47 exclusions, 16 linkRules)",
+    "rule": "worker-10 pages never hard-code a namespace->bucket table of their own; every api/<bucket>/ href is checked against the buckets the artifact can produce",
+    "buckets": ["achievementsystem", "activitysystem", "campaign", "campaign-ext", "core", "core-extra", "custombattle", "engine", "gui", "localization", "mission", "mission-ext", "modulemanager", "network", "sandbox", "save-system", "storymode", "system", "viewmodel"],
+    "intentional_carve_out_buckets": {
+      "mission": ["Mission", "MissionState", "MissionBehavior", "Agent", "Formation"],
+      "core": ["MBSubModuleBase", "Module"],
+      "why": "These 7 entry-point types are routed by exact type name so a modder opening the site lands on the 5 types they actually subclass. They are NOT duplicate routes and NOT a navigation bug: each type has exactly one page (one type = one path).",
+      "do_not": "Do not 'fix' mission/ or core/ by moving those pages back into mission-ext/ or core-extra/. That would delete the only index that names them.",
+      "bucket_index_requirement": "mission/_index.md and core/_index.md must state at the top that the bucket only holds mod entry-point types and that the full API lives in ../mission-ext/ and ../core-extra/, and must link both ways."
+    },
+    "no_gameplay_bucket": {
+      "decision": "Do not create a gameplay/ bucket.",
+      "reason": "1.4.5/gameplay/ is semantically mixed (it holds SandBox, StoryMode.* and bare TaleWorlds.MountAndBlade types); no namespace rule can reproduce it. Recreating it would copy the defect.",
+      "parity_gap": "Cite the artifact's structured parityGaps array verbatim in the architecture pages; do not restate it as prose.",
+      "accepted_cost": "The 19 URLs of 1.4.5/gameplay/ have no v1.4.6 counterpart. SandBox* -> sandbox/ and StoryMode* -> storymode/ match the real namespaces."
+    },
+    "never_create": ["ModuleManager.md — no such type exists in any version (0 hits across 1.4.5 8583 / 1.4.6 11385 / 1.4.7 11387 / 1.5.3 11487 .cs files). modulemanager/ is a bucket of OTHER types (ModuleInfo, SubModuleInfo, ModuleHelper, ModuleCategory, ModuleType, DependedModule, Extensions, IPlatformModuleExtension)."]
+  },
 
   "how_navigation_actually_works": {
     "verified_by": "reading templates/macros/sidebar.html, templates/partials/sidebar.html, templates/partials/topnav.html, templates/macros/breadcrumb.html, templates/macros/page-navigation.html, templates/page.html, tools/generate-section-tree.mjs, tools/_regen_nav.mjs, tools/generate-relkey-map.mjs, tools/generate-section-indexes.mjs, data/navigation.json, data/section-tree.json",
-    "version_dropdown": "templates/partials/topnav.html iterates nav.meta.versions; every entry needs nav.routes['/<version>/<lang>/'] (label comes from there) and data/relkey_map.json for the same-relkey target",
-    "sidebar": "templates/macros/sidebar.html (called by templates/partials/sidebar.html) renders ONLY routes whose node.parent == '/vX/lang/' AND whose node.group matches a key of nav.groups; children come from node.children (curated, copied from section-tree subsections) and from section-tree.byRoute[...].subsections",
-    "breadcrumb": "templates/macros/breadcrumb.html uses Zola item.ancestors, i.e. it needs a real _index.md at every ancestor level; the navigation.json fallback branch needs nav.routes entries",
-    "parent_and_prev_next": "templates/macros/page-navigation.html reads Zola parent_section.pages; it needs an _index.md in the section and works out of the box once the page exists. Ordering is Zola's default (site-wide no frontmatter weight is used today)",
-    "generated_not_handwritten": "data/section-tree.json is fully generated from content/ by tools/generate-section-tree.mjs; data/navigation.json routes are generated by tools/_regen_nav.mjs from that tree and PRESERVE label/group from existing entries; data/relkey_map.json is generated by tools/generate-relkey-map.mjs from a hard-coded VERSIONS list"
+    "version_switch": "nav.meta.versions is the switch. Until v1.4.6 is listed there, templates/partials/topnav.html never renders a v1.4.6 dropdown entry and templates/macros/sidebar.html refuses to treat /v1.4.6/<lang>/ as a language root, so every v1.4.6 URL falls into the flat 'Site Navigation' fallback.",
+    "version_dropdown_target": "data/relkey_map.json (same-relkey target across versions); without a v1.4.6 entry it falls back to the language root, so switching version from a class page throws you back to the landing page",
+    "sidebar": "renders only routes whose node.parent == '/vX/lang/' AND whose node.group matches a key of nav.groups; children come from node.children (mirrored from section-tree subsections) and from section-tree.byRoute[...].subsections. Leaf routes may keep group null; section roots may not.",
+    "breadcrumb": "uses Zola item.ancestors + get_section(); needs a real _index.md at every ancestor level",
+    "parent_and_prev_next": "templates/macros/page-navigation.html reads Zola parent_section.pages; automatic once the page and its section _index.md exist. Never hand-write prev/next into page bodies.",
+    "generated_not_handwritten": "data/section-tree.json is generated by tools/generate-section-tree.mjs; data/navigation.json routes by tools/_regen_nav.mjs (preserving label/group); data/relkey_map.json by tools/generate-relkey-map.mjs from a hard-coded VERSIONS list; data/page-navigation.json by tools/generate-page-navigation.mjs"
   },
 
   "patches": [
     {
       "id": "P0",
-      "file": "content/v1.4.6/_index.md",
-      "action": "create",
-      "owner": "worker-10 (already created, needs lead review)",
-      "why": "Zola breadcrumb for every v1.4.6 page walks page.ancestors: v1.4.6 -> v1.4.6/zh -> v1.4.6/zh/architecture. get_section(path='v1.4.6') returns nothing without this file, so the breadcrumb link 404s on every single v1.4.6 page. It is also what nav.routes['/v1.4.6/'] needs in order to exist.",
-      "risk": "none - file did not exist before"
-    },
-    {
-      "id": "P1",
       "file": "data/navigation.json",
       "action": "edit-json",
       "owner": "lead / integrator",
       "find": "\"versions\": [\"v1.3.15\", \"v1.3.0\", \"v1.4.5\"]",
       "replace": "\"versions\": [\"v1.3.15\", \"v1.3.0\", \"v1.4.5\", \"v1.4.6\"]",
-      "why": "The version dropdown and the sidebar root_key computation both gate on nav.meta.versions. Without v1.4.6 here, every v1.4.6 URL falls back to the 'Site Navigation' branch of the sidebar and the version dropdown never lists v1.4.6.",
-      "note": "_regen_nav.mjs copies existing.meta verbatim, so this edit survives regeneration.",
+      "is_switch": true,
+      "why": "THE switch. Both the version dropdown and the sidebar language-root computation gate on nav.meta.versions. Nothing else in the pipeline can make v1.4.6 appear. _regen_nav.mjs copies existing.meta verbatim, so the edit survives regeneration.",
       "risk": "low"
     },
     {
-      "id": "P2",
+      "id": "P1",
       "file": "data/section-tree.json",
       "action": "regen",
       "owner": "lead / integrator",
       "command": "node tools/generate-section-tree.mjs",
-      "why": "The file is generated from content/. tools/audit-navigation.mjs fails with 'missing section route /v1.4.6/...' until it is regenerated. Never hand-edit it.",
-      "expected_new_routes": ["/v1.4.6/", "/v1.4.6/zh/", "/v1.4.6/en/", "/v1.4.6/zh/api/", "/v1.4.6/en/api/", "/v1.4.6/zh/architecture/", "/v1.4.6/en/architecture/"],
+      "why": "Generated from content/. Until it is regenerated, tools/audit-navigation.mjs fails with 'missing section route /v1.4.6/...'. Never hand-edit.",
+      "expected_new_routes": ["/v1.4.6/zh/", "/v1.4.6/en/", "/v1.4.6/zh/api/", "/v1.4.6/en/api/", "/v1.4.6/zh/architecture/", "/v1.4.6/en/architecture/"],
       "risk": "low"
     },
     {
-      "id": "P3",
+      "id": "P2",
       "file": "data/navigation.json",
       "action": "regen-then-patch-groups",
       "owner": "lead / integrator",
       "command": "node tools/_regen_nav.mjs",
-      "why": "Creates the /v1.4.6/... routes with correct parent/children from the section tree.",
-      "follow_up": {
-        "problem": "For brand-new routes _regen_nav.mjs sets group = ex?.group ?? null, i.e. null. templates/macros/sidebar.html only renders a route when node.parent == root_key AND node.group == group_key, so every v1.4.6 route with group null stays invisible in the sidebar (v1.4.5 has the same nulls on leaf routes, which is harmless because leaves are rendered through their parent's children list).",
-        "fix_snippet": "const setGroup = (route, group, label) => {\n  const node = nav.routes[route];\n  if (!node) return console.warn('missing route', route);\n  node.group = group;\n  if (label) node.label = label;\n};\nsetGroup('/v1.4.6/', 'start', { zh: 'Bannerlord v1.4.6', en: 'Bannerlord v1.4.6' });\nsetGroup('/v1.4.6/zh/', 'start', { zh: 'Bannerlord v1.4.6', en: 'Bannerlord v1.4.6' });\nsetGroup('/v1.4.6/en/', 'start', { zh: 'Bannerlord v1.4.6', en: 'Bannerlord v1.4.6' });\nfor (const lang of ['zh', 'en']) {\n  setGroup(`/v1.4.6/${lang}/api/`, 'api', { zh: 'API 参考', en: 'API Reference' });\n  setGroup(`/v1.4.6/${lang}/architecture/`, 'architecture', { zh: '架构总览', en: 'Architecture' });\n  // only if those sections get created:\n  setGroup(`/v1.4.6/${lang}/guide/`, 'guide', { zh: '入门指南', en: 'Getting Started Guide' });\n  setGroup(`/v1.4.6/${lang}/native/`, 'native', { zh: '原生接口', en: 'Native Reference' });\n  setGroup(`/v1.4.6/${lang}/xml-reference/`, 'xml', { zh: 'XML 参考', en: 'XML Reference' });\n}",
-        "mirror_of": "exactly what v1.4.5 already carries: group 'start' for the three roots, 'api' for <lang>/api/, 'architecture' for <lang>/architecture/, 'guide' / 'native' / 'xml' for the other sections"
+      "why": "Creates the /v1.4.6/... routes with the correct parent/children derived from the section tree.",
+      "route_entry_naming_rule": {
+        "shape": "\"/<version>/<lang>/<section>/\" — one entry per SECTION, never per leaf page",
+        "leaf_entries": "No leaf entries. Existing versions have none: all 464 routes in data/navigation.json are section roots (e.g. /v1.3.15/zh/api/campaign/), and /v1.4.5/zh/api/campaign/ has children: 0 while its 40+ class pages are reached through section-tree.byRoute[...].subsections. Leaf pages are therefore auto-derived by the sidebar; adding leaf entries would duplicate them.",
+        "fields": "{ label: {zh, en}, group, collapsed, order, parent, children }",
+        "parent_rule": "parent is the route minus its last segment: /v1.4.6/zh/architecture/ -> parent /v1.4.6/zh/",
+        "children_rule": "children = the section tree's subsections; _regen_nav.mjs fills this automatically",
+        "label_rule": "zh and en labels must both be present; the version dropdown reads label[lang]. v1.4.5 uses {zh:\"Bannerlord v1.4.5\", en:\"Bannerlord v1.4.5\"} for the three roots and {zh:\"API 参考\", en:\"API Reference\"} / {zh:\"架构总览\", en:\"Architecture\"} for the sections.",
+        "group_rule": "See follow_up below — this is the one thing regeneration does NOT get right."
       },
-      "risk": "medium - easy to forget the group, symptom is 'sidebar shows nothing for v1.4.6'"
+      "follow_up": {
+        "problem": "For brand-new routes _regen_nav.mjs uses group = ex?.group ?? null, i.e. null. templates/macros/sidebar.html renders a route only when node.parent == root_key AND node.group == group_key, so every v1.4.6 route left at null is invisible in the sidebar. Symptom looks like 'the template is broken' but the template is fine.",
+        "fix_snippet": "const setGroup = (route, group, label) => {\n  const node = nav.routes[route];\n  if (!node) return console.warn('missing route', route);\n  node.group = group;\n  if (label) node.label = label;\n};\nsetGroup('/v1.4.6/zh/', 'start', { zh: 'Bannerlord v1.4.6', en: 'Bannerlord v1.4.6' });\nsetGroup('/v1.4.6/en/', 'start', { zh: 'Bannerlord v1.4.6', en: 'Bannerlord v1.4.6' });\nfor (const lang of ['zh', 'en']) {\n  setGroup(`/v1.4.6/${lang}/api/`, 'api', { zh: 'API 参考', en: 'API Reference' });\n  setGroup(`/v1.4.6/${lang}/architecture/`, 'architecture', { zh: '架构总览', en: 'Architecture' });\n  // only when these sections are actually created:\n  setGroup(`/v1.4.6/${lang}/guide/`, 'guide', { zh: '入门指南', en: 'Getting Started Guide' });\n  setGroup(`/v1.4.6/${lang}/native/`, 'native', { zh: '原生接口', en: 'Native Reference' });\n  setGroup(`/v1.4.6/${lang}/xml-reference/`, 'xml', { zh: 'XML 参考', en: 'XML Reference' });\n}",
+        "mirror_of": "exactly the group values v1.4.5 already carries (start for the language roots, api / architecture / guide / native / xml for the sections)",
+        "leaf_note": "Do not bother setting group on leaf or bucket routes: the sidebar reaches them through the parent's children list, which is why 119 of the v1.4.5 routes are legitimately group:null."
+      },
+      "risk": "medium - easy to forget; symptom is 'sidebar shows nothing for v1.4.6'"
     },
     {
-      "id": "P4",
+      "id": "P3",
       "file": "tools/generate-relkey-map.mjs",
       "action": "edit-js",
       "owner": "lead / integrator",
       "find": "const VERSIONS = ['v1.3.15', 'v1.3.0', 'v1.4.5'];",
       "replace": "const VERSIONS = ['v1.3.15', 'v1.3.0', 'v1.4.5', 'v1.4.6'];",
       "command_after_edit": "node tools/generate-relkey-map.mjs",
-      "why": "data/relkey_map.json maps a relkey to every version/lang that has that page. Without v1.4.6 in VERSIONS the version dropdown falls back to /v1.4.6/<lang>/ (version landing) for every page, so switching version from a class page throws you back to the landing page instead of the equivalent page.",
+      "why": "Without a v1.4.6 entry the version dropdown always falls back to /v1.4.6/<lang>/, so switching version from any page throws you back to the landing page instead of the equivalent page. This is one of the two concrete causes of 'I clicked into a page and could not get back'.",
+      "risk": "low"
+    },
+    {
+      "id": "P4",
+      "file": "content/_index.md",
+      "action": "edit-md",
+      "owner": "lead / integrator",
+      "insert_after": "the v1.4.5 row of the version table",
+      "snippet": "| **v1.4.6** | 最新源码快照（平铺模块布局）/ Newest source snapshot (flat module layout) | [查看文档 / View Docs](./v1.4.6/zh/) |",
+      "then": "node tools/generate-section-indexes.mjs",
+      "why": "The hand-written table is the site-level version picker; the BEGIN/END SECTION INDEX block below it is machine generated and refreshes itself.",
       "risk": "low"
     },
     {
       "id": "P5",
-      "file": "content/_index.md",
-      "action": "edit-md",
+      "file": "data/page-navigation.json",
+      "action": "regen",
       "owner": "lead / integrator",
-      "insert_after": "the line `| **v1.4.5**  | 源码可用 / Source available | [查看文档 / View Docs](./v1.4.5/) |`",
-      "snippet": "| **v1.4.6** | 最新源码快照（平铺模块布局）/ Newest source snapshot (flat module layout) | [查看文档 / View Docs](./v1.4.6/) |",
-      "then": "node tools/generate-section-indexes.mjs",
-      "why": "The hand-written version table is the site-level version picker. The BEGIN/END SECTION INDEX block below it is machine generated and will pick up /v1.4.6/ on its own once the table row exists.",
+      "command": "node tools/generate-page-navigation.mjs",
+      "why": "Generated leaf Parent/Previous/Next/Related route data. Re-run after the v1.4.6 pages land. Never hand-write entries.",
       "risk": "low"
     },
     {
@@ -86,7 +129,7 @@
       "file": "templates/macros/sidebar.html",
       "action": "none",
       "owner": "-",
-      "why": "No change needed. The macro derives root_key from nav.meta.versions and renders whatever groups/labels navigation.json provides; once P1+P3 are applied v1.4.6 appears with the same behaviour as v1.4.5. Adding a version must not require a template change - that is the whole point of the data-driven sidebar.",
+      "why": "No change needed. It derives root_key from nav.meta.versions and renders whatever groups/labels navigation.json supplies; after P0+P2 v1.4.6 behaves exactly like v1.4.5. A new version must not require a template change — the sidebar is data-driven and contains no hard-coded v1.3.15 menu and no hard-coded api bucket names.",
       "risk": "none"
     },
     {
@@ -94,7 +137,7 @@
       "file": "templates/partials/sidebar.html",
       "action": "none",
       "owner": "-",
-      "why": "Pure dispatcher (imports macros/sidebar.html and calls render_nav with current_url/lang). Nothing version specific.",
+      "why": "Pure dispatcher: imports macros/sidebar.html and calls render_nav(current_url, lang). Nothing version specific.",
       "risk": "none"
     },
     {
@@ -102,7 +145,7 @@
       "file": "templates/partials/topnav.html",
       "action": "none",
       "owner": "-",
-      "why": "Every dropdown loops over nav.meta.versions and gates on nav.routes[route_key] being defined, then links via get_url('@/<version>/<lang>/<section>/_index.md'). No version is hard-coded except the v1.3.15 native-source entry, which is intentionally version specific.",
+      "why": "The only template with a hard-coded version (the v1.3.15 native-source dropdown entry, which is deliberate). Every other dropdown loops nav.meta.versions and gates on nav.routes[route_key] being defined, then links through get_url('@/<version>/<lang>/<section>/_index.md'). Adding v1.4.6 needs no edit.",
       "risk": "none"
     },
     {
@@ -110,7 +153,7 @@
       "file": "templates/macros/breadcrumb.html",
       "action": "none",
       "owner": "-",
-      "why": "Driven by Zola page.ancestors + get_section(), so it works as soon as every ancestor level has a real _index.md. That is what P0 guarantees. Its navigation.json fallback branch also works once P1+P3 land.",
+      "why": "Driven by Zola page.ancestors + get_section(). Works as soon as every ancestor level has a real _index.md. Its navigation.json fallback branch also works once P0+P2 land.",
       "risk": "none"
     },
     {
@@ -118,7 +161,7 @@
       "file": "templates/macros/page-navigation.html",
       "action": "none",
       "owner": "-",
-      "why": "Parent link and prev/next siblings are computed from Zola parent_section.pages at render time, i.e. automatically bidirectional as soon as the page and its section _index.md exist. Do not hand-write prev/next into pages.",
+      "why": "Parent and prev/next are computed from parent_section.pages at render time, so reachability is automatically bidirectional once the page and its section _index.md exist.",
       "risk": "none"
     },
     {
@@ -126,7 +169,7 @@
       "file": "config.toml",
       "action": "none",
       "owner": "-",
-      "why": "No version list, no per-version menu, no redirect table. [slugify] paths = \"off\" already preserves the api/<module-slug>/ directory names this version relies on, taxonomies are empty, so a new version needs no config change. If a per-version warning banner is ever wanted that is a separate feature, not a navigation patch.",
+      "why": "Measured: config.toml contains no version reference of any kind (only base_url, title, description, sass/search/markdown/slugify/link_checker settings and an empty taxonomies array). [slugify] paths = \"off\" already preserves the api/<bucket>/ directory names this version depends on, so a new version needs no config change.",
       "risk": "none"
     },
     {
@@ -134,16 +177,38 @@
       "file": "tools/class-version-diff.mjs",
       "action": "edit-js",
       "owner": "lead / integrator",
-      "find": "const ROOTS = {\n  '1.3.0':  'bannerlord-1.3.0',\n  '1.3.15': 'bannerlord-1.3.15',\n  '1.4.5':  'bannerlord-1.4.5',\n};",
-      "replace": "add \"  '1.4.6':  'bannerlord-1.4.6',\" to ROOTS (and extend the two hard-coded ['1.3.0','1.3.15','1.4.5'] output loops if a 1.4.6 column is wanted)",
-      "why": "Without it, tools/class-version-diff.mjs cannot produce a 1.4.6 column, which is why version-delta.md had to state that signature-level deltas are not verified.",
-      "risk": "low",
-      "optional": true
+      "optional": true,
+      "why": "ROOTS is hard-coded to 1.3.0 / 1.3.15 / 1.4.5, so it cannot emit a 1.4.6 column; that is why version-delta.md states signature-level deltas are not verified. Also note per brief 3: the local bannerlord-1.4.5/ has no C# source, so this tool returns not found for 1.4.5 anyway — compare against bannerlord-1.3.15 and say '1.4.5 not verified'.",
+      "risk": "low"
     }
   ],
 
+  "bidirectional_reachability": {
+    "principle": "Links are ROUTE-relative: a page route is its own directory, so one '..' pops exactly one path segment. fs.existsSync on the joined path is not a valid existence check — a wrong-level link exists as a file.",
+    "levels": [
+      { "level": "leaf (api/<bucket>/<Type>)", "route": "/v1.4.6/zh/api/<bucket>/<Type>/", "to_same_bucket_sibling": "../<OtherType>", "to_cross_bucket": "../../<other-bucket>/<OtherType>", "to_bucket_index": "../" },
+      { "level": "bucket _index.md", "route": "/v1.4.6/zh/api/<bucket>/", "to_own_leaf": "./<Type>", "to_parent_api_index": "../", "to_lang_root": "../../" },
+      { "level": "api _index.md", "route": "/v1.4.6/zh/api/", "to_lang_root": "../" },
+      { "level": "lang root _index.md", "route": "/v1.4.6/zh/", "to_architecture_section": "architecture/", "to_api_section": "api/", "to_other_language": "../en/", "to_site_root": "../../" },
+      { "level": "architecture section _index.md", "route": "/v1.4.6/zh/architecture/", "to_own_child": "./<page>", "to_lang_root": "../../", "to_api_section": "../api/", "to_other_language": "../../en/architecture/" },
+      { "level": "architecture leaf", "route": "/v1.4.6/zh/architecture/<page>/", "to_sibling": "../<page>", "to_section_index": "../", "to_lang_root": "../../", "to_api_leaf": "../../api/<bucket>/<Type>", "to_other_language": "../../../en/architecture/<page>/", "to_site_root": "../../../" },
+      { "level": "cross-version from a leaf", "route": "4 segments", "href": "../../../../v1.4.5/zh/architecture/<page>/", "note": "pops == number of segments in the OWN route; the language segment must match the TARGET tree" },
+      { "level": "cross-version from a section index", "route": "3 segments", "href": "../../../v1.4.5/zh/architecture/" },
+      { "level": "site content/_index.md", "route": "/", "to_version_lang_root": "./v1.4.6/zh/" }
+    ],
+    "forbidden": [
+      "content/ anywhere in an href (repo-root-relative leakage)",
+      "a version segment inside a SAME-version link",
+      "../<bucket>/<Name> from an api leaf page — one level short, only reachable as a sibling",
+      "./<Name> from a leaf page — dot-slash is legal only from a bucket _index.md",
+      "more ../ than the page's own route segment count",
+      "a self-reference (page linking to itself)",
+      "linking to content/v1.4.6/_index.md — unauthorized artifact, undefined language ownership"
+    ],
+    "note_on_the_anchored_grep": "The anchored check `grep -nE '\\]\\(\\.\\./[a-z-]+/[A-Za-z]'` is defined for api LEAF pages, where a single-level ../<bucket>/<Name> is one level short. Architecture pages legitimately use ../../api/<bucket>/<Name> (brief section 2), so the pattern must be scoped to content/v1.4.6/*/*/api/** and not run over architecture pages, or it reports false positives."
+  },
+
   "required_routes": [
-    { "route": "/v1.4.6/", "file": "content/v1.4.6/_index.md", "owner": "worker-10", "reason": "breadcrumb ancestor + nav.routes['/v1.4.6/']" },
     { "route": "/v1.4.6/zh/", "file": "content/v1.4.6/zh/_index.md", "owner": "worker-10" },
     { "route": "/v1.4.6/en/", "file": "content/v1.4.6/en/_index.md", "owner": "worker-10" },
     { "route": "/v1.4.6/zh/architecture/", "file": "content/v1.4.6/zh/architecture/_index.md", "owner": "worker-10" },
@@ -154,14 +219,13 @@
     { "route": "/v1.4.6/en/architecture/sdk-overview/", "file": "content/v1.4.6/en/architecture/sdk-overview.md", "owner": "worker-10" },
     { "route": "/v1.4.6/zh/architecture/version-delta/", "file": "content/v1.4.6/zh/architecture/version-delta.md", "owner": "worker-10" },
     { "route": "/v1.4.6/en/architecture/version-delta/", "file": "content/v1.4.6/en/architecture/version-delta.md", "owner": "worker-10" },
-    { "route": "/v1.4.6/zh/api/", "file": "content/v1.4.6/zh/api/_index.md", "owner": "api worker", "pending": true },
-    { "route": "/v1.4.6/en/api/", "file": "content/v1.4.6/en/api/_index.md", "owner": "api worker", "pending": true }
+    { "route": "/v1.4.6/zh/api/", "file": "content/v1.4.6/zh/api/_index.md", "owner": "api batch", "pending": true },
+    { "route": "/v1.4.6/en/api/", "file": "content/v1.4.6/en/api/_index.md", "owner": "api batch", "pending": true }
   ],
 
   "required_edges": [
-    { "from": "/v1.4.6/zh/", "to": "/v1.4.6/", "kind": "parent" },
-    { "from": "/v1.4.6/en/", "to": "/v1.4.6/", "kind": "parent" },
     { "from": "/v1.4.6/zh/architecture/", "to": "/v1.4.6/zh/", "kind": "parent" },
+    { "from": "/v1.4.6/en/architecture/", "to": "/v1.4.6/en/", "kind": "parent" },
     { "from": "/v1.4.6/zh/architecture/module-map/", "to": "/v1.4.6/zh/architecture/", "kind": "parent" },
     { "from": "/v1.4.6/zh/architecture/module-map/", "to": "/v1.4.6/zh/architecture/sdk-overview/", "kind": "sibling" },
     { "from": "/v1.4.6/zh/architecture/module-map/", "to": "/v1.4.6/zh/architecture/version-delta/", "kind": "sibling" },
@@ -170,7 +234,6 @@
     { "from": "/v1.4.6/zh/architecture/version-delta/", "to": "/v1.4.6/zh/architecture/sdk-overview/", "kind": "sibling" },
     { "from": "/v1.4.6/zh/architecture/version-delta/", "to": "/v1.4.6/zh/architecture/module-map/", "kind": "sibling" },
     { "from": "/v1.4.6/zh/architecture/sdk-overview/", "to": "/v1.4.6/zh/", "kind": "grandparent" },
-    { "from": "/v1.4.6/zh/architecture/sdk-overview/", "to": "/v1.4.6/", "kind": "version-root" },
     { "from": "/v1.4.6/zh/", "to": "/v1.4.6/en/", "kind": "language-sibling" },
     { "from": "/v1.4.6/en/", "to": "/v1.4.6/zh/", "kind": "language-sibling" },
     { "from": "/v1.4.6/zh/", "to": "/v1.4.5/zh/", "kind": "cross-version" },
@@ -180,7 +243,7 @@
     { "from": "/v1.4.6/en/architecture/", "to": "/v1.3.15/en/architecture/", "kind": "cross-version" },
     { "from": "/v1.4.6/zh/architecture/", "to": "/v1.4.6/en/architecture/", "kind": "language-sibling" },
     { "from": "/v1.4.6/en/architecture/", "to": "/v1.4.6/zh/architecture/", "kind": "language-sibling" },
-    { "from": "/v1.4.6/zh/architecture/module-map/", "to": "/v1.4.6/zh/api/core/", "kind": "child-section", "pending": true },
+    { "from": "/v1.4.6/zh/architecture/module-map/", "to": "/v1.4.6/zh/api/core-extra/", "kind": "child-section", "pending": true },
     { "from": "/v1.4.6/zh/architecture/module-map/", "to": "/v1.4.6/en/architecture/module-map/", "kind": "language-sibling" },
     { "from": "/v1.4.6/en/architecture/module-map/", "to": "/v1.4.6/zh/architecture/module-map/", "kind": "language-sibling" },
     { "from": "/v1.4.6/zh/architecture/sdk-overview/", "to": "/v1.4.6/en/architecture/sdk-overview/", "kind": "language-sibling" },
@@ -190,38 +253,12 @@
   ],
 
   "pending_link_policy": {
-    "why": "api/ sections and class pages are produced by a parallel worker. Links from worker-10 pages into content/v1.4.6/{zh,en}/api/** were written before those files existed and were declared pending up front.",
+    "why": "api/ sections are produced by a parallel batch that is currently converging. Links from worker-10 pages into content/v1.4.6/{zh,en}/api/** may be unresolved at any given moment and recover automatically once the batch settles. worker-10 creates no placeholder pages.",
     "allowed_missing_prefixes": ["v1.4.6/zh/api/", "v1.4.6/en/api/"],
-    "not_allowed_missing": "everything else, including cross-version links into v1.3.15 / v1.4.5 / versions/",
-    "status_at_handover": "0 pending. All 23 api module sections referenced below exist and resolve. Re-run node tools/_v146_nav-check.mjs after the api batch changes; if it prints OWNED_LINKS_PENDING > 0, that batch renamed or dropped a section and the module-map table must follow.",
-    "api_sections_linked_from_worker10_pages": [
-      "achievementsystem", "activitysystem", "campaignsystem", "campaignsystem-fastmode",
-      "campaignsystem-viewmodelcollection", "campaignsystem-viewmodelcollection-birthanddeath",
-      "core", "engine-gauntletui", "gauntletui", "gauntletui-data", "inputsystem", "library",
-      "localization", "modulemanager", "mountandblade", "mountandblade-view", "objectsystem",
-      "sandbox", "sandbox-gauntletui", "savesystem", "screensystem", "storymode", "twodimension"
-    ]
-  },
-
-  "link_depth_rule": {
-    "rule": "On an _index.md page (route = its own directory) children are ./child or child/; on a leaf page (route = <dir>/<page>/) siblings are ../child. Never use more ../ than the page's own route depth.",
-    "why": "tools/audit-links.mjs builds routes WITHOUT a leading slash (fileToRoute returns dir + '/'), so an over-deep ../../.. escapes the content root and is reported as BROKEN even though a browser resolves it correctly. Found while authoring: content/v1.4.6/zh/_index.md had ../../../versions/ (route depth 2) and the audit flagged it; rewritten as ../../versions/.",
-    "audit_tool_caveat": "audit-links is the stricter gate and disagrees with the browser on over-deep relative paths. Treat its verdict as authoritative for this repo."
-  },
-
-  "check_result": {
-    "command": "node tools/_v146_nav-check.mjs",
-    "routes_missing": 0,
-    "edges_missing": 0,
-    "owned_links_ok": 201,
-    "owned_links_pending": 0,
-    "owned_links_broken": 0,
-    "official_audit": "AUDIT_MODE=url AUDIT_CONTENT_ROOT=content/v1.4.6 node tools/audit-links.mjs -> FILES=9465 TOTAL_LINKS=76180 BROKEN_LINKS=0 RESOLVE_NEITHER=0 FILES_WITH_BROKEN=0",
-    "caveat": "While worker-10 was writing, the parallel api batch was mid-flight and the tree-wide audit showed up to 38166 broken links, all inside api/**. Every one of the worker-10 pages stayed at 0 throughout (verified with tools/_v146_nav-check.mjs, which is scoped to the 11 owned pages). content/v1.4.6/_index.md was also rewritten by another agent; worker-10 fixed one broken link left in it (../v1.3.15/architecture/version-delta/ -> ../v1.3.15/zh/architecture/version-delta/)."
+    "not_allowed_missing": "everything else, including cross-version links into v1.3.15 / v1.4.5 / versions/"
   },
 
   "owned_pages": [
-    "content/v1.4.6/_index.md",
     "content/v1.4.6/zh/_index.md",
     "content/v1.4.6/en/_index.md",
     "content/v1.4.6/zh/architecture/_index.md",
@@ -234,11 +271,12 @@
     "content/v1.4.6/en/architecture/version-delta.md"
   ],
 
-  "apply_order": ["P0", "P2", "P3", "P1", "P4", "P5"],
+  "apply_order": ["P1", "P2", "P0", "P3", "P4", "P5"],
   "verify_commands": [
+    "node tools/_v146_nav-check.mjs",
     "node tools/generate-section-tree.mjs --check",
     "node tools/audit-navigation.mjs",
-    "node tools/_v146_nav-check.mjs",
+    "node tools/generate-page-navigation.mjs",
     "AUDIT_MODE=url AUDIT_CONTENT_ROOT=content/v1.4.6 node tools/audit-links.mjs"
   ]
 }

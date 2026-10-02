@@ -99,10 +99,12 @@ namespace MyMod
         {
             // Listen only. To change state, raise a CampaignEvent and let an
             // Action apply it.
-            campaignEvents.HourlyTickEvent.AddNonIndexableAction(OnHourlyTick);
+            // MBCampaignEvent.AddHandler takes a CampaignEventDelegate:
+            // void (MBCampaignEvent campaignEvent, params object[] delegateParams)
+            campaignEvents.HourlyTickEvent.AddHandler(OnHourlyTick);
         }
 
-        private void OnHourlyTick()
+        private static void OnHourlyTick(MBCampaignEvent campaignEvent, params object[] delegateParams)
         {
             // To change gold / relations / parties, raise a custom CampaignEvent
             // here; a Behaviour or a built-in *Action applies the change.

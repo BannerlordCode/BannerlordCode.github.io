@@ -1,0 +1,32 @@
+{
+ "note": "The tool line is frozen. Any content/ delta below was produced by a concurrent worker, not by these tools, EXCEPT for files in changedPotentiallyMine which a marker cannot rule out and which must be checked by hand.",
+ "filesBefore": 12441,
+ "filesAfter": 12441,
+ "added": [],
+ "removed": [],
+ "changedCount": 0,
+ "changedByOthersCount": 0,
+ "changedPotentiallyMine": [],
+ "toolRuns": [
+  {
+   "tool": "_v146_extract.mjs",
+   "exit": 0,
+   "tail": "ALL GATES PASS | wrote tools\\_v146_inventory.json"
+  },
+  {
+   "tool": "_v146_stubs.mjs",
+   "exit": 0,
+   "tail": "ALL GATES PASS | wrote tools/_v146_stub-run.json"
+  },
+  {
+   "tool": "_v146_treespec.mjs",
+   "exit": 0,
+   "tail": "wrote tools/_v146_tree-spec.md and tools/_v146_tree-spec.json | buckets: 19 | types: 5987 | rules used: 40"
+  },
+  {
+   "tool": "_v146_census.mjs",
+   "exit": 0,
+   "tail": "reserved paths  80 (32 handwritten, 14 generated-stub, 34 missing) | wrote tools/_v146_out/census.json and census.md"
+  }
+ ]
+}

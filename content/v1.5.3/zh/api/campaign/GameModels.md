@@ -72,7 +72,7 @@ public class MyProsperityModel : MBGameModel<SettlementProsperityModel>
             : new ExplainedNumber(0f, includeDescriptions, null);
 
         if (fortification != null && fortification.Settlement != null && fortification.Settlement.IsFortification)
-            result.Add(0.5f, "MyMod_bonus", null);
+            result.Add(0.5f, new TextObject("{=MyMod_bonus}MyMod bonus"), null);
 
         return result;
     }

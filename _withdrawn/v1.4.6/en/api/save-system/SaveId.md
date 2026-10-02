@@ -1,0 +1,44 @@
+---
+title: "SaveId"
+description: "SaveId: a public class in TaleWorlds.SaveSystem.Definition; 6 exposed members (6 methods, 0 properties, 0 fields). Canonical bucket save-system. Source: TaleWorlds.SaveSystem/Definition/SaveId.cs."
+---
+
+<!-- generated-by: tools/_v146_stubs.mjs -->
+# SaveId
+
+**Namespace:** `TaleWorlds.SaveSystem.Definition`
+**Module:** `TaleWorlds.SaveSystem`
+**Type:** `public abstract class SaveId`
+**File:** `TaleWorlds.SaveSystem/Definition/SaveId.cs`
+**Bucket:** `save-system` (rule:TaleWorlds.SaveSystem)
+
+## Overview
+
+SaveId lives in the TaleWorlds.SaveSystem module, source file TaleWorlds.SaveSystem/Definition/SaveId.cs. It is a public class (abstract); the inheritance chain is SaveId. It exposes 6 public/protected members: 6 methods.
+
+> Batch first draft: every signature is taken verbatim from the decompiled bannerlord-1.4.6 source. The bucket is resolved live from `tools/_dir-map-canonical.json`. What each method actually does, when to call it and where it breaks must be read from the method body in the source file.
+
+## Mental Model
+
+Structural facts: SaveId lands in canonical bucket `save-system` (matched rule `rule:TaleWorlds.SaveSystem`), namespace `TaleWorlds.SaveSystem.Definition`, inheritance chain SaveId. The surface is method-led (methods 6/6, properties 0/6), so it mostly exposes operations. This page lists real signatures only: what each method does, when to call it and where it breaks must be read from TaleWorlds.SaveSystem/Definition/SaveId.cs or the deep page for this type.
+
+## Key Members
+
+| Member | Signature | Kind |
+| --- | --- | --- |
+| `GetStringId` | `public abstract string GetStringId();` | method |
+| `GetHashCode` | `public override int GetHashCode()` | method |
+| `Equals` | `public override bool Equals(object obj)` | method |
+| `WriteTo` | `public abstract void WriteTo(IWriter writer);` | method |
+| `ReadSaveIdFrom` | `public static SaveId ReadSaveIdFrom(IReader reader)` | method |
+| `GetSizeInBytes` | `public abstract int GetSizeInBytes();` | method |
+
+## See Also
+
+- [↑ bucket index](..//)
+- [↑ API reference](../..//)
+- [↑ version home](../../..//)
+- [same namespace CollectObjectsDelegate](../CollectObjectsDelegate/)
+- [same namespace ContainerDefinition](../ContainerDefinition/)
+- [same namespace ContainerSaveId](../ContainerSaveId/)
+- [same namespace CustomField](../CustomField/)

@@ -1,0 +1,55 @@
+{
+  "_comment": "Explicit path-level reserved list for the v1.4.6 API tree. Unioned with the manifest rule: a page is skipped if it is (a) not in _v146_inventory.json, OR (b) listed here. Never generated, never overwritten, never pruned. Owned by the deep-writing workers.",
+  "schemaVersion": 1,
+  "version": "v1.4.6",
+  "owners": {
+    "worker-12": [
+      "zh/api/core/MBSubModuleBase",
+      "zh/api/core/Module",
+      "zh/api/core-extra/Game",
+      "zh/api/core-extra/GameStateManager",
+      "zh/api/core-extra/GameManagerBase",
+      "zh/api/core-extra/ViewModel",
+      "zh/api/core-extra/InformationManager",
+      "zh/api/localization/TextObject",
+      "zh/api/save-system/SaveManager",
+      "zh/api/save-system/SaveableTypeDefiner",
+      "zh/api/save-system/SaveableFieldAttribute",
+      "zh/api/save-system/SaveablePropertyAttribute"
+    ],
+    "worker-20": [
+      "zh/api/campaign/Campaign",
+      "zh/api/campaign/CampaignGameStarter",
+      "zh/api/campaign/CampaignBehaviorBase",
+      "zh/api/campaign/CampaignEvents",
+      "zh/api/campaign/IDataStore",
+      "zh/api/campaign/Hero",
+      "zh/api/campaign/Settlement",
+      "zh/api/campaign-ext/MBObjectManager",
+      "zh/api/campaign-ext/MBObjectBase",
+      "zh/api/mission/Mission",
+      "zh/api/mission/MissionBehavior",
+      "zh/api/mission/Agent",
+      "zh/api/mission/Formation",
+      "zh/api/gui/ScreenManager",
+      "zh/api/gui/ScreenBase",
+      "zh/api/engine/GauntletLayer"
+    ],
+    "worker-12-next-batch": [
+      "zh/api/core-extra/ItemObject",
+      "zh/api/core-extra/Equipment",
+      "zh/api/core-extra/WeaponComponent",
+      "zh/api/core-extra/SkillObject",
+      "zh/api/core-extra/Crafting",
+      "zh/api/core-extra/BodyProperties",
+      "zh/api/core-extra/Banner",
+      "zh/api/core-extra/GameModel",
+      "zh/api/core-extra/GameModelsManager",
+      "zh/api/core-extra/ParameterContainer",
+      "zh/api/core-extra/BindingPath",
+      "zh/api/core-extra/EventBase"
+    ]
+  },
+  "_mirrorToEn": "The zh path is the authority. The en counterpart of each entry is also reserved, because the bilingual tree must stay parallel and the en page is either a translation of the deep page or a stub waiting for it.",
+  "mirrorLang": ["zh", "en"]
+}

@@ -78,14 +78,9 @@ public class VisitCounterBehavior : CampaignBehaviorBase
 
     public override void SyncData(IDataStore dataStore)
     {
-        if (dataStore.IsLoading())
-        {
-            _settlementVisits = dataStore.GetDataAsInt("VisitCounter.Visits");
-        }
-        else
-        {
-            dataStore.SyncData("VisitCounter.Visits", ref _settlementVisits);
-        }
+        // IDataStore 只有 SyncData<T>(string, ref T)、IsSaving、IsLoading 三个成员：
+        // 读与写用的是同一个方法，区别只在调用时的存档方向
+        dataStore.SyncData("VisitCounter.Visits", ref _settlementVisits);
     }
 
     private void OnSettlementEntered(MobileParty party, Settlement settlement, Hero hero)

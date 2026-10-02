@@ -61,10 +61,12 @@ MissionState.OpenNew(missionName, rec, handler, addDefaultMissionBehaviors, need
 ## 真实示例
 
 ```csharp
-// 打开一个自定义任务并注入自己的行为
-public static Mission OpenMyMission(string missionName)
+// 打开一个自定义任务并注入自己的行为（返回类型是真实 API MissionState.OpenNew）
+public static Mission MyOpenMission(string missionName)
 {
-    MissionInitializerRecord record = new MissionInitializerRecord(missionName, "day_only", false);
+    // 唯一的构造函数是 MissionInitializerRecord(string name)，其余是公开字段
+    MissionInitializerRecord record = new MissionInitializerRecord(missionName);
+    record.SceneName = missionName;
 
     Mission mission = MissionState.OpenNew(missionName, record,
         delegate (Mission m)
@@ -79,7 +81,7 @@ public static Mission OpenMyMission(string missionName)
 }
 
 // 任务内读状态：永远先判 Current 与 CurrentState
-public override void MissionTick(float dt)
+public override void OnPreMissionTick(float dt)
 {
     MissionState state = MissionState.Current;
     if (state == null || state.CurrentMission == null) return;

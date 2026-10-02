@@ -43,7 +43,7 @@ Pushing a screen needs two types: `ScreenBase` (lifecycle) and `GauntletLayer` (
 
 ## See also
 
-- ↑ [版本首页](../../)
-- ↑ [API 参考](../)
-- ↔ [架构总览](../../architecture/)
+- ↑ [Version home](../../)
+- ↑ [API reference](../)
+- ↔ [Architecture overview](../../architecture/)
 - ↘ [ui-stack](../../architecture/ui-stack)

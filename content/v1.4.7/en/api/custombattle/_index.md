@@ -24,6 +24,6 @@ It does not run the campaign flow and has no `Campaign`. A custom battle mod wor
 
 ## See also
 
-- ↑ [版本首页](../../)
-- ↑ [API 参考](../)
-- ↔ [架构总览](../../architecture/)
+- ↑ [Version home](../../)
+- ↑ [API reference](../)
+- ↔ [Architecture overview](../../architecture/)

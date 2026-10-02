@@ -124,6 +124,6 @@ The 1.4.5 tree scattered this under a directory named `gameplay`. That directory
 
 ## See also
 
-- ↑ [版本首页](../../)
-- ↑ [API 参考](../)
-- ↔ [架构总览](../../architecture/)
+- ↑ [Version home](../../)
+- ↑ [API reference](../)
+- ↔ [Architecture overview](../../architecture/)

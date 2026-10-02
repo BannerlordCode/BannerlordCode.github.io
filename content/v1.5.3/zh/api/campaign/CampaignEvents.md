@@ -73,19 +73,19 @@ public class MyLogBehavior : CampaignBehaviorBase
 {
     public override void RegisterEvents()
     {
-        CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, DailyTick);
-        CampaignEvents.HourlyTickEvent.AddNonSerializedListener(this, HourlyTick);
+        CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, MyDailyTick);
+        CampaignEvents.HourlyTickEvent.AddNonSerializedListener(this, MyHourlyTick);
         // 带参事件：IMbEvent<MobileParty, PartyThinkParams>
-        CampaignEvents.AiHourlyTickEvent.AddNonSerializedListener(this, OnAiHourly);
+        CampaignEvents.AiHourlyTickEvent.AddNonSerializedListener(this, MyOnAiHourly);
     }
 
     public override void SyncData(IDataStore dataStore) { }
 
-    private void DailyTick() => Debug.Print("day tick");
+    private void MyDailyTick() => Debug.Print("day tick");
 
-    private void HourlyTick() => Debug.Print("hour tick");
+    private void MyHourlyTick() => Debug.Print("hour tick");
 
-    private void OnAiHourly(MobileParty party, PartyThinkParams p) => Debug.Print("ai: " + party.Name);
+    private void MyOnAiHourly(MobileParty party, PartyThinkParams p) => Debug.Print("ai: " + party.Name);
 
     // 读档前重建订阅，避免重复注册
     public override void RegisterEvents() { /* 重复订阅的清理交给宿主对象 this */ }

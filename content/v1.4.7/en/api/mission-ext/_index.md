@@ -192,6 +192,6 @@ Reading order for a battle mod: `Mission` (entry class) → `MissionBehavior` an
 
 ## See also
 
-- ↑ [版本首页](../../)
-- ↑ [API 参考](../)
-- ↔ [架构总览](../../architecture/)
+- ↑ [Version home](../../)
+- ↑ [API reference](../)
+- ↔ [Architecture overview](../../architecture/)

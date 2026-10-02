@@ -1,0 +1,862 @@
+{
+ "generatedAt": "tool: _v146_census.mjs (read-only; content freeze active)",
+ "root": "content/v1.4.6",
+ "judgmentA": {
+  "name": "generator fingerprint",
+  "signals": [
+   "contains \"generated-by: tools/_v146_stubs.mjs\"",
+   "contains the legacy batch-draft sentence (pre-freeze generator)",
+   "has a **Bucket:** `dir` (rule) line AND the generated member-table header \"| 成员 | 签名 | 种类 |\" / \"| Member | Signature | Kind |\""
+  ]
+ },
+ "judgmentB": {
+  "name": "handwritten deep page",
+  "signals": [
+   "has an H2 概述 / Overview section",
+   "has an H2 心智模型 / Mental Model section",
+   "AND (has a risk/boundary H2 heading, or a csharp fence with >= 3 non-comment lines and a .Method( call and no banned placeholder)",
+   "note: the risk test is a HEADING match only; the word \"risk\" appearing in prose does not count"
+  ],
+  "note": "deliberately string-independent: it never looks for a generator marker"
+ },
+ "totals": {
+  "files": 12441,
+  "handwrittenDeep": 32,
+  "handwrittenDeepWithGeneratorFingerprint": 0,
+  "generated": 12396,
+  "other": 13
+ },
+ "byLang": {
+  "zh": {
+   "total": 6230,
+   "handwritten-deep": 32,
+   "handwritten-deep-with-generator-fingerprint": 0,
+   "generated": 6192,
+   "other": 6,
+   "leafGenerated": 6173,
+   "leafHandwritten": 32,
+   "indexGenerated": 19,
+   "indexOther": 3,
+   "byJudgeA": 6192,
+   "byJudgeBDeep": 32
+  },
+  "en": {
+   "total": 6210,
+   "handwritten-deep": 0,
+   "handwritten-deep-with-generator-fingerprint": 0,
+   "generated": 6204,
+   "other": 6,
+   "leafGenerated": 6185,
+   "leafHandwritten": 0,
+   "indexGenerated": 19,
+   "indexOther": 3,
+   "byJudgeA": 6204,
+   "byJudgeBDeep": 0
+  }
+ },
+ "byBucket": {
+  "achievementsystem": {
+   "bucket": "achievementsystem",
+   "total": 10,
+   "generated": 10,
+   "handwritten": 0,
+   "other": 0
+  },
+  "activitysystem": {
+   "bucket": "activitysystem",
+   "total": 14,
+   "generated": 14,
+   "handwritten": 0,
+   "other": 0
+  },
+  "campaign": {
+   "bucket": "campaign",
+   "total": 1183,
+   "generated": 1180,
+   "handwritten": 3,
+   "other": 0
+  },
+  "campaign-ext": {
+   "bucket": "campaign-ext",
+   "total": 1194,
+   "generated": 1192,
+   "handwritten": 2,
+   "other": 0
+  },
+  "core": {
+   "bucket": "core",
+   "total": 456,
+   "generated": 454,
+   "handwritten": 2,
+   "other": 0
+  },
+  "core-extra": {
+   "bucket": "core-extra",
+   "total": 903,
+   "generated": 887,
+   "handwritten": 16,
+   "other": 0
+  },
+  "custombattle": {
+   "bucket": "custombattle",
+   "total": 80,
+   "generated": 80,
+   "handwritten": 0,
+   "other": 0
+  },
+  "engine": {
+   "bucket": "engine",
+   "total": 383,
+   "generated": 382,
+   "handwritten": 1,
+   "other": 0
+  },
+  "gui": {
+   "bucket": "gui",
+   "total": 456,
+   "generated": 454,
+   "handwritten": 2,
+   "other": 0
+  },
+  "localization": {
+   "bucket": "localization",
+   "total": 44,
+   "generated": 43,
+   "handwritten": 1,
+   "other": 0
+  },
+  "mission": {
+   "bucket": "mission",
+   "total": 5,
+   "generated": 4,
+   "handwritten": 1,
+   "other": 0
+  },
+  "mission-ext": {
+   "bucket": "mission-ext",
+   "total": 3710,
+   "generated": 3710,
+   "handwritten": 0,
+   "other": 0
+  },
+  "modulemanager": {
+   "bucket": "modulemanager",
+   "total": 18,
+   "generated": 18,
+   "handwritten": 0,
+   "other": 0
+  },
+  "network": {
+   "bucket": "network",
+   "total": 68,
+   "generated": 68,
+   "handwritten": 0,
+   "other": 0
+  },
+  "sandbox": {
+   "bucket": "sandbox",
+   "total": 2350,
+   "generated": 2350,
+   "handwritten": 0,
+   "other": 0
+  },
+  "save-system": {
+   "bucket": "save-system",
+   "total": 114,
+   "generated": 110,
+   "handwritten": 4,
+   "other": 0
+  },
+  "storymode": {
+   "bucket": "storymode",
+   "total": 334,
+   "generated": 334,
+   "handwritten": 0,
+   "other": 0
+  },
+  "system": {
+   "bucket": "system",
+   "total": 30,
+   "generated": 30,
+   "handwritten": 0,
+   "other": 0
+  },
+  "viewmodel": {
+   "bucket": "viewmodel",
+   "total": 1076,
+   "generated": 1076,
+   "handwritten": 0,
+   "other": 0
+  },
+  "_index.md": {
+   "bucket": "_index.md",
+   "total": 4,
+   "generated": 0,
+   "handwritten": 0,
+   "other": 4
+  },
+  "module-map.md": {
+   "bucket": "module-map.md",
+   "total": 2,
+   "generated": 0,
+   "handwritten": 0,
+   "other": 2
+  },
+  "sdk-overview.md": {
+   "bucket": "sdk-overview.md",
+   "total": 2,
+   "generated": 0,
+   "handwritten": 0,
+   "other": 2
+  },
+  "version-delta.md": {
+   "bucket": "version-delta.md",
+   "total": 2,
+   "generated": 0,
+   "handwritten": 0,
+   "other": 2
+  }
+ },
+ "reservedPathDetail": [
+  {
+   "owner": "worker-12",
+   "path": "zh/api/core/MBSubModuleBase.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 14382
+  },
+  {
+   "owner": "worker-12",
+   "path": "en/api/core/MBSubModuleBase.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-12",
+   "path": "zh/api/core/Module.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 15598
+  },
+  {
+   "owner": "worker-12",
+   "path": "en/api/core/Module.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-12",
+   "path": "zh/api/core-extra/Game.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 18960
+  },
+  {
+   "owner": "worker-12",
+   "path": "en/api/core-extra/Game.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-12",
+   "path": "zh/api/core-extra/GameStateManager.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 14161
+  },
+  {
+   "owner": "worker-12",
+   "path": "en/api/core-extra/GameStateManager.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-12",
+   "path": "zh/api/core-extra/GameManagerBase.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 15752
+  },
+  {
+   "owner": "worker-12",
+   "path": "en/api/core-extra/GameManagerBase.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-12",
+   "path": "zh/api/core-extra/ViewModel.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 14382
+  },
+  {
+   "owner": "worker-12",
+   "path": "en/api/core-extra/ViewModel.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-12",
+   "path": "zh/api/core-extra/InformationManager.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 13583
+  },
+  {
+   "owner": "worker-12",
+   "path": "en/api/core-extra/InformationManager.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-12",
+   "path": "zh/api/localization/TextObject.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 13974
+  },
+  {
+   "owner": "worker-12",
+   "path": "en/api/localization/TextObject.md",
+   "exists": true,
+   "verdict": "generated",
+   "judgedAs": "A=marker / B=shallow",
+   "bytes": 4562
+  },
+  {
+   "owner": "worker-12",
+   "path": "zh/api/save-system/SaveManager.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 9424
+  },
+  {
+   "owner": "worker-12",
+   "path": "en/api/save-system/SaveManager.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-12",
+   "path": "zh/api/save-system/SaveableTypeDefiner.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 13173
+  },
+  {
+   "owner": "worker-12",
+   "path": "en/api/save-system/SaveableTypeDefiner.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-12",
+   "path": "zh/api/save-system/SaveableFieldAttribute.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 5825
+  },
+  {
+   "owner": "worker-12",
+   "path": "en/api/save-system/SaveableFieldAttribute.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-12",
+   "path": "zh/api/save-system/SaveablePropertyAttribute.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 5345
+  },
+  {
+   "owner": "worker-12",
+   "path": "en/api/save-system/SaveablePropertyAttribute.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "zh/api/campaign/Campaign.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "en/api/campaign/Campaign.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "zh/api/campaign/CampaignGameStarter.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 12292
+  },
+  {
+   "owner": "worker-20",
+   "path": "en/api/campaign/CampaignGameStarter.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "zh/api/campaign/CampaignBehaviorBase.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 7297
+  },
+  {
+   "owner": "worker-20",
+   "path": "en/api/campaign/CampaignBehaviorBase.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "zh/api/campaign/CampaignEvents.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "en/api/campaign/CampaignEvents.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "zh/api/campaign/IDataStore.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 6161
+  },
+  {
+   "owner": "worker-20",
+   "path": "en/api/campaign/IDataStore.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "zh/api/campaign/Hero.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "en/api/campaign/Hero.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "zh/api/campaign/Settlement.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "en/api/campaign/Settlement.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "zh/api/campaign-ext/MBObjectManager.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 17031
+  },
+  {
+   "owner": "worker-20",
+   "path": "en/api/campaign-ext/MBObjectManager.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "zh/api/campaign-ext/MBObjectBase.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 10793
+  },
+  {
+   "owner": "worker-20",
+   "path": "en/api/campaign-ext/MBObjectBase.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "zh/api/mission/Mission.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "en/api/mission/Mission.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "zh/api/mission/MissionBehavior.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 18896
+  },
+  {
+   "owner": "worker-20",
+   "path": "en/api/mission/MissionBehavior.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "zh/api/mission/Agent.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "en/api/mission/Agent.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "zh/api/mission/Formation.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "en/api/mission/Formation.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "zh/api/gui/ScreenManager.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 17018
+  },
+  {
+   "owner": "worker-20",
+   "path": "en/api/gui/ScreenManager.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "zh/api/gui/ScreenBase.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 13597
+  },
+  {
+   "owner": "worker-20",
+   "path": "en/api/gui/ScreenBase.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-20",
+   "path": "zh/api/engine/GauntletLayer.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 11908
+  },
+  {
+   "owner": "worker-20",
+   "path": "en/api/engine/GauntletLayer.md",
+   "exists": false,
+   "verdict": "MISSING",
+   "judgedAs": "-",
+   "bytes": 0
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "zh/api/core-extra/ItemObject.md",
+   "exists": true,
+   "verdict": "generated",
+   "judgedAs": "A=marker / B=shallow",
+   "bytes": 8393
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "en/api/core-extra/ItemObject.md",
+   "exists": true,
+   "verdict": "generated",
+   "judgedAs": "A=marker / B=shallow",
+   "bytes": 8525
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "zh/api/core-extra/Equipment.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 18958
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "en/api/core-extra/Equipment.md",
+   "exists": true,
+   "verdict": "generated",
+   "judgedAs": "A=marker / B=shallow",
+   "bytes": 6734
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "zh/api/core-extra/WeaponComponent.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 10335
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "en/api/core-extra/WeaponComponent.md",
+   "exists": true,
+   "verdict": "generated",
+   "judgedAs": "A=marker / B=shallow",
+   "bytes": 2867
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "zh/api/core-extra/SkillObject.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 8350
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "en/api/core-extra/SkillObject.md",
+   "exists": true,
+   "verdict": "generated",
+   "judgedAs": "A=marker / B=shallow",
+   "bytes": 2672
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "zh/api/core-extra/Crafting.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 19400
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "en/api/core-extra/Crafting.md",
+   "exists": true,
+   "verdict": "generated",
+   "judgedAs": "A=marker / B=shallow",
+   "bytes": 5476
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "zh/api/core-extra/BodyProperties.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 12752
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "en/api/core-extra/BodyProperties.md",
+   "exists": true,
+   "verdict": "generated",
+   "judgedAs": "A=marker / B=shallow",
+   "bytes": 3747
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "zh/api/core-extra/Banner.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 16754
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "en/api/core-extra/Banner.md",
+   "exists": true,
+   "verdict": "generated",
+   "judgedAs": "A=marker / B=shallow",
+   "bytes": 6104
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "zh/api/core-extra/GameModel.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 6340
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "en/api/core-extra/GameModel.md",
+   "exists": true,
+   "verdict": "generated",
+   "judgedAs": "A=marker / B=shallow",
+   "bytes": 2022
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "zh/api/core-extra/GameModelsManager.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 7454
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "en/api/core-extra/GameModelsManager.md",
+   "exists": true,
+   "verdict": "generated",
+   "judgedAs": "A=marker / B=shallow",
+   "bytes": 2197
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "zh/api/core-extra/ParameterContainer.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 10544
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "en/api/core-extra/ParameterContainer.md",
+   "exists": true,
+   "verdict": "generated",
+   "judgedAs": "A=marker / B=shallow",
+   "bytes": 3734
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "zh/api/core-extra/BindingPath.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 11056
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "en/api/core-extra/BindingPath.md",
+   "exists": true,
+   "verdict": "generated",
+   "judgedAs": "A=marker / B=shallow",
+   "bytes": 3466
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "zh/api/core-extra/EventBase.md",
+   "exists": true,
+   "verdict": "handwritten-deep",
+   "judgedAs": "A=none / B=deep",
+   "bytes": 6159
+  },
+  {
+   "owner": "worker-12-next-batch",
+   "path": "en/api/core-extra/EventBase.md",
+   "exists": true,
+   "verdict": "generated",
+   "judgedAs": "A=marker / B=shallow",
+   "bytes": 2011
+  }
+ ]
+}

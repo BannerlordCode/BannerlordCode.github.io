@@ -30,7 +30,7 @@ const onlyDirs = only ? new Set(only.split(',').map((s) => s.trim()).filter(Bool
 const DIR_META = {
   'campaign': { title: 'campaign 目录', desc: 'TaleWorlds.CampaignSystem 根命名空间的战役世界状态层类参考目录', model: '战役世界状态层：持有沙盒地图上的全部事实（谁在哪、谁属于谁、钱从哪来），本身不渲染界面。所有世界逻辑最终都要回到这里读写。' },
   'campaign-ext': { title: 'campaign-ext 目录', desc: 'TaleWorlds.ObjectSystem 与 TaleWorlds.CampaignSystem 行为/组件子域的类参考目录', model: '战役扩展层：行为框架（CampaignBehaviors）、Actions、Models、Issues、Conversation，以及 TaleWorlds.ObjectSystem 这套 MBObjectBase 对象身份与序列化底座。它决定“什么时候、由谁”去改 campaign 层的数据。' },
-  'core': { title: 'core 目录', desc: '模块加载入口（MBSubModuleBase / Module / ModuleManager）类参考目录', model: '模块加载入口层：MBSubModuleBase 与 Module 决定 mod 在游戏哪个阶段被装载，是所有 mod 的第一个挂钩点。', note: '> **本桶只放 mod 入口类**：`MBSubModuleBase` 与 `Module`。\n> **完整 API 在 [Core-Extra](../core-extra/)**：`Game`、`GameStateManager`、`GameManagerBase`、`TextObject`、`ViewModel` 等运行时基础类型都在那边。\n> 回到 [Core 桶首页](./)。\n>\n> 这是**预期布局，不是重复路由 bug**：canonical 映射先把 `TaleWorlds.MountAndBlade*` 归入 `mission-ext`、`TaleWorlds.Core*` 归入 `core-extra`，再由 `entryPointDirs` 把模块加载入口抽到 `core`。另外 1.4.5 的 `core/Game.md` 在本版按规则移到了 [Core-Extra](../core-extra/Game/)，这是唯一一处 1.4.5 → 1.5.3 归属变化。' },
+  'core': { title: 'core 目录', desc: '模块加载入口（MBSubModuleBase / Module / ModuleManager）类参考目录', model: '模块加载入口层：MBSubModuleBase 与 Module 决定 mod 在游戏哪个阶段被装载，是所有 mod 的第一个挂钩点。', note: '> **本桶只放 mod 入口类**：`MBSubModuleBase` 与 `Module`。\n> **运行时 API 在 [Core-Extra](../core-extra/)**：`Game`、`GameStateManager`、`GameManagerBase`、`ViewModel` 等运行时基础类型都在那边。\n> 注意 `TextObject` **不在** core-extra：它是命名空间 `TaleWorlds.Localization`，按 canonical 规则落在 [Localization](../localization/TextObject/)。\n> 回到 [Core 桶首页](./)。\n>\n> 这是**预期布局，不是重复路由 bug**：canonical 映射先把 `TaleWorlds.MountAndBlade*` 归入 `mission-ext`、`TaleWorlds.Core*` 归入 `core-extra`，再由 `entryPointDirs` 把模块加载入口抽到 `core`。另外 1.4.5 的 `core/Game.md` 在本版按规则移到了 [Core-Extra](../core-extra/Game/)，这是唯一一处 1.4.5 → 1.5.3 归属变化。' },
   'core-extra': { title: 'core-extra 目录', desc: 'TaleWorlds.Core / Library / DotNet / Starter 运行时基础类型类参考目录', model: '运行时基础层：Game 生命周期、InformationManager、装备与技能数据、文本对象 ViewModel 基础设施，以及 TaleWorlds.Library / DotNet 的底层工具类型。', note: '> 本桶是核心类型的**完整 API**（`TaleWorlds.Core*` / `TaleWorlds.Library*` / `TaleWorlds.DotNet*` / `TaleWorlds.Starter*`，以及未命中任何前缀规则的命名空间）。\n> 模块加载入口 [MBSubModuleBase](./../core/MBSubModuleBase)、[Module](./../core/Module) 被单独抽到 [Core 桶](../core/)，**预期布局、非重复路由**，一个类型只落盘一次。\n> 回到 [Core-Extra 桶首页](./)。' },
   'engine': { title: 'engine 目录', desc: 'TaleWorlds.Engine 引擎层类参考目录', model: '引擎边界层：渲染、输入、场景与 Gauntlet 的引擎侧接线类型。业务逻辑不要直接下沉到这里。' },
   'gui': { title: 'gui 目录', desc: 'TaleWorlds.ScreenSystem / GauntletUI / TwoDimension 界面层类参考目录', model: '界面层：ScreenManager 驱动屏幕栈，ScreenBase/ScreenLayer 组成页面，GauntletLayer 与 Widget 树负责渲染与输入。' },
@@ -227,16 +227,67 @@ for (const t of types) {
   if (t.pageName.includes('__')) (collisionsByDir[t.dir] ||= []).push(t.pageName.replace(/\.md$/u, ''));
 }
 
-// 保留 BEGIN 标记之前的手写前言，只重建生成的列表块。
-function preambleOf(file) {
+// carve-out banner 由生成器独占：每次重写前必须从保留的手写前言里剔干净，
+// 否则每跑一次就多叠一份（core/_index.md 曾叠到 6 遍）。
+const NOTE_OPEN = '<!-- BEGIN CARVE-OUT NOTE -->';
+const NOTE_CLOSE = '<!-- END CARVE-OUT NOTE -->';
+const NOTE_MARKERS = ['本桶只放 mod 入口类', '本桶是战斗类的', '本桶是核心类型的'];
+// 手写前言用 sentinel 圈定。sentinel 之外的散文一律当生成器产物丢弃——
+// 早先的“保留 BEGIN 标记前所有内容”会把旧 frontmatter / 旧 banner 当前言存下来，
+// 每次重跑多叠一份完整页面，最后不可收拾。
+const PRO_OPEN = '<!-- BEGIN PROLOGUE -->';
+const PRO_CLOSE = '<!-- END PROLOGUE -->';
+
+function stripGeneratedPrologue(preamble) {
+  let out = preamble
+    // 已打 sentinel 的 banner
+    .replace(new RegExp('\\n*' + NOTE_OPEN + '[\\s\\S]*?' + NOTE_CLOSE + '\\n*', 'gu'), '\n\n')
+    // 旧版残留的 frontmatter 块
+    .replace(/^---\s*\r?\n[\s\S]*?^---\s*$/gmu, '\n')
+    // 旧版残留的「## 模块心智模型」小节（生成器自己会重写）
+    .replace(/^## 模块心智模型[ \t]*\r?\n[\s\S]*?(?=^## |\s*$)/mu, '\n')
+    // 同名小节标题可能已被剥成孤立一行
+    .replace(/^## 模块心智模型[ \t]*$/gmu, '\n');
+  // 旧版残留的 banner：按行删除连续引用行，块内含特征串就整块删
+  const lines = out.split('\n');
+  const kept = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (/^\s*>/.test(lines[i])) {
+      let j = i;
+      while (j < lines.length && (/^\s*>/.test(lines[j]) || lines[j].trim() === '')) j++;
+      const block = lines.slice(i, j);
+      if (!NOTE_MARKERS.some((m) => block.join('\n').includes(m))) kept.push(...block);
+      i = j - 1;
+      continue;
+    }
+    kept.push(lines[i]);
+  }
+  return kept.join('\n').replace(/\n{3,}/gu, '\n\n').replace(/\s+$/u, '');
+}
+
+function preambleOf(file, meta) {
+  const generated = meta?.model ? String(meta.model).trim() : '';
+  const drop = (body) => {
+    // 连续重复行 = 历史累积残留（早期版本没有空行分隔就叠在了一起）
+    const deduped = body.split('\n').filter((line, i, arr) => !(line.trim() !== '' && line === arr[i - 1]));
+    const b = deduped.join('\n');
+    if (!generated) return b.trim();
+    // 前言里与生成器会重写的心智模型完全相同的段落 = 上次累积的产物，不是手写散文。
+    const kept = b
+      .split(/\n[ \t]*\n/u)
+      .filter((blk) => blk.trim() && blk.trim() !== generated);
+    return kept.join('\n\n').trim();
+  };
+  const wrap = (body) => (body ? PRO_OPEN + '\n\n' + body + '\n\n' + PRO_CLOSE + '\n\n' : '');
+
   if (!existsSync(file)) return '';
   const text = readFileSync(file, 'utf8');
+  const m = text.match(new RegExp(PRO_OPEN + '([\\s\\S]*?)' + PRO_CLOSE, 'u'));
+  if (m) return wrap(drop(m[1]));
+  // 首次迁移：老页面没有 sentinel，只保留剔除生成器产物后的真·手写散文。
   const i = text.indexOf('<!-- BEGIN SECTION INDEX -->');
   if (i < 0) return '';
-  const head = text.slice(0, i).replace(/\s+$/u, '');
-  const fm = head.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/u);
-  const rest = fm ? head.slice(fm[0].length).trim() : head.trim();
-  return rest ? rest + '\n\n' : '';
+  return wrap(drop(stripGeneratedPrologue(text.slice(0, i))));
 }
 
 function renderDirIndex(dir) {
@@ -252,7 +303,7 @@ function renderDirIndex(dir) {
   const letters = [...groups.keys()].sort();
 
   const out = [];
-  out.push(preambleOf(join(API_ZH, dir, '_index.md')));
+  out.push(preambleOf(join(API_ZH, dir, '_index.md'), meta));
   out.push('---');
   out.push(`title: "${meta.title}"`);
   out.push(`description: "${meta.desc}"`);
@@ -264,7 +315,9 @@ function renderDirIndex(dir) {
     out.push('');
   }
   if (meta.note) {
+    out.push(NOTE_OPEN);
     out.push(meta.note);
+    out.push(NOTE_CLOSE);
     out.push('');
   }
   out.push('<!-- BEGIN SECTION INDEX -->');
@@ -374,3 +427,5 @@ for (const dir of bucketDirs) {
   const c = byDirCounts[dir];
   console.log(`  ${dir.padEnd(16)} total=${String(c.total).padStart(5)} stub=${String(c.stub).padStart(5)} deep=${c.deep} missing=${c.missing}`);
 }
+// FROZEN per HARD PREMISE: this tool used to emit generated pages under content/.
+import './lib/content-write-freeze.mjs';

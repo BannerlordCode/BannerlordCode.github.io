@@ -46,15 +46,23 @@ Campaign.Models.SettlementProsperityModel → MyProsperityModel 实例
 ## 真实示例
 
 ```csharp
-// 包装式覆盖：只改一项，其余委托给原实现
+// 包装式覆盖：PartyTradeModel 的两个真实成员是
+//   float GetTradePenaltyFactor(MobileParty party)
+//   int  CaravanTransactionHighestValueItemCount { get; }
 public class MyTradeModel : MBGameModel<PartyTradeModel>
 {
-    public override int GetPriceOfGoods(MobileParty buyer, MobileParty seller, int itemRosterElementIndex)
+    public override float GetTradePenaltyFactor(MobileParty party)
     {
         // BaseModel 是注册时刻生效的官方实现
-        if (BaseModel == null) return 0;
-        int price = BaseModel.GetPriceOfGoods(buyer, seller, itemRosterElementIndex);
-        return buyer.IsPlayerParty && buyer.HighestProsperitySettlement != null ? price : price * 2;
+        if (BaseModel == null) return 1f;
+        float factor = BaseModel.GetTradePenaltyFactor(party);
+        // LeaderHero 是真实属性（MobileParty.cs:1602）
+        return party.LeaderHero == Hero.MainHero ? factor * 0.5f : factor;
+    }
+
+    public override int CaravanTransactionHighestValueItemCount
+    {
+        get { return BaseModel != null ? BaseModel.CaravanTransactionHighestValueItemCount : 0; }
     }
 }
 

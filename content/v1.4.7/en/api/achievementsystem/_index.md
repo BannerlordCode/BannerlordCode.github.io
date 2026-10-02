@@ -19,6 +19,6 @@ Also new in 1.4.7. Note the game's own achievement backend goes through Diamond 
 
 ## See also
 
-- ↑ [版本首页](../../)
-- ↑ [API 参考](../)
-- ↔ [架构总览](../../architecture/)
+- ↑ [Version home](../../)
+- ↑ [API reference](../)
+- ↔ [Architecture overview](../../architecture/)

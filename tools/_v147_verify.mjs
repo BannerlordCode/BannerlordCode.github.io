@@ -211,27 +211,36 @@ for (const lang of langs) {
   }
 }
 
-// classify broken links by cause, so timing is never confused with defect
-const byCause = { timingIndex: [], timingUnwritten: [], wrongLevel: [], dead: [] };
+// classify broken links by cause, so timing is never confused with defect.
+// The basename lookup MUST be scoped to the same language tree: otherwise a
+// link to a zh page from an en page looks like "exists in another bucket"
+// when it is really just "the en twin has not been written yet".
+const byCause = { timingIndex: [], timingUnwritten: [], timingOtherLang: [], wrongLevel: [], dead: [] };
 {
-  const allOnDisk = new Map(); // basename -> [paths]
-  for (const lang of langs)
+  const perLang = {};
+  for (const lang of langs) {
+    const m = new Map(); // basename -> [paths]
     for (const p of trees[lang].all) {
       const b = basename(p, '.md');
-      if (!allOnDisk.has(b)) allOnDisk.set(b, []);
-      allOnDisk.get(b).push(p);
+      if (!m.has(b)) m.set(b, []);
+      m.get(b).push(p);
     }
+    perLang[lang] = m;
+  }
   for (const entry of broken) {
     const i = entry.lastIndexOf(' -> ');
     const fromRel = entry.slice(0, i), href = entry.slice(i + 4);
-    const fromFile = join(REPO, fromRel);
+    // rel looks like content/v1.4.7/<lang>/... -> language is segment [2]
+    const langOf = (rel) => rel.split('/')[2];
+    const srcLang = langOf(fromRel);
     if (href === '../' || href === '../../' || href === '../../../' || href === '../../../../') {
       byCause.timingIndex.push(entry); continue;
     }
     const base = basename(href.replace(/\/$/, ''));
-    const others = (allOnDisk.get(base) || []);
-    if (others.length) { byCause.dead.push(entry); continue; }
-    // target basename unknown -> either not yet written, or a wrong-level path
+    if (perLang[srcLang] && perLang[srcLang].get(base)) { byCause.dead.push(entry); continue; }
+    // exists only in the OTHER language tree -> that twin is simply not written yet
+    const other = langs.find((l) => l !== srcLang && perLang[l] && perLang[l].get(base));
+    if (other) { byCause.timingOtherLang.push(entry); continue; }
     if (/^\.\.\/[a-z-]+\//.test(href)) { byCause.wrongLevel.push(entry); continue; }
     byCause.timingUnwritten.push(entry);
   }
@@ -239,10 +248,12 @@ const byCause = { timingIndex: [], timingUnwritten: [], wrongLevel: [], dead: []
 log('\nbroken-link cause split:');
 log(`  timing: section/bucket _index.md not written yet : ${byCause.timingIndex.length}`);
 log(`  timing: target page not written yet              : ${byCause.timingUnwritten.length}`);
+log(`  timing: target exists only in the OTHER language : ${byCause.timingOtherLang.length}`);
 log(`  REAL: wrong link level (one ../ short)           : ${byCause.wrongLevel.length}`);
-log(`  REAL: target basename exists in another bucket   : ${byCause.dead.length}`);
+log(`  REAL: target basename exists elsewhere in-tree   : ${byCause.dead.length}`);
 const realBroken = byCause.wrongLevel.length + byCause.dead.length;
 log(`  => REAL DEFECTS: ${realBroken}   (must be 0 at acceptance)`);
+if (byCause.dead.length) { byCause.dead.slice(0, 12).forEach((b) => console.error('  DEAD ' + b)); }
 log(`broken relative links: ${broken.length}`);
 if (broken.length) { broken.slice(0, 25).forEach((b) => console.error('  ' + b)); fail(`${broken.length} broken relative links`); }
 

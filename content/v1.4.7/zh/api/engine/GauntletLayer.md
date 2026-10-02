@@ -12,7 +12,7 @@ description: "Gauntlet UI 的具体图层实现：从 XML prefab 加载界面、
 
 ## 概述
 
-`GauntletLayer` 是 [ScreenLayer](../ScreenLayer) 的具体实现，也是 Gauntlet UI 的入口。Gauntlet 是游戏的声明式 UI 框架：界面用 XML prefab 描述（控件树、位置、绑定路径），代码侧提供一个 [ViewModel](../../core-extra/ViewModel) 作为数据源，两者在运行时对接。
+`GauntletLayer` 是 [ScreenLayer](../../gui/ScreenLayer) 的具体实现，也是 Gauntlet UI 的入口。Gauntlet 是游戏的声明式 UI 框架：界面用 XML prefab 描述（控件树、位置、绑定路径），代码侧提供一个 [ViewModel](../../core-extra/ViewModel) 作为数据源，两者在运行时对接。
 
 它做四件事：**加载与释放 movie**（`LoadMovie` / `ReleaseMovie`，`GauntletMovieIdentifier` 是句柄）、**驱动渲染与布局**（`RenderTick` / `UpdateLayout`）、**把 2D 输入转成 UI 事件**（`ProcessEvents` / `HitTest`）、以及**手柄导航**（`GamepadNavigationContext`、`GetIsAvailableForGamepadNavigation`）。`UIContext` 是它持有的渲染上下文，`TwoDimensionView` 与 `TwoDimensionPlatform` 是底层绘制句柄。
 
@@ -37,12 +37,12 @@ description: "Gauntlet UI 的具体图层实现：从 XML prefab 加载界面、
 ## 何时使用 / 何时不要使用
 
 - **使用**：实现任何基于 Gauntlet prefab 的自定义界面。
-- **使用**：作为全局 HUD 层（通过 [ScreenManager](../ScreenManager) 的 `AddGlobalLayer`）。
+- **使用**：作为全局 HUD 层（通过 [ScreenManager](../../gui/ScreenManager) 的 `AddGlobalLayer`）。
 - **使用**：需要手柄导航的界面（检查 `GetIsAvailableForGamepadNavigation`）。
 - **使用**：作为调试层（`DrawDebugInfo`）。
 - **不要**：在 `RenderTick` 里改逻辑状态——那是每帧绘制阶段。
 - **不要**：在 `OnFinalize` 之前不 `ReleaseMovie`。
-- **不要**：把 [ScreenLayer](../ScreenLayer) 的通用能力（不依赖 Gauntlet）也塞进来——那样就无法在无 Gauntlet 的上下文里复用了。
+- **不要**：把 [ScreenLayer](../../gui/ScreenLayer) 的通用能力（不依赖 Gauntlet）也塞进来——那样就无法在无 Gauntlet 的上下文里复用了。
 
 ## 成员说明
 
@@ -217,8 +217,8 @@ public void OnScaleChanged(float newScale)
 ## 依赖关系
 
 - 上游 / 提供者：
-  - [ScreenLayer](../ScreenLayer) 是本类的基类，提供绘制顺序、输入分发与焦点框架。
-  - [ScreenBase](../ScreenBase) 持有并驱动本层；[ScreenManager](../ScreenManager) 分配全局顺序与全局层注册。
+  - [ScreenLayer](../../gui/ScreenLayer) 是本类的基类，提供绘制顺序、输入分发与焦点框架。
+  - [ScreenBase](../../gui/ScreenBase) 持有并驱动本层；[ScreenManager](../../gui/ScreenManager) 分配全局顺序与全局层注册。
 - 相互 / 下游：
   - [ViewModel](../../core-extra/ViewModel) 是 `LoadMovie` 的数据源，也是绑定解析的另一端。
   - [Game](../../core-extra/Game) 与 [MBSubModuleBase](../../core/MBSubModuleBase) 决定本层何时被创建与销毁。

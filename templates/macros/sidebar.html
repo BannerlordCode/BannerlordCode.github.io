@@ -11,8 +11,10 @@
 {%- set_global emitted_routes = [] -%}
 
 {%- macro render_branch(route_key, lang, mapped_url, depth) -%}
+  {# Tera macros have no early return, and `break` is only legal inside a `for`.
+     Wrap the whole body in a guard so an unknown route_key renders nothing. #}
+  {%- if nav.routes[route_key] is defined -%}
   {%- set node = nav.routes[route_key] -%}
-  {%- if node is not defined -%}{%- break -%}{%- endif -%}
   {%- set_global curated_children = [] -%}
   {%- set_global section_children = [] -%}
   {%- for child_key in node.children -%}
@@ -50,7 +52,7 @@
           {%- endif -%}
           {%- if not (emitted_routes is containing(child_key)) -%}
             {%- if depth < MAX_DEPTH and (nav.routes[child_key] is defined or tree.byRoute[child_key] is defined) -%}
-              {{ self::render_branch(child_key, lang, mapped_url, depth + 1) }}
+              {{ self::render_branch(route_key=child_key, lang=lang, mapped_url=mapped_url, depth=depth + 1) }}
             {%- else -%}
               <a href="{{ child_key | safe }}" class="{% if mapped_url == child_key %}active{% endif %}">{{ child_title }}</a>
             {%- endif -%}
@@ -61,6 +63,7 @@
     </details>
   {%- else -%}
     <a href="{{ route_key | safe }}" class="{% if mapped_url == route_key %}active{% endif %}">{{ node.label[lang] }}</a>
+  {%- endif -%}
   {%- endif -%}
 {%- endmacro render_branch -%}
 
@@ -124,7 +127,7 @@
               {%- if group_key == "start" and route_key == root_key -%}
                 <a href="{{ route_key | safe }}" class="{% if mapped_url == route_key %}active{% endif %}">{{ nav.routes[route_key].label[lang] }}</a>
               {%- else -%}
-                {{ self::render_branch(route_key, lang, mapped_url, 1) }}
+                {{ self::render_branch(route_key=route_key, lang=lang, mapped_url=mapped_url, depth=1) }}
               {%- endif -%}
             {%- endfor -%}
           </div>

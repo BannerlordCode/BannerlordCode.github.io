@@ -61,26 +61,25 @@ protected override void OnSubModuleLoad()
 {
     base.OnSubModuleLoad();
     SaveManager.InitializeGlobalDefinitionContext();
-    List<Type> missing = SaveManager.CheckSaveableTypes();
+    List<Type> missing = SaveManager.CheckSaveableTypes();   // 返回 List<Type>
     if (missing.Count > 0)
         Debug.Print("unregistered saveable types: " + missing.Count);
 }
 
 // 触发一次手动存档（仅调试 / 自定义按钮）
-protected override void OnApplicationTick(float dt)
-{
-    if (Input.GetKeyDown(KeyCode.F5) && Campaign.Current != null)
-    {
-        MetaData metaData = new MetaData();
-        SaveOutput output = SaveManager.Save(gameData, metaData, "manual_save", driver);
-        if (output != null && !output.Success)
-            Debug.Print("save failed: " + output.Errors.Count);
-    }
-}
+// 签名：Save(object target, MetaData metaData, string saveName, ISaveDriver driver)
+// SaveOutput 有三个可读成员：Result(SaveResult)、Errors(SaveError[])、Successful(bool)
+MetaData metaData = new MetaData();
+metaData.Add("MyModVersion", "1.0");
+SaveOutput output = SaveManager.Save(gameData, metaData, "manual_save", driver);
+if (output == null || !output.Successful)
+    Debug.Print("save failed: " + output.Errors.Length + " errors, result=" + output.Result);
 
 // 读档前先看元数据，不构建对象图
+// MetaData 的真实成员：Add / TryGetValue / this[key] / Keys / Count / Serialize / Deserialize
 MetaData info = SaveManager.LoadMetaData("manual_save", driver);
-Debug.Print("saved by version " + info.GetApplicationVersion());
+if (info != null && info.TryGetValue("MyModVersion", out string value))
+    Debug.Print("saved by MyMod " + value);
 ```
 
 ## 风险与边界

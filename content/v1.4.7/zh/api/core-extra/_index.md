@@ -1,6 +1,6 @@
 ---
 title: "Core extra — 基础层的长尾：运行时原语、平台桥接、事件与集合"
-description: "`TaleWorlds.Core`、`TaleWorlds.Library`、`TaleWorlds.DotNet` 三个命名空间合并成一个目录。它不是一个'业务'区域，而是**所有业务区域共同依赖的地基**：程序集加载、事件总线、MVVM"
+description: "`TaleWorlds.Core`、`TaleWorlds.Library`、`TaleWorlds.DotNet` 三个命名空间合并成一个目录。它不是一个'业务'区域，而是所有业务区域共同依赖的地基：程序集加载、事件总线、MVVM 通知、"
 ---
 # Core extra — 基础层的长尾：运行时原语、平台桥接、事件与集合
 

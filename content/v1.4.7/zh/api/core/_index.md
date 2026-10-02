@@ -1,10 +1,10 @@
 ---
 title: "Core 核心 — 只放入口类"
-description: "本目录**只收录模块加载的 2 个入口类**：`MBSubModuleBase` 和 `Module`。`Module` 是宿主（单例，`sealed`，不应被继承），`MBSubModuleBase` 才是你继承的那个。"
+description: "本目录只收录模块加载的 2 个入口类：`MBSubModuleBase` 和 `Module`。`Module` 是宿主（单例，`sealed`，不应被继承），`MBSubModuleBase` 才是你继承的那个。"
 ---
 # Core 核心 — 只放入口类
 
-**本目录**只收录模块加载的 2 个入口类**：`MBSubModuleBase` 和 `Module`。`Module` 是宿主（单例，`sealed`，不应被继承），`MBSubModuleBase` 才是你继承的那个。**
+本目录**只收录模块加载的 2 个入口类**：`MBSubModuleBase` 和 `Module`。`Module` 是宿主（单例，`sealed`，不应被继承），`MBSubModuleBase` 才是你继承的那个。
 
 其余全部基础设施在 [Core-Extra](../core-extra/)：`TaleWorlds.Core`、`TaleWorlds.Library`、`TaleWorlds.DotNet`，包括 `Game`、`GameStateManager`、`ViewModel`、`AssemblyLoader`。
 

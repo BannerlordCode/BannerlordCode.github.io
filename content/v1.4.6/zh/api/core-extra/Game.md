@@ -177,7 +177,7 @@ Game.Current.Save(campaignMetaData, "slot_1", saveDriver, (SaveResult result) =>
 - 管理器基类：[GameManagerBase](../GameManagerBase) 持有本局并提供组件系统
 - 存档根：[SaveManager](../../save-system/SaveManager) 的 `Save`/`Load` 读写本对象
 - 模块宿主：[Module](../../core/Module) 反射回调所有 `MBSubModuleBase`，最终落到 `Game`
-- 文本：[TextObject](../TextObject) 挂在物品、角色等 `MBObjectBase` 上并参与序列化
+- 文本：[TextObject](../../localization/TextObject) 挂在物品、角色等 `MBObjectBase` 上并参与序列化
 - 全局栈宿主：[Module](../../core/Module) 构造时创建 `GameType.Global` 那一档
 - 架构地图：[模块地图](../../../architecture/module-map)
 

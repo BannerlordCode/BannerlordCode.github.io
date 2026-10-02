@@ -14,7 +14,7 @@ This is not a wall of signatures. Decide what you are doing, enter the matching 
 | [core-extra](core-extra/) | 54 |
 | [mission](mission/) | 0 |  — Entry classes (what mods subclass)
 | [mission-ext](mission-ext/) | 518 |
-| [campaign](campaign/) | 189 |
+| [campaign](campaign/) | 190 |
 | [campaign-ext](campaign-ext/) | 71 |
 | [gui](gui/) | 72 |
 | [save-system](save-system/) | 25 |
@@ -43,6 +43,6 @@ This is not a wall of signatures. Decide what you are doing, enter the matching 
 
 ## See also
 
-- ↑ [版本首页](../)
-- ↔ [架构总览](../architecture/)
-- ↘ [跨版本类对比](../../../versions/)
+- ↑ [Version home](../)
+- ↔ [Architecture overview](../architecture/)
+- ↘ [Cross-version class comparison](../../../versions/)

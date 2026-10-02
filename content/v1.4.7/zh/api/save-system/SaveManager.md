@@ -61,15 +61,23 @@ description: "存档系统的静态门面：初始化定义上下文、检查可
 ```csharp
 using TaleWorlds.SaveSystem;
 
-// driver 由平台层提供（文件、内存、测试替身）
-ISaveDriver driver = new FileSaveDriver(path);
-
-MetaData meta = SaveManager.LoadMetaData(saveName, driver);
-if (meta != null)
+// ISaveDriver 由平台层注入（文件、内存、测试替身都实现它）。
+// 它有 8 个成员：Save / GetSaveGameFileInfos / GetSaveGameFileNames /
+// LoadMetaData / Load / Delete / IsSaveGameFileExists / IsWorkingAsync。
+static void ShowSaveList(ISaveDriver driver, string saveName)
 {
+    MetaData meta = SaveManager.LoadMetaData(saveName, driver);
+    if (meta == null)
+    {
+        return;   // 该存档不存在
+    }
+
     // 存档列表 UI 只需要这些，不需要加载正文
     System.DateTime savedAt = meta.GetDateTime();
     string appVersion = meta.GetApplicationVersion();
+
+    // 完整存档文件名列表同样走 driver，而不是自己拼路径
+    string[] names = driver.GetSaveGameFileNames();
 }
 ```
 

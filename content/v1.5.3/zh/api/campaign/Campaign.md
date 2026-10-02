@@ -19,7 +19,7 @@ description: "单局战役的战略层总控：持有 CampaignObjectManager 里�
 
 把它看成三段叠加：
 
-- **世界容器**：`CampaignObjectManager` 持有实体，`AliveHeroes` / `Settlements` / `MobileParties` / `Clans` / `Kingdoms` 等属性是它的只读视图（`MBReadOnlyList`），不是可写集合。想加一个队伍必须走 `MobileParty.CreateMobileParty` 之类的工厂，而不是往列表里塞。
+- **世界容器**：`CampaignObjectManager` 持有实体，`AliveHeroes` / `Settlements` / `MobileParties` / `Clans` / `Kingdoms` 等属性是它的只读视图（`MBReadOnlyList`），不是可写集合。想加一个队伍必须走 `MobileParty.CreateParty(stringId, component)` 这个工厂（`MobileParty.cs:4986`，官方用法见 `Campaign.cs:2417` 的 `CreateParty(..., null)`），而不是往列表里塞。
 - **时间机器**：`RealTick(realDt)` 先算 `TickMapTime` 得到 `_dt`（基础 `0.25f * realDt`，快进乘 `SpeedUpMultiplier`，停顿时为 0），再跑各 `CampaignEntityComponent.OnTick`；`Tick()` 里依次 `CampaignEventDispatcher.Instance.Tick(_dt)` → `_campaignPeriodicEventManager.OnTick(_dt)`（触发 DailyTick/HourlyTick/QuarterHourlyTick）→ `MapEventManager.Tick` → `EncounterManager.Tick`。**周期事件的源头是 `MBCampaignEvent`，不是 Tick 直接调用**，所以 DailyTick 只在游戏时间真正推进时触发。
 - **扩展总线**：behavior 走 `GetCampaignBehavior<T>()`，模型走 `GameModels`，事件走 `CampaignEvents`，自定义子系统走 `AddCustomManager<T>()`。
 
@@ -87,7 +87,8 @@ public class MySupplyBehavior : CampaignBehaviorBase
         if (campaign == null) return;
         foreach (Settlement settlement in campaign.Settlements)
         {
-            Hero governor = settlement.SettlementHolders?.FirstOrDefault();
+            // Settlement.HeroesWithoutParty:没有加入任何队伍的聚落英雄
+            Hero governor = settlement.HeroesWithoutParty.FirstOrDefault();
             if (governor == null) continue;
             Debug.Print("Daily: " + settlement.Name + " / " + governor.Name);
         }
@@ -95,10 +96,10 @@ public class MySupplyBehavior : CampaignBehaviorBase
 
     private void HourlyTick()
     {
-        // 玩家队伍有 3 名以上存活同伴时才推进自己的补给逻辑
+        // MobileParty.Party 是 PartyBase，成员计数是真实 API
         MobileParty mainParty = Campaign.Current.MainParty;
-        if (mainParty != null && mainParty.GetNumberOfAliveHeroes() >= 3)
-            Campaign.Current.GetEntityComponent<MySupplyComponent>().Refill(mainParty);
+        if (mainParty != null && mainParty.Party.NumberOfHealthyMembers >= 3)
+            Debug.Print("supply window: " + mainParty.Party.NumberOfHealthyMembers + " healthy");
     }
 }
 ```

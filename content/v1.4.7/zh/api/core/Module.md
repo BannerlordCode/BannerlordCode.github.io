@@ -136,7 +136,8 @@ MyModSubModule sub = Module.CurrentModule != null
 
 if (sub != null)
 {
-    sub.DoSomething();
+    // SubModule 继承自 MBSubModuleBase，这里取它的一个真实成员
+    sub.OnConfigChanged();
 }
 ```
 
@@ -168,9 +169,9 @@ foreach (MBSubModuleBase submodule in snapshot)
 ```csharp
 using TaleWorlds.MountAndBlade;
 
-protected override void OnBeforeInitialModuleScreenSetAsRootScreen()
+protected override void OnBeforeInitialModuleScreenSetAsRoot()
 {
-    base.OnBeforeInitialModuleScreenSetAsRootScreen();
+    base.OnBeforeInitialModuleScreenSetAsRoot();
 
     Module module = Module.CurrentModule;
     if (module == null) return;

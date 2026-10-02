@@ -20,7 +20,8 @@
  * Idempotent: re-running overwrites the JSON with the same content.
  * Usage: node tools/_v146_extract.mjs
  */
-import { readdirSync, readFileSync, writeFileSync, existsSync, statSync } from 'fs';
+import { readdirSync, readFileSync, existsSync, statSync } from 'fs';
+import { writeGuarded, mkdirGuarded, unlinkGuarded, rmdirGuarded } from './_v146_content_freeze.mjs';
 import { join, relative, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -593,7 +594,7 @@ const stats = {
   parityGaps: CANON.parityGaps,
 };
 
-writeFileSync(OUT_JSON, JSON.stringify({ stats, byBucket, types }, null, 1));
+writeGuarded(OUT_JSON, JSON.stringify({ stats, byBucket, types }, null, 1));
 
 console.log('csFilesScanned        ', stats.csFilesScanned);
 console.log('typesParsed           ', stats.typesParsed);

@@ -169,6 +169,13 @@ foreach (MyInventoryComponent c in manager.GetComponents<MyInventoryComponent>()
 {
     c.Persist();
 }
+
+// 读者侧演示组件，不是游戏 API；以下方法仅示意调用形状
+public class MyInventoryComponent
+{
+    public void Refill() { }
+    public void Persist() { }
+}
 ```
 
 ## 风险与边界

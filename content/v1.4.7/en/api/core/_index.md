@@ -1,10 +1,10 @@
 ---
 title: "Core — mod entry classes only"
-description: "This directory holds **only the 2 module-loading entry classes**: `MBSubModuleBase` and `Module`. `Module` is the host ("
+description: "This directory holds only the 2 module-loading entry classes: `MBSubModuleBase` and `Module`. `Module` is the host (a si"
 ---
 # Core — mod entry classes only
 
-**This directory holds **only the 2 module-loading entry classes**: `MBSubModuleBase` and `Module`. `Module` is the host (a singleton, `sealed`, not meant to be inherited); `MBSubModuleBase` is the one you subclass.**
+This directory holds **only the 2 module-loading entry classes**: `MBSubModuleBase` and `Module`. `Module` is the host (a singleton, `sealed`, not meant to be inherited); `MBSubModuleBase` is the one you subclass.
 
 Everything else foundational is in [Core-Extra](../core-extra/): `TaleWorlds.Core`, `TaleWorlds.Library` and `TaleWorlds.DotNet`, including `Game`, `GameStateManager`, `ViewModel` and `AssemblyLoader`.
 
@@ -21,9 +21,13 @@ Everything else foundational is in [Core-Extra](../core-extra/): `TaleWorlds.Cor
 
 The reverse link exists too: the `Mission-Ext` index page points back here.
 
-## Pages in this area (0)
+## Pages in this area (1)
 
-_No pages yet. Leaf pages are generated from the type inventory and will appear here._
+| Page | Type |
+| --- | --- |
+| [MBSubModuleBase](./MBSubModuleBase) | `public abstract class MBSubModuleBase` — the class a mod subclasses |
+
+`Module` is documented in the Chinese tree at [zh/api/core/Module](../../../zh/api/core/Module); that page has no English counterpart yet.
 
 ## Sibling areas
 
@@ -31,7 +35,7 @@ _No pages yet. Leaf pages are generated from the type inventory and will appear 
 
 ## See also
 
-- ↑ [版本首页](../../)
-- ↑ [API 参考](../)
-- ↔ [架构总览](../../architecture/)
+- ↑ [Version home](../../)
+- ↑ [API reference](../)
+- ↔ [Architecture overview](../../architecture/)
 - ↘ [module-system](../../architecture/module-system)

@@ -57,10 +57,10 @@ public class MyFamineBehavior : CampaignBehaviorBase
     {
         _daily = CampaignPeriodicEventManager.CreatePeriodicEvent(
             CampaignTime.Days(1f), CampaignTime.Days(0.5f));
-        _daily.AddHandler(OnDay);
+        _daily.AddHandler(MyOnDay);
     }
 
-    private void OnDay(MBCampaignEvent ev, object[] args)
+    private void MyOnDay(MBCampaignEvent ev, object[] args)
     {
         Settlement town = Campaign.Current.Settlements.FirstOrDefault(s => s.Town != null);
         if (town != null)

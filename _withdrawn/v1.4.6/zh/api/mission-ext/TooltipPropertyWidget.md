@@ -1,0 +1,71 @@
+---
+title: "TooltipPropertyWidget"
+description: "TooltipPropertyWidget：TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information 的 public 类，继承 Widget；公开成员 34 个（方法 4、属性 28、字段 0）。canonical 桶 mission-ext。源文件 TaleWorlds.MountAndBlade.GauntletUI.Widgets/Information/TooltipPropertyWidget.cs。"
+---
+
+<!-- generated-by: tools/_v146_stubs.mjs -->
+# TooltipPropertyWidget
+
+**Namespace:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information`
+**Module:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets`
+**Type:** `public class TooltipPropertyWidget : Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Information/TooltipPropertyWidget.cs`
+**Bucket:** `mission-ext` (rule:TaleWorlds.MountAndBlade)
+
+## 概述
+
+TooltipPropertyWidget 位于 TaleWorlds.MountAndBlade.GauntletUI.Widgets 模块，源文件 TaleWorlds.MountAndBlade.GauntletUI.Widgets/Information/TooltipPropertyWidget.cs。它是一个 public 类，实现/继承 Widget，继承链为 TooltipPropertyWidget → Widget → PropertyOwnerObject。public/protected 成员共 34 个：4 方法、28 属性、1 构造函数、1 嵌套类型。
+
+> 本页为批量初稿：签名逐条取自 bannerlord-1.4.6 反编译源码，未经改写。桶归属由 `tools/_dir-map-canonical.json` 现算。每个方法实际做什么、何时调用、有什么风险，请对照源文件方法体阅读。
+
+## 心智模型
+
+结构事实：TooltipPropertyWidget 落在 canonical 桶 `mission-ext`（命中规则 `rule:TaleWorlds.MountAndBlade`），命名空间 `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information`，继承链 TooltipPropertyWidget → Widget → PropertyOwnerObject。成员构成以属性为主（属性 28/34，方法 4/34），对外主要以状态读取接口暴露。本页只列真实签名：每个方法做什么用、何时调用、有哪些坑，需要对照 TaleWorlds.MountAndBlade.GauntletUI.Widgets/Information/TooltipPropertyWidget.cs 的方法体或该类型的深写页确认。
+
+## 主要成员
+
+| 成员 | 签名 | 种类 |
+| --- | --- | --- |
+| `IsTwoColumn` | `public bool IsTwoColumn` | 属性 |
+| `PropertyModifierAsFlag` | `public TooltipPropertyWidget.TooltipPropertyFlags PropertyModifierAsFlag` | 属性 |
+| `IsMultiLine` | `public bool IsMultiLine` | 属性 |
+| `IsBattleMode` | `public bool IsBattleMode` | 属性 |
+| `IsBattleModeOver` | `public bool IsBattleModeOver` | 属性 |
+| `IsCost` | `public bool IsCost` | 属性 |
+| `IsRelation` | `public bool IsRelation` | 属性 |
+| `TooltipPropertyWidget` | `public TooltipPropertyWidget(UIContext context) : base(context)` | 构造函数 |
+| `SetBattleScope` | `public void SetBattleScope(bool battleScope)` | 方法 |
+| `RefreshSize` | `public void RefreshSize(bool inBattleScope, float battleScopeSize, float maxValueLabelSizeX, float maxDefinitionLabelSizeX, Brush definitionRelationBrush = null, Brush valueRelationBrush = null)` | 方法 |
+| `OnUpdate` | `protected override void OnUpdate(float dt)` | 方法 |
+| `OnLateUpdate` | `protected override void OnLateUpdate(float dt)` | 方法 |
+| `RundownSeperatorSpriteName` | `public string RundownSeperatorSpriteName` | 属性 |
+| `DefaultSeperatorSpriteName` | `public string DefaultSeperatorSpriteName` | 属性 |
+| `TitleBackgroundSpriteName` | `public string TitleBackgroundSpriteName` | 属性 |
+| `ValueNameTextBrush` | `public Brush ValueNameTextBrush` | 属性 |
+| `TitleTextBrush` | `public Brush TitleTextBrush` | 属性 |
+| `SubtextBrush` | `public Brush SubtextBrush` | 属性 |
+| `ValueTextBrush` | `public Brush ValueTextBrush` | 属性 |
+| `DescriptionTextBrush` | `public Brush DescriptionTextBrush` | 属性 |
+| `ModifyDefinitionColor` | `public bool ModifyDefinitionColor` | 属性 |
+| `DefinitionLabel` | `public RichTextWidget DefinitionLabel` | 属性 |
+| `ValueLabel` | `public RichTextWidget ValueLabel` | 属性 |
+| `ItemModifierLabel` | `public TextWidget ItemModifierLabel` | 属性 |
+| `ValueBackgroundSpriteWidget` | `public ListPanel ValueBackgroundSpriteWidget` | 属性 |
+| `DefinitionLabelContainer` | `public Widget DefinitionLabelContainer` | 属性 |
+| `ValueLabelContainer` | `public Widget ValueLabelContainer` | 属性 |
+| `TextColor` | `public Color TextColor` | 属性 |
+| `TextHeight` | `public int TextHeight` | 属性 |
+| `DefinitionText` | `public string DefinitionText` | 属性 |
+| `ValueText` | `public string ValueText` | 属性 |
+| `PropertyModifier` | `public int PropertyModifier` | 属性 |
+| `TooltipPropertyFlags` | `public enum TooltipPropertyFlags` | 属性 |
+| `TooltipPropertyFlags` | `public enum TooltipPropertyFlags` | 嵌套类型 |
+
+## 参见
+
+- [↑ 本桶目录](..//)
+- [↑ API 参考](../..//)
+- [↑ 版本首页](../../..//)
+- [同命名空间 GameNotificationWidget](../GameNotificationWidget/)
+- [同命名空间 MultiSelectionElementsWidget](../MultiSelectionElementsWidget/)
+- [同命名空间 PropertyBasedTooltipWidget](../PropertyBasedTooltipWidget/)

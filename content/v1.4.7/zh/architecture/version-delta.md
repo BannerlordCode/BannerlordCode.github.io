@@ -90,9 +90,9 @@ description: "基于 bannerlord-1.3.15 / 1.4.5 / 1.4.7 三份源码实测的差�
 这批目录在 1.4.5 里**存在于 `Modules.*` 分组下、只是没被 `bin/` 转储覆盖**，
 所以这是转储口径差异，不是 1.4.7 新增的 API。别把它当成新特性报告。
 
-### 5. 文档树自身有 4 处 URL 断裂（这是 v1.4.7 文档的已知取舍）
+### 5. 文档树自身有 5 处 URL 断裂（这是 v1.4.7 文档的已知取舍）
 
-v1.4.7 的 API 目录改用"一个命名空间只属于一个目录"的映射，因此有 4 处 1.4.5 URL 失效。
+v1.4.7 的 API 目录改用"一个命名空间只属于一个目录"的映射，因此有 5 处 1.4.5 URL 失效。
 权威列表在 `tools/_dir-map-canonical.json` 的 `parityGaps[]`：
 
 | `id` | 断掉的 URL | 页数 | 决定 |
@@ -101,6 +101,7 @@ v1.4.7 的 API 目录改用"一个命名空间只属于一个目录"的映射，
 | `mission-bulk-to-mission-ext` | `1.4.5/mission/` 中 52 页 → `mission-ext/` | 52 | 接受。`mission/` 保留为只放 5 个入口类的刻意小目录 |
 | `game-to-core-extra` | `1.4.5/core/Game.md` → `core-extra/Game.md` | 1 | 接受。`Game` 的命名空间是 `TaleWorlds.Core` |
 | `missionstate-to-mission` | `1.4.5 mission-ext/MissionState.md` → `mission/MissionState.md` | 1 | 接受，为了和 `Mission` / `Agent` / `Formation` 放一起 |
+| `boardgames-bucket-removed` | 1.4.5 的 `boardgames` 家族 → 无对应 | — | 接受。1.4.7 里不存在 `TaleWorlds.BoardGames` 命名空间，该桶产出 0 个类型 |
 
 **还有两个目录是被明确取消的，不要去找：**
 
@@ -127,5 +128,5 @@ v1.4.7 的 API 目录改用"一个命名空间只属于一个目录"的映射，
 ## 参见
 
 - ↔ [架构总览](../) · [SDK 总览](../sdk-overview)
-- ↗ [跨版本类对比](../../../../versions/) · [v1.4.5 文档](../../../../v1.4.5/zh/architecture/) · [v1.3.15 文档](../../../../v1.3.15/zh/architecture/)
-- ↑ [版本首页](../)
+- ↗ [跨版本类对比](../../../../versions/) · [v1.4.5 架构](../../../../v1.4.5/zh/architecture/) · [v1.3.15 架构](../../../../v1.3.15/zh/architecture/)
+- ↑ [版本首页](../../)

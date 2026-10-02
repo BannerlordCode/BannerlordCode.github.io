@@ -65,17 +65,23 @@ description: "战役层的字符串常量目录：出生点 tag、文化 stringI
 ## 真实示例
 
 ```csharp
-// 用官方的地点 id 把新英雄放进目标城镇的酒馆
+// 用官方的地点 id 与真实的下令 API 操作队伍
 Settlement town = Campaign.Current.Settlements.First(s => s.IsTown);
-MobileParty party = MobileParty.CreateMobileParty("my_hero_party");
-Hero.Villager.MainHero?.SetHeroGotoSettlementIfBesieged(town);
-Hero.Devout.MainHero?.SetPositionAtSettlement(town, CampaignData.LocationTavern);
+
+// MobileParty.SetMoveGoToSettlement(Settlement, NavigationType, bool isTargetingThePort)
+// NavigationType 取值只有 None / Default / Naval / All
+Campaign.Current.MainParty.SetMoveGoToSettlement(town, MobileParty.NavigationType.Default, false);
+
+// 建一个新队伍：MobileParty.CreateParty(string stringId, PartyComponent component)
+// stringId 会经 CampaignObjectManager.FindNextUniqueStringId 追加去重后缀；
+// component 传 null 只适用于无组件的特殊队伍（官方玩家队伍就是这么建的）
+MobileParty escort = MobileParty.CreateParty("my_escort", null);
+// LeaderHero 是只读属性（内部读 PartyComponent.Leader），要指定领队得给组件
+Debug.Print("new party leader = " + escort.LeaderHero);
 
 // 伪装场景：读字符串 id 交给剧情系统，再取对应的 spawn tag
 string disguiseId = CampaignData.DisguiseOfficerCharacterStringId;
 string spawnTag = CampaignData.DisguiseOfficerCharacterSpawnTag;
-MobileParty.CreateMobileParty("disguice_party");
-MBObjectManager.Instance.GetObject<PartyTemplateObject>("main_hero_party_template");
 Debug.Print("disguise: " + disguiseId + " via " + spawnTag);
 ```
 

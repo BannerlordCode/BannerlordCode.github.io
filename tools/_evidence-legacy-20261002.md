@@ -237,6 +237,10 @@ Two further measurement rules established in this wave, both now standard:
 - **Sub-root audits systematically over-report.** Root-relative hrefs such as `/versions/Hero` resolve against the sub-root, producing phantom breaks (`content/v1.3.15` → 22, `content/versions` → 108, while `content/versions/Hero.md` exists). Only `AUDIT_CONTENT_ROOT=content` is authoritative.
 - **Counts must name the layer they measure.** A subdirectory count reported as a page count is how `final/` came to be described as "44 md files" when it was 44 subdirectories holding 69 pages / 2.08 MB one level deeper — an error that, uncorrected, would have justified deleting the only route to 2 MB of real prose.
 
+- **A shared append target must be checked for occupied section numbers before anyone writes.** Two workers were assigned `§10` of this same file by the lead — one dispatched before the lead claimed `§10` for itself, one dispatched before it existed. The collision was caught only because the worker's status line happened to mention its target section. With multiple workers appending to one evidence document, assigning a section number is a resource: check what is already taken, allocate from the live state of the file, and never assume a number reserved earlier is still free. Resolution taken here: the second writer renumbered to `§11` and left the existing `§10` byte-for-byte intact.
+
+- **Heredoc appends into a shared file truncate silently.** Observed twice on the same section: the terminator was swallowed, then a mid-table truncation left a half-written table on disk. A shared document must be appended through a path that either writes atomically or is verified after the fact — and the existing content must be backed up before attempting a repair.
+
 ## 8. Known limits
 
 - No full `zola build` was run (out of scope by instruction; also historically I/O-bound at ~36k pages). Rendering-level breakage therefore remains unproven; only the link gate was enforced.
@@ -494,3 +498,345 @@ W1 reported that source disagreed with widely circulated modding folklore. **The
 
 Anyone "tidying" these back toward the folklore version would be reintroducing the fiction.
 
+---
+
+## §11 Cross-version link measurement (legacy trees)
+
+Worker: **W5** (`worker-18`) — READ-ONLY. **Exactly one repo file modified: this one.**
+Date: 2026-10-02. Repo: `C:\WorkSpace\Bannerlord\BannerlordCode.github.io`.
+
+Mandate: quantify the `linkRules.popToSiteRoot` defect class in `v1.3.0` / `v1.3.15` / `v1.4.5`,
+which was in **no gap list at all**, and decide whether the next wave needs a dedicated link-repair pass.
+
+> Section number: `§11`, not `§10`. §10 was taken by the Lead's hard-rule record while this
+> measurement was running. §11.1–§11.4 map 1:1 onto assignment items 1–4.
+
+### §11.0 Headline, setup, and detector proof
+
+> **The `popToSiteRoot` defect class does NOT exist in the legacy trees. 149 cross-version links,
+> 0 depth mismatches, 0 unresolvable. No dedicated link-repair pass is warranted for this class.**
+
+A negative result is a result. This one *closes* a defect class instead of adding work — and per
+the measurement-hygiene lesson in §8.1, a negative result is worthless unless the detector is proven
+able to fire. So the detector was proved first.
+
+**Measurement authority — full-site root only.** Sub-root runs are unreliable; reproduced to
+document the artifact, and **neither number is used anywhere below**:
+
+```
+cd C:\WorkSpace\Bannerlord\BannerlordCode.github.io
+
+# ---- the measurement (full-site root is authoritative) ----
+node C:/WorkSpace/Bannerlord/_w5_measure.mjs content
+
+# ---- detector sensitivity self-test on the NEW-version trees (brief claimed 6 violations) ----
+W5_VERSIONS=v1.4.6,v1.4.7,v1.5.3 node C:/WorkSpace/Bannerlord/_w5_measure.mjs content
+
+# ---- cross-version edge direction graph, site-wide ----
+node C:/WorkSpace/Bannerlord/_w5_edges.mjs content
+
+# ---- genuine cross-language cross-version jumps ----
+node C:/WorkSpace/Bannerlord/_w5_lang.mjs content
+
+# ---- independent confirmation via the project's own gate ----
+AUDIT_CONTENT_ROOT=content node tools/audit-links.mjs
+
+# ---- sub-root runs: ARTIFACT, recorded but not used ----
+AUDIT_CONTENT_ROOT=content/v1.3.15  node tools/audit-links.mjs   # BROKEN_LINKS=22   ARTIFACT
+AUDIT_CONTENT_ROOT=content/versions node tools/audit-links.mjs   # BROKEN_LINKS=108  ARTIFACT
+```
+
+Both artifact numbers match the brief's warning exactly. `content/versions/Hero.md` demonstrably
+exists, so the 108 is entirely root-relative (`/versions/Hero`) hrefs failing under a sub-root.
+
+**Scripts live outside the repo** (`C:\WorkSpace\Bannerlord\_w5_*.mjs`) so this wave stays strictly
+read-only apart from this evidence file. See §11.7 for what is needed to reproduce them.
+
+#### Detector proof (positive control) — run BEFORE trusting any zero
+
+A synthetic 5-file fixture with deliberately wrong depths was measured by the same code path:
+
+```
+cd C:\WorkSpace\Bannerlord
+W5_VERSIONS=v1.4.5 node _w5_measure.mjs _w5_fixture
+# => MISMATCH=3   deltas: -2, -2, -1   |  (a)unresolvable=3   |  CXV_ABSOLUTE=1   |  D4: 2 buckets unlinked, 100%
+```
+
+All four branches fire with correct deltas. The detector is sensitive; the zeros in §11.1–§11.3 are
+real zeros.
+
+**Two bugs found in my own tooling mid-measurement, both fixed before any number was reported:**
+
+1. **Trailing-slash existence test (produced 36 phantom 404s).** I tested a slash-terminated route
+   as `gauntlet-ui/.md`. `tools/audit-links.mjs` `existsAsPage()` strips the trailing slash *before*
+   both `.md` and `/_index.md` candidates. After the fix, 404s went to 0. **The bug was mine, not the
+   content's.** Anyone re-deriving these numbers must strip the trailing slash first, or they will
+   reproduce my false positive.
+2. **Malformed positive-control fixture.** I wrote `[N(/v1.3.15/...)` — missing `]` — so the regex
+   legitimately did not match, and my root-absolute branch looked dead when it was merely untested.
+   Fixed to `[N](/v1.3.15/...)`; the branch then fired correctly.
+
+Recording both because a silent false positive is the failure mode §8.1 exists to prevent.
+
+#### Link-syntax coverage — "did not find" vs "provably none in scope"
+
+Swept the three legacy trees for link syntaxes the inline `[text](href)` regex does **not** match:
+
+| syntax | occurrences in v1.3.0 + v1.3.15 + v1.4.5 |
+|---|---:|
+| wikilinks `[[x]]` | 0 |
+| reference-style definitions `[x]: y` | 0 |
+| autolinks `<https://…>` | 0 |
+| raw HTML `<a href=` | 0 |
+| frontmatter link fields (`related:`, `currentVersion:`, `prev:`, `next:`) | 0 |
+
+**All five are zero.** So for these three trees the inline regex — the same one `audit-links.mjs`
+uses — captures **100% of links in scope**. This upgrades §11.1's "0 mismatches" from *"I found none"*
+to *"there are none, by exhaustive syntax sweep"*. That distinction is the whole difference between a
+credible negative and an unverified one.
+
+### §11.1 (assignment item 1) Cross-version links with wrong `../` depth
+
+Rule applied: split href on `/`; count `..` segments; compare against the segment count of the
+**source page's own route**. Route and segment derivation mirror `tools/audit-links.mjs`
+(`fileToRoute()` + URL-mode `posix.normalize(posix.join(base, href))`), so these numbers are directly
+comparable with the existing link gate rather than a private dialect.
+
+Source-page segment counts actually present in the trees:
+`v1.3.0/en/architecture/module-system.md` → 4 segments → needs 4 `..`.
+`v1.3.0/en/api/_index.md` → 3 segments → needs 3 `..`. `v1.4.5/_index.md` → 1 segment → needs 1 `..`.
+
+| tree / lang | cross-version links | pages carrying them | **depth mismatches (links)** | **depth mismatches (pages)** |
+|---|---:|---:|---:|---:|
+| v1.3.0 / zh | 67 | 12 | **0** | **0** |
+| v1.3.0 / en | 67 | 12 | **0** | **0** |
+| v1.3.15 / zh | 0 | 0 | **0** | **0** |
+| v1.3.15 / en | 0 | 0 | **0** | **0** |
+| v1.4.5 / zh | 0 | 0 | **0** | **0** |
+| v1.4.5 / en | 12 | 4 | **0** | **0** |
+| v1.4.5 (version-root `_index.md`, no lang) | 3 | 1 | **0** | **0** |
+| **total** | **149** | **30** | **0** | **0** |
+
+The `delta = dots − segs` histogram is **empty** — not "all deltas happened to be 0", literally no
+mismatching row exists. Supporting sub-measurements, both zero:
+
+- root-absolute (`/v1.x/…`) cross-version hrefs: **0**
+- cross-version hrefs sitting inside fenced code blocks: **0** — so fence-stripping cannot change any
+  number in this table. Measured both ways (with and without fence stripping), identical results.
+
+Dominant correct shape is `../ × popToSiteRoot` + `<version>/<same-lang>/<section>`. Heaviest single
+source is `v1.3.0/{en,zh}/architecture/native-interop.md` at 45 links each, e.g.
+`../../../../v1.3.15/en/native-1.3.15-src/scene` — 4 pops for a 4-segment route. Correct.
+
+### §11.2 (assignment item 2) Split of the two failure modes
+
+| tree / lang | (a) truly unresolvable (real 404) | (b) resolvable but wrong level | (a) pages | (b) pages |
+|---|---:|---:|---:|---:|
+| v1.3.0 / zh | 0 | 0 | 0 | 0 |
+| v1.3.0 / en | 0 | 0 | 0 | 0 |
+| v1.3.15 / zh + en | 0 | 0 | 0 | 0 |
+| v1.4.5 / zh + en | 0 | 0 | 0 | 0 |
+| v1.4.5 version-root | 0 | 0 | 0 | 0 |
+| **total** | **0** | **0** | **0** | **0** |
+
+**The requested top-10 offending-source-directory table for (a) does not exist and is not printed.**
+The list is empty because the input set is empty. Printing a fabricated top-10 here would be the
+easiest way to look productive and the fastest way to mislead the next wave.
+
+**Independent confirmation via the project's own gate.**
+`AUDIT_CONTENT_ROOT=content node tools/audit-links.mjs` over the whole site reports **60 broken links
+out of 264,625**, all in `v1.4.6` (13 pages) and `v1.4.7` (6 pages). **Broken-link count in the three
+legacy trees: 0.** Cross-version links are a subset of the full link set, so they cannot contain an
+unresolvable target. Two different code paths, same answer.
+
+**This confirms — does not correct — `_evidence-147-20261002.md` §7.** My independent count reproduces
+its table exactly (v1.3.0 = 134, v1.3.15 = 0, v1.4.5 = 15; 0 broken).
+
+### §11.3 (assignment item 3) D4-class for v1.3.0 and v1.3.15
+
+Measured as this brief defines it: for `<v>/<lang>/api/_index.md`, how many **existing bucket
+directories** (leaf-bearing subdirectories of `api/`) are linked at least once from that index body,
+fences stripped.
+
+| tree / lang | existing buckets | buckets linked | **buckets unlinked** | **% unlinked** |
+|---|---:|---:|---:|---:|
+| v1.3.0 / zh | 12 | 12 | **0** | **0.0%** |
+| v1.3.0 / en | 12 | 12 | **0** | **0.0%** |
+| v1.3.15 / zh | 12 | 12 | **0** | **0.0%** |
+| v1.3.15 / en | 12 | 12 | **0** | **0.0%** |
+
+All 12 buckets are linked in all four indexes. **v1.3.0 and v1.3.15 are clean on this class.**
+
+**v1.4.5 was not re-measured for the report**, per instruction — `_legacy-nav-spec.md` §1.4 is the
+cited authority (39.9% of zh api leaves unlisted). The script was nonetheless allowed to print v1.4.5
+as an *uncontrolled positive control* of the D4 code path, and it does fire:
+
+| control (not the report metric) | existing buckets | linked | unlinked | % |
+|---|---:|---:|---:|---:|
+| v1.4.5 / zh | 20 | 12 | 8 | 40.0% |
+| v1.4.5 / en | 14 | 12 | 2 | 14.3% |
+
+v1.4.5/zh unlinked buckets: `boardgames, custombattle, final, gameplay, perks, sandbox, storymode, view`.
+
+> **Denominator warning — do not merge these two numbers.** §1.4's 39.9% is **leaf-level**
+> (3,737 of 9,364 api leaves not listed). Mine is **bucket-level** (8 of 20 bucket directories not
+> linked). 40.0% and 39.9% agree to one decimal by coincidence of shape, not because they measure the
+> same thing. Same defect family (D4), different unit. If the next wave schedules D4 work it must pick
+> one denominator and state it.
+
+### §11.4 (assignment item 4) Next-wave gap list — defect classes NEW to the list
+
+| # | defect class | count | severity | judgement |
+|---|---|---:|---|---|
+| **N1** | Cross-version link graph is **one-directional**. `v1.3.0 → v1.3.15` = 134 links, while `v1.3.15 →` any version = **0**. Site-wide across all 7 content roots: every legacy edge runs *out of* v1.3.0; **none returns into v1.3.0**. v1.4.5 → v1.3.15 = 14, v1.4.5 → v1.3.0 = 1. | 134 one-way edges / **0 return** | **MEDIUM** | This is the literal shape of the user's "跳过去回不来" complaint, one level above the page level. But the return path is supplied by topnav / section-tree, not prose links, so it is a *prose-authoring asymmetry*, not a broken nav tree. Cheap to close; **must not be conflated with a nav fix.** **NEW — in no gap list.** |
+| **N2** | `v1.4.5/zh api/_index.md` gives **8 of 20 bucket directories zero inbound link** from the api index — 8 of the 12 buckets that v1.3.0 / v1.3.15 link completely are simply absent. | 8 buckets (zh), 2 (en) | **HIGH** (zh) / LOW (en) | Bucket-level confirmation, at a granularity that names things, of a defect already logged leaf-level at 39.9%. **NEW as a named-bucket list; overlaps the existing D4 leaf entry — de-duplicate before scheduling**, do not double-count as two findings. |
+| **N3** | Sub-root audit runs manufacture phantom 404s. | 22 (`content/v1.3.15`), 108 (`content/versions`) | **HIGH (process)** | Not a content defect — a **measurement hazard** that has already leaked a wrong number into a nav spec. Any future audit must set `AUDIT_CONTENT_ROOT=content` or its output is untrustworthy. One-line assert in the audit wrapper retires it. **NEW — no gap list anywhere covers this.** |
+| **N4** | Cross-language cross-version jumps (source `zh` page → `en` tree or vice versa), which `_dir-map-canonical.json` §`crossVersion` forbids. | **0** | **NONE (closed)** | Reported because it is a plausible defect that had to be *measured*, not assumed away. 146 of the 149 links come from lang-bearing sources; all 146 preserve language. Legacy trees clean. |
+
+No patch proposals — this wave does not fix.
+
+### §11.5 Ambiguities and assumptions — stated, not guessed
+
+1. **"Page or section route" is genuinely ambiguous here, and it is material.** `v1.3.15/en/guide/gauntlet-ui.md`
+   is a **leaf**, so the route `v1.3.15/en/guide/gauntlet-ui/` is only a valid target via the `.md`
+   candidate. My first implementation missed this and reported 36 phantom 404s — see §11.0.
+   Convention used throughout: strip trailing slash, then test `<route>.md` then `<route>/_index.md`,
+   matching `audit-links.mjs` exactly.
+2. **Root-relative hrefs are excluded from the mismatch table**, not counted as "`0` dots ≠ N segments".
+   `/versions/Hero` from a 5-segment route technically has `dots=0`, but calling that a wrong `../`
+   depth would be a category error — it is not a `../` depth problem. They are measured in a separate
+   branch (legacy trees: **0** root-absolute cross-version links, so that branch is empty regardless).
+3. **Fence-stripping is a non-issue here, measured rather than assumed.** `audit-links.mjs` does *not*
+   strip fences; `_legacy-nav-spec.md` §1.4 *does*. Both conventions tracked; for this defect class they
+   return identical numbers because all 149 links are prose.
+4. **The brief's "6 places in new-version trees" did not reproduce.** The same detector found **0** depth
+   mismatches across `v1.4.6` / `v1.4.7` / `v1.5.3` as well (34 cross-version links, 0 mismatches).
+   Either those 6 were repaired between the brief being written and this run, or the claim is stale.
+   **I did not find them, and I am not asserting they never existed.** Flagged for the Lead to reconcile.
+5. **`_dir-map-canonical.json` §`crossVersion` wording is ambiguous.** "The language segment must match the
+   TARGET tree, not the source" reads as though a deliberate `zh→en` jump were permitted. I applied the
+   stricter reading (hard rule, no cross-language jumps). N4 is 0 under either reading, so nothing hinges
+   on it — recorded so nobody re-litigates it later.
+6. **The tree moved during measurement**, as the brief warned. `CONTENT_FILES` went 65,479 → 65,482 →
+   65,483 → 65,485 across runs; site-wide `BROKEN_LINKS` went 39 → 60. The §11.1–§11.3 numbers were
+   **stable across every run** (149 links, 0 mismatches) because the moving files are in v1.4.6 / v1.4.7.
+   **Re-run before acting on any number here.**
+
+### §11.6 What I did NOT verify
+
+- **No `zola build`.** Everything here is markdown-layer resolution against files on disk. Rendered-HTML
+  link integrity, template-injected nav links, and client-side routing are unverified. **This section
+  does not answer the user's browser-level 404 question.**
+- **Data layer not measured.** `data/navigation.json` and `data/section-tree.json` are outside a markdown
+  scan. `_legacy-nav-spec.md` §1.2 argues these are "the real 404s"; §11 says nothing about them.
+- **Anchor fragments stripped, never validated.** `href#section` targets were never checked against actual
+  heading ids. A cross-version link can be depth-correct, target-existing, and still land on a dead anchor.
+- **Link occurrences, not distinct targets.** 149 counts *occurrences*; `native-interop.md` alone
+  contributes 45, including repeats of the same target. 30 distinct **source pages**; fewer distinct targets.
+- **Semantics not checked.** Depth-correct + target-exists says nothing about whether v1.3.0's
+  `native-interop` *should* reference v1.3.15's `native-1.3.15-src`. That needs source reading, not a script.
+- **Excluded trees.** `_audit_*`, `_build-*`, `_nav-build-check`, `public/`, `static/`, `docs/`,
+  `node_modules/` lie outside the content root and were not scanned.
+- **This file is untracked by git** (`git ls-files` does not match it), so `git diff` shows nothing for it.
+  Integrity was verified by byte count + md5 before and after the append instead:
+  `31957 / 6909d1a8e69afb8df461233a99c762d3` before.
+
+### §11.7 Reproducing the measurement scripts from scratch
+
+The scripts are not committed (read-only constraint). To reproduce, the non-obvious parts are:
+
+- route derivation copied verbatim from `audit-links.mjs` `fileToRoute()`;
+- the existence test **strips the trailing slash** before testing both `.md` and `/_index.md`;
+- pop count = number of `..` segments in the href path, compared against the source route's segment count;
+- the 5-file critical-control fixture (3 mismatches, deltas −2/−2/−1, 1 root-absolute, 1 D4 bucket miss)
+  is what proves the detector fires.
+
+> A detector that reports 0 on a real tree is worthless without that control.
+
+> **Bottom line for the next wave:** no dedicated `popToSiteRoot` link-repair pass for the legacy trees —
+> the class is empty, now proven empty rather than merely unobserved. Two real items survive: **N1**
+> (v1.3.15 has **no** outbound cross-version links at all — medium, new) and **N2** (v1.4.5/zh api index
+> reaches only 12 of 20 buckets — high, 8 named directories). **N3** costs nothing to adopt: assert
+> `AUDIT_CONTENT_ROOT=content` in the audit wrapper so the next person does not publish 108 phantom 404s.
+
+## 12. Post-wave corrections, HARD PREMISE census, and the render-layer failure
+
+### 12.1 Correction: F1 was reported as "delivered" while unverified
+
+The lead recorded the sidebar-recursion change (F1) in §9 as delivered, with the caveat "per-page cost unverified". **That caveat was correct and it was not enough.** `zola build` had never been run at any point in this wave, so the change had never been rendered once. It turned out to introduce a Tera parse error (`break` outside a loop body) on the same day it landed, and the file it lives in had a *second*, pre-existing parse error (positional macro arguments where Tera requires `key=value`) — meaning `sidebar.html` could not compile **before** this wave began.
+
+The error surfaced only when the Boss ran `zola build` directly and it failed in 0.2 seconds. Three render-layer defects then appeared in one afternoon, **two of them pre-existing**:
+
+| defect | origin | status |
+|---|---|---|
+| `sidebar.html:15` `break` outside a loop | introduced this wave (F1) | fixed |
+| `sidebar.html` positional macro call | **pre-existing** | fixed |
+| `page-navigation.html:49` unguarded index | **pre-existing** | fixed this wave |
+
+### 12.2 Rule adopted: "we did not run X" is not a known limitation
+
+**A documented-but-unverified risk has not been handled. Annotating it transfers the liability without removing it.** Filing "F1 per-page cost unverified" under *Known limits* — while every gate in the wave (`_check_deep`, forbidden-boilerplate grep, `audit-links BROKEN_LINKS=0`, `NAVIGATION_ROUTES dead=0`) operated solely on the **markdown layer** — created the appearance of coverage over a layer that had none. Concretely: template parsing costs 0.2 seconds and `zola` was already on `PATH`; deferring it for an entire wave on "38k pages, I/O slow" was not caution, it was negligence. **When a check's marginal cost is a fraction of a second, deferring it is indefensible — especially when no other gate covers the layer it would cover.**
+
+Corollary now standing: every layer needs its own independent gate. Content gates do not speak for rendering.
+
+### 12.3 HARD PREMISE census — hand-written vs generated (lead's own detector)
+
+No script may emit any `.md` under `content/`. Generated content is to be reverted, not improved. Generators must never overwrite hand-written pages. Acceptance reports must state hand-written/generated counts per tree per language **with the detection method**.
+
+Lead's independent census of this wave's line (fingerprints: `**Purpose:**` template sentences in English, the six `**用途**：` template sentences and `先从命名空间` / `是 TaleWorlds.X 下的公开类型` in Chinese, `本页为批量初稿`, `SomeValue`, the two subsystem-acquisition boilerplates):
+
+```
+             total   generated  hand-written   %gen
+v1.3.0/zh     5300      3961        1339      74.7%
+v1.3.0/en     5300      2165        3135      40.8%
+v1.3.15/zh    5684      4000        1684      70.4%
+v1.3.15/en    5677      1827        3850      32.2%
+v1.4.5/zh     9477      6757        2720      71.3%
+v1.4.5/en     7193      2710        4483      37.7%
+────────────────────────────────────────────────
+TOTAL       38631     21420       17211      55.4%
+```
+
+Per version: v1.3.0 = 6126 · v1.3.15 = 5827 · v1.4.5 = 9467. The Boss's independent census gave 19,403 (~53.5%); the ~2,000 delta is attributable to the single largest fingerprint, `先从命名空间` (14,629 pages here). Same order of magnitude, same conclusion; method recorded so the two can be reconciled.
+
+**Pages delivered this session are hand-written: 34/34 sampled delivered pages carry zero generator fingerprints**, covering W1's v1.3.0 set (Campaign / Clan / Hero / Settlement / Town / Village / Kingdom / FactionManager / MobileParty / PartyBase / SettlementVisual / MobilePartyVisual, en+zh), W3's v1.4.5 set, and the three `(b)` intermediate `_index.md`. **This session generated zero pages.** Every script run by the lead was audit-only and wrote outside the repository.
+
+### 12.4 Detector lesson: fingerprint detectors need a language-symmetry check
+
+The first version of the census above used **English-only** filler regexes and reported Chinese as **0% generated** — a silent false negative that would have laundered roughly 7,000 generated pages as hand-written. A missing language does not raise an error; it simply makes the number look reassuringly safe, and the result was caught only because 0% for one language was implausible against 40%+ for the other on the same generator.
+
+**Standing rule:** run any content-fingerprint detector per language; if one language returns 0% while another is high, suspect the detector before trusting the result. This is the same discipline as §11's positive control — a validator must fire on known-bad data, not merely report zero on good data.
+
+## 13. P0 render-layer triage, and why the content blockers must be removed rather than repaired
+
+### 13.1 Four template blockers, one root cause
+
+| template | line | defect | origin |
+|---|---|---|---|
+| `macros/sidebar.html` | 15 | `break` outside a loop body | introduced this wave (F1) |
+| `macros/sidebar.html` | 55 | positional macro args; Tera requires `key=value` | **pre-existing** |
+| `macros/page-navigation.html` | 49 | unguarded `x[key]` under Tera strict mode | **pre-existing** |
+| `partials/topnav.html` | 132 | unguarded `x[key]` under Tera strict mode | **pre-existing** |
+
+Three of the four are unguarded index expressions, and every pre-existing one carries the fingerprint of *someone edited this file and nobody ever rebuilt*. `sidebar.html:55` establishes that the file did not compile **before this wave began**.
+
+### 13.2 The systemic finding — adopted as an integration-phase hard gate
+
+**The missing piece was never the four lines of code; it was a gate that alarms within 0.2 seconds of a template change.** `zola check` parses every template, produces no `public/`, and costs almost nothing — it was available the whole time. This wave's markdown-layer gates (`_check_deep`, forbidden-boilerplate grep, `audit-links BROKEN_LINKS=0`, `NAVIGATION_ROUTES dead=0`) cannot see this class of defect at all.
+
+**Standing rule, adopted 2026-10-02: anyone modifying `templates/**` must run `zola check` and post its exit code.** Hard requirement, not advice.
+
+### 13.3 Probe-build evidence is not a fix
+
+Render-layer evidence was recovered from a throwaway copy **outside the repository** with `content/v1.4.6/` and `v1.5.3/` removed, because the site build could not complete while those trees were malformed. **A probe that builds is evidence, not a repair** — if the template patches are not mirrored back into the repository, the next person to run a build gets the same failure. The four fixes must therefore exist in the repo, and `zola check` must be run **from the repo root**, before anyone may call the template layer fixed.
+
+### 13.4 The two content blockers are to be removed, not repaired
+
+| location | defect | owner | disposition |
+|---|---|---|---|
+| `content/v1.4.6/` — 11,953 files | HTML comment (`tools/_v146_stubs.mjs:139`) inside YAML front matter | lead-1 | withdraw the generated pages |
+| `content/v1.5.3/zh/` — 15 `_index.md` | no front matter at all; sentinel-generated index pages | lead-3 | withdraw the generated pages |
+
+**Deliberately do not "fix" either one.** In the v1.4.6 case the marker's only purpose is to declare *this page is generated* — relocating it out of the front matter, or rewriting it as a YAML comment, would polish something that should not be published at all. Withdrawal removes the blocker with **zero** front-matter edits, and is the only disposition consistent with the HARD PREMISE that generated pages are reverted rather than improved.
+
+Note the second blocker is a *different* defect from a *different* generator (worker-3's sentinel mechanism), so the two must not be bundled under one diagnosis just because they both break the build.

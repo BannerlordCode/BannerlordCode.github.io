@@ -85,21 +85,21 @@ PopScreen    → HandlePause() → OnPause() → HandleDeactivate() → OnDeacti
 public class MySupplyScreen : ScreenBase
 {
     private GauntletLayer _gauntletLayer;
-    private SupplyVM _viewModel;
+    private MySupplyViewModel _viewModel;
 
     protected override void OnInitialize()
     {
         // UI 构建放这里，不放构造函数
-        _viewModel = new SupplyVM();
+        _viewModel = new MySupplyViewModel();
         _gauntletLayer = new GauntletLayer("my_supply_layer", 0);
         var movie = _gauntletLayer.LoadMovie("my_supply_ui", _viewModel);
         AddLayer(_gauntletLayer);
-        OnAddLayer += OnLayerAdded;
+        OnAddLayer += MyOnLayerAdded;
     }
 
     protected override void OnFinalize()
     {
-        OnAddLayer -= OnLayerAdded;
+        OnAddLayer -= MyOnLayerAdded;
         if (_gauntletLayer != null)
             _gauntletLayer.ReleaseMovie(_gauntletLayer.GetMovieIdentifier("my_supply_ui"));
         _viewModel = null;
@@ -114,7 +114,7 @@ public class MySupplyScreen : ScreenBase
 
     public override bool MouseVisible { get => true; set { } }
 
-    private void OnLayerAdded(ScreenLayer addedLayer)
+    private void MyOnLayerAdded(ScreenLayer addedLayer)
     {
         // 多层面板互斥：点开其中一个就关掉同类别其他面板
         SetLayerCategoriesStateAndDeactivateOthers(new[] { "supply_category" }, true);

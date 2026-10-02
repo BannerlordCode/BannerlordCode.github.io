@@ -138,9 +138,13 @@ string label = DescribeFaction(playerClan);
 
 ```csharp
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.ObjectSystem;
 
 IFaction playerFaction = Hero.MainHero.Clan;
-IFaction target = Campaign.Current.FactionManager.GetFactionByStringId("empire");
+
+// FactionManager 没有按 StringId 查的便捷方法；派系实现都是 MBObjectBase，
+// 所以走 MBObjectManager 的 StringId 查找，或遍历 Clan.All / Kingdom.All
+IFaction target = MBObjectManager.Instance.GetObject<Clan>("empire");
 
 if (playerFaction != null && target != null)
 {

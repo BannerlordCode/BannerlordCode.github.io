@@ -78,31 +78,31 @@ SaveManager.InitializeGlobalDefinitionContext()
 
 ```csharp
 // 自定义 definer：号段选一个远离官方的区间
-public class MyTributeModTypeDefiner : SaveableTypeDefiner
+public class MyTributeTypeDefiner : SaveableTypeDefiner
 {
-    public MyTributeModTypeDefiner() : base(760000) { }   // 与官方 80000 段隔离
+    public MyTributeTypeDefiner() : base(760000) { }   // 与官方 80000 段隔离
 
     protected override void DefineEnumTypes()
     {
-        base.AddEnumDefinition(typeof(MyTributeMod.TributeType), 1, null);
+        base.AddEnumDefinition(typeof(MyTributeRecord.MyTributeKind), 1, null);
     }
 
     protected override void DefineClassTypes()
     {
-        base.AddClassDefinition(typeof(MyTributeMod.TributeRecord), 10, null);
+        base.AddClassDefinition(typeof(MyTributeRecord), 10, null);
     }
 
     protected override void DefineContainerDefinitions()
     {
-        base.ConstructContainerDefinition(typeof(Dictionary<Hero, MyTributeMod.TributeRecord>));
+        base.ConstructContainerDefinition(typeof(Dictionary<Hero, MyTributeRecord>));
     }
 }
 
 // 对应的数据类：字段用 SaveableProperty 声明
-public class TributeRecord
+public class MyTributeRecord
 {
     [SaveableProperty(4)] public int Amount { get; private set; }
-    [SaveableProperty(5)] public TributeType Kind { get; private set; }
+    [SaveableProperty(5)] public MyTributeKind Kind { get; private set; }
 }
 
 // 启动期验证：类型都注册了吗

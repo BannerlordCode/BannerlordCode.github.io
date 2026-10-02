@@ -33,6 +33,6 @@ description: "`TaleWorlds.Engine` and its sub-namespaces, plus the `TaleWorlds.D
 
 ## See also
 
-- ↑ [版本首页](../../)
-- ↑ [API 参考](../)
-- ↔ [架构总览](../../architecture/)
+- ↑ [Version home](../../)
+- ↑ [API reference](../)
+- ↔ [Architecture overview](../../architecture/)

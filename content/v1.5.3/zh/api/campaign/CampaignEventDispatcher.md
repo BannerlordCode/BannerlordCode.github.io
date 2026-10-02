@@ -59,7 +59,7 @@ description: "战役事件的广播中转站：把 CampaignEvents 上的每一�
 
 ```csharp
 // 手动广播一个自定义语义的等价写法：包一层异常保护，避免一个 mod 崩掉整条链
-private static void SafeBroadcast(Action<CampaignEventReceiver> broadcast)
+private static void MySafeBroadcast(Action<CampaignEventReceiver> broadcast)
 {
     Campaign campaign = Campaign.Current;
     if (campaign == null) return;

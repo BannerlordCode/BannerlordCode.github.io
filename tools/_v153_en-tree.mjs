@@ -399,3 +399,5 @@ console.log(`GAPS_OUT_OF_SCOPE_LEAVES=${gapLeaves}`);
 console.log(`FACT_WARNINGS=${warnings.length}`);
 if (warnings.length) console.log(warnings.slice(0, 30).map((w) => '  warn ' + w).join('\n'));
 process.exitCode = orphanEn.length ? 1 : 0;
+// FROZEN per HARD PREMISE: this tool used to emit generated pages under content/.
+import './lib/content-write-freeze.mjs';

@@ -61,7 +61,7 @@ Every hop is a real relative link. Every directory has its own `_index.md`, and 
 - [core-extra](./api/core-extra/) — 54 pages
 - [mission](./api/mission/) — 0 pages
 - [mission-ext](./api/mission-ext/) — 518 pages
-- [campaign](./api/campaign/) — 189 pages
+- [campaign](./api/campaign/) — 190 pages
 - [campaign-ext](./api/campaign-ext/) — 71 pages
 - [gui](./api/gui/) — 72 pages
 - [save-system](./api/save-system/) — 25 pages
@@ -79,6 +79,6 @@ Every hop is a real relative link. Every directory has its own `_index.md`, and 
 
 ## See also
 
-- ↔ [中文](../zh/)
+- ↔ [Chinese](../zh/)
 - ↘ [Cross-Version Class Comparison](../../versions/)
 - ↘ [v1.4.5 docs](../../v1.4.5/) · [v1.3.15 docs](../../v1.3.15/) · [v1.3.0 docs](../../v1.3.0/)

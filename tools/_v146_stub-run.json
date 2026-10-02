@@ -1,281 +1,224 @@
 {
- "generatedPages": 9360,
- "apiLandingPages": 0,
- "reservedTypes": 29,
- "moduleDirs": 39,
- "perDir": {
+ "runAt": "tool: _v146_stubs.mjs",
+ "frozen": true,
+ "generated": 0,
+ "frozenLeavesNotWritten": 11905,
+ "frozenIndexesNotWritten": 38,
+ "skipped_deep": 13,
+ "preserved_other_workers": 13,
+ "remaining_missing_buckets": [],
+ "reclaimedStalePages": 0,
+ "reclaimedEmptyDirs": 0,
+ "staleDirsReclaimed": [],
+ "pagesWritten": 0,
+ "bucketIndexesKept": 0,
+ "apiLandingPagesWritten": 0,
+ "reservedTypesSkipped": 29,
+ "reservedPathManifestPaths": 80,
+ "reservedPathManifestOwners": {
+  "worker-12": 12,
+  "worker-20": 16,
+  "worker-12-next-batch": 12
+ },
+ "deepPagesSkipped": 11,
+ "deepPagesSkippedList": [
+  "zh/api/core-extra/Banner.md",
+  "zh/api/core-extra/BindingPath.md",
+  "zh/api/core-extra/BodyProperties.md",
+  "zh/api/core-extra/Crafting.md",
+  "zh/api/core-extra/Equipment.md",
+  "zh/api/core-extra/EventBase.md",
+  "zh/api/core-extra/GameModel.md",
+  "zh/api/core-extra/GameModelsManager.md",
+  "zh/api/core-extra/ParameterContainer.md",
+  "zh/api/core-extra/SkillObject.md",
+  "zh/api/core-extra/WeaponComponent.md"
+ ],
+ "canonicalBuckets": 19,
+ "bucketIndexesKeptExternal": 2,
+ "bucketCounts": {
+  "achievementsystem": 4,
+  "activitysystem": 6,
+  "campaign": 596,
+  "campaign-ext": 597,
+  "core": 2,
+  "core-extra": 453,
+  "custombattle": 39,
+  "engine": 191,
+  "gui": 229,
+  "localization": 21,
+  "mission": 5,
+  "mission-ext": 1854,
+  "modulemanager": 8,
+  "network": 33,
+  "sandbox": 1174,
+  "save-system": 58,
+  "storymode": 166,
+  "system": 14,
+  "viewmodel": 537
+ },
+ "perBucket": {
   "achievementsystem": {
    "leaves": 4,
    "reserved": 0,
-   "index": 2,
-   "zh": 4,
-   "en": 4
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
   },
   "activitysystem": {
    "leaves": 6,
    "reserved": 0,
-   "index": 2,
-   "zh": 6,
-   "en": 6
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
   },
-  "campaignsystem": {
-   "leaves": 1167,
+  "campaign": {
+   "leaves": 589,
    "reserved": 7,
-   "index": 2,
-   "zh": 1167,
-   "en": 1167
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
   },
-  "campaignsystem-fastmode": {
-   "leaves": 2,
-   "reserved": 0,
-   "index": 2,
-   "zh": 2,
-   "en": 2
-  },
-  "campaignsystem-viewmodelcollection": {
-   "leaves": 349,
-   "reserved": 0,
-   "index": 2,
-   "zh": 349,
-   "en": 349
-  },
-  "campaignsystem-viewmodelcollection-birthanddeath": {
-   "leaves": 2,
-   "reserved": 0,
-   "index": 2,
-   "zh": 2,
-   "en": 2
+  "campaign-ext": {
+   "leaves": 595,
+   "reserved": 2,
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
   },
   "core": {
-   "leaves": 226,
-   "reserved": 3,
-   "index": 2,
-   "zh": 226,
-   "en": 226
+   "leaves": 0,
+   "reserved": 2,
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
   },
-  "core-viewmodelcollection": {
-   "leaves": 45,
-   "reserved": 0,
-   "index": 2,
-   "zh": 45,
-   "en": 45
+  "core-extra": {
+   "leaves": 448,
+   "reserved": 5,
+   "skippedDeep": 11,
+   "index": 0,
+   "zh": 0,
+   "en": 0
   },
-  "dotnet": {
-   "leaves": 29,
+  "custombattle": {
+   "leaves": 39,
    "reserved": 0,
-   "index": 2,
-   "zh": 29,
-   "en": 29
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
   },
   "engine": {
-   "leaves": 124,
-   "reserved": 0,
-   "index": 2,
-   "zh": 124,
-   "en": 124
-  },
-  "engine-gauntletui": {
-   "leaves": 7,
+   "leaves": 190,
    "reserved": 1,
-   "index": 2,
-   "zh": 7,
-   "en": 7
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
   },
-  "gauntletui": {
-   "leaves": 95,
-   "reserved": 1,
-   "index": 2,
-   "zh": 95,
-   "en": 95
-  },
-  "gauntletui-data": {
-   "leaves": 15,
-   "reserved": 0,
-   "index": 2,
-   "zh": 15,
-   "en": 15
-  },
-  "gauntletui-extrawidgets": {
-   "leaves": 26,
-   "reserved": 0,
-   "index": 2,
-   "zh": 26,
-   "en": 26
-  },
-  "gauntletui-prefabsystem": {
-   "leaves": 27,
-   "reserved": 0,
-   "index": 2,
-   "zh": 27,
-   "en": 27
-  },
-  "inputsystem": {
-   "leaves": 14,
-   "reserved": 0,
-   "index": 2,
-   "zh": 14,
-   "en": 14
-  },
-  "library": {
-   "leaves": 189,
-   "reserved": 2,
-   "index": 2,
-   "zh": 189,
-   "en": 189
+  "gui": {
+   "leaves": 226,
+   "reserved": 3,
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
   },
   "localization": {
    "leaves": 20,
    "reserved": 1,
-   "index": 2,
-   "zh": 20,
-   "en": 20
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
+  },
+  "mission": {
+   "leaves": 1,
+   "reserved": 4,
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
+  },
+  "mission-ext": {
+   "leaves": 1854,
+   "reserved": 0,
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
   },
   "modulemanager": {
    "leaves": 8,
    "reserved": 0,
-   "index": 2,
-   "zh": 8,
-   "en": 8
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
   },
-  "mountandblade": {
-   "leaves": 735,
-   "reserved": 6,
-   "index": 2,
-   "zh": 735,
-   "en": 735
-  },
-  "mountandblade-custombattle": {
-   "leaves": 39,
+  "network": {
+   "leaves": 33,
    "reserved": 0,
-   "index": 2,
-   "zh": 39,
-   "en": 39
-  },
-  "mountandblade-gauntletui": {
-   "leaves": 62,
-   "reserved": 0,
-   "index": 2,
-   "zh": 62,
-   "en": 62
-  },
-  "mountandblade-gauntletui-widgets": {
-   "leaves": 400,
-   "reserved": 0,
-   "index": 2,
-   "zh": 400,
-   "en": 400
-  },
-  "mountandblade-steamworkshop": {
-   "leaves": 5,
-   "reserved": 0,
-   "index": 2,
-   "zh": 5,
-   "en": 5
-  },
-  "mountandblade-view": {
-   "leaves": 167,
-   "reserved": 0,
-   "index": 2,
-   "zh": 167,
-   "en": 167
-  },
-  "mountandblade-viewmodelcollection": {
-   "leaves": 132,
-   "reserved": 0,
-   "index": 2,
-   "zh": 132,
-   "en": 132
-  },
-  "objectsystem": {
-   "leaves": 14,
-   "reserved": 2,
-   "index": 2,
-   "zh": 14,
-   "en": 14
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
   },
   "sandbox": {
-   "leaves": 226,
+   "leaves": 1174,
    "reserved": 0,
-   "index": 2,
-   "zh": 226,
-   "en": 226
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
   },
-  "sandbox-gauntletui": {
-   "leaves": 75,
-   "reserved": 0,
-   "index": 2,
-   "zh": 75,
-   "en": 75
-  },
-  "sandbox-view": {
-   "leaves": 118,
-   "reserved": 0,
-   "index": 2,
-   "zh": 118,
-   "en": 118
-  },
-  "sandbox-viewmodelcollection": {
-   "leaves": 93,
-   "reserved": 0,
-   "index": 2,
-   "zh": 93,
-   "en": 93
-  },
-  "savesystem": {
-   "leaves": 53,
+  "save-system": {
+   "leaves": 54,
    "reserved": 4,
-   "index": 2,
-   "zh": 53,
-   "en": 53
-  },
-  "screensystem": {
-   "leaves": 6,
-   "reserved": 2,
-   "index": 2,
-   "zh": 6,
-   "en": 6
-  },
-  "starter-library": {
-   "leaves": 1,
-   "reserved": 0,
-   "index": 2,
-   "zh": 1,
-   "en": 1
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
   },
   "storymode": {
-   "leaves": 67,
+   "leaves": 166,
    "reserved": 0,
-   "index": 2,
-   "zh": 67,
-   "en": 67
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
   },
-  "storymode-gauntletui": {
-   "leaves": 72,
+  "system": {
+   "leaves": 14,
    "reserved": 0,
-   "index": 2,
-   "zh": 72,
-   "en": 72
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
   },
-  "storymode-view": {
-   "leaves": 7,
+  "viewmodel": {
+   "leaves": 537,
    "reserved": 0,
-   "index": 2,
-   "zh": 7,
-   "en": 7
-  },
-  "storymode-viewmodelcollection": {
-   "leaves": 4,
-   "reserved": 0,
-   "index": 2,
-   "zh": 4,
-   "en": 4
-  },
-  "twodimension": {
-   "leaves": 49,
-   "reserved": 0,
-   "index": 2,
-   "zh": 49,
-   "en": 49
+   "skippedDeep": 0,
+   "index": 0,
+   "zh": 0,
+   "en": 0
   }
- }
+ },
+ "gateNotes": [
+  "G1 checked 11974 leaf pages, 0 mismatches, 184 documented arity/collision suffix exceptions",
+  "G2 step2 prefix rules: 6062 types; step3 entryPointDirs overrides: 7 types {\"MBSubModuleBase\":1,\"Module\":1,\"Agent\":1,\"Formation\":1,\"Mission\":1,\"MissionBehavior\":1,\"MissionState\":1}",
+  "G3 19 buckets, all 19 declared buckets non-empty and indexed",
+  "G4 all 5987 paged types have an existing source file",
+  "G5 0 distinct emitted links checked route-relative: 0 forbidden-form, 0 unresolvable",
+  "G6 artifact schemaVersion=3 asserted fail-closed at load",
+  "en-CJK checked 5987 pages, 0 with CJK"
+ ],
+ "gateFailures": []
 }

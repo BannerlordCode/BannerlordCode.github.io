@@ -87,12 +87,14 @@ if (mission != null)
     mission.AddMissionBehavior(new MyMissionBehavior());
 }
 
-// InitializeMissionBehaviorsDelegate 的实现：在这里配置初始队伍
+// InitializeMissionBehaviorsDelegate 的实现：用任务自身的真实 API 配置初始规模
 private static void InitializeMissionBehaviors(Mission mission)
 {
     if (mission != null)
     {
-        mission.SetBattleSettlement(...);
+        // SetInitialAgentCountForSide(BattleSideEnum, int) 设定开局的每侧人数
+        mission.SetInitialAgentCountForSide(BattleSideEnum.Attacker, 30);
+        mission.SetInitialAgentCountForSide(BattleSideEnum.Defender, 30);
     }
 }
 ```

@@ -70,6 +70,8 @@ Save 层是横切的：`TaleWorlds.SaveSystem` 不属于上面任何一层，它
 
 ## 三个最小可运行骨架
 
+> 示例里的回调签名来自 `bannerlord-1.4.6/TaleWorlds.MountAndBlade/MBSubModuleBase.cs` 与 `TaleWorlds.MountAndBlade/MissionBehavior.cs`，行为基类来自 `TaleWorlds.CampaignSystem/CampaignBehaviorBase.cs`，事件订阅写法来自 `TaleWorlds.CampaignSystem/IMbEvent.cs` 与 `StoryMode/GameComponents/CampaignBehaviors/AchievementsCampaignBehavior.cs`。**格式示意，API 本身以源码为准。**
+
 ```csharp
 // 1) 模块入口：在官方做法相同的时机挂上战役行为
 //    OnGameStart 在基类里是 protected internal virtual，跨程序集重写必须写 protected override。

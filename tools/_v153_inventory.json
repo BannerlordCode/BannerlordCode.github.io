@@ -56,7 +56,6 @@
     "declaredBuckets": [
       "achievementsystem",
       "activitysystem",
-      "boardgames",
       "campaign",
       "campaign-ext",
       "core",
@@ -75,9 +74,7 @@
       "system",
       "viewmodel"
     ],
-    "emptyBuckets": [
-      "boardgames"
-    ]
+    "emptyBuckets": []
   },
   "unmappedNamespaces": [
     "MBHelpers"

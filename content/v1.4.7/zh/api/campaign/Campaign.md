@@ -182,12 +182,26 @@ EntityComponent 会进入存档，因此在战役结束 / 存档前必须移除�
 
 ```csharp
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+
+// 下面这个类型是「读者自己写的」，不是游戏 API
+public class MyProgressionTracker : CampaignEntityComponent
+{
+    private int _visitedCount;
+
+    public int VisitedCount => _visitedCount;
+
+    public void MarkVisit(Settlement settlement)
+    {
+        _visitedCount++;
+    }
+}
 
 // 挂载（需要在 Campaign 初始化之后）
 var tracker = Campaign.Current.AddEntityComponent<MyProgressionTracker>();
 
-// 使用
-tracker.MarkVisited(Hero.MainHero.HomeSettlement);
+// 使用（MarkVisit 是上面这个示例类自己的方法）
+tracker.MarkVisit(Hero.MainHero.HomeSettlement);
 
 // 存档 / 战役结束前清理，避免存档里留下悬空组件
 Campaign.Current.RemoveEntityComponent<MyProgressionTracker>();

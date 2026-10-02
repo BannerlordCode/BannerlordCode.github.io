@@ -50,7 +50,7 @@ description: "所有模组 SubModule 的基类：31 个生命周期钩子覆盖�
 | `protected internal virtual void OnSubModuleLoad()` | 模块 DLL 刚被加载。此刻只有类型系统可用，**没有 `Game` 实例**。适合建静态单例。 |
 | `protected internal virtual void OnSubModuleUnloaded()` | 模块卸载。与上面成对，清理静态状态。 |
 | `protected internal virtual void OnNewModuleLoad()` | 新一轮模块加载流程开始（热重载 / 编辑器场景）。 |
-| `protected internal virtual void OnBeforeInitialModuleScreenSetAsRootScreen()` | 初始屏幕被设为根屏幕**之前**。改初始界面的钩子。 |
+| `protected internal virtual void OnBeforeInitialModuleScreenSetAsRoot()` | 初始屏幕被设为根屏幕**之前**。改初始界面的钩子。 |
 | `protected internal virtual void RegisterSubModuleTypes()` | **注册自定义 MBObject 类型的时机**。管理器的取法是 `MBObjectManager.Instance`（或 `Game` 已就绪时用 `Game.Current.ObjectManager`）。 |
 | `public virtual void InitializeSubModuleGameObjects(Game game)` | 创建本模块的游戏对象（UI 层依赖、ViewModel 工厂等）。 |
 | `public virtual void OnGameInitializationFinished(Game game)` | 初始化完成。此刻 `Game` 及其子对象基本就绪。 |
@@ -112,10 +112,17 @@ description: "所有模组 SubModule 的基类：31 个生命周期钩子覆盖�
 只有四个钩子真正被用到——这四个的时机分别是「类型注册」「注入战役扩展」「战役就绪后初始化」「模块卸载」。
 
 ```csharp
-using TaleWorlds.Core;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
-using TaleWorlds.ObjectSystem;
+
+// 下面这个 Behavior 是「读者自己写的」，不是游戏 API
+public class VisitCounterBehavior : CampaignBehaviorBase
+{
+    public VisitCounterBehavior() : base("MyMod.VisitCounter") { }
+    public override void RegisterEvents() { }
+    public override void SyncData(IDataStore dataStore) { }
+}
 
 public class MyModSubModule : MBSubModuleBase
 {
@@ -128,6 +135,7 @@ public class MyModSubModule : MBSubModuleBase
     protected override void RegisterSubModuleTypes()
     {
         base.RegisterSubModuleTypes();
+        // MyItemDef 也是读者自己的类型
         MBObjectManager.Instance.RegisterType<MyItemDef>("MyItemDef", "MyItemDefs", 9101u, true);
     }
 

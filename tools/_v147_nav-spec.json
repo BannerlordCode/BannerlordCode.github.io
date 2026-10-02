@@ -135,7 +135,7 @@
   ],
   "notCreatedReason": "gameplay and navigationsystem are ruled out by the Lead (parity gaps no-gameplay-bucket, and TaleWorlds.NavigationSystem -> core-extra). boardgames projects zero types (no TaleWorlds.BoardGames namespace). screensystem was reversed to gui. view/perks/final are 1.4.5-only shells with no canonical rule.",
   "bidirectionalLadder": {
-    "_principle": "This is the acceptance criterion for \"the site sends me somewhere unrelated and I cannot get back\".",
+    "_principle": "This is the acceptance criterion for \"the site sends me somewhere unrelated and I cannot get back\". Hop 3 through hop 5 are the version section; hop 4 (language home -> version root) is only resolvable because content/v1.4.7/_index.md exists.",
     "hops": [
       {
         "step": 1,
@@ -161,13 +161,21 @@
       },
       {
         "step": 4,
-        "from": "language home  _index.md",
-        "to": "site home  content/_index.md",
-        "link": "../../",
-        "route": "/"
+        "from": "language home  {lang}/_index.md",
+        "to": "version root  content/v1.4.7/_index.md",
+        "link": "../",
+        "route": "/v1.4.7/",
+        "note": "content/v1.4.7/_index.md is the version section index. Without it Zola never builds /v1.4.7/, the language roots are not subsections, and page.ancestors loses the version level."
       },
       {
         "step": 5,
+        "from": "version root  content/v1.4.7/_index.md",
+        "to": "site home  content/_index.md",
+        "link": "../",
+        "route": "/"
+      },
+      {
+        "step": 6,
         "from": "site home",
         "to": "any version or section",
         "link": "./v1.4.7/{lang}/",
@@ -1202,6 +1210,7 @@
     "routesWithNoFile": [
       "/v1.4.7/"
     ],
-    "generatedAt": "derived from disk at generation time; re-run the verification script after any leaf-page drop"
+    "generatedAt": "derived from disk at generation time; re-run the verification script after any leaf-page drop",
+    "versionRootIndex": "content/v1.4.7/_index.md present and verified on disk"
   }
 }

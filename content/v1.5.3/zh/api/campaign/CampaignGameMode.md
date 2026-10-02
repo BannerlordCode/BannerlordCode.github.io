@@ -44,7 +44,7 @@ description: "战役模式的三值枚举：None / Campaign / Tutorial。它决�
 
 ```csharp
 // 自定义战役工厂：明确传 Campaign，让 GameModels 完成装配
-private Campaign CreateMyCampaign(AdvancedStartOptionsData options)
+private Campaign MyCreateCampaign(AdvancedStartOptionsData options)
 {
     return new Campaign(CampaignGameMode.Campaign, options);
 }

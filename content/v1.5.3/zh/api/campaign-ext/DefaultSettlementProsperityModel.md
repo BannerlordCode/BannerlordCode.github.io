@@ -73,7 +73,7 @@ public class MyProsperityModel : MBGameModel<SettlementProsperityModel>
             : new ExplainedNumber(0f, includeDescriptions, null);
 
         if (village != null && village.Settlement != null && village.Settlement.OwnerClan == Hero.MainHero?.Clan)
-            result.Add(0.3f, "MyMod_hearth_bonus", null);
+            result.Add(0.3f, new TextObject("{=MyMod_hearth_bonus}MyMod hearth bonus"), null);
 
         return result;
     }

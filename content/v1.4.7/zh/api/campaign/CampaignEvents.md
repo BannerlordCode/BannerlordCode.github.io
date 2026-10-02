@@ -318,14 +318,8 @@ public class InitBehavior : CampaignBehaviorBase
 
     public override void SyncData(IDataStore dataStore)
     {
-        if (dataStore.IsLoading())
-        {
-            _initialized = dataStore.GetDataAsBool("MyMod.Initialized");
-        }
-        else
-        {
-            dataStore.SyncData("MyMod.Initialized", ref _initialized);
-        }
+        // 读与写共用 SyncData<T>，方向由存档流程决定；不要手写分支
+        dataStore.SyncData("MyMod.Initialized", ref _initialized);
     }
 
     private void OnSessionReady(CampaignGameStarter starter)

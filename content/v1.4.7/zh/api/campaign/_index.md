@@ -1,6 +1,6 @@
 ---
 title: "Campaign — 战役世界：实体与状态"
-description: "`TaleWorlds.CampaignSystem` 的根命名空间。这里是**持久世界的数据面**：`Campaign`、`Hero`、`Clan`、`Kingdom`、`Settlement`、`Town`、`Village`、`Mob"
+description: "`TaleWorlds.CampaignSystem` 的根命名空间。这里是持久世界的数据面：`Campaign`、`Hero`、`Clan`、`Kingdom`、`Settlement`、`Town`、`Village`、`MobileP"
 ---
 # Campaign — 战役世界：实体与状态
 

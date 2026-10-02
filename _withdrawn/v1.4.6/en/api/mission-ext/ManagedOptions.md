@@ -1,0 +1,46 @@
+---
+title: "ManagedOptions"
+description: "ManagedOptions: a public class in TaleWorlds.MountAndBlade; 8 exposed members (5 methods, 1 properties, 0 fields). Canonical bucket mission-ext. Source: TaleWorlds.MountAndBlade/ManagedOptions.cs."
+---
+
+<!-- generated-by: tools/_v146_stubs.mjs -->
+# ManagedOptions
+
+**Namespace:** `TaleWorlds.MountAndBlade`
+**Module:** `TaleWorlds.MountAndBlade`
+**Type:** `public static class ManagedOptions`
+**File:** `TaleWorlds.MountAndBlade/ManagedOptions.cs`
+**Bucket:** `mission-ext` (rule:TaleWorlds.MountAndBlade)
+
+## Overview
+
+ManagedOptions lives in the TaleWorlds.MountAndBlade module, source file TaleWorlds.MountAndBlade/ManagedOptions.cs. It is a public class; the inheritance chain is ManagedOptions. It exposes 8 public/protected members: 5 methods, 1 properties, 2 nested types.
+
+> Batch first draft: every signature is taken verbatim from the decompiled bannerlord-1.4.6 source. The bucket is resolved live from `tools/_dir-map-canonical.json`. What each method actually does, when to call it and where it breaks must be read from the method body in the source file.
+
+## Mental Model
+
+Structural facts: ManagedOptions lands in canonical bucket `mission-ext` (matched rule `rule:TaleWorlds.MountAndBlade`), namespace `TaleWorlds.MountAndBlade`, inheritance chain ManagedOptions. The surface is method-led (methods 5/8, properties 1/8), so it mostly exposes operations. This page lists real signatures only: what each method does, when to call it and where it breaks must be read from TaleWorlds.MountAndBlade/ManagedOptions.cs or the deep page for this type.
+
+## Key Members
+
+| Member | Signature | Kind |
+| --- | --- | --- |
+| `GetConfig` | `public static float GetConfig(ManagedOptions.ManagedOptionsType type)` | method |
+| `GetDefaultConfig` | `public static float GetDefaultConfig(ManagedOptions.ManagedOptionsType type)` | method |
+| `SetConfig` | `public static void SetConfig(ManagedOptions.ManagedOptionsType type, float value)` | method |
+| `SaveConfig` | `public static SaveResult SaveConfig()` | method |
+| `ManagedOptionsType` | `public enum ManagedOptionsType` | property |
+| `OnManagedOptionChangedDelegate` | `public delegate void OnManagedOptionChangedDelegate(ManagedOptions.ManagedOptionsType changedManagedOptionsType);` | method |
+| `ManagedOptionsType` | `public enum ManagedOptionsType` | nested type |
+| `OnManagedOptionChangedDelegate` | `public delegate void OnManagedOptionChangedDelegate(ManagedOptions.ManagedOptionsType changedManagedOptionsType)` | nested type |
+
+## See Also
+
+- [↑ bucket index](..//)
+- [↑ API reference](../..//)
+- [↑ version home](../../..//)
+- [same namespace ActionIndexCache](../ActionIndexCache/)
+- [same namespace AgentBuildData](../AgentBuildData/)
+- [same namespace AgentCapsuleData](../AgentCapsuleData/)
+- [same namespace AgentCommonAILogic](../AgentCommonAILogic/)

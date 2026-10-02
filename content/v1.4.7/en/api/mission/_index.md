@@ -1,10 +1,10 @@
 ---
 title: "Mission — mod entry classes only"
-description: "This directory holds **only the 5 entry classes a mod author actually subclasses**. It is a deliberately small entry buc"
+description: "This directory holds only the 5 entry classes a mod author actually subclasses. It is a deliberately small entry bucket,"
 ---
 # Mission — mod entry classes only
 
-**This directory holds **only the 5 entry classes a mod author actually subclasses**. It is a deliberately small entry bucket, not the full API surface.**
+This directory holds **only the 5 entry classes a mod author actually subclasses**. It is a deliberately small entry bucket, not the full API surface.
 
 The whole `TaleWorlds.MountAndBlade` type surface lives in [Mission-Ext](../mission-ext/). If what you need is not here, **stop looking here** and go straight to Mission-Ext.
 
@@ -21,9 +21,18 @@ These five were picked by name out of `mission-ext/` rather than by a namespace 
 
 The reverse link exists too: the `Mission-Ext` index page points back here.
 
-## Pages in this area (0)
+## Pages in this area (0 in English)
 
-_No pages yet. Leaf pages are generated from the type inventory and will appear here._
+The five entry classes this bucket exists for are documented in the Chinese tree:
+
+| Page | Type |
+| --- | --- |
+| [zh/api/mission/Mission](../../../zh/api/mission/Mission) | `public sealed class Mission` |
+| [zh/api/mission/MissionState](../../../zh/api/mission/MissionState) | `public class MissionState` |
+| [zh/api/mission/MissionBehavior](../../../zh/api/mission/MissionBehavior) | `public abstract class MissionBehavior` |
+| [zh/api/mission/Agent](../../../zh/api/mission/Agent) | `public sealed class Agent` |
+
+`Formation` belongs to this bucket by the entry-point carve-out but has no page in either tree.
 
 ## Sibling areas
 
@@ -31,7 +40,7 @@ _No pages yet. Leaf pages are generated from the type inventory and will appear 
 
 ## See also
 
-- ↑ [版本首页](../../)
-- ↑ [API 参考](../)
-- ↔ [架构总览](../../architecture/)
+- ↑ [Version home](../../)
+- ↑ [API reference](../)
+- ↔ [Architecture overview](../../architecture/)
 - ↘ [module-system](../../architecture/module-system)

@@ -619,15 +619,16 @@ where it already lives.
 All hops below are written in the repo's markdown link style (`AUDIT_MODE=url` clean-URL semantics).
 `..` climbs from the page's own folder; a trailing `/` or no suffix both resolve.
 
-**A. Leaf → bucket → API hub → version home → site root → sibling version**
+**A. Leaf → bucket → API hub → version root → site root → sibling version**
 
 | From | Hop | Link written on the page | Resolves to |
 | --- | --- | --- | --- |
 | `zh/api/gui/ScreenManager.md` | 1 up | `../` | `/v1.4.7/zh/api/gui/` |
 | `zh/api/gui/_index.md` | 1 up | `../` | `/v1.4.7/zh/api/` |
 | `zh/api/_index.md` | 1 up | `../` | `/v1.4.7/zh/` |
-| `zh/_index.md` | 1 up | `../../` | `/` |
-| `zh/_index.md` | across | `../../v1.4.5/` | `/v1.4.5/` (language home, then `en` via the switcher) |
+| `zh/_index.md` | 1 up | `../` | `/v1.4.7/` (the **version root**, `content/v1.4.7/_index.md`) |
+| `content/v1.4.7/_index.md` | 1 up | `../` | `/` (site `content/_index.md`) |
+| `zh/_index.md` | across | `../../v1.4.5/zh/` | `/v1.4.5/zh/` (other version's language home) |
 | `zh/api/gui/_index.md` | across | `../../en/api/gui/` | `/v1.4.7/en/api/gui/` |
 | `zh/api/gui/ScreenManager.md` | across | `../../en/api/gui/ScreenManager` | `/v1.4.7/en/api/gui/ScreenManager/` |
 | any page | across | `../../../versions/` | `/versions/` |
@@ -678,6 +679,11 @@ Additional structural gaps:
 | en tree asymmetry | 1.4.5 `en/api/gameplay/` does not exist at all while `zh/api/gameplay/` has 18 pages. v1.4.7 must not repeat this (I6). |
 
 ---
+
+**`content/v1.4.7/_index.md` — written.** Hop 4 is only resolvable because the version section index
+exists. Without it Zola never builds `/v1.4.7/`, the language roots are not subsections, and
+`page.ancestors` loses the version level, so `templates/macros/breadcrumb.html` renders one hop
+short on **every page in the version**.
 
 ## 7. Apply order (each step is independently verifiable)
 

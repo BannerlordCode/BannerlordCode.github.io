@@ -84,7 +84,8 @@ description: "战斗/对话场景的运行时容器：持有场景、队伍、Ag
 // 在自己的 MissionBehavior 里读任务状态与队伍
 public class MyMissionLogic : MissionLogic
 {
-    public override void MissionTick(float dt)
+    // MissionBehavior 提供 OnPreMissionTick / OnMissionTick / OnFixedMissionTick 等帧回调
+    public override void OnPreMissionTick(float dt)
     {
         Mission mission = Mission.Current;
         if (mission == null || mission.CurrentState != Mission.State.Continuing) return;
@@ -96,11 +97,12 @@ public class MyMissionLogic : MissionLogic
         }
     }
 
-    public override void MissionEnded()
+    // MissionLogic 的战斗结束回调是 OnBattleEnded（无参）
+    public override void OnBattleEnded()
     {
         // 回到战役层后再读 Campaign
         if (Campaign.Current != null)
-            Debug.Print("battle ended, result = " + Mission.Current?.MissionResult);
+            Debug.Print("battle ended");
     }
 }
 ```

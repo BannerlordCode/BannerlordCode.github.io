@@ -1,0 +1,109 @@
+---
+title: "GameModel"
+description: "游戏模型层的标记基类：GameModelsManager 靠它做类型过滤，mod 的自定义 Model 全部继承它。"
+---
+# GameModel
+
+**Namespace:** `TaleWorlds.Core`
+**Module:** `TaleWorlds.Core`
+**Type:** `public abstract class GameModel`
+**Base:** `System.Object`
+**File:** `TaleWorlds.Core/GameModel.cs`
+
+## 概述
+
+整个文件 9 行、一个抽象类、零成员。它是 Bannerlord「Model 层」的根标记类型：所有参与玩法逻辑替换的模型（伤害计算、AI 决策、地形判定、物品估值……）都继承它。抽象类但**没有抽象成员**，所以子类不需要实现任何东西——它纯粹是给 [GameModelsManager](../GameModelsManager) 的 `GetGameModel<T>()` 提供一个共同的 `as` 转换目标。
+
+心智模型上要分清三层：
+
+- **本类（`GameModel`）**——只是类型标签，让「模型」这个概念在泛型约束里可表达。
+- **[GameModelsManager](../GameModelsManager)**——注册与读取入口。构造时接收一个 `IEnumerable<GameModel>`，之后用 `GetGameModel<T>()` 按类型取回**最后一个**匹配项。
+- **`MBGameModel<T>`**——官方使用的具体实现基类，它才是真正带委托字段（`Select` / `IsApplicable` / `OnXxx`）的那一层。`Game` 的 `IGameStarter.AddModel<T>(MBGameModel<T>)` 重载收的就是它。
+
+## 心智模型
+
+mod 写自定义模型的典型顺序：
+
+1. 继承 `MBGameModel<T>`（不是直接继承 `GameModel`——后者没有委托字段，你没法覆盖任何行为）。
+2. 构造时把 `OnXxx` 委托填上，`IsApplicable` 填一个判定。
+3. 在 `IGameStarter` 阶段 `AddModel(...)` 挂进去。`CampaignGameStarter.AddModel<T>` 内部最终会进 [Game](../Game) 的 `AddGameModelsManager<...>` / `SetBasicModels` 那条链。
+4. 运行时由游戏侧查询：`Game.Current.BasicModels.ItemValueModel` 之类就是 `GetGameModel<T>()` 取出来的实例。
+
+**关键坑是「最后一个匹配」**：`GameModelsManager.GetGameModel<T>()` 的循环是 `for (int i = this._gameModels.Count - 1; i >= 0; i--)`，即**从尾往头扫，命中即 return**。所以后注册的模型会遮蔽先注册的同名类型模型。mod 想覆盖官方模型时这正是你想要的语义；但如果你不小心注册了两个同类型模型，**只有最后那个生效，且不会有任何警告**。这也意味着「卸载 mod」不是删一个对象那么简单——那个被遮蔽的模型实际上不可达了。
+
+另一个坑：`_gameModels` 是构造时一次性 `ToMBList<GameModel>()` 快照。构造之后再往传入的 `IEnumerable` 增删不会反映到管理器里。
+
+常见误用：直接继承 `GameModel` 却不实现任何逻辑（能编译、注册成功、运行时全无效）；用 `GetGameModel<T>()` 取一个没注册过的类型（返回 `default(T)`，引用类型即 **null**，不抛）；在 `Game.Current` 还没建的时候访问 `Game.Current.BasicModels`（NRE）。
+
+## 关键成员
+
+本类**没有任何 public / protected 成员**：无构造函数、无属性、无方法、无字段、无嵌套类型。它是抽象类，只能被继承，不能被实例化。
+
+| 成员 | 签名 | 作用 |
+| --- | --- | --- |
+| （无） | `public abstract class GameModel` | 模型层根标记。为 [GameModelsManager](../GameModelsManager) 的 `GetGameModel<T>() where T : GameModel` 提供泛型约束上限，使 `this._gameModels[i] as T` 的转换在编译期合法。 |
+
+## 真实示例
+
+mod 注册一个自定义估值模型并取回（`MBGameModel<T>` 是官方带委托的实现基类）：
+
+```csharp
+public class MyItemValueModel : MBGameModel<ItemObject>
+{
+    public MyItemValueModel()
+    {
+        this.CalculateValue = item => 100 + item.Tier;
+        this.GetIsTransferable = item => !item.IsUniqueItem;
+    }
+}
+
+public class MyModSubModule : MBSubModuleBase
+{
+    protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
+    {
+        base.OnGameStart(game, gameStarterObject);
+        gameStarterObject.AddModel(new MyItemValueModel());
+    }
+}
+```
+
+按类型取回（没注册过就返回 null，必须判空）：
+
+```csharp
+ItemValueModel valueModel = Game.Current.BasicModels.ItemValueModel;
+if (valueModel != null)
+{
+    int worth = valueModel.CalculateValue(someItem);
+}
+```
+
+遍历管理器里的全部模型实例：
+
+```csharp
+MBReadOnlyList<GameModel> allModels = Game.Current.BasicModels.GetGameModels();
+foreach (GameModel model in allModels)
+{
+    Debug.Print("registered model: " + model.GetType().Name, 0);
+}
+```
+
+## 风险与边界
+
+- **抽象但无抽象成员。** 直接继承 `GameModel` 编译得过，但什么行为都没有。真正要覆写的是 `MBGameModel<T>` 上的委托属性。
+- **取不到就是 null。** `GetGameModel<T>()` 返回 `default(T)`，没有异常、没有日志。代码里必须判空。
+- **「最后一个匹配」语义。** 倒序扫描 + 命中即返回。同类型重复注册时前面的被静默遮蔽。
+- **集合是构造时快照。** `_gameModels` 在 `GameModelsManager` 构造时由 `ToMBList<GameModel>()` 定死，之后无法增删。
+- **绑定在 `Game` 生命周期上。** 模型管理器由 [Game](../Game) 的 `BasicModels` / `AddGameModelsManager` 持有，`Game.Destroy()` 之后整批失效。换局必须重新注册。
+- **`Game.Current` 为 null 的早期窗口。** 静态构造器、字段初始化、`OnSubModuleLoad` 阶段都拿不到 `BasicModels`。
+- **模型替换无隔离。** 没有「优先级」概念，后注册即覆盖。官方模型和 mod 模型混在同一个列表里。
+
+## 跨版本提示
+
+`bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.Core/GameModel.cs` 逐行比对：**两个版本都是同样的 9 行空抽象类，public 表面完全一致（都为空）**。`bannerlord-1.4.5/` 本机未解出 C# 源码，未能核对。
+
+## 依赖关系
+
+- 消费方：[GameModelsManager](../GameModelsManager) 的 `GetGameModel<T>() where T : GameModel` 依赖本类作为约束上限
+- 宿主：[Game](../Game) 的 `BasicModels` / `AddGameModelsManager<T>()` 持有管理器实例
+- 注册入口：`IGameStarter.AddModel(...)`（`CampaignGameStarter` 的实现），由 `MBSubModuleBase.OnGameStart` 传进来的 `IGameStarter` 承载
+- 桶首页：[core-extra API 分区](../)

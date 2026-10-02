@@ -46,7 +46,11 @@
       {%- endfor -%}
     {%- endif -%}
     {%- set navigation = load_data(path="data/navigation.json") -%}
-    {%- set related_parent = navigation.routes[parent_section.path] -%}
+    {# Guarded like the `is defined` idiom below: version trees with no entry in
+       navigation.json (v1.4.6 / v1.5.3) have no parent route to index. #}
+    {%- if navigation.routes[parent_section.path] is defined -%}
+      {%- set related_parent = navigation.routes[parent_section.path] -%}
+    {%- endif -%}
     <nav class="page-navigation" aria-label="{% if lang == 'zh' %}页面导航{% else %}Page navigation{% endif %}">
       <div class="page-navigation-row">
         <div class="page-navigation-parent">

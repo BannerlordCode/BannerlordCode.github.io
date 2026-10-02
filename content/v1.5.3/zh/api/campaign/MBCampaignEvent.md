@@ -59,10 +59,10 @@ public class MyWeatherBehavior : CampaignBehaviorBase
     {
         // 初次等 6 小时，之后每 12 小时触发一次游戏内时间
         _event = CampaignPeriodicEventManager.CreatePeriodicEvent(CampaignTime.Hours(12f), CampaignTime.Hours(6f));
-        _event.AddHandler(OnWeatherWindow);
+        _event.AddHandler(MyOnWeatherWindow);
     }
 
-    private void OnWeatherWindow(MBCampaignEvent campaignEvent, object[] delegateParams)
+    private void MyOnWeatherWindow(MBCampaignEvent campaignEvent, object[] delegateParams)
     {
         MobileParty party = Campaign.Current.MainParty;
         if (party != null)

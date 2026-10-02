@@ -19,7 +19,7 @@ description: "所有 mod 的模块基类：30 个生命周期钩子覆盖模块�
 
 时间线（从早到晚，只列最常用的）：
 
-1. **`OnSubModuleLoad()`**：程序集加载完成。此时**没有战役**，不能碰 `Campaign.Current`。适合初始化静态配置、注册 Harmony patch。
+1. **`OnSubModuleLoad()`**：程序集加载完成。此时**没有战役**，不能碰 `Campaign.Current`。适合初始化静态配置、注册自定义类型。
 2. **`RegisterSubModuleTypes()`**：注册自定义类型（给反射 / 存档系统用）。
 3. **`OnBeforeGameStart(MBGameManager, List<string> disabledModules)`**：开新游戏前的准备。
 4. **`OnGameStart(Game game, IGameStarter gameStarterObject)`：**战役启动，拿到 [CampaignGameStarter](../../campaign/CampaignGameStarter)。**所有 behavior / model 注册必须在这里。**
@@ -95,7 +95,6 @@ public class MyModSubModule : MBSubModuleBase
     {
         base.OnSubModuleLoad();
         _instance = this;                 // 无战役，只有静态可用
-        Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly());
     }
 
     protected internal override void OnGameStart(Game game, IGameStarter gameStarterObject)
@@ -122,8 +121,9 @@ public class MyModSubModule : MBSubModuleBase
     protected internal override void OnApplicationTick(float dt)
     {
         base.OnApplicationTick(dt);
-        if (DebugOverlay.ShouldDraw && Campaign.Current != null)
-            DebugOverlay.Draw(Campaign.Current.MainParty);
+        MobileParty main = Campaign.Current?.MainParty;
+        if (main != null)
+            Debug.Print("party members = " + main.Party.NumberOfAllMembers);
     }
 
     public override void OnGameEnd(Game game)

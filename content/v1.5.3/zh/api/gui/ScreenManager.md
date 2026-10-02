@@ -78,7 +78,7 @@ description: "静态界面栈管理器：Push/Pop/Replace 界面、驱动每帧 
 
 ```csharp
 // 打开自己的界面：从主线程调用
-public static void OpenSupplyScreen()
+public static void MyOpenSupplyScreen()
 {
     ScreenManager.PushScreen(new MySupplyScreen());
 }

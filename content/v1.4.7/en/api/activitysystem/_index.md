@@ -19,6 +19,6 @@ This is a **brand new subsystem**. The 1.4.5 API tree had no directory for it, s
 
 ## See also
 
-- ↑ [版本首页](../../)
-- ↑ [API 参考](../)
-- ↔ [架构总览](../../architecture/)
+- ↑ [Version home](../../)
+- ↑ [API reference](../)
+- ↔ [Architecture overview](../../architecture/)

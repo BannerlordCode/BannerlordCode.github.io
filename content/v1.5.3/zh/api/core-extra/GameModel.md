@@ -44,31 +44,28 @@ description: "所有玩法模型的抽象根类：没有成员，只有类型标
 
 ```csharp
 // 一个自建模型的完整骨架：抽象接口 + 官方默认实现 + 自己的覆盖
-public abstract class MySupplyModel : MBGameModel<MySupplyModel>
+// SettlementProsperityModel 的真实抽象成员（ComponentInterfaces/SettlementProsperityModel.cs）：
+//   ExplainedNumber CalculateProsperityChange(Town fortification, bool includeDescriptions = false)
+//   ExplainedNumber CalculateHearthChange(Village village, bool includeDescriptions = false)
+public class MyProsperityModel : MBGameModel<SettlementProsperityModel>
 {
-    public abstract float GetDailyConsumption(MobileParty party);
-}
-
-public class DefaultSupplyModel : MySupplyModel
-{
-    public override float GetDailyConsumption(MobileParty party)
+    public override ExplainedNumber CalculateHearthChange(Village village, bool includeDescriptions = false)
     {
-        return party.Party.PartySize * 0.5f;
+        // BaseModel 在 starter.AddModel<SettlementProsperityModel>() 时被填好
+        ExplainedNumber result = BaseModel != null
+            ? BaseModel.CalculateHearthChange(village, includeDescriptions)
+            : new ExplainedNumber(0f, includeDescriptions, null);
+
+        if (village != null && village.Settlement != null && village.Settlement.OwnerClan == Hero.MainHero.Clan)
+            result.Add(0.3f, new TextObject("{=MyMod_hearth_bonus}MyMod hearth bonus"), null);
+
+        return result;
     }
 }
 
-public class MySupplyModelOverride : MySupplyModel
-{
-    public override float GetDailyConsumption(MobileParty party)
-    {
-        // BaseModel 在 starter.AddModel<T> 时被填好
-        float baseValue = BaseModel != null ? BaseModel.GetDailyConsumption(party) : 0f;
-        return party.IsPlayerParty ? baseValue * 0.8f : baseValue;
-    }
-}
-
-// 注册后查询（走 GameModels 的强类型属性，或自己保存一个引用）
-Debug.Print("consumption = " + myModel.GetDailyConsumption(Campaign.Current.MainParty));
+// 注册后查询（走 GameModels 的强类型属性）
+ExplainedNumber change = Campaign.Current.Models.SettlementProsperityModel.CalculateHearthChange(village, false);
+Debug.Print("hearth change = " + change.ResultNumber);
 ```
 
 ## 风险与边界

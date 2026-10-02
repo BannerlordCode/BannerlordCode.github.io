@@ -97,11 +97,12 @@ namespace MyMod
         public override void RegisterEvents(CampaignEvents campaignEvents)
         {
             // 只监听，不直接改状态；改动走 CampaignEvents 派发出的 Action
-            campaignEvents.HourlyTickEvent.AddNonIndexableAction(
-                OnHourlyTick);
+            // MBCampaignEvent.AddHandler takes a CampaignEventDelegate:
+            // void (MBCampaignEvent campaignEvent, params object[] delegateParams)
+            campaignEvents.HourlyTickEvent.AddHandler(OnHourlyTick);
         }
 
-        private void OnHourlyTick()
+        private static void OnHourlyTick(MBCampaignEvent campaignEvent, params object[] delegateParams)
         {
             // 需要改钱/关系/部队时，这里发一个自定义 CampaignEvent，
             // 由自己的 Behavior 或游戏内置 Action 去应用

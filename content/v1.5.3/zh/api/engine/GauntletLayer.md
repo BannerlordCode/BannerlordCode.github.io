@@ -81,7 +81,7 @@ public class MySupplyScreen : ScreenBase
     protected override void OnInitialize()
     {
         _layer = new GauntletLayer("supply", 100);          // localOrder 100
-        _movie = _layer.LoadMovie("supply_screen_ui", new SupplyVM());
+        _movie = _layer.LoadMovie("supply_screen_ui", new MySupplyViewModel());
         AddLayer(_layer);
     }
 

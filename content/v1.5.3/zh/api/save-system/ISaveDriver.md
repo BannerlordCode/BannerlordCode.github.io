@@ -57,22 +57,29 @@ public class MyDirectorySaveDriver : ISaveDriver
 
     public MyDirectorySaveDriver(string root) { _root = root; Directory.CreateDirectory(root); }
 
-    public Task<SaveResultWithMessage> Save(string saveName, int version, MetaData metaData, GameData gameData)
+    public async Task<SaveResultWithMessage> Save(string saveName, int version, MetaData metaData, GameData gameData)
     {
-        if (_busy) return Task.FromResult(SaveResultWithMessage.Fail("busy"));
-        _busy = true;
-        return Task.Run(() =>
+        if (_busy)
         {
-            try
-            {
-                string path = Path.Combine(_root, saveName + SaveManager.SaveFileExtension);
-                // GameData 由 Header / Strings / ObjectData 等 byte[] 分块组成，
-                // 真实驱动必须把每一块都持久化并支持读回顺序一致
-                File.WriteAllBytes(path, gameData.Strings);
-                return SaveResultWithMessage.Success();
-            }
-            finally { _busy = false; }
-        });
+            // SaveResultWithMessage 是 struct，只有 Default 静态属性和 (SaveResult, string) 构造
+            return new SaveResultWithMessage(SaveResult.GeneralFailure, "busy");
+        }
+
+        _busy = true;
+        try
+        {
+            string path = Path.Combine(_root, saveName + SaveManager.SaveFileExtension);
+            // GameData 由 Header / Strings / ObjectData 等 byte[] 分块组成，
+            // 真实驱动必须把每一块都持久化，并保证读回时顺序一致
+            // File.WriteAllBytesAsync 是 .NET BCL 方法，不是游戏 API；这里只是演示异步写盘
+            await File.WriteAllBytesAsync(path, gameData.Strings);
+            return new SaveResultWithMessage(SaveResult.Success, string.Empty);
+        }
+        catch (IOException)
+        {
+            return new SaveResultWithMessage(SaveResult.FileDriverFailure, "write failed");
+        }
+        finally { _busy = false; }
     }
 
     public bool IsWorkingAsync() => _busy;

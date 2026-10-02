@@ -1,7 +1,8 @@
 ---
 title: "MobileParty"
-description: "Auto-generated class reference for MobileParty."
+description: "A moving party on the campaign map: rosters, movement orders, AI state, roles, food, morale, visibility, ships and party components."
 ---
+
 # MobileParty
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
@@ -12,1033 +13,345 @@ description: "Auto-generated class reference for MobileParty."
 
 ## Overview
 
-`MobileParty` lives in `TaleWorlds.CampaignSystem.Party` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`MobileParty` is the campaign map's **moving** party: a caravan, a lord's war party, a villager party, a garrison, a militia, a patrol or a bandit band. It is not a roster — the roster lives on `MobileParty.Party`, a [PartyBase](../PartyBase). `MobileParty` adds everything that only makes sense for something that moves: an order, a path, an AI state, a position, roles, morale, food and visibility.
+
+Its structure is three layers:
+
+| Layer | Members | Lifetime |
+|-------|---------|----------|
+| Identity | `Name`, `Id`, `Index`, `PartyComponent`, `IsMainParty` | Saveable |
+| Roster | via `.Party`: `MemberRoster`, `PrisonRoster`, `ItemRoster`, `AddMember` | Saveable |
+| Movement | `SetMove*` orders, `Ai`, `Objective`, `Position`, `Speed`, `ShortTermBehavior` | Mostly transient, recomputed |
+
+A `PartyComponent` classifies the party: `LordPartyComponent`, `CaravanPartyComponent`, `VillagerPartyComponent`, `GarrisonPartyComponent`, `MilitiaPartyComponent`, `PatrolPartyComponent`, `WarPartyComponent`, `BanditPartyComponent`. The `IsLordParty` / `IsCaravan` / `IsVillager` / `IsGarrison` / `IsMilitia` / `IsPatrolParty` / `IsBandit` / `IsCustomParty` flags are derived from it.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
-
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `MainParty` | `public static MobileParty MainParty { get; }` |
-| `All` | `public static MBReadOnlyList<MobileParty> All { get; }` |
-| `AllCaravanParties` | `public static MBReadOnlyList<MobileParty> AllCaravanParties { get; }` |
-| `AllPatrolParties` | `public static MBReadOnlyList<MobileParty> AllPatrolParties { get; }` |
-| `AllBanditParties` | `public static MBReadOnlyList<MobileParty> AllBanditParties { get; }` |
-| `AllLordParties` | `public static MBReadOnlyList<MobileParty> AllLordParties { get; }` |
-| `AllGarrisonParties` | `public static MBReadOnlyList<MobileParty> AllGarrisonParties { get; }` |
-| `AllMilitiaParties` | `public static MBReadOnlyList<MobileParty> AllMilitiaParties { get; }` |
-| `AllVillagerParties` | `public static MBReadOnlyList<MobileParty> AllVillagerParties { get; }` |
-| `AllCustomParties` | `public static MBReadOnlyList<MobileParty> AllCustomParties { get; }` |
-| `AllPartiesWithoutPartyComponent` | `public static MBReadOnlyList<MobileParty> AllPartiesWithoutPartyComponent { get; }` |
-| `Count` | `public static int Count { get; }` |
-| `ConversationParty` | `public static MobileParty ConversationParty { get; }` |
-| `Name` | `public TextObject Name { get; }` |
-| `LastVisitedSettlement` | `public Settlement LastVisitedSettlement { get; }` |
-| `Bearing` | `public Vec2 Bearing { get; }` |
-| `AttachedParties` | `public MBReadOnlyList<MobileParty> AttachedParties { get; }` |
-| `HasLandNavigationCapability` | `public bool HasLandNavigationCapability { get; }` |
-| `Ships` | `public MBReadOnlyList<Ship> Ships { get; }` |
-| `HasNavalNavigationCapability` | `public bool HasNavalNavigationCapability { get; set; }` |
-| `Aggressiveness` | `public float Aggressiveness { get; set; }` |
-| `PaymentLimit` | `public int PaymentLimit { get; }` |
-| `Banner` | `public Banner Banner { get; }` |
-| `ArmyPositionAdder` | `public Vec2 ArmyPositionAdder { get; }` |
-| `AiBehaviorTarget` | `public CampaignVec2 AiBehaviorTarget { get; }` |
-| `Objective` | `public MobileParty.PartyObjective Objective { get; }` |
-| `Ai` | `public MobilePartyAi Ai { get; }` |
-| `Party` | `public PartyBase Party { get; }` |
-| `IsActive` | `public bool IsActive { get; set; }` |
-| `IsInRaftState` | `public bool IsInRaftState { get; set; }` |
-| `DisorganizedUntilTime` | `public CampaignTime DisorganizedUntilTime { get; }` |
-| `LastCalculatedBaseSpeed` | `public float LastCalculatedBaseSpeed { get; }` |
-| `ThinkParamsCache` | `public PartyThinkParams ThinkParamsCache { get; }` |
-| `Speed` | `public float Speed { get; }` |
-| `SpeedExplained` | `public ExplainedNumber SpeedExplained { get; }` |
-| `ShortTermTargetParty` | `public MobileParty ShortTermTargetParty { get; }` |
-| `ShortTermTargetSettlement` | `public Settlement ShortTermTargetSettlement { get; }` |
-| `IsDisorganized` | `public bool IsDisorganized { get; }` |
-| `IsCurrentlyUsedByAQuest` | `public bool IsCurrentlyUsedByAQuest { get; }` |
-| `ShortTermBehavior` | `public AiBehavior ShortTermBehavior { get; }` |
-| `IsPartyTradeActive` | `public bool IsPartyTradeActive { get; }` |
-| `PartyTradeGold` | `public int PartyTradeGold { get; set; }` |
-| `PartyTradeTaxGold` | `public int PartyTradeTaxGold { get; }` |
-| `StationaryStartTime` | `public CampaignTime StationaryStartTime { get; }` |
-| `VersionNo` | `public int VersionNo { get; }` |
-| `ShouldJoinPlayerBattles` | `public bool ShouldJoinPlayerBattles { get; set; }` |
-| `IsDisbanding` | `public bool IsDisbanding { get; set; }` |
-| `RandomValue` | `public int RandomValue { get; }` |
-| `NavigationCapability` | `public MobileParty.NavigationType NavigationCapability { get; }` |
-| `IsCurrentlyAtSea` | `public bool IsCurrentlyAtSea { get; set; }` |
-| `IsNavalVisualDirty` | `public bool IsNavalVisualDirty { get; }` |
-| `IsTargetingPort` | `public bool IsTargetingPort { get; }` |
-| `Anchor` | `public AnchorPoint Anchor { get; }` |
-| `IsTransitionInProgress` | `public bool IsTransitionInProgress { get; }` |
-| `EndPositionForNavigationTransition` | `public CampaignVec2 EndPositionForNavigationTransition { get; }` |
-| `NavigationTransitionStartTime` | `public CampaignTime NavigationTransitionStartTime { get; }` |
-| `NavigationTransitionDuration` | `public CampaignTime NavigationTransitionDuration { get; }` |
-| `DesiredAiNavigationType` | `public MobileParty.NavigationType DesiredAiNavigationType { get; set; }` |
-| `CurrentSettlement` | `public Settlement CurrentSettlement { get; set; }` |
-| `HomeSettlement` | `public Settlement HomeSettlement { get; }` |
-| `AttachedTo` | `public MobileParty AttachedTo { get; set; }` |
-| `Army` | `public Army Army { get; set; }` |
-| `BesiegerCamp` | `public BesiegerCamp BesiegerCamp { get; set; }` |
-| `DefaultBehavior` | `public AiBehavior DefaultBehavior { get; }` |
-| `TargetSettlement` | `public Settlement TargetSettlement { get; }` |
-| `TargetPosition` | `public CampaignVec2 TargetPosition { get; set; }` |
-| `TargetParty` | `public MobileParty TargetParty { get; set; }` |
-| `LeaderHero` | `public Hero LeaderHero { get; set; }` |
-| `Owner` | `public Hero Owner { get; }` |
-| `EffectiveScout` | `public Hero EffectiveScout { get; }` |
-| `EffectiveQuartermaster` | `public Hero EffectiveQuartermaster { get; }` |
-| `EffectiveEngineer` | `public Hero EffectiveEngineer { get; }` |
-| `EffectiveSurgeon` | `public Hero EffectiveSurgeon { get; }` |
-| `RecentEventsMorale` | `public float RecentEventsMorale { get; set; }` |
-| `SeeingRangeExplanation` | `public ExplainedNumber SeeingRangeExplanation { get; }` |
-| `InventoryCapacity` | `public int InventoryCapacity { get; }` |
-| `InventoryCapacityExplainedNumber` | `public ExplainedNumber InventoryCapacityExplainedNumber { get; }` |
-| `TotalWeightCarried` | `public float TotalWeightCarried { get; }` |
-| `MapEventSide` | `public MapEventSide MapEventSide { get; set; }` |
-| `TotalWeightCarriedExplainedNumber` | `public ExplainedNumber TotalWeightCarriedExplainedNumber { get; }` |
-| `Morale` | `public float Morale { get; }` |
-| `FoodChange` | `public float FoodChange { get; }` |
-| `BaseFoodChange` | `public float BaseFoodChange { get; }` |
-| `ActualClan` | `public Clan ActualClan { get; set; }` |
-| `FoodChangeExplained` | `public ExplainedNumber FoodChangeExplained { get; }` |
-| `MoraleExplained` | `public ExplainedNumber MoraleExplained { get; }` |
-| `CurrentNavigationFace` | `public PathFaceRecord CurrentNavigationFace { get; }` |
-| `PathBegin` | `public int PathBegin { get; }` |
-| `ForceAiNoPathMode` | `public bool ForceAiNoPathMode { get; set; }` |
-| `EventPositionAdder` | `public Vec2 EventPositionAdder { get; set; }` |
-| `IsVisible` | `public bool IsVisible { get; set; }` |
-| `Position` | `public CampaignVec2 Position { get; set; }` |
-| `IsInspected` | `public bool IsInspected { get; set; }` |
-| `GetPosition2D` | `public Vec2 GetPosition2D { get; }` |
-| `TotalWage` | `public int TotalWage { get; }` |
-| `TotalWageExplained` | `public ExplainedNumber TotalWageExplained { get; }` |
-| `MapEvent` | `public MapEvent MapEvent { get; }` |
-| `MemberRoster` | `public TroopRoster MemberRoster { get; }` |
-| `PrisonRoster` | `public TroopRoster PrisonRoster { get; }` |
-| `ItemRoster` | `public ItemRoster ItemRoster { get; }` |
-| `IsMainParty` | `public bool IsMainParty { get; }` |
-| `MapFaction` | `public IFaction MapFaction { get; }` |
-| `ArmyName` | `public TextObject ArmyName { get; }` |
-| `SiegeEvent` | `public SiegeEvent SiegeEvent { get; }` |
-| `Food` | `public float Food { get; }` |
-| `TotalFoodAtInventory` | `public int TotalFoodAtInventory { get; }` |
-| `SeeingRange` | `public float SeeingRange { get; }` |
-| `BesiegedSettlement` | `public Settlement BesiegedSettlement { get; }` |
-| `IsEngaging` | `public bool IsEngaging { get; }` |
-| `PartySizeRatio` | `public float PartySizeRatio { get; }` |
-| `VisualPosition2DWithoutError` | `public Vec2 VisualPosition2DWithoutError { get; }` |
-| `IsMoving` | `public bool IsMoving { get; }` |
-| `ShouldBeIgnored` | `public bool ShouldBeIgnored { get; }` |
-| `VillagerPartyComponent` | `public VillagerPartyComponent VillagerPartyComponent { get; }` |
-| `CaravanPartyComponent` | `public CaravanPartyComponent CaravanPartyComponent { get; }` |
-| `WarPartyComponent` | `public WarPartyComponent WarPartyComponent { get; }` |
-| `BanditPartyComponent` | `public BanditPartyComponent BanditPartyComponent { get; }` |
-| `PatrolPartyComponent` | `public PatrolPartyComponent PatrolPartyComponent { get; }` |
-| `LordPartyComponent` | `public LordPartyComponent LordPartyComponent { get; }` |
-| `GarrisonPartyComponent` | `public GarrisonPartyComponent GarrisonPartyComponent { get; }` |
-| `PartyComponent` | `public PartyComponent PartyComponent { get; }` |
-| `IsMilitia` | `public bool IsMilitia { get; }` |
-| `IsLordParty` | `public bool IsLordParty { get; }` |
-| `IsVillager` | `public bool IsVillager { get; }` |
-| `IsCaravan` | `public bool IsCaravan { get; }` |
-| `IsPatrolParty` | `public bool IsPatrolParty { get; }` |
-| `IsGarrison` | `public bool IsGarrison { get; }` |
-| `IsCustomParty` | `public bool IsCustomParty { get; }` |
-| `IsBandit` | `public bool IsBandit { get; }` |
-| `IsBanditBossParty` | `public bool IsBanditBossParty { get; }` |
-| `AvoidHostileActions` | `public bool AvoidHostileActions { get; }` |
-
-## Key Methods
-
-### SetLandNavigationAccess
-`public void SetLandNavigationAccess(bool access)`
-
-**Purpose:** Assigns a new value to land navigation access and updates the object's internal state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetLandNavigationAccess(false);
-```
-
-### GetName
-`public override TextObject GetName()`
-
-**Purpose:** Reads and returns the name value held by the this instance.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.GetName();
-```
-
-### HasLimitedWage
-`public bool HasLimitedWage()`
-
-**Purpose:** Determines whether the this instance already holds limited wage.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.HasLimitedWage();
-```
-
-### GetAvailableWageBudget
-`public int GetAvailableWageBudget()`
-
-**Purpose:** Reads and returns the available wage budget value held by the this instance.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.GetAvailableWageBudget();
-```
-
-### IsWageLimitExceeded
-`public bool IsWageLimitExceeded()`
-
-**Purpose:** Determines whether the this instance is in the wage limit exceeded state or condition.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.IsWageLimitExceeded();
-```
-
-### SetWagePaymentLimit
-`public void SetWagePaymentLimit(int newLimit)`
-
-**Purpose:** Assigns a new value to wage payment limit and updates the object's internal state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetWagePaymentLimit(0);
-```
-
-### SetNavalVisualAsDirty
-`public void SetNavalVisualAsDirty()`
-
-**Purpose:** Assigns a new value to naval visual as dirty and updates the object's internal state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetNavalVisualAsDirty();
-```
-
-### OnNavalVisualsUpdated
-`public void OnNavalVisualsUpdated()`
-
-**Purpose:** Invoked when the naval visuals updated event is raised.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.OnNavalVisualsUpdated();
-```
-
-### SetSailAtPosition
-`public void SetSailAtPosition(CampaignVec2 position)`
-
-**Purpose:** Assigns a new value to sail at position and updates the object's internal state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetSailAtPosition(position);
-```
-
-### CancelNavigationTransition
-`public void CancelNavigationTransition()`
-
-**Purpose:** Checks whether the this instance meets the preconditions for cel navigation transition.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.CancelNavigationTransition();
-```
-
-### ChangeIsCurrentlyAtSeaCheat
-`public void ChangeIsCurrentlyAtSeaCheat()`
-
-**Purpose:** Executes the ChangeIsCurrentlyAtSeaCheat logic.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.ChangeIsCurrentlyAtSeaCheat();
-```
-
-### SetCustomHomeSettlement
-`public void SetCustomHomeSettlement(Settlement customHomeSettlement)`
-
-**Purpose:** Assigns a new value to custom home settlement and updates the object's internal state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetCustomHomeSettlement(customHomeSettlement);
-```
-
-### SetTargetSettlement
-`public void SetTargetSettlement(Settlement settlement, bool isTargetingPort)`
-
-**Purpose:** Assigns a new value to target settlement and updates the object's internal state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetTargetSettlement(settlement, false);
-```
-
-### SetPartyScout
-`public void SetPartyScout(Hero hero)`
-
-**Purpose:** Assigns a new value to party scout and updates the object's internal state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetPartyScout(hero);
-```
-
-### SetPartyQuartermaster
-`public void SetPartyQuartermaster(Hero hero)`
-
-**Purpose:** Assigns a new value to party quartermaster and updates the object's internal state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetPartyQuartermaster(hero);
-```
-
-### SetPartyEngineer
-`public void SetPartyEngineer(Hero hero)`
-
-**Purpose:** Assigns a new value to party engineer and updates the object's internal state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetPartyEngineer(hero);
-```
-
-### SetPartySurgeon
-`public void SetPartySurgeon(Hero hero)`
-
-**Purpose:** Assigns a new value to party surgeon and updates the object's internal state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetPartySurgeon(hero);
-```
-
-### ToString
-`public override string ToString()`
-
-**Purpose:** Returns a human-readable string representation of the this instance.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.ToString();
-```
-
-### ChangePartyLeader
-`public void ChangePartyLeader(Hero newLeader)`
-
-**Purpose:** Executes the ChangePartyLeader logic.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.ChangePartyLeader(newLeader);
-```
-
-### OnPartyInteraction
-`public void OnPartyInteraction(MobileParty engagingParty)`
-
-**Purpose:** Invoked when the party interaction event is raised.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.OnPartyInteraction(engagingParty);
-```
-
-### SetPositionAfterMapChange
-`public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
-
-**Purpose:** Assigns a new value to position after map change and updates the object's internal state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetPositionAfterMapChange(newPosition);
-```
-
-### RemovePartyLeader
-`public void RemovePartyLeader()`
-
-**Purpose:** Removes party leader from the current collection or state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.RemovePartyLeader();
-```
-
-### CheckPositionsForMapChangeAndUpdateIfNeeded
-`public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
-
-**Purpose:** Verifies whether positions for map change and update if needed holds true for the this instance.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.CheckPositionsForMapChangeAndUpdateIfNeeded();
-```
-
-### CheckAiForMapChangeAndUpdateIfNeeded
-`public void CheckAiForMapChangeAndUpdateIfNeeded()`
-
-**Purpose:** Verifies whether ai for map change and update if needed holds true for the this instance.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.CheckAiForMapChangeAndUpdateIfNeeded();
-```
-
-### MovePartyToTheClosestLand
-`public void MovePartyToTheClosestLand()`
-
-**Purpose:** Moves party to the closest land to a new position or state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.MovePartyToTheClosestLand();
-```
-
-### GetBehaviorText
-`public TextObject GetBehaviorText()`
-
-**Purpose:** Reads and returns the behavior text value held by the this instance.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.GetBehaviorText();
-```
-
-### Initialize
-`public override void Initialize()`
-
-**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.Initialize();
-```
-
-### InitializeMobilePartyAtPosition
-`public void InitializeMobilePartyAtPosition(CampaignVec2 position)`
-
-**Purpose:** Prepares the resources, state, or bindings required by mobile party at position.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.InitializeMobilePartyAtPosition(position);
-```
-
-### InitializeMobilePartyAtPosition
-`public void InitializeMobilePartyAtPosition(TroopRoster memberRoster, TroopRoster prisonerRoster, CampaignVec2 position, bool isNaval = false)`
-
-**Purpose:** Prepares the resources, state, or bindings required by mobile party at position.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.InitializeMobilePartyAtPosition(memberRoster, prisonerRoster, position, false);
-```
-
-### InitializeMobilePartyAroundPosition
-`public void InitializeMobilePartyAroundPosition(TroopRoster memberRoster, TroopRoster prisonerRoster, CampaignVec2 position, float spawnRadius, float minSpawnRadius = 0f, bool isNaval = false)`
-
-**Purpose:** Prepares the resources, state, or bindings required by mobile party around position.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.InitializeMobilePartyAroundPosition(memberRoster, prisonerRoster, position, 0, 0, false);
-```
-
-### InitializeMobilePartyAtPosition
-`public void InitializeMobilePartyAtPosition(PartyTemplateObject pt, CampaignVec2 position)`
-
-**Purpose:** Prepares the resources, state, or bindings required by mobile party at position.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.InitializeMobilePartyAtPosition(pt, position);
-```
-
-### InitializeMobilePartyAroundPosition
-`public void InitializeMobilePartyAroundPosition(PartyTemplateObject pt, CampaignVec2 position, float spawnRadius, float minSpawnRadius = 0f)`
-
-**Purpose:** Prepares the resources, state, or bindings required by mobile party around position.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.InitializeMobilePartyAroundPosition(pt, position, 0, 0);
-```
-
-### SetDisorganized
-`public void SetDisorganized(bool isDisorganized)`
-
-**Purpose:** Assigns a new value to disorganized and updates the object's internal state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetDisorganized(false);
-```
-
-### RecalculateShortTermBehavior
-`public void RecalculateShortTermBehavior()`
-
-**Purpose:** Recalculates short term behavior to reflect the latest state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.RecalculateShortTermBehavior();
-```
-
-### IsFleeBehavior
-`public static bool IsFleeBehavior(AiBehavior aiBehavior)`
-
-**Purpose:** Determines whether the this instance is in the flee behavior state or condition.
-
-```csharp
-// Static call; no instance required
-MobileParty.IsFleeBehavior(aiBehavior);
-```
-
-### IsFleeing
-`public bool IsFleeing()`
-
-**Purpose:** Determines whether the this instance is in the fleeing state or condition.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.IsFleeing();
-```
-
-### SetPartyUsedByQuest
-`public void SetPartyUsedByQuest(bool isActivelyUsed)`
-
-**Purpose:** Assigns a new value to party used by quest and updates the object's internal state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetPartyUsedByQuest(false);
-```
-
-### IgnoreForHours
-`public void IgnoreForHours(float hours)`
-
-**Purpose:** Executes the IgnoreForHours logic.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.IgnoreForHours(0);
-```
-
-### IgnoreByOtherPartiesTill
-`public void IgnoreByOtherPartiesTill(CampaignTime time)`
-
-**Purpose:** Executes the IgnoreByOtherPartiesTill logic.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.IgnoreByOtherPartiesTill(time);
-```
-
-### SetAnchor
-`public void SetAnchor(AnchorPoint anchor)`
-
-**Purpose:** Assigns a new value to anchor and updates the object's internal state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetAnchor(anchor);
-```
-
-### SetPartyObjective
-`public void SetPartyObjective(MobileParty.PartyObjective objective)`
-
-**Purpose:** Assigns a new value to party objective and updates the object's internal state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetPartyObjective(objective);
 ```
-
-### UpdateVersionNo
-`public void UpdateVersionNo()`
-
-**Purpose:** Recalculates and stores the latest representation of version no.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.UpdateVersionNo();
+MobileParty (CampaignObjectBase)
+ ├─ .Party ──► PartyBase (IsMobile)  ──► MemberRoster / PrisonRoster / ItemRoster
+ ├─ PartyComponent ──► Lord / Caravan / Villager / Garrison / Militia / Patrol / War / Bandit
+ ├─ LeaderHero / Owner / ActualClan / MapFaction
+ ├─ EffectiveScout / Quartermaster / Engineer / Surgeon   (role holders)
+ ├─ Ai (MobilePartyAi) ──► Objective, ShortTermBehavior, TargetSettlement
+ ├─ SetMove* orders ──► move mode, target, path
+ └─ Position / Speed / Morale / Food / IsVisible / IsInspected
 ```
-
-### IsSpotted
-`public bool IsSpotted()`
 
-**Purpose:** Determines whether the this instance is in the spotted state or condition.
+Typical call order:
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.IsSpotted();
 ```
-
-### AddElementToMemberRoster
-`public int AddElementToMemberRoster(CharacterObject element, int numberToAdd, bool insertAtFront = false)`
-
-**Purpose:** Adds element to member roster to the current collection or state.
-
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.AddElementToMemberRoster(element, 0, false);
+MBSubModuleBase.OnCampaignStart
+    MobileParty.All populated; MainParty resolved
+CampaignBehaviorBase.RegisterEvents()
+    CampaignEvents.HourlyTickPartyEvent / DailyTickPartyEvent / AiHourlyTickEvent
+HourlyTick (party subject supplied)
+    party.Speed, party.Food, party.Morale read
+    party.SetMoveGoToSettlement(...) / SetMoveHold() issue an order
+    the AI re-plans from the order on the next AI tick
 ```
-
-### AddPrisoner
-`public int AddPrisoner(CharacterObject element, int numberToAdd)`
-
-**Purpose:** Adds prisoner to the current collection or state.
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.AddPrisoner(element, 0);
-```
+Traps that bite in practice:
 
-### GetPositionAsVec3
-`public Vec3 GetPositionAsVec3()`
+- **`MobileParty` has no `AddMember`.** Adding troops goes through `party.Party.AddMember(...)` or `party.AddElementToMemberRoster(...)`. `AddPrisoner` exists on both. This asymmetry is the single most common party-code compile error.
+- **Movement orders are goals, not paths.** `SetMoveGoToSettlement` sets an objective; the AI decides the route. Do not read `Position` immediately afterwards and assume the party moved.
+- **`Position` is `CampaignVec2`, not `Vec2`.** `GetPosition2D()` returns `Vec2`. Mixing them breaks distance calculations silently.
+- **Read `Party.MemberRoster`, not a cached copy.** Roster objects mutate in place; a cached `TroopRosterElement` count goes stale after the next daily tick.
+- **Attached parties are not separate armies.** `AttachedTo` and `AttachedParties` form a tree. Summing `Party.EstimatedStrength` across attached parties double counts, because attached troops are already in the host's roster.
+- **`SetPartyComponent` re-derives every `Is*Party` flag.** Swapping components at runtime turns a lord party into a caravan and invalidates AI decisions that were made under the old classification.
+- **`CreateParty` needs a component argument.** A party created with `null` has no classification, no roster behaviour and no AI defaults.
 
-**Purpose:** Reads and returns the position as vec3 value held by the this instance.
+## Dependencies
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.GetPositionAsVec3();
-```
+| Direction | Type | Relationship |
+|-----------|------|--------------|
+| Base | `CampaignObjectBase` → `MBObjectBase` | Saveable identity |
+| Rosters | [PartyBase](../PartyBase) | `Party` holds `MemberRoster` / `PrisonRoster` / `ItemRoster` |
+| People | [Hero](../Hero) | `LeaderHero`, `Owner`, role holders, `PartyBelongedTo` |
+| Politics | [Clan](../Clan), [Kingdom](../Kingdom) | `ActualClan`, `MapFaction` |
+| Places | [Settlement](../Settlement) | `CurrentSettlement`, `HomeSettlement`, `TargetSettlement`, `BesiegedSettlement` |
+| AI | `MobilePartyAi`, `PartyThinkParams`, `AiBehavior` | `Ai`, `ShortTermBehavior`, `Objective` |
+| Map scene | [MobilePartyVisual](../../campaign-ext/MobilePartyVisual) | Visual counterpart |
+| Events | [CampaignEvents](../CampaignEvents) | `HourlyTickPartyEvent`, `DailyTickPartyEvent`, `MobilePartyDestroyed` |
 
-### GetTotalLandStrengthWithFollowers
-`public float GetTotalLandStrengthWithFollowers(bool includeNonAttachedArmyMembers = true)`
+## Key members
 
-**Purpose:** Reads and returns the total land strength with followers value held by the this instance.
+### Identity
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.GetTotalLandStrengthWithFollowers(false);
-```
+#### `public static MBReadOnlyList<MobileParty> All` (and the typed partitions)
 
-### HasPerk
-`public bool HasPerk(PerkObject perk, bool checkSecondaryRole = false)`
+`All` plus `AllCaravanParties`, `AllPatrolParties`, `AllBanditParties`, `AllLordParties`, `AllGarrisonParties`, `AllMilitiaParties`, `AllVillagerParties`, `AllCustomParties`, `AllPartiesWithoutPartyComponent`. Live views maintained by the campaign.
 
-**Purpose:** Determines whether the this instance already holds perk.
+#### `public static MobileParty MainParty`
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.HasPerk(perk, false);
-```
+The player's party. Null in editor and menu contexts.
 
-### SetHeroPartyRole
-`public void SetHeroPartyRole(Hero hero, PartyRole partyRole)`
+#### `public static MobileParty CreateParty(string stringId, PartyComponent component)`
 
-**Purpose:** Assigns a new value to hero party role and updates the object's internal state.
+Engine factory. Returns a registered party. `new MobileParty()` produces an unregistered object that never appears in `All` and is never saved.
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetHeroPartyRole(hero, partyRole);
-```
+#### `public bool IsMainParty`
 
-### GetHeroPartyRole
-`public PartyRole GetHeroPartyRole(Hero hero)`
+Instance view of the above; safe on any party.
 
-**Purpose:** Reads and returns the hero party role value held by the this instance.
+#### `public PartyComponent PartyComponent` / `public void SetPartyComponent(PartyComponent partyComponent, bool firstTimePartyComponentCreation = true)` / `public void UpdatePartyComponentFlags()`
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.GetHeroPartyRole(hero);
-```
+Classification. `SetPartyComponent` re-derives every `Is*Party` flag and, on first creation, initialises the component's party.
 
-### RemoveHeroPartyRole
-`public void RemoveHeroPartyRole(Hero hero)`
+### Roster access
 
-**Purpose:** Removes hero party role from the current collection or state.
+#### `public PartyBase Party { get; private set; }`
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.RemoveHeroPartyRole(hero);
-```
+The roster object. All troop, prisoner and item mutation happens here.
 
-### GetRoleHolder
-`public Hero GetRoleHolder(PartyRole partyRole)`
+#### `public int AddElementToMemberRoster(CharacterObject element, int numberToAdd, bool insertAtFront = false)` / `public int AddPrisoner(CharacterObject element, int numberToAdd)`
 
-**Purpose:** Reads and returns the role holder value held by the this instance.
+Direct roster mutation on the party. Returns the amount actually added (clamped by size limits). Prefer these over hand-editing the roster when you want the size-limit rules respected.
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.GetRoleHolder(partyRole);
-```
+#### `public MBReadOnlyList<Ship> Ships` / `public bool HasNavalNavigationCapability` / `public bool HasLandNavigationCapability`
 
-### GetEffectiveRoleHolder
-`public Hero GetEffectiveRoleHolder(PartyRole partyRole)`
+Naval state. Naval parties have a different speed model, a different visual and different AI.
 
-**Purpose:** Reads and returns the effective role holder value held by the this instance.
+### Movement orders
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.GetEffectiveRoleHolder(partyRole);
-```
+#### `public void SetMoveHold()`
 
-### GetNumDaysForFoodToLast
-`public int GetNumDaysForFoodToLast()`
+Cancel all movement. The party waits where it is.
 
-**Purpose:** Reads and returns the num days for food to last value held by the this instance.
+#### `public void SetMoveGoToSettlement(Settlement settlement, MobileParty.NavigationType navigationType, bool isTargetingThePort)`
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.GetNumDaysForFoodToLast();
-```
+Go to a settlement. `navigationType` is `Default`, `Naval` or `All`; `isTargetingThePort` matters for naval parties.
 
-### RecalculateLongTermPath
-`public bool RecalculateLongTermPath()`
+#### `public void SetMoveGoToPoint(CampaignVec2 point, MobileParty.NavigationType navigationType)`
 
-**Purpose:** Recalculates long term path to reflect the latest state.
+Go to a map coordinate.
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.RecalculateLongTermPath();
-```
+#### `public void SetMoveRaidSettlement(Settlement, MobileParty.NavigationType)` / `SetMoveBesiegeSettlement(...)` / `SetMoveDefendSettlement(Settlement, bool isTargetingPort, MobileParty.NavigationType)`
 
-### GetRegionSwitchCostFromLandToSea
-`public int GetRegionSwitchCostFromLandToSea()`
+Aggressive and defensive orders. These are the orders the AI picks from, so scripted parties using them participate in raid/siege logic rather than looking like independent agents.
 
-**Purpose:** Reads and returns the region switch cost from land to sea value held by the this instance.
+#### `public void SetMoveEngageParty(MobileParty party, MobileParty.NavigationType)` / `SetMoveGoAroundParty(...)` / `SetMoveEscortParty(...)` / `SetMovePatrolAroundPoint(...)` / `SetMovePatrolAroundSettlement(...)` / `SetMoveGoToInteractablePoint(IInteractablePoint, MobileParty.NavigationType)` / `SetMoveToNearestLand(Settlement)`
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.GetRegionSwitchCostFromLandToSea();
-```
+The remaining order vocabulary. Between them they cover every `AiSet` the campaign ships.
 
-### GetRegionSwitchCostFromSeaToLand
-`public int GetRegionSwitchCostFromSeaToLand()`
+#### `public void SetTargetSettlement(Settlement settlement, bool isTargetingPort)`
 
-**Purpose:** Reads and returns the region switch cost from sea to land value held by the this instance.
+Sets the long-term target without issuing a movement order. Use it when the order comes from elsewhere (a quest, a dialogue choice).
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.GetRegionSwitchCostFromSeaToLand();
-```
+#### `public bool RecalculateLongTermPath()` / `public void RecalculateShortTermBehavior()`
 
-### SetMoveModeHold
-`public void SetMoveModeHold()`
+Forces a path or short-term behaviour refresh. Expensive; call it when you teleport the party, not per tick.
 
-**Purpose:** Assigns a new value to move mode hold and updates the object's internal state.
+#### `public void SetPositionAfterMapChange(CampaignVec2 newPosition)` / `public void MovePartyToTheClosestLand()` / `public void CheckPositionsForMapChangeAndUpdateIfNeeded()` / `public void CheckAiForMapChangeAndUpdateIfNeeded()`
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetMoveModeHold();
-```
+Teleport helpers. `SetPositionAfterMapChange` is the one that also invalidates the path.
 
-### SetMoveEngageParty
-`public void SetMoveEngageParty(MobileParty party, MobileParty.NavigationType navigationType)`
+### People and roles
 
-**Purpose:** Assigns a new value to move engage party and updates the object's internal state.
+#### `public Hero LeaderHero` / `public Hero Owner`
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetMoveEngageParty(party, navigationType);
-```
+Who commands the party and who owns it. `LeaderHero` is null for militia and villager parties.
 
-### SetMoveGoAroundParty
-`public void SetMoveGoAroundParty(MobileParty party, MobileParty.NavigationType navigationType)`
+#### `public void ChangePartyLeader(Hero newLeader)` / `public void RemovePartyLeader()`
 
-**Purpose:** Assigns a new value to move go around party and updates the object's internal state.
+Leadership changes. These go through the party-leader path so the previous leader's `PartyBelongedTo` is updated.
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetMoveGoAroundParty(party, navigationType);
-```
+#### `public void SetHeroPartyRole(Hero hero, PartyRole partyRole)` / `GetHeroPartyRole(Hero)` / `RemoveHeroPartyRole(Hero)` / `public Hero GetRoleHolder(PartyRole)` / `GetEffectiveRoleHolder(PartyRole)`
 
-### SetMoveGoToSettlement
-`public void SetMoveGoToSettlement(Settlement settlement, MobileParty.NavigationType navigationType, bool isTargetingThePort)`
+Party roles (captain, engineer, surgeon, quartermaster, scout). `GetRoleHolder` is exact; `GetEffectiveRoleHolder` falls back to a skill-derived default when nobody holds the role.
 
-**Purpose:** Assigns a new value to move go to settlement and updates the object's internal state.
+#### `public Hero EffectiveScout` / `EffectiveQuartermaster` / `EffectiveEngineer` / `EffectiveSurgeon`
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetMoveGoToSettlement(settlement, navigationType, false);
-```
+The role properties with fallback already applied. These are what speed, food and navigation read.
 
-### SetMoveGoToPoint
-`public void SetMoveGoToPoint(CampaignVec2 point, MobileParty.NavigationType navigationType)`
+#### `public bool HasPerk(PerkObject perk, bool checkSecondaryRole = false)`
 
-**Purpose:** Assigns a new value to move go to point and updates the object's internal state.
+Perk check that also honours the quartermaster when `checkSecondaryRole` is true — the form AI weightings use.
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetMoveGoToPoint(point, navigationType);
-```
+### Composition and supply
 
-### SetMoveToNearestLand
-`public void SetMoveToNearestLand(Settlement settlement)`
+#### `public int TotalWage` / `public ExplainedNumber TotalWageExplained`
 
-**Purpose:** Assigns a new value to move to nearest land and updates the object's internal state.
+Daily wage bill. `TotalWageExplained` carries the per-troop breakdown.
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetMoveToNearestLand(settlement);
-```
+#### `public float Food` / `public int TotalFoodAtInventory` / `public float FoodChange` / `public float BaseFoodChange` / `public ExplainedNumber FoodChangeExplained`
 
-### SetMoveGoToInteractablePoint
-`public void SetMoveGoToInteractablePoint(IInteractablePoint point, MobileParty.NavigationType navigationType)`
+Food stock and consumption. `FoodChangeExplained` shows which goods contribute.
 
-**Purpose:** Assigns a new value to move go to interactable point and updates the object's internal state.
+#### `public float Morale` / `public ExplainedNumber MoraleExplained`
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetMoveGoToInteractablePoint(point, navigationType);
-```
+Morale and its causes.
 
-### SetMoveEscortParty
-`public void SetMoveEscortParty(MobileParty mobileParty, MobileParty.NavigationType navigationType, bool isTargetingPort)`
+#### `public float Speed` / `public ExplainedNumber SpeedExplained` / `public float LastCalculatedBaseSpeed`
 
-**Purpose:** Assigns a new value to move escort party and updates the object's internal state.
+Current speed with the explanation the party screen shows.
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetMoveEscortParty(mobileParty, navigationType, false);
-```
+#### `public float TotalWeightCarried` / `public int InventoryCapacity` / `public ExplainedNumber InventoryCapacityExplainedNumber`
 
-### SetMovePatrolAroundPoint
-`public void SetMovePatrolAroundPoint(CampaignVec2 point, MobileParty.NavigationType navigationType)`
+Load and capacity. Over capacity slows the party; the explained number says by how much and why.
 
-**Purpose:** Assigns a new value to move patrol around point and updates the object's internal state.
+#### `public bool HasLimitedWage()` / `public int GetAvailableWageBudget()` / `public bool IsWageLimitExceeded()` / `public void SetWagePaymentLimit(int newLimit)` / `public int PaymentLimit` / `public float HasUnpaidWages`
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetMovePatrolAroundPoint(point, navigationType);
-```
+The wage settlement mechanism. Unpaid wages accumulate morale damage.
 
-### SetMovePatrolAroundSettlement
-`public void SetMovePatrolAroundSettlement(Settlement settlement, MobileParty.NavigationType navigationType, bool isTargetingPort)`
+### Trade
 
-**Purpose:** Assigns a new value to move patrol around settlement and updates the object's internal state.
+#### `public bool IsPartyTradeActive { get; private set; }` / `public void InitializePartyTrade(int initialGold)` / `public int PartyTradeGold` / `public int PartyTradeTaxGold { get; private set; }` / `public void AddTaxGold(int amount)`
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetMovePatrolAroundSettlement(settlement, navigationType, false);
-```
+The party's own trade pool, used by caravans and the player. `InitializePartyTrade` seeds the gold; `DefaultPartyTradeInitialGold` is 5000.
 
-### SetMoveRaidSettlement
-`public void SetMoveRaidSettlement(Settlement settlement, MobileParty.NavigationType navigationType)`
+### Position, visibility and lifecycle
 
-**Purpose:** Assigns a new value to move raid settlement and updates the object's internal state.
+#### `public CampaignVec2 Position` / `public Vec2 GetPosition2D()`
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetMoveRaidSettlement(settlement, navigationType);
-```
+Map position, campaign-space and legacy.
 
-### SetMoveBesiegeSettlement
-`public void SetMoveBesiegeSettlement(Settlement settlement, MobileParty.NavigationType navigationType)`
+#### `public bool IsVisible` / `public bool IsInspected` / `public void UpdateVisibilityAndInspected(...)` is on `PartyBase`
 
-**Purpose:** Assigns a new value to move besiege settlement and updates the object's internal state.
+Fog-of-war state. A mod that reads a party's exact composition for an uninspected party bypasses the vision model.
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetMoveBesiegeSettlement(settlement, navigationType);
-```
+#### `public MobileParty AttachedTo` / `public MBReadOnlyList<MobileParty> AttachedParties` / `public Army Army`
 
-### SetMoveDefendSettlement
-`public void SetMoveDefendSettlement(Settlement settlement, bool isTargetingPort, MobileParty.NavigationType navigationType)`
+Attachment and army membership. Attached parties are already counted in the host roster.
 
-**Purpose:** Assigns a new value to move defend settlement and updates the object's internal state.
+#### `public void InitializeMobilePartyAtPosition(CampaignVec2 position)` and the three roster/template overloads
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetMoveDefendSettlement(settlement, false, navigationType);
-```
+Placement helpers used at campaign creation. They set position, fill rosters and reset AI state in one call.
 
-### StartFindingLocatablesAroundPosition
-`public static LocatableSearchData<MobileParty> StartFindingLocatablesAroundPosition(Vec2 position, float radius)`
+## Real examples
 
-**Purpose:** Starts the finding locatables around position flow or state machine.
+### Example 1: order the player party and verify the order took
 
 ```csharp
-// Static call; no instance required
-MobileParty.StartFindingLocatablesAroundPosition(position, 0);
-```
-
-### FindNextLocatable
-`public static MobileParty FindNextLocatable(ref LocatableSearchData<MobileParty> data)`
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
 
-**Purpose:** Looks up the matching next locatable in the current collection or scope.
+public static void SendPlayerTo(Settlement settlement)
+{
+    Campaign campaign = Campaign.Current;
+    if (campaign == null || settlement == null)
+    {
+        return;
+    }
 
-```csharp
-// Static call; no instance required
-MobileParty.FindNextLocatable(data);
-```
+    MobileParty party = campaign.MainParty;
+    if (party == null)
+    {
+        return;
+    }
 
-### UpdateLocator
-`public static void UpdateLocator(MobileParty party)`
+    party.SetMoveGoToSettlement(settlement, MobileParty.NavigationType.Default, false);
 
-**Purpose:** Recalculates and stores the latest representation of locator.
-
-```csharp
-// Static call; no instance required
-MobileParty.UpdateLocator(party);
+    // The order is an objective, not a teleport: read the target, not the position.
+    InformationManager.DisplayMessage(new InformationMessage(
+        $"Target: {party.TargetSettlement?.Name.Name ?? "none"}, " +
+        $"speed {party.Speed:0.00} ({party.SpeedExplained.GetExplanations()})"));
+}
 ```
 
-### ComputeIsWaiting
-`public bool ComputeIsWaiting()`
+### Example 2: add troops through the party, not the roster
 
-**Purpose:** Executes the ComputeIsWaiting logic.
-
 ```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.ComputeIsWaiting();
-```
+using TaleWorlds.Core;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
 
-### InitializePartyTrade
-`public void InitializePartyTrade(int initialGold)`
+public static int RecruitToMainParty(string characterId, int count)
+{
+    Campaign campaign = Campaign.Current;
+    if (campaign?.MainParty == null)
+    {
+        return 0;
+    }
 
-**Purpose:** Prepares the resources, state, or bindings required by party trade.
+    CharacterObject recruit = MBObjectManager.Instance.GetObject<CharacterObject>(characterId);
+    if (recruit == null)
+    {
+        return 0;
+    }
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.InitializePartyTrade(0);
+    // MobileParty itself has no AddMember; the roster object does.
+    int added = campaign.MainParty.AddElementToMemberRoster(recruit, count);
+    InformationManager.DisplayMessage(new InformationMessage(
+        $"Added {added} (cap {campaign.MainParty.Party.PartySizeLimit})"));
+    return added;
+}
 ```
 
-### AddTaxGold
-`public void AddTaxGold(int amount)`
+### Example 3: walk lord parties with a role holder
 
-**Purpose:** Adds tax gold to the current collection or state.
-
 ```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.AddTaxGold(0);
-```
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
 
-### CreateParty
-`public static MobileParty CreateParty(string stringId, PartyComponent component)`
+public static string DescribeLordParties()
+{
+    Campaign campaign = Campaign.Current;
+    if (campaign == null)
+    {
+        return "no campaign";
+    }
 
-**Purpose:** Constructs a new party entity and returns it to the caller.
+    string report = string.Empty;
+    foreach (MobileParty party in campaign.LordParties)
+    {
+        Hero surgeon = party.EffectiveSurgeon;
+        Hero leader = party.LeaderHero;
+        report += $"{party.Name}: leader {leader?.Name.Name ?? "none"}, " +
+                  $"surgeon {surgeon?.Name.Name ?? "none"}, strength {party.Party.EstimatedStrength:0}\n";
+    }
 
-```csharp
-// Static call; no instance required
-MobileParty.CreateParty("example", component);
+    return report;
+}
 ```
-
-### SetPartyComponent
-`public void SetPartyComponent(PartyComponent partyComponent, bool firstTimePartyComponentCreation = true)`
 
-**Purpose:** Assigns a new value to party component and updates the object's internal state.
+### Example 4: stop a party from wandering after a teleport
 
 ```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.SetPartyComponent(partyComponent, false);
-```
+using TaleWorlds.CampaignSystem.Party;
 
-### UpdatePartyComponentFlags
-`public void UpdatePartyComponentFlags()`
+public static void TeleportAndReset(MobileParty party, CampaignVec2 destination)
+{
+    if (party == null)
+    {
+        return;
+    }
 
-**Purpose:** Recalculates and stores the latest representation of party component flags.
+    party.SetMoveHold();
+    party.SetPositionAfterMapChange(destination);
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-mobileParty.UpdatePartyComponentFlags();
+    // A stale path after a teleport sends the party walking off the map edge.
+    party.RecalculateLongTermPath();
+    party.RecalculateShortTermBehavior();
+}
 ```
 
-### ToString
-`public override string ToString()`
+## Risks and crash boundaries
 
-**Purpose:** Returns a human-readable string representation of the this instance.
+1. **Roster API asymmetry.** `MobileParty` exposes `AddElementToMemberRoster` and `AddPrisoner` but not `AddMember`; use `party.Party.AddMember`. Mixing them produces different size-limit behaviour.
+2. **Unregistered parties.** `new MobileParty()` is not in `All`, is not saved, and has no AI. Use `MobileParty.CreateParty` with a `PartyComponent`.
+3. **Position type mismatch.** `Position` is `CampaignVec2`; `GetPosition2D()` is `Vec2`. Assigning one to the other is a silent logic error, not a compile error in every direction.
+4. **Re-classifying a live party.** `SetPartyComponent` re-derives every `Is*Party` flag and invalidates the AI's cached decisions. Do it before the party starts moving, not mid-move.
+5. **Attached-party double counting.** `AttachedParties` members are already in the host's roster. Summing `EstimatedStrength` across host and attached parties inflates strength and skews the AI.
+6. **Save coupling.** `Name`, `Position`, `IsActive`, `IsPartyTradeActive`, party trade gold, ships and the component classification are serialized. Reordering save ids breaks existing saves — see [save-system](../../../architecture/save-system).
+7. **Path invalidation after teleport.** `SetPositionAfterMapChange` alone leaves a stale path; follow it with `RecalculateLongTermPath()`, otherwise the party walks toward its old destination from its new location.
+8. **Per-tick cost.** Scanning `MobileParty.All` (or `LordParties`) on every hourly tick across many behaviours is expensive. Subscribe to `CampaignEvents.HourlyTickPartyEvent` / `DailyTickPartyEvent`, which hand you the subject.
+9. **Fog-of-war leakage.** Reading `MemberRoster` for a party the player has not inspected and surfacing it in UI or notifications bypasses the vision model.
 
-```csharp
-// Obtain an instance of MobileParty from the subsystem API first
-MobileParty mobileParty = ...;
-var result = mobileParty.ToString();
-```
+## Cross-version notes
 
-## Usage Example
-
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-MobileParty mobileParty = ...;
-mobileParty.SetLandNavigationAccess(false);
-```
+- The `SetMove*` vocabulary, `PartyComponent` classification and the roster-on-`PartyBase` split are identical in 1.3.x and 1.4.x.
+- Naval support (`Ships`, `HasNavalNavigationCapability`, port targeting) is present in 1.3.0 and grows in later builds; older saves get empty ship lists on load. Guard `Ships` for null if you support very old saves.
 
 ## See Also
 
-- [Area Index](../)
+- [PartyBase](../PartyBase) — where the rosters actually live
+- [Hero](../Hero) — leaders, owners and role holders
+- [Clan](../Clan) — `ActualClan` and ownership
+- [Settlement](../Settlement) — destinations, garrisons and home settlement
+- [Kingdom](../Kingdom) — the realm a lord party serves
+- [Campaign](../Campaign) — party registries and the campaign clock
+- [MobilePartyVisual](../../campaign-ext/MobilePartyVisual) — the map-scene object
+- [Save system](../../../architecture/save-system) — saveable property discipline
+- [Campaign basics](../../../guide/campaign-basics) — task-first walkthrough

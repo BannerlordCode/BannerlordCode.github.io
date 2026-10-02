@@ -1,319 +1,68 @@
 ---
 title: "Material"
-description: "Material 的自动生成类参考。"
+description: "封装着色器、纹理槽、着色器开关与混合参数的 GPU 渲染配方，作为共享资源被 Mesh 引用。"
 ---
 # Material
 
-**Namespace:** TaleWorlds.Engine
-**Module:** TaleWorlds.Engine
+**Namespace:** `TaleWorlds.Engine`
+**Module:** `TaleWorlds.Engine`
 **Type:** `public sealed class Material : Resource`
 **Base:** `Resource`
-**File:** `TaleWorlds.Engine/Material.cs`
+**Source:** `TaleWorlds.Engine/Material.cs`
 
 ## 概述
 
-`Material` 位于 `TaleWorlds.Engine`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`Material` 封装一个 GPU 着色器程序及其绑定的纹理槽、着色器开关位（shader flags）与 Alpha 混合参数；它是场景中每个 [Mesh](../Mesh/) 用来决定"如何被渲染"的配置对象，本身不持有任何顶点数据。注意它是 [Resource](../Resource/) 的子类，意味着材质像其它引擎资源一样可被按名字缓存，多个网格可能共享同一份材质实例。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.Engine` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+`Material` 是"渲染外观配方"：把 `Shader`、`Texture` 槽位（DiffuseMap / BumpMap / EnvironmentMap / SpecularMap 等，见 `MBTextureType` 枚举）、着色器开关（UseSpecular、UseDynamicLight、UseSunLight……见 `MBMaterialShaderFlags`）和混合模式打包在一起，挂到 [Mesh](../Mesh/) 上决定其绘制方式。它由资源系统按名字创建（`GetFromResource`），或用 `GetDefaultMaterial` 取全局默认材质——构造器是 internal 且需要原生指针，你不应自己 `new Material()`。关键陷阱是共享性：同一个实例可能被场景里多个网格引用，直接 `SetShader` / `SetTexture` 会影响所有引用者；需要独立改动的必须先 `CreateCopy`。何时用：给某网格换贴图、开启动态光照、切换半透明混合；何时不用：若只想临时改单个网格的颜色，应改 [Mesh](../Mesh/) 的 `Color`/`Color2`，而不是动材质。常见获取路径：`mesh.GetMaterial()` 拿到网格当前材质，或 `Mesh.CreateMeshWithMaterial(material)` 在创建网格时一并指定。
 
-## 主要属性
+## 关键成员
 
-| Name | Signature |
-|------|-----------|
-| `Name` | `public string Name { get; set; }` |
-| `UsingSpecular` | `public bool UsingSpecular { get; set; }` |
-| `UsingSpecularMap` | `public bool UsingSpecularMap { get; set; }` |
-| `UsingEnvironmentMap` | `public bool UsingEnvironmentMap { get; set; }` |
-| `UsingSpecularAlpha` | `public bool UsingSpecularAlpha { get; set; }` |
-| `UsingDynamicLight` | `public bool UsingDynamicLight { get; set; }` |
-| `UsingSunLight` | `public bool UsingSunLight { get; set; }` |
-| `UsingFresnel` | `public bool UsingFresnel { get; set; }` |
-| `IsSunShadowReceiver` | `public bool IsSunShadowReceiver { get; set; }` |
-| `IsDynamicShadowReceiver` | `public bool IsDynamicShadowReceiver { get; set; }` |
-| `UsingDiffuseAlphaMap` | `public bool UsingDiffuseAlphaMap { get; set; }` |
-| `UsingParallaxMapping` | `public bool UsingParallaxMapping { get; set; }` |
-| `UsingParallaxOcclusion` | `public bool UsingParallaxOcclusion { get; set; }` |
-| `Flags` | `public MaterialFlags Flags { get; set; }` |
+| 成员 | 作用 |
+| --- | --- |
+| `GetFromResource(name)` / `GetDefaultMaterial()` | 静态工厂：按资源名取材质，或取全局默认材质（二者皆为共享实例，勿随意改写） |
+| `CreateCopy()` | 复制出一份独立材质，避免改动影响到共享它的其它网格 |
+| `SetShader(Shader)` / `GetShader()` | 替换 / 读取当前着色器程序；换 shader 后需重新绑定纹理槽 |
+| `SetTexture(MBTextureType, Texture)` / `GetTexture(MBTextureType)` | 把贴图绑到指定槽位（DiffuseMap / DiffuseMap2 / BumpMap / EnvironmentMap / SpecularMap） |
+| `SetShaderFlags(ulong)` / `GetShaderFlags()` | 整体覆写 / 读取着色器开关位；与下方按名增删方法配合使用 |
+| `AddMaterialShaderFlag(name, showErrors)` / `RemoveMaterialShaderFlag(name)` | 按名字增删着色器开关（如 `"use_tableau_blending"`），无需手算位掩码 |
+| `SetAlphaBlendMode(MBAlphaBlendMode)` / `GetAlphaBlendMode()` | 控制半透明混合方式（NoAlphaBlend / Modulate / Add / Multiply 等） |
+| `SetEnableSkinning(bool)` / `UsingSkinning()` | 开关骨骼蒙皮；蒙皮网格必须开启，否则动画不生效 |
 
-## 主要方法
-
-### GetDefaultMaterial
-`public static Material GetDefaultMaterial()`
-
-**用途 / Purpose:** 读取并返回当前对象中 default material 的结果。
+## 真实示例
 
 ```csharp
-// 静态调用，不需要实例
-Material.GetDefaultMaterial();
+// 从资源里取共享材质，并复制一份，避免改到其它网格引用的原材质
+Material material = Material.GetFromResource("my_banner").CreateCopy();
+
+// 换着色器并把招牌贴图绑到 DiffuseMap 槽
+material.SetShader(Shader.GetFromResource("custom_lit"));
+material.SetTexture(Material.MBTextureType.DiffuseMap, Texture.GetFromResource("my_banner_texture"));
+
+// 开启动态光照，并设为半透明混合
+material.AddMaterialShaderFlag("use_dynamic_light", true);
+material.SetAlphaBlendMode(Material.MBAlphaBlendMode.Modulate);
+
+// 把材质应用到网格
+Mesh mesh = Mesh.CreateMeshWithMaterial(material);
 ```
 
-### GetOutlineMaterial
-`public static Material GetOutlineMaterial(Mesh mesh)`
-
-**用途 / Purpose:** 读取并返回当前对象中 outline material 的结果。
-
-```csharp
-// 静态调用，不需要实例
-Material.GetOutlineMaterial(mesh);
-```
-
-### GetDefaultTableauSampleMaterial
-`public static Material GetDefaultTableauSampleMaterial(bool transparency)`
-
-**用途 / Purpose:** 读取并返回当前对象中 default tableau sample material 的结果。
-
-```csharp
-// 静态调用，不需要实例
-Material.GetDefaultTableauSampleMaterial(false);
-```
-
-### CreateTableauMaterial
-`public static Material CreateTableauMaterial(RenderTargetComponent.TextureUpdateEventHandler eventHandler, object objectRef, Material sampleMaterial, int tableauSizeX, int tableauSizeY, bool continuousTableau = false)`
-
-**用途 / Purpose:** 构建一个新的 tableau material 实体并返回给调用方。
-
-```csharp
-// 静态调用，不需要实例
-Material.CreateTableauMaterial(eventHandler, objectRef, sampleMaterial, 0, 0, false);
-```
-
-### CreateCopy
-`public Material CreateCopy()`
-
-**用途 / Purpose:** 构建一个新的 copy 实体并返回给调用方。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-var result = material.CreateCopy();
-```
-
-### GetFromResource
-`public static Material GetFromResource(string materialName)`
-
-**用途 / Purpose:** 读取并返回当前对象中 from resource 的结果。
-
-```csharp
-// 静态调用，不需要实例
-Material.GetFromResource("example");
-```
-
-### SetShader
-`public void SetShader(Shader shader)`
-
-**用途 / Purpose:** 为 shader 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-material.SetShader(shader);
-```
-
-### GetShader
-`public Shader GetShader()`
-
-**用途 / Purpose:** 读取并返回当前对象中 shader 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-var result = material.GetShader();
-```
-
-### GetShaderFlags
-`public ulong GetShaderFlags()`
-
-**用途 / Purpose:** 读取并返回当前对象中 shader flags 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-var result = material.GetShaderFlags();
-```
-
-### SetShaderFlags
-`public void SetShaderFlags(ulong flagEntry)`
-
-**用途 / Purpose:** 为 shader flags 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-material.SetShaderFlags(0);
-```
-
-### SetMeshVectorArgument
-`public void SetMeshVectorArgument(float x, float y, float z, float w)`
-
-**用途 / Purpose:** 为 mesh vector argument 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-material.SetMeshVectorArgument(0, 0, 0, 0);
-```
-
-### SetTexture
-`public void SetTexture(Material.MBTextureType textureType, Texture texture)`
-
-**用途 / Purpose:** 为 texture 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-material.SetTexture(textureType, texture);
-```
-
-### SetTextureAtSlot
-`public void SetTextureAtSlot(int textureSlot, Texture texture)`
-
-**用途 / Purpose:** 为 texture at slot 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-material.SetTextureAtSlot(0, texture);
-```
-
-### SetAreaMapScale
-`public void SetAreaMapScale(float scale)`
-
-**用途 / Purpose:** 为 area map scale 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-material.SetAreaMapScale(0);
-```
-
-### SetEnableSkinning
-`public void SetEnableSkinning(bool enable)`
-
-**用途 / Purpose:** 为 enable skinning 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-material.SetEnableSkinning(false);
-```
-
-### UsingSkinning
-`public bool UsingSkinning()`
-
-**用途 / Purpose:** 调用 UsingSkinning 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-var result = material.UsingSkinning();
-```
-
-### GetTexture
-`public Texture GetTexture(Material.MBTextureType textureType)`
-
-**用途 / Purpose:** 读取并返回当前对象中 texture 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-var result = material.GetTexture(textureType);
-```
-
-### GetTextureWithSlot
-`public Texture GetTextureWithSlot(int textureSlot)`
-
-**用途 / Purpose:** 读取并返回当前对象中 texture with slot 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-var result = material.GetTextureWithSlot(0);
-```
-
-### GetAlphaMaskTableauMaterial
-`public static Material GetAlphaMaskTableauMaterial()`
-
-**用途 / Purpose:** 读取并返回当前对象中 alpha mask tableau material 的结果。
-
-```csharp
-// 静态调用，不需要实例
-Material.GetAlphaMaskTableauMaterial();
-```
-
-### GetAlphaBlendMode
-`public Material.MBAlphaBlendMode GetAlphaBlendMode()`
-
-**用途 / Purpose:** 读取并返回当前对象中 alpha blend mode 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-var result = material.GetAlphaBlendMode();
-```
-
-### SetAlphaBlendMode
-`public void SetAlphaBlendMode(Material.MBAlphaBlendMode alphaBlendMode)`
-
-**用途 / Purpose:** 为 alpha blend mode 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-material.SetAlphaBlendMode(alphaBlendMode);
-```
-
-### SetAlphaTestValue
-`public void SetAlphaTestValue(float alphaTestValue)`
-
-**用途 / Purpose:** 为 alpha test value 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-material.SetAlphaTestValue(0);
-```
-
-### GetAlphaTestValue
-`public float GetAlphaTestValue()`
-
-**用途 / Purpose:** 读取并返回当前对象中 alpha test value 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-var result = material.GetAlphaTestValue();
-```
-
-### AddMaterialShaderFlag
-`public void AddMaterialShaderFlag(string flagName, bool showErrors)`
-
-**用途 / Purpose:** 将 material shader flag 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-material.AddMaterialShaderFlag("example", false);
-```
-
-### RemoveMaterialShaderFlag
-`public void RemoveMaterialShaderFlag(string flagName)`
-
-**用途 / Purpose:** 从当前容器或状态中移除 material shader flag。
-
-```csharp
-// 先通过子系统 API 拿到 Material 实例
-Material material = ...;
-material.RemoveMaterialShaderFlag("example");
-```
-
-## 使用示例
-
-```csharp
-Material.GetDefaultMaterial();
-```
-
-## 参见
-
-- [本区域目录](../)
+## 风险与崩溃边界
+
+- **材质是共享资源。** 直接对 `GetFromResource` / `GetDefaultMaterial` 返回的实例调用 `SetShader` / `SetTexture` 会影响所有引用它的网格；需要独立改动务必先 `CreateCopy`。
+- **不要用 `new Material()`。** 公共构造器是 internal，需要原生指针；始终用 `GetFromResource` / `CreateCopy` 等工厂。
+- **换 `Shader` 后纹理槽语义会变。** `SetShader` 不会保留旧纹理绑定关系，换 shader 后通常需要重新 `SetTexture` 到对应槽位。
+- **着色器开关用位掩码。** `SetShaderFlags` 是整体覆写，误用会清掉其它开关；优先用 `AddMaterialShaderFlag` / `RemoveMaterialShaderFlag` 按名增删。
+- **`AlphaBlendMode` 用枚举而非字符串。** 错误的值（如越界）会被强转为 `MBAlphaBlendMode` 字节，可能产生未定义混合行为。
+
+## 依赖关系
+
+- 上游：[Resource](../Resource/) 是材质与网格共享的缓存资源基类，负责按名查找与引用；[Texture](../Texture/) 与 [Shader](../Shader/) 是被绑定进材质的底层资源。
+- 下游：材质被 [Mesh](../Mesh/) 通过 `SetMaterial` 引用，[MetaMesh](../MetaMesh/) 的每个子网格也各自持有一份材质。
+- 相关：实际绘制由 [Scene](../Scene/) 在渲染阶段驱动；原生句柄与引用计数由 [NativeObject](../NativeObject/) 提供。
+- 架构参考：[native-interop](../../../architecture/native-interop/) 解释托管材质对象与原生 rgl 材质之间的绑定方式。
+
+- 父级：[engine API 索引](../)
+- 同级：[Mesh](../Mesh/) · [MetaMesh](../MetaMesh/) · [Skeleton](../Skeleton/) · [ParticleSystem](../ParticleSystem/) · [Resource](../Resource/) · [Texture](../Texture/) · [Shader](../Shader/)

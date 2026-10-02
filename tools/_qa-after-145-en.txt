@@ -1,0 +1,210 @@
+
+## Warnings: 464
+By category:
+  method-missing-example: 464
+
+First 200 occurrences (use --verbose for full list):
+  api/campaign/Army.md [method-missing-example] L19: It is not an independent roster
+  api/campaign/Army.md [method-missing-example] L66: Upstream
+  api/campaign/Army.md [method-missing-example] L73: Downstream
+  api/campaign/Army.md [method-missing-example] L157: Members and leader
+  api/campaign/Army.md [method-missing-example] L167: Ownership, target, and display
+  api/campaign/Army.md [method-missing-example] L177: Cohesion, morale, and aggregates
+  api/campaign/Army.md [method-missing-example] L192: What the constructor does
+  api/campaign/Army.md [method-missing-example] L203: Periodic and campaign events
+  api/campaign/Army.md [method-missing-example] L215: Gather
+  api/campaign/Army.md [method-missing-example] L236: FinishArmyObjective
+  api/campaign/Army.md [method-missing-example] L264: ArmyManagementCalculationModel
+  api/campaign/Army.md [method-missing-example] L277: Actions and internal methods
+  api/campaign/Army.md [method-missing-example] L291: Join, merge, and removal
+  api/campaign/Army.md [method-missing-example] L298: Recovery after a map change
+  api/campaign/Army.md [method-missing-example] L306: Save reconstruction
+  api/campaign/Army.md [method-missing-example] L312: Runtime invariants to protect
+  api/campaign/Campaign.md [method-missing-example] L80: World-state collections (read-only, from CampaignObjectManager)
+  api/campaign/Campaign.md [method-missing-example] L87: Subsystems & entry points
+  api/campaign/Campaign.md [method-missing-example] L95: Time control
+  api/campaign/Campaign.md [method-missing-example] L99: Lifecycle
+  api/campaign/CampaignBehaviorBase.md [method-missing-example] L19: Lifetime and owner
+  api/campaign/CampaignBehaviorBase.md [method-missing-example] L25: When to use and when not to
+  api/campaign/CampaignBehaviorBase.md [method-missing-example] L54: `StringId`
+  api/campaign/CampaignBehaviorBase.md [method-missing-example] L60: `RegisterEvents()`
+  api/campaign/CampaignBehaviorBase.md [method-missing-example] L66: `SyncData(IDataStore dataStore)`
+  api/campaign/CampaignBehaviorBase.md [method-missing-example] L72: `static T GetCampaignBehavior<T>()`
+  api/campaign/CampaignBehaviorDataStore.md [method-missing-example] L76: `StringId` partitions behavior data
+  api/campaign/CampaignBehaviorDataStore.md [method-missing-example] L82: `BehaviorSaveData` modes and field keys
+  api/campaign/CampaignBehaviorDataStore.md [method-missing-example] L88: Exact ID lookup, fallback name matching, and clearing
+  api/campaign/CampaignBehaviorManager.md [method-missing-example] L19: Creation, owner, and lifetime
+  api/campaign/CampaignBehaviorManager.md [method-missing-example] L25: When to use and when not to
+  api/campaign/CampaignBehaviorManager.md [method-missing-example] L53: Initialization and events: `InitializeCampaignBehaviors`, `LoadBehaviorData`, `RegisterEvents`
+  api/campaign/CampaignBehaviorManager.md [method-missing-example] L59: Lookup: `GetBehavior<T>` and `GetBehaviors<T>`
+  api/campaign/CampaignBehaviorManager.md [method-missing-example] L65: Runtime changes: `AddBehavior`, `RemoveBehavior<T>`, `ClearBehaviors`
+  api/campaign/CampaignBehaviorManager.md [method-missing-example] L71: Save boundary: `OnBeforeSave` and `CampaignBehaviorDataStore`
+  api/campaign/CampaignEventReceiver.md [method-missing-example] L19: What it is
+  api/campaign/CampaignEventReceiver.md [method-missing-example] L25: When to use and when not to
+  api/campaign/CampaignEventReceiver.md [method-missing-example] L55: Campaign startup and loading
+  api/campaign/CampaignEventReceiver.md [method-missing-example] L59: Time and Mission
+  api/campaign/CampaignEventReceiver.md [method-missing-example] L63: World and content callbacks
+  api/campaign/CampaignEventReceiver.md [method-missing-example] L67: Save callbacks
+  api/campaign/CampaignEventReceiver.md [method-missing-example] L71: Result callbacks: `ref bool`
+  api/campaign/CampaignEvents.md [method-missing-example] L19: What it is
+  api/campaign/CampaignEvents.md [method-missing-example] L25: When to use and when not to
+  api/campaign/CampaignEvents.md [method-missing-example] L55: Subscription contract: `IMbEvent<T...>`
+  api/campaign/CampaignEvents.md [method-missing-example] L72: Result events: `ReferenceIMBEvent<T...>`
+  api/campaign/CampaignEvents.md [method-missing-example] L78: Listener cleanup: `RemoveListeners`
+  api/campaign/CampaignGameStarter.md [method-missing-example] L19: Where it lives and who creates it
+  api/campaign/CampaignGameStarter.md [method-missing-example] L25: When to use and when not to
+  api/campaign/CampaignGameStarter.md [method-missing-example] L54: Behaviors: `CampaignBehaviors`, `AddBehavior`, and removal
+  api/campaign/CampaignGameStarter.md [method-missing-example] L60: Models: `Models`, `GetModel<T>`, and `AddModel`
+  api/campaign/CampaignGameStarter.md [method-missing-example] L66: Menus: `GetPresumedGameMenu` and the three registration entry points
+  api/campaign/CampaignGameStarter.md [method-missing-example] L72: Conversations: `AddDialogFlow` and the `Add*Line` family
+  api/campaign/CampaignTime.md [method-missing-example] L53: Current time and conversions
+  api/campaign/CampaignTime.md [method-missing-example] L57: Factories, sentinels, and comparisons
+  api/campaign/CampaignTime.md [method-missing-example] L61: Calendar and display
+  api/campaign/Clan.md [method-missing-example] L19: What it is
+  api/campaign/Clan.md [method-missing-example] L25: Lifecycle and owners
+  api/campaign/Clan.md [method-missing-example] L32: When to use it, and when not to
+  api/campaign/Clan.md [method-missing-example] L54: Upstream
+  api/campaign/Clan.md [method-missing-example] L60: Downstream
+  api/campaign/Clan.md [method-missing-example] L68: Membership and fiefs
+  api/campaign/Clan.md [method-missing-example] L77: Politics and finance
+  api/campaign/ClanTierModel.md [method-missing-example] L27: When to use it
+  api/campaign/ClanTierModel.md [method-missing-example] L33: When not to use it
+  api/campaign/ClanTierModel.md [method-missing-example] L67: CalculateInitialRenown
+  api/campaign/ClanTierModel.md [method-missing-example] L73: CalculateInitialInfluence
+  api/campaign/ClanTierModel.md [method-missing-example] L79: CalculateTier
+  api/campaign/ClanTierModel.md [method-missing-example] L85: HasUpcomingTier
+  api/campaign/ClanTierModel.md [method-missing-example] L91: GetRequiredRenownForTier
+  api/campaign/ClanTierModel.md [method-missing-example] L97: GetPartyLimitForTier
+  api/campaign/ClanTierModel.md [method-missing-example] L103: GetCompanionLimit
+  api/campaign/ClanTierModel.md [method-missing-example] L168: ↑ Parent
+  api/campaign/ClanTierModel.md [method-missing-example] L173: ↔ Siblings and related types
+  api/campaign/CultureObject.md [method-missing-example] L63: Good uses
+  api/campaign/CultureObject.md [method-missing-example] L70: Wrong uses
+  api/campaign/DefaultClanTierModel.md [method-missing-example] L23: Where it lives, who creates it, and who holds it
+  api/campaign/DefaultClanTierModel.md [method-missing-example] L31: When to use it
+  api/campaign/DefaultClanTierModel.md [method-missing-example] L37: When not to use it
+  api/campaign/DefaultClanTierModel.md [method-missing-example] L55: Tier and eligibility properties
+  api/campaign/DefaultClanTierModel.md [method-missing-example] L69: Initial values and tier calculation
+  api/campaign/DefaultClanTierModel.md [method-missing-example] L85: Next-tier preview and capacity
+  api/campaign/DefaultClanTierModel.md [method-missing-example] L165: ↑ Parent
+  api/campaign/DefaultClanTierModel.md [method-missing-example] L171: ↔ Siblings and related types
+  api/campaign/DefaultEncounterModel.md [method-missing-example] L66: Hostility, parley, and leaders
+  api/campaign/DefaultEncounterModel.md [method-missing-example] L74: Surrender and bribe
+  api/campaign/DefaultEncounterModel.md [method-missing-example] L92: Retreat, joining, command, and teleportation
+  api/campaign/DiplomacyModel.md [method-missing-example] L125: Constant rules and diplomatic stance
+  api/campaign/DiplomacyModel.md [method-missing-example] L139: Relations and Hero influence
+  api/campaign/DiplomacyModel.md [method-missing-example] L151: Influence, tribute, and decision costs
+  api/campaign/DiplomacyModel.md [method-missing-example] L173: Kingdom, Clan, and diplomatic scores
+  api/campaign/DiplomacyModel.md [method-missing-example] L195: Other rule entries
+  api/campaign/DiplomacyModel.md [method-missing-example] L204: Use it for
+  api/campaign/DiplomacyModel.md [method-missing-example] L210: Do not use it for
+  api/campaign/EncounterModel.md [method-missing-example] L55: Distance and radius thresholds
+  api/campaign/EncounterModel.md [method-missing-example] L75: Hostility, parley, leaders, and defenders
+  api/campaign/EncounterModel.md [method-missing-example] L85: Components and encounter consequences
+  api/campaign/EventHandlerRec.md [method-missing-example] L73: Parent and related entry points
+  api/campaign/EventHandlerRec.md [method-missing-example] L80: Bilingual and sibling links
+  api/campaign/GameModels.md [method-missing-example] L69: Map, parties, and movement
+  api/campaign/GameModels.md [method-missing-example] L79: Economy, trade, and resources
+  api/campaign/GameModels.md [method-missing-example] L88: Settlements, factions, and diplomacy
+  api/campaign/GameModels.md [method-missing-example] L97: Characters, encounters, and campaign content
+  api/campaign/GameModels.md [method-missing-example] L106: Combat, sieges, ships, and presentation
+  api/campaign/GameModels.md [method-missing-example] L115: Inherited members
+  api/campaign/ICampaignBehavior.md [method-missing-example] L39: `RegisterEvents()`
+  api/campaign/ICampaignBehaviorManager.md [method-missing-example] L39: Registration and load
+  api/campaign/ICampaignBehaviorManager.md [method-missing-example] L45: Lookup
+  api/campaign/ICampaignBehaviorManager.md [method-missing-example] L50: Runtime mutation
+  api/campaign/IDataStore.md [method-missing-example] L53: `IsSaving` and `IsLoading`
+  api/campaign/IDataStore.md [method-missing-example] L57: `SyncData<T>`
+  api/campaign/IMapScene.md [method-missing-example] L108: ↑ Parent
+  api/campaign/IMapScene.md [method-missing-example] L113: ↔ Siblings and related types
+  api/campaign/IMapSceneCreator.md [method-missing-example] L32: `CreateMapScene()`
+  api/campaign/IMapSceneCreator.md [method-missing-example] L73: ↑ Parent
+  api/campaign/IMapSceneCreator.md [method-missing-example] L78: ↔ Siblings and related types
+  api/campaign/ISiegeEventSide.md [method-missing-example] L37: Identity and state
+  api/campaign/ISiegeEventSide.md [method-missing-example] L46: Party enumeration
+  api/campaign/ISiegeEventSide.md [method-missing-example] L50: Event updates
+  api/campaign/ItemRoster.md [method-missing-example] L27: Use it for
+  api/campaign/ItemRoster.md [method-missing-example] L34: Do not use it for
+  api/campaign/Kingdom.md [method-missing-example] L19: What it is
+  api/campaign/Kingdom.md [method-missing-example] L25: Lifecycle and owners
+  api/campaign/Kingdom.md [method-missing-example] L32: When to use it, and when not to
+  api/campaign/Kingdom.md [method-missing-example] L54: Upstream
+  api/campaign/Kingdom.md [method-missing-example] L60: Downstream
+  api/campaign/Kingdom.md [method-missing-example] L68: Membership, fiefs, and diplomacy
+  api/campaign/Kingdom.md [method-missing-example] L77: Policies, decisions, and creation
+  api/campaign/MapEvent.md [method-missing-example] L131: Reading participants and strength
+  api/campaign/MapEvent.md [method-missing-example] L135: Simulation and the player-battle boundary
+  api/campaign/MapEvent.md [method-missing-example] L139: Resolution and map changes
+  api/campaign/MapEventParty.md [method-missing-example] L74: Loot destination properties
+  api/campaign/MapEventParty.md [method-missing-example] L85: Read the event ledger
+  api/campaign/MapEventParty.md [method-missing-example] L91: Receive Mission and simulation callbacks
+  api/campaign/MBCampaignEvent.md [method-missing-example] L58: `MBCampaignEvent(string eventName)`
+  api/campaign/MBCampaignEvent.md [method-missing-example] L62: `MBCampaignEvent(CampaignTime triggerPeriod, CampaignTime initialWait)`
+  api/campaign/MBCampaignEvent.md [method-missing-example] L66: `AddHandler` and `RunHandlers`
+  api/campaign/MBCampaignEvent.md [method-missing-example] L70: `Unregister(object instance)`
+  api/campaign/MBCampaignEvent.md [method-missing-example] L74: `CheckUpdate` and `DeletePeriodicEvent`
+  api/campaign/MBCampaignEvent.md [method-missing-example] L110: Parent and related entry points
+  api/campaign/MBCampaignEvent.md [method-missing-example] L118: Bilingual and sibling links
+  api/campaign/MbEvent.md [method-missing-example] L50: `AddNonSerializedListener(object owner, Action callback)`
+  api/campaign/MbEvent.md [method-missing-example] L54: `Invoke(typed arguments)`
+  api/campaign/MbEvent.md [method-missing-example] L58: `ClearListeners(object owner)`
+  api/campaign/MbEvent.md [method-missing-example] L97: Parent and related entry points
+  api/campaign/MbEvent.md [method-missing-example] L105: Bilingual and sibling links
+  api/campaign/MobileParty.md [method-missing-example] L19: What it is
+  api/campaign/MobileParty.md [method-missing-example] L25: Lifecycle and ownership
+  api/campaign/MobileParty.md [method-missing-example] L32: When to use, when not to
+  api/campaign/MobileParty.md [method-missing-example] L55: Upstream and owners
+  api/campaign/MobileParty.md [method-missing-example] L61: Downstream and mutation entry points
+  api/campaign/MobileParty.md [method-missing-example] L69: Party identity and rosters
+  api/campaign/MobileParty.md [method-missing-example] L78: Position, target and AI
+  api/campaign/MobileParty.md [method-missing-example] L87: Computed results
+  api/campaign/PartyBase.md [method-missing-example] L106: Size and limits
+  api/campaign/PartyBase.md [method-missing-example] L122: Form, identity and membership
+  api/campaign/PartyBase.md [method-missing-example] L141: Rosters (real data containers)
+  api/campaign/PartyBase.md [method-missing-example] L157: Map position, encounter and state
+  api/campaign/PlayerSiege.md [method-missing-example] L43: `PlayerSiegeEvent`
+  api/campaign/PlayerSiege.md [method-missing-example] L49: `BesiegedSettlement`
+  api/campaign/PlayerSiege.md [method-missing-example] L55: `PlayerSide`
+  api/campaign/PlayerSiege.md [method-missing-example] L61: `IsRebellion`
+  api/campaign/PlayerSiege.md [method-missing-example] L69: `StartPlayerSiege`
+  api/campaign/PlayerSiege.md [method-missing-example] L75: `StartSiegePreparation`
+  api/campaign/PlayerSiege.md [method-missing-example] L81: `StartSiegeMission`
+  api/campaign/PlayerSiege.md [method-missing-example] L87: `OnSiegeEventFinalized`
+  api/campaign/PlayerSiege.md [method-missing-example] L93: `FinalizePlayerSiege`
+  api/campaign/ReferenceIMBEvent.md [method-missing-example] L43: `AddNonSerializedListener(object owner, ReferenceAction action)`
+  api/campaign/ReferenceIMBEvent.md [method-missing-example] L47: `ClearListeners(object owner)`
+  api/campaign/ReferenceIMBEvent.md [method-missing-example] L74: Parent and related entry points
+  api/campaign/ReferenceIMBEvent.md [method-missing-example] L82: Bilingual and sibling links
+  api/campaign/ReferenceMBEvent.md [method-missing-example] L52: `AddNonSerializedListener(object owner, ReferenceAction callback)`
+  api/campaign/ReferenceMBEvent.md [method-missing-example] L56: `Invoke`
+  api/campaign/ReferenceMBEvent.md [method-missing-example] L60: `ClearListeners`
+  api/campaign/ReferenceMBEvent.md [method-missing-example] L96: Parent and related entry points
+  api/campaign/ReferenceMBEvent.md [method-missing-example] L104: Bilingual and sibling links
+  api/campaign/Settlement.md [method-missing-example] L19: What it is
+  api/campaign/Settlement.md [method-missing-example] L25: Lifecycle and owners
+  api/campaign/Settlement.md [method-missing-example] L32: When to use it, and when not to
+  api/campaign/Settlement.md [method-missing-example] L55: Upstream and owners
+  api/campaign/Settlement.md [method-missing-example] L61: Downstream and mutation boundaries
+  api/campaign/Settlement.md [method-missing-example] L69: Type, identity, and ownership
+  api/campaign/Settlement.md [method-missing-example] L78: Dynamic contents and status
+  api/campaign/SiegeEvent.md [method-missing-example] L125: Creation
+  api/campaign/SiegeEvent.md [method-missing-example] L138: `Tick(float dt)`
+  api/campaign/SiegeEvent.md [method-missing-example] L144: `ConstructionTick(ISiegeEventSide)`
+  api/campaign/SiegeEvent.md [method-missing-example] L150: `BombardTick(ISiegeEventSide)`
+  api/campaign/SiegeEvent.md [method-missing-example] L156: `MapEvent` and finalization
+  api/campaign/SiegeEvent.md [method-missing-example] L180: `DoSiegeAction`
+  api/campaign/SiegeEvent.md [method-missing-example] L218: `SiegeEngineConstructionProgress`
+  api/campaign/SiegeEvent.md [method-missing-example] L231: `RangedSiegeEngine`
+  api/campaign/SiegeEvent.md [method-missing-example] L237: `SiegeEnginesContainer`
+  api/campaign/SiegeEvent.md [method-missing-example] L250: `SiegeEngineMissile`
+  api/campaign/SiegeEvent.md [method-missing-example] L289: `FinalizeSiegeEvent`
+  api/campaign/SiegeEvent.md [method-missing-example] L295: `OnAfterLoad`
+  api/campaign/SiegeEventManager.md [method-missing-example] L47: `SiegeEvents`
+  api/campaign/SiegeEventManager.md [method-missing-example] L53: `StartSiegeEvent`
+  api/campaign/SiegeEventManager.md [method-missing-example] L61: `Tick`
+  api/campaign/SiegeEventManager.md [method-missing-example] L69: `OnAfterLoad`
+  api/campaign/SiegeStrategy.md [method-missing-example] L42: `All`
+  ... and 264 more
+
+Scanned 7192 files, 22301 method-purpose lines, 22301 method sections.
+Blockers: 0, Warnings: 464

@@ -1,25 +1,50 @@
-{# Render leaf navigation from Zola's already-loaded section pages. The
+{# Render leaf/section navigation from Zola's already-loaded section pages. The
    generator-backed JSON remains the freshness/audit contract, while this
-   runtime path avoids parsing a multi-megabyte map for every rendered page. #}
+   runtime path avoids parsing a multi-megabyte map for every rendered page.
+
+   Parent resolution, verified against the Aug 22 build in public/:
+   - leaf page  : page.ancestors | last   == the direct parent section
+                  (e.g. public/v1.3.0/en/api/core/Module/index.html -> ~/v1.3.0/en/api/core/)
+   - section    : section.ancestors | last == the direct parent section
+                  (e.g. public/v1.3.0/en/index.html         -> ~/v1.3.0/)
+   - site root  : ancestors == []         -> no parent nav, by design
+   For a section the siblings are its parent's subsections, not pages. #}
 {%- macro render(current_url, lang) -%}
-  {%- set_global parent_path = "" -%}
-  {%- for ancestor in page.ancestors -%}
-    {%- set_global parent_path = ancestor -%}
-  {%- endfor -%}
-  {%- if parent_path -%}
-    {%- set parent_section = get_section(path=parent_path) -%}
+  {%- set_global resolved_parent = "" -%}
+  {%- if page is defined -%}
+    {%- for ancestor in page.ancestors -%}
+      {%- set_global resolved_parent = ancestor -%}
+    {%- endfor -%}
+  {%- elif section is defined and section.ancestors | length > 0 -%}
+    {%- set_global resolved_parent = section.ancestors | last -%}
+  {%- endif -%}
+  {%- if resolved_parent -%}
+    {%- set parent_section = get_section(path=resolved_parent) -%}
     {%- set_global previous_sibling = false -%}
     {%- set_global next_sibling = false -%}
     {%- set_global found_current = false -%}
-    {%- for sibling in parent_section.pages -%}
-      {%- if found_current and not next_sibling -%}
-        {%- set_global next_sibling = sibling -%}
-      {%- elif sibling.path == current_url -%}
-        {%- set_global found_current = true -%}
-      {%- elif not found_current -%}
-        {%- set_global previous_sibling = sibling -%}
-      {%- endif -%}
-    {%- endfor -%}
+    {%- if page is defined -%}
+      {%- for sibling in parent_section.pages -%}
+        {%- if found_current and not next_sibling -%}
+          {%- set_global next_sibling = sibling -%}
+        {%- elif sibling.path == current_url -%}
+          {%- set_global found_current = true -%}
+        {%- elif not found_current -%}
+          {%- set_global previous_sibling = sibling -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- elif section is defined -%}
+      {%- for sibling_path in parent_section.subsections -%}
+        {%- set sibling = get_section(path=sibling_path) -%}
+        {%- if found_current and not next_sibling -%}
+          {%- set_global next_sibling = sibling -%}
+        {%- elif sibling_path == current_url -%}
+          {%- set_global found_current = true -%}
+        {%- elif not found_current -%}
+          {%- set_global previous_sibling = sibling -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
     {%- set navigation = load_data(path="data/navigation.json") -%}
     {%- set related_parent = navigation.routes[parent_section.path] -%}
     <nav class="page-navigation" aria-label="{% if lang == 'zh' %}页面导航{% else %}Page navigation{% endif %}">

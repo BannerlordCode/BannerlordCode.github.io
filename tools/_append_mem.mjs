@@ -1,0 +1,32 @@
+import fs from 'fs';
+const p = 'C:/WorkSpace/Bannerlord/BannerlordCode.github.io/.workbuddy/automations/automation-1785652108735/memory.md';
+const stamp = `
+---
+
+## 2026-08-16 周期（02:20 维护复验：全门禁重测 0 回归）
+
+### 本周期完成
+- **现场复核开工状态**：读 automation memory 确认 R1 已于 2026-08-15 达 M5 最终验收（四版 gap=0 / sTier 62/62 / A–G 全过）。git status --short content/ → 零变更；最近 content/ 提交仍为 2026-08-15 09:58、08:05（en v1.3.15 / en v1.4.5 batch push），无新提交。
+- **实测全门禁（0 回归，本周期现场跑）**：
+  - 复读四版 _current-r1-*.json → gap=0 / coverageRate=1（zh.1315 / en.1315 covered 4796/4796；zh.145 / en.145 covered 6020/6020）。
+  - node tools/audit-navigation.mjs → NAVIGATION_OK（CONTENT_SECTIONS=464 / TREE_SECTIONS=464 / NAV_ROUTES=464 / MAX_LANDING_DISTANCE=3）。
+  - AUDIT_MODE=url node tools/audit-links.mjs（本周期实跑，4m35s）→ BROKEN_LINKS=0 / FILES_WITH_BROKEN=0 / RESOLVE_NEITHER=0（FILES=38652 / TOTAL_LINKS=123265 / RESOLVE_OK_URL=123096 / RESOLVE_OK_FILE=102178）。
+- **证据落盘**：tools/_linkaudit-20260816-0220.txt（断链 0）、tools/_regression-20260816-0220.md（本周期门禁实测汇总）。
+
+### 健康状态
+- R1 覆盖率：四版 gap=0 ✅
+- 质量 A：四版 Blockers=0（content 未变，沿用 08-15 结论）
+- 断链 C：全站 0 坏链（本周期实测）✅
+- 导航 C：NAVIGATION_OK ✅
+- 构建 F：content 零变更，跳过 zola build（上次 08-15 en v1.3.15 实测 exit 0）
+
+### 结论
+**维护态健康，零回归。** ulw-loop 主目标（R1 手写手册重建）已于 2026-08-15 完成 M5 最终验收，本周期仅做回归守护并经现场重测确认全门禁绿。
+
+### 下一 cycle（维护态）
+1. 继续每周期重测全门禁防回归（content 无变更时跳过 zola build）。
+2. 待用户确认后开新 loop 做 api/final/* 任务导向分组重构（迁页 + 全门禁复跑）。
+3. 可选：补齐 82 条 zh 真实方法示例 / 扩 R2 internal 覆盖。
+`;
+fs.appendFileSync(p, stamp);
+console.log('appended; new size =', fs.statSync(p).size);

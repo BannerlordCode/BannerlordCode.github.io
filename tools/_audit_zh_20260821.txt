@@ -1,0 +1,70 @@
+FILES=5685
+TOTAL_LINKS=23166
+AUDIT_MODE=url
+BROKEN_LINKS=112
+RESOLVE_OK_URL=23023
+RESOLVE_OK_FILE=16724
+RESOLVE_OK_EITHER=23135
+RESOLVE_OK_BOTH=16612
+RESOLVE_URL_ONLY=6411
+RESOLVE_FILE_ONLY=112
+RESOLVE_NEITHER=0
+FILES_WITH_BROKEN=4
+
+## architecture/crash-boundaries.md  (11)
+   -> ../api/save-system/SaveManager/
+   -> ../api/campaign/Hero/
+   -> ../api/campaign/Campaign/
+   -> ../api/mission/Mission/
+   -> ../api/mission/Agent/
+   -> ../api/core/MBSubModuleBase/
+   -> ../api/core-extra/ViewModel/
+   -> ./developer-roadmap/
+   -> ./sdk-overview/
+   -> ./module-system/
+   -> ../api/mission/MissionBehavior/
+
+## architecture/developer-roadmap.md  (16)
+   -> ../api/core/MBSubModuleBase/
+   -> ../api/campaign/Hero/
+   -> ../api/save-system/SaveManager/
+   -> ../api/mission/Mission/
+   -> ../api/mission/MissionBehavior/
+   -> ../api/mission/Agent/
+   -> ../api/core-extra/ViewModel/
+   -> ../api/localization/MBTextManager/
+   -> ../api/campaign/Clan/
+   -> ../api/campaign/Settlement/
+   -> ../api/campaign/MobileParty/
+   -> ../api/core-extra/Game/
+   -> ../api/campaign/Campaign/
+   -> ./sdk-overview/
+   -> ./crash-boundaries/
+   -> ./module-system/
+
+## architecture/module-system.md  (6)
+   -> ./sdk-overview/
+   -> ../api/core/MBSubModuleBase/
+   -> ../api/core-extra/Game/
+   -> ./developer-roadmap
+   -> ./sdk-overview
+   -> ./crash-boundaries
+
+## architecture/sdk-overview.md  (17)
+   -> ../api/core/MBSubModuleBase/
+   -> ../api/core-extra/Game/
+   -> ../api/localization/MBTextManager/
+   -> ../api/save-system/SaveManager/
+   -> ../api/campaign/Campaign/
+   -> ../api/campaign/Hero/
+   -> ../api/campaign/Clan/
+   -> ../api/campaign/Settlement/
+   -> ../api/campaign/MobileParty/
+   -> ../api/mission/Mission/
+   -> ../api/mission/Agent/
+   -> ../api/mission/MissionBehavior/
+   -> ../api/core-extra/ViewModel/
+   -> ./module-system/
+   -> ./developer-roadmap
+   -> ./crash-boundaries
+   -> ./module-system

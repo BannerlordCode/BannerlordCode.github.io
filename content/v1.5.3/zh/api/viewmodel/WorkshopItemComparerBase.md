@@ -1,0 +1,32 @@
+---
+title: "WorkshopItemComparerBase"
+description: "WorkshopItemComparerBase 的自动生成类参考。"
+---
+# WorkshopItemComparerBase
+
+**Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
+**Module:** TaleWorlds.CampaignSystem.ViewModelCollection
+**Type:** `public abstract class WorkshopItemComparerBase : IComparer<ClanFinanceWorkshopItemVM> `
+**Base:** IComparer<ClanFinanceWorkshopItemVM>
+**Source:** TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/ClanManagement/Categories/ClanIncomeSortControllerVM.cs
+
+## 概述
+
+`WorkshopItemComparerBase` 的自动生成类参考页面。声明来自 `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/ClanManagement/Categories/ClanIncomeSortControllerVM.cs`（ILSpy 反编译产物，已剥离 Token/RVA 注释）。
+
+## 心智模型
+
+自动生成的初始占位段落，后续由深写波次替换。
+
+## 主要方法
+
+### SetSortMode
+`public void SetSortMode(bool isAcending) `
+
+### Compare
+`public abstract int Compare(ClanFinanceWorkshopItemVM x,ClanFinanceWorkshopItemVM y)`
+
+## 参见
+
+- [本区域目录](../)
+- [API 参考](../../)

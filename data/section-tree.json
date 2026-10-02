@@ -34,7 +34,7 @@
       ]
     },
     "/v1.3.0/en/api/": {
-      "title": "API Reference",
+      "title": "API Reference - Find the Entry Point (v1.3.0)",
       "weight": null,
       "pages": 0,
       "subsections": [
@@ -779,7 +779,7 @@
       "subsections": []
     },
     "/v1.3.0/en/architecture/": {
-      "title": "Architecture (v1.3.0)",
+      "title": "Architecture Overview - v1.3.0",
       "weight": null,
       "pages": 5,
       "subsections": []
@@ -815,7 +815,7 @@
       ]
     },
     "/v1.3.0/zh/api/": {
-      "title": "API 参考",
+      "title": "API 参考 — 按任务找入口（v1.3.0）",
       "weight": null,
       "pages": 0,
       "subsections": [
@@ -1560,7 +1560,7 @@
       "subsections": []
     },
     "/v1.3.0/zh/architecture/": {
-      "title": "架构 / Architecture (v1.3.0)",
+      "title": "架构总览 — v1.3.0",
       "weight": null,
       "pages": 5,
       "subsections": []
@@ -1606,7 +1606,7 @@
       ]
     },
     "/v1.3.15/en/api/": {
-      "title": "API Reference",
+      "title": "API Reference - Find the Right Entry Point",
       "weight": null,
       "pages": 0,
       "subsections": [
@@ -1633,7 +1633,7 @@
     "/v1.3.15/en/api/campaign-ext/": {
       "title": "campaign-ext index",
       "weight": null,
-      "pages": 2834,
+      "pages": 2833,
       "subsections": [
         "/v1.3.15/en/api/campaign-ext/actions/",
         "/v1.3.15/en/api/campaign-ext/behaviors/",
@@ -1792,7 +1792,7 @@
     "/v1.3.15/en/api/gui/": {
       "title": "gui index",
       "weight": null,
-      "pages": 56,
+      "pages": 58,
       "subsections": []
     },
     "/v1.3.15/en/api/localization/": {
@@ -1898,7 +1898,7 @@
       ]
     },
     "/v1.3.15/zh/api/": {
-      "title": "API 参考",
+      "title": "API 参考 — 按任务找入口",
       "weight": null,
       "pages": 0,
       "subsections": [
@@ -1925,7 +1925,7 @@
     "/v1.3.15/zh/api/campaign-ext/": {
       "title": "campaign-ext 目录",
       "weight": null,
-      "pages": 2834,
+      "pages": 2835,
       "subsections": [
         "/v1.3.15/zh/api/campaign-ext/actions/",
         "/v1.3.15/zh/api/campaign-ext/behaviors/",
@@ -2084,7 +2084,7 @@
     "/v1.3.15/zh/api/gui/": {
       "title": "gui 目录",
       "weight": null,
-      "pages": 56,
+      "pages": 58,
       "subsections": []
     },
     "/v1.3.15/zh/api/localization/": {
@@ -2149,13 +2149,13 @@
     "/v1.3.15/zh/architecture/": {
       "title": "架构总览 / Architecture",
       "weight": null,
-      "pages": 10,
+      "pages": 11,
       "subsections": []
     },
     "/v1.3.15/zh/guide/": {
       "title": "入门指南 / Getting Started Guide",
       "weight": null,
-      "pages": 9,
+      "pages": 14,
       "subsections": []
     },
     "/v1.3.15/zh/native/": {
@@ -2198,7 +2198,7 @@
       ]
     },
     "/v1.4.5/en/api/": {
-      "title": "API Reference",
+      "title": "API Reference - Find the Entry Point (v1.4.5)",
       "weight": null,
       "pages": 0,
       "subsections": [
@@ -2224,15 +2224,15 @@
       "subsections": []
     },
     "/v1.4.5/en/api/campaign-ext/": {
-      "title": "campaign-ext index",
+      "title": "Campaign extension workflows: Behavior, Action, Model, Mission, and Save (v1.4.5)",
       "weight": null,
-      "pages": 1631,
+      "pages": 1641,
       "subsections": []
     },
     "/v1.4.5/en/api/core/": {
       "title": "Foundation / Core API — v1.4.5",
       "weight": null,
-      "pages": 4,
+      "pages": 5,
       "subsections": []
     },
     "/v1.4.5/en/api/core-extra/": {
@@ -2245,6 +2245,270 @@
       "title": "engine index",
       "weight": null,
       "pages": 202,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/actions/": {
+      "title": "TaleWorlds.CampaignSystem.Actions — Campaign Actions",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/campaign-behaviors/": {
+      "title": "TaleWorlds.CampaignSystem.CampaignBehaviors — Campaign Behaviors",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/campaign-vm/": {
+      "title": "TaleWorlds.CampaignSystem.ViewModelCollection.* — Campaign View-Models",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/campaignsystem-misc/": {
+      "title": "TaleWorlds.CampaignSystem.* — Campaign System (misc)",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/component-interfaces/": {
+      "title": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/conversation/": {
+      "title": "Conversation Types (CampaignSystem.Conversation & SandBox.Conversation)",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/core-lib/": {
+      "title": "TaleWorlds.Core / Library / DotNet / ObjectSystem / ModuleManager",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/custombattle/": {
+      "title": "CustomBattle Types",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/dedicated-server/": {
+      "title": "DedicatedCustomServer.ClientHelper",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/engine/": {
+      "title": "TaleWorlds.Engine.* — Engine Bridge",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/game-components/": {
+      "title": "GameComponents (CampaignSystem / SandBox / StoryMode)",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/gauntletui/": {
+      "title": "TaleWorlds.GauntletUI.* — Gauntlet UI Framework",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/input-screen/": {
+      "title": "InputSystem & ScreenSystem",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/issues/": {
+      "title": "Issue Types (CampaignSystem.Issues & SandBox.Issues)",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/localization/": {
+      "title": "TaleWorlds.Localization.* — Localization",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/log-entries/": {
+      "title": "TaleWorlds.CampaignSystem.LogEntries",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/misc/": {
+      "title": "Miscellaneous Business Types",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/mnb-battlescore/": {
+      "title": "TaleWorlds.MountAndBlade.Missions.BattleScore — Battle Scoring",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/mnb-gauntlet/": {
+      "title": "TaleWorlds.MountAndBlade.GauntletUI.* — Core Gauntlet UI",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/mnb-platform/": {
+      "title": "TaleWorlds.MountAndBlade PC Platform Bridge",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/mnb-root/": {
+      "title": "TaleWorlds.MountAndBlade — Core Assembly Root",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/mnb-view/": {
+      "title": "TaleWorlds.MountAndBlade.View.* — Core Views",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/mnb-view-missionviews/": {
+      "title": "TaleWorlds.MountAndBlade.View.MissionViews.* — Mission Views",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/mnb-view-scripts/": {
+      "title": "TaleWorlds.MountAndBlade.View.Scripts — Screen Scripts",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/mnb-vm/": {
+      "title": "TaleWorlds.MountAndBlade.ViewModelCollection.* — Core View-Models",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/network/": {
+      "title": "Network Types (Network & MountAndBlade.Network)",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/network-perks-conditions/": {
+      "title": "Network Perks.Conditions — MP Perk Conditions",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/sandbox/": {
+      "title": "SandBox.* — SandBox Module (misc)",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/sandbox-ai/": {
+      "title": "SandBox.AI — SandBox AI",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/sandbox-boardgames/": {
+      "title": "SandBox.BoardGames.* — Board Games",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/sandbox-gauntlet/": {
+      "title": "SandBox.GauntletUI.* — SandBox Gauntlet UI",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/sandbox-missionlogics/": {
+      "title": "SandBox.Missions.MissionLogics.* — SandBox Mission Logics",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/sandbox-missions/": {
+      "title": "SandBox.Missions — SandBox Mission Base & Support",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/sandbox-objects/": {
+      "title": "SandBox.Objects.* — SandBox Scene Objects",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/sandbox-root/": {
+      "title": "SandBox Root & MBHelpers",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/sandbox-tournaments/": {
+      "title": "SandBox.Tournaments — Tournament Types",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/sandbox-view/": {
+      "title": "SandBox.View.* — SandBox Scene Views",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/sandbox-view-map/": {
+      "title": "SandBox.View.Map — Campaign Map Views",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/sandbox-vm/": {
+      "title": "SandBox.ViewModelCollection.* — SandBox View-Models",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/savesystem/": {
+      "title": "TaleWorlds.SaveSystem.* — Save System",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/storymode/": {
+      "title": "StoryMode.* — Main-Story Module",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/storymode-quests/": {
+      "title": "StoryMode.Quests.* — Main-Story Quests",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/storymode-tutorial/": {
+      "title": "StoryMode.GauntletUI.Tutorial",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/final/twodim/": {
+      "title": "TaleWorlds.TwoDimension.* — 2D Standalone Runtime",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.4.5/en/api/gameplay/": {
@@ -2268,7 +2532,7 @@
     "/v1.4.5/en/api/mission/": {
       "title": "Mission API — v1.4.5",
       "weight": null,
-      "pages": 74,
+      "pages": 75,
       "subsections": []
     },
     "/v1.4.5/en/api/mission-ext/": {
@@ -2298,7 +2562,7 @@
     "/v1.4.5/en/architecture/": {
       "title": "Architecture — v1.4.5",
       "weight": null,
-      "pages": 4,
+      "pages": 8,
       "subsections": []
     },
     "/v1.4.5/en/guide/": {
@@ -2320,65 +2584,398 @@
       "subsections": []
     },
     "/v1.4.5/zh/": {
-      "title": "Bannerlord v1.4.5",
+      "title": "Bannerlord v1.3.15 文档 / Bannerlord v1.3.15 Documentation",
       "weight": null,
       "pages": 0,
       "subsections": [
         "/v1.4.5/zh/api/",
         "/v1.4.5/zh/architecture/",
         "/v1.4.5/zh/guide/",
+        "/v1.4.5/zh/native-1.3.15-src/",
         "/v1.4.5/zh/native/",
         "/v1.4.5/zh/xml-reference/"
       ]
     },
     "/v1.4.5/zh/api/": {
-      "title": "API 参考",
+      "title": "API 参考 — 按任务找入口",
       "weight": null,
       "pages": 0,
       "subsections": [
+        "/v1.4.5/zh/api/boardgames/",
         "/v1.4.5/zh/api/campaign-ext/",
         "/v1.4.5/zh/api/campaign/",
         "/v1.4.5/zh/api/core-extra/",
         "/v1.4.5/zh/api/core/",
+        "/v1.4.5/zh/api/custombattle/",
         "/v1.4.5/zh/api/engine/",
         "/v1.4.5/zh/api/gameplay/",
         "/v1.4.5/zh/api/gui/",
         "/v1.4.5/zh/api/localization/",
         "/v1.4.5/zh/api/mission-ext/",
         "/v1.4.5/zh/api/mission/",
+        "/v1.4.5/zh/api/sandbox/",
         "/v1.4.5/zh/api/save-system/",
+        "/v1.4.5/zh/api/storymode/",
         "/v1.4.5/zh/api/system/",
+        "/v1.4.5/zh/api/view/",
         "/v1.4.5/zh/api/viewmodel/"
       ]
     },
-    "/v1.4.5/zh/api/campaign/": {
-      "title": "战役 API — v1.4.5",
+    "/v1.4.5/zh/api/boardgames/": {
+      "title": "BoardGames 家族手册（SandBox.BoardGames）",
       "weight": null,
-      "pages": 1360,
+      "pages": 0,
+      "subsections": [
+        "/v1.4.5/zh/api/boardgames/cluster/"
+      ]
+    },
+    "/v1.4.5/zh/api/boardgames/cluster/": {
+      "title": "SandBox.BoardGames 桌面游戏",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign/": {
+      "title": "campaign 目录",
+      "weight": null,
+      "pages": 1361,
       "subsections": []
     },
     "/v1.4.5/zh/api/campaign-ext/": {
       "title": "campaign-ext 目录",
       "weight": null,
-      "pages": 1631,
+      "pages": 3666,
+      "subsections": [
+        "/v1.4.5/zh/api/campaign-ext/actions/",
+        "/v1.4.5/zh/api/campaign-ext/behaviors/",
+        "/v1.4.5/zh/api/campaign-ext/dialogs/",
+        "/v1.4.5/zh/api/campaign-ext/encounters/",
+        "/v1.4.5/zh/api/campaign-ext/gamemenus/",
+        "/v1.4.5/zh/api/campaign-ext/issues/",
+        "/v1.4.5/zh/api/campaign-ext/mapevents/",
+        "/v1.4.5/zh/api/campaign-ext/MapView/",
+        "/v1.4.5/zh/api/campaign-ext/models/",
+        "/v1.4.5/zh/api/campaign-ext/party/",
+        "/v1.4.5/zh/api/campaign-ext/quests/",
+        "/v1.4.5/zh/api/campaign-ext/sandbox-content/",
+        "/v1.4.5/zh/api/campaign-ext/SandBoxCampaignBehaviors/",
+        "/v1.4.5/zh/api/campaign-ext/SandBoxObjects/",
+        "/v1.4.5/zh/api/campaign-ext/settlements/",
+        "/v1.4.5/zh/api/campaign-ext/Tutorial/",
+        "/v1.4.5/zh/api/campaign-ext/behaviors-priority/",
+        "/v1.4.5/zh/api/campaign-ext/character-development/",
+        "/v1.4.5/zh/api/campaign-ext/helpers/",
+        "/v1.4.5/zh/api/campaign-ext/campaign-behaviors-tail/",
+        "/v1.4.5/zh/api/campaign-ext/campaign-tail/",
+        "/v1.4.5/zh/api/campaign-ext/issues-tail/"
+      ]
+    },
+    "/v1.4.5/zh/api/campaign-ext/actions/": {
+      "title": "Actions 家族手册",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/behaviors/": {
+      "title": "Behaviors 家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/behaviors-priority/": {
+      "title": "Behaviors 优先类型",
+      "weight": 10,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/campaign-behaviors-tail/": {
+      "title": "Campaign Behavior long-tail family",
+      "weight": 90,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/campaign-tail/": {
+      "title": "CampaignSystem namespace long tail",
+      "weight": 91,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/character-development/": {
+      "title": "Character Development 家族手册",
+      "weight": 12,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/dialogs/": {
+      "title": "Dialogs 对话家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/encounters/": {
+      "title": "Encounters 遭遇家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/gamemenus/": {
+      "title": "GameMenus 家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/helpers/": {
+      "title": "Helpers 家族手册",
+      "weight": 20,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/issues/": {
+      "title": "Issues 家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/issues-tail/": {
+      "title": "Issue long-tail family",
+      "weight": 92,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/mapevents/": {
+      "title": "MapEvents 地图事件家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/MapView/": {
+      "title": "地图视图家族手册（SandBox.View.Map）",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/models/": {
+      "title": "Models 家族手册",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/party/": {
+      "title": "Party 家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/quests/": {
+      "title": "Quests 家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/sandbox-content/": {
+      "title": "SandBox 内容家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/SandBoxCampaignBehaviors/": {
+      "title": "SandBox CampaignBehaviors 家族手册（SandBox.CampaignBehaviors）",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/SandBoxObjects/": {
+      "title": "SandBox.Objects 场景对象",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/settlements/": {
+      "title": "Settlements 家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/Tutorial/": {
+      "title": "教学提示家族手册（StoryMode.GauntletUI.Tutorial）",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.4.5/zh/api/core/": {
-      "title": "基础 / Core API — v1.4.5",
+      "title": "core 目录",
       "weight": null,
-      "pages": 4,
+      "pages": 5,
       "subsections": []
     },
     "/v1.4.5/zh/api/core-extra/": {
       "title": "core-extra 目录",
       "weight": null,
-      "pages": 530,
+      "pages": 536,
+      "subsections": [
+        "/v1.4.5/zh/api/core-extra/platform-tail/"
+      ]
+    },
+    "/v1.4.5/zh/api/core-extra/platform-tail/": {
+      "title": "Core、Library、Engine 平台长尾",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/custombattle/": {
+      "title": "CustomBattle 家族手册（TaleWorlds.MountAndBlade.CustomBattle）",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.4.5/zh/api/engine/": {
       "title": "engine 目录",
       "weight": null,
-      "pages": 202,
+      "pages": 204,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/campaignsystem-misc/": {
+      "title": "TaleWorlds.CampaignSystem.* 战役系统补充类型",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/core-lib/": {
+      "title": "TaleWorlds.Core / TaleWorlds.Library 基础设施",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/custombattle/": {
+      "title": "CustomBattle 自定义战斗类型",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/dedicated-server/": {
+      "title": "DedicatedCustomServer.ClientHelper 专用服务器客户端辅助",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/misc/": {
+      "title": "杂项业务类型（其它命名空间）",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/mnb-battlescore/": {
+      "title": "TaleWorlds.MountAndBlade.Missions.BattleScore 战斗计分",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/mnb-gauntlet-misc/": {
+      "title": "TaleWorlds.MountAndBlade.GauntletUI 杂项界面",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/mnb-platform/": {
+      "title": "TaleWorlds.MountAndBlade 的 PC 平台（Platform PC）桥接类型",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/mnb-root/": {
+      "title": "TaleWorlds.MountAndBlade 根命名空间类型",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/mnb-view/": {
+      "title": "TaleWorlds.MountAndBlade.View.* 核心视图类型",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/mnb-vm/": {
+      "title": "TaleWorlds.MountAndBlade.ViewModelCollection.* 核心视图模型",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/network-perks-conditions/": {
+      "title": "Network Perks.Conditions  perk 条件",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-ai/": {
+      "title": "SandBox.AI 沙盒 AI 类型",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-conversation/": {
+      "title": "SandBox.Conversation 对话类型",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-gamecomponents/": {
+      "title": "SandBox.GameComponents 沙盒游戏组件",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-gauntlet-ui/": {
+      "title": "SandBox.GauntletUI.* 沙盒界面",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-issues-tasks/": {
+      "title": "SandBox.Issues.IssueQuestTasks 领地事务任务",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-missionlogics/": {
+      "title": "SandBox.Missions.MissionLogics.* 沙盒任务逻辑",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-missions/": {
+      "title": "SandBox.Missions 沙盒任务基础与配套",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-tournaments/": {
+      "title": "SandBox.Tournaments 锦标赛类型",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-view/": {
+      "title": "SandBox.View.* 沙盒场景视图",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-vm/": {
+      "title": "SandBox.ViewModelCollection.* 沙盒视图模型集合",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/storymode-missions/": {
+      "title": "Storymode.Missions 主线任务",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/final/twodim/": {
+      "title": "TaleWorlds.TwoDimension.Standalone 二维独立运行时",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.4.5/zh/api/gameplay/": {
@@ -2391,6 +2988,42 @@
       "title": "gui 目录",
       "weight": null,
       "pages": 321,
+      "subsections": [
+        "/v1.4.5/zh/api/gui/gauntlet-ui-map/",
+        "/v1.4.5/zh/api/gui/gauntlet-ui-missions/",
+        "/v1.4.5/zh/api/gui/gauntlet-ui/",
+        "/v1.4.5/zh/api/gui/Nameplates/",
+        "/v1.4.5/zh/api/gui/texture-providers/"
+      ]
+    },
+    "/v1.4.5/zh/api/gui/gauntlet-ui/": {
+      "title": "核心 Gauntlet UI 家族手册（TaleWorlds.MountAndBlade.GauntletUI）",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/gui/gauntlet-ui-map/": {
+      "title": "SandBox.GauntletUI.Map 地图界面",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/gui/gauntlet-ui-missions/": {
+      "title": "GauntletUI.Mission 战斗界面",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/gui/Nameplates/": {
+      "title": "Nameplates 家族手册（SandBox.ViewModelCollection.Nameplate）",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/gui/texture-providers/": {
+      "title": "GauntletUI.TextureProviders 纹理提供者",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.4.5/zh/api/localization/": {
@@ -2400,57 +3033,175 @@
       "subsections": []
     },
     "/v1.4.5/zh/api/mission/": {
-      "title": "任务 API — v1.4.5",
+      "title": "mission 目录",
       "weight": null,
-      "pages": 74,
+      "pages": 77,
       "subsections": []
     },
     "/v1.4.5/zh/api/mission-ext/": {
       "title": "mission-ext 目录",
       "weight": null,
-      "pages": 2139,
+      "pages": 2311,
+      "subsections": [
+        "/v1.4.5/zh/api/mission-ext/AgentBehaviors/",
+        "/v1.4.5/zh/api/mission-ext/MissionLogics/",
+        "/v1.4.5/zh/api/mission-ext/mountandblade-tail/",
+        "/v1.4.5/zh/api/mission-ext/SandBoxViewMissions/",
+        "/v1.4.5/zh/api/mission-ext/source-handlers/"
+      ]
+    },
+    "/v1.4.5/zh/api/mission-ext/AgentBehaviors/": {
+      "title": "Agent Behaviors 家族手册（SandBox.Missions.AgentBehaviors）",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/mission-ext/MissionLogics/": {
+      "title": "Mission Logics 家族手册（SandBox.Missions.MissionLogics）",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/mission-ext/mountandblade-tail/": {
+      "title": "MountAndBlade 托管长尾",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/mission-ext/SandBoxViewMissions/": {
+      "title": "SandBox.View.Missions 沙盒任务视图",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/mission-ext/source-handlers/": {
+      "title": "Source Mission Handlers 源码家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/perks/PerkEffects/": {
+      "title": "Perk Effects 家族手册（Perks.Effects）",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/sandbox/": {
+      "title": "SandBox 根命名空间杂项类型",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.4.5/zh/api/save-system/": {
       "title": "save-system 目录",
       "weight": null,
-      "pages": 108,
+      "pages": 109,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/storymode/": {
+      "title": "StoryMode 主线模块类型",
+      "weight": null,
+      "pages": 0,
+      "subsections": [
+        "/v1.4.5/zh/api/storymode/GameComponents/",
+        "/v1.4.5/zh/api/storymode/Quests/"
+      ]
+    },
+    "/v1.4.5/zh/api/storymode/GameComponents/": {
+      "title": "StoryMode GameComponents 家族手册（StoryMode.GameComponents）",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/storymode/Quests/": {
+      "title": "StoryMode.Quests 主线任务",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.4.5/zh/api/system/": {
       "title": "system 目录",
       "weight": null,
-      "pages": 68,
+      "pages": 69,
+      "subsections": [
+        "/v1.4.5/zh/api/system/runtime-tail/"
+      ]
+    },
+    "/v1.4.5/zh/api/system/runtime-tail/": {
+      "title": "Managed runtime long tail",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/view/": {
+      "title": "原生视图与任务视图家族手册（TaleWorlds.MountAndBlade.View / .View.MissionViews）",
+      "weight": null,
+      "pages": 0,
+      "subsections": [
+        "/v1.4.5/zh/api/view/MissionViews/",
+        "/v1.4.5/zh/api/view/Screens/",
+        "/v1.4.5/zh/api/view/Scripts/",
+        "/v1.4.5/zh/api/view/Tableaus/"
+      ]
+    },
+    "/v1.4.5/zh/api/view/MissionViews/": {
+      "title": "MissionViews 单玩家战斗视图",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/view/Screens/": {
+      "title": "Screens 家族手册（TaleWorlds.MountAndBlade.View.Screens）",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/view/Scripts/": {
+      "title": "View.Scripts 场景脚本",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/view/Tableaus/": {
+      "title": "Tableaus 与缩略图家族手册（View.Tableaus / Thumbnails）",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.4.5/zh/api/viewmodel/": {
       "title": "viewmodel 目录",
       "weight": null,
-      "pages": 600,
+      "pages": 605,
       "subsections": []
     },
     "/v1.4.5/zh/architecture/": {
-      "title": "架构 — v1.4.5",
+      "title": "架构总览 / Architecture",
       "weight": null,
-      "pages": 4,
+      "pages": 14,
       "subsections": []
     },
     "/v1.4.5/zh/guide/": {
-      "title": "指南",
+      "title": "入门指南 / Getting Started Guide",
       "weight": null,
-      "pages": 0,
+      "pages": 14,
       "subsections": []
     },
     "/v1.4.5/zh/native/": {
-      "title": "原生接口参考",
+      "title": "原生接口 / Native Reference",
       "weight": null,
-      "pages": 0,
+      "pages": 7,
+      "subsections": []
+    },
+    "/v1.4.5/zh/native-1.3.15-src/": {
+      "title": "Native 1.3.15 源码参考 / Native 1.3.15 Source Reference",
+      "weight": null,
+      "pages": 12,
       "subsections": []
     },
     "/v1.4.5/zh/xml-reference/": {
-      "title": "XML 参考",
+      "title": "XML 参考 / XML Reference",
       "weight": null,
-      "pages": 0,
+      "pages": 1,
       "subsections": []
     },
     "/versions/": {
@@ -2458,6 +3209,96 @@
       "weight": null,
       "pages": 18,
       "subsections": []
+    },
+    "/v1.4.5/en/api/final/": {
+      "title": "final",
+      "weight": null,
+      "pages": 0,
+      "subsections": [
+        "/v1.4.5/en/api/final/actions/",
+        "/v1.4.5/en/api/final/campaign-behaviors/",
+        "/v1.4.5/en/api/final/campaign-vm/",
+        "/v1.4.5/en/api/final/campaignsystem-misc/",
+        "/v1.4.5/en/api/final/component-interfaces/",
+        "/v1.4.5/en/api/final/conversation/",
+        "/v1.4.5/en/api/final/core-lib/",
+        "/v1.4.5/en/api/final/custombattle/",
+        "/v1.4.5/en/api/final/dedicated-server/",
+        "/v1.4.5/en/api/final/engine/",
+        "/v1.4.5/en/api/final/game-components/",
+        "/v1.4.5/en/api/final/gauntletui/",
+        "/v1.4.5/en/api/final/input-screen/",
+        "/v1.4.5/en/api/final/issues/",
+        "/v1.4.5/en/api/final/localization/",
+        "/v1.4.5/en/api/final/log-entries/",
+        "/v1.4.5/en/api/final/misc/",
+        "/v1.4.5/en/api/final/mnb-battlescore/",
+        "/v1.4.5/en/api/final/mnb-gauntlet/",
+        "/v1.4.5/en/api/final/mnb-platform/",
+        "/v1.4.5/en/api/final/mnb-root/",
+        "/v1.4.5/en/api/final/mnb-view-missionviews/",
+        "/v1.4.5/en/api/final/mnb-view-scripts/",
+        "/v1.4.5/en/api/final/mnb-view/",
+        "/v1.4.5/en/api/final/mnb-vm/",
+        "/v1.4.5/en/api/final/network-perks-conditions/",
+        "/v1.4.5/en/api/final/network/",
+        "/v1.4.5/en/api/final/sandbox-ai/",
+        "/v1.4.5/en/api/final/sandbox-boardgames/",
+        "/v1.4.5/en/api/final/sandbox-gauntlet/",
+        "/v1.4.5/en/api/final/sandbox-missionlogics/",
+        "/v1.4.5/en/api/final/sandbox-missions/",
+        "/v1.4.5/en/api/final/sandbox-objects/",
+        "/v1.4.5/en/api/final/sandbox-root/",
+        "/v1.4.5/en/api/final/sandbox-tournaments/",
+        "/v1.4.5/en/api/final/sandbox-view-map/",
+        "/v1.4.5/en/api/final/sandbox-view/",
+        "/v1.4.5/en/api/final/sandbox-vm/",
+        "/v1.4.5/en/api/final/sandbox/",
+        "/v1.4.5/en/api/final/savesystem/",
+        "/v1.4.5/en/api/final/storymode-quests/",
+        "/v1.4.5/en/api/final/storymode-tutorial/",
+        "/v1.4.5/en/api/final/storymode/",
+        "/v1.4.5/en/api/final/twodim/"
+      ]
+    },
+    "/v1.4.5/zh/api/final/": {
+      "title": "final",
+      "weight": null,
+      "pages": 0,
+      "subsections": [
+        "/v1.4.5/zh/api/final/campaignsystem-misc/",
+        "/v1.4.5/zh/api/final/core-lib/",
+        "/v1.4.5/zh/api/final/custombattle/",
+        "/v1.4.5/zh/api/final/dedicated-server/",
+        "/v1.4.5/zh/api/final/misc/",
+        "/v1.4.5/zh/api/final/mnb-battlescore/",
+        "/v1.4.5/zh/api/final/mnb-gauntlet-misc/",
+        "/v1.4.5/zh/api/final/mnb-platform/",
+        "/v1.4.5/zh/api/final/mnb-root/",
+        "/v1.4.5/zh/api/final/mnb-view/",
+        "/v1.4.5/zh/api/final/mnb-vm/",
+        "/v1.4.5/zh/api/final/network-perks-conditions/",
+        "/v1.4.5/zh/api/final/sandbox-ai/",
+        "/v1.4.5/zh/api/final/sandbox-conversation/",
+        "/v1.4.5/zh/api/final/sandbox-gamecomponents/",
+        "/v1.4.5/zh/api/final/sandbox-gauntlet-ui/",
+        "/v1.4.5/zh/api/final/sandbox-issues-tasks/",
+        "/v1.4.5/zh/api/final/sandbox-missionlogics/",
+        "/v1.4.5/zh/api/final/sandbox-missions/",
+        "/v1.4.5/zh/api/final/sandbox-tournaments/",
+        "/v1.4.5/zh/api/final/sandbox-view/",
+        "/v1.4.5/zh/api/final/sandbox-vm/",
+        "/v1.4.5/zh/api/final/storymode-missions/",
+        "/v1.4.5/zh/api/final/twodim/"
+      ]
+    },
+    "/v1.4.5/zh/api/perks/": {
+      "title": "perks",
+      "weight": null,
+      "pages": 0,
+      "subsections": [
+        "/v1.4.5/zh/api/perks/PerkEffects/"
+      ]
     }
   }
 }

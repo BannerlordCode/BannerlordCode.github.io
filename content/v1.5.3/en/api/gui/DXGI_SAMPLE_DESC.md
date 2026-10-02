@@ -1,0 +1,23 @@
+---
+title: "DXGI_SAMPLE_DESC"
+description: "Auto-generated class reference for DXGI_SAMPLE_DESC."
+---
+# DXGI_SAMPLE_DESC
+
+**Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
+**Module:** TaleWorlds.TwoDimension.Standalone
+**Type:** `public struct DXGI_SAMPLE_DESC `
+**Base:** System.Object
+**Source:** TaleWorlds.TwoDimension.Standalone/Native/Windows/DXGI_SAMPLE_DESC.cs
+
+## Overview
+
+Auto-generated stub for `DXGI_SAMPLE_DESC`. Deep documentation is scheduled in a later pass.
+
+## Mental Model
+
+Auto-generated placeholder; to be replaced by the deep-documentation pass.
+
+## See Also
+
+- [Section index](../)

@@ -1,0 +1,143 @@
+FILES=38652
+TOTAL_LINKS=123265
+AUDIT_MODE=url
+BROKEN_LINKS=145
+RESOLVE_OK_URL=122951
+RESOLVE_OK_FILE=102180
+RESOLVE_OK_EITHER=122953
+RESOLVE_OK_BOTH=102178
+RESOLVE_URL_ONLY=20773
+RESOLVE_FILE_ONLY=2
+RESOLVE_NEITHER=143
+FILES_WITH_BROKEN=25
+
+## v1.4.5/en/api/campaign-ext/AddHeroToPartyAction.md  (1)
+   -> ../actions/
+
+## v1.4.5/en/api/campaign-ext/Army.md  (7)
+   -> ../Campaign
+   -> ../Kingdom
+   -> ../MobileParty
+   -> ../PartyBase
+   -> ../Hero
+   -> ../MapEvent
+   -> ../ArmyManagementCalculationModel
+
+## v1.4.5/en/api/campaign-ext/CampaignBehaviorBase.md  (1)
+   -> ../QuestBase/
+
+## v1.4.5/en/api/campaign-ext/CampaignEventReceiver.md  (3)
+   -> ../CampaignEventDispatcher/
+   -> ../ICampaignBehavior/
+   -> ../IssueBase/
+
+## v1.4.5/en/api/campaign-ext/CampaignEvents.md  (7)
+   -> ../CampaignEventDispatcher/
+   -> ../actions-index/
+   -> ../MbEvent/
+   -> ../IMbEvent/
+   -> ../ReferenceMBEvent/
+   -> ../CampaignBehaviorManager/
+   -> ../IssueBase/
+
+## v1.4.5/en/api/campaign-ext/CampaignGameStarter.md  (1)
+   -> ../GameModels
+
+## v1.4.5/en/api/campaign-ext/ChangeKingdomAction.md  (1)
+   -> ../actions/
+
+## v1.4.5/en/api/campaign-ext/ChangeRelationAction.md  (1)
+   -> ../actions/
+
+## v1.4.5/en/api/campaign-ext/CultureObject.md  (7)
+   -> ../NameGenerator/
+   -> ../FeatObject/
+   -> ../PolicyObject/
+   -> ../PartyTemplateObject/
+   -> ../RebellionsCampaignBehavior/
+   -> ../GovernorCampaignBehavior/
+   -> ../KingdomCreationModel/
+
+## v1.4.5/en/api/campaign-ext/DeclareWarAction.md  (1)
+   -> ../actions/
+
+## v1.4.5/en/api/campaign-ext/DestroyPartyAction.md  (1)
+   -> ../actions/
+
+## v1.4.5/en/api/campaign-ext/GiveGoldAction.md  (1)
+   -> ../actions/
+
+## v1.4.5/en/api/campaign-ext/ItemRoster.md  (5)
+   -> ../DefaultItems/
+   -> ../InventoryLogic/
+   -> ../PartySizeLimitModel/
+   -> ../PartyWageModel/
+   -> ../SettlementFoodModel/
+
+## v1.4.5/en/api/campaign-ext/MBObjectManager.md  (1)
+   -> ../IDataStore/
+
+## v1.4.5/en/api/campaign-ext/MakePeaceAction.md  (1)
+   -> ../actions/
+
+## v1.4.5/en/api/campaign-ext/ScreenBase.md  (1)
+   -> ../../../architecture/crash-boundaries
+
+## v1.4.5/en/api/campaign-ext/SiegeEvent.md  (12)
+   -> ../SiegeEventManager/
+   -> ../EncounterManager/
+   -> ../SiegeEventCampaignBehavior/
+   -> ../PlayerSiege/
+   -> ../SiegeAftermathCampaignBehavior/
+   -> ../CampaignEventDispatcher/
+   -> ../SiegeEventModel/
+   -> ../SiegeStrategyActionModel/
+   -> ../SiegeStrategy/
+   -> ../SiegeBombardTargets/
+   -> ../BesiegerCamp/
+   -> ../ISiegeEventSide/
+
+## v1.4.5/en/api/campaign-ext/TroopRoster.md  (8)
+   -> ../TroopRosterElement/
+   -> ../PartyWageModel/
+   -> ../PartySizeLimitModel/
+   -> ../models/
+   -> ../PartyTroopUpgradeModel/
+   -> ../PartyUpgraderCampaignBehavior/
+   -> ../RecruitPrisonersCampaignBehavior/
+   -> ../FlattenedTroopRoster/
+
+## v1.4.5/en/api/campaign/PartyBase.md  (8)
+   -> ../../campaign-ext/PartyComponent/
+   -> ../../campaign-ext/MapEvent/
+   -> ../../campaign-ext/PartySizeLimitModel/
+   -> ../../campaign-ext/PartyWageModel/
+   -> ../../campaign-ext/models/
+   -> ../../campaign-ext/MilitaryPowerModel/
+   -> ../../campaign-ext/EncounterModel/
+   -> ../../campaign-ext/MapVisibilityModel/
+
+## v1.4.5/en/api/campaign/Workshop.md  (5)
+   -> ../../campaign-ext/WorkshopType/
+   -> ../../campaign-ext/WorkshopsCampaignBehavior/
+   -> ../../campaign-ext/WorkshopModel/
+   -> ../../campaign-ext/CampaignEventDispatcher/
+   -> ../../campaign-ext/IWorkshopWarehouseCampaignBehavior/
+
+## v1.4.5/en/api/localization/TextObject.md  (1)
+   -> ../../campaign-ext/IDataStore/
+
+## v1.4.5/en/api/save-system/SaveManager.md  (1)
+   -> ../../campaign-ext/IDataStore/
+
+## v1.4.5/en/api/save-system/SaveableFieldAttribute.md  (2)
+   -> ../../campaign-ext/IDataStore
+   -> ../../../architecture/crash-boundaries
+
+## v1.4.5/en/api/save-system/SaveablePropertyAttribute.md  (1)
+   -> ../../campaign-ext/IDataStore/
+
+## v1.4.5/en/api/save-system/SaveableTypeDefiner.md  (3)
+   -> ../../campaign-ext/IDataStore
+   -> ../../campaign-ext/SaveableCampaignTypeDefiner
+   -> ../../../architecture/crash-boundaries

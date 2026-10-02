@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-08-03T10:09:36.100Z",
+  "meta": {
+    "scope": "content/v1.3.15/en/api",
+    "version": "1.3.15",
+    "language": "en",
+    "sourceFingerprint": "7e35c5d0eef46e7874d76e86e8dc82fa201bfe039ea38c441654675eecab3368",
+    "gitSha": "fdcbc28dbd6f87e9447f91edf92e4bd598161410",
+    "command": "C:\\WorkSpace\\Bannerlord\\BannerlordCode.github.io\\tools\\r1-coverage-report.mjs --version 1.3.15 --lang en --out tools/_final-r1-en-20260803.json --gap-out tools/_final-r1-gaps-en-20260803.json",
+    "inventorySkippedNoise": 140,
+    "inventorySkippedBaseNoise": 140,
+    "noiseExcludedExtra": 687,
+    "totalInventoryBusiness": 5483,
+    "r1Target": 4796,
+    "previousTotalBusiness": 5483,
+    "pageClassCounts": {
+      "stub": 5513,
+      "deep_pass": 72,
+      "family_entry_pass": 23,
+      "noise": 21
+    },
+    "deepPassPages": 72,
+    "familyEntryPages": 23,
+    "familyPurposeTypeNames": 4747,
+    "deepPassTypeNames": 72,
+    "r1ExtraNoise": "NetworkMessages.*; Messages.From*/To*/BattleServer*/CustomBattleServer*/Lobby* (+ remaining Messages.*); top-level BattleServer*/CustomBattleServer*/Lobby*; psai.*; type IMB*/BattleServer*/CustomBattleServer*/Lobby*",
+    "note": "COVERED if an R1-target inventory identity has a deep_pass page declaring the same qualified (version, language, namespace, typeName) identity OR a qualified handwritten family entry. Unqualified family entries count only when the simple name is unique in inventory. Formulaic purposes do not count. S-tier requires standalone deep pages. R1-extra noise stays inventory-listable but is out of the denominator."
+  },
+  "r1Target": 4796,
+  "covered": 4796,
+  "gap": 0,
+  "byNamespaceL2": [],
+  "allGaps": []
+}

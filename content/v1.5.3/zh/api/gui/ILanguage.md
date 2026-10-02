@@ -1,0 +1,24 @@
+---
+title: "ILanguage"
+description: "ILanguage 的自动生成类参考。"
+---
+# ILanguage
+
+**Namespace:** TaleWorlds.TwoDimension
+**Module:** TaleWorlds.TwoDimension
+**Type:** `public interface ILanguage `
+**Base:** System.Object
+**Source:** TaleWorlds.TwoDimension/ILanguage.cs
+
+## 概述
+
+`ILanguage` 的自动生成类参考页面。声明来自 `TaleWorlds.TwoDimension/ILanguage.cs`（ILSpy 反编译产物，已剥离 Token/RVA 注释）。
+
+## 心智模型
+
+自动生成的初始占位段落，后续由深写波次替换。
+
+## 参见
+
+- [本区域目录](../)
+- [API 参考](../../)

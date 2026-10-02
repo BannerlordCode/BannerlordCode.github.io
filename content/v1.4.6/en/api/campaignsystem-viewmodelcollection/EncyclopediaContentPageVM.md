@@ -1,0 +1,47 @@
+---
+title: "EncyclopediaContentPageVM"
+description: "EncyclopediaContentPageVM: a public class in TaleWorlds.CampaignSystem.ViewModelCollection, inheriting EncyclopediaPageVM; 11 exposed members (4 methods, 6 properties, 0 fields). Source: TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Encyclopedia/Pages/EncyclopediaContentPageVM.cs."
+---
+# EncyclopediaContentPageVM
+
+**Namespace:** `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages`
+**Module:** `TaleWorlds.CampaignSystem.ViewModelCollection`
+**Type:** `public class EncyclopediaContentPageVM : EncyclopediaPageVM`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Encyclopedia/Pages/EncyclopediaContentPageVM.cs`
+
+## Overview
+
+EncyclopediaContentPageVM lives in the TaleWorlds.CampaignSystem.ViewModelCollection module, source file TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Encyclopedia/Pages/EncyclopediaContentPageVM.cs. It is a public class, implementing/inheriting EncyclopediaPageVM; the inheritance chain is EncyclopediaContentPageVM → EncyclopediaPageVM → ViewModel. It exposes 11 public/protected members: 4 methods, 6 properties, 1 constructors.
+
+> Batch first draft: every signature is taken verbatim from the decompiled bannerlord-1.4.6 source. What each method actually does, when to call it and where it breaks must be read from the method body in the source file.
+
+## Mental Model
+
+Structural facts: EncyclopediaContentPageVM is a top-level type in TaleWorlds.CampaignSystem.ViewModelCollection, namespace differing from (TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages) the module directory; inheritance chain EncyclopediaContentPageVM → EncyclopediaPageVM → ViewModel. The surface is property-led (properties 6/11, methods 4/11), so it mostly exposes state for reading. ViewModel on the chain live outside this module, so part of the behaviour is delegated to a cross-module base type. This page lists real signatures only: what each method does, when to call it and where it breaks must be read from TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Encyclopedia/Pages/EncyclopediaContentPageVM.cs or the deep page for this type.
+
+## Key Members
+
+| 成员 | 签名 | 种类 |
+| --- | --- | --- |
+| `EncyclopediaContentPageVM` | `public EncyclopediaContentPageVM(EncyclopediaPageArgs args) : base(args)` | constructor |
+| `RefreshValues` | `public override void RefreshValues()` | method |
+| `InitializeQuickNavigation` | `public void InitializeQuickNavigation(EncyclopediaListVM list)` | method |
+| `ExecuteGoToNextItem` | `public void ExecuteGoToNextItem()` | method |
+| `ExecuteGoToPreviousItem` | `public void ExecuteGoToPreviousItem()` | method |
+| `IsPreviousButtonEnabled` | `public bool IsPreviousButtonEnabled` | property |
+| `IsNextButtonEnabled` | `public bool IsNextButtonEnabled` | property |
+| `PreviousButtonLabel` | `public string PreviousButtonLabel` | property |
+| `NextButtonLabel` | `public string NextButtonLabel` | property |
+| `PreviousButtonHint` | `public HintViewModel PreviousButtonHint` | property |
+| `NextButtonHint` | `public HintViewModel NextButtonHint` | property |
+
+## See Also
+
+- [↑ campaignsystem-viewmodelcollection module index](../)
+- [↑ API reference](../../)
+- [↑ Version home](../../../)
+- [base / interface EncyclopediaPageVM](../EncyclopediaPageVM)
+- [same namespace EncyclopediaClanPageVM](../EncyclopediaClanPageVM)
+- [same namespace EncyclopediaConceptPageVM](../EncyclopediaConceptPageVM)
+- [same namespace EncyclopediaFactionPageVM](../EncyclopediaFactionPageVM)
+- [same namespace EncyclopediaHeroPageVM](../EncyclopediaHeroPageVM)

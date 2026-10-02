@@ -2,6 +2,20 @@
 // Flags placeholder method purpose prose and fake/invalid usage examples
 // so the generator pipeline can be driven to zero blockers.
 //
+// H0 GATE UPGRADE (2026-08-17): the legacy gate only checked method-purpose
+// wording and the *existence* of a code block — it never inspected example
+// CONTENT. That left ~19k auto-generated stub class pages and ~2k empty-shell
+// (`service = ...;`) examples passing as "clean". The following content-
+// integrity checks close that blind spot:
+//   - autogen-description        : frontmatter `description: "X 的自动生成类参考。"`
+//   - placeholder-assignment-example : `x = ...;` (literal `...` never valid C#)
+//   - double-i-fake-type         : `IISceneView` / `IIAchievementService` (real IFaces use one `I`)
+//   - formulaic-overview-stub    : "阅读时先看属性…" / "X 是 TaleWorlds…公开类型"
+// These are collected in `contentIntegrity`. They do NOT fail the build unless
+// STRICT_GATE=1 (env), so the standing CI hard-gate is preserved until the
+// owner opts in. Run `STRICT_GATE=1 node tools/audit-doc-quality.mjs` to get
+// the honest true-gap baseline.
+//
 // Usage: node tools/audit-doc-quality.mjs [root] [--verbose]
 // Default root is `content`; override with first CLI arg or AUDIT_DOCS_ROOT env var.
 // Exit code 0 = no blockers, 1 = blocking issues found.
@@ -18,6 +32,12 @@ const reSep = new RegExp(sep === '\\' ? '\\\\' : sep, 'g');
 
 const blockers = [];
 const warnings = [];
+// Content-integrity findings: these are stub/placeholder markers that the OLD
+// gate never inspected (it only checked method-purpose wording and the mere
+// *existence* of a code block). They are gated behind STRICT_GATE so the
+// standing CI hard-gate is not unilaterally broken (see module header). When
+// STRICT_GATE=1 they count toward the exit-failure set.
+const contentIntegrity = [];
 let scannedFiles = 0;
 let scannedMethods = 0;
 let expandedMethods = 0;
@@ -116,6 +136,25 @@ const EXCLUDED_PATHS = [
 function isExcluded(p) {
   return EXCLUDED_PATHS.some((re) => re.test(p));
 }
+
+// ---------- Content-integrity patterns (H0 gate upgrade) ----------
+// These catch the stub/placeholder residue that the legacy gate missed:
+//  1. Auto-generated class docs: frontmatter `description: "X 的自动生成类参考。"`
+//  2. Empty-shell code examples: `service = ...;` / `x = ...;` (assigning the
+//     literal `...` token — never valid C#).
+//  3. Double-I fake interface names: `IISceneView` / `IIAchievementService`
+//     (real TaleWorlds interfaces use a single leading `I`).
+//  4. Formulaic overview scaffolding: "阅读时先看属性…" / "X 是 TaleWorlds…公开类型".
+
+const AUTOGEN_DESC_RE =
+  /description:\s*["'][^"'\n]*自动生成类参考[^"'\n]*["']/u;
+
+const PLACEHOLDER_ASSIGN_RE = /\b[A-Za-z_]\w*\s*=\s*\.\.\.\s*;?/;
+
+const DOUBLE_I_INTERFACE_RE = /\bII[A-Z]\w+\b/;
+
+const OVERVIEW_STUB_RE =
+  /(阅读时(?:先|再)?看?(?:属性|状态))|(是\s*TaleWorlds[^\n。]*公开类型)/u;
 
 function extractPurpose(line) {
   for (const re of PURPOSE_MARKERS) {
@@ -221,14 +260,29 @@ function parseMethods(text) {
     const m = lines[i].match(/^###\s+(.+)$/);
     if (m) {
       const methodName = m[1].trim();
-      const startLine = i + 1;
       let j = i + 1;
       for (; j < lines.length; j++) {
         if (/^###\s+/.test(lines[j])) break;
         if (/^#{1,2}[^#]/.test(lines[j])) break;
       }
-      const body = lines.slice(i + 1, j).join('\n');
-      methods.push({ methodName, body, startLine });
+      // Skip documentation-structure headings that are NOT API method
+      // definitions:
+      //  - Chinese section headings (风险/成员/导航 etc.) — always skipped;
+      //    real API method headings are ASCII identifiers, so this never
+      //    masks a genuine method that lacks an example.
+      //  - Navigation-block bullets used inside `## 导航` / `## 依赖`:
+      //    arrow glyphs (↑ ↔ ↓ are NON-CJK, so they slip past the CJK filter
+      //    above) and the labels Parent/Sibling/Children/Related/Upstream/
+      //    Downstream. Treating these as methods created a false
+      //    method-missing-example flag on EVERY class doc page and masked
+      //    real gaps. No genuine API method section is named any of these.
+      const arrowStripped = methodName.replace(/^[↑↔↓]\s*/, '').trim().toLowerCase();
+      const NAV_LABELS = new Set(['parent', 'sibling', 'children', 'related', 'upstream', 'downstream']);
+      const isNav = /^[↑↔↓]/.test(methodName) || NAV_LABELS.has(arrowStripped);
+      if (!isNav && !/[一-鿿]/.test(methodName)) {
+        const body = lines.slice(i + 1, j).join('\n');
+        methods.push({ methodName, body, startLine: i + 1 });
+      }
       i = j;
     } else {
       i++;
@@ -255,8 +309,13 @@ function isPlaceholderTitleConstructor(block, title) {
   return codeLines.length <= 1;
 }
 
-function isClassDocPage(pathRel, typeLine) {
-  return /\/api\//.test(pathRel) && typeLine !== '';
+function isClassDocPage(filePath, typeLine) {
+  // Test the FULL path (always contains /api/ for api pages). The relative
+  // path is taken from the scan root, which is itself the api dir, so it can
+  // never contain /api/ — using it here misclassified every api class doc as a
+  // non-class doc and misfired the "no constructor calls" rule on legitimate
+  // `new <ThisType>(...)` examples. Normalize backslashes (Windows) first.
+  return /\/api\//.test(filePath.replace(/\\/g, '/')) && typeLine !== '';
 }
 
 function auditFile(filePath) {
@@ -266,11 +325,32 @@ function auditFile(filePath) {
   const text = readFileSync(filePath, 'utf8');
   const typeLine = getPageTypeLine(text);
   const title = getPageTitle(text);
-  const isClassDoc = isClassDocPage(pathRel, typeLine);
+  const isClassDoc = isClassDocPage(filePath, typeLine);
   const isInterfaceOrAbstract =
     /\binterface\b/iu.test(typeLine) || /\babstract\b/iu.test(typeLine);
   const titleRe = buildTitleRe(title);
   const blocks = codeBlocks(text);
+
+  // ---- Content-integrity checks (frontmatter + overview) ----
+  const fm = text.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (fm && AUTOGEN_DESC_RE.test(fm[1])) {
+    const dline = (fm[1].match(/description:[^\n]*/) || [''])[0].trim();
+    contentIntegrity.push({
+      file: pathRel,
+      line: 0,
+      category: 'autogen-description',
+      snippet: dline.slice(0, 120),
+    });
+  }
+  const ovMatch = text.match(OVERVIEW_STUB_RE);
+  if (ovMatch) {
+    contentIntegrity.push({
+      file: pathRel,
+      line: 0,
+      category: 'formulaic-overview-stub',
+      snippet: ovMatch[0].slice(0, 120),
+    });
+  }
 
   // Whole-file contradiction wording.
   for (const re of CONTRADICTION_BLOCKERS) {
@@ -297,6 +377,26 @@ function auditFile(filePath) {
   // Placeholder / fake examples at the file level first.
   for (const block of blocks) {
     const b = block.replace(/\r?\n/g, ' ');
+
+    // Content-integrity: empty-shell assignment example (`x = ...;`).
+    if (PLACEHOLDER_ASSIGN_RE.test(block)) {
+      contentIntegrity.push({
+        file: pathRel,
+        line: 0,
+        category: 'placeholder-assignment-example',
+        snippet: b.slice(0, 120),
+      });
+    }
+    // Content-integrity: double-I fake interface type.
+    const diMatch = block.match(DOUBLE_I_INTERFACE_RE);
+    if (diMatch) {
+      contentIntegrity.push({
+        file: pathRel,
+        line: 0,
+        category: 'double-i-fake-type',
+        snippet: diMatch[0],
+      });
+    }
 
     for (const re of PLACEHOLDER_EXAMPLE_RE) {
       if (re.test(b)) {
@@ -469,13 +569,26 @@ function printGroup(label, items) {
 
 printGroup('Blockers', blockers);
 printGroup('Warnings', warnings);
+printGroup('Content-integrity (STRICT_GATE-gated)', contentIntegrity);
+
+const strictGate =
+  process.env.STRICT_GATE === '1' || process.env.STRICT_GATE === 'true';
+const totalBlockers = blockers.length + (strictGate ? contentIntegrity.length : 0);
 
 console.log(
   `\nScanned ${scannedFiles} files, ${scannedMethods} method-purpose lines, ${expandedMethods} method sections.`
 );
-console.log(`Blockers: ${blockers.length}, Warnings: ${warnings.length}`);
+console.log(
+  `Blockers: ${blockers.length}, Warnings: ${warnings.length}, ` +
+    `Content-integrity: ${contentIntegrity.length} (STRICT_GATE=${strictGate ? 1 : 0})`
+);
 
-if (blockers.length > 0) {
+if (totalBlockers > 0) {
+  if (strictGate && contentIntegrity.length > 0) {
+    console.log(
+      `\n[STRICT_GATE] ${contentIntegrity.length} content-integrity findings counted as blockers.`
+    );
+  }
   process.exit(1);
 }
 process.exit(0);

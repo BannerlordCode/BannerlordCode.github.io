@@ -1,0 +1,52 @@
+
+## Warnings: 23
+By category:
+  method-missing-example: 23
+
+api/campaign-ext/Alley.md
+  - [method-missing-example] L100: `public Alley(Settlement settlement, string tag, TextObject name)`
+  - [method-missing-example] L104: `public void Initialize(Settlement settlement, string tag, TextObject name)`
+
+api/campaign-ext/BribeGuardsAction.md
+  - [method-missing-example] L64: `public static void Apply(Settlement settlement, int gold)`
+
+api/campaign-ext/ChangeRomanticStateAction.md
+  - [method-missing-example] L73: `Apply(Hero person1, Hero person2, Romance.RomanceLevelEnum toWhat)`
+
+api/campaign-ext/ChangeRulingClanAction.md
+  - [method-missing-example] L67: `public static void Apply(Kingdom kingdom, Clan clan)`
+  - [method-missing-example] L79: `private static void ApplyInternal(Kingdom kingdom, Clan clan)`
+
+api/campaign-ext/DefaultPartySizeLimitModel.md
+  - [method-missing-example] L104: `GetPartyPrisonerSizeLimit`
+  - [method-missing-example] L114: `CalculateGarrisonPartySizeLimit`
+
+api/campaign-ext/DefaultPartyWageModel.md
+  - [method-missing-example] L81: `GetCharacterWage`
+
+api/campaign-ext/GatherArmyAction.md
+  - [method-missing-example] L58: `public static void Apply(MobileParty leaderParty, IMapPoint gatheringPoint)`
+  - [method-missing-example] L67: `private static void ApplyInternal(MobileParty leaderParty, IMapPoint gatheringPoint, float playerInvolvement = 0f)`
+
+api/campaign-ext/SiegeEvent.md
+  - [method-missing-example] L214: `public override string ToString()`
+
+api/mission-ext/BaseBattleMissionController.md
+  - [method-missing-example] L56: `AfterStart`
+  - [method-missing-example] L96: `OnMissionTick(float dt)`
+  - [method-missing-example] L100: `MissionEnded(ref MissionResult)`
+  - [method-missing-example] L106: `OnEndMissionRequest(out bool canPlayerLeave)`
+  - [method-missing-example] L112: `OnAgentRemoved`
+
+api/mission-ext/SynchedMissionObject.md
+  - [method-missing-example] L43: `SynchFlags`
+
+api/system/EmbarkDisembarkData.md
+  - [method-missing-example] L34: `Invalid`
+  - [method-missing-example] L40: `IsValidTransition`
+  - [method-missing-example] L46: `NavMeshEdgePosition`
+  - [method-missing-example] L61: `IsTargetingTheDeadZone`
+  - [method-missing-example] L67: `IsTargetingOwnSideOfTheDeadZone`
+
+Scanned 9475 files, 29253 method-purpose lines, 29253 method sections.
+Blockers: 0, Warnings: 23

@@ -1,0 +1,69 @@
+---
+title: "Occupation"
+description: "Occupation：TaleWorlds.CampaignSystem 的 public 枚举；公开成员 34 个（方法 0、属性 0、字段 0）。源文件 TaleWorlds.CampaignSystem/Occupation.cs。"
+---
+# Occupation
+
+**Namespace:** `TaleWorlds.CampaignSystem`
+**Module:** `TaleWorlds.CampaignSystem`
+**Type:** `public enum Occupation`
+**File:** `TaleWorlds.CampaignSystem/Occupation.cs`
+
+## 概述
+
+Occupation 位于 TaleWorlds.CampaignSystem 模块，源文件 TaleWorlds.CampaignSystem/Occupation.cs。它是一个 public 枚举，继承链为 Occupation。public/protected 成员共 34 个：34 枚举值。
+
+> 本页为批量初稿：签名逐条取自 bannerlord-1.4.6 反编译源码，未经改写。每个方法实际做什么、何时调用、有什么风险，请对照源文件方法体阅读。
+
+## 心智模型
+
+结构事实：Occupation 是 TaleWorlds.CampaignSystem 的顶层类型，命名空间与模块目录一致，继承链 Occupation。成员构成以方法为主（方法 0/34，属性 0/34），对外主要以操作入口暴露。本页只列真实签名：每个方法做什么用、何时调用、有哪些坑，需要对照 TaleWorlds.CampaignSystem/Occupation.cs 的方法体或该类型的深写页确认。
+
+## 主要成员
+
+| 成员 | 签名 | 种类 |
+| --- | --- | --- |
+| `NotAssigned` | `NotAssigned` | 枚举值 |
+| `Tavernkeeper` | `Tavernkeeper` | 枚举值 |
+| `Mercenary` | `Mercenary` | 枚举值 |
+| `Lord` | `Lord` | 枚举值 |
+| `GoodsTrader` | `GoodsTrader` | 枚举值 |
+| `ArenaMaster` | `ArenaMaster` | 枚举值 |
+| `Villager` | `Villager` | 枚举值 |
+| `Soldier` | `Soldier` | 枚举值 |
+| `Townsfolk` | `Townsfolk` | 枚举值 |
+| `RansomBroker` | `RansomBroker` | 枚举值 |
+| `Weaponsmith` | `Weaponsmith` | 枚举值 |
+| `Armorer` | `Armorer` | 枚举值 |
+| `HorseTrader` | `HorseTrader` | 枚举值 |
+| `TavernWench` | `TavernWench` | 枚举值 |
+| `TavernGameHost` | `TavernGameHost` | 枚举值 |
+| `Bandit` | `Bandit` | 枚举值 |
+| `Wanderer` | `Wanderer` | 枚举值 |
+| `Artisan` | `Artisan` | 枚举值 |
+| `Merchant` | `Merchant` | 枚举值 |
+| `Preacher` | `Preacher` | 枚举值 |
+| `Headman` | `Headman` | 枚举值 |
+| `GangLeader` | `GangLeader` | 枚举值 |
+| `RuralNotable` | `RuralNotable` | 枚举值 |
+| `PrisonGuard` | `PrisonGuard` | 枚举值 |
+| `Guard` | `Guard` | 枚举值 |
+| `ShopWorker` | `ShopWorker` | 枚举值 |
+| `Musician` | `Musician` | 枚举值 |
+| `Gangster` | `Gangster` | 枚举值 |
+| `Blacksmith` | `Blacksmith` | 枚举值 |
+| `BannerBearer` | `BannerBearer` | 枚举值 |
+| `CaravanGuard` | `CaravanGuard` | 枚举值 |
+| `Special` | `Special` | 枚举值 |
+| `ShipWright` | `ShipWright` | 枚举值 |
+| `NumberOfOccupations` | `NumberOfOccupations` | 枚举值 |
+
+## 参见
+
+- [↑ campaignsystem 模块目录](../)
+- [↑ API 参考](../../)
+- [↑ 版本首页](../../../)
+- [同命名空间 ActionNotes](../ActionNotes)
+- [同命名空间 AIBehaviorData](../AIBehaviorData)
+- [同命名空间 Army](../Army)
+- [同命名空间 AtmosphereGrid](../AtmosphereGrid)

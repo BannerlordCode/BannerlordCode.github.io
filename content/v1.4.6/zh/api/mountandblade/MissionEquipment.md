@@ -1,0 +1,70 @@
+---
+title: "MissionEquipment"
+description: "MissionEquipment：TaleWorlds.MountAndBlade 的 public 类；公开成员 35 个（方法 31、属性 0、字段 0）。源文件 TaleWorlds.MountAndBlade/MissionEquipment.cs。"
+---
+# MissionEquipment
+
+**Namespace:** `TaleWorlds.MountAndBlade`
+**Module:** `TaleWorlds.MountAndBlade`
+**Type:** `public class MissionEquipment`
+**File:** `TaleWorlds.MountAndBlade/MissionEquipment.cs`
+
+## 概述
+
+MissionEquipment 位于 TaleWorlds.MountAndBlade 模块，源文件 TaleWorlds.MountAndBlade/MissionEquipment.cs。它是一个 public 类，继承链为 MissionEquipment。public/protected 成员共 35 个：31 方法、2 构造函数、2 嵌套类型。
+
+> 本页为批量初稿：签名逐条取自 bannerlord-1.4.6 反编译源码，未经改写。每个方法实际做什么、何时调用、有什么风险，请对照源文件方法体阅读。
+
+## 心智模型
+
+结构事实：MissionEquipment 是 TaleWorlds.MountAndBlade 的顶层类型，命名空间与模块目录一致，继承链 MissionEquipment。成员构成以方法为主（方法 31/35，属性 0/35），对外主要以操作入口暴露。本页只列真实签名：每个方法做什么用、何时调用、有哪些坑，需要对照 TaleWorlds.MountAndBlade/MissionEquipment.cs 的方法体或该类型的深写页确认。
+
+## 主要成员
+
+| 成员 | 签名 | 种类 |
+| --- | --- | --- |
+| `MissionEquipment` | `public MissionEquipment()` | 构造函数 |
+| `MissionEquipment` | `public MissionEquipment(Equipment spawnEquipment, Banner banner) : this()` | 构造函数 |
+| `this[...]` | `public MissionWeapon this[int index]` | 索引器 |
+| `this[...]` | `public MissionWeapon this[EquipmentIndex index]` | 索引器 |
+| `FillFrom` | `public void FillFrom(MissionEquipment sourceEquipment)` | 方法 |
+| `FillFrom` | `public void FillFrom(Equipment sourceEquipment, Banner banner)` | 方法 |
+| `GetTotalWeightOfWeapons` | `public float GetTotalWeightOfWeapons()` | 方法 |
+| `SelectWeaponPickUpSlot` | `public static EquipmentIndex SelectWeaponPickUpSlot(Agent agentPickingUp, MissionWeapon weaponBeingPickedUp, bool isStuckMissile)` | 方法 |
+| `HasAmmo` | `public bool HasAmmo(EquipmentIndex equipmentIndex, out int rangedUsageIndex, out bool hasLoadedAmmo, out bool noAmmoInThisSlot)` | 方法 |
+| `GetAmmoAmount` | `public int GetAmmoAmount(EquipmentIndex weaponIndex)` | 方法 |
+| `GetMaxAmmo` | `public int GetMaxAmmo(EquipmentIndex weaponIndex)` | 方法 |
+| `GetAmmoCountAndIndexOfType` | `public void GetAmmoCountAndIndexOfType(ItemObject.ItemTypeEnum itemType, out int ammoCount, out EquipmentIndex eIndex, EquipmentIndex equippedIndex = EquipmentIndex.None)` | 方法 |
+| `DoesWeaponFitToSlot` | `public static bool DoesWeaponFitToSlot(EquipmentIndex slotIndex, MissionWeapon weapon)` | 方法 |
+| `CheckLoadedAmmos` | `public void CheckLoadedAmmos()` | 方法 |
+| `SetUsageIndexOfSlot` | `public void SetUsageIndexOfSlot(EquipmentIndex slotIndex, int usageIndex)` | 方法 |
+| `SetReloadPhaseOfSlot` | `public void SetReloadPhaseOfSlot(EquipmentIndex slotIndex, short reloadPhase)` | 方法 |
+| `SetAmountOfSlot` | `public void SetAmountOfSlot(EquipmentIndex slotIndex, short dataValue, bool addOverflowToMaxAmount = false)` | 方法 |
+| `SetHitPointsOfSlot` | `public void SetHitPointsOfSlot(EquipmentIndex slotIndex, short dataValue, bool addOverflowToMaxHitPoints = false)` | 方法 |
+| `SetReloadedAmmoOfSlot` | `public void SetReloadedAmmoOfSlot(EquipmentIndex slotIndex, EquipmentIndex ammoSlotIndex, short totalAmmo)` | 方法 |
+| `SetConsumedAmmoOfSlot` | `public void SetConsumedAmmoOfSlot(EquipmentIndex slotIndex, short count)` | 方法 |
+| `AttachWeaponToWeaponInSlot` | `public void AttachWeaponToWeaponInSlot(EquipmentIndex slotIndex, ref MissionWeapon weapon, ref MatrixFrame attachLocalFrame)` | 方法 |
+| `HasShield` | `public bool HasShield()` | 方法 |
+| `HasAnyWeapon` | `public bool HasAnyWeapon()` | 方法 |
+| `HasAnyWeaponWithFlags` | `public bool HasAnyWeaponWithFlags(WeaponFlags flags)` | 方法 |
+| `HasAnyWeaponWithItemUsageSetFlags` | `public bool HasAnyWeaponWithItemUsageSetFlags(ItemObject.ItemUsageSetFlags flags)` | 方法 |
+| `GetBanner` | `public ItemObject GetBanner()` | 方法 |
+| `HasRangedWeapon` | `public bool HasRangedWeapon(WeaponClass requiredAmmoClass = WeaponClass.Undefined)` | 方法 |
+| `ContainsNonConsumableRangedWeaponWithAmmo` | `public bool ContainsNonConsumableRangedWeaponWithAmmo()` | 方法 |
+| `ContainsMeleeWeapon` | `public bool ContainsMeleeWeapon()` | 方法 |
+| `ContainsShield` | `public bool ContainsShield()` | 方法 |
+| `ContainsSpear` | `public bool ContainsSpear()` | 方法 |
+| `ContainsThrownWeapon` | `public bool ContainsThrownWeapon()` | 方法 |
+| `SetGlossMultipliersOfWeaponsRandomly` | `public void SetGlossMultipliersOfWeaponsRandomly(int seed)` | 方法 |
+| `CachedBool` | `public enum CachedBool` | 嵌套类型 |
+| `CachedFloat` | `public enum CachedFloat` | 嵌套类型 |
+
+## 参见
+
+- [↑ mountandblade 模块目录](../)
+- [↑ API 参考](../../)
+- [↑ 版本首页](../../../)
+- [同命名空间 ActionIndexCache](../ActionIndexCache)
+- [同命名空间 AgentBuildData](../AgentBuildData)
+- [同命名空间 AgentCapsuleData](../AgentCapsuleData)
+- [同命名空间 AgentCommonAILogic](../AgentCommonAILogic)

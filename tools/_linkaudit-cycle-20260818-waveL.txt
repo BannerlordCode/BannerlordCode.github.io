@@ -1,0 +1,17 @@
+FILES=38652
+TOTAL_LINKS=126412
+AUDIT_MODE=url
+BROKEN_LINKS=0
+RESOLVE_OK_URL=126243
+RESOLVE_OK_FILE=102332
+RESOLVE_OK_EITHER=126243
+RESOLVE_OK_BOTH=102332
+RESOLVE_URL_ONLY=23911
+RESOLVE_FILE_ONLY=0
+RESOLVE_NEITHER=0
+FILES_WITH_BROKEN=0
+
+# Wave #L acceptance: full site link audit after 6 handwritten pages
+# (CampaignCheats / CampaignFactionManagerBehaviour / CampaignInformationManager /
+#  CampaignWarManagerBehavior / SettlementAccessModel / SettlementPatrolModel)
+# BROKEN_LINKS=0 confirms all cross-top-level ../../campaign-ext/ links are valid.

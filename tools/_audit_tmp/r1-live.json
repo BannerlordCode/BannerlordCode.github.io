@@ -1,0 +1,383 @@
+{
+  "generatedAt": "2026-08-03T07:42:10.913Z",
+  "version": "1.3.15",
+  "lang": "zh",
+  "apiRoot": "content/v1.3.15/zh/api",
+  "formula": "r1Target (inventory business − R1-extra noise) − (deep_pass page OR handwritten family purpose entry) = remaining gap",
+  "totalInventoryBusiness": 5483,
+  "r1Target": 4796,
+  "noiseExcludedExtra": 687,
+  "totalBusiness": 4796,
+  "coveredDeep": 64,
+  "coveredFamily": 148,
+  "covered": 212,
+  "gap": 4584,
+  "coverageRate": 0.044204,
+  "gapSample": [
+    {
+      "typeName": "AIDifficulty",
+      "namespace": "Helpers",
+      "kind": "enum"
+    },
+    {
+      "typeName": "AiHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "AlleyHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "BannerHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "BarterHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "BoardGameHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "BoardGameState",
+      "namespace": "Helpers",
+      "kind": "enum"
+    },
+    {
+      "typeName": "BuildingHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "CaravanHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "CharacterHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "CraftingHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "DialogHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "DiplomacyHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "DistanceHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "EmbarkDisembarkData",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "EquipmentHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "FactionHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "HeroHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "IncidentHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "InventoryCategoryType",
+      "namespace": "Helpers",
+      "kind": "enum"
+    },
+    {
+      "typeName": "InventoryItemType",
+      "namespace": "Helpers",
+      "kind": "enum"
+    },
+    {
+      "typeName": "InventoryMode",
+      "namespace": "Helpers",
+      "kind": "enum"
+    },
+    {
+      "typeName": "InventoryScreenHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "ItemHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "MapEventHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "MenuHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "MiscHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "MobilePartyHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "NavigationHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "PartyBaseHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "PartyScreenHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "PartyScreenMode",
+      "namespace": "Helpers",
+      "kind": "enum"
+    },
+    {
+      "typeName": "PerkHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "PersuasionHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "PortStateHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "QuestHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "SettlementHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "ShipHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "SkillHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "StringHelpers",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "TeleportationHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "TooltipHelper",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "TownHelpers",
+      "namespace": "Helpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "BannerHelper",
+      "namespace": "MBHelpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "MultiplayerItemTestMissionController",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "PreloadState",
+      "namespace": "Sandbox.View.GameStates",
+      "kind": "class"
+    },
+    {
+      "typeName": "ActionNotes",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum"
+    },
+    {
+      "typeName": "AIBehaviorData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "struct"
+    },
+    {
+      "typeName": "ArmyDispersionReason",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum"
+    },
+    {
+      "typeName": "ArmyTypes",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum"
+    }
+  ],
+  "sTierMiss": [],
+  "sTierInScope": 62,
+  "sTierCovered": 62,
+  "gapCategoriesTop": [
+    {
+      "prefix": "TaleWorlds.CampaignSystem",
+      "count": 1690
+    },
+    {
+      "prefix": "TaleWorlds.MountAndBlade",
+      "count": 1511
+    },
+    {
+      "prefix": "TaleWorlds.Core",
+      "count": 320
+    },
+    {
+      "prefix": "TaleWorlds.Engine",
+      "count": 202
+    },
+    {
+      "prefix": "TaleWorlds.Library",
+      "count": 201
+    },
+    {
+      "prefix": "TaleWorlds.GauntletUI",
+      "count": 191
+    },
+    {
+      "prefix": "TaleWorlds.TwoDimension",
+      "count": 126
+    },
+    {
+      "prefix": "TaleWorlds.SaveSystem",
+      "count": 102
+    },
+    {
+      "prefix": "TaleWorlds.Localization",
+      "count": 52
+    },
+    {
+      "prefix": "TaleWorlds.DotNet",
+      "count": 48
+    },
+    {
+      "prefix": "Helpers",
+      "count": 43
+    },
+    {
+      "prefix": "TaleWorlds.Network",
+      "count": 38
+    },
+    {
+      "prefix": "TaleWorlds.InputSystem",
+      "count": 20
+    },
+    {
+      "prefix": "TaleWorlds.ObjectSystem",
+      "count": 17
+    },
+    {
+      "prefix": "TaleWorlds.ModuleManager",
+      "count": 9
+    },
+    {
+      "prefix": "TaleWorlds.ScreenSystem",
+      "count": 6
+    },
+    {
+      "prefix": "TaleWorlds.LinQuick",
+      "count": 3
+    },
+    {
+      "prefix": "TaleWorlds.Starter",
+      "count": 2
+    },
+    {
+      "prefix": "MBHelpers",
+      "count": 1
+    },
+    {
+      "prefix": "SandBox",
+      "count": 1
+    },
+    {
+      "prefix": "Sandbox.View",
+      "count": 1
+    }
+  ],
+  "meta": {
+    "scope": "content/v1.3.15/zh/api",
+    "version": "1.3.15",
+    "language": "zh",
+    "sourceFingerprint": "26e6a105a37e921988797e652e6460b29c5f41497812e7d6ca0bf73166d1c39b",
+    "gitSha": "fdcbc28dbd6f87e9447f91edf92e4bd598161410",
+    "command": "C:\\WorkSpace\\Bannerlord\\BannerlordCode.github.io\\tools\\r1-coverage-report.mjs --version 1.3.15 --lang zh --out tools\\_audit_tmp\\r1-live.json --gap-out tools\\_audit_tmp\\gaps-live.json",
+    "inventorySkippedNoise": 140,
+    "inventorySkippedBaseNoise": 140,
+    "noiseExcludedExtra": 687,
+    "totalInventoryBusiness": 5483,
+    "r1Target": 4796,
+    "previousTotalBusiness": 5483,
+    "pageClassCounts": {
+      "stub": 5521,
+      "deep_pass": 64,
+      "family_entry_pass": 3,
+      "noise": 29
+    },
+    "deepPassPages": 64,
+    "familyEntryPages": 3,
+    "familyPurposeTypeNames": 160,
+    "deepPassTypeNames": 64,
+    "r1ExtraNoise": "NetworkMessages.*; Messages.From*/To*/BattleServer*/CustomBattleServer*/Lobby* (+ remaining Messages.*); top-level BattleServer*/CustomBattleServer*/Lobby*; psai.*; type IMB*/BattleServer*/CustomBattleServer*/Lobby*",
+    "note": "COVERED if an R1-target inventory identity has a deep_pass page declaring the same qualified (version, language, namespace, typeName) identity OR a qualified handwritten family entry. Unqualified family entries count only when the simple name is unique in inventory. Formulaic purposes do not count. S-tier requires standalone deep pages. R1-extra noise stays inventory-listable but is out of the denominator."
+  }
+}

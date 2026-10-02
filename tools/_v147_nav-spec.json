@@ -1,0 +1,1207 @@
+{
+  "artifact": "tools/_v147_nav-spec.json",
+  "version": "v1.4.7",
+  "authoritativeSource": "tools/_dir-map-canonical.json",
+  "schemaVersion": 3,
+  "provenance": {
+    "bucketsFrom": "tools/_dir-map-canonical.json rules[] + entryPointDirs (via tools/_v147_treespec.json allDirs); boardgames dropped because it projects zero types",
+    "linkRulesFrom": "tools/_dir-map-canonical.json linkRules (imported verbatim, not restated)",
+    "parityGapsFrom": "tools/_dir-map-canonical.json parityGaps[] (imported verbatim, not restated)",
+    "resolutionOrderFrom": "tools/_dir-map-canonical.json resolutionOrder (imported verbatim)"
+  },
+  "metaPatch": {
+    "_instruction": "Hand patch of data/navigation.json meta.versions. This array is the on/off switch.",
+    "file": "data/navigation.json",
+    "key": "meta.versions",
+    "before": [
+      "v1.3.15",
+      "v1.3.0",
+      "v1.4.5"
+    ],
+    "after": [
+      "v1.4.7",
+      "v1.3.15",
+      "v1.3.0",
+      "v1.4.5",
+      "v1.4.6"
+    ],
+    "readBy": [
+      "templates/macros/sidebar.html:21",
+      "templates/macros/sidebar.html:120",
+      "templates/partials/topnav.html:6,36,53,70,87,113,130"
+    ],
+    "note": "v1.4.6 also added: content/v1.4.6/ exists on disk but was absent from meta.versions, which is why tools/audit-navigation.mjs reports \"missing section route /v1.4.6/zh/api/\"."
+  },
+  "linkRules": {
+    "_principle": "Links are resolved ROUTE-relative: every page route is its own directory, so one '..' pops exactly one path segment. fs.existsSync on the joined path is NOT a valid check - wrong-level links exist as files.",
+    "leafToSibling": "../<Name>",
+    "leafToCrossBucket": "../../<other-bucket>/<Name>",
+    "leafToSectionIndex": "../",
+    "bucketIndexToLeaf": "./<Name>",
+    "bucketIndexToParentIndex": "../",
+    "bucketIndexToLangRoot": "../../",
+    "apiIndexToLangRoot": "../",
+    "architectureToApiLeaf": "../../api/<bucket>/<Name>",
+    "forbidden": [
+      "content/ anywhere in an href - repo-root-relative leakage",
+      "a version segment inside a SAME-version link",
+      "../<bucket>/<Name> from a leaf page - one level short, only reachable as a sibling",
+      "./<Name> from a leaf page - dot-slash is legal only from a bucket _index.md"
+    ],
+    "evidence": "shipped v1.4.5 zh/api uses 2+ '../' for 5215 cross-bucket links; the generated 1.4.7 tree emitted only 40 such links and 4135 one-'../' links carrying a bucket name, which is the defect signature",
+    "gate": "For every emitted relative link: route(from) = the page's own route ending in '/'; target = normalize(route(from) + href) popping one segment per '..' and dropping '.'; assert exists(content/<target>.md) || exists(content/<target>/_index.md). PLUS a complementary reverse assertion on forbidden substrings - depth-only checks cannot see a wrong prefix, and a fix that satisfies the check which caught the previous bug can satisfy it while introducing a different bug.",
+    "popToSiteRoot": "pops-to-site-root == number of segments in the page's OWN route. A leaf route v1.4.7/zh/architecture/version-delta/ has 4 segments and needs FOUR '../'; a section-index route v1.4.7/zh/architecture/ has 3 and needs THREE. Same-version links never need this (they stay inside the tree); cross-version links climb to the site root and therefore need the full pop count.",
+    "crossVersion": "../ x(popToSiteRoot) / <version> / <lang> / <section> / <Name>. The language segment must match the TARGET tree, not the source. Verified correct: leaf -> ../../../../v1.4.5/zh/architecture/ ; index -> ../../../v1.4.5/zh/architecture/",
+    "allowed": [
+      "../<Name> (leaf -> same-bucket sibling)",
+      "../../<other-bucket>/<Name> (leaf -> cross-bucket)",
+      "../ (leaf or bucket index -> section index)",
+      "./<Name> (bucket _index.md -> its leaf)",
+      "cross-version: ('../' x popToSiteRoot) + <version>/<lang>/<section>/<Name>"
+    ],
+    "_forbiddenNote": "Refined from a blanket rule after lead-2 proved it wrong: 'no v1. in any href' would ban the ONLY correct form of a cross-version link, and would have flagged 6 genuinely-broken links as rule-compliant while leaving them broken. It mistakes the symptom for the disease. A cross-version href legitimately contains a version segment; what is forbidden is a version segment inside a SAME-version link."
+  },
+  "resolutionOrder": [
+    "1. excludeNamespaces / excludeSuffixes / sourceTypoNamespaces  -> hard skip, no page, counted separately",
+    "2. rules[] -> longest-prefix-wins. Record the matched rule (dirRule) but DO NOT return early.",
+    "3. entryPointDirs -> override by exact case-sensitive simple type name. This step runs for EVERY type, including those whose namespace already matched a prefix rule in step 2. If no override matches, keep the step-2 result.",
+    "4. defaultDir (core-extra) if step 2 matched nothing AND step 3 has no entry -> also record in unmapped"
+  ],
+  "parityGaps": [
+    {
+      "id": "no-gameplay-bucket",
+      "from": "1.4.5/gameplay/",
+      "to": "(none)",
+      "pages": 19,
+      "reason": "The 1.4.5 gameplay/ bucket is semantically mixed: it holds SandBox(4), StoryMode.*(4) and bare TaleWorlds.MountAndBlade types (AgentNavigator, MapAudioManager, OppositionData, DelayedAction, NameplateSize, ...). No namespace rule can reproduce it. Bucket deliberately NOT created - SandBox* -> sandbox and StoryMode* -> storymode, which match the real namespaces.",
+      "decision": "accept the 19-URL break; do not invent a bucket to make numbers line up"
+    },
+    {
+      "id": "mission-bulk-to-mission-ext",
+      "from": "1.4.5/mission/",
+      "to": "mission-ext/",
+      "pages": 52,
+      "reason": "52 of 1.4.5's 78 mission/ pages are bare TaleWorlds.MountAndBlade types (Agent, Formation, ActionIndexCache, AutoGeneratedSaveManager, BannerTextureCreator, AgentHelper, GenericMissionObjective, ...). That is a hand-picked modder entry list no namespace rule can reproduce; faking parity would mean shredding the ~850-page mission-ext bucket and hand-maintaining a list.",
+      "decision": "accept; mission/ stays a small intentional entry-class carve-out with bidirectional links to ../mission-ext/"
+    },
+    {
+      "id": "game-to-core-extra",
+      "from": "1.4.5/core/Game.md",
+      "to": "core-extra/Game.md",
+      "pages": 1,
+      "reason": "Game is namespace TaleWorlds.Core, which the prefix rules route to core-extra. 1.4.5 happens to keep a copy in core/ (and a duplicate in core-extra/).",
+      "decision": "accept the 1-URL move; namespace consistency beats copying a legacy duplicate"
+    },
+    {
+      "id": "missionstate-to-mission",
+      "from": "1.4.5 mission-ext/MissionState.md (+ campaign-ext duplicate)",
+      "to": "mission/MissionState.md",
+      "pages": 1,
+      "reason": "1.4.5 has MissionState duplicated in campaign-ext/ and mission-ext/ and no mission/ copy. The entryPointDirs carve-out groups it with Mission/Agent/Formation for modders.",
+      "decision": "accept the 1-URL break for modder-facing grouping"
+    },
+    {
+      "id": "boardgames-bucket-removed",
+      "from": "1.4.5/boardgames/",
+      "to": "sandbox/",
+      "pages": 2,
+      "reason": "1.5.3 has no TaleWorlds.BoardGames namespace (grep 0 hits); the 43 board-game types live in SandBox.BoardGames* child namespaces, which the SandBox -> sandbox rule already routes to sandbox/.",
+      "decision": "do not create an empty bucket; a rule that can never match plus a permanently empty bucket is exactly the silent failure the non-empty assertion exists to catch"
+    }
+  ],
+  "invariants": {
+    "oneTypeOnePath": "A type has exactly one .md file. Same-directory collisions use <NamespaceLeaf>__<TypeName>.md. The 1.4.5 tree had 2,199 duplicated type names and 171 of 513 namespaces split across buckets.",
+    "everyDirectoryHasIndex": "Every directory under content/v1.4.7/** contains an _index.md. Without it Zola does not build page.ancestors, so templates/macros/breadcrumb.html:10 stops early and the reader cannot walk back up.",
+    "zhEnParity": "The zh and en trees have identical directory sets and identical _index.md sets. 1.4.5 violates this (zh/api/gameplay has 18 pages, en/api/gameplay does not exist).",
+    "popToSiteRoot": "pops-to-site-root == the number of segments in the page own route. Same-version links never need it; cross-version links must climb to the site root and therefore carry the full pop count plus <version>/<lang>/<section>.",
+    "forbidden": [
+      "content/ anywhere in an href - repo-root-relative leakage",
+      "a version segment inside a SAME-version link",
+      "../<bucket>/<Name> from a leaf page - one level short, only reachable as a sibling",
+      "./<Name> from a leaf page - dot-slash is legal only from a bucket _index.md"
+    ],
+    "landingDistance": "No route more than 3 levels below /v1.4.7/{lang}/ — tools/audit-navigation.mjs checkLandingDistance(expected, errors, 3).",
+    "routeCountZeroOrphan": "Every route in data/navigation.json must correspond to a file on disk, else tools/audit-navigation.mjs reports \"navigation route is not a content section\"."
+  },
+  "noModuleManager": "There is NO ModuleManager type in any version (artifact entryPointDirs._noModuleManager). No such page or route exists or is specified.",
+  "bucketsNotCreated": [
+    "gameplay",
+    "navigationsystem",
+    "boardgames",
+    "screensystem",
+    "view",
+    "perks",
+    "final"
+  ],
+  "notCreatedReason": "gameplay and navigationsystem are ruled out by the Lead (parity gaps no-gameplay-bucket, and TaleWorlds.NavigationSystem -> core-extra). boardgames projects zero types (no TaleWorlds.BoardGames namespace). screensystem was reversed to gui. view/perks/final are 1.4.5-only shells with no canonical rule.",
+  "bidirectionalLadder": {
+    "_principle": "This is the acceptance criterion for \"the site sends me somewhere unrelated and I cannot get back\".",
+    "hops": [
+      {
+        "step": 1,
+        "from": "leaf  api/<bucket>/<Type>.md",
+        "to": "same-directory index  api/<bucket>/",
+        "link": "../",
+        "route": "/v1.4.7/{lang}/api/<bucket>/",
+        "renderNote": "templates/macros/page-navigation.html:29-30 renders this as the Parent link on every leaf"
+      },
+      {
+        "step": 2,
+        "from": "bucket index  api/<bucket>/_index.md",
+        "to": "API hub  api/_index.md",
+        "link": "../",
+        "route": "/v1.4.7/{lang}/api/"
+      },
+      {
+        "step": 3,
+        "from": "API hub  api/_index.md",
+        "to": "language home  _index.md",
+        "link": "../",
+        "route": "/v1.4.7/{lang}/"
+      },
+      {
+        "step": 4,
+        "from": "language home  _index.md",
+        "to": "site home  content/_index.md",
+        "link": "../../",
+        "route": "/"
+      },
+      {
+        "step": 5,
+        "from": "site home",
+        "to": "any version or section",
+        "link": "./v1.4.7/{lang}/",
+        "route": "/v1.4.7/{lang}/"
+      }
+    ],
+    "siblingMovement": {
+      "insideBucket": "Every bucket _index.md lists every one of its leaf pages, so sideways movement inside a bucket is one click.",
+      "acrossBuckets": "Every bucket _index.md links to all 18 sibling bucket indexes via ../<bucket>/. The two carve-out buckets mission/ and core/ additionally state, in their first paragraph, that the bulk surface is in ../mission-ext/ and ../core-extra/, and mission-ext/_index.md and core-extra/_index.md point back.",
+      "atRuntime": "templates/macros/page-navigation.html:33-42 renders prev/next for the adjacent leaves in the same directory; :45-53 renders a Related row from nav.routes[parent].children.",
+      "upChain": "templates/macros/breadcrumb.html renders root -> every ancestor section -> current title, driven by Zola page.ancestors. This only works if every directory has an _index.md."
+    }
+  },
+  "filePatches": [
+    {
+      "file": "data/navigation.json",
+      "action": "hand patch",
+      "change": "meta.versions + routes + \"/\".children",
+      "why": "meta.versions is the sidebar on/off switch; routes are what the sidebar and breadcrumb walk",
+      "rootChildrenBefore": [
+        "/v1.3.0/",
+        "/v1.3.15/",
+        "/v1.4.5/",
+        "/versions/"
+      ],
+      "rootChildrenAfter": [
+        "/v1.3.0/",
+        "/v1.3.15/",
+        "/v1.4.5/",
+        "/v1.4.7/",
+        "/v1.4.6/",
+        "/versions/"
+      ]
+    },
+    {
+      "file": "data/section-tree.json",
+      "action": "regenerate",
+      "cmd": "node tools/generate-section-tree.mjs",
+      "why": "generated from content/; supplies byRoute[*].subsections which the sidebar reads at line 71-77"
+    },
+    {
+      "file": "data/page-navigation.json",
+      "action": "regenerate",
+      "cmd": "node tools/generate-page-navigation.mjs",
+      "why": "per-leaf parent + prev/next index; 18 MB, never hand-edited"
+    },
+    {
+      "file": "data/relkey_map.json",
+      "action": "regenerate after patching its generator",
+      "cmd": "node tools/generate-relkey-map.mjs",
+      "why": "tools/generate-relkey-map.mjs:22 hardcodes const VERSIONS = [v1.3.15, v1.3.0, v1.4.5] — the only generator with a hardcoded version list"
+    },
+    {
+      "file": "tools/generate-relkey-map.mjs",
+      "action": "hand patch line 22",
+      "change": "const VERSIONS = ['v1.4.7', 'v1.4.6', 'v1.3.15', 'v1.3.0', 'v1.4.5'];",
+      "why": "without it the version dropdown always falls back to the version home instead of the equivalent page"
+    },
+    {
+      "file": "content/_index.md",
+      "action": "hand patch",
+      "change": "version picker table row + SECTION INDEX block entry",
+      "why": "otherwise /v1.4.7/ is reachable only by typing the URL"
+    },
+    {
+      "file": "templates/partials/topnav.html",
+      "action": "NO CHANGE REQUIRED",
+      "why": "its only hardcoded version (line 7, v1.3.15) is a fallback for unknown paths; all six dropdowns loop nav.meta.versions, so adding the version to the array is enough"
+    },
+    {
+      "file": "templates/macros/sidebar.html",
+      "action": "NO CHANGE REQUIRED",
+      "why": "fully data-driven; grep for a version pattern or api/<slug> returns 0 hits"
+    },
+    {
+      "file": "templates/partials/sidebar.html",
+      "action": "NO CHANGE REQUIRED",
+      "why": "six lines, resolves current_url and lang then calls the macro"
+    },
+    {
+      "file": "config.toml",
+      "action": "NO CHANGE REQUIRED",
+      "why": "grep for a version pattern returns 0 hits; Zola has no per-version configuration here"
+    },
+    {
+      "file": "content/versions/**",
+      "action": "out of scope for worker-16",
+      "why": "20 curated per-class delta pages cover 1.3.0/1.3.15/1.4.5 only; they need a 1.4.7 column regenerated via tools/class-version-diff.mjs"
+    }
+  ],
+  "routes": {
+    "/v1.4.7/": {
+      "group": "start",
+      "collapsed": false,
+      "order": 3,
+      "parent": "/",
+      "children": [
+        "/v1.4.7/zh/",
+        "/v1.4.7/en/"
+      ]
+    },
+    "/v1.4.7/zh/": {
+      "label": {
+        "core": "Core 核心",
+        "core-extra": "Core-Extra 核心扩展",
+        "mission": "Mission 任务系统",
+        "mission-ext": "Mission-Ext 战斗扩展",
+        "campaign": "Campaign 战役系统",
+        "campaign-ext": "Campaign-Ext 战役扩展",
+        "gui": "GUI 界面",
+        "save-system": "Save System 存档系统",
+        "viewmodel": "ViewModel 数据视图模型",
+        "localization": "Localization 本地化",
+        "engine": "Engine 引擎",
+        "system": "System 系统层",
+        "custombattle": "CustomBattle 自定义战斗",
+        "modulemanager": "ModuleManager 模块清单",
+        "network": "Network 网络通道",
+        "sandbox": "SandBox 沙盒模块",
+        "storymode": "StoryMode 主线模块",
+        "activitysystem": "ActivitySystem 活动系统",
+        "achievementsystem": "AchievementSystem 成就系统"
+      },
+      "group": "start",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.7/",
+      "children": [
+        "/v1.4.7/zh/api/",
+        "/v1.4.7/zh/architecture/"
+      ]
+    },
+    "/v1.4.7/zh/api/": {
+      "label": {
+        "core": "Core 核心",
+        "core-extra": "Core-Extra 核心扩展",
+        "mission": "Mission 任务系统",
+        "mission-ext": "Mission-Ext 战斗扩展",
+        "campaign": "Campaign 战役系统",
+        "campaign-ext": "Campaign-Ext 战役扩展",
+        "gui": "GUI 界面",
+        "save-system": "Save System 存档系统",
+        "viewmodel": "ViewModel 数据视图模型",
+        "localization": "Localization 本地化",
+        "engine": "Engine 引擎",
+        "system": "System 系统层",
+        "custombattle": "CustomBattle 自定义战斗",
+        "modulemanager": "ModuleManager 模块清单",
+        "network": "Network 网络通道",
+        "sandbox": "SandBox 沙盒模块",
+        "storymode": "StoryMode 主线模块",
+        "activitysystem": "ActivitySystem 活动系统",
+        "achievementsystem": "AchievementSystem 成就系统"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/v1.4.7/zh/",
+      "children": [
+        "/v1.4.7/zh/api/core/",
+        "/v1.4.7/zh/api/core-extra/",
+        "/v1.4.7/zh/api/mission/",
+        "/v1.4.7/zh/api/mission-ext/",
+        "/v1.4.7/zh/api/campaign/",
+        "/v1.4.7/zh/api/campaign-ext/",
+        "/v1.4.7/zh/api/gui/",
+        "/v1.4.7/zh/api/save-system/",
+        "/v1.4.7/zh/api/viewmodel/",
+        "/v1.4.7/zh/api/localization/",
+        "/v1.4.7/zh/api/engine/",
+        "/v1.4.7/zh/api/system/",
+        "/v1.4.7/zh/api/custombattle/",
+        "/v1.4.7/zh/api/modulemanager/",
+        "/v1.4.7/zh/api/network/",
+        "/v1.4.7/zh/api/sandbox/",
+        "/v1.4.7/zh/api/storymode/",
+        "/v1.4.7/zh/api/activitysystem/",
+        "/v1.4.7/zh/api/achievementsystem/"
+      ]
+    },
+    "/v1.4.7/zh/architecture/": {
+      "label": {
+        "core": "Core 核心",
+        "core-extra": "Core-Extra 核心扩展",
+        "mission": "Mission 任务系统",
+        "mission-ext": "Mission-Ext 战斗扩展",
+        "campaign": "Campaign 战役系统",
+        "campaign-ext": "Campaign-Ext 战役扩展",
+        "gui": "GUI 界面",
+        "save-system": "Save System 存档系统",
+        "viewmodel": "ViewModel 数据视图模型",
+        "localization": "Localization 本地化",
+        "engine": "Engine 引擎",
+        "system": "System 系统层",
+        "custombattle": "CustomBattle 自定义战斗",
+        "modulemanager": "ModuleManager 模块清单",
+        "network": "Network 网络通道",
+        "sandbox": "SandBox 沙盒模块",
+        "storymode": "StoryMode 主线模块",
+        "activitysystem": "ActivitySystem 活动系统",
+        "achievementsystem": "AchievementSystem 成就系统"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.7/zh/",
+      "children": []
+    },
+    "/v1.4.7/zh/api/core/": {
+      "label": "Core 核心",
+      "group": "api",
+      "collapsed": true,
+      "order": 0,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 2,
+      "_carveOutOf": "/v1.4.7/zh/api/core-extra/"
+    },
+    "/v1.4.7/zh/api/core-extra/": {
+      "label": "Core-Extra 核心扩展",
+      "group": "api",
+      "collapsed": true,
+      "order": 1,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 56
+    },
+    "/v1.4.7/zh/api/mission/": {
+      "label": "Mission 任务系统",
+      "group": "api",
+      "collapsed": true,
+      "order": 2,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 4,
+      "_carveOutOf": "/v1.4.7/zh/api/mission-ext/"
+    },
+    "/v1.4.7/zh/api/mission-ext/": {
+      "label": "Mission-Ext 战斗扩展",
+      "group": "api",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 518
+    },
+    "/v1.4.7/zh/api/campaign/": {
+      "label": "Campaign 战役系统",
+      "group": "api",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 192
+    },
+    "/v1.4.7/zh/api/campaign-ext/": {
+      "label": "Campaign-Ext 战役扩展",
+      "group": "api",
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 73
+    },
+    "/v1.4.7/zh/api/gui/": {
+      "label": "GUI 界面",
+      "group": "api",
+      "collapsed": true,
+      "order": 6,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 72
+    },
+    "/v1.4.7/zh/api/save-system/": {
+      "label": "Save System 存档系统",
+      "group": "api",
+      "collapsed": true,
+      "order": 7,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 28
+    },
+    "/v1.4.7/zh/api/viewmodel/": {
+      "label": "ViewModel 数据视图模型",
+      "group": "api",
+      "collapsed": true,
+      "order": 8,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 357
+    },
+    "/v1.4.7/zh/api/localization/": {
+      "label": "Localization 本地化",
+      "group": "api",
+      "collapsed": true,
+      "order": 9,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 24
+    },
+    "/v1.4.7/zh/api/engine/": {
+      "label": "Engine 引擎",
+      "group": "api",
+      "collapsed": true,
+      "order": 10,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 41
+    },
+    "/v1.4.7/zh/api/system/": {
+      "label": "System 系统层",
+      "group": "api",
+      "collapsed": true,
+      "order": 11,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 6
+    },
+    "/v1.4.7/zh/api/custombattle/": {
+      "label": "CustomBattle 自定义战斗",
+      "group": "api",
+      "collapsed": true,
+      "order": 12,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 21
+    },
+    "/v1.4.7/zh/api/modulemanager/": {
+      "label": "ModuleManager 模块清单",
+      "group": "api",
+      "collapsed": true,
+      "order": 13,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 6
+    },
+    "/v1.4.7/zh/api/network/": {
+      "label": "Network 网络通道",
+      "group": "api",
+      "collapsed": true,
+      "order": 14,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 6
+    },
+    "/v1.4.7/zh/api/sandbox/": {
+      "label": "SandBox 沙盒模块",
+      "group": "api",
+      "collapsed": true,
+      "order": 15,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 321
+    },
+    "/v1.4.7/zh/api/storymode/": {
+      "label": "StoryMode 主线模块",
+      "group": "api",
+      "collapsed": true,
+      "order": 16,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 74
+    },
+    "/v1.4.7/zh/api/activitysystem/": {
+      "label": "ActivitySystem 活动系统",
+      "group": "api",
+      "collapsed": true,
+      "order": 17,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 6
+    },
+    "/v1.4.7/zh/api/achievementsystem/": {
+      "label": "AchievementSystem 成就系统",
+      "group": "api",
+      "collapsed": true,
+      "order": 18,
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "_leafPageCount": 4
+    },
+    "/v1.4.7/en/": {
+      "label": {
+        "core": "Core",
+        "core-extra": "Core-Extra",
+        "mission": "Mission",
+        "mission-ext": "Mission-Ext",
+        "campaign": "Campaign",
+        "campaign-ext": "Campaign-Ext",
+        "gui": "GUI",
+        "save-system": "Save System",
+        "viewmodel": "ViewModel",
+        "localization": "Localization",
+        "engine": "Engine",
+        "system": "System",
+        "custombattle": "CustomBattle",
+        "modulemanager": "ModuleManager",
+        "network": "Network",
+        "sandbox": "SandBox",
+        "storymode": "StoryMode",
+        "activitysystem": "ActivitySystem",
+        "achievementsystem": "AchievementSystem"
+      },
+      "group": "start",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.7/",
+      "children": [
+        "/v1.4.7/en/api/",
+        "/v1.4.7/en/architecture/"
+      ]
+    },
+    "/v1.4.7/en/api/": {
+      "label": {
+        "core": "Core",
+        "core-extra": "Core-Extra",
+        "mission": "Mission",
+        "mission-ext": "Mission-Ext",
+        "campaign": "Campaign",
+        "campaign-ext": "Campaign-Ext",
+        "gui": "GUI",
+        "save-system": "Save System",
+        "viewmodel": "ViewModel",
+        "localization": "Localization",
+        "engine": "Engine",
+        "system": "System",
+        "custombattle": "CustomBattle",
+        "modulemanager": "ModuleManager",
+        "network": "Network",
+        "sandbox": "SandBox",
+        "storymode": "StoryMode",
+        "activitysystem": "ActivitySystem",
+        "achievementsystem": "AchievementSystem"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/v1.4.7/en/",
+      "children": [
+        "/v1.4.7/en/api/core/",
+        "/v1.4.7/en/api/core-extra/",
+        "/v1.4.7/en/api/mission/",
+        "/v1.4.7/en/api/mission-ext/",
+        "/v1.4.7/en/api/campaign/",
+        "/v1.4.7/en/api/campaign-ext/",
+        "/v1.4.7/en/api/gui/",
+        "/v1.4.7/en/api/save-system/",
+        "/v1.4.7/en/api/viewmodel/",
+        "/v1.4.7/en/api/localization/",
+        "/v1.4.7/en/api/engine/",
+        "/v1.4.7/en/api/system/",
+        "/v1.4.7/en/api/custombattle/",
+        "/v1.4.7/en/api/modulemanager/",
+        "/v1.4.7/en/api/network/",
+        "/v1.4.7/en/api/sandbox/",
+        "/v1.4.7/en/api/storymode/",
+        "/v1.4.7/en/api/activitysystem/",
+        "/v1.4.7/en/api/achievementsystem/"
+      ]
+    },
+    "/v1.4.7/en/architecture/": {
+      "label": {
+        "core": "Core",
+        "core-extra": "Core-Extra",
+        "mission": "Mission",
+        "mission-ext": "Mission-Ext",
+        "campaign": "Campaign",
+        "campaign-ext": "Campaign-Ext",
+        "gui": "GUI",
+        "save-system": "Save System",
+        "viewmodel": "ViewModel",
+        "localization": "Localization",
+        "engine": "Engine",
+        "system": "System",
+        "custombattle": "CustomBattle",
+        "modulemanager": "ModuleManager",
+        "network": "Network",
+        "sandbox": "SandBox",
+        "storymode": "StoryMode",
+        "activitysystem": "ActivitySystem",
+        "achievementsystem": "AchievementSystem"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.7/en/",
+      "children": []
+    },
+    "/v1.4.7/en/api/core/": {
+      "label": "Core",
+      "group": "api",
+      "collapsed": true,
+      "order": 0,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 0,
+      "_carveOutOf": "/v1.4.7/en/api/core-extra/"
+    },
+    "/v1.4.7/en/api/core-extra/": {
+      "label": "Core-Extra",
+      "group": "api",
+      "collapsed": true,
+      "order": 1,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 54
+    },
+    "/v1.4.7/en/api/mission/": {
+      "label": "Mission",
+      "group": "api",
+      "collapsed": true,
+      "order": 2,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 0,
+      "_carveOutOf": "/v1.4.7/en/api/mission-ext/"
+    },
+    "/v1.4.7/en/api/mission-ext/": {
+      "label": "Mission-Ext",
+      "group": "api",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 518
+    },
+    "/v1.4.7/en/api/campaign/": {
+      "label": "Campaign",
+      "group": "api",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 189
+    },
+    "/v1.4.7/en/api/campaign-ext/": {
+      "label": "Campaign-Ext",
+      "group": "api",
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 71
+    },
+    "/v1.4.7/en/api/gui/": {
+      "label": "GUI",
+      "group": "api",
+      "collapsed": true,
+      "order": 6,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 72
+    },
+    "/v1.4.7/en/api/save-system/": {
+      "label": "Save System",
+      "group": "api",
+      "collapsed": true,
+      "order": 7,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 25
+    },
+    "/v1.4.7/en/api/viewmodel/": {
+      "label": "ViewModel",
+      "group": "api",
+      "collapsed": true,
+      "order": 8,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 357
+    },
+    "/v1.4.7/en/api/localization/": {
+      "label": "Localization",
+      "group": "api",
+      "collapsed": true,
+      "order": 9,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 24
+    },
+    "/v1.4.7/en/api/engine/": {
+      "label": "Engine",
+      "group": "api",
+      "collapsed": true,
+      "order": 10,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 41
+    },
+    "/v1.4.7/en/api/system/": {
+      "label": "System",
+      "group": "api",
+      "collapsed": true,
+      "order": 11,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 6
+    },
+    "/v1.4.7/en/api/custombattle/": {
+      "label": "CustomBattle",
+      "group": "api",
+      "collapsed": true,
+      "order": 12,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 21
+    },
+    "/v1.4.7/en/api/modulemanager/": {
+      "label": "ModuleManager",
+      "group": "api",
+      "collapsed": true,
+      "order": 13,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 6
+    },
+    "/v1.4.7/en/api/network/": {
+      "label": "Network",
+      "group": "api",
+      "collapsed": true,
+      "order": 14,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 6
+    },
+    "/v1.4.7/en/api/sandbox/": {
+      "label": "SandBox",
+      "group": "api",
+      "collapsed": true,
+      "order": 15,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 321
+    },
+    "/v1.4.7/en/api/storymode/": {
+      "label": "StoryMode",
+      "group": "api",
+      "collapsed": true,
+      "order": 16,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 74
+    },
+    "/v1.4.7/en/api/activitysystem/": {
+      "label": "ActivitySystem",
+      "group": "api",
+      "collapsed": true,
+      "order": 17,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 6
+    },
+    "/v1.4.7/en/api/achievementsystem/": {
+      "label": "AchievementSystem",
+      "group": "api",
+      "collapsed": true,
+      "order": 18,
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "_leafPageCount": 4
+    }
+  },
+  "prevNext": {
+    "/v1.4.7/": {
+      "parent": "/",
+      "children": [
+        "/v1.4.7/zh/",
+        "/v1.4.7/en/"
+      ],
+      "prev": "/v1.4.7/en/",
+      "next": "/v1.4.7/en/",
+      "note": "Prev/next here are the first/last child; per-leaf prev/next is generated into data/page-navigation.json by tools/generate-page-navigation.mjs."
+    },
+    "/v1.4.7/zh/": {
+      "parent": "/v1.4.7/",
+      "children": [
+        "/v1.4.7/zh/api/",
+        "/v1.4.7/zh/architecture/"
+      ],
+      "prev": "/v1.4.7/zh/architecture/",
+      "next": "/v1.4.7/zh/architecture/",
+      "note": "Prev/next here are the first/last child; per-leaf prev/next is generated into data/page-navigation.json by tools/generate-page-navigation.mjs."
+    },
+    "/v1.4.7/zh/api/": {
+      "parent": "/v1.4.7/zh/",
+      "children": [
+        "/v1.4.7/zh/api/core/",
+        "/v1.4.7/zh/api/core-extra/",
+        "/v1.4.7/zh/api/mission/",
+        "/v1.4.7/zh/api/mission-ext/",
+        "/v1.4.7/zh/api/campaign/",
+        "/v1.4.7/zh/api/campaign-ext/",
+        "/v1.4.7/zh/api/gui/",
+        "/v1.4.7/zh/api/save-system/",
+        "/v1.4.7/zh/api/viewmodel/",
+        "/v1.4.7/zh/api/localization/",
+        "/v1.4.7/zh/api/engine/",
+        "/v1.4.7/zh/api/system/",
+        "/v1.4.7/zh/api/custombattle/",
+        "/v1.4.7/zh/api/modulemanager/",
+        "/v1.4.7/zh/api/network/",
+        "/v1.4.7/zh/api/sandbox/",
+        "/v1.4.7/zh/api/storymode/",
+        "/v1.4.7/zh/api/activitysystem/",
+        "/v1.4.7/zh/api/achievementsystem/"
+      ],
+      "prev": "/v1.4.7/zh/api/achievementsystem/",
+      "next": "/v1.4.7/zh/api/core-extra/",
+      "note": "Prev/next here are the first/last child; per-leaf prev/next is generated into data/page-navigation.json by tools/generate-page-navigation.mjs."
+    },
+    "/v1.4.7/zh/architecture/": {
+      "parent": "/v1.4.7/zh/",
+      "children": [],
+      "prev": null,
+      "next": null,
+      "note": "Prev/next here are the first/last child; per-leaf prev/next is generated into data/page-navigation.json by tools/generate-page-navigation.mjs."
+    },
+    "/v1.4.7/zh/api/core/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": null,
+      "next": "/v1.4.7/zh/api/core-extra/",
+      "bidirectionalSibling": "core-extra"
+    },
+    "/v1.4.7/zh/api/core-extra/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/core/",
+      "next": "/v1.4.7/zh/api/mission/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/zh/api/mission/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/core-extra/",
+      "next": "/v1.4.7/zh/api/mission-ext/",
+      "bidirectionalSibling": "mission-ext"
+    },
+    "/v1.4.7/zh/api/mission-ext/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/mission/",
+      "next": "/v1.4.7/zh/api/campaign/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/zh/api/campaign/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/mission-ext/",
+      "next": "/v1.4.7/zh/api/campaign-ext/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/zh/api/campaign-ext/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/campaign/",
+      "next": "/v1.4.7/zh/api/gui/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/zh/api/gui/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/campaign-ext/",
+      "next": "/v1.4.7/zh/api/save-system/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/zh/api/save-system/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/gui/",
+      "next": "/v1.4.7/zh/api/viewmodel/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/zh/api/viewmodel/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/save-system/",
+      "next": "/v1.4.7/zh/api/localization/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/zh/api/localization/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/viewmodel/",
+      "next": "/v1.4.7/zh/api/engine/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/zh/api/engine/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/localization/",
+      "next": "/v1.4.7/zh/api/system/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/zh/api/system/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/engine/",
+      "next": "/v1.4.7/zh/api/custombattle/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/zh/api/custombattle/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/system/",
+      "next": "/v1.4.7/zh/api/modulemanager/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/zh/api/modulemanager/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/custombattle/",
+      "next": "/v1.4.7/zh/api/network/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/zh/api/network/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/modulemanager/",
+      "next": "/v1.4.7/zh/api/sandbox/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/zh/api/sandbox/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/network/",
+      "next": "/v1.4.7/zh/api/storymode/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/zh/api/storymode/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/sandbox/",
+      "next": "/v1.4.7/zh/api/activitysystem/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/zh/api/activitysystem/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/storymode/",
+      "next": "/v1.4.7/zh/api/achievementsystem/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/zh/api/achievementsystem/": {
+      "parent": "/v1.4.7/zh/api/",
+      "children": [],
+      "prev": "/v1.4.7/zh/api/activitysystem/",
+      "next": null,
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/en/": {
+      "parent": "/v1.4.7/",
+      "children": [
+        "/v1.4.7/en/api/",
+        "/v1.4.7/en/architecture/"
+      ],
+      "prev": "/v1.4.7/en/architecture/",
+      "next": "/v1.4.7/en/architecture/",
+      "note": "Prev/next here are the first/last child; per-leaf prev/next is generated into data/page-navigation.json by tools/generate-page-navigation.mjs."
+    },
+    "/v1.4.7/en/api/": {
+      "parent": "/v1.4.7/en/",
+      "children": [
+        "/v1.4.7/en/api/core/",
+        "/v1.4.7/en/api/core-extra/",
+        "/v1.4.7/en/api/mission/",
+        "/v1.4.7/en/api/mission-ext/",
+        "/v1.4.7/en/api/campaign/",
+        "/v1.4.7/en/api/campaign-ext/",
+        "/v1.4.7/en/api/gui/",
+        "/v1.4.7/en/api/save-system/",
+        "/v1.4.7/en/api/viewmodel/",
+        "/v1.4.7/en/api/localization/",
+        "/v1.4.7/en/api/engine/",
+        "/v1.4.7/en/api/system/",
+        "/v1.4.7/en/api/custombattle/",
+        "/v1.4.7/en/api/modulemanager/",
+        "/v1.4.7/en/api/network/",
+        "/v1.4.7/en/api/sandbox/",
+        "/v1.4.7/en/api/storymode/",
+        "/v1.4.7/en/api/activitysystem/",
+        "/v1.4.7/en/api/achievementsystem/"
+      ],
+      "prev": "/v1.4.7/en/api/achievementsystem/",
+      "next": "/v1.4.7/en/api/core-extra/",
+      "note": "Prev/next here are the first/last child; per-leaf prev/next is generated into data/page-navigation.json by tools/generate-page-navigation.mjs."
+    },
+    "/v1.4.7/en/architecture/": {
+      "parent": "/v1.4.7/en/",
+      "children": [],
+      "prev": null,
+      "next": null,
+      "note": "Prev/next here are the first/last child; per-leaf prev/next is generated into data/page-navigation.json by tools/generate-page-navigation.mjs."
+    },
+    "/v1.4.7/en/api/core/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": null,
+      "next": "/v1.4.7/en/api/core-extra/",
+      "bidirectionalSibling": "core-extra"
+    },
+    "/v1.4.7/en/api/core-extra/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/core/",
+      "next": "/v1.4.7/en/api/mission/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/en/api/mission/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/core-extra/",
+      "next": "/v1.4.7/en/api/mission-ext/",
+      "bidirectionalSibling": "mission-ext"
+    },
+    "/v1.4.7/en/api/mission-ext/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/mission/",
+      "next": "/v1.4.7/en/api/campaign/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/en/api/campaign/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/mission-ext/",
+      "next": "/v1.4.7/en/api/campaign-ext/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/en/api/campaign-ext/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/campaign/",
+      "next": "/v1.4.7/en/api/gui/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/en/api/gui/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/campaign-ext/",
+      "next": "/v1.4.7/en/api/save-system/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/en/api/save-system/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/gui/",
+      "next": "/v1.4.7/en/api/viewmodel/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/en/api/viewmodel/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/save-system/",
+      "next": "/v1.4.7/en/api/localization/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/en/api/localization/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/viewmodel/",
+      "next": "/v1.4.7/en/api/engine/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/en/api/engine/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/localization/",
+      "next": "/v1.4.7/en/api/system/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/en/api/system/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/engine/",
+      "next": "/v1.4.7/en/api/custombattle/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/en/api/custombattle/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/system/",
+      "next": "/v1.4.7/en/api/modulemanager/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/en/api/modulemanager/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/custombattle/",
+      "next": "/v1.4.7/en/api/network/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/en/api/network/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/modulemanager/",
+      "next": "/v1.4.7/en/api/sandbox/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/en/api/sandbox/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/network/",
+      "next": "/v1.4.7/en/api/storymode/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/en/api/storymode/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/sandbox/",
+      "next": "/v1.4.7/en/api/activitysystem/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/en/api/activitysystem/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/storymode/",
+      "next": "/v1.4.7/en/api/achievementsystem/",
+      "bidirectionalSibling": null
+    },
+    "/v1.4.7/en/api/achievementsystem/": {
+      "parent": "/v1.4.7/en/api/",
+      "children": [],
+      "prev": "/v1.4.7/en/api/activitysystem/",
+      "next": null,
+      "bidirectionalSibling": null
+    }
+  },
+  "verification": {
+    "routeCount": 45,
+    "routesMatchingAFileOnDisk": 44,
+    "routesWithNoFile": [
+      "/v1.4.7/"
+    ],
+    "generatedAt": "derived from disk at generation time; re-run the verification script after any leaf-page drop"
+  }
+}

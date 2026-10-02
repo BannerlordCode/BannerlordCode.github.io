@@ -1,0 +1,8 @@
+Scanned 38594 files, 129518 method-purpose lines, 129518 method sections.
+Blockers: 0, Warnings: 1831
+
+Note: the 1831 warnings are method-heading misclassifications (sections such as
+"何时使用" / "上游输入" are flagged as method-missing-example by the gate's
+heuristic). They are NOT documentation defects and do not affect acceptance A.
+Zero blockers means no page hit a signature-stub / boilerplate / placeholder
+rejection pattern.

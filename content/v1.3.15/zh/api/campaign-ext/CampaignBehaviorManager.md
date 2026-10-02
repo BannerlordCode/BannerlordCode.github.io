@@ -1,220 +1,201 @@
 ---
 title: "CampaignBehaviorManager"
-description: "战役系统里所有 CampaignBehavior 的中央登记与派发器：负责统一保存/加载行为数据、按类型取回行为、并在运行时增删行为，对外以 Campaign.Current.CampaignBehaviorManager 暴露。"
+description: "Campaign.Current.CampaignBehaviorManager 背后的 CampaignBehaviorBase 注册表：运行时增删行为、按类型查询，并托管 Behavior 的存档数据。"
 ---
 # CampaignBehaviorManager
 
-**Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors  
-**Module:** TaleWorlds.CampaignSystem  
-**Type:** `public class CampaignBehaviorManager : ICampaignBehaviorManager`  
-**Base:** `ICampaignBehaviorManager`  
-**File:** `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CampaignBehaviorManager.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.CampaignBehaviors`
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class CampaignBehaviorManager : ICampaignBehaviorManager`
+**Base:** `ICampaignBehaviorManager`
+**Source:** `TaleWorlds.CampaignSystem/CampaignBehaviors/CampaignBehaviorManager.cs`
 
-## 一句话职责
+## 概述
 
-它是战役世界里所有行为（Behavior）的**登记册与派发器**：开档时把一份行为清单收进自己手里，统一为它们注册事件、在存档前收集数据、读档后回填数据，并让你随时按类型取出某个行为或动态增删行为。
+`CampaignBehaviorManager` 是运行中的战役里真正持有每一个 [CampaignBehaviorBase](../CampaignBehaviorBase/) 实例的那个长生命周期对象。战役引导阶段，引擎用 [CampaignGameStarter](../CampaignGameStarter/) 收集到的列表构造它，然后一次性遍历列表调用每个 Behavior 的 `RegisterEvents()`——正是这一趟调用把所有人的 `CampaignEvents` 订阅接进了战役。此后 `Campaign.Current.CampaignBehaviorManager` 就是运行时句柄：可以在战役进行中新增行为、按类型移除行为、按类型查询行为，并且它持有承载 Behavior 状态的存档托盘，交由 [SaveManager](../../save-system/SaveManager/) 落盘。
+
+这个类刻意做得很小——一共十三个成员，真正对外有用的只有 `RegisterEvents`、`AddBehavior`、`RemoveBehavior<T>`、`ClearBehaviors`、`GetBehavior<T>`、`GetBehaviors<T>`、`LoadBehaviorData` 和 `InitializeCampaignBehaviors`。它同时持有一个带 `[SaveableField]` 的 `CampaignBehaviorDataStore`，因此管理器本身也参与战役存档的序列化；并且在构造函数里订阅 `CampaignEvents.OnBeforeSaveEvent`，用来在每次存档前把托盘重新填满。
 
 ## 心智模型
 
-把一个战役当作一场长期运行的“世界模拟”，而 `CampaignBehaviorManager` 就是这台模拟背后那本**员工花名册**：
+把它理解成 **`Campaign.Current.CampaignBehaviorManager` 背后的注册表兼存档窗口**：
 
-- 每名“员工”是一个 `CampaignBehaviorBase` 实例（比如 `RomanceCampaignBehavior`、`PregnancyCampaignBehavior`、`TournamentCampaignBehavior`）。它们才是真正干活的：订阅 `CampaignEvents`、处理每日 tick、更新世界状态。
-- 这本花名册本身**不实现任何游戏规则**，它只负责三件事：① 持有行为清单；② 在合适的时机（开档、存档前、读档后）逐个通知这些行为做对应的事；③ 让你按类型查到某个行为。
-- 它由 `Campaign` 在开档流程中创建并持有。`Campaign` 会从 `CampaignGameStarter.CampaignBehaviors`（即所有 `MBSubModuleBase` 在 `OnCampaignStart` 里 `AddBehavior` 注册进来的行为）构造出 `CampaignBehaviorManager`。真实创建点位于 `TaleWorlds.CampaignSystem/Campaign.cs`（节选）：`AddCampaignBehaviorManager(new CampaignBehaviorManager(campaignGameStarter.CampaignBehaviors));`
+- **构造顺序是固定的。** `Campaign` 先建管理器，再单独调用一次 `RegisterEvents()`，对每个 Behavior 各一次。你想让它活着的东西，必须在这一趟之前就已经在列表里。
+- **引导期注册走 starter。** 在 `InitializeGameStarter` / `OnCampaignStart` / `OnGameLoaded` 里用 `CampaignGameStarter.AddBehavior`。在**战役已经跑起来之后**则用 `Campaign.Current.CampaignBehaviorManager.AddBehavior`——那个重载会立刻对新行为调用 `RegisterEvents()`，所以同一帧就生效。
+- **存档流程是事件驱动的，不是你调用的。** 管理器在构造函数里订阅 `CampaignEvents.OnBeforeSaveEvent`。保存时它清空托盘并重新遍历每个 Behavior 调用 `SaveBehaviorData`；加载时 `LoadBehaviorData()` 遍历每个 Behavior 调用 `LoadBehaviorData`，然后再次清空托盘。你自己永远不要碰那个 store。
+- **坑：`RemoveBehavior<T>()` 最多删一个，而且返回 void。** 它从后往前找，删掉第一个匹配的实例就 `return`。如果你注册了两个 `T` 类型的 Behavior，删一次还剩一个存活。它只对该实例调用 `CampaignEventDispatcher.Instance.RemoveListeners(t)`。
+- **坑：`ClearBehaviors()` 不退订任何东西。** 它只是把列表清空，于是 Behavior 不再被 tick、不再被存档，但它们挂在 dispatcher 上的 `CampaignEvents` 订阅依然有效。真正想删东西就用 `RemoveBehavior<T>()`。
+- **坑：`GetBehavior<T>()` 返回 `default(T)`。** 引用类型就是 `null`；如果 `T` 是值类型则是零初始化结构体——这也是为什么查不到时它不会抛异常。
 
-- 你**永远不要**自己 `new CampaignBehaviorManager(...)`。战役启动后，通过 `Campaign.Current.CampaignBehaviorManager` 拿到这个由引擎维护的同一实例（属性的编译期类型是接口 `ICampaignBehaviorManager`）。
-- 它与三层对象的关系：
-  - **`CampaignBehaviorBase`**：被管理的对象。管理器只认它这个基类；具体行为通过 `RegisterEvents()` 把自己挂到事件系统，通过 `SyncData`/`OnSessionStart` 等钩子参与存档。
-  - **`CampaignGameStarter`**：开档“报名处”。mod 在 `OnCampaignStart` 里把行为 `AddBehavior` 到这里；开档晚期 `Campaign` 把这些行为整批交给 `CampaignBehaviorManager`。**运行期不要再往 `CampaignGameStarter` 加行为**——那时它早已不再被读取。
-  - **`ICampaignBehaviorManager`**：本类实现的接口，也是你在 `Campaign.Current` 上看到属性的类型。
+### 何时使用
 
-## 如何获取
+**使用 `CampaignBehaviorManager` 的场景：**
+- 你必须在战役已经运行时挂载或卸载一个 Behavior（可开关的任务系统、调试覆盖层、按 DLC 门控的系统）。
+- 你要从别的系统拿到一个已存在的 Behavior，又不想硬引用自己创建的实例：调用 `GetBehavior<T>()`。
+- 你需要拿到某一类的全部 Behavior：`GetBehaviors<T>()`，用于打补丁、批量巡检，或者在菜单界面里遍历。
 
-```csharp
-// 战役进行中、任意时刻（事件回调、对话、UI 逻辑里）取管理器
-ICampaignBehaviorManager manager = Campaign.Current.CampaignBehaviorManager;
+**不要用 `CampaignBehaviorManager` 的场景：**
+- 引导期注册。请用 `CampaignGameStarter.AddBehavior`——管理器在被构造的过程中不适合被戳。
+- 你想持久化的是自己的对象。请用 `[SaveableField]` / `[SaveableProperty]` 配合 [SaveableTypeDefiner](../../save-system/SaveableTypeDefiner/)，而不是 Behavior 数据托盘。
+- 你指望 `RemoveBehavior` 顺手退掉你自己手工注册的 `CampaignEvents`。这里只清理被移除 Behavior 自己在 dispatcher 上的监听；你手写的 `CampaignEvents.XxxEvent.AddNonSerializedListener(...)` 不会被追踪。
 
-// 直接取出某个具体行为（强烈建议用接口/基类类型参数）
-IStatisticsCampaignBehavior stats = Campaign.Current.CampaignBehaviorManager.GetBehavior<IStatisticsCampaignBehavior>();
-```
+## 依赖关系
 
-> 注意：`Campaign.Current.CampaignBehaviorManager` 是**实例属性**，不是静态字段。旧版 stub 里写的 `CampaignBehaviorManager.Current` 并不存在；直接编译会报错。
+- [CampaignBehaviorBase](../CampaignBehaviorBase/) — 载荷类型；`RegisterEvents`、`SyncData` 以及内部的存档钩子都在那边。
+- [CampaignGameStarter](../CampaignGameStarter/) — 引导期收集行为，管理器就是拿它的列表建出来的。
+- [CampaignEvents](../CampaignEvents/) — `OnBeforeSaveEvent` 触发存档窗口重填，每个 Behavior 也都通过同一个 dispatcher 订阅。
+- [CampaignEventDispatcher](../CampaignEventDispatcher/) — `RemoveBehavior<T>()` 内部调用它的 `RemoveListeners(t)` 来剥掉被删行为的监听。
+- [IDataStore](../IDataStore/) — 每个 Behavior 在 `SyncData` 里收到的契约；其背后的 store 正是管理器负责序列化的东西。
+- [Campaign](../../campaign/Campaign/) — `Campaign.Current.CampaignBehaviorManager` 是指向本对象的唯一公开句柄。
+- [SaveManager](../../save-system/SaveManager/) — 在战役对象图恢复完成后驱动加载那一半（`LoadBehaviorData`）。
+- [MBSubModuleBase](../../core/MBSubModuleBase/) — 声明了大多数 Behavior 最初注册所用的 starter 钩子。
 
-## 何时用 / 何时不要用
+## 主要成员
 
-**用它的场景**
-- 在运行期**读取**某个已实现的行为，调用其公开方法（例如取出 `IStatisticsCampaignBehavior` 记录战绩，或取出 `IDisbandPartyCampaignBehavior` 触发解散）。
-- 在战役已经开始后，**动态新增**一个行为（`AddBehavior`）或**移除**一个行为（`RemoveBehavior<T>`）——例如你的 mod 在某个剧情解锁后才启用一段逻辑。
-- 在调试/诊断时按类型枚举所有已注册行为（`GetBehaviors<T>`）。
+#### `public CampaignBehaviorManager(IEnumerable<CampaignBehaviorBase> inputComponents)`
 
-**不要用它的场景（以及正确替代）**
-- 想“让我的 mod 拥有一个行为”：不要自己实例化后塞进管理器。应在 `MBSubModuleBase.OnCampaignStart(Game, object)` 里把 `starterObject` 转型为 `CampaignGameStarter` 并 `AddBehavior(new MyBehavior())`。这样引擎才会把它纳入开档流程、统一存档与事件注册。
-- 想直接 `new CampaignBehaviorManager(...)`：这是引擎内部构造，自己构造的实例不会被 `Campaign` 持有，也拿不到存档系统、事件系统的正确接线。
-- 想“改世界状态”：不要绕过行为去改字段。行为内部才是世界变更的正当入口，外部应调用行为/Action 暴露的方法。
-
-## 依赖图
-
-- 上游（谁创建/喂数据）：[Campaign](../../campaign/Campaign/) 在开档时构造并持有本管理器；[CampaignGameStarter](../CampaignGameStarter/) 在 `OnCampaignStart` 阶段收集行为清单作为输入。
-- 被管理对象：[CampaignBehaviorBase](../CampaignBehaviorBase/) —— 所有行为都继承自它；管理器只是它们的容器与通知者。
-- 下游系统：[CampaignEvents](../CampaignEvents/) —— 管理器在 `RegisterEvents()` 时让每个行为订阅事件，并在 `OnBeforeSaveEvent` 时收集行为数据。
-- 模块生命周期：[MBSubModuleBase](../../core/MBSubModuleBase/) 的 `OnCampaignStart` 是 mod 注册行为的唯一正确入口。
-- 相关类：[Campaign](../../campaign/Campaign/)（世界根对象）、[QuestManager](../QuestManager/)（同样由 `Campaign` 持有的另一类子系统）。
-- 约束背景：见 [模块系统](../../../architecture/module-system/) 与 [存档系统](../../../architecture/save-system/)。
-
-## 风险
-
-- **错误生命周期阶段注册**：在 `OnCampaignStart` 之外往 `CampaignGameStarter` 加行为无效（开档后该 starter 不再被读）。战役已开始才想加行为，必须用运行期 `Campaign.Current.CampaignBehaviorManager.AddBehavior(...)`，它会立即给新行为注册事件；但此时它**不会**重新走存档初始化（见下）。
-- **`GetBehavior<T>()` 找不到时返回 `default(T)`**：对引用类型是 `null`。调用方务必判空或用 `?.`，否则拿到的 `null` 在后续访问会直接抛 `NullReferenceException`。原版代码处处用 `?.`（如 `GetBehavior<IStatisticsCampaignBehavior>()?.OnXxx()`）。
-- **`ClearBehaviors()` 只清空清单，不注销事件监听**：它会把 `_campaignBehaviors` 整个清空，但**不会**移除这些行为此前注册的 `CampaignEvent` 监听器。残留监听器会持续触发，访问已失效字段时极易崩溃或脏数据。需要精准移除单个行为请用 `RemoveBehavior<T>()`，它会一并 `CampaignEventDispatcher.Instance.RemoveListeners(val)`。
-- **运行期 `AddBehavior` 不参与现有存档**：`AddBehavior` 只把行为加入清单并 `RegisterEvents()`，不会补跑 `LoadBehaviorData`/`OnSessionStart`。如果一个行为依赖读档恢复的内部状态，在已加载的存档里动态加入它可能处于“未初始化”状态。
-- **`InitializeCampaignBehaviors` / 重复构造会重复订阅 `OnBeforeSave`**：构造器和 `InitializeCampaignBehaviors` 都会 `AddNonSerializedListener(this, OnBeforeSave)`。对一个已存在的管理器重复调用 `InitializeCampaignBehaviors` 会注册**两份**存档前监听，导致每个行为的数据被保存两次。不要把它当普通“刷新”用。
-- **`SaveableField` 数据归属**：行为数据由 `_campaignBehaviorDataStore` 承载（`[SaveableField(1)]`），由存档系统在 `OnBeforeSaveEvent` 时统一收集。自己序列化/反序列化行为状态应走行为自身的 `SyncData` 钩子，不要另起炉灶，否则会和这里的数据快照错位。
-
-## 成员说明
-
-### 查询行为
-
-#### `public T GetBehavior<T>()`
-按类型返回**第一个**匹配 `T` 的行为；若没有匹配项，返回 `default(T)`（引用类型为 `null`）。内部只是线性遍历 `_campaignBehaviors` 并做 `is T` 判断。
-**副作用**：无（只读查询）。  
-**何时调用**：运行期需要调用某个具体行为的公开方法时。
-
-```csharp
-// 出自原版 TeleportationCampaignBehavior.cs 的真实取用方式
-IDisbandPartyCampaignBehavior behavior =
-    Campaign.Current.CampaignBehaviorManager.GetBehavior<IDisbandPartyCampaignBehavior>();
-behavior?.DisbandPartyAi(party, settlement);
-```
-
-#### `public IEnumerable<T> GetBehaviors<T>()`
-返回**所有**匹配 `T` 的行为（`_campaignBehaviors.OfType<T>()`）。  
-**副作用**：无。  
-**何时调用**：需要枚举某基类/接口下的全部行为（例如批量通知）。
-
-```csharp
-foreach (ICampaignBehaviorBase b in Campaign.Current.CampaignBehaviorManager.GetBehaviors<ICampaignBehaviorBase>())
-{
-    // 仅用于诊断/反射，正常逻辑不应依赖此枚举
-}
-```
-
-### 增删行为（运行期）
-
-#### `public void AddBehavior(CampaignBehaviorBase campaignBehavior)`
-把行为加入清单，并**立即**调用该行为的 `RegisterEvents()`，使其马上能接收事件。  
-**副作用**：改变行为清单 + 注册事件监听。  
-**何时调用**：战役已开始后动态启用一段逻辑。**不要在开档阶段用这个**——开档请走 `CampaignGameStarter.AddBehavior`。
-
-```csharp
-// 战役进行中，按需接入一个自定义行为
-Campaign.Current.CampaignBehaviorManager.AddBehavior(new MyLateBehavior());
-```
-
-#### `public void RemoveBehavior<T>() where T : CampaignBehaviorBase`
-移除清单中**第一个**类型为 `T` 的行为，并调用 `CampaignEventDispatcher.Instance.RemoveListeners(val)` 一并注销其事件监听。  
-**副作用**：改变清单 + 注销监听。  
-**何时调用**：需要彻底停用某行为、避免其监听器继续触发时。比 `ClearBehaviors` 安全。
-
-```csharp
-Campaign.Current.CampaignBehaviorManager.RemoveBehavior<MyLateBehavior>();
-```
-
-#### `public void ClearBehaviors()`
-清空整个行为清单（`_campaignBehaviors.Clear()`）。  
-**副作用**：清单置空，但**不注销**任何行为已注册的事件监听（见风险段）。  
-**何时调用**：基本不应在 mod 代码里调用；属引擎内部/重置用途。误用会留下悬空监听器。
-
-### 生命周期与存档
-
-#### `public void RegisterEvents()`
-遍历全部行为并逐个调用 `campaignBehavior.RegisterEvents()`，让每个行为订阅它关心的 `CampaignEvents`。  
-**副作用**：大量事件订阅。  
-**何时调用**：由 `Campaign` 在开档流程中调用一次（`Campaign.cs` 内 `CampaignBehaviorManager.RegisterEvents();`）。mod 一般不需要手动调用。
-
-#### `public void LoadBehaviorData()`
-遍历全部行为，从 `_campaignBehaviorDataStore` 把之前存档时收集的状态**回填**给每个行为，然后清空数据暂存。  
-**副作用**：修改各行为的内部状态（恢复存档）。  
-**何时调用**：由 `Campaign` 在**读档**后调用。与 `OnBeforeSaveEvent` 收集数据成对出现。
+构造函数。把传入的可枚举物化成私有 `List<CampaignBehaviorBase>`，创建 `CampaignBehaviorDataStore`，并向 `CampaignEvents.OnBeforeSaveEvent` 注册 `OnBeforeSave`。
+- **注意：** 构造函数**不会**调用 `RegisterEvents()`。引擎是在构造之后另起一趟单独调用的；如果你在测试里自己 new 一个，必须自己调用 `RegisterEvents()`，否则谁都没订阅上。
+- **注意：** 这个 `OnBeforeSaveEvent` 订阅走的是 `AddNonSerializedListener`，读档时**不会**被恢复——管理器只在全新战役启动时被构造，从不是反序列化进一个已运行的战役里。
 
 #### `public void InitializeCampaignBehaviors(IEnumerable<CampaignBehaviorBase> inputComponents)`
-用一份新行为清单**替换**现有清单（`SetBehaviors`），并重新订阅 `OnBeforeSaveEvent`。  
-**副作用**：替换行为集合 + 重新挂接存档前监听（重复调用会重复订阅，见风险段）。  
-**何时调用**：引擎在开档时调用。mod 几乎不应直接调用；要加行为请用 `AddBehavior` 或开档期 `CampaignGameStarter.AddBehavior`。
 
-#### `public CampaignBehaviorManager(IEnumerable<CampaignBehaviorBase> inputComponents)`（构造器）
-创建管理器：收下行为清单、实例化 `_campaignBehaviorDataStore`、订阅 `OnBeforeSaveEvent`。  
-**副作用**：建立与存档系统的接线。  
-**何时调用**：引擎内部（`Campaign` 在开档时 `new CampaignBehaviorManager(campaignGameStarter.CampaignBehaviors)`）。mod **不要**自行构造。
+整体替换行为列表。相当于 `SetBehaviors` 加上**第二次** `OnBeforeSaveEvent` 注册。
+- **副作用：** 和构造函数不同，它不会新建 `CampaignBehaviorDataStore`，所以已经收集的数据会保留。
+- **坑：** 调用它会在构造函数那次之上再注册一个 `OnBeforeSave` 监听。于是每次存档都要把列表走两遍。
 
-## 最小真实示例
+#### `public void RegisterEvents()`
 
-### 示例 1：开档时注册你自己的 Behavior（正确入口）
+引导钩子。按插入顺序遍历行为列表，对每个调用 `RegisterEvents()`。
+- **调用顺序对互相依赖的 Behavior 有意义**：如果某个 Behavior 的 `RegisterEvents` 里读 `Campaign.Current.CampaignBehaviorManager.GetBehavior<TOther>()`，那就只有 `TOther` 被更早加进 starter 时才拿得到。
+- **返回值：** 无。Behavior 内部抛出的异常会向上传播并中断整趟遍历，导致后面的 Behavior 全部没订阅上。
+
+#### `public void AddBehavior(CampaignBehaviorBase campaignBehavior)`
+
+运行时注册。追加到列表，并**立即**对新 Behavior 调用 `RegisterEvents()`。
+- **用途：** 在引导那一趟已经结束之后，向运行中的战役追加 Behavior。
+- **返回值：** 无。这里没有任何校验——`null` 会被直接追加，然后下一行 `campaignBehavior.RegisterEvents()` 抛出空引用。
+- **副作用：** 新 Behavior 之后会被 `OnBeforeSave` 遍历存档，也会被 `LoadBehaviorData` 读取，所以它的 `SyncData` 键结构必须能对上旧存档（见风险章节）。
+
+#### `public void RemoveBehavior<T>() where T : CampaignBehaviorBase`
+
+**从后往前**扫描列表，移除第一个 `is T` 的实例，对它调用 `CampaignEventDispatcher.Instance.RemoveListeners(t)`，然后返回。
+- **返回值：** `void`。你无法从返回值判断到底删没删掉——需要确认就先调 `GetBehavior<T>()`。
+- **坑：** 最多删一个。同一个 Behavior 类注册两次、只调一次 `RemoveBehavior<T>()`，第二个副本依然存活并且依然订阅着。
+- **副作用：** 被删 Behavior 的 `SyncData` 数据**不会**立刻从 store 里清掉；下一次 `OnBeforeSave` 按存活列表重建 store 时，孤儿键自然消失。
+
+#### `public void ClearBehaviors()`
+
+直接清空私有列表。不做 dispatcher 清理，也不做 store 清理。
+- **用途：** 只用于测试拆除和战役拆卸路径。
+- **坑：** 存活下来的 Behavior 保留着 `CampaignEvents` 订阅并继续触发。任何捕获了你刚丢弃状态的闭包照样会跑。
+
+#### `public T GetBehavior<T>()`
+
+正序线性扫描列表，返回第一个 `is T` 的实例，否则返回 `default(T)`。
+- **返回值语义：** 实践中绝大多数 Behavior 是引用类型，所以查不到就是 `null`。务必先判空，否则加载顺序靠后的 mod 会在调用点吃到 `NullReferenceException`，而不是优雅地什么都不做。
+- **开销：** 对整个行为列表 O(n)。偶尔查几次无所谓，但不要放进几千个单位的逐个循环里。
+
+#### `public IEnumerable<T> GetBehaviors<T>()`
+
+对列表做 `Enumerable.OfType<T>`，是惰性投影——如果你很晚才枚举，它会反映之后的列表改动。
+- **返回值语义：** 查不到时返回空序列，绝不是 `null`。需要索引或排序就先 `.ToList()`。
+
+#### `public void LoadBehaviorData()`
+
+遍历每个 Behavior 调用内部的 `LoadBehaviorData(behavior)`（它会再次以加载模式进入该 Behavior 的 `SyncData`），然后清空 store。
+- **调用顺序：** 由存档系统在对象图恢复之后驱动，不由你调用。
+- **坑：** 因为末尾有 `ClearBehaviorData()`，在同一次读档里第二次调用 `LoadBehaviorData()`（比如某个 mod 也挂了加载钩子）会遇到一个**空** store，所有键都 miss——字段会静默退回构造时的默认值。
+
+#### `private void OnBeforeSave()`
+
+注册在 `CampaignEvents.OnBeforeSaveEvent` 上。清空 store，然后对每个 Behavior 调用 `SaveBehaviorData`。
+- **说明：** 它遍历的是列表里的**全部** Behavior。上一帧刚被 `RemoveBehavior` 删掉的那些已经不在列表里，会被自然跳过；而上一次存档之后才加进来的 Behavior 也会被走到，这正是你想要的行为。
+
+## 使用示例
+
+### 示例 1 — 在运行时开启与关闭一个 Behavior
 
 ```csharp
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.CampaignBehaviors;
-using TaleWorlds.MountAndBlade;
-
-public class MySubModule : MBSubModuleBase
+public class ToggleableOverlayManager
 {
-    public override void OnCampaignStart(Game game, object starterObject)
-    {
-        base.OnCampaignStart(game, starterObject);
+    private CampaignBehaviorManager Manager => Campaign.Current.CampaignBehaviorManager;
 
-        // starterObject 就是 CampaignGameStarter；开档期往这里加行为
-        if (starterObject is CampaignGameStarter starter)
+    public void Enable()
+    {
+        // GetBehavior<T>() 在还没有注册过时返回 null。
+        if (Manager.GetBehavior<DebugOverlayBehavior>() == null)
         {
-            starter.AddBehavior(new MyCampaignBehavior());
+            // AddBehavior 会立刻订阅，不需要自己再调 RegisterEvents。
+            Manager.AddBehavior(new DebugOverlayBehavior());
         }
+    }
+
+    public void Disable()
+    {
+        // 移除一个实例，并剥掉它在 dispatcher 上的监听。
+        Manager.RemoveBehavior<DebugOverlayBehavior>();
     }
 }
 ```
 
-### 示例 2：运行期取出已有 Behavior 并调用其方法
+### 示例 2 — 解析别的 mod 注册的 Behavior
 
 ```csharp
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.CampaignBehaviors;
-
-// 在事件回调 / 对话 / UI 逻辑中
-IStatisticsCampaignBehavior stats =
-    Campaign.Current.CampaignBehaviorManager.GetBehavior<IStatisticsCampaignBehavior>();
-
-// GetBehavior 找不到时返回 null，务必判空
-if (stats != null)
+public class MyQuestSystem : CampaignBehaviorBase
 {
-    stats.OnPlayerAcceptedRansomOffer(ransomPrice);
+    private ReputationTracker _tracker;
+
+    public override void RegisterEvents()
+    {
+        // 别的 mod 的 Behavior 可能还没注册，务必判空。
+        _tracker = Campaign.Current.CampaignBehaviorManager.GetBehavior<ReputationTracker>();
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        dataStore.SyncData("_renownSpent", ref _renownSpent);
+    }
 }
 ```
 
-### 示例 3：战役进行中动态启用 / 停用一段逻辑
+### 示例 3 — 不持有引用地巡检某一类 Behavior
 
 ```csharp
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.CampaignBehaviors;
-
-// 启用：立即注册事件，马上生效
-Campaign.Current.CampaignBehaviorManager.AddBehavior(new MyLateBehavior());
-
-// 停用：移除行为并注销其事件监听（比 ClearBehaviors 安全）
-Campaign.Current.CampaignBehaviorManager.RemoveBehavior<MyLateBehavior>();
+public List<string> DescribeMyBehaviors()
+{
+    var manager = Campaign.Current.CampaignBehaviorManager;
+    // GetBehaviors<T>() 是惰性的且永不返回 null；ToList() 取一个快照。
+    return manager.GetBehaviors<MyFeatureBehavior>()
+                  .Select(b => b.FeatureName)
+                  .ToList();
+}
 ```
+
+## 风险与崩溃边界
+
+- **存档序列化由管理器托管。** 管理器序列化一个带 `[SaveableField(1)]` 的 `CampaignBehaviorDataStore`。每个 Behavior 按其 `StringId`（即 Behavior 的类型名）分到一个独立托盘。如果你注册的两个 Behavior 的 `StringId` 相同，它们会共用一个托盘并互相覆盖 key。最容易踩到的现实方式是：在**不同程序集里放了相同命名空间和类型名的 Behavior 子类**。
+- **战役中途新增 Behavior 会改变存档结构。** 存档写完之后才加进来的 Behavior 在那份存档里没有托盘。读档时 `LoadBehaviorData` 找不到数据，`SyncData` 每个键都 miss，你的字段会停在构造时的默认值。若"键缺失"不可接受，请在 `if (dataStore.IsLoading)` 分支里补初始化。
+- **`LoadBehaviorData` 只能跑一趟。** 它结尾会清空 store。一次读档里调两次，结果不是"再恢复一次"，而是把所有 Behavior 静默重置。
+- **跨域依赖：** 这个类型虽然位于 `TaleWorlds.CampaignSystem`，但实际伸进了 `TaleWorlds.SaveSystem`（`SaveableField`）和 `TaleWorlds.Core`（`CampaignEvents`）。如果某个 mod 自带的是旧版 `TaleWorlds.CampaignSystem`，报错会出现在**存档那一步**而不是加载时，看起来像是毫不相干的故障。
+- **加载顺序依赖：** 某个 Behavior 的 `RegisterEvents` 里调 `GetBehavior<T>()` 依赖 starter 的插入顺序。Behavior 按 starter 收集到的顺序注册，而**跨模块的 starter 顺序 API 并不保证**。稳妥做法是延迟解析（第一次使用时再取），而不是在构造路径里把 `null` 缓存下来。
+- **ID 稳定性：** 这里除了 Behavior 的 `StringId`（由类型推导）之外没有任何你自己可控的存档键。把 Behavior 类改名或挪到另一个命名空间会改变它的托盘键，从而孤立掉此前存档的数据。在你自己的 `SyncData` 里加版本化 key 前缀是官方支持的缓解手段。
+- **`AddBehavior` 的 null 隐患：** 它不过滤 `null`。`null` 会被追加，下一行就抛异常。starter 的 `AddBehavior` 会忽略 `null`，而这个不会。
+- **`InitializeCampaignBehaviors` 会造成双重订阅：** 它会额外注册一个 `OnBeforeSave` 监听，于是每次存档把行为列表走两遍；`SyncData` 不幂等的 Behavior 就会把值写两遍。
 
 ## 跨版本提示
 
-- `1.3.0` → `1.3.15` → `1.4.5`：本类的公开 API（`GetBehavior` / `GetBehaviors` / `AddBehavior` / `RemoveBehavior` / `ClearBehaviors` / `RegisterEvents` / `LoadBehaviorData` / `InitializeCampaignBehaviors`）在三版中保持一致，仅有反编译命名与命名空间书写风格差异（1.4.5 起使用文件级 `namespace` 与字段风格微调），行为语义未变。
-- 取用入口始终是 `Campaign.Current.CampaignBehaviorManager`（属性类型为 `ICampaignBehaviorManager`），无静态 `Current` 字段。
-
-## 导航
-
-- ↑ 父级：[campaign-ext 索引](../)
-- ↔ 同级：[CampaignBehaviorBase](../CampaignBehaviorBase/) · [CampaignGameStarter](../CampaignGameStarter/) · [CampaignEvents](../CampaignEvents/) · [QuestManager](../QuestManager/)
-- 相关类：[Campaign](../../campaign/Campaign/)（世界根）· [MBSubModuleBase](../../core/MBSubModuleBase/)（行为注册入口）· [模块系统](../../../architecture/module-system/) · [存档系统](../../../architecture/save-system/)
+- **v1.3.x（本页）：** 上述成员集合是完整的。`GetBehavior<T>` 返回 `default(T)`，而不是显式的 `null`。
+- **v1.4.x：** 类型本身未变；`GetBehavior<T>()` 在未命中时返回显式的 `null`。对调用方而言行为完全一致——差别只在你写了 `var result = default(T);` 再做比较时才会显现。
+- **v1.5.x：** `ICampaignBehaviorManager` 又增加了更多成员，但 `CampaignBehaviorManager` 仍是 `Campaign.Current.CampaignBehaviorManager` 所使用的具体实现。新代码请通过 `IGameStarter` 注册，不要直接操作这个具体类型。
 
 ## 参见
 
-- [Campaign](../../campaign/Campaign/) — 持有本管理器，世界根对象
-- [CampaignBehaviorBase](../CampaignBehaviorBase/) — 被管理的所有行为基类
-- [CampaignGameStarter](../CampaignGameStarter/) — 开档阶段注册行为的入口
-- [CampaignEvents](../CampaignEvents/) — 行为通过它收发战役事件
-- [MBSubModuleBase](../../core/MBSubModuleBase/) — `OnCampaignStart` 是 mod 接入行为的钩子
+- ↑ 父级目录：[Campaign-Ext API 索引](./)
+- ↔ 同级：[CampaignBehaviorBase](../CampaignBehaviorBase/) — 本注册表保存的 Behavior 类型
+- ↔ 同级：[CampaignGameStarter](../CampaignGameStarter/) — 引导期注册发生的地方
+- ↔ 同级：[CampaignEvents](../CampaignEvents/) — 每个 Behavior 订阅的 dispatcher
+- ↔ 同级：[IDataStore](../IDataStore/) — 传入各 Behavior 的持久化契约
+- ↔ 同级：[CampaignEventDispatcher](../CampaignEventDispatcher/) — `RemoveListeners` 的执行位置
+- ↑ 战役世界：[Campaign](../../campaign/Campaign/)
+- ↑ 存档层：[SaveManager](../../save-system/SaveManager/)

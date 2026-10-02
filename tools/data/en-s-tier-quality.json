@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-03T06:42:14.826Z",
+  "generatedAt": "2026-08-13T16:04:09.132Z",
   "summary": {
-    "ok": 38,
-    "slop": 24,
+    "ok": 62,
+    "slop": 0,
     "thin": 0,
     "miss": 0
   },
@@ -12,7 +12,7 @@
       "path": "content/v1.3.15/en/api/core/MBSubModuleBase.md",
       "status": "OK",
       "hits": [],
-      "len": 7781,
+      "len": 7954,
       "hasMental": true
     },
     {
@@ -20,7 +20,7 @@
       "path": "content/v1.3.15/en/api/core-extra/Game.md",
       "status": "OK",
       "hits": [],
-      "len": 7252,
+      "len": 15295,
       "hasMental": true
     },
     {
@@ -36,34 +36,23 @@
       "path": "content/v1.3.15/en/api/campaign-ext/MBObjectBase.md",
       "status": "OK",
       "hits": [],
-      "len": 10495,
+      "len": 7615,
       "hasMental": true
     },
     {
       "name": "MBObjectManager",
       "path": "content/v1.3.15/en/api/campaign-ext/MBObjectManager.md",
-      "status": "SLOP",
-      "hits": [
-        "applies-effect",
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 13250,
+      "status": "OK",
+      "hits": [],
+      "len": 8053,
       "hasMental": true
     },
     {
       "name": "TextObject",
       "path": "content/v1.3.15/en/api/localization/TextObject.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 7909,
+      "status": "OK",
+      "hits": [],
+      "len": 7521,
       "hasMental": true
     },
     {
@@ -77,25 +66,17 @@
     {
       "name": "CampaignTime",
       "path": "content/v1.3.15/en/api/campaign-ext/CampaignTime.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 8914,
+      "status": "OK",
+      "hits": [],
+      "len": 19471,
       "hasMental": true
     },
     {
       "name": "IDataStore",
       "path": "content/v1.3.15/en/api/campaign-ext/IDataStore.md",
-      "status": "SLOP",
-      "hits": [
-        "service-ellipsis",
-        "ellipsis-assign"
-      ],
-      "len": 1003,
+      "status": "OK",
+      "hits": [],
+      "len": 6828,
       "hasMental": true
     },
     {
@@ -103,7 +84,7 @@
       "path": "content/v1.3.15/en/api/save-system/SaveableTypeDefiner.md",
       "status": "OK",
       "hits": [],
-      "len": 7344,
+      "len": 8064,
       "hasMental": true
     },
     {
@@ -111,7 +92,7 @@
       "path": "content/v1.3.15/en/api/save-system/SaveableFieldAttribute.md",
       "status": "OK",
       "hits": [],
-      "len": 13171,
+      "len": 7456,
       "hasMental": true,
       "aliasOf": "SaveableFieldAttribute"
     },
@@ -120,7 +101,7 @@
       "path": "content/v1.3.15/en/api/save-system/SaveablePropertyAttribute.md",
       "status": "OK",
       "hits": [],
-      "len": 18130,
+      "len": 5586,
       "hasMental": true,
       "aliasOf": "SaveablePropertyAttribute"
     },
@@ -129,7 +110,7 @@
       "path": "content/v1.3.15/en/api/core-extra/ViewModel.md",
       "status": "OK",
       "hits": [],
-      "len": 7316,
+      "len": 9053,
       "hasMental": true
     },
     {
@@ -137,34 +118,23 @@
       "path": "content/v1.3.15/en/api/campaign-ext/ScreenBase.md",
       "status": "OK",
       "hits": [],
-      "len": 13750,
+      "len": 6973,
       "hasMental": true
     },
     {
       "name": "ScreenManager",
       "path": "content/v1.3.15/en/api/gui/ScreenManager.md",
-      "status": "SLOP",
-      "hits": [
-        "applies-effect",
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 12324,
+      "status": "OK",
+      "hits": [],
+      "len": 6841,
       "hasMental": true
     },
     {
       "name": "GauntletLayer",
       "path": "content/v1.3.15/en/api/engine/GauntletLayer.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 6003,
+      "status": "OK",
+      "hits": [],
+      "len": 18219,
       "hasMental": true
     },
     {
@@ -172,7 +142,7 @@
       "path": "content/v1.3.15/en/api/save-system/SaveManager.md",
       "status": "OK",
       "hits": [],
-      "len": 5829,
+      "len": 6701,
       "hasMental": true
     },
     {
@@ -180,33 +150,23 @@
       "path": "content/v1.3.15/en/api/campaign/Campaign.md",
       "status": "OK",
       "hits": [],
-      "len": 7053,
+      "len": 8345,
       "hasMental": true
     },
     {
       "name": "CampaignEvents",
       "path": "content/v1.3.15/en/api/campaign-ext/CampaignEvents.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 130195,
+      "status": "OK",
+      "hits": [],
+      "len": 12864,
       "hasMental": true
     },
     {
       "name": "CampaignEventReceiver",
       "path": "content/v1.3.15/en/api/campaign-ext/CampaignEventReceiver.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 107326,
+      "status": "OK",
+      "hits": [],
+      "len": 26112,
       "hasMental": true
     },
     {
@@ -214,29 +174,23 @@
       "path": "content/v1.3.15/en/api/campaign-ext/CampaignBehaviorBase.md",
       "status": "OK",
       "hits": [],
-      "len": 6904,
+      "len": 8219,
       "hasMental": true
     },
     {
       "name": "CampaignGameStarter",
       "path": "content/v1.3.15/en/api/campaign-ext/CampaignGameStarter.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "ellipsis-assign"
-      ],
-      "len": 9078,
+      "status": "OK",
+      "hits": [],
+      "len": 15453,
       "hasMental": true
     },
     {
       "name": "GameModels",
       "path": "content/v1.3.15/en/api/campaign-ext/GameModels.md",
-      "status": "SLOP",
-      "hits": [
-        "ellipsis-assign"
-      ],
-      "len": 11715,
+      "status": "OK",
+      "hits": [],
+      "len": 14606,
       "hasMental": true
     },
     {
@@ -244,7 +198,7 @@
       "path": "content/v1.3.15/en/api/mission/Mission.md",
       "status": "OK",
       "hits": [],
-      "len": 6127,
+      "len": 8664,
       "hasMental": true
     },
     {
@@ -252,7 +206,7 @@
       "path": "content/v1.3.15/en/api/mission/MissionBehavior.md",
       "status": "OK",
       "hits": [],
-      "len": 5250,
+      "len": 6357,
       "hasMental": true
     },
     {
@@ -260,7 +214,7 @@
       "path": "content/v1.3.15/en/api/mission-ext/MissionLogic.md",
       "status": "OK",
       "hits": [],
-      "len": 12143,
+      "len": 9341,
       "hasMental": true
     },
     {
@@ -268,34 +222,23 @@
       "path": "content/v1.3.15/en/api/mission/Agent.md",
       "status": "OK",
       "hits": [],
-      "len": 5608,
+      "len": 8851,
       "hasMental": true
     },
     {
       "name": "Team",
       "path": "content/v1.3.15/en/api/mission/Team.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 14364,
+      "status": "OK",
+      "hits": [],
+      "len": 8047,
       "hasMental": true
     },
     {
       "name": "Formation",
       "path": "content/v1.3.15/en/api/mission/Formation.md",
-      "status": "SLOP",
-      "hits": [
-        "applies-effect",
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 42359,
+      "status": "OK",
+      "hits": [],
+      "len": 8549,
       "hasMental": true
     },
     {
@@ -303,20 +246,15 @@
       "path": "content/v1.3.15/en/api/campaign/Hero.md",
       "status": "OK",
       "hits": [],
-      "len": 8795,
+      "len": 11101,
       "hasMental": true
     },
     {
       "name": "CharacterObject",
       "path": "content/v1.3.15/en/api/campaign/CharacterObject.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 16768,
+      "status": "OK",
+      "hits": [],
+      "len": 18849,
       "hasMental": true
     },
     {
@@ -340,33 +278,23 @@
       "path": "content/v1.3.15/en/api/campaign/Settlement.md",
       "status": "OK",
       "hits": [],
-      "len": 6093,
+      "len": 7113,
       "hasMental": true
     },
     {
       "name": "Town",
-      "path": "content/v1.3.15/en/api/campaign-ext/Town.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 9028,
+      "path": "content/v1.3.15/en/api/campaign/Town.md",
+      "status": "OK",
+      "hits": [],
+      "len": 22794,
       "hasMental": true
     },
     {
       "name": "Village",
       "path": "content/v1.3.15/en/api/campaign/Village.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 5861,
+      "status": "OK",
+      "hits": [],
+      "len": 16112,
       "hasMental": true
     },
     {
@@ -374,7 +302,7 @@
       "path": "content/v1.3.15/en/api/campaign/MobileParty.md",
       "status": "OK",
       "hits": [],
-      "len": 7167,
+      "len": 8135,
       "hasMental": true
     },
     {
@@ -395,67 +323,42 @@
     },
     {
       "name": "MapEvent",
-      "path": "content/v1.3.15/en/api/campaign-ext/MapEvent.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 12685,
+      "path": "content/v1.3.15/en/api/campaign/MapEvent.md",
+      "status": "OK",
+      "hits": [],
+      "len": 22626,
       "hasMental": true
     },
     {
       "name": "SiegeEvent",
       "path": "content/v1.3.15/en/api/campaign-ext/SiegeEvent.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 16230,
+      "status": "OK",
+      "hits": [],
+      "len": 28969,
       "hasMental": true
     },
     {
       "name": "TroopRoster",
       "path": "content/v1.3.15/en/api/campaign-ext/TroopRoster.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 14392,
+      "status": "OK",
+      "hits": [],
+      "len": 20557,
       "hasMental": true
     },
     {
       "name": "ItemRoster",
       "path": "content/v1.3.15/en/api/campaign-ext/ItemRoster.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 8930,
+      "status": "OK",
+      "hits": [],
+      "len": 18899,
       "hasMental": true
     },
     {
       "name": "Equipment",
       "path": "content/v1.3.15/en/api/core-extra/Equipment.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 10603,
+      "status": "OK",
+      "hits": [],
+      "len": 22703,
       "hasMental": true
     },
     {
@@ -469,51 +372,33 @@
     {
       "name": "SkillObject",
       "path": "content/v1.3.15/en/api/core-extra/SkillObject.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "ellipsis-assign"
-      ],
-      "len": 1939,
+      "status": "OK",
+      "hits": [],
+      "len": 13428,
       "hasMental": true
     },
     {
       "name": "CultureObject",
       "path": "content/v1.3.15/en/api/campaign-ext/CultureObject.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "ellipsis-assign"
-      ],
-      "len": 10699,
+      "status": "OK",
+      "hits": [],
+      "len": 20803,
       "hasMental": true
     },
     {
       "name": "Banner",
       "path": "content/v1.3.15/en/api/core-extra/Banner.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 11843,
+      "status": "OK",
+      "hits": [],
+      "len": 19324,
       "hasMental": true
     },
     {
       "name": "Workshop",
       "path": "content/v1.3.15/en/api/campaign/Workshop.md",
-      "status": "SLOP",
-      "hits": [
-        "obtain-instance",
-        "subsystem-api-first",
-        "executes-the-logic",
-        "ellipsis-assign"
-      ],
-      "len": 4714,
+      "status": "OK",
+      "hits": [],
+      "len": 22290,
       "hasMental": true
     },
     {
@@ -521,7 +406,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/KillCharacterAction.md",
       "status": "OK",
       "hits": [],
-      "len": 4398,
+      "len": 4498,
       "hasMental": true
     },
     {
@@ -529,7 +414,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/ChangeRelationAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3636,
+      "len": 3777,
       "hasMental": true
     },
     {
@@ -537,7 +422,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/ChangeKingdomAction.md",
       "status": "OK",
       "hits": [],
-      "len": 4174,
+      "len": 4332,
       "hasMental": true
     },
     {
@@ -545,7 +430,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/DeclareWarAction.md",
       "status": "OK",
       "hits": [],
-      "len": 12217,
+      "len": 12218,
       "hasMental": true
     },
     {
@@ -553,7 +438,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/MakePeaceAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3481,
+      "len": 3612,
       "hasMental": true
     },
     {
@@ -561,7 +446,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/GiveGoldAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3711,
+      "len": 3801,
       "hasMental": true
     },
     {
@@ -569,7 +454,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/AddHeroToPartyAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3263,
+      "len": 3345,
       "hasMental": true
     },
     {
@@ -577,7 +462,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/DestroyPartyAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3366,
+      "len": 3449,
       "hasMental": true
     },
     {
@@ -585,7 +470,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/EnterSettlementAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3541,
+      "len": 3627,
       "hasMental": true
     },
     {
@@ -593,7 +478,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/TakePrisonerAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3243,
+      "len": 3327,
       "hasMental": true
     },
     {
@@ -601,7 +486,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/MarriageAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3213,
+      "len": 3296,
       "hasMental": true
     },
     {
@@ -609,7 +494,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/ChangeOwnerOfSettlementAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3664,
+      "len": 3819,
       "hasMental": true
     },
     {
@@ -617,7 +502,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/StartBattleAction.md",
       "status": "OK",
       "hits": [],
-      "len": 14069,
+      "len": 14058,
       "hasMental": true
     }
   ],
@@ -627,7 +512,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/KillCharacterAction.md",
       "status": "OK",
       "hits": [],
-      "len": 4398,
+      "len": 4498,
       "hasMental": true
     },
     {
@@ -635,7 +520,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/ChangeRelationAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3636,
+      "len": 3777,
       "hasMental": true
     },
     {
@@ -643,7 +528,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/ChangeKingdomAction.md",
       "status": "OK",
       "hits": [],
-      "len": 4174,
+      "len": 4332,
       "hasMental": true
     },
     {
@@ -651,7 +536,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/DeclareWarAction.md",
       "status": "OK",
       "hits": [],
-      "len": 12217,
+      "len": 12218,
       "hasMental": true
     },
     {
@@ -659,7 +544,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/MakePeaceAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3481,
+      "len": 3612,
       "hasMental": true
     },
     {
@@ -667,7 +552,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/GiveGoldAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3711,
+      "len": 3801,
       "hasMental": true
     },
     {
@@ -675,7 +560,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/AddHeroToPartyAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3263,
+      "len": 3345,
       "hasMental": true
     },
     {
@@ -683,7 +568,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/DestroyPartyAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3366,
+      "len": 3449,
       "hasMental": true
     },
     {
@@ -691,7 +576,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/EnterSettlementAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3541,
+      "len": 3627,
       "hasMental": true
     },
     {
@@ -699,7 +584,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/TakePrisonerAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3243,
+      "len": 3327,
       "hasMental": true
     },
     {
@@ -707,7 +592,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/MarriageAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3213,
+      "len": 3296,
       "hasMental": true
     },
     {
@@ -715,7 +600,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/ChangeOwnerOfSettlementAction.md",
       "status": "OK",
       "hits": [],
-      "len": 3664,
+      "len": 3819,
       "hasMental": true
     },
     {
@@ -723,7 +608,7 @@
       "path": "content/v1.3.15/en/api/campaign-ext/StartBattleAction.md",
       "status": "OK",
       "hits": [],
-      "len": 14069,
+      "len": 14058,
       "hasMental": true
     }
   ],
@@ -733,7 +618,7 @@
       "path": "content/v1.3.15/en/api/save-system/SaveableTypeDefiner.md",
       "status": "OK",
       "hits": [],
-      "len": 7344,
+      "len": 8064,
       "hasMental": true
     },
     {
@@ -741,7 +626,7 @@
       "path": "content/v1.3.15/en/api/save-system/SaveableFieldAttribute.md",
       "status": "OK",
       "hits": [],
-      "len": 13171,
+      "len": 7456,
       "hasMental": true,
       "aliasOf": "SaveableFieldAttribute"
     },
@@ -750,7 +635,7 @@
       "path": "content/v1.3.15/en/api/save-system/SaveablePropertyAttribute.md",
       "status": "OK",
       "hits": [],
-      "len": 18130,
+      "len": 5586,
       "hasMental": true,
       "aliasOf": "SaveablePropertyAttribute"
     }

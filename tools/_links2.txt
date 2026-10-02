@@ -1,0 +1,64 @@
+FILES=38548
+TOTAL_LINKS=122274
+AUDIT_MODE=url
+BROKEN_LINKS=92
+RESOLVE_OK_URL=122020
+RESOLVE_OK_FILE=101697
+RESOLVE_OK_EITHER=122112
+RESOLVE_OK_BOTH=101605
+RESOLVE_URL_ONLY=20415
+RESOLVE_FILE_ONLY=92
+RESOLVE_NEITHER=0
+FILES_WITH_BROKEN=2
+
+## v1.3.15/zh/architecture/scenario-acceptance-E.md  (24)
+   -> ./doc-contract
+   -> ./crash-boundaries
+   -> ../api/core/MBSubModuleBase/
+   -> ../api/campaign-ext/CampaignGameStarter/
+   -> ../api/campaign-ext/CampaignEvents
+   -> ../api/campaign-ext/CampaignBehaviorBase/
+   -> ../api/campaign-ext/CampaignBehaviorManager/
+   -> ./module-system
+   -> ./developer-roadmap
+   -> ../api/campaign-ext/GiveGoldAction/
+   -> ../api/campaign-ext/KillCharacterAction/
+   -> ../api/campaign-ext/ChangeKingdomAction/
+   -> ../api/campaign-ext/DeclareWarAction/
+   -> ../api/campaign-ext/MakePeaceAction/
+   -> ../api/campaign-ext/actions/
+   -> ../api/save-system/SaveManager/
+   -> ../api/save-system/SaveableTypeDefiner/
+   -> ./save-system
+   -> ../api/mission/MissionBehavior/
+   -> ../api/mission/Agent/
+   -> ../api/campaign-ext/DiplomacyModel/
+   -> ../api/campaign-ext/DefaultDiplomacyModel/
+   -> ../api/campaign-ext/models/
+   -> ./sdk-overview
+
+## v1.4.5/zh/architecture/scenario-acceptance-E.md  (24)
+   -> ./doc-contract
+   -> ./crash-boundaries
+   -> ../api/core/MBSubModuleBase/
+   -> ../api/campaign-ext/CampaignGameStarter/
+   -> ../api/campaign-ext/CampaignEvents
+   -> ../api/campaign-ext/CampaignBehaviorBase/
+   -> ../api/campaign-ext/CampaignBehaviorManager/
+   -> ./module-system
+   -> ./developer-roadmap
+   -> ../api/campaign-ext/GiveGoldAction/
+   -> ../api/campaign-ext/KillCharacterAction/
+   -> ../api/campaign-ext/ChangeKingdomAction/
+   -> ../api/campaign-ext/DeclareWarAction/
+   -> ../api/campaign-ext/MakePeaceAction/
+   -> ../api/campaign-ext/actions/
+   -> ../api/save-system/SaveManager/
+   -> ../api/save-system/SaveableTypeDefiner/
+   -> ./save-system
+   -> ../api/mission/MissionBehavior/
+   -> ../api/mission/Agent/
+   -> ../api/campaign-ext/DiplomacyModel/
+   -> ../api/campaign-ext/DefaultDiplomacyModel/
+   -> ../api/campaign-ext/models/
+   -> ./sdk-overview

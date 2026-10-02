@@ -1,0 +1,148 @@
+{
+  "generated": "4-step canonical projection over bannerlord-1.4.7",
+  "uniqueTypes": 12148,
+  "excludedNs": 4382,
+  "excludedSuffix": 30,
+  "live": 7736,
+  "byDir": {
+    "core-extra": {
+      "types": 1214,
+      "namespaces": 40,
+      "stepMix": {
+        "2": 531,
+        "3": 8,
+        "4": 675
+      }
+    },
+    "sandbox": {
+      "types": 1270,
+      "namespaces": 78,
+      "stepMix": {
+        "2": 1270
+      }
+    },
+    "viewmodel": {
+      "types": 651,
+      "namespaces": 92,
+      "stepMix": {
+        "2": 651
+      }
+    },
+    "storymode": {
+      "types": 189,
+      "namespaces": 24,
+      "stepMix": {
+        "2": 189
+      }
+    },
+    "achievementsystem": {
+      "types": 4,
+      "namespaces": 1,
+      "stepMix": {
+        "2": 4
+      }
+    },
+    "activitysystem": {
+      "types": 6,
+      "namespaces": 1,
+      "stepMix": {
+        "2": 6
+      }
+    },
+    "campaign": {
+      "types": 683,
+      "namespaces": 38,
+      "stepMix": {
+        "2": 674,
+        "3": 9
+      }
+    },
+    "campaign-ext": {
+      "types": 777,
+      "namespaces": 12,
+      "stepMix": {
+        "2": 777
+      }
+    },
+    "engine": {
+      "types": 272,
+      "namespaces": 9,
+      "stepMix": {
+        "2": 271,
+        "3": 1
+      }
+    },
+    "gui": {
+      "types": 291,
+      "namespaces": 15,
+      "stepMix": {
+        "2": 288,
+        "3": 3
+      }
+    },
+    "mission-ext": {
+      "types": 2105,
+      "namespaces": 145,
+      "stepMix": {
+        "2": 2105
+      }
+    },
+    "system": {
+      "types": 20,
+      "namespaces": 1,
+      "stepMix": {
+        "2": 20
+      }
+    },
+    "localization": {
+      "types": 53,
+      "namespaces": 4,
+      "stepMix": {
+        "2": 53
+      }
+    },
+    "modulemanager": {
+      "types": 9,
+      "namespaces": 1,
+      "stepMix": {
+        "2": 9
+      }
+    },
+    "mission": {
+      "types": 3,
+      "namespaces": 1,
+      "stepMix": {
+        "3": 3
+      }
+    },
+    "core": {
+      "types": 2,
+      "namespaces": 1,
+      "stepMix": {
+        "3": 2
+      }
+    },
+    "custombattle": {
+      "types": 41,
+      "namespaces": 5,
+      "stepMix": {
+        "2": 41
+      }
+    },
+    "network": {
+      "types": 38,
+      "namespaces": 1,
+      "stepMix": {
+        "2": 38
+      }
+    },
+    "save-system": {
+      "types": 108,
+      "namespaces": 5,
+      "stepMix": {
+        "2": 104,
+        "3": 4
+      }
+    }
+  }
+}

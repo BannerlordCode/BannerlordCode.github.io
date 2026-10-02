@@ -1,7 +1,8 @@
 ---
 title: "MobileParty"
-description: "MobileParty 的自动生成类参考。"
+description: "战役地图上会移动的部队：名册、移动指令、AI 状态、职务、食物、士气、可见性、船只与部队组件。"
 ---
+
 # MobileParty
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
@@ -12,1033 +13,345 @@ description: "MobileParty 的自动生成类参考。"
 
 ## 概述
 
-`MobileParty` 位于 `TaleWorlds.CampaignSystem.Party`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`MobileParty` 是战役地图上的**移动**部队：商队、领主的战争部队、村民部队、守备队、民兵、巡逻队或强盗团。它不是名册——名册在 `MobileParty.Party`，也就是一个 [PartyBase](../PartyBase)。`MobileParty` 补上的是只有“会动的东西”才需要的东西：指令、路径、AI 状态、位置、职务、士气、食物与可见性。
+
+它的结构分三层：
+
+| 层 | 成员 | 生命周期 |
+|----|------|----------|
+| 身份 | `Name`、`Id`、`Index`、`PartyComponent`、`IsMainParty` | 可存档 |
+| 名册 | 通过 `.Party`：`MemberRoster`、`PrisonRoster`、`ItemRoster`、`AddMember` | 可存档 |
+| 移动 | `SetMove*` 指令、`Ai`、`Objective`、`Position`、`Speed`、`ShortTermBehavior` | 多为瞬态，会重算 |
+
+一个 `PartyComponent` 负责分类：`LordPartyComponent`、`CaravanPartyComponent`、`VillagerPartyComponent`、`GarrisonPartyComponent`、`MilitiaPartyComponent`、`PatrolPartyComponent`、`WarPartyComponent`、`BanditPartyComponent`。`IsLordParty` / `IsCaravan` / `IsVillager` / `IsGarrison` / `IsMilitia` / `IsPatrolParty` / `IsBandit` / `IsCustomParty` 这些标志都是由此推导出来的。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.CampaignSystem.Party` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
-
-## 主要属性
-
-| Name | Signature |
-|------|-----------|
-| `MainParty` | `public static MobileParty MainParty { get; }` |
-| `All` | `public static MBReadOnlyList<MobileParty> All { get; }` |
-| `AllCaravanParties` | `public static MBReadOnlyList<MobileParty> AllCaravanParties { get; }` |
-| `AllPatrolParties` | `public static MBReadOnlyList<MobileParty> AllPatrolParties { get; }` |
-| `AllBanditParties` | `public static MBReadOnlyList<MobileParty> AllBanditParties { get; }` |
-| `AllLordParties` | `public static MBReadOnlyList<MobileParty> AllLordParties { get; }` |
-| `AllGarrisonParties` | `public static MBReadOnlyList<MobileParty> AllGarrisonParties { get; }` |
-| `AllMilitiaParties` | `public static MBReadOnlyList<MobileParty> AllMilitiaParties { get; }` |
-| `AllVillagerParties` | `public static MBReadOnlyList<MobileParty> AllVillagerParties { get; }` |
-| `AllCustomParties` | `public static MBReadOnlyList<MobileParty> AllCustomParties { get; }` |
-| `AllPartiesWithoutPartyComponent` | `public static MBReadOnlyList<MobileParty> AllPartiesWithoutPartyComponent { get; }` |
-| `Count` | `public static int Count { get; }` |
-| `ConversationParty` | `public static MobileParty ConversationParty { get; }` |
-| `Name` | `public TextObject Name { get; }` |
-| `LastVisitedSettlement` | `public Settlement LastVisitedSettlement { get; }` |
-| `Bearing` | `public Vec2 Bearing { get; }` |
-| `AttachedParties` | `public MBReadOnlyList<MobileParty> AttachedParties { get; }` |
-| `HasLandNavigationCapability` | `public bool HasLandNavigationCapability { get; }` |
-| `Ships` | `public MBReadOnlyList<Ship> Ships { get; }` |
-| `HasNavalNavigationCapability` | `public bool HasNavalNavigationCapability { get; set; }` |
-| `Aggressiveness` | `public float Aggressiveness { get; set; }` |
-| `PaymentLimit` | `public int PaymentLimit { get; }` |
-| `Banner` | `public Banner Banner { get; }` |
-| `ArmyPositionAdder` | `public Vec2 ArmyPositionAdder { get; }` |
-| `AiBehaviorTarget` | `public CampaignVec2 AiBehaviorTarget { get; }` |
-| `Objective` | `public MobileParty.PartyObjective Objective { get; }` |
-| `Ai` | `public MobilePartyAi Ai { get; }` |
-| `Party` | `public PartyBase Party { get; }` |
-| `IsActive` | `public bool IsActive { get; set; }` |
-| `IsInRaftState` | `public bool IsInRaftState { get; set; }` |
-| `DisorganizedUntilTime` | `public CampaignTime DisorganizedUntilTime { get; }` |
-| `LastCalculatedBaseSpeed` | `public float LastCalculatedBaseSpeed { get; }` |
-| `ThinkParamsCache` | `public PartyThinkParams ThinkParamsCache { get; }` |
-| `Speed` | `public float Speed { get; }` |
-| `SpeedExplained` | `public ExplainedNumber SpeedExplained { get; }` |
-| `ShortTermTargetParty` | `public MobileParty ShortTermTargetParty { get; }` |
-| `ShortTermTargetSettlement` | `public Settlement ShortTermTargetSettlement { get; }` |
-| `IsDisorganized` | `public bool IsDisorganized { get; }` |
-| `IsCurrentlyUsedByAQuest` | `public bool IsCurrentlyUsedByAQuest { get; }` |
-| `ShortTermBehavior` | `public AiBehavior ShortTermBehavior { get; }` |
-| `IsPartyTradeActive` | `public bool IsPartyTradeActive { get; }` |
-| `PartyTradeGold` | `public int PartyTradeGold { get; set; }` |
-| `PartyTradeTaxGold` | `public int PartyTradeTaxGold { get; }` |
-| `StationaryStartTime` | `public CampaignTime StationaryStartTime { get; }` |
-| `VersionNo` | `public int VersionNo { get; }` |
-| `ShouldJoinPlayerBattles` | `public bool ShouldJoinPlayerBattles { get; set; }` |
-| `IsDisbanding` | `public bool IsDisbanding { get; set; }` |
-| `RandomValue` | `public int RandomValue { get; }` |
-| `NavigationCapability` | `public MobileParty.NavigationType NavigationCapability { get; }` |
-| `IsCurrentlyAtSea` | `public bool IsCurrentlyAtSea { get; set; }` |
-| `IsNavalVisualDirty` | `public bool IsNavalVisualDirty { get; }` |
-| `IsTargetingPort` | `public bool IsTargetingPort { get; }` |
-| `Anchor` | `public AnchorPoint Anchor { get; }` |
-| `IsTransitionInProgress` | `public bool IsTransitionInProgress { get; }` |
-| `EndPositionForNavigationTransition` | `public CampaignVec2 EndPositionForNavigationTransition { get; }` |
-| `NavigationTransitionStartTime` | `public CampaignTime NavigationTransitionStartTime { get; }` |
-| `NavigationTransitionDuration` | `public CampaignTime NavigationTransitionDuration { get; }` |
-| `DesiredAiNavigationType` | `public MobileParty.NavigationType DesiredAiNavigationType { get; set; }` |
-| `CurrentSettlement` | `public Settlement CurrentSettlement { get; set; }` |
-| `HomeSettlement` | `public Settlement HomeSettlement { get; }` |
-| `AttachedTo` | `public MobileParty AttachedTo { get; set; }` |
-| `Army` | `public Army Army { get; set; }` |
-| `BesiegerCamp` | `public BesiegerCamp BesiegerCamp { get; set; }` |
-| `DefaultBehavior` | `public AiBehavior DefaultBehavior { get; }` |
-| `TargetSettlement` | `public Settlement TargetSettlement { get; }` |
-| `TargetPosition` | `public CampaignVec2 TargetPosition { get; set; }` |
-| `TargetParty` | `public MobileParty TargetParty { get; set; }` |
-| `LeaderHero` | `public Hero LeaderHero { get; set; }` |
-| `Owner` | `public Hero Owner { get; }` |
-| `EffectiveScout` | `public Hero EffectiveScout { get; }` |
-| `EffectiveQuartermaster` | `public Hero EffectiveQuartermaster { get; }` |
-| `EffectiveEngineer` | `public Hero EffectiveEngineer { get; }` |
-| `EffectiveSurgeon` | `public Hero EffectiveSurgeon { get; }` |
-| `RecentEventsMorale` | `public float RecentEventsMorale { get; set; }` |
-| `SeeingRangeExplanation` | `public ExplainedNumber SeeingRangeExplanation { get; }` |
-| `InventoryCapacity` | `public int InventoryCapacity { get; }` |
-| `InventoryCapacityExplainedNumber` | `public ExplainedNumber InventoryCapacityExplainedNumber { get; }` |
-| `TotalWeightCarried` | `public float TotalWeightCarried { get; }` |
-| `MapEventSide` | `public MapEventSide MapEventSide { get; set; }` |
-| `TotalWeightCarriedExplainedNumber` | `public ExplainedNumber TotalWeightCarriedExplainedNumber { get; }` |
-| `Morale` | `public float Morale { get; }` |
-| `FoodChange` | `public float FoodChange { get; }` |
-| `BaseFoodChange` | `public float BaseFoodChange { get; }` |
-| `ActualClan` | `public Clan ActualClan { get; set; }` |
-| `FoodChangeExplained` | `public ExplainedNumber FoodChangeExplained { get; }` |
-| `MoraleExplained` | `public ExplainedNumber MoraleExplained { get; }` |
-| `CurrentNavigationFace` | `public PathFaceRecord CurrentNavigationFace { get; }` |
-| `PathBegin` | `public int PathBegin { get; }` |
-| `ForceAiNoPathMode` | `public bool ForceAiNoPathMode { get; set; }` |
-| `EventPositionAdder` | `public Vec2 EventPositionAdder { get; set; }` |
-| `IsVisible` | `public bool IsVisible { get; set; }` |
-| `Position` | `public CampaignVec2 Position { get; set; }` |
-| `IsInspected` | `public bool IsInspected { get; set; }` |
-| `GetPosition2D` | `public Vec2 GetPosition2D { get; }` |
-| `TotalWage` | `public int TotalWage { get; }` |
-| `TotalWageExplained` | `public ExplainedNumber TotalWageExplained { get; }` |
-| `MapEvent` | `public MapEvent MapEvent { get; }` |
-| `MemberRoster` | `public TroopRoster MemberRoster { get; }` |
-| `PrisonRoster` | `public TroopRoster PrisonRoster { get; }` |
-| `ItemRoster` | `public ItemRoster ItemRoster { get; }` |
-| `IsMainParty` | `public bool IsMainParty { get; }` |
-| `MapFaction` | `public IFaction MapFaction { get; }` |
-| `ArmyName` | `public TextObject ArmyName { get; }` |
-| `SiegeEvent` | `public SiegeEvent SiegeEvent { get; }` |
-| `Food` | `public float Food { get; }` |
-| `TotalFoodAtInventory` | `public int TotalFoodAtInventory { get; }` |
-| `SeeingRange` | `public float SeeingRange { get; }` |
-| `BesiegedSettlement` | `public Settlement BesiegedSettlement { get; }` |
-| `IsEngaging` | `public bool IsEngaging { get; }` |
-| `PartySizeRatio` | `public float PartySizeRatio { get; }` |
-| `VisualPosition2DWithoutError` | `public Vec2 VisualPosition2DWithoutError { get; }` |
-| `IsMoving` | `public bool IsMoving { get; }` |
-| `ShouldBeIgnored` | `public bool ShouldBeIgnored { get; }` |
-| `VillagerPartyComponent` | `public VillagerPartyComponent VillagerPartyComponent { get; }` |
-| `CaravanPartyComponent` | `public CaravanPartyComponent CaravanPartyComponent { get; }` |
-| `WarPartyComponent` | `public WarPartyComponent WarPartyComponent { get; }` |
-| `BanditPartyComponent` | `public BanditPartyComponent BanditPartyComponent { get; }` |
-| `PatrolPartyComponent` | `public PatrolPartyComponent PatrolPartyComponent { get; }` |
-| `LordPartyComponent` | `public LordPartyComponent LordPartyComponent { get; }` |
-| `GarrisonPartyComponent` | `public GarrisonPartyComponent GarrisonPartyComponent { get; }` |
-| `PartyComponent` | `public PartyComponent PartyComponent { get; }` |
-| `IsMilitia` | `public bool IsMilitia { get; }` |
-| `IsLordParty` | `public bool IsLordParty { get; }` |
-| `IsVillager` | `public bool IsVillager { get; }` |
-| `IsCaravan` | `public bool IsCaravan { get; }` |
-| `IsPatrolParty` | `public bool IsPatrolParty { get; }` |
-| `IsGarrison` | `public bool IsGarrison { get; }` |
-| `IsCustomParty` | `public bool IsCustomParty { get; }` |
-| `IsBandit` | `public bool IsBandit { get; }` |
-| `IsBanditBossParty` | `public bool IsBanditBossParty { get; }` |
-| `AvoidHostileActions` | `public bool AvoidHostileActions { get; }` |
-
-## 主要方法
-
-### SetLandNavigationAccess
-`public void SetLandNavigationAccess(bool access)`
-
-**用途 / Purpose:** 为 land navigation access 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetLandNavigationAccess(false);
 ```
-
-### GetName
-`public override TextObject GetName()`
-
-**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.GetName();
-```
-
-### HasLimitedWage
-`public bool HasLimitedWage()`
-
-**用途 / Purpose:** 判断当前对象是否已经持有 limited wage。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.HasLimitedWage();
-```
-
-### GetAvailableWageBudget
-`public int GetAvailableWageBudget()`
-
-**用途 / Purpose:** 读取并返回当前对象中 available wage budget 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.GetAvailableWageBudget();
-```
-
-### IsWageLimitExceeded
-`public bool IsWageLimitExceeded()`
-
-**用途 / Purpose:** 判断当前对象是否处于 wage limit exceeded 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.IsWageLimitExceeded();
-```
-
-### SetWagePaymentLimit
-`public void SetWagePaymentLimit(int newLimit)`
-
-**用途 / Purpose:** 为 wage payment limit 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetWagePaymentLimit(0);
-```
-
-### SetNavalVisualAsDirty
-`public void SetNavalVisualAsDirty()`
-
-**用途 / Purpose:** 为 naval visual as dirty 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetNavalVisualAsDirty();
-```
-
-### OnNavalVisualsUpdated
-`public void OnNavalVisualsUpdated()`
-
-**用途 / Purpose:** 在 naval visuals updated 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.OnNavalVisualsUpdated();
-```
-
-### SetSailAtPosition
-`public void SetSailAtPosition(CampaignVec2 position)`
-
-**用途 / Purpose:** 为 sail at position 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetSailAtPosition(position);
-```
-
-### CancelNavigationTransition
-`public void CancelNavigationTransition()`
-
-**用途 / Purpose:** 检查当前对象是否满足 cel navigation transition 的前置条件。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.CancelNavigationTransition();
-```
-
-### ChangeIsCurrentlyAtSeaCheat
-`public void ChangeIsCurrentlyAtSeaCheat()`
-
-**用途 / Purpose:** 调用 ChangeIsCurrentlyAtSeaCheat 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.ChangeIsCurrentlyAtSeaCheat();
-```
-
-### SetCustomHomeSettlement
-`public void SetCustomHomeSettlement(Settlement customHomeSettlement)`
-
-**用途 / Purpose:** 为 custom home settlement 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetCustomHomeSettlement(customHomeSettlement);
-```
-
-### SetTargetSettlement
-`public void SetTargetSettlement(Settlement settlement, bool isTargetingPort)`
-
-**用途 / Purpose:** 为 target settlement 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetTargetSettlement(settlement, false);
-```
-
-### SetPartyScout
-`public void SetPartyScout(Hero hero)`
-
-**用途 / Purpose:** 为 party scout 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetPartyScout(hero);
-```
-
-### SetPartyQuartermaster
-`public void SetPartyQuartermaster(Hero hero)`
-
-**用途 / Purpose:** 为 party quartermaster 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetPartyQuartermaster(hero);
-```
-
-### SetPartyEngineer
-`public void SetPartyEngineer(Hero hero)`
-
-**用途 / Purpose:** 为 party engineer 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetPartyEngineer(hero);
-```
-
-### SetPartySurgeon
-`public void SetPartySurgeon(Hero hero)`
-
-**用途 / Purpose:** 为 party surgeon 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetPartySurgeon(hero);
-```
-
-### ToString
-`public override string ToString()`
-
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.ToString();
-```
-
-### ChangePartyLeader
-`public void ChangePartyLeader(Hero newLeader)`
-
-**用途 / Purpose:** 调用 ChangePartyLeader 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.ChangePartyLeader(newLeader);
-```
-
-### OnPartyInteraction
-`public void OnPartyInteraction(MobileParty engagingParty)`
-
-**用途 / Purpose:** 在 party interaction 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.OnPartyInteraction(engagingParty);
-```
-
-### SetPositionAfterMapChange
-`public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
-
-**用途 / Purpose:** 为 position after map change 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetPositionAfterMapChange(newPosition);
-```
-
-### RemovePartyLeader
-`public void RemovePartyLeader()`
-
-**用途 / Purpose:** 从当前容器或状态中移除 party leader。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.RemovePartyLeader();
-```
-
-### CheckPositionsForMapChangeAndUpdateIfNeeded
-`public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
-
-**用途 / Purpose:** 检查positions for map change and update if needed在当前对象中是否成立。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.CheckPositionsForMapChangeAndUpdateIfNeeded();
-```
-
-### CheckAiForMapChangeAndUpdateIfNeeded
-`public void CheckAiForMapChangeAndUpdateIfNeeded()`
-
-**用途 / Purpose:** 检查ai for map change and update if needed在当前对象中是否成立。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.CheckAiForMapChangeAndUpdateIfNeeded();
-```
-
-### MovePartyToTheClosestLand
-`public void MovePartyToTheClosestLand()`
-
-**用途 / Purpose:** 移动party to the closest land到新的位置或状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.MovePartyToTheClosestLand();
-```
-
-### GetBehaviorText
-`public TextObject GetBehaviorText()`
-
-**用途 / Purpose:** 读取并返回当前对象中 behavior text 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.GetBehaviorText();
-```
-
-### Initialize
-`public override void Initialize()`
-
-**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.Initialize();
-```
-
-### InitializeMobilePartyAtPosition
-`public void InitializeMobilePartyAtPosition(CampaignVec2 position)`
-
-**用途 / Purpose:** 为 mobile party at position 初始化必要的资源、状态或绑定。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.InitializeMobilePartyAtPosition(position);
-```
-
-### InitializeMobilePartyAtPosition
-`public void InitializeMobilePartyAtPosition(TroopRoster memberRoster, TroopRoster prisonerRoster, CampaignVec2 position, bool isNaval = false)`
-
-**用途 / Purpose:** 为 mobile party at position 初始化必要的资源、状态或绑定。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.InitializeMobilePartyAtPosition(memberRoster, prisonerRoster, position, false);
-```
-
-### InitializeMobilePartyAroundPosition
-`public void InitializeMobilePartyAroundPosition(TroopRoster memberRoster, TroopRoster prisonerRoster, CampaignVec2 position, float spawnRadius, float minSpawnRadius = 0f, bool isNaval = false)`
-
-**用途 / Purpose:** 为 mobile party around position 初始化必要的资源、状态或绑定。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.InitializeMobilePartyAroundPosition(memberRoster, prisonerRoster, position, 0, 0, false);
-```
-
-### InitializeMobilePartyAtPosition
-`public void InitializeMobilePartyAtPosition(PartyTemplateObject pt, CampaignVec2 position)`
-
-**用途 / Purpose:** 为 mobile party at position 初始化必要的资源、状态或绑定。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.InitializeMobilePartyAtPosition(pt, position);
-```
-
-### InitializeMobilePartyAroundPosition
-`public void InitializeMobilePartyAroundPosition(PartyTemplateObject pt, CampaignVec2 position, float spawnRadius, float minSpawnRadius = 0f)`
-
-**用途 / Purpose:** 为 mobile party around position 初始化必要的资源、状态或绑定。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.InitializeMobilePartyAroundPosition(pt, position, 0, 0);
-```
-
-### SetDisorganized
-`public void SetDisorganized(bool isDisorganized)`
-
-**用途 / Purpose:** 为 disorganized 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetDisorganized(false);
-```
-
-### RecalculateShortTermBehavior
-`public void RecalculateShortTermBehavior()`
-
-**用途 / Purpose:** 重新计算short term behavior以反映最新状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.RecalculateShortTermBehavior();
-```
-
-### IsFleeBehavior
-`public static bool IsFleeBehavior(AiBehavior aiBehavior)`
-
-**用途 / Purpose:** 判断当前对象是否处于 flee behavior 状态或条件。
-
-```csharp
-// 静态调用，不需要实例
-MobileParty.IsFleeBehavior(aiBehavior);
-```
-
-### IsFleeing
-`public bool IsFleeing()`
-
-**用途 / Purpose:** 判断当前对象是否处于 fleeing 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.IsFleeing();
-```
-
-### SetPartyUsedByQuest
-`public void SetPartyUsedByQuest(bool isActivelyUsed)`
-
-**用途 / Purpose:** 为 party used by quest 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetPartyUsedByQuest(false);
-```
-
-### IgnoreForHours
-`public void IgnoreForHours(float hours)`
-
-**用途 / Purpose:** 调用 IgnoreForHours 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.IgnoreForHours(0);
-```
-
-### IgnoreByOtherPartiesTill
-`public void IgnoreByOtherPartiesTill(CampaignTime time)`
-
-**用途 / Purpose:** 调用 IgnoreByOtherPartiesTill 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.IgnoreByOtherPartiesTill(time);
-```
-
-### SetAnchor
-`public void SetAnchor(AnchorPoint anchor)`
-
-**用途 / Purpose:** 为 anchor 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetAnchor(anchor);
-```
-
-### SetPartyObjective
-`public void SetPartyObjective(MobileParty.PartyObjective objective)`
-
-**用途 / Purpose:** 为 party objective 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetPartyObjective(objective);
-```
-
-### UpdateVersionNo
-`public void UpdateVersionNo()`
-
-**用途 / Purpose:** 重新计算并更新 version no 的最新表示。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.UpdateVersionNo();
-```
-
-### IsSpotted
-`public bool IsSpotted()`
-
-**用途 / Purpose:** 判断当前对象是否处于 spotted 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.IsSpotted();
-```
-
-### AddElementToMemberRoster
-`public int AddElementToMemberRoster(CharacterObject element, int numberToAdd, bool insertAtFront = false)`
-
-**用途 / Purpose:** 将 element to member roster 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.AddElementToMemberRoster(element, 0, false);
-```
-
-### AddPrisoner
-`public int AddPrisoner(CharacterObject element, int numberToAdd)`
-
-**用途 / Purpose:** 将 prisoner 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.AddPrisoner(element, 0);
-```
-
-### GetPositionAsVec3
-`public Vec3 GetPositionAsVec3()`
-
-**用途 / Purpose:** 读取并返回当前对象中 position as vec3 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.GetPositionAsVec3();
-```
-
-### GetTotalLandStrengthWithFollowers
-`public float GetTotalLandStrengthWithFollowers(bool includeNonAttachedArmyMembers = true)`
-
-**用途 / Purpose:** 读取并返回当前对象中 total land strength with followers 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.GetTotalLandStrengthWithFollowers(false);
-```
-
-### HasPerk
-`public bool HasPerk(PerkObject perk, bool checkSecondaryRole = false)`
-
-**用途 / Purpose:** 判断当前对象是否已经持有 perk。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.HasPerk(perk, false);
-```
-
-### SetHeroPartyRole
-`public void SetHeroPartyRole(Hero hero, PartyRole partyRole)`
-
-**用途 / Purpose:** 为 hero party role 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetHeroPartyRole(hero, partyRole);
-```
-
-### GetHeroPartyRole
-`public PartyRole GetHeroPartyRole(Hero hero)`
-
-**用途 / Purpose:** 读取并返回当前对象中 hero party role 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.GetHeroPartyRole(hero);
-```
-
-### RemoveHeroPartyRole
-`public void RemoveHeroPartyRole(Hero hero)`
-
-**用途 / Purpose:** 从当前容器或状态中移除 hero party role。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.RemoveHeroPartyRole(hero);
-```
-
-### GetRoleHolder
-`public Hero GetRoleHolder(PartyRole partyRole)`
-
-**用途 / Purpose:** 读取并返回当前对象中 role holder 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.GetRoleHolder(partyRole);
+MobileParty (CampaignObjectBase)
+ ├─ .Party ──► PartyBase (IsMobile)  ──► MemberRoster / PrisonRoster / ItemRoster
+ ├─ PartyComponent ──► Lord / Caravan / Villager / Garrison / Militia / Patrol / War / Bandit
+ ├─ LeaderHero / Owner / ActualClan / MapFaction
+ ├─ EffectiveScout / Quartermaster / Engineer / Surgeon   （职务担任者）
+ ├─ Ai (MobilePartyAi) ──► Objective、ShortTermBehavior、TargetSettlement
+ ├─ SetMove* 指令 ──► 移动模式、目标、路径
+ └─ Position / Speed / Morale / Food / IsVisible / IsInspected
 ```
 
-### GetEffectiveRoleHolder
-`public Hero GetEffectiveRoleHolder(PartyRole partyRole)`
+典型调用顺序：
 
-**用途 / Purpose:** 读取并返回当前对象中 effective role holder 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.GetEffectiveRoleHolder(partyRole);
 ```
-
-### GetNumDaysForFoodToLast
-`public int GetNumDaysForFoodToLast()`
-
-**用途 / Purpose:** 读取并返回当前对象中 num days for food to last 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.GetNumDaysForFoodToLast();
+MBSubModuleBase.OnCampaignStart
+    MobileParty.All 已填充；MainParty 已解析
+CampaignBehaviorBase.RegisterEvents()
+    CampaignEvents.HourlyTickPartyEvent / DailyTickPartyEvent / AiHourlyTickEvent
+HourlyTick（直接传入部队对象）
+    读取 party.Speed、party.Food、party.Morale
+    通过 party.SetMoveGoToSettlement(...) / SetMoveHold() 下达指令
+    AI 在下一次 AI tick 依该指令重新规划路线
 ```
-
-### RecalculateLongTermPath
-`public bool RecalculateLongTermPath()`
 
-**用途 / Purpose:** 重新计算long term path以反映最新状态。
+实际开发中最容易踩的坑：
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.RecalculateLongTermPath();
-```
-
-### GetRegionSwitchCostFromLandToSea
-`public int GetRegionSwitchCostFromLandToSea()`
+- **`MobileParty` 上没有 `AddMember`。** 加兵要走 `party.Party.AddMember(...)` 或 `party.AddElementToMemberRoster(...)`。`AddPrisoner` 则两边都有。这种不对称是部队代码最常见的编译错误。
+- **移动指令是目标，不是路径。** `SetMoveGoToSettlement` 设置的是目标；走哪条路由 AI 决定。下达指令后立刻读 `Position` 并假设部队已经移动，是错的。
+- **`Position` 是 `CampaignVec2`，不是 `Vec2`。** `GetPosition2D()` 返回 `Vec2`。混用两者会悄悄破坏距离计算。
+- **要读 `Party.MemberRoster`，而不是缓存副本。** 名册对象是原地修改的；缓存下来的 `TroopRosterElement` 计数在下一次每日 tick 之后就过期了。
+- **附属部队不是独立军队。** `AttachedTo` 与 `AttachedParties` 构成一棵树。对宿主与附属部队的 `Party.EstimatedStrength` 求和会重复计算，因为附属士兵已经在宿主名册里了。
+- **`SetPartyComponent` 会重新推导所有 `Is*Party` 标志。** 在运行时替换组件会把领主部队变成商队，让之前基于旧分类做出的 AI 决策全部失效。
+- **`CreateParty` 需要组件参数。** 用 `null` 创建的部队没有分类、没有名册行为、也没有 AI 默认值。
 
-**用途 / Purpose:** 读取并返回当前对象中 region switch cost from land to sea 的结果。
+## 依赖关系
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.GetRegionSwitchCostFromLandToSea();
-```
+| 方向 | 类型 | 关系 |
+|-----------|------|--------------|
+| 基类 | `CampaignObjectBase` → `MBObjectBase` | 可存档身份 |
+| 名册 | [PartyBase](../PartyBase) | `Party` 持有 `MemberRoster` / `PrisonRoster` / `ItemRoster` |
+| 人物 | [Hero](../Hero) | `LeaderHero`、`Owner`、职务担任者、`PartyBelongedTo` |
+| 政治 | [Clan](../Clan)、[Kingdom](../Kingdom) | `ActualClan`、`MapFaction` |
+| 地点 | [Settlement](../Settlement) | `CurrentSettlement`、`HomeSettlement`、`TargetSettlement`、`BesiegedSettlement` |
+| AI | `MobilePartyAi`、`PartyThinkParams`、`AiBehavior` | `Ai`、`ShortTermBehavior`、`Objective` |
+| 地图场景 | [MobilePartyVisual](../../campaign-ext/MobilePartyVisual) | 视觉对应物 |
+| 事件 | [CampaignEvents](../CampaignEvents) | `HourlyTickPartyEvent`、`DailyTickPartyEvent`、`MobilePartyDestroyed` |
 
-### GetRegionSwitchCostFromSeaToLand
-`public int GetRegionSwitchCostFromSeaToLand()`
+## 主要成员
 
-**用途 / Purpose:** 读取并返回当前对象中 region switch cost from sea to land 的结果。
+### 身份
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.GetRegionSwitchCostFromSeaToLand();
-```
+#### `public static MBReadOnlyList<MobileParty> All`（以及各分类列表）
 
-### SetMoveModeHold
-`public void SetMoveModeHold()`
+`All` 加上 `AllCaravanParties`、`AllPatrolParties`、`AllBanditParties`、`AllLordParties`、`AllGarrisonParties`、`AllMilitiaParties`、`AllVillagerParties`、`AllCustomParties`、`AllPartiesWithoutPartyComponent`。都是战役维护的活动视图。
 
-**用途 / Purpose:** 为 move mode hold 赋新值，并同步更新对象内部状态。
+#### `public static MobileParty MainParty`
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetMoveModeHold();
-```
+玩家部队。在编辑器与菜单场景下为 `null`。
 
-### SetMoveEngageParty
-`public void SetMoveEngageParty(MobileParty party, MobileParty.NavigationType navigationType)`
+#### `public static MobileParty CreateParty(string stringId, PartyComponent component)`
 
-**用途 / Purpose:** 为 move engage party 赋新值，并同步更新对象内部状态。
+引擎工厂，返回一个已注册的部队。`new MobileParty()` 产出的是未注册对象，永远不会出现在 `All` 中，也不会被存档。
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetMoveEngageParty(party, navigationType);
-```
+#### `public bool IsMainParty`
 
-### SetMoveGoAroundParty
-`public void SetMoveGoAroundParty(MobileParty party, MobileParty.NavigationType navigationType)`
+上面那个静态成员的实例视图；对任意部队都安全。
 
-**用途 / Purpose:** 为 move go around party 赋新值，并同步更新对象内部状态。
+#### `public PartyComponent PartyComponent` / `public void SetPartyComponent(PartyComponent partyComponent, bool firstTimePartyComponentCreation = true)` / `public void UpdatePartyComponentFlags()`
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetMoveGoAroundParty(party, navigationType);
-```
+分类。`SetPartyComponent` 会重新推导所有 `Is*Party` 标志，并在首次创建时初始化该组件的部队。
 
-### SetMoveGoToSettlement
-`public void SetMoveGoToSettlement(Settlement settlement, MobileParty.NavigationType navigationType, bool isTargetingThePort)`
+### 名册访问
 
-**用途 / Purpose:** 为 move go to settlement 赋新值，并同步更新对象内部状态。
+#### `public PartyBase Party { get; private set; }`
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetMoveGoToSettlement(settlement, navigationType, false);
-```
+名册对象。全部士兵、俘虏与物品的修改都在这里发生。
 
-### SetMoveGoToPoint
-`public void SetMoveGoToPoint(CampaignVec2 point, MobileParty.NavigationType navigationType)`
+#### `public int AddElementToMemberRoster(CharacterObject element, int numberToAdd, bool insertAtFront = false)` / `public int AddPrisoner(CharacterObject element, int numberToAdd)`
 
-**用途 / Purpose:** 为 move go to point 赋新值，并同步更新对象内部状态。
+部队上的直接名册修改。返回实际加入的数量（受规模上限钳制）。想让规模上限规则生效，就用它们而不是直接改名册。
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetMoveGoToPoint(point, navigationType);
-```
+#### `public MBReadOnlyList<Ship> Ships` / `public bool HasNavalNavigationCapability` / `public bool HasLandNavigationCapability`
 
-### SetMoveToNearestLand
-`public void SetMoveToNearestLand(Settlement settlement)`
+海军状态。海军部队的速度模型、视觉与 AI 都不同。
 
-**用途 / Purpose:** 为 move to nearest land 赋新值，并同步更新对象内部状态。
+### 移动指令
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetMoveToNearestLand(settlement);
-```
+#### `public void SetMoveHold()`
 
-### SetMoveGoToInteractablePoint
-`public void SetMoveGoToInteractablePoint(IInteractablePoint point, MobileParty.NavigationType navigationType)`
+取消一切移动，部队原地待命。
 
-**用途 / Purpose:** 为 move go to interactable point 赋新值，并同步更新对象内部状态。
+#### `public void SetMoveGoToSettlement(Settlement settlement, MobileParty.NavigationType navigationType, bool isTargetingThePort)`
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetMoveGoToInteractablePoint(point, navigationType);
-```
+前往某聚落。`navigationType` 取 `Default`、`Naval` 或 `All`；`isTargetingThePort` 对海军部队有意义。
 
-### SetMoveEscortParty
-`public void SetMoveEscortParty(MobileParty mobileParty, MobileParty.NavigationType navigationType, bool isTargetingPort)`
+#### `public void SetMoveGoToPoint(CampaignVec2 point, MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** 为 move escort party 赋新值，并同步更新对象内部状态。
+前往某个地图坐标。
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetMoveEscortParty(mobileParty, navigationType, false);
-```
+#### `public void SetMoveRaidSettlement(Settlement, MobileParty.NavigationType)` / `SetMoveBesiegeSettlement(...)` / `SetMoveDefendSettlement(Settlement, bool isTargetingPort, MobileParty.NavigationType)`
 
-### SetMovePatrolAroundPoint
-`public void SetMovePatrolAroundPoint(CampaignVec2 point, MobileParty.NavigationType navigationType)`
+进攻性与防御性指令。它们正是 AI 会挑选的指令，因此脚本部队使用它们时会参与劫掠 / 攻城逻辑，而不像独立行动者。
 
-**用途 / Purpose:** 为 move patrol around point 赋新值，并同步更新对象内部状态。
+#### `public void SetMoveEngageParty(MobileParty party, MobileParty.NavigationType)` / `SetMoveGoAroundParty(...)` / `SetMoveEscortParty(...)` / `SetMovePatrolAroundPoint(...)` / `SetMovePatrolAroundSettlement(...)` / `SetMoveGoToInteractablePoint(IInteractablePoint, MobileParty.NavigationType)` / `SetMoveToNearestLand(Settlement)`
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetMovePatrolAroundPoint(point, navigationType);
-```
+其余指令词汇。合起来覆盖了战役自带的每一种 `AiSet`。
 
-### SetMovePatrolAroundSettlement
-`public void SetMovePatrolAroundSettlement(Settlement settlement, MobileParty.NavigationType navigationType, bool isTargetingPort)`
+#### `public void SetTargetSettlement(Settlement settlement, bool isTargetingPort)`
 
-**用途 / Purpose:** 为 move patrol around settlement 赋新值，并同步更新对象内部状态。
+设置长期目标而不下达移动指令。当指令来自别处（任务、对话选项）时使用它。
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetMovePatrolAroundSettlement(settlement, navigationType, false);
-```
+#### `public bool RecalculateLongTermPath()` / `public void RecalculateShortTermBehavior()`
 
-### SetMoveRaidSettlement
-`public void SetMoveRaidSettlement(Settlement settlement, MobileParty.NavigationType navigationType)`
+强制重算路径或短期行为。开销大；只在传送部队时调用，不要逐 tick 调用。
 
-**用途 / Purpose:** 为 move raid settlement 赋新值，并同步更新对象内部状态。
+#### `public void SetPositionAfterMapChange(CampaignVec2 newPosition)` / `public void MovePartyToTheClosestLand()` / `public void CheckPositionsForMapChangeAndUpdateIfNeeded()` / `public void CheckAiForMapChangeAndUpdateIfNeeded()`
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetMoveRaidSettlement(settlement, navigationType);
-```
+传送辅助。只有 `SetPositionAfterMapChange` 会同时让路径失效。
 
-### SetMoveBesiegeSettlement
-`public void SetMoveBesiegeSettlement(Settlement settlement, MobileParty.NavigationType navigationType)`
+### 人物与职务
 
-**用途 / Purpose:** 为 move besiege settlement 赋新值，并同步更新对象内部状态。
+#### `public Hero LeaderHero` / `public Hero Owner`
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetMoveBesiegeSettlement(settlement, navigationType);
-```
+谁在指挥部队、谁拥有它。民兵与村民部队的 `LeaderHero` 为 `null`。
 
-### SetMoveDefendSettlement
-`public void SetMoveDefendSettlement(Settlement settlement, bool isTargetingPort, MobileParty.NavigationType navigationType)`
+#### `public void ChangePartyLeader(Hero newLeader)` / `public void RemovePartyLeader()`
 
-**用途 / Purpose:** 为 move defend settlement 赋新值，并同步更新对象内部状态。
+领导权变更。这些都走部队领袖路径，以便同时更新前任领袖的 `PartyBelongedTo`。
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetMoveDefendSettlement(settlement, false, navigationType);
-```
+#### `public void SetHeroPartyRole(Hero hero, PartyRole partyRole)` / `GetHeroPartyRole(Hero)` / `RemoveHeroPartyRole(Hero)` / `public Hero GetRoleHolder(PartyRole)` / `GetEffectiveRoleHolder(PartyRole)`
 
-### StartFindingLocatablesAroundPosition
-`public static LocatableSearchData<MobileParty> StartFindingLocatablesAroundPosition(Vec2 position, float radius)`
+部队职务（队长、工匠、军医、军需官、斥候）。`GetRoleHolder` 是精确匹配；无人担任该职务时 `GetEffectiveRoleHolder` 会按技能推导一个替补。
 
-**用途 / Purpose:** 启动finding locatables around position流程或状态机。
+#### `public Hero EffectiveScout` / `EffectiveQuartermaster` / `EffectiveEngineer` / `EffectiveSurgeon`
 
-```csharp
-// 静态调用，不需要实例
-MobileParty.StartFindingLocatablesAroundPosition(position, 0);
-```
+已经应用了替补逻辑的职务属性。速度、食物与导航读的就是它们。
 
-### FindNextLocatable
-`public static MobileParty FindNextLocatable(ref LocatableSearchData<MobileParty> data)`
+#### `public bool HasPerk(PerkObject perk, bool checkSecondaryRole = false)`
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的next locatable。
+专长检查；`checkSecondaryRole` 为 true 时还会考虑军需官——这正是 AI 权重使用的形式。
 
-```csharp
-// 静态调用，不需要实例
-MobileParty.FindNextLocatable(data);
-```
+### 编成与补给
 
-### UpdateLocator
-`public static void UpdateLocator(MobileParty party)`
+#### `public int TotalWage` / `public ExplainedNumber TotalWageExplained`
 
-**用途 / Purpose:** 重新计算并更新 locator 的最新表示。
+每日薪饷总额。`TotalWageExplained` 携带按士兵的明细。
 
-```csharp
-// 静态调用，不需要实例
-MobileParty.UpdateLocator(party);
-```
+#### `public float Food` / `public int TotalFoodAtInventory` / `public float FoodChange` / `public float BaseFoodChange` / `public ExplainedNumber FoodChangeExplained`
 
-### ComputeIsWaiting
-`public bool ComputeIsWaiting()`
+食物存量与消耗。`FoodChangeExplained` 显示哪些物资在贡献变化。
 
-**用途 / Purpose:** 调用 ComputeIsWaiting 对应的操作。
+#### `public float Morale` / `public ExplainedNumber MoraleExplained`
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.ComputeIsWaiting();
-```
+士气及其成因。
 
-### InitializePartyTrade
-`public void InitializePartyTrade(int initialGold)`
+#### `public float Speed` / `public ExplainedNumber SpeedExplained` / `public float LastCalculatedBaseSpeed`
 
-**用途 / Purpose:** 为 party trade 初始化必要的资源、状态或绑定。
+当前速度，以及部队界面显示的解释。
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.InitializePartyTrade(0);
-```
+#### `public float TotalWeightCarried` / `public int InventoryCapacity` / `public ExplainedNumber InventoryCapacityExplainedNumber`
 
-### AddTaxGold
-`public void AddTaxGold(int amount)`
+负重与容量。超载会减速；解释数值会说明减速多少、原因是什么。
 
-**用途 / Purpose:** 将 tax gold 添加到当前容器或状态中。
+#### `public bool HasLimitedWage()` / `public int GetAvailableWageBudget()` / `public bool IsWageLimitExceeded()` / `public void SetWagePaymentLimit(int newLimit)` / `public int PaymentLimit` / `public float HasUnpaidWages`
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.AddTaxGold(0);
-```
+薪饷结算机制。欠薪会累积士气损失。
 
-### CreateParty
-`public static MobileParty CreateParty(string stringId, PartyComponent component)`
+### 贸易
 
-**用途 / Purpose:** 构建一个新的 party 实体并返回给调用方。
+#### `public bool IsPartyTradeActive { get; private set; }` / `public void InitializePartyTrade(int initialGold)` / `public int PartyTradeGold` / `public int PartyTradeTaxGold { get; private set; }` / `public void AddTaxGold(int amount)`
 
-```csharp
-// 静态调用，不需要实例
-MobileParty.CreateParty("example", component);
-```
+部队自己的贸易资金池，供商队与玩家使用。`InitializePartyTrade` 设定初始金币，`DefaultPartyTradeInitialGold` 为 5000。
 
-### SetPartyComponent
-`public void SetPartyComponent(PartyComponent partyComponent, bool firstTimePartyComponentCreation = true)`
+### 位置、可见性与生命周期
 
-**用途 / Purpose:** 为 party component 赋新值，并同步更新对象内部状态。
+#### `public CampaignVec2 Position` / `public Vec2 GetPosition2D()`
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.SetPartyComponent(partyComponent, false);
-```
+地图位置，分别为战役空间与旧版类型。
 
-### UpdatePartyComponentFlags
-`public void UpdatePartyComponentFlags()`
+#### `public bool IsVisible` / `public bool IsInspected` / `public void UpdateVisibilityAndInspected(...)` 在 `PartyBase` 上
 
-**用途 / Purpose:** 重新计算并更新 party component flags 的最新表示。
+战争迷雾状态。为一个未被侦察的部队读取确切编成并展示出来，等于绕过视野模型。
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-mobileParty.UpdatePartyComponentFlags();
-```
+#### `public MobileParty AttachedTo` / `public MBReadOnlyList<MobileParty> AttachedParties` / `public Army Army`
 
-### ToString
-`public override string ToString()`
+附属关系与军队归属。附属部队已经计入宿主名册。
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+#### `public void InitializeMobilePartyAtPosition(CampaignVec2 position)` 及其余三个名册 / 模板重载
 
-```csharp
-// 先通过子系统 API 拿到 MobileParty 实例
-MobileParty mobileParty = ...;
-var result = mobileParty.ToString();
-```
+战役创建时使用的布置辅助。它们一次性设置位置、填充名册并重置 AI 状态。
 
 ## 使用示例
 
+### 示例 1：给玩家部队下令并确认指令已下达
+
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-MobileParty mobileParty = ...;
-mobileParty.SetLandNavigationAccess(false);
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
+
+public static void SendPlayerTo(Settlement settlement)
+{
+    Campaign campaign = Campaign.Current;
+    if (campaign == null || settlement == null)
+    {
+        return;
+    }
+
+    MobileParty party = campaign.MainParty;
+    if (party == null)
+    {
+        return;
+    }
+
+    party.SetMoveGoToSettlement(settlement, MobileParty.NavigationType.Default, false);
+
+    // 指令是目标而非传送：读目标，不要读位置。
+    InformationManager.DisplayMessage(new InformationMessage(
+        $"目标：{party.TargetSettlement?.Name.Name ?? "无"}，" +
+        $"速度 {party.Speed:0.00}（{party.SpeedExplained.GetExplanations()}）"));
+}
 ```
+
+### 示例 2：通过部队而非名册加兵
+
+```csharp
+using TaleWorlds.Core;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
+
+public static int RecruitToMainParty(string characterId, int count)
+{
+    Campaign campaign = Campaign.Current;
+    if (campaign?.MainParty == null)
+    {
+        return 0;
+    }
+
+    CharacterObject recruit = MBObjectManager.Instance.GetObject<CharacterObject>(characterId);
+    if (recruit == null)
+    {
+        return 0;
+    }
+
+    // MobileParty 自身没有 AddMember；名册对象才有。
+    int added = campaign.MainParty.AddElementToMemberRoster(recruit, count);
+    InformationManager.DisplayMessage(new InformationMessage(
+        $"加入 {added} 人（上限 {campaign.MainParty.Party.PartySizeLimit}）"));
+    return added;
+}
+```
+
+### 示例 3：遍历有职务担任者的领主部队
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
+
+public static string DescribeLordParties()
+{
+    Campaign campaign = Campaign.Current;
+    if (campaign == null)
+    {
+        return "无战役";
+    }
+
+    string report = string.Empty;
+    foreach (MobileParty party in campaign.LordParties)
+    {
+        Hero surgeon = party.EffectiveSurgeon;
+        Hero leader = party.LeaderHero;
+        report += $"{party.Name}：领袖 {leader?.Name.Name ?? "无"}，" +
+                  $"军医 {surgeon?.Name.Name ?? "无"}，实力 {party.Party.EstimatedStrength:0}\n";
+    }
+
+    return report;
+}
+```
+
+### 示例 4：传送后阻止部队乱走
+
+```csharp
+using TaleWorlds.CampaignSystem.Party;
+
+public static void TeleportAndReset(MobileParty party, CampaignVec2 destination)
+{
+    if (party == null)
+    {
+        return;
+    }
+
+    party.SetMoveHold();
+    party.SetPositionAfterMapChange(destination);
+
+    // 传送后残留的过期路径会让部队走出地图边缘。
+    party.RecalculateLongTermPath();
+    party.RecalculateShortTermBehavior();
+}
+```
+
+## 风险与崩溃边界
+
+1. **名册 API 不对称。** `MobileParty` 暴露 `AddElementToMemberRoster` 与 `AddPrisoner`，但没有 `AddMember`；请用 `party.Party.AddMember`。混用两者的规模上限行为不同。
+2. **未注册的部队。** `new MobileParty()` 不在 `All` 中、不会被存档、也没有 AI。请用 `MobileParty.CreateParty` 并传入 `PartyComponent`。
+3. **位置类型不匹配。** `Position` 是 `CampaignVec2`，`GetPosition2D()` 是 `Vec2`。在某些方向上互相赋值是静默的逻辑错误而非编译错误。
+4. **给活跃部队换分类。** `SetPartyComponent` 会重新推导所有 `Is*Party` 标志并让 AI 缓存的决策失效。应在部队开始移动之前做，而不是移动途中。
+5. **附属部队重复计算。** `AttachedParties` 中的成员已经在宿主名册里。对宿主与附属部队的 `EstimatedStrength` 求和会夸大实力并带偏 AI。
+6. **与存档耦合。** `Name`、`Position`、`IsActive`、`IsPartyTradeActive`、部队贸易金币、船只与组件分类都会序列化。重排存档 id 会破坏已有存档，参见 [存档系统](../../../architecture/save-system)。
+7. **传送后路径失效。** 只调用 `SetPositionAfterMapChange` 会留下过期路径；之后必须调用 `RecalculateLongTermPath()`，否则部队会从新位置朝旧目的地走。
+8. **逐 tick 开销。** 在多个行为里对每个小时 tick 扫描 `MobileParty.All`（或 `LordParties`）代价不低。请改订阅 `CampaignEvents.HourlyTickPartyEvent` / `DailyTickPartyEvent`，它们会直接把对象交给你。
+9. **战争迷雾泄露。** 读取玩家尚未侦察到的部队名册并展示在 UI 或通知中，等于绕过视野模型。
+
+## 跨版本提示
+
+- `SetMove*` 指令词汇、`PartyComponent` 分类以及“名册放在 `PartyBase` 上”的分层在 1.3.x 与 1.4.x 中完全一致。
+- 海战支持（`Ships`、`HasNavalNavigationCapability`、港口目标）在 1.3.0 中已存在并在此后扩展；旧存档在加载时会得到空船只列表。若要兼容很旧的存档，请对 `Ships` 做防御。
 
 ## 参见
 
-- [本区域目录](../)
+- [PartyBase](../PartyBase) — 名册真正所在之处
+- [Hero](../Hero) — 领袖、所有者与职务担任者
+- [Clan](../Clan) — `ActualClan` 与所有权
+- [Settlement](../Settlement) — 目的地、守备队与驻地
+- [Kingdom](../Kingdom) — 领主部队效力的王国
+- [Campaign](../Campaign) — 部队注册表与战役时钟
+- [MobilePartyVisual](../../campaign-ext/MobilePartyVisual) — 地图场景对象
+- [存档系统](../../../architecture/save-system) — Saveable 属性纪律
+- [战役基础](../../../guide/campaign-basics) — 以任务为导向的上手指南

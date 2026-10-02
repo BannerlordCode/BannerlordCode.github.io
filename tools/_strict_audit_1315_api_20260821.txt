@@ -1,0 +1,277 @@
+
+## Blockers: 26
+By category:
+  fake-example-on-entry-page: 26
+
+First 26 occurrences (use --verbose for full list):
+  localization/SimpleText.md [fake-example-on-entry-page] code block: // 纯文本叶子节点：EvaluateString 直接返回字面量，不替换占位符 SimpleText node = new SimpleText("Calradia"); TextProcessingContext context = n
+  save-system/AsyncFileSaveDriver.md [fake-example-on-entry-page] code block: // 热存档/自动存档用异步驱动，避免主线程卡顿 ISaveDriver driver = new AsyncFileSaveDriver();  // Game 对象图（Campaign 是 Game 的派生根）已交给驱动序列化 Save
+  save-system/ContainerHeaderLoadData.md [fake-example-on-entry-page] code block: // LoadContext 为容器先建登记卡，读出容器类型与元素数，再据类型造空集合： ContainerHeaderLoadData header = new ContainerHeaderLoadData(loadContext, c
+  save-system/ContainerLoadData.md [fake-example-on-entry-page] code block: ISaveDriver driver = new SaveGameFileInfo();  // 真实获取路径：SaveManager.Load 触发的容器恢复内部产生 ContainerLoadData LoadResult result
+  save-system/ContainerSaveData.md [fake-example-on-entry-page] code block: MetaData metaData = new MetaData(); ISaveDriver driver = new SaveGameFileInfo();  // 真实获取路径：SaveManager.Save 触发的对象图遍历内部产
+  save-system/ElementLoadData.md [fake-example-on-entry-page] code block: // ContainerLoadData.InitializeReaders 为每个元素 new 一个 ElementLoadData 并交给基类读流： ElementLoadData element = new ElementLoadDa
+  save-system/ElementSaveData.md [fake-example-on-entry-page] code block: // 保存阶段，ContainerSaveData 遍历 Campaign.Current 上的容器，为每个元素建 ElementSaveData： for (int i = 0; i < Campaign.Current.TroopRos
+  save-system/EntryId.md [fake-example-on-entry-page] code block: // 引擎/驱动侧（示意）：在 SaveEntryFolder 中按 EntryId 取回一条保存项 SaveEntry entry = parentFolder.GetEntry(new EntryId(12, SaveEntryExte
+  save-system/FieldLoadData.md [fake-example-on-entry-page] code block: // ObjectLoadData.InitializeReaders 为每个 Field 条目 new 一个 FieldLoadData 并交给基类读流： FieldLoadData field = new FieldLoadData(o
+  save-system/FieldSaveData.md [fake-example-on-entry-page] code block: // 保存阶段，ObjectSaveData 为 Campaign.Current 上的每个字段 new 一个 FieldSaveData： object rootTarget = Campaign.Current;   // 根对象，Fi
+  save-system/FileDriver.md [fake-example-on-entry-page] code block: // 磁盘驱动由游戏在创建存档会话时选定；mod 一般拿到的是注入给 SaveManager 的实例 ISaveDriver driver = new FileDriver();  // Game 是整张对象图的根，其派生类 Campaig
+  save-system/FolderId.md [fake-example-on-entry-page] code block: // 引擎/驱动侧（示意）：按 FolderId 在父文件夹下新建一个对象子文件夹 SaveEntryFolder child = archiveContext.CreateFolder(parentFolder, new FolderId
+  save-system/FolderId.md [fake-example-on-entry-page] code block: // 引擎/驱动侧（示意）：按 FolderId 在父文件夹下新建一个对象子文件夹 SaveEntryFolder child = archiveContext.CreateFolder(parentFolder, new FolderId
+  save-system/InMemDriver.md [fake-example-on-entry-page] code block: // 用内存驱动做「存档前预览」：检查大小/完整性，不落盘、不污染真实存档 ISaveDriver previewDriver = new InMemDriver();  // Game 对象图（Campaign 是 Game 的派生根）已
+  save-system/InterfaceDefinition.md [fake-example-on-entry-page] code block: // 引擎/ definer 内部登记接口定义（示意）： //   InterfaceDefinition myInterfaceDef = new InterfaceDefinition(typeof(IMyState), myInter
+  save-system/MemberTypeId.md [fake-example-on-entry-page] code block: MemberTypeId fieldId = new MemberTypeId(0, 12); if (fieldId != MemberTypeId.Invalid && fieldId.SaveId == 12) {     strin
+  save-system/MemberTypeId.md [fake-example-on-entry-page] code block: MemberTypeId baseField = new MemberTypeId(0, 5); MemberTypeId derivedField = new MemberTypeId(1, 5); bool distinct = bas
+  save-system/MemberTypeId.md [fake-example-on-entry-page] code block: MemberTypeId baseField = new MemberTypeId(0, 5); MemberTypeId derivedField = new MemberTypeId(1, 5); bool distinct = bas
+  save-system/MetaData.md [fake-example-on-entry-page] code block: MetaData header = new MetaData(); header["ModVersion"] = "1.2.0"; header.Add("SaveName", "my_slot"); SaveOutput output =
+  save-system/ObjectHeaderLoadData.md [fake-example-on-entry-page] code block: // LoadContext 为每个对象先建登记卡，再从 Basics 读出类型与计数，最后造空壳对象： ObjectHeaderLoadData header = new ObjectHeaderLoadData(loadContext,
+  save-system/ObjectLoadData.md [fake-example-on-entry-page] code block: // LoadContext 为 Campaign 这样的根对象恢复时，按如下顺序驱动 ObjectLoadData： ObjectLoadData rootLoadData = new ObjectLoadData(headerLoadD
+  save-system/ObjectSaveData.md [fake-example-on-entry-page] code block: // SaveContext 在收集对象图时，为 Campaign.Current 这样的根对象构造 ObjectSaveData： TypeDefinition def = context.DefinitionContext.GetCla
+  save-system/PropertyLoadData.md [fake-example-on-entry-page] code block: // LoadContext 重建 Campaign.Current 时，为它的每个属性条目构造 PropertyLoadData ObjectLoadData objectLoadData = context.GetObjectWithI
+  save-system/PropertySaveData.md [fake-example-on-entry-page] code block: // SaveContext 为 Campaign.Current 收集属性时，对每个属性 new 出 PropertySaveData ObjectSaveData objectSaveData = new ObjectSaveData(
+  save-system/SaveContext.md [fake-example-on-entry-page] code block: // 引擎在 SaveManager.Save 内部这样使用 SaveContext（示意）： //   ISaveContext saveContext = new SaveContext(_definitionContext); // 
+  save-system/TypeDefinition.md [fake-example-on-entry-page] code block: // 引擎在 FillWithCurrentTypes 时为 MobileParty 建立 TypeDefinition 并登记成员： TypeDefinition def = new TypeDefinition(typeof(Mobil
+
+## Warnings: 24
+By category:
+  method-missing-example: 24
+
+First 24 occurrences (use --verbose for full list):
+  campaign/CampaignBehaviorDataStore.md [method-missing-example] L41: `CampaignBehaviorDataStore`
+  campaign/CampaignBehaviorDataStore.md [method-missing-example] L51: `BehaviorSaveData : IDataStore`
+  campaign-ext/Alley.md [method-missing-example] L100: `public Alley(Settlement settlement, string tag, TextObject name)`
+  campaign-ext/Alley.md [method-missing-example] L104: `public void Initialize(Settlement settlement, string tag, TextObject name)`
+  campaign-ext/BribeGuardsAction.md [method-missing-example] L64: `public static void Apply(Settlement settlement, int gold)`
+  campaign-ext/CampaignEventDispatcher.md [method-missing-example] L90: `public static CampaignEventDispatcher Instance { get; }`
+  campaign-ext/CampaignEventDispatcher.md [method-missing-example] L94: `public override void RemoveListeners(object o)`
+  campaign-ext/ChangeRomanticStateAction.md [method-missing-example] L73: `Apply(Hero person1, Hero person2, Romance.RomanceLevelEnum toWhat)`
+  campaign-ext/ChangeRulingClanAction.md [method-missing-example] L67: `public static void Apply(Kingdom kingdom, Clan clan)`
+  campaign-ext/ChangeRulingClanAction.md [method-missing-example] L79: `private static void ApplyInternal(Kingdom kingdom, Clan clan)`
+  campaign-ext/CharacterRelationManager.md [method-missing-example] L64: `public static void SetHeroRelation(Hero hero1, Hero hero2, int value)`
+  campaign-ext/CharacterRelationManager.md [method-missing-example] L70: `public void AfterLoad()`
+  campaign-ext/CharacterRelationManager.md [method-missing-example] L74: `public void RemoveHero(Hero deadHero)`
+  campaign-ext/DefaultPartySizeLimitModel.md [method-missing-example] L104: `GetPartyPrisonerSizeLimit`
+  campaign-ext/DefaultPartySizeLimitModel.md [method-missing-example] L114: `CalculateGarrisonPartySizeLimit`
+  campaign-ext/DefaultPartyWageModel.md [method-missing-example] L81: `GetCharacterWage`
+  campaign-ext/EncounterManager.md [method-missing-example] L100: `EncounterModel`
+  campaign-ext/EncounterManager.md [method-missing-example] L106: `Tick(float dt)`
+  campaign-ext/EncounterManager.md [method-missing-example] L112: `HandleEncounterForMobileParty(MobileParty mobileParty, float dt)`
+  campaign-ext/EncounterManager.md [method-missing-example] L120: `StartPartyEncounter(PartyBase attackerParty, PartyBase defenderParty)`
+  campaign-ext/EncounterManager.md [method-missing-example] L133: `StartSettlementEncounter(MobileParty attackerParty, Settlement settlement)`
+  campaign-ext/GatherArmyAction.md [method-missing-example] L58: `public static void Apply(MobileParty leaderParty, IMapPoint gatheringPoint)`
+  campaign-ext/GatherArmyAction.md [method-missing-example] L67: `private static void ApplyInternal(MobileParty leaderParty, IMapPoint gatheringPoint, float playerInvolvement = 0f)`
+  campaign-ext/SiegeEvent.md [method-missing-example] L214: `public override string ToString()`
+
+## Content-integrity (STRICT_GATE-gated): 27219
+By category:
+  autogen-description: 5246
+  formulaic-overview-stub: 4027
+  placeholder-assignment-example: 17637
+  double-i-fake-type: 309
+
+First 200 occurrences (use --verbose for full list):
+  campaign/AIMoveToNearestLandBehavior.md [autogen-description] code block: description: "AIMoveToNearestLandBehavior 的自动生成类参考。"
+  campaign/AIMoveToNearestLandBehavior.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/AIMoveToNearestLandBehavior.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AIMoveToNearestLandBehavior 实例 AIMoveToNearestLandBehavior aIMoveToNearestLandBehavior = ...; aIMoveToN
+  campaign/AIMoveToNearestLandBehavior.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AIMoveToNearestLandBehavior 实例 AIMoveToNearestLandBehavior aIMoveToNearestLandBehavior = ...; aIMoveToN
+  campaign/AIMoveToNearestLandBehavior.md [placeholder-assignment-example] code block: // 通常从对应子系统 API 获取实例后调用 AIMoveToNearestLandBehavior aIMoveToNearestLandBehavior = ...; aIMoveToNearestLandBehavior.Regis
+  campaign/Alliance.md [autogen-description] code block: description: "Alliance 的自动生成类参考。"
+  campaign/Alliance.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/Alliance.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 Alliance 实例 Alliance alliance = ...; alliance.RegisterEvents(); 
+  campaign/Alliance.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 Alliance 实例 Alliance alliance = ...; alliance.SyncData(dataStore); 
+  campaign/Alliance.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 Alliance 实例 Alliance alliance = ...; alliance.OnCallToWarAgreementProposedByPlayerKingdom(proposedKingd
+  campaign/Alliance.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 Alliance 实例 Alliance alliance = ...; var result = alliance.IsAllyWithKingdom(kingdom1, kingdom2); 
+  campaign/Alliance.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 Alliance 实例 Alliance alliance = ...; alliance.StartAlliance(proposerKingdom, receiverKingdom); 
+  campaign/Alliance.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 Alliance 实例 Alliance alliance = ...; alliance.EndAlliance(kingdom1, kingdom2); 
+  campaign/Alliance.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 Alliance 实例 Alliance alliance = ...; var result = alliance.HasCalledToWar(callingKingdom, calledKingdom
+  campaign/Alliance.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 Alliance 实例 Alliance alliance = ...; var result = alliance.IsAtWarByCallToWarAgreement(calledKingdom, k
+  campaign/Alliance.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 Alliance 实例 Alliance alliance = ...; alliance.StartCallToWarAgreement(callingKingdom, calledKingdom, ki
+  campaign/Alliance.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 Alliance 实例 Alliance alliance = ...; alliance.EndCallToWarAgreement(callingKingdom, calledKingdom, king
+  campaign/Alliance.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 Alliance 实例 Alliance alliance = ...; var result = alliance.GetKingdomsToCallToWarAgainst(callingKingdom
+  campaign/Alliance.md [placeholder-assignment-example] code block: // 通常从对应子系统 API 获取实例后调用 Alliance alliance = ...; alliance.RegisterEvents(); 
+  campaign/BehaviorSaveData.md [autogen-description] code block: description: "BehaviorSaveData 的自动生成类参考。"
+  campaign/BehaviorSaveData.md [placeholder-assignment-example] code block: // 该数据对象通常由战役/任务 API 返回 BehaviorSaveData entry = ...; 
+  campaign/CachedPartyVariables.md [autogen-description] code block: description: "CachedPartyVariables 的自动生成类参考。"
+  campaign/CachedPartyVariables.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/CachedPartyVariables.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 CachedPartyVariables 实例 CachedPartyVariables cachedPartyVariables = ...; var result = cachedPartyVariab
+  campaign/CachedPartyVariables.md [placeholder-assignment-example] code block: // 通常从对应子系统 API 获取实例后调用 CachedPartyVariables cachedPartyVariables = ...; cachedPartyVariables.ToString(); 
+  campaign/CallToWarAgreement.md [autogen-description] code block: description: "CallToWarAgreement 的自动生成类参考。"
+  campaign/CallToWarAgreement.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/CraftedItemInitializationData.md [autogen-description] code block: description: "CraftedItemInitializationData 的自动生成类参考。"
+  campaign/CraftedItemInitializationData.md [placeholder-assignment-example] code block: // 该数据对象通常由战役/任务 API 返回 CraftedItemInitializationData entry = ...; 
+  campaign/DialogFlowContext.md [autogen-description] code block: description: "DialogFlowContext 的自动生成类参考。"
+  campaign/DialogFlowContext.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/DialogFlowContext.md [placeholder-assignment-example] code block: // 从对应子系统 API 获取实例 DialogFlowContext instance = ...; 
+  campaign/DialogFlowLine.md [autogen-description] code block: description: "DialogFlowLine 的自动生成类参考。"
+  campaign/DialogFlowLine.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/DialogFlowLine.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 DialogFlowLine 实例 DialogFlowLine dialogFlowLine = ...; dialogFlowLine.AddVariation(text, list); 
+  campaign/DialogFlowLine.md [placeholder-assignment-example] code block: // 通常从对应子系统 API 获取实例后调用 DialogFlowLine dialogFlowLine = ...; dialogFlowLine.AddVariation(text, list); 
+  campaign/DisorganizedStateCampaignBehavior.md [autogen-description] code block: description: "DisorganizedStateCampaignBehavior 的自动生成类参考。"
+  campaign/DisorganizedStateCampaignBehavior.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/DisorganizedStateCampaignBehavior.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 DisorganizedStateCampaignBehavior 实例 DisorganizedStateCampaignBehavior disorganizedStateCampaignBehavio
+  campaign/DisorganizedStateCampaignBehavior.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 DisorganizedStateCampaignBehavior 实例 DisorganizedStateCampaignBehavior disorganizedStateCampaignBehavio
+  campaign/DisorganizedStateCampaignBehavior.md [placeholder-assignment-example] code block: // 通常从对应子系统 API 获取实例后调用 DisorganizedStateCampaignBehavior disorganizedStateCampaignBehavior = ...; disorganizedStateCamp
+  campaign/EncyclopediaListItemNameComparer.md [autogen-description] code block: description: "EncyclopediaListItemNameComparer 的自动生成类参考。"
+  campaign/EncyclopediaListItemNameComparer.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/EncyclopediaListItemNameComparer.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 EncyclopediaListItemNameComparer 实例 EncyclopediaListItemNameComparer encyclopediaListItemNameComparer =
+  campaign/EncyclopediaListItemNameComparer.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 EncyclopediaListItemNameComparer 实例 EncyclopediaListItemNameComparer encyclopediaListItemNameComparer =
+  campaign/EncyclopediaListItemNameComparer.md [placeholder-assignment-example] code block: // 通常从对应子系统 API 获取实例后调用 EncyclopediaListItemNameComparer encyclopediaListItemNameComparer = ...; encyclopediaListItemNam
+  campaign/EncyclopediaModel.md [autogen-description] code block: description: "EncyclopediaModel 的自动生成类参考。"
+  campaign/EventHandlerRec.md [autogen-description] code block: description: "EventHandlerRec 的自动生成类参考。"
+  campaign/EventHandlerRec.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/EventHandlerRec.md [placeholder-assignment-example] code block: // 从对应子系统 API 获取实例 EventHandlerRec instance = ...; 
+  campaign/ExplanationLine.md [autogen-description] code block: description: "ExplanationLine 的自动生成类参考。"
+  campaign/ExplanationLine.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/ExplanationLine.md [placeholder-assignment-example] code block: // 从对应子系统 API 获取实例 ExplanationLine instance = ...; 
+  campaign/ExtortionByDesertersQuestState.md [autogen-description] code block: description: "ExtortionByDesertersQuestState 的自动生成类参考。"
+  campaign/ExtortionByDesertersQuestState.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/ExtortionByDesertersQuestState.md [placeholder-assignment-example] code block: // 从对应子系统 API 获取实例 ExtortionByDesertersQuestState instance = ...; 
+  campaign/FactionManagerStancesData.md [autogen-description] code block: description: "FactionManagerStancesData 的自动生成类参考。"
+  campaign/FactionManagerStancesData.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 FactionManagerStancesData 实例 FactionManagerStancesData factionManagerStancesData = ...; var result = fa
+  campaign/FactionManagerStancesData.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 FactionManagerStancesData 实例 FactionManagerStancesData factionManagerStancesData = ...; factionManagerS
+  campaign/FactionManagerStancesData.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 FactionManagerStancesData 实例 FactionManagerStancesData factionManagerStancesData = ...; factionManagerS
+  campaign/FactionManagerStancesData.md [placeholder-assignment-example] code block: // 该数据对象通常由战役/任务 API 返回 FactionManagerStancesData entry = ...; 
+  campaign/FakeMarketData.md [autogen-description] code block: description: "FakeMarketData 的自动生成类参考。"
+  campaign/FakeMarketData.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 FakeMarketData 实例 FakeMarketData fakeMarketData = ...; var result = fakeMarketData.GetPrice(item, tradi
+  campaign/FakeMarketData.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 FakeMarketData 实例 FakeMarketData fakeMarketData = ...; var result = fakeMarketData.GetPrice(itemRosterE
+  campaign/FakeMarketData.md [placeholder-assignment-example] code block: // 该数据对象通常由战役/任务 API 返回 FakeMarketData entry = ...; 
+  campaign/Grievance.md [autogen-description] code block: description: "Grievance 的自动生成类参考。"
+  campaign/Grievance.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/Grievance.md [placeholder-assignment-example] code block: // 从对应子系统 API 获取实例 Grievance instance = ...; 
+  campaign/GrievanceType.md [autogen-description] code block: description: "GrievanceType 的自动生成类参考。"
+  campaign/GrievanceType.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/GrievanceType.md [placeholder-assignment-example] code block: // 从对应子系统 API 获取实例 GrievanceType instance = ...; 
+  campaign/HeroCraftingRecord.md [autogen-description] code block: description: "HeroCraftingRecord 的自动生成类参考。"
+  campaign/HeroCraftingRecord.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/HeroCraftingRecord.md [placeholder-assignment-example] code block: // 从对应子系统 API 获取实例 HeroCraftingRecord instance = ...; 
+  campaign/HeroRelations.md [autogen-description] code block: description: "HeroRelations 的自动生成类参考。"
+  campaign/HeroRelations.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/HeroRelations.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 HeroRelations 实例 HeroRelations heroRelations = ...; var result = heroRelations.GetRelation(hero1, hero2
+  campaign/HeroRelations.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 HeroRelations 实例 HeroRelations heroRelations = ...; heroRelations.SetRelation(hero1, hero2, 0); 
+  campaign/HeroRelations.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 HeroRelations 实例 HeroRelations heroRelations = ...; heroRelations.Remove(hero); 
+  campaign/HeroRelations.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 HeroRelations 实例 HeroRelations heroRelations = ...; heroRelations.ClearOldData(); 
+  campaign/HeroRelations.md [placeholder-assignment-example] code block: // 通常从对应子系统 API 获取实例后调用 HeroRelations heroRelations = ...; heroRelations.GetRelation(hero1, hero2); 
+  campaign/ILocatable.md [autogen-description] code block: description: "ILocatable 的自动生成类参考。"
+  campaign/ILocatable.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/ILocatable.md [placeholder-assignment-example] code block: // 通常通过依赖注入或工厂方法获得实现 IILocatable service = ...; 
+  campaign/ILocatable.md [double-i-fake-type] code block: IILocatable
+  campaign/IssueState.md [autogen-description] code block: description: "IssueState 的自动生成类参考。"
+  campaign/IssueState.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/IssueState.md [placeholder-assignment-example] code block: // 从对应子系统 API 获取实例 IssueState instance = ...; 
+  campaign/ItemTradeData.md [autogen-description] code block: description: "ItemTradeData 的自动生成类参考。"
+  campaign/ItemTradeData.md [placeholder-assignment-example] code block: // 该数据对象通常由战役/任务 API 返回 ItemTradeData entry = ...; 
+  campaign/LocatorGrid.md [autogen-description] code block: description: "LocatorGrid 的自动生成类参考。"
+  campaign/LocatorGrid.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/LocatorGrid.md [placeholder-assignment-example] code block: // 从对应子系统 API 获取实例 LocatorGrid instance = ...; 
+  campaign/MapTimeTracker.md [autogen-description] code block: description: "MapTimeTracker 的自动生成类参考。"
+  campaign/MapTimeTracker.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/MapTimeTracker.md [placeholder-assignment-example] code block: // 从对应子系统 API 获取实例 MapTimeTracker instance = ...; 
+  campaign/MenuContextState.md [autogen-description] code block: description: "MenuContextState 的自动生成类参考。"
+  campaign/MenuContextState.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/MenuContextState.md [placeholder-assignment-example] code block: // 从对应子系统 API 获取实例 MenuContextState instance = ...; 
+  campaign/NarrativeMenuCharacterArgs.md [autogen-description] code block: description: "NarrativeMenuCharacterArgs 的自动生成类参考。"
+  campaign/NarrativeMenuCharacterArgs.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/NarrativeMenuCharacterArgs.md [placeholder-assignment-example] code block: // 从对应子系统 API 获取实例 NarrativeMenuCharacterArgs instance = ...; 
+  campaign/NavigationCacheElement.md [autogen-description] code block: description: "NavigationCacheElement 的自动生成类参考。"
+  campaign/NavigationCacheElement.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/NavigationCacheElement.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 NavigationCacheElement 实例 NavigationCacheElement navigationCacheElement = ...; var result = navigationC
+  campaign/NavigationCacheElement.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 NavigationCacheElement 实例 NavigationCacheElement navigationCacheElement = ...; var result = navigationC
+  campaign/NavigationCacheElement.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 NavigationCacheElement 实例 NavigationCacheElement navigationCacheElement = ...; var result = navigationC
+  campaign/PeriodicTicker.md [autogen-description] code block: description: "PeriodicTicker 的自动生成类参考。"
+  campaign/PeriodicTicker.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/PeriodicTicker.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 PeriodicTicker 实例 PeriodicTicker periodicTicker = ...; var result = periodicTicker.ToString(); 
+  campaign/PeriodicTicker.md [placeholder-assignment-example] code block: // 通常从对应子系统 API 获取实例后调用 PeriodicTicker periodicTicker = ...; periodicTicker.ToString(); 
+  campaign/PreconditionFlags.md [autogen-description] code block: description: "PreconditionFlags 的自动生成类参考。"
+  campaign/PreconditionFlags.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/PreconditionFlags.md [placeholder-assignment-example] code block: // 从对应子系统 API 获取实例 PreconditionFlags instance = ...; 
+  campaign/Pregnancy.md [autogen-description] code block: description: "Pregnancy 的自动生成类参考。"
+  campaign/Pregnancy.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/Pregnancy.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 Pregnancy 实例 Pregnancy pregnancy = ...; pregnancy.RegisterEvents(); 
+  campaign/Pregnancy.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 Pregnancy 实例 Pregnancy pregnancy = ...; pregnancy.OnHeroKilled(victim, killer, detail, true); 
+  campaign/Pregnancy.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 Pregnancy 实例 Pregnancy pregnancy = ...; pregnancy.SyncData(dataStore); 
+  campaign/Pregnancy.md [placeholder-assignment-example] code block: // 通常从对应子系统 API 获取实例后调用 Pregnancy pregnancy = ...; pregnancy.RegisterEvents(); 
+  campaign/QuestStates.md [autogen-description] code block: description: "QuestStates 的自动生成类参考。"
+  campaign/QuestStates.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/QuestStates.md [placeholder-assignment-example] code block: // 从对应子系统 API 获取实例 QuestStates instance = ...; 
+  campaign/StanceType.md [autogen-description] code block: description: "StanceType 的自动生成类参考。"
+  campaign/StanceType.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/StanceType.md [placeholder-assignment-example] code block: // 从对应子系统 API 获取实例 StanceType instance = ...; 
+  campaign/TeleportationData.md [autogen-description] code block: description: "TeleportationData 的自动生成类参考。"
+  campaign/TeleportationData.md [placeholder-assignment-example] code block: // 该数据对象通常由战役/任务 API 返回 TeleportationData entry = ...; 
+  campaign/TradeActionLog.md [autogen-description] code block: description: "TradeActionLog 的自动生成类参考。"
+  campaign/TradeActionLog.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/TradeActionLog.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 TradeActionLog 实例 TradeActionLog tradeActionLog = ...; tradeActionLog.OnSellAction(soldSettlement, 0); 
+  campaign/TradeActionLog.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 TradeActionLog 实例 TradeActionLog tradeActionLog = ...; tradeActionLog.Reset(); 
+  campaign/TradeActionLog.md [placeholder-assignment-example] code block: // 通常从对应子系统 API 获取实例后调用 TradeActionLog tradeActionLog = ...; tradeActionLog.OnSellAction(soldSettlement, 0); 
+  campaign/TradeActionLogPool.md [autogen-description] code block: description: "TradeActionLogPool 的自动生成类参考。"
+  campaign/TradeActionLogPool.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/TradeActionLogPool.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 TradeActionLogPool 实例 TradeActionLogPool tradeActionLogPool = ...; var result = tradeActionLogPool.Crea
+  campaign/TradeActionLogPool.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 TradeActionLogPool 实例 TradeActionLogPool tradeActionLogPool = ...; tradeActionLogPool.ReleaseLog(log); 
+  campaign/TradeActionLogPool.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 TradeActionLogPool 实例 TradeActionLogPool tradeActionLogPool = ...; var result = tradeActionLogPool.ToSt
+  campaign/TradeActionLogPool.md [placeholder-assignment-example] code block: // 通常从对应子系统 API 获取实例后调用 TradeActionLogPool tradeActionLogPool = ...; tradeActionLogPool.CreateNewLog(boughtSettlement, 0
+  campaign/TradeAgreement.md [autogen-description] code block: description: "TradeAgreement 的自动生成类参考。"
+  campaign/TradeAgreement.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign/TradeAgreement.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 TradeAgreement 实例 TradeAgreement tradeAgreement = ...; tradeAgreement.RegisterEvents(); 
+  campaign/TradeAgreement.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 TradeAgreement 实例 TradeAgreement tradeAgreement = ...; tradeAgreement.OnTradeAgreementOfferedToPlayer(f
+  campaign/TradeAgreement.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 TradeAgreement 实例 TradeAgreement tradeAgreement = ...; tradeAgreement.SyncData(dataStore); 
+  campaign/TradeAgreement.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 TradeAgreement 实例 TradeAgreement tradeAgreement = ...; tradeAgreement.MakeTradeAgreement(kingdom1, king
+  campaign/TradeAgreement.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 TradeAgreement 实例 TradeAgreement tradeAgreement = ...; tradeAgreement.EndTradeAgreementsOfKingdom(kingd
+  campaign/TradeAgreement.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 TradeAgreement 实例 TradeAgreement tradeAgreement = ...; tradeAgreement.EndTradeAgreement(kingdom1, kingd
+  campaign/TradeAgreement.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 TradeAgreement 实例 TradeAgreement tradeAgreement = ...; var result = tradeAgreement.HasTradeAgreement(ki
+  campaign/TradeAgreement.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 TradeAgreement 实例 TradeAgreement tradeAgreement = ...; var result = tradeAgreement.GetTradeAgreementEnd
+  campaign/TradeAgreement.md [placeholder-assignment-example] code block: // 通常从对应子系统 API 获取实例后调用 TradeAgreement tradeAgreement = ...; tradeAgreement.RegisterEvents(); 
+  campaign/WorkshopData.md [autogen-description] code block: description: "WorkshopData 的自动生成类参考。"
+  campaign/WorkshopData.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 WorkshopData 实例 WorkshopData workshopData = ...; var result = workshopData.ToString(); 
+  campaign/WorkshopData.md [placeholder-assignment-example] code block: // 该数据对象通常由战役/任务 API 返回 WorkshopData entry = ...; 
+  campaign-ext/AcceptCallToWarAgreementDecision.md [autogen-description] code block: description: "AcceptCallToWarAgreementDecision 的自动生成类参考。"
+  campaign-ext/AcceptCallToWarAgreementDecision.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecision 实例 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision =
+  campaign-ext/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // 通常从对应子系统 API 获取实例后调用 AcceptCallToWarAgreementDecision acceptCallToWarAgreementDecision = ...; acceptCallToWarAgreemen
+  campaign-ext/AcceptCallToWarAgreementDecisionOutcome.md [autogen-description] code block: description: "AcceptCallToWarAgreementDecisionOutcome 的自动生成类参考。"
+  campaign-ext/AcceptCallToWarAgreementDecisionOutcome.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign-ext/AcceptCallToWarAgreementDecisionOutcome.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecisionOutcome 实例 AcceptCallToWarAgreementDecisionOutcome acceptCallToWarAgree
+  campaign-ext/AcceptCallToWarAgreementDecisionOutcome.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecisionOutcome 实例 AcceptCallToWarAgreementDecisionOutcome acceptCallToWarAgree
+  campaign-ext/AcceptCallToWarAgreementDecisionOutcome.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecisionOutcome 实例 AcceptCallToWarAgreementDecisionOutcome acceptCallToWarAgree
+  campaign-ext/AcceptCallToWarAgreementDecisionOutcome.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarAgreementDecisionOutcome 实例 AcceptCallToWarAgreementDecisionOutcome acceptCallToWarAgree
+  campaign-ext/AcceptCallToWarAgreementDecisionOutcome.md [placeholder-assignment-example] code block: // 通常从对应子系统 API 获取实例后调用 AcceptCallToWarAgreementDecisionOutcome acceptCallToWarAgreementDecisionOutcome = ...; acceptCal
+  campaign-ext/AcceptCallToWarOfferMapNotification.md [autogen-description] code block: description: "AcceptCallToWarOfferMapNotification 的自动生成类参考。"
+  campaign-ext/AcceptCallToWarOfferMapNotification.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign-ext/AcceptCallToWarOfferMapNotification.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarOfferMapNotification 实例 AcceptCallToWarOfferMapNotification acceptCallToWarOfferMapNotif
+  campaign-ext/AcceptCallToWarOfferMapNotification.md [placeholder-assignment-example] code block: // 通常从对应子系统 API 获取实例后调用 AcceptCallToWarOfferMapNotification acceptCallToWarOfferMapNotification = ...; acceptCallToWarOf
+  campaign-ext/AcceptCallToWarOfferNotificationItemVM.md [autogen-description] code block: description: "AcceptCallToWarOfferNotificationItemVM 的自动生成类参考。"
+  campaign-ext/AcceptCallToWarOfferNotificationItemVM.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign-ext/AcceptCallToWarOfferNotificationItemVM.md [placeholder-assignment-example] code block: // 先通过子系统 API 拿到 AcceptCallToWarOfferNotificationItemVM 实例 AcceptCallToWarOfferNotificationItemVM acceptCallToWarOfferNo
+  campaign-ext/AcceptCallToWarOfferNotificationItemVM.md [placeholder-assignment-example] code block: // 通常从对应子系统 API 获取实例后调用 AcceptCallToWarOfferNotificationItemVM acceptCallToWarOfferNotificationItemVM = ...; acceptCallT
+  campaign-ext/AcceptClanCreationRequestMessage.md [autogen-description] code block: description: "AcceptClanCreationRequestMessage 的自动生成类参考。"
+  campaign-ext/AcceptClanCreationRequestMessage.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign-ext/AcceptClanCreationRequestMessage.md [placeholder-assignment-example] code block: // 从对应子系统 API 获取实例 AcceptClanCreationRequestMessage instance = ...; 
+  campaign-ext/AcceptClanInvitationMessage.md [autogen-description] code block: description: "AcceptClanInvitationMessage 的自动生成类参考。"
+  campaign-ext/AcceptClanInvitationMessage.md [formulaic-overview-stub] code block: 阅读时先看属性
+  campaign-ext/AcceptClanInvitationMessage.md [placeholder-assignment-example] code block: // 从对应子系统 API 获取实例 AcceptClanInvitationMessage instance = ...; 
+  campaign-ext/AcceptingCallToWarAgreementDecisionItemVM.md [autogen-description] code block: description: "AcceptingCallToWarAgreementDecisionItemVM 的自动生成类参考。"
+  ... and 27019 more
+
+Scanned 5633 files, 16487 method-purpose lines, 16487 method sections.
+Blockers: 26, Warnings: 24, Content-integrity: 27219 (STRICT_GATE=1)
+
+[STRICT_GATE] 27219 content-integrity findings counted as blockers.

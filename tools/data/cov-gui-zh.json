@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-08-12T11:08:06.230Z",
+  "scanRoot": "content/v1.3.15/zh/api/gui",
+  "totalFiles": 57,
+  "counts": {
+    "stub": 55,
+    "deep_pass": 1,
+    "family_entry_pass": 1,
+    "noise": 0,
+    "missing": 0
+  },
+  "classLikeApprox": 56,
+  "deep_pass_paths": [
+    "content/v1.3.15/zh/api/gui/ScreenManager.md"
+  ],
+  "stub_sample_paths": [
+    "content/v1.3.15/zh/api/gui/ArrayType.md",
+    "content/v1.3.15/zh/api/gui/AttribueMask.md",
+    "content/v1.3.15/zh/api/gui/AutoPinner.md",
+    "content/v1.3.15/zh/api/gui/BeginMode.md",
+    "content/v1.3.15/zh/api/gui/BlendingDestinationFactor.md",
+    "content/v1.3.15/zh/api/gui/BlendingSourceFactor.md",
+    "content/v1.3.15/zh/api/gui/CursorMovementDirection.md",
+    "content/v1.3.15/zh/api/gui/DataType.md",
+    "content/v1.3.15/zh/api/gui/DwmBlurBehind.md",
+    "content/v1.3.15/zh/api/gui/Dwmapi.md",
+    "content/v1.3.15/zh/api/gui/EmptyWidget.md",
+    "content/v1.3.15/zh/api/gui/GamepadNavigationHelper.md",
+    "content/v1.3.15/zh/api/gui/GamepadNavigationScopeCollection.md",
+    "content/v1.3.15/zh/api/gui/GauntletEvent.md",
+    "content/v1.3.15/zh/api/gui/GauntletMovie.md",
+    "content/v1.3.15/zh/api/gui/Gdi32.md",
+    "content/v1.3.15/zh/api/gui/HintMode.md",
+    "content/v1.3.15/zh/api/gui/ITexture.md",
+    "content/v1.3.15/zh/api/gui/ImageFitResult.md",
+    "content/v1.3.15/zh/api/gui/KeyboardAction.md",
+    "content/v1.3.15/zh/api/gui/LayoutBox.md",
+    "content/v1.3.15/zh/api/gui/Material.md",
+    "content/v1.3.15/zh/api/gui/MatrixMode.md",
+    "content/v1.3.15/zh/api/gui/MouseState.md",
+    "content/v1.3.15/zh/api/gui/Opengl32.md",
+    "content/v1.3.15/zh/api/gui/Opengl32ARB.md",
+    "content/v1.3.15/zh/api/gui/PixelFormat.md",
+    "content/v1.3.15/zh/api/gui/PixelFormatDescriptor.md",
+    "content/v1.3.15/zh/api/gui/PixelFormatDescriptorFlags.md",
+    "content/v1.3.15/zh/api/gui/PixelFormatDescriptorLayerTypes.md",
+    "content/v1.3.15/zh/api/gui/PixelFormatDescriptorPixelTypes.md",
+    "content/v1.3.15/zh/api/gui/ScrollbarInterpolationController.md",
+    "content/v1.3.15/zh/api/gui/Shader.md",
+    "content/v1.3.15/zh/api/gui/ShadingModel.md",
+    "content/v1.3.15/zh/api/gui/SpriteFromTexture.md",
+    "content/v1.3.15/zh/api/gui/SpriteSizeComparer.md",
+    "content/v1.3.15/zh/api/gui/Target.md",
+    "content/v1.3.15/zh/api/gui/TextHelper.md",
+    "content/v1.3.15/zh/api/gui/TextLineOutput.md",
+    "content/v1.3.15/zh/api/gui/TextMeshGenerator.md"
+  ],
+  "family_entry_sample_paths": [
+    "content/v1.3.15/zh/api/gui/_index.md"
+  ],
+  "noise_sample_paths": [],
+  "meta": {
+    "scope": "content/v1.3.15/zh/api/gui",
+    "version": "1.3.15",
+    "language": "zh",
+    "sourceFingerprint": "5babda33e78c6b67ecdd554bd2ea1141d716b2788fa3963ae813c5b23d2887d3",
+    "gitSha": "4b84d6e58a26cf46f62485b9fda9b8c0f855eeee",
+    "command": "C:\\WorkSpace\\Bannerlord\\BannerlordCode.github.io\\tools\\handwritten-coverage.mjs --root content/v1.3.15/zh/api/gui --out tools/data/cov-gui-zh.json"
+  },
+  "note": "Phase 1 classifies existing markdown only. `missing` reserved for inventory-vs-docs comparison (not run here). deep_pass requires real mental model (>80 chars), 依赖/参见 with ≥2 links, real csharp example, and non-boilerplate overview."
+}

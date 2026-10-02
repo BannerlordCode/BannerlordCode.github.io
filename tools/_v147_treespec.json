@@ -1,0 +1,408 @@
+{
+  "artifact": "tools/_v147_treespec.json",
+  "version": "v1.4.7",
+  "authoritativeSource": "tools/_dir-map-canonical.json",
+  "authority_note": "Derived projection. The canonical JSON is the single machine-readable source of truth; where this file and the canonical file disagree, the canonical file wins and this file is a bug.",
+  "resolutionOrder": [
+    "1. excludeNamespaces / excludeSuffixes (hard skip, no page, counted separately)",
+    "2. rules[] longest-prefix-wins",
+    "3. entryPointDirs override by simple type name",
+    "4. defaultDir core-extra + record in unmapped"
+  ],
+  "step3Matching": "entryPointDirs is now a flat map of EXACT case-sensitive simple type name -> dir (7 entries). It must be applied AFTER longest-prefix resolution; skipping or mis-ordering it silently empties mission/ and core/.",
+  "matchSemantics": "longest-prefix-wins. Do NOT use first-match. The array below is ALSO physically sorted so that first-match and longest-match give the same answer; if you add a rule, keep it sorted by descending prefix length. Rationale: TaleWorlds.MountAndBlade.CustomBattle and TaleWorlds.*.ViewModelCollection must beat their shorter parent prefixes.",
+  "defaultDir": "core-extra",
+  "collisionRule": "If two namespaces mapping to the SAME dir export the same simple type name, the page file is <NamespaceLeaf>__<TypeName>.md (e.g. Campaign__IFaction.md). Never write two files for one type.",
+  "entryPointDirs": {
+    "Mission": "mission",
+    "MissionState": "mission",
+    "MissionBehavior": "mission",
+    "Agent": "mission",
+    "Formation": "mission",
+    "MBSubModuleBase": "core",
+    "Module": "core"
+  },
+  "entryPointDirsNotes": {
+    "_match": "exact simple type name, case-sensitive, compared AFTER longest-prefix resolution",
+    "_why": "Everything else was a no-op or contradicted 1.4.5 on-disk precedent. Measured 1.4.5 zh buckets: TextObject->localization (NOT core-extra), MBDebug->engine (NOT core-extra), GameModels->campaign (NOT core-extra), ViewModel/Game/GameStateManager/GameManagerBase/MBGameModel->core-extra, ScreenManager/ScreenBase/ScreenLayer->gui, GauntletLayer->engine, Save*->save-system. Those are all already produced by the prefix rules, so they need no override. Hyphenated/space-containing entries were unmatchable dead weight and are gone.",
+    "_parityGaps": "MissionState lands in mission/ here but 1.4.5 has it duplicated in campaign-ext/+mission-ext/, not mission/ - 1 URL parity gap, accepted for modder-facing grouping. ModuleManager is NOT overridden: no 1.4.5 precedent exists, so it stays in modulemanager/ per its own prefix rule (one fewer override = one fewer silent failure).",
+    "_noModuleManager": "There is NO ModuleManager type in any version: verified by full-tree scan of 1.4.5 (8583 .cs), 1.4.6 (11385), 1.4.7 (11387), 1.5.3 (11487) - zero occurrences of a class/struct/interface named ModuleManager, and 1.4.5 has no ModuleManager.md page. The modulemanager/ bucket holds the OTHER types of the TaleWorlds.ModuleManager namespace (DependedModule, Extensions, IPlatformModuleExtension, ModuleCategory, ModuleHelper, ModuleInfo, ModuleType, SubModuleInfo). Never synthesize a ModuleManager page."
+  },
+  "counts": {
+    "rules": 37,
+    "excludeNamespaces": 47,
+    "excludeSuffixes": 2,
+    "liveRules": 34,
+    "deadRules": 3,
+    "dirsFromRules": 18,
+    "dirsFromEntryPointOnly": 7,
+    "totalDirs": 20
+  },
+  "independentProjectionOn147": {
+    "source": "bannerlord-1.4.7, 11387 .cs files",
+    "method": "4-step resolution simulated independently of tools/_v147_inventory.json",
+    "uniqueTopLevelTypes": 12148,
+    "excludedByNamespaceGate": 4382,
+    "excludedBySuffixGate": 30,
+    "live": 7736,
+    "perDir": {
+      "core-extra": {
+        "types": 1214,
+        "namespaces": 40,
+        "stepMix": {
+          "2": 531,
+          "3": 8,
+          "4": 675
+        }
+      },
+      "sandbox": {
+        "types": 1270,
+        "namespaces": 78,
+        "stepMix": {
+          "2": 1270
+        }
+      },
+      "viewmodel": {
+        "types": 651,
+        "namespaces": 92,
+        "stepMix": {
+          "2": 651
+        }
+      },
+      "storymode": {
+        "types": 189,
+        "namespaces": 24,
+        "stepMix": {
+          "2": 189
+        }
+      },
+      "achievementsystem": {
+        "types": 4,
+        "namespaces": 1,
+        "stepMix": {
+          "2": 4
+        }
+      },
+      "activitysystem": {
+        "types": 6,
+        "namespaces": 1,
+        "stepMix": {
+          "2": 6
+        }
+      },
+      "campaign": {
+        "types": 683,
+        "namespaces": 38,
+        "stepMix": {
+          "2": 674,
+          "3": 9
+        }
+      },
+      "campaign-ext": {
+        "types": 777,
+        "namespaces": 12,
+        "stepMix": {
+          "2": 777
+        }
+      },
+      "engine": {
+        "types": 272,
+        "namespaces": 9,
+        "stepMix": {
+          "2": 271,
+          "3": 1
+        }
+      },
+      "gui": {
+        "types": 291,
+        "namespaces": 15,
+        "stepMix": {
+          "2": 288,
+          "3": 3
+        }
+      },
+      "mission-ext": {
+        "types": 2105,
+        "namespaces": 145,
+        "stepMix": {
+          "2": 2105
+        }
+      },
+      "system": {
+        "types": 20,
+        "namespaces": 1,
+        "stepMix": {
+          "2": 20
+        }
+      },
+      "localization": {
+        "types": 53,
+        "namespaces": 4,
+        "stepMix": {
+          "2": 53
+        }
+      },
+      "modulemanager": {
+        "types": 9,
+        "namespaces": 1,
+        "stepMix": {
+          "2": 9
+        }
+      },
+      "mission": {
+        "types": 3,
+        "namespaces": 1,
+        "stepMix": {
+          "3": 3
+        }
+      },
+      "core": {
+        "types": 2,
+        "namespaces": 1,
+        "stepMix": {
+          "3": 2
+        }
+      },
+      "custombattle": {
+        "types": 41,
+        "namespaces": 5,
+        "stepMix": {
+          "2": 41
+        }
+      },
+      "network": {
+        "types": 38,
+        "namespaces": 1,
+        "stepMix": {
+          "2": 38
+        }
+      },
+      "save-system": {
+        "types": 108,
+        "namespaces": 5,
+        "stepMix": {
+          "2": 104,
+          "3": 4
+        }
+      }
+    },
+    "dirsWithZeroTypes": [
+      "boardgames"
+    ]
+  },
+  "inventoryPageCounts": {
+    "artifact": "tools/_v147_inventory.json",
+    "pageCount": 1799,
+    "perDir": {
+      "achievementsystem": 4,
+      "activitysystem": 6,
+      "campaign-ext": 71,
+      "campaign": 189,
+      "core-extra": 58,
+      "custombattle": 21,
+      "engine": 41,
+      "gui": 72,
+      "localization": 24,
+      "mission-ext": 518,
+      "modulemanager": 6,
+      "network": 6,
+      "sandbox": 321,
+      "save-system": 25,
+      "storymode": 74,
+      "system": 6,
+      "viewmodel": 357
+    }
+  },
+  "twoWay": {
+    "achievementsystem": [
+      "TaleWorlds.AchievementSystem"
+    ],
+    "activitysystem": [
+      "TaleWorlds.ActivitySystem"
+    ],
+    "campaign": [
+      "TaleWorlds.CampaignSystem"
+    ],
+    "campaign-ext": [
+      "TaleWorlds.CampaignSystem.PartyBasedVisitables",
+      "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "TaleWorlds.CampaignSystem.CampaignBehaviors",
+      "TaleWorlds.CampaignSystem.GameComponents",
+      "TaleWorlds.CampaignSystem.Conversation",
+      "TaleWorlds.CampaignSystem.SandBox",
+      "TaleWorlds.CampaignSystem.Issues",
+      "TaleWorlds.ObjectSystem"
+    ],
+    "core-extra": [
+      "TaleWorlds.LinQuick",
+      "TaleWorlds.Library",
+      "TaleWorlds.Starter",
+      "TaleWorlds.DotNet",
+      "TaleWorlds.Core"
+    ],
+    "custombattle": [
+      "TaleWorlds.MountAndBlade.CustomBattle"
+    ],
+    "engine": [
+      "TaleWorlds.Engine.InputSystem",
+      "TaleWorlds.Diamond",
+      "TaleWorlds.Engine"
+    ],
+    "gui": [
+      "TaleWorlds.ScreenSystem",
+      "TaleWorlds.TwoDimension",
+      "TaleWorlds.GauntletUI"
+    ],
+    "localization": [
+      "TaleWorlds.Localization"
+    ],
+    "mission-ext": [
+      "TaleWorlds.MountAndBlade"
+    ],
+    "modulemanager": [
+      "TaleWorlds.ModuleManager"
+    ],
+    "network": [
+      "TaleWorlds.Network"
+    ],
+    "sandbox": [
+      "SandBox"
+    ],
+    "save-system": [
+      "TaleWorlds.SaveSystem"
+    ],
+    "storymode": [
+      "StoryMode"
+    ],
+    "system": [
+      "TaleWorlds.InputSystem"
+    ],
+    "viewmodel": [
+      "TaleWorlds.CampaignSystem.ViewModelCollection",
+      "TaleWorlds.MountAndBlade.ViewModelCollection",
+      "TaleWorlds.Core.ViewModelCollection"
+    ]
+  },
+  "deadRules": [
+    {
+      "prefix": "TaleWorlds.Mission",
+      "dir": "mission-ext",
+      "why": "namespace TaleWorlds.Mission does not exist in bannerlord-1.4.7; Mission/Agent/Formation are TaleWorlds.MountAndBlade"
+    },
+    {
+      "prefix": "TaleWorlds.BoardGames",
+      "dir": "boardgames",
+      "why": "namespace TaleWorlds.BoardGames does not exist; only TaleWorlds.MountAndBlade.GauntletUI.Widgets.BoardGame exists, which maps to gui"
+    },
+    {
+      "prefix": "TaleWorlds.System",
+      "dir": "system",
+      "why": "namespace TaleWorlds.System does not exist in bannerlord-1.4.7"
+    }
+  ],
+  "dirsFromRules": [
+    "achievementsystem",
+    "activitysystem",
+    "boardgames",
+    "campaign",
+    "campaign-ext",
+    "core-extra",
+    "custombattle",
+    "engine",
+    "gui",
+    "localization",
+    "mission-ext",
+    "modulemanager",
+    "network",
+    "sandbox",
+    "save-system",
+    "storymode",
+    "system",
+    "viewmodel"
+  ],
+  "dirsFromEntryPointOverrideOnly": [
+    "mission",
+    "mission",
+    "mission",
+    "mission",
+    "mission",
+    "core",
+    "core"
+  ],
+  "allDirs": [
+    "achievementsystem",
+    "activitysystem",
+    "boardgames",
+    "campaign",
+    "campaign-ext",
+    "core",
+    "core-extra",
+    "custombattle",
+    "engine",
+    "gui",
+    "localization",
+    "mission",
+    "mission-ext",
+    "modulemanager",
+    "network",
+    "sandbox",
+    "save-system",
+    "storymode",
+    "system",
+    "viewmodel"
+  ],
+  "parityGaps": [
+    {
+      "id": "no-gameplay-bucket",
+      "from": "1.4.5/gameplay/",
+      "to": "(none)",
+      "pages": 19,
+      "reason": "The 1.4.5 gameplay/ bucket is semantically mixed: it holds SandBox(4), StoryMode.*(4) and bare TaleWorlds.MountAndBlade types (AgentNavigator, MapAudioManager, OppositionData, DelayedAction, NameplateSize, ...). No namespace rule can reproduce it. Bucket deliberately NOT created - SandBox* -> sandbox and StoryMode* -> storymode, which match the real namespaces.",
+      "decision": "accept the 19-URL break; do not invent a bucket to make numbers line up"
+    },
+    {
+      "id": "mission-bulk-to-mission-ext",
+      "from": "1.4.5/mission/",
+      "to": "mission-ext/",
+      "pages": 52,
+      "reason": "52 of 1.4.5's 78 mission/ pages are bare TaleWorlds.MountAndBlade types (Agent, Formation, ActionIndexCache, AutoGeneratedSaveManager, BannerTextureCreator, AgentHelper, GenericMissionObjective, ...). That is a hand-picked modder entry list no namespace rule can reproduce; faking parity would mean shredding the ~850-page mission-ext bucket and hand-maintaining a list.",
+      "decision": "accept; mission/ stays a small intentional entry-class carve-out with bidirectional links to ../mission-ext/"
+    },
+    {
+      "id": "game-to-core-extra",
+      "from": "1.4.5/core/Game.md",
+      "to": "core-extra/Game.md",
+      "pages": 1,
+      "reason": "Game is namespace TaleWorlds.Core, which the prefix rules route to core-extra. 1.4.5 happens to keep a copy in core/ (and a duplicate in core-extra/).",
+      "decision": "accept the 1-URL move; namespace consistency beats copying a legacy duplicate"
+    },
+    {
+      "id": "missionstate-to-mission",
+      "from": "1.4.5 mission-ext/MissionState.md (+ campaign-ext duplicate)",
+      "to": "mission/MissionState.md",
+      "pages": 1,
+      "reason": "1.4.5 has MissionState duplicated in campaign-ext/ and mission-ext/ and no mission/ copy. The entryPointDirs carve-out groups it with Mission/Agent/Formation for modders.",
+      "decision": "accept the 1-URL break for modder-facing grouping"
+    }
+  ],
+  "parityGapsProvenance": "Imported verbatim from tools/_dir-map-canonical.json parityGaps[]. Not re-derived. The prose in tools/_v147_treespec.md explains why each is acceptable; the facts come from the artifact.",
+  "sourceTypoNamespaces": [
+    "Sandbox",
+    "Sandobx.GauntletUI.Missions",
+    "Storymode.Missions",
+    "Sandbox.View.GameStates"
+  ],
+  "sourceTypoDecision": "Typos in TaleWorlds' own source (Sandbox vs SandBox, Sandobx, Storymode). Ruled: EXCLUDE, do not map to sandbox/storymode - mapping would invent a namespace rule the source does not support. Listed here so the affected types are accounted for rather than silently dropped.",
+  "noModuleManager": "There is NO ModuleManager type in any version: verified by full-tree scan of 1.4.5 (8583 .cs), 1.4.6 (11385), 1.4.7 (11387), 1.5.3 (11487) - zero occurrences of a class/struct/interface named ModuleManager, and 1.4.5 has no ModuleManager.md page. The modulemanager/ bucket holds the OTHER types of the TaleWorlds.ModuleManager namespace (DependedModule, Extensions, IPlatformModuleExtension, ModuleCategory, ModuleHelper, ModuleInfo, ModuleType, SubModuleInfo). Never synthesize a ModuleManager page.",
+  "noDuplicateRouteInvariant": "One type = exactly one path. Same-dir name collisions use <NamespaceLeaf>__<TypeName>.md. mission/ (5) and core/ (2) are entry-point carve-outs beside mission-ext/ and core-extra/, not duplicates. See tools/_v147_nav-spec.md 6.2.",
+  "bucketsNotCreated": [
+    "gameplay",
+    "navigationsystem",
+    "boardgames",
+    "screensystem",
+    "view",
+    "perks",
+    "final"
+  ],
+  "bucketsNotCreatedReason": "gameplay and navigationsystem are ruled out by the Lead (parity gaps no-gameplay-bucket, and TaleWorlds.NavigationSystem -> core-extra). boardgames projects zero types (no TaleWorlds.BoardGames namespace). screensystem was reversed to gui. view/perks/final are 1.4.5-only shells with no canonical rule."
+}

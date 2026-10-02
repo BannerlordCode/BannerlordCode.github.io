@@ -1,0 +1,423 @@
+
+## Warnings: 914
+By category:
+  method-missing-example: 914
+
+First 200 occurrences (use --verbose for full list):
+  v1.3.15/en/api/campaign/Campaign.md [method-missing-example] L36: Upstream and ownership
+  v1.3.15/en/api/campaign/Campaign.md [method-missing-example] L41: Downstream services
+  v1.3.15/en/api/campaign/CampaignBehaviorDataStore.md [method-missing-example] L51: `CampaignBehaviorDataStore`
+  v1.3.15/en/api/campaign/CampaignBehaviorDataStore.md [method-missing-example] L61: `BehaviorSaveData : IDataStore`
+  v1.3.15/en/api/campaign/CharacterObject.md [method-missing-example] L76: Identity: Hero card vs Troop template
+  v1.3.15/en/api/campaign/CharacterObject.md [method-missing-example] L91: Culture, Occupation, and basic traits
+  v1.3.15/en/api/campaign/CharacterObject.md [method-missing-example] L105: Equipment and combat profiles
+  v1.3.15/en/api/campaign/CharacterObject.md [method-missing-example] L116: Skills, traits, and perks
+  v1.3.15/en/api/campaign/CharacterObject.md [method-missing-example] L123: Power and upgrades
+  v1.3.15/en/api/campaign/CharacterObject.md [method-missing-example] L129: Cloning and modification
+  v1.3.15/en/api/campaign/CharacterObject.md [method-missing-example] L135: Body properties
+  v1.3.15/en/api/campaign/Clan.md [method-missing-example] L46: When to use
+  v1.3.15/en/api/campaign/Clan.md [method-missing-example] L54: When not to use / do not write fields directly
+  v1.3.15/en/api/campaign/Clan.md [method-missing-example] L87: Events / Actions / Models / Save
+  v1.3.15/en/api/campaign/Clan.md [method-missing-example] L134: Identity and type
+  v1.3.15/en/api/campaign/Clan.md [method-missing-example] L148: Assets and political capital
+  v1.3.15/en/api/campaign/Hero.md [method-missing-example] L35: Ownership and political context
+  v1.3.15/en/api/campaign/Hero.md [method-missing-example] L41: Mutations and observation
+  v1.3.15/en/api/campaign/Kingdom.md [method-missing-example] L41: When to use
+  v1.3.15/en/api/campaign/Kingdom.md [method-missing-example] L49: When not to use / do not write fields directly
+  v1.3.15/en/api/campaign/Kingdom.md [method-missing-example] L80: Events / Actions / Models / Save
+  v1.3.15/en/api/campaign/Kingdom.md [method-missing-example] L128: Composition and assets
+  v1.3.15/en/api/campaign/Kingdom.md [method-missing-example] L141: Diplomacy and policy
+  v1.3.15/en/api/campaign/MapEvent.md [method-missing-example] L21: What it is / is not
+  v1.3.15/en/api/campaign/MapEvent.md [method-missing-example] L26: Lifecycle (engine-driven — do not replay manually)
+  v1.3.15/en/api/campaign/MapEvent.md [method-missing-example] L34: Who creates / who holds
+  v1.3.15/en/api/campaign/MapEvent.md [method-missing-example] L39: Layer
+  v1.3.15/en/api/campaign/MapEvent.md [method-missing-example] L102: Sides and factions
+  v1.3.15/en/api/campaign/MapEvent.md [method-missing-example] L112: Outcome and battle state
+  v1.3.15/en/api/campaign/MapEvent.md [method-missing-example] L123: Map position and settlement
+  v1.3.15/en/api/campaign/MapEvent.md [method-missing-example] L131: Participant enumeration and contribution
+  v1.3.15/en/api/campaign/MapEvent.md [method-missing-example] L139: Control (use with care)
+  v1.3.15/en/api/campaign/MobileParty.md [method-missing-example] L36: Ownership and movement
+  v1.3.15/en/api/campaign/MobileParty.md [method-missing-example] L43: Army and encounter boundaries
+  v1.3.15/en/api/campaign/PartyBase.md [method-missing-example] L45: When to use
+  v1.3.15/en/api/campaign/PartyBase.md [method-missing-example] L52: When not to use
+  v1.3.15/en/api/campaign/PartyBase.md [method-missing-example] L129: Identity and host
+  v1.3.15/en/api/campaign/PartyBase.md [method-missing-example] L144: Rosters and counts
+  v1.3.15/en/api/campaign/PartyBase.md [method-missing-example] L159: Map, events, and strength
+  v1.3.15/en/api/campaign/Settlement.md [method-missing-example] L35: Persistent components
+  v1.3.15/en/api/campaign/Settlement.md [method-missing-example] L41: Battle and siege boundaries
+  v1.3.15/en/api/campaign/Town.md [method-missing-example] L78: Governance and ownership
+  v1.3.15/en/api/campaign/Town.md [method-missing-example] L95: Prosperity / Loyalty / Security / Food
+  v1.3.15/en/api/campaign/Town.md [method-missing-example] L115: Daily deltas (read-only, from Models)
+  v1.3.15/en/api/campaign/Town.md [method-missing-example] L128: Buildings
+  v1.3.15/en/api/campaign/Town.md [method-missing-example] L150: Workshops
+  v1.3.15/en/api/campaign/Town.md [method-missing-example] L158: Market and prices
+  v1.3.15/en/api/campaign/Town.md [method-missing-example] L169: Villages / supply / fleet
+  v1.3.15/en/api/campaign/Town.md [method-missing-example] L183: Queries and static entry points
+  v1.3.15/en/api/campaign/Village.md [method-missing-example] L87: Ownership & Economy
+  v1.3.15/en/api/campaign/Village.md [method-missing-example] L97: State & Combat
+  v1.3.15/en/api/campaign/Village.md [method-missing-example] L103: Production & Prosperity
+  v1.3.15/en/api/campaign/Workshop.md [method-missing-example] L78: Identity and ownership
+  v1.3.15/en/api/campaign/Workshop.md [method-missing-example] L95: Operating state
+  v1.3.15/en/api/campaign/Workshop.md [method-missing-example] L112: Production progress
+  v1.3.15/en/api/campaign/Workshop.md [method-missing-example] L120: Lifecycle and initialization
+  v1.3.15/en/api/campaign/Workshop.md [method-missing-example] L131: Mutation operations (most should go through an Action)
+  v1.3.15/en/api/campaign/Workshop.md [method-missing-example] L148: Misc
+  v1.3.15/en/api/campaign/Workshop.md [method-missing-example] L242: 2. Tune the economy with a custom `WorkshopModel`
+  v1.3.15/en/api/campaign/Workshop.md [method-missing-example] L253: 3. Place a workshop at runtime
+  v1.3.15/en/api/campaign-ext/Army.md [method-missing-example] L42: When to use
+  v1.3.15/en/api/campaign-ext/Army.md [method-missing-example] L50: When not to use / do not write fields directly
+  v1.3.15/en/api/campaign-ext/Army.md [method-missing-example] L80: Events / Actions / Models / Save
+  v1.3.15/en/api/campaign-ext/Army.md [method-missing-example] L102: Identity and composition
+  v1.3.15/en/api/campaign-ext/Army.md [method-missing-example] L116: Morale, cohesion, strength
+  v1.3.15/en/api/campaign-ext/BuildingConstructionModel.md [method-missing-example] L26: Lifecycle and registration
+  v1.3.15/en/api/campaign-ext/BuildingConstructionModel.md [method-missing-example] L57: Related and save boundary
+  v1.3.15/en/api/campaign-ext/BuildingModel.md [method-missing-example] L28: Lifecycle and Registration
+  v1.3.15/en/api/campaign-ext/BuildingModel.md [method-missing-example] L52: Actions, Events, and Save Boundary
+  v1.3.15/en/api/campaign-ext/CampaignBehaviorBase.md [method-missing-example] L34: Registration and events
+  v1.3.15/en/api/campaign-ext/CampaignBehaviorBase.md [method-missing-example] L40: Persistence and downstream state
+  v1.3.15/en/api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L39: Creation and ownership
+  v1.3.15/en/api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L46: Where dispatch comes from
+  v1.3.15/en/api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L55: Recommended: subscribe to `CampaignEvents`
+  v1.3.15/en/api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L59: Do not treat the dispatcher as these things
+  v1.3.15/en/api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L88: `public static CampaignEventDispatcher Instance { get; }`
+  v1.3.15/en/api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L92: `public override void RemoveListeners(object o)`
+  v1.3.15/en/api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L98: `internal CampaignEventDispatcher(IEnumerable<CampaignEventReceiver>)` and `internal void AddCampaignEventReceiver(...)`
+  v1.3.15/en/api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L102: Event forwarding: `OnBeforeHeroKilled`, `OnHeroKilled`, `OnSettlementOwnerChanged`, `OnWarDeclared`, and others
+  v1.3.15/en/api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L106: Lifecycle forwarding: `OnNewGameCreated`, `OnGameLoaded`, `OnGameLoadFinished`, `OnSessionStart`, and `OnAfterSessionSta
+  v1.3.15/en/api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L110: Tick forwarding: `Tick`, `HourlyTick*`, `DailyTick*`, `WeeklyTick`, and `TickPartialHourlyAi`
+  v1.3.15/en/api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L100: 1. Session / save lifecycle
+  v1.3.15/en/api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L111: 2. Periodic ticks (the campaign clock)
+  v1.3.15/en/api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L123: 3. Hero lifecycle
+  v1.3.15/en/api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L134: 4. Settlement / fief
+  v1.3.15/en/api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L142: 5. Clan / kingdom / diplomacy
+  v1.3.15/en/api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L150: 6. Battle / quest / scene
+  v1.3.15/en/api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L159: 7. Economy / resources
+  v1.3.15/en/api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L164: 8. Query / veto hooks (`Can*`, `Is*`)
+  v1.3.15/en/api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L179: Remaining hooks (same pattern, consult source as needed)
+  v1.3.15/en/api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L241: Common anti-patterns (avoid these)
+  v1.3.15/en/api/campaign-ext/CampaignEvents.md [method-missing-example] L27: The publish/subscribe pipeline
+  v1.3.15/en/api/campaign-ext/CampaignEvents.md [method-missing-example] L36: Two subscription styles
+  v1.3.15/en/api/campaign-ext/CampaignEvents.md [method-missing-example] L60: Hero
+  v1.3.15/en/api/campaign-ext/CampaignEvents.md [method-missing-example] L69: Settlement
+  v1.3.15/en/api/campaign-ext/CampaignEvents.md [method-missing-example] L77: War & Diplomacy
+  v1.3.15/en/api/campaign-ext/CampaignEvents.md [method-missing-example] L86: Party & MobileParty
+  v1.3.15/en/api/campaign-ext/CampaignEvents.md [method-missing-example] L94: Siege & Map Battles
+  v1.3.15/en/api/campaign-ext/CampaignEvents.md [method-missing-example] L102: Periodic Ticks (highest frequency)
+  v1.3.15/en/api/campaign-ext/CampaignEvents.md [method-missing-example] L106: Lifecycle / Save
+  v1.3.15/en/api/campaign-ext/CampaignGameStarter.md [method-missing-example] L62: Behavior registration
+  v1.3.15/en/api/campaign-ext/CampaignGameStarter.md [method-missing-example] L75: Model registration and lookup
+  v1.3.15/en/api/campaign-ext/CampaignGameStarter.md [method-missing-example] L90: Menu content registration (at campaign start)
+  v1.3.15/en/api/campaign-ext/CampaignGameStarter.md [method-missing-example] L105: Conversation content registration (at campaign start)
+  v1.3.15/en/api/campaign-ext/CampaignGameStarter.md [method-missing-example] L112: Other
+  v1.3.15/en/api/campaign-ext/CampaignInformationManager.md [method-missing-example] L64: Creation, registration, and load
+  v1.3.15/en/api/campaign-ext/CampaignInformationManager.md [method-missing-example] L71: Map notices
+  v1.3.15/en/api/campaign-ext/CampaignInformationManager.md [method-missing-example] L77: Log and dialog bridges
+  v1.3.15/en/api/campaign-ext/CampaignMission.md [method-missing-example] L37: 1. Campaign prepares the inputs
+  v1.3.15/en/api/campaign-ext/CampaignMission.md [method-missing-example] L47: 2. The manager becomes a concrete Mission
+  v1.3.15/en/api/campaign-ext/CampaignMission.md [method-missing-example] L55: 3. Mission initialization creates the campaign adapter
+  v1.3.15/en/api/campaign-ext/CampaignMission.md [method-missing-example] L61: 4. Running and ending
+  v1.3.15/en/api/campaign-ext/CampaignMission.md [method-missing-example] L73: Appropriate uses
+  v1.3.15/en/api/campaign-ext/CampaignMission.md [method-missing-example] L80: Inappropriate uses
+  v1.3.15/en/api/campaign-ext/CampaignMission.md [method-missing-example] L98: `ICampaignMission` state contract
+  v1.3.15/en/api/campaign-ext/CampaignMission.md [method-missing-example] L115: Choosing an `Open...` creation entry
+  v1.3.15/en/api/campaign-ext/CampaignMission.md [method-missing-example] L228: Agent, Mission, and save risks
+  v1.3.15/en/api/campaign-ext/CampaignObjectManager.md [method-missing-example] L99: Who registers what
+  v1.3.15/en/api/campaign-ext/CampaignObjectManager.md [method-missing-example] L106: The save graph is not the lookup graph
+  v1.3.15/en/api/campaign-ext/CampaignObjectManager.md [method-missing-example] L134: Settlement, Town, and Village
+  v1.3.15/en/api/campaign-ext/CampaignObjectManager.md [method-missing-example] L138: Behavior, Action, UI, and Model dependencies
+  v1.3.15/en/api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L35: Initialization and built-in tickers
+  v1.3.15/en/api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L56: Order inside `Campaign.Tick()`
+  v1.3.15/en/api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L67: Good reasons to use `CreatePeriodicEvent`
+  v1.3.15/en/api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L73: Inappropriate or dangerous uses
+  v1.3.15/en/api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L104: `public static MBCampaignEvent CreatePeriodicEvent(CampaignTime triggerPeriod, CampaignTime initialWait)`
+  v1.3.15/en/api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L114: `MBCampaignEvent` timing and side effects
+  v1.3.15/en/api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L31: New campaign and first frame
+  v1.3.15/en/api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L37: Each real-time frame
+  v1.3.15/en/api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L50: Save loading and rebuild
+  v1.3.15/en/api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L58: There is no mod-facing cache query
+  v1.3.15/en/api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L64: When it refreshes
+  v1.3.15/en/api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L71: Supported alternatives
+  v1.3.15/en/api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L80: `CampaignTime` is not the tick cache
+  v1.3.15/en/api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L90: The cache is not save data
+  v1.3.15/en/api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L193: Related / bidirectional return
+  v1.3.15/en/api/campaign-ext/CampaignTime.md [method-missing-example] L93: Static properties
+  v1.3.15/en/api/campaign-ext/CampaignTime.md [method-missing-example] L104: Instance properties (conversions relative to "now")
+  v1.3.15/en/api/campaign-ext/CharacterRelationManager.md [method-missing-example] L64: `public static void SetHeroRelation(Hero hero1, Hero hero2, int value)`
+  v1.3.15/en/api/campaign-ext/CharacterRelationManager.md [method-missing-example] L70: `public void AfterLoad()`
+  v1.3.15/en/api/campaign-ext/CharacterRelationManager.md [method-missing-example] L74: `public void RemoveHero(Hero deadHero)`
+  v1.3.15/en/api/campaign-ext/CharacterRelationManager.md [method-missing-example] L78: Constructor and internal members
+  v1.3.15/en/api/campaign-ext/CharacterRelationManager.md [method-missing-example] L232: Related / bidirectional return
+  v1.3.15/en/api/campaign-ext/CombatXpModel.md [method-missing-example] L35: Lifecycle & Registration
+  v1.3.15/en/api/campaign-ext/CombatXpModel.md [method-missing-example] L61: Actions, Events & Save Boundaries
+  v1.3.15/en/api/campaign-ext/ConversationManager.md [method-missing-example] L78: Conversation flow & lifecycle
+  v1.3.15/en/api/campaign-ext/ConversationManager.md [method-missing-example] L140: Sentence & option management
+  v1.3.15/en/api/campaign-ext/ConversationManager.md [method-missing-example] L187: Agents & conversation start
+  v1.3.15/en/api/campaign-ext/ConversationManager.md [method-missing-example] L224: Tags & text variation
+  v1.3.15/en/api/campaign-ext/ConversationManager.md [method-missing-example] L241: Persuasion (static)
+  v1.3.15/en/api/campaign-ext/ConversationManager.md [method-missing-example] L280: Public events (hooks)
+  v1.3.15/en/api/campaign-ext/CultureObject.md [method-missing-example] L41: Upstream (created / owned / saved)
+  v1.3.15/en/api/campaign-ext/CultureObject.md [method-missing-example] L48: Downstream (consumers of this config)
+  v1.3.15/en/api/campaign-ext/CultureObject.md [method-missing-example] L57: Behaviors / Models (real call sites)
+  v1.3.15/en/api/campaign-ext/CultureObject.md [method-missing-example] L63: Save point
+  v1.3.15/en/api/campaign-ext/CultureObject.md [method-missing-example] L77: Identity & appearance (inherited from `BasicCultureObject`)
+  v1.3.15/en/api/campaign-ext/CultureObject.md [method-missing-example] L89: Basic troops & militia (`CharacterObject`)
+  v1.3.15/en/api/campaign-ext/CultureObject.md [method-missing-example] L98: Town / civilian / artisan NPC templates (`CharacterObject`)
+  v1.3.15/en/api/campaign-ext/CultureObject.md [method-missing-example] L106: Name / lord / clan template collections
+  v1.3.15/en/api/campaign-ext/CultureObject.md [method-missing-example] L114: Equipment rosters (`MBEquipmentRoster`)
+  v1.3.15/en/api/campaign-ext/CultureObject.md [method-missing-example] L122: Party templates (`PartyTemplateObject`)
+  v1.3.15/en/api/campaign-ext/CultureObject.md [method-missing-example] L130: Traits / policies / values / misc
+  v1.3.15/en/api/campaign-ext/DeclareWarAction.md [method-missing-example] L50: Apply vs ApplyInternal
+  v1.3.15/en/api/campaign-ext/DeclareWarAction.md [method-missing-example] L104: Nested enum list
+  v1.3.15/en/api/campaign-ext/DeclareWarAction.md [method-missing-example] L108: Private
+  v1.3.15/en/api/campaign-ext/DefaultPartyHealingModel.md [method-missing-example] L32: Use it when
+  v1.3.15/en/api/campaign-ext/DefaultPartyHealingModel.md [method-missing-example] L38: Do not use it when
+  v1.3.15/en/api/campaign-ext/DefaultPartyHealingModel.md [method-missing-example] L44: Upstream inputs
+  v1.3.15/en/api/campaign-ext/DefaultPartyHealingModel.md [method-missing-example] L55: Downstream consumers
+  v1.3.15/en/api/campaign-ext/DefaultPartyHealingModel.md [method-missing-example] L79: Surgery and survival
+  v1.3.15/en/api/campaign-ext/DefaultPartyHealingModel.md [method-missing-example] L93: Daily healing for regular troops and regular prisoners
+  v1.3.15/en/api/campaign-ext/DefaultPartyHealingModel.md [method-missing-example] L106: Daily hero and hero-prisoner recovery
+  v1.3.15/en/api/campaign-ext/DefaultPartyHealingModel.md [method-missing-example] L112: Affected hero healing and battle-end recovery
+  v1.3.15/en/api/campaign-ext/DefaultPartyMoraleModel.md [method-missing-example] L32: Use it when
+  v1.3.15/en/api/campaign-ext/DefaultPartyMoraleModel.md [method-missing-example] L38: Do not use it when
+  v1.3.15/en/api/campaign-ext/DefaultPartyMoraleModel.md [method-missing-example] L44: Upstream inputs
+  v1.3.15/en/api/campaign-ext/DefaultPartyMoraleModel.md [method-missing-example] L54: Downstream consumers
+  v1.3.15/en/api/campaign-ext/DefaultPartyMoraleModel.md [method-missing-example] L77: Base, daily, and battle changes
+  v1.3.15/en/api/campaign-ext/DefaultPartyMoraleModel.md [method-missing-example] L81: `GetEffectivePartyMorale` composition
+  v1.3.15/en/api/campaign-ext/DefaultPartyMoraleModel.md [method-missing-example] L95: Food variety
+  v1.3.15/en/api/campaign-ext/DefaultPartyMoraleModel.md [method-missing-example] L105: Troop composition and over-capacity
+  v1.3.15/en/api/campaign-ext/DefaultPartyNavigationModel.md [method-missing-example] L47: Inputs
+  v1.3.15/en/api/campaign-ext/DefaultPartyNavigationModel.md [method-missing-example] L55: Consumers
+  v1.3.15/en/api/campaign-ext/DefaultPartyNavigationModel.md [method-missing-example] L77: A special boundary in `CanPlayerNavigateToPosition`
+  v1.3.15/en/api/campaign-ext/DefaultPartySizeLimitModel.md [method-missing-example] L28: Use it when
+  v1.3.15/en/api/campaign-ext/DefaultPartySizeLimitModel.md [method-missing-example] L34: Do not use it when
+  v1.3.15/en/api/campaign-ext/DefaultPartySizeLimitModel.md [method-missing-example] L40: Upstream inputs
+  v1.3.15/en/api/campaign-ext/DefaultPartySizeLimitModel.md [method-missing-example] L50: Downstream consumers
+  v1.3.15/en/api/campaign-ext/DefaultPartySizeLimitModel.md [method-missing-example] L103: `GetPartyPrisonerSizeLimit`
+  v1.3.15/en/api/campaign-ext/DefaultPartySizeLimitModel.md [method-missing-example] L113: `CalculateGarrisonPartySizeLimit`
+  v1.3.15/en/api/campaign-ext/DefaultPartySpeedCalculatingModel.md [method-missing-example] L31: Use it when
+  v1.3.15/en/api/campaign-ext/DefaultPartySpeedCalculatingModel.md [method-missing-example] L37: Do not use it when
+  v1.3.15/en/api/campaign-ext/DefaultPartySpeedCalculatingModel.md [method-missing-example] L43: Upstream inputs
+  v1.3.15/en/api/campaign-ext/DefaultPartySpeedCalculatingModel.md [method-missing-example] L55: Downstream consumers
+  v1.3.15/en/api/campaign-ext/DefaultPartySpeedCalculatingModel.md [method-missing-example] L95: Final speed: terrain, weather, and scouting
+  v1.3.15/en/api/campaign-ext/DefaultPartyTroopUpgradeModel.md [method-missing-example] L34: Use it when
+  v1.3.15/en/api/campaign-ext/DefaultPartyTroopUpgradeModel.md [method-missing-example] L40: Do not use it when
+  v1.3.15/en/api/campaign-ext/DefaultPartyTroopUpgradeModel.md [method-missing-example] L46: Upstream inputs
+  v1.3.15/en/api/campaign-ext/DefaultPartyTroopUpgradeModel.md [method-missing-example] L58: Downstream consumers
+  v1.3.15/en/api/campaign-ext/DefaultPartyTroopUpgradeModel.md [method-missing-example] L83: Eligibility and composition
+  ... and 714 more
+
+## Content-integrity (STRICT_GATE-gated): 172147
+By category:
+  placeholder-assignment-example: 135852
+  double-i-fake-type: 1970
+  autogen-description: 19397
+  formulaic-overview-stub: 14928
+
+First 200 occurrences (use --verbose for full list):
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first AcceptCallToWarAgreementDecision 
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AcceptCallToWarAgreementDecision acceptCallToW
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecisionOutcome.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecisionOutcome from the subsystem API first AcceptCallToWarAgreementDe
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecisionOutcome.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecisionOutcome from the subsystem API first AcceptCallToWarAgreementDe
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecisionOutcome.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecisionOutcome from the subsystem API first AcceptCallToWarAgreementDe
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecisionOutcome.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarAgreementDecisionOutcome from the subsystem API first AcceptCallToWarAgreementDe
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecisionOutcome.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AcceptCallToWarAgreementDecisionOutcome accept
+  v1.3.0/en/api/campaign/AcceptCallToWarOfferMapNotification.md [placeholder-assignment-example] code block: // Obtain an instance of AcceptCallToWarOfferMapNotification from the subsystem API first AcceptCallToWarOfferMapNotific
+  v1.3.0/en/api/campaign/AcceptCallToWarOfferMapNotification.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AcceptCallToWarOfferMapNotification acceptCall
+  v1.3.0/en/api/campaign/AccessDetails.md [placeholder-assignment-example] code block: // Obtain an instance from the relevant subsystem API AccessDetails instance = ...; 
+  v1.3.0/en/api/campaign/AccessLevel.md [placeholder-assignment-example] code block: // Obtain an instance from the relevant subsystem API AccessLevel instance = ...; 
+  v1.3.0/en/api/campaign/AccessLimitationReason.md [placeholder-assignment-example] code block: // Obtain an instance from the relevant subsystem API AccessLimitationReason instance = ...; 
+  v1.3.0/en/api/campaign/AccessMethod.md [placeholder-assignment-example] code block: // Obtain an instance from the relevant subsystem API AccessMethod instance = ...; 
+  v1.3.0/en/api/campaign/AccompanyingCharacter.md [placeholder-assignment-example] code block: // Obtain an instance of AccompanyingCharacter from the subsystem API first AccompanyingCharacter accompanyingCharacter 
+  v1.3.0/en/api/campaign/AccompanyingCharacter.md [placeholder-assignment-example] code block: // Obtain an instance of AccompanyingCharacter from the subsystem API first AccompanyingCharacter accompanyingCharacter 
+  v1.3.0/en/api/campaign/AccompanyingCharacter.md [placeholder-assignment-example] code block: // Obtain an instance of AccompanyingCharacter from the subsystem API first AccompanyingCharacter accompanyingCharacter 
+  v1.3.0/en/api/campaign/AccompanyingCharacter.md [placeholder-assignment-example] code block: // Obtain an instance of AccompanyingCharacter from the subsystem API first AccompanyingCharacter accompanyingCharacter 
+  v1.3.0/en/api/campaign/AccompanyingCharacter.md [placeholder-assignment-example] code block: // Obtain an instance of AccompanyingCharacter from the subsystem API first AccompanyingCharacter accompanyingCharacter 
+  v1.3.0/en/api/campaign/AccompanyingCharacter.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AccompanyingCharacter accompanyingCharacter = 
+  v1.3.0/en/api/campaign/ActionNotes.md [placeholder-assignment-example] code block: // Obtain an instance from the relevant subsystem API ActionNotes instance = ...; 
+  v1.3.0/en/api/campaign/AdditionType.md [placeholder-assignment-example] code block: // Obtain an instance from the relevant subsystem API AdditionType instance = ...; 
+  v1.3.0/en/api/campaign/AgeModel.md [placeholder-assignment-example] code block: // Obtain an instance of AgeModel from the subsystem API first AgeModel ageModel = ...; ageModel.GetAgeLimitForLocation(
+  v1.3.0/en/api/campaign/AgeModel.md [placeholder-assignment-example] code block: // Typically obtained from a subsystem API or factory AgeModel instance = ...; 
+  v1.3.0/en/api/campaign/AgingCampaignBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AgingCampaignBehavior from the subsystem API first AgingCampaignBehavior agingCampaignBehavior 
+  v1.3.0/en/api/campaign/AgingCampaignBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AgingCampaignBehavior from the subsystem API first AgingCampaignBehavior agingCampaignBehavior 
+  v1.3.0/en/api/campaign/AgingCampaignBehavior.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AgingCampaignBehavior agingCampaignBehavior = 
+  v1.3.0/en/api/campaign/AiArmyMemberBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AiArmyMemberBehavior from the subsystem API first AiArmyMemberBehavior aiArmyMemberBehavior = .
+  v1.3.0/en/api/campaign/AiArmyMemberBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AiArmyMemberBehavior from the subsystem API first AiArmyMemberBehavior aiArmyMemberBehavior = .
+  v1.3.0/en/api/campaign/AiArmyMemberBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AiArmyMemberBehavior from the subsystem API first AiArmyMemberBehavior aiArmyMemberBehavior = .
+  v1.3.0/en/api/campaign/AiArmyMemberBehavior.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AiArmyMemberBehavior aiArmyMemberBehavior = ..
+  v1.3.0/en/api/campaign/AiBehavior.md [placeholder-assignment-example] code block: // Obtain an instance from the relevant subsystem API AiBehavior instance = ...; 
+  v1.3.0/en/api/campaign/AIBehaviorData.md [placeholder-assignment-example] code block: // Obtain an instance of AIBehaviorData from the subsystem API first AIBehaviorData aIBehaviorData = ...; var result = a
+  v1.3.0/en/api/campaign/AIBehaviorData.md [placeholder-assignment-example] code block: // Obtain an instance of AIBehaviorData from the subsystem API first AIBehaviorData aIBehaviorData = ...; var result = a
+  v1.3.0/en/api/campaign/AIBehaviorData.md [placeholder-assignment-example] code block: // Obtain an instance of AIBehaviorData from the subsystem API first AIBehaviorData aIBehaviorData = ...; var result = a
+  v1.3.0/en/api/campaign/AIBehaviorData.md [placeholder-assignment-example] code block: // This data object is usually returned by campaign/mission APIs AIBehaviorData entry = ...; 
+  v1.3.0/en/api/campaign/AiEngagePartyBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AiEngagePartyBehavior from the subsystem API first AiEngagePartyBehavior aiEngagePartyBehavior 
+  v1.3.0/en/api/campaign/AiEngagePartyBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AiEngagePartyBehavior from the subsystem API first AiEngagePartyBehavior aiEngagePartyBehavior 
+  v1.3.0/en/api/campaign/AiEngagePartyBehavior.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AiEngagePartyBehavior aiEngagePartyBehavior = 
+  v1.3.0/en/api/campaign/AiLandBanditPatrollingBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AiLandBanditPatrollingBehavior from the subsystem API first AiLandBanditPatrollingBehavior aiLa
+  v1.3.0/en/api/campaign/AiLandBanditPatrollingBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AiLandBanditPatrollingBehavior from the subsystem API first AiLandBanditPatrollingBehavior aiLa
+  v1.3.0/en/api/campaign/AiLandBanditPatrollingBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AiLandBanditPatrollingBehavior from the subsystem API first AiLandBanditPatrollingBehavior aiLa
+  v1.3.0/en/api/campaign/AiLandBanditPatrollingBehavior.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AiLandBanditPatrollingBehavior aiLandBanditPat
+  v1.3.0/en/api/campaign/AiMilitaryBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AiMilitaryBehavior from the subsystem API first AiMilitaryBehavior aiMilitaryBehavior = ...; ai
+  v1.3.0/en/api/campaign/AiMilitaryBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AiMilitaryBehavior from the subsystem API first AiMilitaryBehavior aiMilitaryBehavior = ...; ai
+  v1.3.0/en/api/campaign/AiMilitaryBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AiMilitaryBehavior from the subsystem API first AiMilitaryBehavior aiMilitaryBehavior = ...; ai
+  v1.3.0/en/api/campaign/AiMilitaryBehavior.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AiMilitaryBehavior aiMilitaryBehavior = ...; a
+  v1.3.0/en/api/campaign/AIMoveToNearestLandBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AIMoveToNearestLandBehavior from the subsystem API first AIMoveToNearestLandBehavior aIMoveToNe
+  v1.3.0/en/api/campaign/AIMoveToNearestLandBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AIMoveToNearestLandBehavior from the subsystem API first AIMoveToNearestLandBehavior aIMoveToNe
+  v1.3.0/en/api/campaign/AIMoveToNearestLandBehavior.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AIMoveToNearestLandBehavior aIMoveToNearestLan
+  v1.3.0/en/api/campaign/AiPartyThinkBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AiPartyThinkBehavior from the subsystem API first AiPartyThinkBehavior aiPartyThinkBehavior = .
+  v1.3.0/en/api/campaign/AiPartyThinkBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AiPartyThinkBehavior from the subsystem API first AiPartyThinkBehavior aiPartyThinkBehavior = .
+  v1.3.0/en/api/campaign/AiPartyThinkBehavior.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AiPartyThinkBehavior aiPartyThinkBehavior = ..
+  v1.3.0/en/api/campaign/AiPatrollingBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AiPatrollingBehavior from the subsystem API first AiPatrollingBehavior aiPatrollingBehavior = .
+  v1.3.0/en/api/campaign/AiPatrollingBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AiPatrollingBehavior from the subsystem API first AiPatrollingBehavior aiPatrollingBehavior = .
+  v1.3.0/en/api/campaign/AiPatrollingBehavior.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AiPatrollingBehavior aiPatrollingBehavior = ..
+  v1.3.0/en/api/campaign/AiVisitSettlementBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AiVisitSettlementBehavior from the subsystem API first AiVisitSettlementBehavior aiVisitSettlem
+  v1.3.0/en/api/campaign/AiVisitSettlementBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AiVisitSettlementBehavior from the subsystem API first AiVisitSettlementBehavior aiVisitSettlem
+  v1.3.0/en/api/campaign/AiVisitSettlementBehavior.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AiVisitSettlementBehavior aiVisitSettlementBeh
+  v1.3.0/en/api/campaign/Alley.md [placeholder-assignment-example] code block: // Obtain an instance of Alley from the subsystem API first Alley alley = ...; alley.SetOwner(newOwner); 
+  v1.3.0/en/api/campaign/Alley.md [placeholder-assignment-example] code block: // Obtain an instance of Alley from the subsystem API first Alley alley = ...; alley.Initialize(settlement, "example", n
+  v1.3.0/en/api/campaign/Alley.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API Alley alley = ...; alley.SetOwner(newOwner); 
+  v1.3.0/en/api/campaign/AlleyLeaderDiedMapNotification.md [placeholder-assignment-example] code block: // Obtain an instance from the relevant subsystem API AlleyLeaderDiedMapNotification instance = ...; 
+  v1.3.0/en/api/campaign/AlleyMemberAvailabilityDetail.md [placeholder-assignment-example] code block: // Obtain an instance from the relevant subsystem API AlleyMemberAvailabilityDetail instance = ...; 
+  v1.3.0/en/api/campaign/AlleyModel.md [placeholder-assignment-example] code block: // Obtain an instance of AlleyModel from the subsystem API first AlleyModel alleyModel = ...; var result = alleyModel.Ge
+  v1.3.0/en/api/campaign/AlleyModel.md [placeholder-assignment-example] code block: // Obtain an instance of AlleyModel from the subsystem API first AlleyModel alleyModel = ...; var result = alleyModel.Ge
+  v1.3.0/en/api/campaign/AlleyModel.md [placeholder-assignment-example] code block: // Obtain an instance of AlleyModel from the subsystem API first AlleyModel alleyModel = ...; var result = alleyModel.Ge
+  v1.3.0/en/api/campaign/AlleyModel.md [placeholder-assignment-example] code block: // Obtain an instance of AlleyModel from the subsystem API first AlleyModel alleyModel = ...; var result = alleyModel.Ge
+  v1.3.0/en/api/campaign/AlleyModel.md [placeholder-assignment-example] code block: // Obtain an instance of AlleyModel from the subsystem API first AlleyModel alleyModel = ...; var result = alleyModel.Ge
+  v1.3.0/en/api/campaign/AlleyModel.md [placeholder-assignment-example] code block: // Obtain an instance of AlleyModel from the subsystem API first AlleyModel alleyModel = ...; var result = alleyModel.Ge
+  v1.3.0/en/api/campaign/AlleyModel.md [placeholder-assignment-example] code block: // Obtain an instance of AlleyModel from the subsystem API first AlleyModel alleyModel = ...; var result = alleyModel.Ge
+  v1.3.0/en/api/campaign/AlleyModel.md [placeholder-assignment-example] code block: // Obtain an instance of AlleyModel from the subsystem API first AlleyModel alleyModel = ...; var result = alleyModel.Ge
+  v1.3.0/en/api/campaign/AlleyModel.md [placeholder-assignment-example] code block: // Obtain an instance of AlleyModel from the subsystem API first AlleyModel alleyModel = ...; var result = alleyModel.Ge
+  v1.3.0/en/api/campaign/AlleyModel.md [placeholder-assignment-example] code block: // Obtain an instance of AlleyModel from the subsystem API first AlleyModel alleyModel = ...; var result = alleyModel.Ge
+  v1.3.0/en/api/campaign/AlleyModel.md [placeholder-assignment-example] code block: // Obtain an instance of AlleyModel from the subsystem API first AlleyModel alleyModel = ...; var result = alleyModel.Ge
+  v1.3.0/en/api/campaign/AlleyModel.md [placeholder-assignment-example] code block: // Typically obtained from a subsystem API or factory AlleyModel instance = ...; 
+  v1.3.0/en/api/campaign/AlleyUnderAttackMapNotification.md [placeholder-assignment-example] code block: // Obtain an instance from the relevant subsystem API AlleyUnderAttackMapNotification instance = ...; 
+  v1.3.0/en/api/campaign/Alliance.md [placeholder-assignment-example] code block: // Obtain an instance of Alliance from the subsystem API first Alliance alliance = ...; alliance.RegisterEvents(); 
+  v1.3.0/en/api/campaign/Alliance.md [placeholder-assignment-example] code block: // Obtain an instance of Alliance from the subsystem API first Alliance alliance = ...; alliance.SyncData(dataStore); 
+  v1.3.0/en/api/campaign/Alliance.md [placeholder-assignment-example] code block: // Obtain an instance of Alliance from the subsystem API first Alliance alliance = ...; alliance.OnCallToWarAgreementPro
+  v1.3.0/en/api/campaign/Alliance.md [placeholder-assignment-example] code block: // Obtain an instance of Alliance from the subsystem API first Alliance alliance = ...; var result = alliance.IsAllyWith
+  v1.3.0/en/api/campaign/Alliance.md [placeholder-assignment-example] code block: // Obtain an instance of Alliance from the subsystem API first Alliance alliance = ...; alliance.StartAlliance(proposerK
+  v1.3.0/en/api/campaign/Alliance.md [placeholder-assignment-example] code block: // Obtain an instance of Alliance from the subsystem API first Alliance alliance = ...; alliance.EndAlliance(kingdom1, k
+  v1.3.0/en/api/campaign/Alliance.md [placeholder-assignment-example] code block: // Obtain an instance of Alliance from the subsystem API first Alliance alliance = ...; var result = alliance.HasCalledT
+  v1.3.0/en/api/campaign/Alliance.md [placeholder-assignment-example] code block: // Obtain an instance of Alliance from the subsystem API first Alliance alliance = ...; var result = alliance.IsAtWarByC
+  v1.3.0/en/api/campaign/Alliance.md [placeholder-assignment-example] code block: // Obtain an instance of Alliance from the subsystem API first Alliance alliance = ...; alliance.StartCallToWarAgreement
+  v1.3.0/en/api/campaign/Alliance.md [placeholder-assignment-example] code block: // Obtain an instance of Alliance from the subsystem API first Alliance alliance = ...; alliance.EndCallToWarAgreement(c
+  v1.3.0/en/api/campaign/Alliance.md [placeholder-assignment-example] code block: // Obtain an instance of Alliance from the subsystem API first Alliance alliance = ...; var result = alliance.GetKingdom
+  v1.3.0/en/api/campaign/Alliance.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API Alliance alliance = ...; alliance.RegisterEven
+  v1.3.0/en/api/campaign/AllianceCampaignBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceCampaignBehavior from the subsystem API first AllianceCampaignBehavior allianceCampaign
+  v1.3.0/en/api/campaign/AllianceCampaignBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceCampaignBehavior from the subsystem API first AllianceCampaignBehavior allianceCampaign
+  v1.3.0/en/api/campaign/AllianceCampaignBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceCampaignBehavior from the subsystem API first AllianceCampaignBehavior allianceCampaign
+  v1.3.0/en/api/campaign/AllianceCampaignBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceCampaignBehavior from the subsystem API first AllianceCampaignBehavior allianceCampaign
+  v1.3.0/en/api/campaign/AllianceCampaignBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceCampaignBehavior from the subsystem API first AllianceCampaignBehavior allianceCampaign
+  v1.3.0/en/api/campaign/AllianceCampaignBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceCampaignBehavior from the subsystem API first AllianceCampaignBehavior allianceCampaign
+  v1.3.0/en/api/campaign/AllianceCampaignBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceCampaignBehavior from the subsystem API first AllianceCampaignBehavior allianceCampaign
+  v1.3.0/en/api/campaign/AllianceCampaignBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceCampaignBehavior from the subsystem API first AllianceCampaignBehavior allianceCampaign
+  v1.3.0/en/api/campaign/AllianceCampaignBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceCampaignBehavior from the subsystem API first AllianceCampaignBehavior allianceCampaign
+  v1.3.0/en/api/campaign/AllianceCampaignBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceCampaignBehavior from the subsystem API first AllianceCampaignBehavior allianceCampaign
+  v1.3.0/en/api/campaign/AllianceCampaignBehavior.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceCampaignBehavior from the subsystem API first AllianceCampaignBehavior allianceCampaign
+  v1.3.0/en/api/campaign/AllianceCampaignBehavior.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AllianceCampaignBehavior allianceCampaignBehav
+  v1.3.0/en/api/campaign/AllianceCampaignBehaviorTypeDefiner.md [placeholder-assignment-example] code block: // Obtain an instance from the relevant subsystem API AllianceCampaignBehaviorTypeDefiner instance = ...; 
+  v1.3.0/en/api/campaign/AllianceModel.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceModel from the subsystem API first AllianceModel allianceModel = ...; var result = alli
+  v1.3.0/en/api/campaign/AllianceModel.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceModel from the subsystem API first AllianceModel allianceModel = ...; var result = alli
+  v1.3.0/en/api/campaign/AllianceModel.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceModel from the subsystem API first AllianceModel allianceModel = ...; var result = alli
+  v1.3.0/en/api/campaign/AllianceModel.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceModel from the subsystem API first AllianceModel allianceModel = ...; var result = alli
+  v1.3.0/en/api/campaign/AllianceModel.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceModel from the subsystem API first AllianceModel allianceModel = ...; var result = alli
+  v1.3.0/en/api/campaign/AllianceModel.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceModel from the subsystem API first AllianceModel allianceModel = ...; var result = alli
+  v1.3.0/en/api/campaign/AllianceModel.md [placeholder-assignment-example] code block: // Typically obtained from a subsystem API or factory AllianceModel instance = ...; 
+  v1.3.0/en/api/campaign/AllianceOfferMapNotification.md [placeholder-assignment-example] code block: // Obtain an instance of AllianceOfferMapNotification from the subsystem API first AllianceOfferMapNotification alliance
+  v1.3.0/en/api/campaign/AllianceOfferMapNotification.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AllianceOfferMapNotification allianceOfferMapN
+  v1.3.0/en/api/campaign/AlliedLordTag.md [placeholder-assignment-example] code block: // Obtain an instance of AlliedLordTag from the subsystem API first AlliedLordTag alliedLordTag = ...; var result = alli
+  v1.3.0/en/api/campaign/AlliedLordTag.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AlliedLordTag alliedLordTag = ...; alliedLordT
+  v1.3.0/en/api/campaign/AlternativeSolutionScaleFlag.md [placeholder-assignment-example] code block: // Obtain an instance from the relevant subsystem API AlternativeSolutionScaleFlag instance = ...; 
+  v1.3.0/en/api/campaign/AmoralTag.md [placeholder-assignment-example] code block: // Obtain an instance of AmoralTag from the subsystem API first AmoralTag amoralTag = ...; var result = amoralTag.IsAppl
+  v1.3.0/en/api/campaign/AmoralTag.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AmoralTag amoralTag = ...; amoralTag.IsApplica
+  v1.3.0/en/api/campaign/AnchorPoint.md [placeholder-assignment-example] code block: // Obtain an instance of AnchorPoint from the subsystem API first AnchorPoint anchorPoint = ...; anchorPoint.CallFleet(s
+  v1.3.0/en/api/campaign/AnchorPoint.md [placeholder-assignment-example] code block: // Obtain an instance of AnchorPoint from the subsystem API first AnchorPoint anchorPoint = ...; anchorPoint.SetPosition
+  v1.3.0/en/api/campaign/AnchorPoint.md [placeholder-assignment-example] code block: // Obtain an instance of AnchorPoint from the subsystem API first AnchorPoint anchorPoint = ...; anchorPoint.SetSettleme
+  v1.3.0/en/api/campaign/AnchorPoint.md [placeholder-assignment-example] code block: // Obtain an instance of AnchorPoint from the subsystem API first AnchorPoint anchorPoint = ...; anchorPoint.InitializeO
+  v1.3.0/en/api/campaign/AnchorPoint.md [placeholder-assignment-example] code block: // Obtain an instance of AnchorPoint from the subsystem API first AnchorPoint anchorPoint = ...; var result = anchorPoin
+  v1.3.0/en/api/campaign/AnchorPoint.md [placeholder-assignment-example] code block: // Obtain an instance of AnchorPoint from the subsystem API first AnchorPoint anchorPoint = ...; anchorPoint.SetLastUsed
+  v1.3.0/en/api/campaign/AnchorPoint.md [placeholder-assignment-example] code block: // Obtain an instance of AnchorPoint from the subsystem API first AnchorPoint anchorPoint = ...; var result = anchorPoin
+  v1.3.0/en/api/campaign/AnchorPoint.md [placeholder-assignment-example] code block: // Obtain an instance of AnchorPoint from the subsystem API first AnchorPoint anchorPoint = ...; anchorPoint.OnPartyInte
+  v1.3.0/en/api/campaign/AnchorPoint.md [placeholder-assignment-example] code block: // Obtain an instance of AnchorPoint from the subsystem API first AnchorPoint anchorPoint = ...; var result = anchorPoin
+  v1.3.0/en/api/campaign/AnchorPoint.md [placeholder-assignment-example] code block: // Obtain an instance of AnchorPoint from the subsystem API first AnchorPoint anchorPoint = ...; var result = anchorPoin
+  v1.3.0/en/api/campaign/AnchorPoint.md [placeholder-assignment-example] code block: // Obtain an instance of AnchorPoint from the subsystem API first AnchorPoint anchorPoint = ...; var result = anchorPoin
+  v1.3.0/en/api/campaign/AnchorPoint.md [placeholder-assignment-example] code block: // Obtain an instance of AnchorPoint from the subsystem API first AnchorPoint anchorPoint = ...; anchorPoint.CheckPositi
+  v1.3.0/en/api/campaign/AnchorPoint.md [placeholder-assignment-example] code block: // Obtain an instance of AnchorPoint from the subsystem API first AnchorPoint anchorPoint = ...; anchorPoint.ResetPositi
+  v1.3.0/en/api/campaign/AnchorPoint.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AnchorPoint anchorPoint = ...; anchorPoint.Cal
+  v1.3.0/en/api/campaign/AntiEmpireConspiracyBeginsSceneNotificationItem.md [placeholder-assignment-example] code block: // Obtain an instance from the relevant subsystem API AntiEmpireConspiracyBeginsSceneNotificationItem instance = ...; 
+  v1.3.0/en/api/campaign/AnyNotableTypeTag.md [placeholder-assignment-example] code block: // Obtain an instance of AnyNotableTypeTag from the subsystem API first AnyNotableTypeTag anyNotableTypeTag = ...; var r
+  v1.3.0/en/api/campaign/AnyNotableTypeTag.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API AnyNotableTypeTag anyNotableTypeTag = ...; any
+  v1.3.0/en/api/campaign/AreaState.md [placeholder-assignment-example] code block: // Obtain an instance from the relevant subsystem API AreaState instance = ...; 
+  v1.3.0/en/api/campaign/Army.md [placeholder-assignment-example] code block: // Obtain an instance of Army from the subsystem API first Army army = ...; var result = army.ToString(); 
+  v1.3.0/en/api/campaign/Army.md [placeholder-assignment-example] code block: // Obtain an instance of Army from the subsystem API first Army army = ...; var result = army.CalculateCurrentStrength()
+  v1.3.0/en/api/campaign/Army.md [placeholder-assignment-example] code block: // Obtain an instance of Army from the subsystem API first Army army = ...; var result = army.GetCustomStrength(side, co
+  v1.3.0/en/api/campaign/Army.md [placeholder-assignment-example] code block: // Obtain an instance of Army from the subsystem API first Army army = ...; army.UpdateName(); 
+  v1.3.0/en/api/campaign/Army.md [placeholder-assignment-example] code block: // Obtain an instance of Army from the subsystem API first Army army = ...; var result = army.DoesLeaderPartyAndAttached
+  v1.3.0/en/api/campaign/Army.md [placeholder-assignment-example] code block: // Obtain an instance of Army from the subsystem API first Army army = ...; army.BoostCohesionWithInfluence(0, 0); 
+  v1.3.0/en/api/campaign/Army.md [placeholder-assignment-example] code block: // Obtain an instance of Army from the subsystem API first Army army = ...; army.RecalculateArmyMorale(); 
+  v1.3.0/en/api/campaign/Army.md [placeholder-assignment-example] code block: // Obtain an instance of Army from the subsystem API first Army army = ...; var result = army.GetNotificationText(); 
+  v1.3.0/en/api/campaign/Army.md [placeholder-assignment-example] code block: // Obtain an instance of Army from the subsystem API first Army army = ...; var result = army.GetLongTermBehaviorText(fa
+  v1.3.0/en/api/campaign/Army.md [placeholder-assignment-example] code block: // Obtain an instance of Army from the subsystem API first Army army = ...; army.Gather(initialHostileSettlement, null);
+  v1.3.0/en/api/campaign/Army.md [placeholder-assignment-example] code block: // Obtain an instance of Army from the subsystem API first Army army = ...; var result = army.IsWaitingForArmyMembers();
+  v1.3.0/en/api/campaign/Army.md [placeholder-assignment-example] code block: // Obtain an instance of Army from the subsystem API first Army army = ...; army.FinishArmyObjective(); 
+  v1.3.0/en/api/campaign/Army.md [placeholder-assignment-example] code block: // Obtain an instance of Army from the subsystem API first Army army = ...; var result = army.GetRelativePositionForPart
+  v1.3.0/en/api/campaign/Army.md [placeholder-assignment-example] code block: // Obtain an instance of Army from the subsystem API first Army army = ...; army.AddPartyToMergedParties(mobileParty); 
+  v1.3.0/en/api/campaign/Army.md [placeholder-assignment-example] code block: // Obtain an instance of Army from the subsystem API first Army army = ...; army.SetPositionAfterMapChange(newPosition);
+  v1.3.0/en/api/campaign/Army.md [placeholder-assignment-example] code block: // Obtain an instance of Army from the subsystem API first Army army = ...; army.CheckPositionsForMapChangeAndUpdateIfNe
+  v1.3.0/en/api/campaign/Army.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API Army army = ...; army.ToString(); 
+  v1.3.0/en/api/campaign/ArmyCreationLogEntry.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyCreationLogEntry from the subsystem API first ArmyCreationLogEntry armyCreationLogEntry = .
+  v1.3.0/en/api/campaign/ArmyCreationLogEntry.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyCreationLogEntry from the subsystem API first ArmyCreationLogEntry armyCreationLogEntry = .
+  v1.3.0/en/api/campaign/ArmyCreationLogEntry.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyCreationLogEntry from the subsystem API first ArmyCreationLogEntry armyCreationLogEntry = .
+  v1.3.0/en/api/campaign/ArmyCreationLogEntry.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API ArmyCreationLogEntry armyCreationLogEntry = ..
+  v1.3.0/en/api/campaign/ArmyCreationMapNotification.md [placeholder-assignment-example] code block: // Obtain an instance from the relevant subsystem API ArmyCreationMapNotification instance = ...; 
+  v1.3.0/en/api/campaign/ArmyDispersionLogEntry.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyDispersionLogEntry from the subsystem API first ArmyDispersionLogEntry armyDispersionLogEnt
+  v1.3.0/en/api/campaign/ArmyDispersionLogEntry.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyDispersionLogEntry from the subsystem API first ArmyDispersionLogEntry armyDispersionLogEnt
+  v1.3.0/en/api/campaign/ArmyDispersionLogEntry.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyDispersionLogEntry from the subsystem API first ArmyDispersionLogEntry armyDispersionLogEnt
+  v1.3.0/en/api/campaign/ArmyDispersionLogEntry.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyDispersionLogEntry from the subsystem API first ArmyDispersionLogEntry armyDispersionLogEnt
+  v1.3.0/en/api/campaign/ArmyDispersionLogEntry.md [placeholder-assignment-example] code block: // Typically call this after obtaining an instance from the subsystem API ArmyDispersionLogEntry armyDispersionLogEntry 
+  v1.3.0/en/api/campaign/ArmyDispersionMapNotification.md [placeholder-assignment-example] code block: // Obtain an instance from the relevant subsystem API ArmyDispersionMapNotification instance = ...; 
+  v1.3.0/en/api/campaign/ArmyDispersionReason.md [placeholder-assignment-example] code block: // Obtain an instance from the relevant subsystem API ArmyDispersionReason instance = ...; 
+  v1.3.0/en/api/campaign/ArmyManagementCalculationModel.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first ArmyManagementCalculationModel army
+  v1.3.0/en/api/campaign/ArmyManagementCalculationModel.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first ArmyManagementCalculationModel army
+  v1.3.0/en/api/campaign/ArmyManagementCalculationModel.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first ArmyManagementCalculationModel army
+  v1.3.0/en/api/campaign/ArmyManagementCalculationModel.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first ArmyManagementCalculationModel army
+  v1.3.0/en/api/campaign/ArmyManagementCalculationModel.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first ArmyManagementCalculationModel army
+  v1.3.0/en/api/campaign/ArmyManagementCalculationModel.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first ArmyManagementCalculationModel army
+  v1.3.0/en/api/campaign/ArmyManagementCalculationModel.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first ArmyManagementCalculationModel army
+  v1.3.0/en/api/campaign/ArmyManagementCalculationModel.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first ArmyManagementCalculationModel army
+  v1.3.0/en/api/campaign/ArmyManagementCalculationModel.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first ArmyManagementCalculationModel army
+  v1.3.0/en/api/campaign/ArmyManagementCalculationModel.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first ArmyManagementCalculationModel army
+  v1.3.0/en/api/campaign/ArmyManagementCalculationModel.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first ArmyManagementCalculationModel army
+  v1.3.0/en/api/campaign/ArmyManagementCalculationModel.md [placeholder-assignment-example] code block: // Typically obtained from a subsystem API or factory ArmyManagementCalculationModel instance = ...; 
+  v1.3.0/en/api/campaign/ArmyNeedsSuppliesIssue.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyNeedsSuppliesIssue from the subsystem API first ArmyNeedsSuppliesIssue armyNeedsSuppliesIss
+  v1.3.0/en/api/campaign/ArmyNeedsSuppliesIssue.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyNeedsSuppliesIssue from the subsystem API first ArmyNeedsSuppliesIssue armyNeedsSuppliesIss
+  v1.3.0/en/api/campaign/ArmyNeedsSuppliesIssue.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyNeedsSuppliesIssue from the subsystem API first ArmyNeedsSuppliesIssue armyNeedsSuppliesIss
+  v1.3.0/en/api/campaign/ArmyNeedsSuppliesIssue.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyNeedsSuppliesIssue from the subsystem API first ArmyNeedsSuppliesIssue armyNeedsSuppliesIss
+  v1.3.0/en/api/campaign/ArmyNeedsSuppliesIssue.md [placeholder-assignment-example] code block: // Obtain an instance of ArmyNeedsSuppliesIssue from the subsystem API first ArmyNeedsSuppliesIssue armyNeedsSuppliesIss
+  ... and 171947 more
+
+Scanned 38650 files, 128135 method-purpose lines, 128135 method sections.
+Blockers: 0, Warnings: 914, Content-integrity: 172147 (STRICT_GATE=1)
+
+[STRICT_GATE] 172147 content-integrity findings counted as blockers.
+NODE_EXIT=1

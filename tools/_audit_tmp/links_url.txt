@@ -1,0 +1,150 @@
+FILES=36185
+TOTAL_LINKS=85773
+AUDIT_MODE=url
+BROKEN_LINKS=247
+RESOLVE_OK_URL=85450
+RESOLVE_OK_FILE=83624
+RESOLVE_OK_EITHER=85643
+RESOLVE_OK_BOTH=83431
+RESOLVE_URL_ONLY=2019
+RESOLVE_FILE_ONLY=193
+RESOLVE_NEITHER=54
+FILES_WITH_BROKEN=17
+
+## v1.3.15/zh/api/engine/GauntletLayer.md  (6)
+   -> ./GauntletMovieIdentifier
+   -> ../campaign-ext/ScreenBase
+   -> ../gui/ScreenManager
+   -> ./UIResourceManager
+   -> ../core-extra/ViewModel
+   -> ../core/MBSubModuleBase
+
+## v1.4.5/en/api/campaign/Campaign.md  (9)
+   -> ../core/MBSubModuleBase.md
+   -> Hero.md
+   -> Settlement.md
+   -> MobileParty.md
+   -> Clan.md
+   -> ../save-system/SaveManager
+   -> ../mission/Mission.md
+   -> ../../architecture/doc-contract
+   -> ../../architecture/crash-boundary
+
+## v1.4.5/en/api/core/Game.md  (6)
+   -> ./MBSubModuleBase.md
+   -> ./MBObjectBase.md
+   -> ../campaign/Campaign.md
+   -> ../mission/Mission.md
+   -> ../../architecture/crash-boundary
+   -> ../../architecture/doc-contract
+
+## v1.4.5/en/api/core/MBObjectBase.md  (7)
+   -> ../campaign-ext/MBObjectManager
+   -> ../core-extra/ItemObject
+   -> ../core-extra/Game
+   -> ../campaign/Hero
+   -> MBSubModuleBase
+   -> ../../architecture/doc-contract
+   -> ../../architecture/
+
+## v1.4.5/en/api/core/MBSubModuleBase.md  (6)
+   -> ./Game
+   -> ../campaign/Campaign
+   -> ../mission/Mission
+   -> ../../architecture/crash-boundary
+   -> ../../architecture/doc-contract
+   -> ./MBObjectBase
+
+## v1.4.5/en/api/mission/Mission.md  (6)
+   -> ./MissionBehavior
+   -> ./Agent
+   -> ./Formation
+   -> ../campaign/Campaign
+   -> ../core/MBSubModuleBase
+   -> ../../architecture/doc-contract
+
+## v1.4.5/en/architecture/crash-boundary.md  (6)
+   -> ./roadmap
+   -> ./doc-contract
+   -> ../api/core/MBSubModuleBase
+   -> ../api/campaign/Campaign
+   -> ../api/mission/Mission
+   -> ../api/save-system/SaveManager
+
+## v1.4.5/en/architecture/doc-contract.md  (7)
+   -> ./roadmap
+   -> ./crash-boundary
+   -> ../api/core/MBSubModuleBase
+   -> ../api/save-system/SaveManager
+   -> ../api/campaign/Campaign
+   -> ../api/mission/Mission
+   -> ../api/campaign/Hero
+
+## v1.4.5/en/architecture/roadmap.md  (2)
+   -> ./crash-boundary
+   -> ./doc-contract
+
+## v1.4.5/zh/api/campaign/Campaign.md  (9)
+   -> ../core/MBSubModuleBase.md
+   -> Hero.md
+   -> Settlement.md
+   -> MobileParty.md
+   -> Clan.md
+   -> ../save-system/SaveManager
+   -> ../mission/Mission.md
+   -> ../../architecture/doc-contract
+   -> ../../architecture/crash-boundary
+
+## v1.4.5/zh/api/core/Game.md  (6)
+   -> ./MBSubModuleBase.md
+   -> ./MBObjectBase.md
+   -> ../campaign/Campaign.md
+   -> ../mission/Mission.md
+   -> ../../architecture/crash-boundary
+   -> ../../architecture/doc-contract
+
+## v1.4.5/zh/api/core/MBObjectBase.md  (7)
+   -> ../campaign-ext/MBObjectManager
+   -> ../core-extra/ItemObject
+   -> ../core-extra/Game
+   -> ../campaign/Hero
+   -> MBSubModuleBase
+   -> ../../architecture/doc-contract
+   -> ../../architecture/
+
+## v1.4.5/zh/api/core/MBSubModuleBase.md  (6)
+   -> ./Game
+   -> ../campaign/Campaign
+   -> ../mission/Mission
+   -> ../../architecture/crash-boundary
+   -> ../../architecture/doc-contract
+   -> ./MBObjectBase
+
+## v1.4.5/zh/api/mission/Mission.md  (6)
+   -> ./MissionBehavior
+   -> ./Agent
+   -> ./Formation
+   -> ../campaign/Campaign
+   -> ../core/MBSubModuleBase
+   -> ../../architecture/doc-contract
+
+## v1.4.5/zh/architecture/crash-boundary.md  (6)
+   -> ./roadmap
+   -> ./doc-contract
+   -> ../api/core/MBSubModuleBase
+   -> ../api/campaign/Campaign
+   -> ../api/mission/Mission
+   -> ../api/save-system/SaveManager
+
+## v1.4.5/zh/architecture/doc-contract.md  (7)
+   -> ./roadmap
+   -> ./crash-boundary
+   -> ../api/core/MBSubModuleBase
+   -> ../api/save-system/SaveManager
+   -> ../api/campaign/Campaign
+   -> ../api/mission/Mission
+   -> ../api/campaign/Hero
+
+## v1.4.5/zh/architecture/roadmap.md  (2)
+   -> ./crash-boundary
+   -> ./doc-contract

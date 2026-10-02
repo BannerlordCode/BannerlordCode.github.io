@@ -1,0 +1,54 @@
+---
+title: "BatteringRamSpawner"
+description: "BatteringRamSpawner: a public class in TaleWorlds.MountAndBlade, inheriting SpawnerBase; 18 exposed members (6 methods, 0 properties, 12 fields). Source: TaleWorlds.MountAndBlade/Objects/Siege/BatteringRamSpawner.cs."
+---
+# BatteringRamSpawner
+
+**Namespace:** `TaleWorlds.MountAndBlade.Objects.Siege`
+**Module:** `TaleWorlds.MountAndBlade`
+**Type:** `public class BatteringRamSpawner : SpawnerBase`
+**File:** `TaleWorlds.MountAndBlade/Objects/Siege/BatteringRamSpawner.cs`
+
+## Overview
+
+BatteringRamSpawner lives in the TaleWorlds.MountAndBlade module, source file TaleWorlds.MountAndBlade/Objects/Siege/BatteringRamSpawner.cs. It is a public class, implementing/inheriting SpawnerBase; the inheritance chain is BatteringRamSpawner → SpawnerBase → ScriptComponentBehavior. It exposes 18 public/protected members: 6 methods, 12 fields.
+
+> Batch first draft: every signature is taken verbatim from the decompiled bannerlord-1.4.6 source. What each method actually does, when to call it and where it breaks must be read from the method body in the source file.
+
+## Mental Model
+
+Structural facts: BatteringRamSpawner is a top-level type in TaleWorlds.MountAndBlade, namespace differing from (TaleWorlds.MountAndBlade.Objects.Siege) the module directory; inheritance chain BatteringRamSpawner → SpawnerBase → ScriptComponentBehavior. The surface is method-led (methods 6/18, properties 0/18), so it mostly exposes operations. ScriptComponentBehavior on the chain live outside this module, so part of the behaviour is delegated to a cross-module base type. This page lists real signatures only: what each method does, when to call it and where it breaks must be read from TaleWorlds.MountAndBlade/Objects/Siege/BatteringRamSpawner.cs or the deep page for this type.
+
+## Key Members
+
+| 成员 | 签名 | 种类 |
+| --- | --- | --- |
+| `OnEditorInit` | `protected internal override void OnEditorInit()` | method |
+| `OnEditorTick` | `protected internal override void OnEditorTick(float dt)` | method |
+| `OnEditorVariableChanged` | `protected internal override void OnEditorVariableChanged(string variableName)` | method |
+| `OnCheckForProblems` | `protected internal override bool OnCheckForProblems()` | method |
+| `OnPreInit` | `protected internal override void OnPreInit()` | method |
+| `AssignParameters` | `public override void AssignParameters(SpawnerEntityMissionHelper _spawnerMissionHelper)` | method |
+| `wait_pos_ground` | `public MatrixFrame wait_pos_ground` | field |
+| `GateTag` | `public string GateTag` | field |
+| `PathEntityName` | `public string PathEntityName` | field |
+| `BridgeNavMeshID_1` | `public int BridgeNavMeshID_1` | field |
+| `BridgeNavMeshID_2` | `public int BridgeNavMeshID_2` | field |
+| `DitchNavMeshID_1` | `public int DitchNavMeshID_1` | field |
+| `DitchNavMeshID_2` | `public int DitchNavMeshID_2` | field |
+| `GroundToBridgeNavMeshID_1` | `public int GroundToBridgeNavMeshID_1` | field |
+| `GroundToBridgeNavMeshID_2` | `public int GroundToBridgeNavMeshID_2` | field |
+| `AddOnDeployTag` | `public string AddOnDeployTag` | field |
+| `RemoveOnDeployTag` | `public string RemoveOnDeployTag` | field |
+| `SpeedModifierFactor` | `public float SpeedModifierFactor` | field |
+
+## See Also
+
+- [↑ mountandblade module index](../)
+- [↑ API reference](../../)
+- [↑ Version home](../../../)
+- [base / interface SpawnerBase](../SpawnerBase)
+- [same namespace BallistaSpawner](../BallistaSpawner)
+- [same namespace FireTrebuchet](../FireTrebuchet)
+- [same namespace ISpawnable](../ISpawnable)
+- [same namespace MangonelSpawner](../MangonelSpawner)

@@ -1,7 +1,8 @@
 ---
 title: "Kingdom"
-description: "Auto-generated class reference for Kingdom."
+description: "Realm aggregate on the campaign map: clans, fiefs, villages, armies, war and alliance sets, policies, decisions, ruling clan and eliminated state."
 ---
+
 # Kingdom
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -12,401 +13,315 @@ description: "Auto-generated class reference for Kingdom."
 
 ## Overview
 
-`Kingdom` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`Kingdom` is the realm-level `IFaction` implementation — the political container above [Clan](../Clan) and below nothing. A kingdom aggregates:
+
+- **Vassals.** `Clans`, `RulingClan`, `Leader`.
+- **Land.** `Fiefs`, `Villages`, `Settlements`, `InitialHomeSettlement`, `FactionMidSettlement`.
+- **Force.** `Armies`, `WarPartyComponents`, `CurrentTotalStrength`.
+- **Politics.** `ActivePolicies`, `UnresolvedDecisions`, `Aggressiveness`, `IsEliminated`.
+- **Diplomacy.** `FactionsAtWarWith`, `AlliedKingdoms`, `IsAllyWith`, `IsAtWarWith`, `GetStanceWith`.
+
+Most campaign mod work treats `Clan` and `Kingdom` uniformly through `IFaction`, because vanilla's stance, war and value models are written against that interface. The distinction only matters when you need something only one of them has — clan influence, or kingdom decisions.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
-
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `Name` | `public TextObject Name { get; }` |
-| `InformalName` | `public TextObject InformalName { get; }` |
-| `EncyclopediaText` | `public TextObject EncyclopediaText { get; }` |
-| `EncyclopediaTitle` | `public TextObject EncyclopediaTitle { get; }` |
-| `EncyclopediaRulerTitle` | `public TextObject EncyclopediaRulerTitle { get; }` |
-| `EncyclopediaLink` | `public string EncyclopediaLink { get; }` |
-| `EncyclopediaLinkWithName` | `public TextObject EncyclopediaLinkWithName { get; }` |
-| `UnresolvedDecisions` | `public MBReadOnlyList<KingdomDecision> UnresolvedDecisions { get; }` |
-| `Culture` | `public CultureObject Culture { get; }` |
-| `InitialHomeSettlement` | `public Settlement InitialHomeSettlement { get; }` |
-| `IsMapFaction` | `public bool IsMapFaction { get; }` |
-| `HasNavalNavigationCapability` | `public bool HasNavalNavigationCapability { get; }` |
-| `Color` | `public uint Color { get; }` |
-| `Color2` | `public uint Color2 { get; }` |
-| `PrimaryBannerColor` | `public uint PrimaryBannerColor { get; }` |
-| `SecondaryBannerColor` | `public uint SecondaryBannerColor { get; }` |
-| `MainHeroCrimeRating` | `public float MainHeroCrimeRating { get; set; }` |
-| `FactionsAtWarWith` | `public MBReadOnlyList<IFaction> FactionsAtWarWith { get; }` |
-| `AlliedKingdoms` | `public MBReadOnlyList<Kingdom> AlliedKingdoms { get; }` |
-| `Fiefs` | `public MBReadOnlyList<Town> Fiefs { get; }` |
-| `Villages` | `public MBReadOnlyList<Village> Villages { get; }` |
-| `Settlements` | `public MBReadOnlyList<Settlement> Settlements { get; }` |
-| `Heroes` | `public MBReadOnlyList<Hero> Heroes { get; }` |
-| `AliveLords` | `public MBReadOnlyList<Hero> AliveLords { get; }` |
-| `DeadLords` | `public MBReadOnlyList<Hero> DeadLords { get; }` |
-| `WarPartyComponents` | `public MBReadOnlyList<WarPartyComponent> WarPartyComponents { get; }` |
-| `DailyCrimeRatingChange` | `public float DailyCrimeRatingChange { get; }` |
-| `DailyCrimeRatingChangeExplained` | `public ExplainedNumber DailyCrimeRatingChangeExplained { get; }` |
-| `BasicTroop` | `public CharacterObject BasicTroop { get; }` |
-| `Leader` | `public Hero Leader { get; set; }` |
-| `Banner` | `public Banner Banner { get; set; }` |
-| `IsBanditFaction` | `public bool IsBanditFaction { get; }` |
-| `IsMinorFaction` | `public bool IsMinorFaction { get; }` |
-| `IsRebelClan` | `public bool IsRebelClan { get; }` |
-| `IsClan` | `public bool IsClan { get; }` |
-| `IsOutlaw` | `public bool IsOutlaw { get; }` |
-| `Clans` | `public MBReadOnlyList<Clan> Clans { get; set; }` |
-| `RulingClan` | `public Clan RulingClan { get; }` |
-| `LastArmyCreationDay` | `public int LastArmyCreationDay { get; }` |
-| `Armies` | `public MBReadOnlyList<Army> Armies { get; }` |
-| `CurrentTotalStrength` | `public float CurrentTotalStrength { get; }` |
-| `FactionMidSettlement` | `public Settlement FactionMidSettlement { get; }` |
-| `DistanceToClosestNonAllyFortification` | `public float DistanceToClosestNonAllyFortification { get; }` |
-| `ActivePolicies` | `public IList<PolicyObject> ActivePolicies { get; }` |
-| `All` | `public static MBReadOnlyList<Kingdom> All { get; }` |
-| `LastKingdomDecisionConclusionDate` | `public CampaignTime LastKingdomDecisionConclusionDate { get; }` |
-| `IsEliminated` | `public bool IsEliminated { get; set; }` |
-| `LastMercenaryOfferTime` | `public CampaignTime LastMercenaryOfferTime { get; set; }` |
-| `MapFaction` | `public IFaction MapFaction { get; set; }` |
-| `NotAttackableByPlayerUntilTime` | `public CampaignTime NotAttackableByPlayerUntilTime { get; set; }` |
-| `Aggressiveness` | `public float Aggressiveness { get; set; }` |
-| `AllParties` | `public IEnumerable<MobileParty> AllParties { get; }` |
-| `MercenaryWallet` | `public int MercenaryWallet { get; set; }` |
-| `TributeWallet` | `public int TributeWallet { get; set; }` |
-| `KingdomBudgetWallet` | `public int KingdomBudgetWallet { get; set; }` |
-| `CallToWarWallet` | `public int CallToWarWallet { get; set; }` |
-
-## Key Methods
-
-### GetName
-`public override TextObject GetName()`
-
-**Purpose:** Reads and returns the name value held by the this instance.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-var result = kingdom.GetName();
+```
+Kingdom : IFaction
+ ├─ RulingClan ──► Clan ──► Clan.Kingdom (back-reference)
+ ├─ Leader ──► Hero (the ruling clan's leader, or a king in election)
+ ├─ Clans ──► vassals (including the ruling clan)
+ ├─ Fiefs (Town) / Villages / Settlements
+ ├─ Armies ──► Army ──► MobileParty[]
+ ├─ ActivePolicies (PolicyObject)
+ ├─ UnresolvedDecisions (KingdomDecision)
+ └─ FactionsAtWarWith / AlliedKingdoms
 ```
 
-### ToString
-`public override string ToString()`
+Typical call order:
 
-**Purpose:** Returns a human-readable string representation of the this instance.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-var result = kingdom.ToString();
+```
+MBSubModuleBase.OnCampaignStart
+    Kingdom.All populated; ruling clan and leader resolved
+CampaignBehaviorBase.RegisterEvents()
+    CampaignEvents.RulingClanChanged / OnClanChangedKingdomEvent / HourlyTickEvent
+DailyTick
+    kingdom.Armies, kingdom.CurrentTotalStrength, ActivePolicies read
+    kingdom.CreateArmy(...) / AddPolicy(...) mutate
+    RulingClanChanged fires when leadership actually moves
 ```
 
-### UpdateFactionsAtWarWith
-`public void UpdateFactionsAtWarWith()`
+Traps that bite in practice:
 
-**Purpose:** Recalculates and stores the latest representation of factions at war with.
+- **`Leader` is not the same as `RulingClan`.** `RulingClan` is the clan; `Leader` is a hero, and during a succession crisis or an election the leader can be a different person (or temporarily absent). Code that assumes `kingdom.Leader.Clan == kingdom.RulingClan` breaks during elections.
+- **`FactionsAtWarWith` is a cache.** `UpdateFactionsAtWarWith()` recomputes it from the stance graph. Reading it straight after a peace deal returns the pre-deal set until something refreshes it.
+- **`IsEliminated` kingdoms still exist as objects.** They remain in `Kingdom.All` with empty armies and no fiefs. Filter explicitly; do not assume presence means relevance.
+- **Armies are per-kingdom, but parties are per-clan.** `kingdom.Armies` returns `Army` objects whose members are the ruling clan's and vassals' parties. Summing `CurrentTotalStrength` across parties double counts attached parties.
+- **`CreateArmy` needs a leader and a target.** Passing a hero with no party, or a null target settlement, produces an army that never resolves. Read the overload's `partiesToCallToArmy` default (null) as "use the kingdom's own parties".
+- **`ChangeKingdomName` writes two fields.** `Name` and `InformalName` move together; writing only one leaves the encyclopedia and the map inconsistent.
 
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.UpdateFactionsAtWarWith();
-```
+## Dependencies
 
-### UpdateAlliedKingdoms
-`public void UpdateAlliedKingdoms()`
+| Direction | Type | Relationship |
+|-----------|------|--------------|
+| Store | `MBObjectBase` | Saveable, identified by `Id` / `StringId` |
+| Faction contract | `IFaction` | Shared with [Clan](../Clan) for war and stance |
+| Vassals | [Clan](../Clan) | `Clans`, `RulingClan` |
+| People | [Hero](../Hero) | `Leader`, `AliveLords`, `DeadLords`, `Heroes` |
+| Land | [Town](../Town), [Village](../Village), [Settlement](../Settlement) | `Fiefs`, `Villages`, `Settlements` |
+| Force | `Army`, [MobileParty](../MobileParty) | `Armies`, `WarPartyComponents`, `AllParties` |
+| Managers | [FactionManager](../FactionManager), `KingdomManager` | Stance resolution, elections and decisions |
+| Events | [CampaignEvents](../CampaignEvents) | `RulingClanChanged`, `OnClanChangedKingdomEvent` |
 
-**Purpose:** Recalculates and stores the latest representation of allied kingdoms.
+## Key members
 
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.UpdateAlliedKingdoms();
-```
+### Identity
 
-### CreateKingdom
-`public static Kingdom CreateKingdom(string stringID)`
+#### `public static MBReadOnlyList<Kingdom> All`
 
-**Purpose:** Constructs a new kingdom entity and returns it to the caller.
+Every kingdom including eliminated ones. Live view.
 
-```csharp
-// Static call; no instance required
-Kingdom.CreateKingdom("example");
-```
+#### `public static Kingdom CreateKingdom(string stringID)`
 
-### InitializeKingdom
-`public void InitializeKingdom(TextObject name, TextObject informalName, CultureObject culture, Banner banner, uint kingdomColor1, uint kingdomColor2, Settlement initialHomeSettlement, TextObject encyclopediaText, TextObject encyclopediaTitle, TextObject encyclopediaRulerTitle)`
+Engine factory. The only supported construction path — `new Kingdom()` produces an unregistered object that is not in `All` and is never saved.
 
-**Purpose:** Prepares the resources, state, or bindings required by kingdom.
+#### `public void InitializeKingdom(TextObject name, TextObject informalName, CultureObject culture, Banner banner, uint kingdomColor1, uint kingdomColor2, Settlement initialHomeSettlement, TextObject encyclopediaText, TextObject encyclopediaTitle, TextObject encyclopediaRulerTitle)`
 
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.InitializeKingdom(name, informalName, culture, banner, 0, 0, initialHomeSettlement, encyclopediaText, encyclopediaTitle, encyclopediaRulerTitle);
-```
+Full one-shot initialisation. Everything here is saveable, so it must be called exactly once, before the kingdom enters any registry.
 
-### ChangeKingdomName
-`public void ChangeKingdomName(TextObject name, TextObject informalName)`
+#### `public void ChangeKingdomName(TextObject name, TextObject informalName)`
 
-**Purpose:** Executes the ChangeKingdomName logic.
+Renames both the formal and informal names together.
 
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.ChangeKingdomName(name, informalName);
-```
+#### `public void ReactivateKingdom()` / `public bool IsEliminated`
 
-### OnHeroChangedState
-`public void OnHeroChangedState(Hero hero, Hero.CharacterStates oldState)`
+Revives a kingdom that had been eliminated (no ruling clan, no fiefs, no armies).
 
-**Purpose:** Invoked when the hero changed state event is raised.
+### Leadership
 
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.OnHeroChangedState(hero, oldState);
-```
+#### `public Clan RulingClan`
 
-### IsAllyWith
-`public bool IsAllyWith(Kingdom other)`
+The clan at the top. Null on an eliminated kingdom.
 
-**Purpose:** Determines whether the this instance is in the ally with state or condition.
+#### `public Hero Leader`
 
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-var result = kingdom.IsAllyWith(other);
-```
+The kingdom's leader hero. Elected in some game modes; during an election this can diverge from the ruling clan's leader.
 
-### HasCalledToWar
-`public bool HasCalledToWar(Kingdom other)`
+#### `public bool IsMapFaction`
 
-**Purpose:** Determines whether the this instance already holds called to war.
+`true` when the kingdom is an actual political entity on the map. Minor factions and bandit "kingdoms" return false.
 
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-var result = kingdom.HasCalledToWar(other);
-```
+### Land and power
 
-### IsAtWarWith
-`public bool IsAtWarWith(IFaction other)`
+#### `public MBReadOnlyList<Town> Fiefs` / `public MBReadOnlyList<Village> Villages` / `public MBReadOnlyList<Settlement> Settlements`
 
-**Purpose:** Determines whether the this instance is in the at war with state or condition.
+Owned holdings, aggregated across all clans. Cached views.
 
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-var result = kingdom.IsAtWarWith(other);
-```
+#### `public Settlement InitialHomeSettlement`
 
-### IsAtConstantWarWith
-`public bool IsAtConstantWarWith(IFaction other)`
+The original capital. Kept for history and for the encyclopedia; changing it does not move the capital's production.
 
-**Purpose:** Determines whether the this instance is in the at constant war with state or condition.
+#### `public Settlement FactionMidSettlement` / `public void CalculateMidSettlement()`
 
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-var result = kingdom.IsAtConstantWarWith(other);
-```
+The geographic centre the kingdom's AI reasons around. Recompute after territory changes.
 
-### GetStanceWith
-`public StanceLink GetStanceWith(IFaction other)`
+#### `public float CurrentTotalStrength` / `public float Aggressiveness`
 
-**Purpose:** Reads and returns the stance with value held by the this instance.
+Aggregate military power and how eagerly the AI acts on it.
 
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-var result = kingdom.GetStanceWith(other);
-```
+### War and diplomacy
 
-### CreateArmy
-`public void CreateArmy(Hero armyLeader, Settlement targetSettlement, Army.ArmyTypes selectedArmyType, MBReadOnlyList<MobileParty> partiesToCallToArmy = null)`
+#### `public bool IsAtWarWith(IFaction other)` / `IsAtConstantWarWith(IFaction other)` / `IsAllyWith(Kingdom other)` / `HasCalledToWar(Kingdom other)` / `public StanceLink GetStanceWith(IFaction other)`
 
-**Purpose:** Constructs a new army entity and returns it to the caller.
+Diplomacy predicates. `GetStanceWith` is the primitive; the rest are thresholds over it.
 
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.CreateArmy(armyLeader, targetSettlement, selectedArmyType, null);
-```
+#### `public MBReadOnlyList<IFaction> FactionsAtWarWith` / `public void UpdateFactionsAtWarWith()`
 
-### AddDecision
-`public void AddDecision(KingdomDecision kingdomDecision, bool ignoreInfluenceCost = false)`
+Cached war set plus its recompute trigger. Prefer the boolean predicates in hot paths.
 
-**Purpose:** Adds decision to the current collection or state.
+#### `public MBReadOnlyList<Kingdom> AlliedKingdoms` / `public void UpdateAlliedKingdoms()`
 
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.AddDecision(kingdomDecision, false);
-```
+Alliance cache plus recompute.
 
-### RemoveDecision
-`public void RemoveDecision(KingdomDecision kingdomDecision)`
+#### `public float MainHeroCrimeRating { get; set; }` / `public float DailyCrimeRatingChange` / `public CampaignTime NotAttackableByPlayerUntilTime { get; set; }`
 
-**Purpose:** Removes decision from the current collection or state.
+Player-facing reputation and the grace period after an offence.
 
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.RemoveDecision(kingdomDecision);
-```
+### Armies and war parties
 
-### OnKingdomDecisionConcluded
-`public void OnKingdomDecisionConcluded()`
+#### `public MBReadOnlyList<Army> Armies`
 
-**Purpose:** Invoked when the kingdom decision concluded event is raised.
+Armies raised by this kingdom. Each holds member parties; summing member strength without de-duplication double counts.
+
+#### `public IEnumerable<MobileParty> AllParties`
+
+Every party that belongs to the kingdom or one of its clans.
+
+#### `public MBReadOnlyList<WarPartyComponent> WarPartyComponents`
+
+War party components registered under this kingdom, for code that reasons about war party bookkeeping rather than mobile parties.
+
+#### `public void CreateArmy(Hero armyLeader, Settlement targetSettlement, Army.ArmyTypes selectedArmyType, MBReadOnlyList<MobileParty> partiesToCallToArmy = null)`
+
+Raises an army. Passing `null` for `partiesToCallToArmy` uses the kingdom's own parties; pass an explicit list to force a composition.
+
+#### `public int LastArmyCreationDay { get; private set; }`
+
+Throttle for army creation. Do not use it as a "cooldown" you can reset — it is `private set`.
+
+### Policies and decisions
+
+#### `public IList<PolicyObject> ActivePolicies` / `public void AddPolicy(PolicyObject policy)` / `RemovePolicy(PolicyObject)` / `public bool HasPolicy(PolicyObject policy)`
+
+The realm's active policy list. `ActivePolicies` is the mutable list; the add/remove methods are the sanctioned wrappers.
+
+#### `public MBReadOnlyList<KingdomDecision> UnresolvedDecisions` / `public void AddDecision(KingdomDecision kingdomDecision, bool ignoreInfluenceCost = false)` / `RemoveDecision(...)` / `OnKingdomDecisionConcluded()`
+
+Realm decisions in flight. `ignoreInfluenceCost` exists for scripting paths that grant decisions directly.
+
+#### `public CampaignTime LastKingdomDecisionConclusionDate { get; private set; }` / `public CampaignTime LastMercenaryOfferTime { get; set; }`
+
+Decision pacing. The first is read-only.
+
+### Membership bookkeeping
+
+#### `public void OnHeroAdded(Hero hero)` / `OnHeroRemoved(Hero hero)` / `OnHeroChangedState(Hero hero, Hero.CharacterStates oldState)`
+
+Called by the clan/hero lifecycle when membership changes. Calling them by hand desynchronises `Heroes` and `AliveLords`.
+
+#### `public void OnFortificationAdded(Town fortification)` / `OnFortificationRemoved(Town fortification)`
+
+Fief index maintenance. Wired to the settlement owner-change path.
+
+## Real examples
+
+### Example 1: report the strongest kingdom without double counting
 
 ```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.OnKingdomDecisionConcluded();
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+
+public static string StrongestKingdom()
+{
+    Campaign campaign = Campaign.Current;
+    if (campaign == null)
+    {
+        return "no campaign";
+    }
+
+    Kingdom best = campaign.Kingdoms
+        .Where(k => !k.IsEliminated)
+        .OrderByDescending(k => k.CurrentTotalStrength)
+        .FirstOrDefault();
+
+    return best == null ? "no kingdoms" : $"{best.Name.Name}: {best.CurrentTotalStrength:0}";
+}
 ```
 
-### AddPolicy
-`public void AddPolicy(PolicyObject policy)`
-
-**Purpose:** Adds policy to the current collection or state.
+### Example 2: raise an army for the player's kingdom
 
 ```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.AddPolicy(policy);
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
+
+public static void RaiseArmy(Settlement target)
+{
+    Campaign campaign = Campaign.Current;
+    if (campaign == null || target == null)
+    {
+        return;
+    }
+
+    Kingdom kingdom = campaign.MainParty?.ActualClan?.Kingdom;
+    if (kingdom == null || kingdom.IsEliminated)
+    {
+        return;
+    }
+
+    Hero leader = kingdom.Leader;
+    if (leader == null)
+    {
+        return;
+    }
+
+    kingdom.CreateArmy(leader, target, Army.ArmyTypes.Siege);
+    InformationManager.DisplayMessage(new InformationMessage($"{kingdom.Name.Name} is mobilizing"));
+}
 ```
 
-### RemovePolicy
-`public void RemovePolicy(PolicyObject policy)`
-
-**Purpose:** Removes policy from the current collection or state.
+### Example 3: follow a decision from proposal to conclusion
 
 ```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.RemovePolicy(policy);
+using TaleWorlds.CampaignSystem;
+
+public sealed class KingdomDecisionBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        CampaignEvents.RulingClanChanged.AddNonSerializedListener(this, OnRulingClanChanged);
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+    }
+
+    // IMbEvent<Kingdom, Clan>
+    private void OnRulingClanChanged(Kingdom kingdom, Clan newRulingClan)
+    {
+        if (kingdom == null || newRulingClan == null)
+        {
+            return;
+        }
+
+        InformationManager.DisplayMessage(new InformationMessage(
+            $"{kingdom.Name.Name} is now ruled by {newRulingClan.Name.Name} " +
+            $"({kingdom.UnresolvedDecisions.Count} open decisions)"));
+    }
+}
 ```
 
-### HasPolicy
-`public bool HasPolicy(PolicyObject policy)`
-
-**Purpose:** Determines whether the this instance already holds policy.
+### Example 4: apply and test a realm policy
 
 ```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-var result = kingdom.HasPolicy(policy);
+using TaleWorlds.CampaignSystem;
+
+public static void GrantPolicy(Kingdom kingdom, PolicyObject policy)
+{
+    if (kingdom == null || policy == null || kingdom.HasPolicy(policy))
+    {
+        return;
+    }
+
+    kingdom.AddPolicy(policy);
+    _ = kingdom.ActivePolicies.Count;
+    InformationManager.DisplayMessage(
+        new InformationMessage($"{kingdom.Name.Name} adopted {policy.Name}"));
+}
 ```
 
-### Deserialize
-`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+## Risks and crash boundaries
 
-**Purpose:** Restores the this instance from serialized data.
+1. **`RulingClan` and `Leader` are null on eliminated kingdoms.** Every member that dereferences them must guard. `IsEliminated` is the cheapest check.
+2. **Unregistered kingdoms vanish.** `new Kingdom()` is not in `All` and never saved. Use `Kingdom.CreateKingdom` plus `InitializeKingdom`.
+3. **Cached diplomacy sets lag.** `FactionsAtWarWith` and `AlliedKingdoms` are refreshed by their `Update*` methods. Prefer `IsAtWarWith` / `IsAllyWith` in hot paths instead of iterating the caches.
+4. **`Aggressiveness` is uncapped.** `MainHeroCrimeRating` is a settable float; a mod that writes it directly skips the daily crime change calculation and the notification.
+5. **Save coupling.** `Name`, `InformalName`, `Culture`, `InitialHomeSettlement`, `LastArmyCreationDay`, `Color`, `Banner`, `MainHeroCrimeRating` and the mercenary wallet are `[SaveableProperty]`. Renumbering breaks existing saves — see [save-system](../../../architecture/save-system).
+6. **Double counting armies.** `Armies` and `AllParties` overlap for attached parties. Summing both inflates strength and skews the AI.
+7. **Bookkeeping hooks are not idempotent.** Calling `OnHeroAdded` or `OnFortificationAdded` directly duplicates entries in `Heroes`, `AliveLords` and `Fiefs`.
+8. **Decision influence.** `AddDecision(..., ignoreInfluenceCost: true)` grants a decision with no influence check; using it in player-facing flow makes realms feel unconstrained.
 
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.Deserialize(objectManager, node);
-```
+## Cross-version notes
 
-### OnFortificationAdded
-`public void OnFortificationAdded(Town fortification)`
-
-**Purpose:** Invoked when the fortification added event is raised.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.OnFortificationAdded(fortification);
-```
-
-### OnFortificationRemoved
-`public void OnFortificationRemoved(Town fortification)`
-
-**Purpose:** Invoked when the fortification removed event is raised.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.OnFortificationRemoved(fortification);
-```
-
-### OnHeroAdded
-`public void OnHeroAdded(Hero hero)`
-
-**Purpose:** Invoked when the hero added event is raised.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.OnHeroAdded(hero);
-```
-
-### OnHeroRemoved
-`public void OnHeroRemoved(Hero hero)`
-
-**Purpose:** Invoked when the hero removed event is raised.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.OnHeroRemoved(hero);
-```
-
-### OnWarPartyAdded
-`public void OnWarPartyAdded(WarPartyComponent warPartyComponent)`
-
-**Purpose:** Invoked when the war party added event is raised.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.OnWarPartyAdded(warPartyComponent);
-```
-
-### OnWarPartyRemoved
-`public void OnWarPartyRemoved(WarPartyComponent warPartyComponent)`
-
-**Purpose:** Invoked when the war party removed event is raised.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.OnWarPartyRemoved(warPartyComponent);
-```
-
-### CalculateMidSettlement
-`public void CalculateMidSettlement()`
-
-**Purpose:** Calculates the current value or result of mid settlement.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.CalculateMidSettlement();
-```
-
-### ReactivateKingdom
-`public void ReactivateKingdom()`
-
-**Purpose:** Executes the ReactivateKingdom logic.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.ReactivateKingdom();
-```
-
-## Usage Example
-
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-Kingdom kingdom = ...;
-kingdom.GetName();
-```
+- `CreateKingdom`, `InitializeKingdom`, `RulingClan`, `CreateArmy` and the `Is*` diplomacy predicates keep the same shape in 1.3.x and 1.4.x.
+- Later builds add more kingdom-decision fields and extra `PolicyObject` members. Because the policy list is enum/instance driven, consumer code that iterates `ActivePolicies` keeps working.
 
 ## See Also
 
-- [Area Index](../)
+- [Clan](../Clan) — the vassals inside the kingdom
+- [FactionManager](../FactionManager) — war and stance resolution
+- [Hero](../Hero) — lords and the leader
+- [MobileParty](../MobileParty) — the parties that make up armies
+- [Settlement](../Settlement) — the land the kingdom holds
+- [Town](../Town) — the fiefs counted in `Fiefs`
+- [Campaign](../Campaign) — kingdom registry and the daily tick
+- [Save system](../../../architecture/save-system) — saveable property discipline
+- [Campaign basics](../../../guide/campaign-basics) — task-first walkthrough

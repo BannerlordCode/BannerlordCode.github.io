@@ -1,0 +1,23 @@
+---
+title: "INavigationElement"
+description: "Auto-generated class reference for INavigationElement."
+---
+# INavigationElement
+
+**Namespace:** TaleWorlds.CampaignSystem
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public interface INavigationElement `
+**Base:** System.Object
+**Source:** TaleWorlds.CampaignSystem/INavigationElement.cs
+
+## Overview
+
+Auto-generated stub for `INavigationElement`. Deep documentation is scheduled in a later pass.
+
+## Mental Model
+
+Auto-generated placeholder; to be replaced by the deep-documentation pass.
+
+## See Also
+
+- [Section index](../)

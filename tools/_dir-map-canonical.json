@@ -1,0 +1,327 @@
+{
+  "_comment": "CANONICAL namespace -> api bucket mapping. Authoritative for v1.4.6 / v1.4.7 / v1.5.3 content trees. Boss-owned artifact; Leads apply it verbatim instead of inventing per-version directory maps. One type = exactly one path, no duplicates.",
+  "version": "2026-08-24",
+  "why": "The legacy v1.4.5 tree is NOT a safe source of truth: 2199 type names are duplicated across buckets (every TaleWorlds.CampaignSystem type exists in both campaign/ and campaign-ext/), and 171 of 513 namespaces are split across buckets. Counting pages there yields nonsense (TaleWorlds.InputSystem -> campaign-ext, TaleWorlds.DotNet -> campaign-ext). So the bucket taxonomy is fixed by the subsystem table below, not by legacy page counts.",
+  "matchSemantics": "longest-prefix-wins. Do NOT use first-match. The array below is ALSO physically sorted so that first-match and longest-match give the same answer; if you add a rule, keep it sorted by descending prefix length. Rationale: TaleWorlds.MountAndBlade.CustomBattle and TaleWorlds.*.ViewModelCollection must beat their shorter parent prefixes.",
+  "rules": [
+    {
+      "prefix": "TaleWorlds.CampaignSystem.PartyBasedVisitables",
+      "dir": "campaign-ext"
+    },
+    {
+      "prefix": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "dir": "campaign-ext"
+    },
+    {
+      "prefix": "TaleWorlds.CampaignSystem.ViewModelCollection",
+      "dir": "viewmodel"
+    },
+    {
+      "prefix": "TaleWorlds.MountAndBlade.ViewModelCollection",
+      "dir": "viewmodel"
+    },
+    {
+      "prefix": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+      "dir": "campaign-ext"
+    },
+    {
+      "prefix": "TaleWorlds.CampaignSystem.GameComponents",
+      "dir": "campaign-ext"
+    },
+    {
+      "prefix": "TaleWorlds.CampaignSystem.Conversation",
+      "dir": "campaign-ext"
+    },
+    {
+      "prefix": "TaleWorlds.MountAndBlade.CustomBattle",
+      "dir": "custombattle"
+    },
+    {
+      "prefix": "TaleWorlds.Core.ViewModelCollection",
+      "dir": "viewmodel"
+    },
+    {
+      "prefix": "TaleWorlds.CampaignSystem.SandBox",
+      "dir": "campaign-ext"
+    },
+    {
+      "prefix": "TaleWorlds.CampaignSystem.Issues",
+      "dir": "campaign-ext"
+    },
+    {
+      "prefix": "TaleWorlds.Engine.InputSystem",
+      "dir": "engine"
+    },
+    {
+      "prefix": "TaleWorlds.AchievementSystem",
+      "dir": "achievementsystem"
+    },
+    {
+      "prefix": "TaleWorlds.ActivitySystem",
+      "dir": "activitysystem"
+    },
+    {
+      "prefix": "TaleWorlds.CampaignSystem",
+      "dir": "campaign"
+    },
+    {
+      "prefix": "TaleWorlds.ModuleManager",
+      "dir": "modulemanager"
+    },
+    {
+      "prefix": "TaleWorlds.MountAndBlade",
+      "dir": "mission-ext"
+    },
+    {
+      "prefix": "TaleWorlds.Localization",
+      "dir": "localization"
+    },
+    {
+      "prefix": "TaleWorlds.ObjectSystem",
+      "dir": "campaign-ext"
+    },
+    {
+      "prefix": "TaleWorlds.ScreenSystem",
+      "dir": "gui"
+    },
+    {
+      "prefix": "TaleWorlds.TwoDimension",
+      "dir": "gui"
+    },
+    {
+      "prefix": "TaleWorlds.InputSystem",
+      "dir": "system"
+    },
+    {
+      "prefix": "TaleWorlds.GauntletUI",
+      "dir": "gui"
+    },
+    {
+      "prefix": "TaleWorlds.SaveSystem",
+      "dir": "save-system"
+    },
+    {
+      "prefix": "TaleWorlds.LinQuick",
+      "dir": "core-extra"
+    },
+    {
+      "prefix": "TaleWorlds.Diamond",
+      "dir": "engine"
+    },
+    {
+      "prefix": "TaleWorlds.Library",
+      "dir": "core-extra"
+    },
+    {
+      "prefix": "TaleWorlds.Mission",
+      "dir": "mission-ext"
+    },
+    {
+      "prefix": "TaleWorlds.Network",
+      "dir": "network"
+    },
+    {
+      "prefix": "TaleWorlds.Starter",
+      "dir": "core-extra"
+    },
+    {
+      "prefix": "TaleWorlds.DotNet",
+      "dir": "core-extra"
+    },
+    {
+      "prefix": "TaleWorlds.Engine",
+      "dir": "engine"
+    },
+    {
+      "prefix": "TaleWorlds.System",
+      "dir": "system"
+    },
+    {
+      "prefix": "TaleWorlds.Core",
+      "dir": "core-extra"
+    },
+    {
+      "prefix": "StoryMode",
+      "dir": "storymode"
+    },
+    {
+      "prefix": "SandBox",
+      "dir": "sandbox"
+    }
+  ],
+  "defaultDir": "core-extra",
+  "collisionRule": "If two namespaces mapping to the SAME dir export the same simple type name, the page file is <NamespaceLeaf>__<TypeName>.md (e.g. Campaign__IFaction.md). Never write two files for one type.",
+  "entryPointDirs": {
+    "_match": "exact simple type name, case-sensitive, compared AFTER longest-prefix resolution",
+    "_why": "Everything else was a no-op or contradicted 1.4.5 on-disk precedent. Measured 1.4.5 zh buckets: TextObject->localization (NOT core-extra), MBDebug->engine (NOT core-extra), GameModels->campaign (NOT core-extra), ViewModel/Game/GameStateManager/GameManagerBase/MBGameModel->core-extra, ScreenManager/ScreenBase/ScreenLayer->gui, GauntletLayer->engine, Save*->save-system. Those are all already produced by the prefix rules, so they need no override. Hyphenated/space-containing entries were unmatchable dead weight and are gone.",
+    "Mission": "mission",
+    "MissionState": "mission",
+    "MissionBehavior": "mission",
+    "Agent": "mission",
+    "Formation": "mission",
+    "MBSubModuleBase": "core",
+    "Module": "core",
+    "_parityGaps": "MissionState lands in mission/ here but 1.4.5 has it duplicated in campaign-ext/+mission-ext/, not mission/ - 1 URL parity gap, accepted for modder-facing grouping. ModuleManager is NOT overridden: no 1.4.5 precedent exists, so it stays in modulemanager/ per its own prefix rule (one fewer override = one fewer silent failure).",
+    "_noModuleManager": "There is NO ModuleManager type in any version: verified by full-tree scan of 1.4.5 (8583 .cs), 1.4.6 (11385), 1.4.7 (11387), 1.5.3 (11487) - zero occurrences of a class/struct/interface named ModuleManager, and 1.4.5 has no ModuleManager.md page. The modulemanager/ bucket holds the OTHER types of the TaleWorlds.ModuleManager namespace (DependedModule, Extensions, IPlatformModuleExtension, ModuleCategory, ModuleHelper, ModuleInfo, ModuleType, SubModuleInfo). Never synthesize a ModuleManager page."
+  },
+  "legacyDuplicationEvidence": {
+    "source": "tools/_dir-map-145.json",
+    "duplicatedTypeNames": 2199,
+    "splitNamespaces": 171,
+    "totalNamespaces": 513,
+    "examples": [
+      "ScreenBase -> campaign-ext|gui",
+      "ScreenLayer -> campaign-ext|gui",
+      "MBObjectBase -> campaign-ext|core",
+      "every TaleWorlds.CampaignSystem type -> campaign|campaign-ext"
+    ]
+  },
+  "resolutionOrder": [
+    "1. excludeNamespaces / excludeSuffixes / sourceTypoNamespaces  -> hard skip, no page, counted separately",
+    "2. rules[] -> longest-prefix-wins. Record the matched rule (dirRule) but DO NOT return early.",
+    "3. entryPointDirs -> override by exact case-sensitive simple type name. This step runs for EVERY type, including those whose namespace already matched a prefix rule in step 2. If no override matches, keep the step-2 result.",
+    "4. defaultDir (core-extra) if step 2 matched nothing AND step 3 has no entry -> also record in unmapped"
+  ],
+  "excludeNamespaces": [
+    "FxResources",
+    "Galaxy.Api",
+    "GalaxyCSharp",
+    "Helpers",
+    "JetBrains.Annotations",
+    "Jose",
+    "ManagedCallbacks",
+    "ManagedStarter",
+    "Messages",
+    "Microsoft",
+    "Mono",
+    "Mono.Math",
+    "NetworkMessages",
+    "Newtonsoft",
+    "Newtonsoft.Json",
+    "Security.Cryptography",
+    "StbSharp",
+    "Steamworks",
+    "Steamworks.NET",
+    "System",
+    "System.Collections",
+    "System.ComponentModel",
+    "System.Diagnostics",
+    "System.IO",
+    "System.Linq",
+    "System.Reflection",
+    "System.Runtime",
+    "System.Security",
+    "System.Text",
+    "System.Threading",
+    "System.Xml",
+    "TaleWorlds.Avatar",
+    "TaleWorlds.Diamond.AccessProvider",
+    "TaleWorlds.Engine.GauntletUI.CodeGenerator",
+    "TaleWorlds.GauntletUI.PrefabSystem",
+    "TaleWorlds.Launcher",
+    "TaleWorlds.MountAndBlade.DedicatedCustomServer",
+    "TaleWorlds.MountAndBlade.Multiplayer",
+    "TaleWorlds.PSAI",
+    "TaleWorlds.PlatformService",
+    "TaleWorlds.PlayerServices",
+    "TaleWorlds.ServiceDiscovery",
+    "Windows",
+    "mscorlib",
+    "netstandard",
+    "psai",
+    "psai.net"
+  ],
+  "excludeSuffixes": [
+    "CodeGenerator",
+    "AutoGenerated"
+  ],
+  "_excludeNote": "Shared noise gate so all three new versions use ONE filter instead of three divergent ones. Measured on 1.5.3: 96 namespaces fall through the business rules and would otherwise be dumped into core-extra, polluting the bucket and corrupting gap accounting. Report deviations from this list instead of silently diverging.",
+  "sourceTypoNamespaces": [
+    "Sandbox",
+    "Sandobx.GauntletUI.Missions",
+    "Storymode.Missions",
+    "Sandbox.View.GameStates"
+  ],
+  "_sourceTypoNote": "Typos in TaleWorlds' own source (Sandbox vs SandBox, Sandobx, Storymode). Ruled: EXCLUDE, do not map to sandbox/storymode - mapping would invent a namespace rule the source does not support. Listed here so the affected types are accounted for rather than silently dropped.",
+  "parityGaps": [
+    {
+      "id": "no-gameplay-bucket",
+      "from": "1.4.5/gameplay/",
+      "to": "(none)",
+      "pages": 19,
+      "reason": "The 1.4.5 gameplay/ bucket is semantically mixed: it holds SandBox(4), StoryMode.*(4) and bare TaleWorlds.MountAndBlade types (AgentNavigator, MapAudioManager, OppositionData, DelayedAction, NameplateSize, ...). No namespace rule can reproduce it. Bucket deliberately NOT created - SandBox* -> sandbox and StoryMode* -> storymode, which match the real namespaces.",
+      "decision": "accept the 19-URL break; do not invent a bucket to make numbers line up"
+    },
+    {
+      "id": "mission-bulk-to-mission-ext",
+      "from": "1.4.5/mission/",
+      "to": "mission-ext/",
+      "pages": 52,
+      "reason": "52 of 1.4.5's 78 mission/ pages are bare TaleWorlds.MountAndBlade types (Agent, Formation, ActionIndexCache, AutoGeneratedSaveManager, BannerTextureCreator, AgentHelper, GenericMissionObjective, ...). That is a hand-picked modder entry list no namespace rule can reproduce; faking parity would mean shredding the ~850-page mission-ext bucket and hand-maintaining a list.",
+      "decision": "accept; mission/ stays a small intentional entry-class carve-out with bidirectional links to ../mission-ext/"
+    },
+    {
+      "id": "game-to-core-extra",
+      "from": "1.4.5/core/Game.md",
+      "to": "core-extra/Game.md",
+      "pages": 1,
+      "reason": "Game is namespace TaleWorlds.Core, which the prefix rules route to core-extra. 1.4.5 happens to keep a copy in core/ (and a duplicate in core-extra/).",
+      "decision": "accept the 1-URL move; namespace consistency beats copying a legacy duplicate"
+    },
+    {
+      "id": "missionstate-to-mission",
+      "from": "1.4.5 mission-ext/MissionState.md (+ campaign-ext duplicate)",
+      "to": "mission/MissionState.md",
+      "pages": 1,
+      "reason": "1.4.5 has MissionState duplicated in campaign-ext/ and mission-ext/ and no mission/ copy. The entryPointDirs carve-out groups it with Mission/Agent/Formation for modders.",
+      "decision": "accept the 1-URL break for modder-facing grouping"
+    },
+    {
+      "id": "boardgames-bucket-removed",
+      "from": "1.4.5/boardgames/",
+      "to": "sandbox/",
+      "pages": 2,
+      "reason": "1.5.3 has no TaleWorlds.BoardGames namespace (grep 0 hits); the 43 board-game types live in SandBox.BoardGames* child namespaces, which the SandBox -> sandbox rule already routes to sandbox/.",
+      "decision": "do not create an empty bucket; a rule that can never match plus a permanently empty bucket is exactly the silent failure the non-empty assertion exists to catch"
+    }
+  ],
+  "schemaVersion": 3,
+  "_parseContract": "FAIL-CLOSED. Consumers MUST assert schemaVersion===3 and MUST error on any unknown shape. Never silently ignore an unrecognised key: entryPointDirs changed from {dir:[slugArray]} to {exactTypeName:dir} in v2 and a consumer that only understood the old shape dropped the whole override layer silently (mission/ and core/ went to 0 buckets) with no error. An unrecognised shape must abort, not degrade. v3 adds linkRules refinements; shape unchanged from v2 apart from the new forbidden/allowed/popToSiteRoot keys.",
+  "linkRules": {
+    "_principle": "Links are resolved ROUTE-relative: every page route is its own directory, so one '..' pops exactly one path segment. fs.existsSync on the joined path is NOT a valid check - wrong-level links exist as files.",
+    "leafToSibling": "../<Name>",
+    "leafToCrossBucket": "../../<other-bucket>/<Name>",
+    "leafToSectionIndex": "../",
+    "bucketIndexToLeaf": "./<Name>",
+    "bucketIndexToParentIndex": "../",
+    "bucketIndexToLangRoot": "../../",
+    "apiIndexToLangRoot": "../",
+    "architectureToApiLeaf": "../../api/<bucket>/<Name>",
+    "forbidden": [
+      "content/ anywhere in an href - repo-root-relative leakage",
+      "a version segment inside a SAME-version link",
+      "../<bucket>/<Name> from a leaf page - one level short, only reachable as a sibling",
+      "./<Name> from a leaf page - dot-slash is legal only from a bucket _index.md"
+    ],
+    "evidence": "shipped v1.4.5 zh/api uses 2+ '../' for 5215 cross-bucket links; the generated 1.4.7 tree emitted only 40 such links and 4135 one-'../' links carrying a bucket name, which is the defect signature",
+    "gate": "For every emitted relative link: route(from) = the page's own route ending in '/'; target = normalize(route(from) + href) popping one segment per '..' and dropping '.'; assert exists(content/<target>.md) || exists(content/<target>/_index.md). PLUS a complementary reverse assertion on forbidden substrings - depth-only checks cannot see a wrong prefix, and a fix that satisfies the check which caught the previous bug can satisfy it while introducing a different bug.",
+    "popToSiteRoot": "pops-to-site-root == number of segments in the page's OWN route. A leaf route v1.4.7/zh/architecture/version-delta/ has 4 segments and needs FOUR '../'; a section-index route v1.4.7/zh/architecture/ has 3 and needs THREE. Same-version links never need this (they stay inside the tree); cross-version links climb to the site root and therefore need the full pop count.",
+    "crossVersion": "../ x(popToSiteRoot) / <version> / <lang> / <section> / <Name>. The language segment must match the TARGET tree, not the source. Verified correct: leaf -> ../../../../v1.4.5/zh/architecture/ ; index -> ../../../v1.4.5/zh/architecture/",
+    "allowed": [
+      "../<Name> (leaf -> same-bucket sibling)",
+      "../../<other-bucket>/<Name> (leaf -> cross-bucket)",
+      "../ (leaf or bucket index -> section index)",
+      "./<Name> (bucket _index.md -> its leaf)",
+      "cross-version: ('../' x popToSiteRoot) + <version>/<lang>/<section>/<Name>"
+    ],
+    "_forbiddenNote": "Refined from a blanket rule after lead-2 proved it wrong: 'no v1. in any href' would ban the ONLY correct form of a cross-version link, and would have flagged 6 genuinely-broken links as rule-compliant while leaving them broken. It mistakes the symptom for the disease. A cross-version href legitimately contains a version segment; what is forbidden is a version segment inside a SAME-version link."
+  },
+  "_resolutionPseudocode": [
+    "function resolve(ns, typeName) {",
+    "  if (excluded(ns)) return 'EXCLUDED';                       // step 1",
+    "  let dir = longestPrefixMatch(ns); dir = dir || defaultDir; // step 2 - NO early return",
+    "  if (entryPointDirs[typeName]) dir = entryPointDirs[typeName]; // step 3 - ALWAYS runs",
+    "  return dir; }"
+  ],
+  "_resolutionWarning": "Step 3 must NOT be guarded by 'only if step 2 found nothing'. An implementation that returns as soon as a prefix rule matches will silently produce mission=0 and core=0, because the rule TaleWorlds.MountAndBlade -> mission-ext claims all 7 override targets first. Overrides are consulted on every type, so both 'override-first' and 'prefix-then-override' produce identical output; the documented order is kept only because override-first is name-based and will misroute the day a second Agent or Module appears in another namespace. Expected result: mission=5, core=2."
+}

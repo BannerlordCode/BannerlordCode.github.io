@@ -1,0 +1,423 @@
+{
+  "generatedAt": "2026-08-14T00:38:30.906Z",
+  "version": "1.4.5",
+  "lang": "zh",
+  "apiRoot": "content/v1.4.5/zh/api",
+  "formula": "r1Target (inventory business − R1-extra noise) − (deep_pass page OR handwritten family purpose entry) = remaining gap",
+  "totalInventoryBusiness": 7002,
+  "r1Target": 6020,
+  "noiseExcludedExtra": 982,
+  "totalBusiness": 6020,
+  "coveredDeep": 257,
+  "coveredFamily": 4534,
+  "covered": 4791,
+  "gap": 1229,
+  "coverageRate": 0.795847,
+  "gapSample": [
+    {
+      "typeName": "Add1000GoldCheat",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "Add100InfluenceCheat",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "Add100RenownCheat",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "AddCraftingMaterialsCheat",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "BoostSkillCheatGroup",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "BoostSkillCheeat",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "CampaignMapSiegePrefabEntityCache",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "CompleteBuildingProjectCheat",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "EditorSceneMissionManager",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "FillCraftingStaminaCheat",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "GameplayCheatBase",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "GameplayCheatGroup",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "GameplayCheatItem",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "GameplayCheatsManager",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "Give10GrainCheat",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "Give10WarhorsesCheat",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "Give5TroopsToPlayerCheat",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "HealMainHeroCheat",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "HealPlayerPartyCheat",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "LocationCharacterMissionExtensions",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "MapSceneHelper",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "MissionHelper",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "ModuleCheckResult",
+      "namespace": "SandBox",
+      "kind": "struct"
+    },
+    {
+      "typeName": "NavigationState",
+      "namespace": "SandBox",
+      "kind": "enum"
+    },
+    {
+      "typeName": "SandboxBattleBannerBearersModel",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "SandBoxEditorMissionTester",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "SandBoxGameManager",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "SandBoxHelpers",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "SandBoxSaveHelper",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "SandBoxSaveManager",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "SandBoxSubModule",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "SaveableSandBoxTypeDefiner",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "SaveHelperState",
+      "namespace": "SandBox",
+      "kind": "enum"
+    },
+    {
+      "typeName": "UnlockAllCraftingRecipesCheat",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "UnlockFogOfWarCheat",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "WoundAllEnemiesCheat",
+      "namespace": "SandBox",
+      "kind": "class"
+    },
+    {
+      "typeName": "AgentBehaviorManager",
+      "namespace": "SandBox.AI",
+      "kind": "class"
+    },
+    {
+      "typeName": "PassageAI",
+      "namespace": "SandBox.AI",
+      "kind": "class"
+    },
+    {
+      "typeName": "UsablePlaceAI",
+      "namespace": "SandBox.AI",
+      "kind": "class"
+    },
+    {
+      "typeName": "BarrierInfo",
+      "namespace": "SandBox.BoardGames",
+      "kind": "class"
+    },
+    {
+      "typeName": "BoardGameBaghChal",
+      "namespace": "SandBox.BoardGames",
+      "kind": "class"
+    },
+    {
+      "typeName": "BoardGameBase",
+      "namespace": "SandBox.BoardGames",
+      "kind": "class"
+    },
+    {
+      "typeName": "BoardGameKonane",
+      "namespace": "SandBox.BoardGames",
+      "kind": "class"
+    },
+    {
+      "typeName": "BoardGameMuTorere",
+      "namespace": "SandBox.BoardGames",
+      "kind": "class"
+    },
+    {
+      "typeName": "BoardGamePuluc",
+      "namespace": "SandBox.BoardGames",
+      "kind": "class"
+    },
+    {
+      "typeName": "BoardGameSeega",
+      "namespace": "SandBox.BoardGames",
+      "kind": "class"
+    },
+    {
+      "typeName": "BoardGameSide",
+      "namespace": "SandBox.BoardGames",
+      "kind": "enum"
+    },
+    {
+      "typeName": "BoardGameTablut",
+      "namespace": "SandBox.BoardGames",
+      "kind": "class"
+    },
+    {
+      "typeName": "BoardInformation",
+      "namespace": "SandBox.BoardGames",
+      "kind": "struct"
+    },
+    {
+      "typeName": "CapturedPawnsPool",
+      "namespace": "SandBox.BoardGames",
+      "kind": "class"
+    }
+  ],
+  "sTierMiss": [],
+  "sTierInScope": 62,
+  "sTierCovered": 62,
+  "gapCategoriesTop": [
+    {
+      "prefix": "TaleWorlds.MountAndBlade",
+      "count": 389
+    },
+    {
+      "prefix": "SandBox.View",
+      "count": 130
+    },
+    {
+      "prefix": "SandBox.Missions",
+      "count": 111
+    },
+    {
+      "prefix": "SandBox.ViewModelCollection",
+      "count": 111
+    },
+    {
+      "prefix": "SandBox.GauntletUI",
+      "count": 77
+    },
+    {
+      "prefix": "StoryMode.GauntletUI",
+      "count": 72
+    },
+    {
+      "prefix": "SandBox.BoardGames",
+      "count": 43
+    },
+    {
+      "prefix": "StoryMode.Quests",
+      "count": 38
+    },
+    {
+      "prefix": "SandBox.Objects",
+      "count": 37
+    },
+    {
+      "prefix": "SandBox",
+      "count": 36
+    },
+    {
+      "prefix": "SandBox.Issues",
+      "count": 34
+    },
+    {
+      "prefix": "StoryMode.GameComponents",
+      "count": 29
+    },
+    {
+      "prefix": "SandBox.CampaignBehaviors",
+      "count": 27
+    },
+    {
+      "prefix": "StoryMode",
+      "count": 17
+    },
+    {
+      "prefix": "SandBox.Tournaments",
+      "count": 12
+    },
+    {
+      "prefix": "SandBox.GameComponents",
+      "count": 11
+    },
+    {
+      "prefix": "StoryMode.ViewModelCollection",
+      "count": 10
+    },
+    {
+      "prefix": "TaleWorlds.CampaignSystem",
+      "count": 9
+    },
+    {
+      "prefix": "StoryMode.View",
+      "count": 7
+    },
+    {
+      "prefix": "StoryMode.Missions",
+      "count": 6
+    },
+    {
+      "prefix": "StoryMode.StoryModePhases",
+      "count": 5
+    },
+    {
+      "prefix": "SandBox.AI",
+      "count": 3
+    },
+    {
+      "prefix": "SandBox.Conversation",
+      "count": 3
+    },
+    {
+      "prefix": "StoryMode.Extensions",
+      "count": 2
+    },
+    {
+      "prefix": "Storymode.Missions",
+      "count": 2
+    },
+    {
+      "prefix": "StoryMode.StoryModeObjects",
+      "count": 2
+    },
+    {
+      "prefix": "TaleWorlds.TwoDimension",
+      "count": 2
+    },
+    {
+      "prefix": "SandBox.Source",
+      "count": 1
+    },
+    {
+      "prefix": "Sandobx.GauntletUI",
+      "count": 1
+    },
+    {
+      "prefix": "TaleWorlds.Core",
+      "count": 1
+    },
+    {
+      "prefix": "TaleWorlds.Library",
+      "count": 1
+    }
+  ],
+  "meta": {
+    "scope": "content/v1.4.5/zh/api",
+    "version": "1.4.5",
+    "language": "zh",
+    "sourceFingerprint": "bea20370236318214a4c73c1e0d7633f04032aefb152ca475fa1f89b63d28499",
+    "gitSha": "93af28c68d13c3b23d1d9ef00b4301cf62a81ae3",
+    "command": "C:\\WorkSpace\\Bannerlord\\BannerlordCode.github.io\\tools\\r1-coverage-report.mjs --version 1.4.5 --lang zh --out tools/_current-r1-145-zh.json --gap-out tools/_current-r1-gaps-145-zh.json",
+    "inventorySkippedNoise": 142,
+    "inventorySkippedBaseNoise": 142,
+    "noiseExcludedExtra": 982,
+    "totalInventoryBusiness": 7002,
+    "r1Target": 6020,
+    "previousTotalBusiness": 7002,
+    "pageClassCounts": {
+      "stub": 9037,
+      "deep_pass": 284,
+      "family_entry_pass": 24,
+      "noise": 28
+    },
+    "deepPassPages": 284,
+    "familyEntryPages": 24,
+    "familyPurposeTypeNames": 4792,
+    "deepPassTypeNames": 257,
+    "r1ExtraNoise": "NetworkMessages.*; Messages.From*/To*/BattleServer*/CustomBattleServer*/Lobby* (+ remaining Messages.*); top-level BattleServer*/CustomBattleServer*/Lobby*; psai.*; type IMB*/BattleServer*/CustomBattleServer*/Lobby*",
+    "note": "COVERED if an R1-target inventory identity has a deep_pass page declaring the same qualified (version, language, namespace, typeName) identity OR a qualified handwritten family entry. Unqualified family entries count only when the simple name is unique in inventory. Formulaic purposes do not count. S-tier requires standalone deep pages. R1-extra noise stays inventory-listable but is out of the denominator."
+  }
+}

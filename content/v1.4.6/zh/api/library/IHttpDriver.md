@@ -1,0 +1,40 @@
+---
+title: "IHttpDriver"
+description: "IHttpDriver：TaleWorlds.Library 的 public 接口；公开成员 5 个（方法 5、属性 0、字段 0）。源文件 TaleWorlds.Library/Http/IHttpDriver.cs。"
+---
+# IHttpDriver
+
+**Namespace:** `TaleWorlds.Library.Http`
+**Module:** `TaleWorlds.Library`
+**Type:** `public interface IHttpDriver`
+**File:** `TaleWorlds.Library/Http/IHttpDriver.cs`
+
+## 概述
+
+IHttpDriver 位于 TaleWorlds.Library 模块，源文件 TaleWorlds.Library/Http/IHttpDriver.cs。它是一个 public 接口，继承链为 IHttpDriver。public/protected 成员共 5 个：5 方法。
+
+> 本页为批量初稿：签名逐条取自 bannerlord-1.4.6 反编译源码，未经改写。每个方法实际做什么、何时调用、有什么风险，请对照源文件方法体阅读。
+
+## 心智模型
+
+结构事实：IHttpDriver 是 TaleWorlds.Library 的顶层类型，命名空间与模块目录不同（TaleWorlds.Library.Http），继承链 IHttpDriver。成员构成以方法为主（方法 5/5，属性 0/5），对外主要以操作入口暴露。本页只列真实签名：每个方法做什么用、何时调用、有哪些坑，需要对照 TaleWorlds.Library/Http/IHttpDriver.cs 的方法体或该类型的深写页确认。
+
+## 主要成员
+
+| 成员 | 签名 | 种类 |
+| --- | --- | --- |
+| `Task` | `Task<string>HttpGetString(string url, bool withUserToken);` | 方法 |
+| `Task` | `Task<string>HttpPostString(string url, string postData, string mediaType, bool withUserToken);` | 方法 |
+| `Task` | `Task<byte[]>HttpDownloadData(string url);` | 方法 |
+| `CreateHttpPostRequestTask` | `IHttpRequestTask CreateHttpPostRequestTask(string address, string postData, bool withUserToken);` | 方法 |
+| `CreateHttpGetRequestTask` | `IHttpRequestTask CreateHttpGetRequestTask(string address, bool withUserToken);` | 方法 |
+
+## 参见
+
+- [↑ library 模块目录](../)
+- [↑ API 参考](../../)
+- [↑ 版本首页](../../../)
+- [同命名空间 DotNetHttpDriver](../DotNetHttpDriver)
+- [同命名空间 HttpDriverManager](../HttpDriverManager)
+- [同命名空间 HttpGetRequest](../HttpGetRequest)
+- [同命名空间 HttpPostRequest](../HttpPostRequest)

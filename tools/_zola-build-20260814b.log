@@ -1,0 +1,6 @@
+Building site...
+ERROR Failed to build the site
+ERROR Found path collisions:
+- `/v1.4.5/zh/api/campaign-ext/MapView/` from files ["\\\\?\\C:\\WorkSpace\\Bannerlord\\BannerlordCode.github.io\\content\\v1.4.5\\zh\\api\\campaign-ext\\MapView\\_index.md", "\\\\?\\C:\\WorkSpace\\Bannerlord\\BannerlordCode.github.io\\content\\v1.4.5\\zh\\api\\campaign-ext\\MapView.md"]
+
+BUILD_EXIT=1

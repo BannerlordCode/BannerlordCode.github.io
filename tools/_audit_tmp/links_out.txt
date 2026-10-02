@@ -1,0 +1,2524 @@
+FILES=36185
+TOTAL_LINKS=85773
+AUDIT_MODE=file
+BROKEN_LINKS=2073
+RESOLVE_OK_URL=85450
+RESOLVE_OK_FILE=83624
+RESOLVE_OK_EITHER=85643
+RESOLVE_OK_BOTH=83431
+RESOLVE_URL_ONLY=2019
+RESOLVE_FILE_ONLY=193
+RESOLVE_NEITHER=54
+FILES_WITH_BROKEN=472
+
+## v1.3.0/en/api/campaign-ext/AddCompanionAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/AddHeroToPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/AdoptHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/ApplyHeirSelectionAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/BeHostileAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/BreakInOutBesiegedSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/BribeGuardsAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/ChangeClanInfluenceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/ChangeClanLeaderAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/ChangeCrimeRatingAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/ChangeGovernorAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/ChangeKingdomAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/ChangeOwnerOfSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/ChangeOwnerOfWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/ChangeProductionTypeOfWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/ChangeRelationAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/ChangeRomanticStateAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/ChangeShipOwnerAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/ChangeVillageStateAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/ClaimSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/DeclareWarAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/DestroyClanAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/DestroyKingdomAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/DestroyPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/DestroyShipAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/DisableHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/DisbandArmyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/DisbandPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/EndCaptivityAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/EndMercenaryServiceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/EnterSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/GainKingdomInfluenceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/GainRenownAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/GatherArmyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/GiveGoldAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/GiveItemAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/IncreaseSettlementHealthAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/InitializeWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/KillCharacterAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/LeaveSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/LiftSiegeAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/MakeHeroFugitiveAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/MakePeaceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/MakePregnantAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/MarriageAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/PayForCrimeAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/RemoveCompanionAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/RepairShipAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/SellGoodsForTradeAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/SellItemsAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/SellPrisonersAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/SetPartyAiAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/SiegeAftermath.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/SiegeAftermathAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/StartBattleAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/StartMercenaryServiceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/TakePrisonerAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/TeleportHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/api/campaign-ext/TransferPrisonerAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/en/architecture/module-system.md  (17)
+   -> ../sdk-overview/
+   -> ../../api/
+   -> ../save-system/
+   -> ../version-delta/
+   -> ../native-interop/
+   -> ../../../../versions/CampaignBehaviorBase/
+   -> ../../api/campaign/Campaign/
+   -> ../../../../versions/MissionBehavior/
+   -> ../../../../versions/Mission/
+   -> ../../api/core-extra/ViewModel/
+   -> ../../api/gui/GauntletMovie/
+   -> ../../../../versions/QuestBase/
+   -> ../../../../versions/IssueBase/
+   -> ../../../../v1.3.15/en/guide/gauntlet-ui/
+   -> ../../api/viewmodel/
+   -> ../../../../v1.3.15/en/guide/campaign-system/
+   -> ../../../../v1.3.15/en/guide/mission-system/
+
+## v1.3.0/en/architecture/native-interop.md  (32)
+   -> ../sdk-overview/
+   -> ../module-system/
+   -> ../save-system/
+   -> ../version-delta/
+   -> ../../../../v1.3.15/en/native-1.3.15-src/
+   -> ../../../../versions/
+   -> ../../../../v1.3.15/en/native-1.3.15-src/scene
+   -> ../../../../v1.3.15/en/native-1.3.15-src/rendering
+   -> ../../../../v1.3.15/en/native-1.3.15-src/physics
+   -> ../../../../v1.3.15/en/native-1.3.15-src/mission
+   -> ../../../../v1.3.15/en/native-1.3.15-src/utilities
+   -> ../../../../v1.3.15/en/native-1.3.15-src/animation
+   -> ../../../../v1.3.15/en/native-1.3.15-src/audio
+   -> ../../../../v1.3.15/en/native/
+   -> ../../../../v1.3.15/en/native/EngineMethod
+   -> ../../../../v1.3.15/en/native/NativeObject
+   -> ../../../../v1.3.15/en/native/IManaged
+   -> ../../../../v1.3.15/en/native/INativeArray
+   -> ../../../../v1.3.15/en/native/INativeObjectArray
+   -> ../../../../v1.3.15/en/native/INativeString
+   -> ../../../../v1.3.15/en/native/LibraryApplicationInterface
+   -> ../../../../v1.3.15/en/native-1.3.15-src/exports-and-bridge
+   -> ../../../../v1.3.15/en/native-1.3.15-src/COMPLETE-FUNCTIONS
+   -> ../../../../v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES
+   -> ../../../../v1.3.15/en/native-1.3.15-src/engine-core
+   -> ../../../../v1.3.15/en/native-1.3.15-src/network
+   -> ../../../../v1.3.15/en/guide/common-patterns/
+   -> ../../../../v1.3.15/en/guide/mission-system/
+   -> ../../../../v1.3.15/en/guide/campaign-system/
+   -> ../../../../v1.3.15/en/guide/save-system-guide/
+   -> ../sdk-overview
+   -> ../../guide/
+
+## v1.3.0/en/architecture/sdk-overview.md  (41)
+   -> ../../guide/
+   -> ../../api/campaign/
+   -> ../../api/
+   -> ../module-system/
+   -> ../save-system/
+   -> ../version-delta/
+   -> ../native-interop/
+   -> ../../guide/campaign-basics/
+   -> ../../guide/mission-basics/
+   -> ../../guide/ui-basics/
+   -> ../../api/core/MBSubModuleBase/
+   -> ../../../../versions/ItemObject/
+   -> ../../api/core/
+   -> ../../api/core-extra/
+   -> ../../api/campaign/CampaignBehaviorBase/
+   -> ../../api/mission/MissionBehavior/
+   -> ../../api/mission/
+   -> ../../api/core-extra/ViewModel/
+   -> ../../api/gui/
+   -> ../../guide/save-system/
+   -> ../../api/localization/
+   -> ../../api/engine/
+   -> ../../api/viewmodel/
+   -> ../../../../versions/Settlement/
+   -> ../../api/campaign-ext/
+   -> ../../api/mission-ext/
+   -> ../../api/campaign/Campaign/
+   -> ../../../../versions/Hero/
+   -> ../../../../versions/MobileParty/
+   -> ../../../../versions/Kingdom/
+   -> ../../../../versions/Clan/
+   -> ../../../../versions/Town/
+   -> ../../../../versions/Village/
+   -> ../../../../versions/Mission/
+   -> ../../api/mission/Agent/
+   -> ../../../../versions/Formation/
+   -> ../../api/mission-ext/Team/
+   -> ../../api/localization/TextObject/
+   -> ../../api/gui/GauntletMovie/
+   -> ../../../../versions/
+   -> ../../guide/common-issues/
+
+## v1.3.0/en/architecture/version-delta.md  (18)
+   -> ../../../../versions/
+   -> ../sdk-overview/
+   -> ../module-system/
+   -> ../save-system/
+   -> ../native-interop/
+   -> ../../../../versions/MobileParty/
+   -> ../../../../versions/Clan/
+   -> ../../../../versions/Kingdom/
+   -> ../../../../versions/Mission/
+   -> ../../../../versions/Formation/
+   -> ../../../../versions/Settlement/
+   -> ../../../../versions/IssueBase/
+   -> ../../../../versions/CampaignBehaviorBase/
+   -> ../../../../versions/QuestBase/
+   -> ../../../../versions/MissionBehavior/
+   -> ../../../../versions/ItemObject/
+   -> ../../../../versions/Town/
+   -> ../../../../versions/Village/
+
+## v1.3.0/en/guide/campaign-basics.md  (2)
+   -> ../../../../v1.3.15/en/guide/campaign-system/
+   -> ../../api/campaign/
+
+## v1.3.0/en/guide/common-issues.md  (1)
+   -> ../../../../v1.3.15/en/guide/troubleshooting/
+
+## v1.3.0/en/guide/mission-basics.md  (2)
+   -> ../../../../v1.3.15/en/guide/mission-system/
+   -> ../../api/mission/
+
+## v1.3.0/en/guide/save-system.md  (1)
+   -> ../../../../v1.3.15/en/guide/save-system-guide/
+
+## v1.3.0/en/guide/ui-basics.md  (2)
+   -> ../../../../v1.3.15/en/guide/gauntlet-ui/
+   -> ../../api/
+
+## v1.3.0/zh/api/campaign-ext/AddCompanionAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/AddHeroToPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/AdoptHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/ApplyHeirSelectionAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/BeHostileAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/BreakInOutBesiegedSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/BribeGuardsAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/ChangeClanInfluenceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/ChangeClanLeaderAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/ChangeCrimeRatingAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/ChangeGovernorAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/ChangeKingdomAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/ChangeOwnerOfSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/ChangeOwnerOfWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/ChangeProductionTypeOfWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/ChangeRelationAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/ChangeRomanticStateAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/ChangeShipOwnerAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/ChangeVillageStateAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/ClaimSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/DeclareWarAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/DestroyClanAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/DestroyKingdomAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/DestroyPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/DestroyShipAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/DisableHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/DisbandArmyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/DisbandPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/EndCaptivityAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/EndMercenaryServiceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/EnterSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/GainKingdomInfluenceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/GainRenownAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/GatherArmyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/GiveGoldAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/GiveItemAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/IncreaseSettlementHealthAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/InitializeWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/KillCharacterAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/LeaveSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/LiftSiegeAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/MakeHeroFugitiveAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/MakePeaceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/MakePregnantAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/MarriageAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/PayForCrimeAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/RemoveCompanionAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/RepairShipAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/SellGoodsForTradeAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/SellItemsAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/SellPrisonersAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/SetPartyAiAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/SiegeAftermath.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/SiegeAftermathAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/StartBattleAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/StartMercenaryServiceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/TakePrisonerAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/TeleportHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/api/campaign-ext/TransferPrisonerAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.0/zh/architecture/module-system.md  (17)
+   -> ../sdk-overview/
+   -> ../../api/
+   -> ../save-system/
+   -> ../version-delta/
+   -> ../native-interop/
+   -> ../../../../versions/CampaignBehaviorBase/
+   -> ../../api/campaign/Campaign/
+   -> ../../../../versions/MissionBehavior/
+   -> ../../../../versions/Mission/
+   -> ../../api/core-extra/ViewModel/
+   -> ../../api/gui/GauntletMovie/
+   -> ../../../../versions/QuestBase/
+   -> ../../../../versions/IssueBase/
+   -> ../../../../v1.3.15/zh/guide/gauntlet-ui/
+   -> ../../api/viewmodel/
+   -> ../../../../v1.3.15/zh/guide/campaign-system/
+   -> ../../../../v1.3.15/zh/guide/mission-system/
+
+## v1.3.0/zh/architecture/native-interop.md  (32)
+   -> ../sdk-overview/
+   -> ../module-system/
+   -> ../save-system/
+   -> ../version-delta/
+   -> ../../../../v1.3.15/zh/native-1.3.15-src/
+   -> ../../../../versions/
+   -> ../../../../v1.3.15/zh/native-1.3.15-src/scene
+   -> ../../../../v1.3.15/zh/native-1.3.15-src/rendering
+   -> ../../../../v1.3.15/zh/native-1.3.15-src/physics
+   -> ../../../../v1.3.15/zh/native-1.3.15-src/mission
+   -> ../../../../v1.3.15/zh/native-1.3.15-src/utilities
+   -> ../../../../v1.3.15/zh/native-1.3.15-src/animation
+   -> ../../../../v1.3.15/zh/native-1.3.15-src/audio
+   -> ../../../../v1.3.15/zh/native/
+   -> ../../../../v1.3.15/zh/native/EngineMethod
+   -> ../../../../v1.3.15/zh/native/NativeObject
+   -> ../../../../v1.3.15/zh/native/IManaged
+   -> ../../../../v1.3.15/zh/native/INativeArray
+   -> ../../../../v1.3.15/zh/native/INativeObjectArray
+   -> ../../../../v1.3.15/zh/native/INativeString
+   -> ../../../../v1.3.15/zh/native/LibraryApplicationInterface
+   -> ../../../../v1.3.15/zh/native-1.3.15-src/exports-and-bridge
+   -> ../../../../v1.3.15/zh/native-1.3.15-src/COMPLETE-FUNCTIONS
+   -> ../../../../v1.3.15/zh/native-1.3.15-src/COMPLETE-TYPES
+   -> ../../../../v1.3.15/zh/native-1.3.15-src/engine-core
+   -> ../../../../v1.3.15/zh/native-1.3.15-src/network
+   -> ../../../../v1.3.15/zh/guide/common-patterns/
+   -> ../../../../v1.3.15/zh/guide/mission-system/
+   -> ../../../../v1.3.15/zh/guide/campaign-system/
+   -> ../../../../v1.3.15/zh/guide/save-system-guide/
+   -> ../sdk-overview
+   -> ../../guide/
+
+## v1.3.0/zh/architecture/sdk-overview.md  (41)
+   -> ../../guide/
+   -> ../../api/campaign/
+   -> ../../api/
+   -> ../module-system/
+   -> ../save-system/
+   -> ../version-delta/
+   -> ../native-interop/
+   -> ../../guide/campaign-basics/
+   -> ../../guide/mission-basics/
+   -> ../../guide/ui-basics/
+   -> ../../api/core/MBSubModuleBase/
+   -> ../../../../versions/ItemObject/
+   -> ../../api/core/
+   -> ../../api/core-extra/
+   -> ../../api/campaign/CampaignBehaviorBase/
+   -> ../../api/mission/MissionBehavior/
+   -> ../../api/mission/
+   -> ../../api/core-extra/ViewModel/
+   -> ../../api/gui/
+   -> ../../guide/save-system/
+   -> ../../api/localization/
+   -> ../../api/engine/
+   -> ../../api/viewmodel/
+   -> ../../../../versions/Settlement/
+   -> ../../api/campaign-ext/
+   -> ../../api/mission-ext/
+   -> ../../api/campaign/Campaign/
+   -> ../../../../versions/Hero/
+   -> ../../../../versions/MobileParty/
+   -> ../../../../versions/Kingdom/
+   -> ../../../../versions/Clan/
+   -> ../../../../versions/Town/
+   -> ../../../../versions/Village/
+   -> ../../../../versions/Mission/
+   -> ../../api/mission/Agent/
+   -> ../../../../versions/Formation/
+   -> ../../api/mission-ext/Team/
+   -> ../../api/localization/TextObject/
+   -> ../../api/gui/GauntletMovie/
+   -> ../../../../versions/
+   -> ../../guide/common-issues/
+
+## v1.3.0/zh/architecture/version-delta.md  (18)
+   -> ../../../../versions/
+   -> ../sdk-overview/
+   -> ../module-system/
+   -> ../save-system/
+   -> ../native-interop/
+   -> ../../../../versions/MobileParty/
+   -> ../../../../versions/Clan/
+   -> ../../../../versions/Kingdom/
+   -> ../../../../versions/Mission/
+   -> ../../../../versions/Formation/
+   -> ../../../../versions/Settlement/
+   -> ../../../../versions/IssueBase/
+   -> ../../../../versions/CampaignBehaviorBase/
+   -> ../../../../versions/QuestBase/
+   -> ../../../../versions/MissionBehavior/
+   -> ../../../../versions/ItemObject/
+   -> ../../../../versions/Town/
+   -> ../../../../versions/Village/
+
+## v1.3.0/zh/guide/campaign-basics.md  (2)
+   -> ../../../../v1.3.15/zh/guide/campaign-system/
+   -> ../../api/campaign/
+
+## v1.3.0/zh/guide/common-issues.md  (1)
+   -> ../../../../v1.3.15/zh/guide/troubleshooting/
+
+## v1.3.0/zh/guide/mission-basics.md  (2)
+   -> ../../../../v1.3.15/zh/guide/mission-system/
+   -> ../../api/mission/
+
+## v1.3.0/zh/guide/save-system.md  (1)
+   -> ../../../../v1.3.15/zh/guide/save-system-guide/
+
+## v1.3.0/zh/guide/ui-basics.md  (2)
+   -> ../../../../v1.3.15/zh/guide/gauntlet-ui/
+   -> ../../api/
+
+## v1.3.15/en/api/campaign-ext/AddCompanionAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/AddHeroToPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/AdoptHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/ApplyHeirSelectionAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/Army.md  (12)
+   -> ../../campaign/Kingdom
+   -> ../../campaign/MobileParty
+   -> ../../campaign/Hero
+   -> ../../campaign/Settlement
+   -> ../../../architecture/sdk-overview
+   -> ../../../guide/campaign-system
+   -> ../../campaign/Clan
+   -> ../CampaignBehaviorBase
+   -> ../DisbandArmyAction
+   -> ../GatherArmyAction
+   -> ../SiegeEvent
+   -> ../../../architecture/crash-boundaries
+
+## v1.3.15/en/api/campaign-ext/BeHostileAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/BreakInOutBesiegedSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/BribeGuardsAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/CampaignBehaviorBase.md  (6)
+   -> ../../campaign/Campaign/
+   -> ../CampaignEvents/
+   -> ../CampaignGameStarter/
+   -> ../../save-system/SaveManager/
+   -> ../QuestBase/
+   -> ../../campaign/IssueBase/
+
+## v1.3.15/en/api/campaign-ext/ChangeClanInfluenceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/ChangeClanLeaderAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/ChangeCrimeRatingAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/ChangeGovernorAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/ChangeKingdomAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/ChangeOwnerOfSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/ChangeOwnerOfWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/ChangeProductionTypeOfWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/ChangeRelationAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/ChangeRomanticStateAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/ChangeShipOwnerAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/ChangeVillageStateAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/ClaimSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/DeclareWarAction.md  (19)
+   -> ../IFaction
+   -> ../ChangeRelationAction
+   -> ../BeHostileAction
+   -> ../MakePeaceAction
+   -> ../../campaign/Kingdom
+   -> ../../campaign/Clan
+   -> ../../campaign/Hero
+   -> ../../campaign/Settlement
+   -> ../../campaign/PartyBase
+   -> ../CampaignEvents
+   -> ../ChangeKingdomAction
+   -> ../actions-index
+   -> ../../../architecture/crash-boundaries
+   -> ../../../architecture/doc-contract
+   -> ../GiveGoldAction
+   -> ../KillCharacterAction
+   -> ../../../guide/campaign-system
+   -> ../../../architecture/developer-roadmap
+   -> ../../../guide/common-patterns
+
+## v1.3.15/en/api/campaign-ext/DestroyClanAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/DestroyKingdomAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/DestroyPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/DestroyShipAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/DisableHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/DisbandArmyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/DisbandPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/EndCaptivityAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/EndMercenaryServiceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/EnterSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/GainKingdomInfluenceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/GainRenownAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/GatherArmyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/GiveGoldAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/GiveItemAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/IncreaseSettlementHealthAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/InitializeWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/IssueBase.md  (4)
+   -> ../QuestBase/
+   -> ../CampaignBehaviorBase/
+   -> ../../campaign/Hero/
+   -> ../../campaign/Settlement/
+
+## v1.3.15/en/api/campaign-ext/KillCharacterAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/LeaveSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/LiftSiegeAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/MBObjectBase.md  (11)
+   -> ../MBObjectManager
+   -> ../../core-extra/Game
+   -> ../../core/MBSubModuleBase
+   -> ../../campaign/Hero
+   -> ../../save-system/SaveManager
+   -> ../../../architecture/sdk-overview
+   -> ../../../architecture/save-system
+   -> ../CampaignBehaviorBase
+   -> ../../campaign/Campaign
+   -> ../../../architecture/module-system
+   -> ../../../architecture/doc-contract
+
+## v1.3.15/en/api/campaign-ext/MakeHeroFugitiveAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/MakePeaceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/MakePregnantAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/MarriageAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/PayForCrimeAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/QuestBase.md  (5)
+   -> ../CampaignBehaviorBase/
+   -> ../IssueBase/
+   -> ../../campaign/Hero/
+   -> ../../campaign/Settlement/
+   -> ../../campaign/MobileParty/
+
+## v1.3.15/en/api/campaign-ext/RemoveCompanionAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/RepairShipAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/ScreenBase.md  (14)
+   -> ../../engine/GauntletLayer
+   -> ../../core-extra/ViewModel
+   -> ../../gui/ScreenManager
+   -> ../ScreenLayer
+   -> ../../../architecture/crash-boundaries
+   -> ../../../architecture/sdk-overview/
+   -> ../../../guide/gauntlet-ui/
+   -> ../../gui/ScreenManager/
+   -> ../ScreenLayer/
+   -> ../../engine/GauntletLayer/
+   -> ../../core-extra/ViewModel/
+   -> ../../gui/GauntletMovie/
+   -> ../../../architecture/doc-contract/
+   -> ../../../architecture/crash-boundaries/
+
+## v1.3.15/en/api/campaign-ext/SellGoodsForTradeAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/SellItemsAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/SellPrisonersAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/SetPartyAiAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/SiegeAftermath.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/SiegeAftermathAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/StartBattleAction.md  (17)
+   -> ../../campaign/PartyBase
+   -> ../MapEvent
+   -> ../DeclareWarAction
+   -> ../EnterSettlementAction
+   -> ../KillCharacterAction
+   -> ../TakePrisonerAction
+   -> ../DestroyPartyAction
+   -> ../ChangeOwnerOfSettlementAction
+   -> ../../campaign/MobileParty
+   -> ../../campaign/Settlement
+   -> ../CampaignEvents
+   -> ../actions-index
+   -> ../../../architecture/crash-boundaries
+   -> ../../../architecture/doc-contract
+   -> ../../../guide/campaign-system
+   -> ../../../guide/mission-system
+   -> ../../../architecture/developer-roadmap
+
+## v1.3.15/en/api/campaign-ext/StartMercenaryServiceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/TakePrisonerAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/TeleportHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/TransferPrisonerAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign-ext/actions-index.md  (63)
+   -> ../../../architecture/sdk-overview/
+   -> ../BeHostileAction/
+   -> ../BreakInOutBesiegedSettlementAction/
+   -> ../ChangeKingdomAction/
+   -> ../DeclareWarAction/
+   -> ../DestroyKingdomAction/
+   -> ../DisbandArmyAction/
+   -> ../EndMercenaryServiceAction/
+   -> ../GainKingdomInfluenceAction/
+   -> ../GatherArmyAction/
+   -> ../LiftSiegeAction/
+   -> ../MakePeaceAction/
+   -> ../SiegeAftermathAction/
+   -> ../StartBattleAction/
+   -> ../StartMercenaryServiceAction/
+   -> ../AddCompanionAction/
+   -> ../AddHeroToPartyAction/
+   -> ../AdoptHeroAction/
+   -> ../ApplyHeirSelectionAction/
+   -> ../ChangeClanLeaderAction/
+   -> ../ChangePlayerCharacterAction/
+   -> ../ChangeRelationAction/
+   -> ../ChangeRomanticStateAction/
+   -> ../ChangeRulingClanAction/
+   -> ../DisableHeroAction/
+   -> ../EndCaptivityAction/
+   -> ../KillCharacterAction/
+   -> ../MakeHeroFugitiveAction/
+   -> ../MakePregnantAction/
+   -> ../MarriageAction/
+   -> ../RemoveCompanionAction/
+   -> ../SellPrisonersAction/
+   -> ../TakePrisonerAction/
+   -> ../TeleportHeroAction/
+   -> ../TransferPrisonerAction/
+   -> ../BribeGuardsAction/
+   -> ../ChangeClanInfluenceAction/
+   -> ../ChangeCrimeRatingAction/
+   -> ../ChangeOwnerOfWorkshopAction/
+   -> ../ChangeProductionTypeOfWorkshopAction/
+   -> ../ChangeShipOwnerAction/
+   -> ../DestroyShipAction/
+   -> ../GainRenownAction/
+   -> ../GiveGoldAction/
+   -> ../GiveItemAction/
+   -> ../InitializeWorkshopAction/
+   -> ../PayForCrimeAction/
+   -> ../RaftStateChangeAction/
+   -> ../RepairShipAction/
+   -> ../SellGoodsForTradeAction/
+   -> ../SellItemsAction/
+   -> ../ChangeGovernorAction/
+   -> ../ChangeOwnerOfSettlementAction/
+   -> ../ChangeVillageStateAction/
+   -> ../ClaimSettlementAction/
+   -> ../EnterSettlementAction/
+   -> ../IncreaseSettlementHealthAction/
+   -> ../LeaveSettlementAction/
+   -> ../DestroyClanAction/
+   -> ../DestroyPartyAction/
+   -> ../DisbandPartyAction/
+   -> ../SetPartyAiAction/
+   -> ../../campaign/
+
+## v1.3.15/en/api/campaign/Campaign.md  (7)
+   -> ../../campaign-ext/CampaignBehaviorBase/
+   -> ../../campaign-ext/CampaignGameStarter/
+   -> ../../campaign-ext/CampaignEvents/
+   -> ../../campaign-ext/CampaignTime/
+   -> ../MobileParty/
+   -> ../Hero/
+   -> ../Settlement/
+
+## v1.3.15/en/api/campaign/Clan.md  (11)
+   -> ../Hero
+   -> ../Kingdom
+   -> ../Settlement
+   -> ../MobileParty
+   -> ../../campaign-ext/Army
+   -> ../../../architecture/sdk-overview
+   -> ../../../guide/campaign-system
+   -> ../../campaign-ext/ChangeKingdomAction
+   -> ../../campaign-ext/DestroyClanAction
+   -> ../../campaign-ext/CampaignBehaviorBase
+   -> ../../../architecture/crash-boundaries
+
+## v1.3.15/en/api/campaign/Hero.md  (6)
+   -> ../CharacterObject/
+   -> ../Clan/
+   -> ../Kingdom/
+   -> ../Settlement/
+   -> ../MobileParty/
+   -> ../../campaign-ext/CampaignBehaviorBase/
+
+## v1.3.15/en/api/campaign/Kingdom.md  (13)
+   -> ../Clan
+   -> ../Settlement
+   -> ../../campaign-ext/Army
+   -> ../MobileParty
+   -> ../Hero
+   -> ../../../architecture/sdk-overview
+   -> ../../../guide/campaign-system
+   -> ../../campaign-ext/DeclareWarAction
+   -> ../../campaign-ext/MakePeaceAction
+   -> ../../campaign-ext/ChangeKingdomAction
+   -> ../../campaign-ext/PolicyObject
+   -> ../../campaign-ext/KingdomDecision
+   -> ../../campaign-ext/CampaignBehaviorBase
+
+## v1.3.15/en/api/campaign/MobileParty.md  (6)
+   -> ../Settlement/
+   -> ../../campaign-ext/Army/
+   -> ../../campaign-ext/CampaignBehaviorBase/
+   -> ../Hero/
+   -> ../PartyBase/
+   -> ../../campaign-ext/MobilePartyAi/
+
+## v1.3.15/en/api/campaign/PartyBase.md  (10)
+   -> ../../mission/Team
+   -> ../../mission/Agent
+   -> ../../../architecture/crash-boundaries
+   -> ../MobileParty
+   -> ../Settlement
+   -> ../Hero
+   -> ../Clan
+   -> ../../../architecture/save-system
+   -> ../../../guide/campaign-system
+   -> ../../../architecture/sdk-overview
+
+## v1.3.15/en/api/campaign/Settlement.md  (7)
+   -> ../../campaign-ext/Town/
+   -> ../Village/
+   -> ../../campaign-ext/CastleEncounter/
+   -> ../MobileParty/
+   -> ../Clan/
+   -> ../../campaign-ext/SiegeEvent/
+   -> ../../campaign-ext/CampaignBehaviorBase/
+
+## v1.3.15/en/api/core-extra/InformationManager.md  (9)
+   -> ../InformationMessage
+   -> ../InquiryData
+   -> ../../campaign-ext/CampaignBehaviorBase
+   -> ../../core/MBSubModuleBase
+   -> ../../../architecture/sdk-overview
+   -> ../Game
+   -> ../../campaign-ext/CampaignTime
+   -> ../../../architecture/doc-contract
+   -> ../../../architecture/module-system
+
+## v1.3.15/en/api/core-extra/ItemObject.md  (9)
+   -> ../../core/ItemObject
+   -> ../../campaign/MobileParty
+   -> ../../campaign/Hero
+   -> ../../campaign/CharacterObject
+   -> ../../../architecture/crash-boundaries
+   -> ../../core/ItemObject#risks-and-crash-boundaries
+   -> ../../../architecture/sdk-overview
+   -> ../../campaign/PartyBase
+   -> ../../../guide/asset-pipeline
+
+## v1.3.15/en/api/core/ItemObject.md  (9)
+   -> ../../campaign/MobileParty
+   -> ../../campaign/Hero
+   -> ../../../architecture/sdk-overview
+   -> ../../core-extra/ItemObject
+   -> ../../campaign/CharacterObject
+   -> ../../campaign/PartyBase
+   -> ../../../guide/asset-pipeline
+   -> ../../../architecture/crash-boundaries
+   -> ../../../guide/campaign-system
+
+## v1.3.15/en/api/mission-ext/MBGameManager.md  (11)
+   -> ../../core-extra/Game
+   -> ../../core/MBSubModuleBase
+   -> ../../core-extra/GameManagerBase
+   -> ../../mission/Mission
+   -> ../../campaign-ext/MBObjectBase
+   -> ../../../architecture/sdk-overview
+   -> ../../../architecture/module-system
+   -> ../../campaign/Campaign
+   -> ../../save-system/SaveManager
+   -> ../../../architecture/doc-contract
+   -> ../../../architecture/save-system
+
+## v1.3.15/en/api/mission-ext/MissionLogic.md  (9)
+   -> ../../mission/MissionBehavior
+   -> ../BattleEndLogic
+   -> ../../../architecture/crash-boundaries
+   -> ../../mission/Mission
+   -> ../../mission/Team
+   -> ../../mission/Agent
+   -> ../../../guide/mission-system
+   -> ../../../architecture/module-system
+   -> ../../../architecture/sdk-overview
+
+## v1.3.15/en/api/mission/Agent.md  (4)
+   -> ../Team/
+   -> ../Formation/
+   -> ../MissionBehavior/
+   -> ../../mission-ext/MissionObject/
+
+## v1.3.15/en/api/mission/Mission.md  (5)
+   -> ../MissionBehavior/
+   -> ../Agent/
+   -> ../Team/
+   -> ../Formation/
+   -> ../../mission-ext/MissionObject/
+
+## v1.3.15/en/api/mission/MissionBehavior.md  (4)
+   -> ../Agent/
+   -> ../../campaign-ext/CampaignBehaviorBase/
+   -> ../../mission-ext/MissionLogic/
+   -> ../../mission-ext/MissionObject/
+
+## v1.3.15/en/api/save-system/AutoGeneratedSaveManager.md  (3)
+   -> ../SaveManager/
+   -> ../../campaign-ext/CampaignBehaviorBase/
+   -> ../DefinitionContext/
+
+## v1.3.15/en/api/save-system/SaveManager.md  (4)
+   -> ../AutoGeneratedSaveManager/
+   -> ../../campaign-ext/CampaignBehaviorBase/
+   -> ../../campaign/Campaign/
+   -> ../../../architecture/save-system/
+
+## v1.3.15/en/api/save-system/SaveableFieldAttribute.md  (14)
+   -> ../SaveablePropertyAttribute
+   -> ../SaveManager
+   -> ../../campaign-ext/IDataStore
+   -> ../../../architecture/crash-boundaries
+   -> ../SaveableTypeDefiner
+   -> ../SaveableRootClassAttribute
+   -> ../AutoGeneratedSaveManager
+   -> ../../campaign-ext/CampaignBehaviorBase
+   -> ../../../architecture/save-system
+   -> ../../../architecture/doc-contract
+   -> ../FieldDefinition
+   -> ../../../guide/save-system-guide
+   -> ../../../architecture/module-system
+   -> ../../campaign-ext/CampaignEvents
+
+## v1.3.15/en/api/save-system/SaveablePropertyAttribute.md  (14)
+   -> ../SaveableFieldAttribute
+   -> ../SaveManager
+   -> ../../campaign-ext/IDataStore
+   -> ../SaveableTypeDefiner
+   -> ../../../architecture/crash-boundaries
+   -> ../SaveableRootClassAttribute
+   -> ../PropertyDefinition
+   -> ../AutoGeneratedSaveManager
+   -> ../../campaign-ext/CampaignBehaviorBase
+   -> ../../../architecture/save-system
+   -> ../../../architecture/doc-contract
+   -> ../FieldDefinition
+   -> ../../../guide/save-system-guide
+   -> ../../../architecture/module-system
+
+## v1.3.15/en/architecture/crash-boundaries.md  (36)
+   -> ../developer-roadmap
+   -> ../sdk-overview
+   -> ../../api/
+   -> ../../guide/
+   -> ../module-system
+   -> ../save-system
+   -> ../doc-contract
+   -> ../../guide/save-system-guide
+   -> ../../api/save-system/SaveManager
+   -> ../../api/campaign-ext/CampaignBehaviorBase
+   -> ../../api/save-system/SaveableFieldAttribute
+   -> ../../api/campaign-ext/actions-index
+   -> ../../api/campaign-ext/GiveGoldAction
+   -> ../../api/campaign-ext/KillCharacterAction
+   -> ../../api/campaign-ext/ChangeKingdomAction
+   -> ../../api/campaign/Hero
+   -> ../../guide/campaign-system
+   -> ../../guide/common-patterns
+   -> ../../api/campaign/Campaign
+   -> ../../api/mission/Mission
+   -> ../../guide/mission-system
+   -> ../../api/mission/Agent
+   -> ../../api/mission/MissionBehavior
+   -> ../../api/campaign-ext/MBObjectManager
+   -> ../../api/core/ItemObject
+   -> ../../api/campaign/CharacterObject
+   -> ../../guide/asset-pipeline
+   -> ../../api/core/MBSubModuleBase
+   -> ../../guide/mod-workflow
+   -> ../../guide/troubleshooting
+   -> ../../api/campaign-ext/GameModels
+   -> ../../api/core-extra/GameModelsManager
+   -> ../../guide/game-systems-overview
+   -> ../../api/core-extra/ViewModel
+   -> ../../api/gui/
+   -> ../../guide/gauntlet-ui
+
+## v1.3.15/en/architecture/developer-roadmap.md  (41)
+   -> ../sdk-overview
+   -> ../../api/
+   -> ../../guide/
+   -> ../module-system
+   -> ../save-system
+   -> ../crash-boundaries
+   -> ../doc-contract
+   -> ../../api/core/MBSubModuleBase
+   -> ../../api/campaign-ext/CampaignBehaviorBase
+   -> ../../api/campaign-ext/CampaignGameStarter
+   -> ../../api/campaign/Campaign
+   -> ../../guide/campaign-system
+   -> ../../guide/mod-workflow
+   -> ../../api/campaign-ext/GiveGoldAction
+   -> ../../api/campaign-ext/KillCharacterAction
+   -> ../../api/campaign-ext/ChangeKingdomAction
+   -> ../../api/campaign/Hero
+   -> ../../api/campaign-ext/actions-index
+   -> ../crash-boundaries#2-world-changes-must-go-through-actionapply
+   -> ../../guide/common-patterns
+   -> ../../api/save-system/SaveManager
+   -> ../../guide/save-system-guide
+   -> ../crash-boundaries#1-saves-saveid-sync-vs-saveablefield-load-order
+   -> ../../api/mission/MissionBehavior
+   -> ../../api/mission/Mission
+   -> ../../api/mission/Agent
+   -> ../../guide/mission-system
+   -> ../crash-boundaries#4-agentmission-lifecycle
+   -> ../../api/campaign-ext/GameModels
+   -> ../../api/core-extra/GameModelsManager
+   -> ../crash-boundaries#7-model-replacement
+   -> ../../guide/game-systems-overview
+   -> ../../api/core-extra/ViewModel
+   -> ../../api/gui/
+   -> ../../guide/gauntlet-ui
+   -> ../crash-boundaries#8-uiviewmodel-lifetime
+   -> ../../api/campaign-ext/MBObjectManager
+   -> ../../api/core/ItemObject
+   -> ../../api/campaign/CharacterObject
+   -> ../../guide/asset-pipeline
+   -> ../crash-boundaries#5-mbobjectmanager-registration
+
+## v1.3.15/en/architecture/doc-contract.md  (7)
+   -> ../sdk-overview
+   -> ../module-system
+   -> ../save-system
+   -> ../version-delta
+   -> ../../api/save-system/SaveManager
+   -> ../../api/campaign/Hero
+   -> ../../api/mission/Mission
+
+## v1.3.15/en/architecture/module-system.md  (15)
+   -> ../sdk-overview/
+   -> ../../api/
+   -> ../save-system/
+   -> ../version-delta/
+   -> ../../../../versions/CampaignBehaviorBase/
+   -> ../../api/campaign/Campaign/
+   -> ../../../../versions/MissionBehavior/
+   -> ../../../../versions/Mission/
+   -> ../../api/core-extra/ViewModel/
+   -> ../../api/gui/GauntletMovie/
+   -> ../../../../versions/QuestBase/
+   -> ../../../../versions/IssueBase/
+   -> ../../guide/gauntlet-ui/
+   -> ../../guide/campaign-system/
+   -> ../../guide/mission-system/
+
+## v1.3.15/en/architecture/native-interop.md  (29)
+   -> ../../native-1.3.15-src/
+   -> ../../../../versions/
+   -> ../../native-1.3.15-src/scene
+   -> ../../native-1.3.15-src/rendering
+   -> ../../native-1.3.15-src/physics
+   -> ../../native-1.3.15-src/mission
+   -> ../../native-1.3.15-src/utilities
+   -> ../../native-1.3.15-src/animation
+   -> ../../native-1.3.15-src/audio
+   -> ../../native/
+   -> ../../native/EngineMethod
+   -> ../../native/NativeObject
+   -> ../../native/IManaged
+   -> ../../native/INativeArray
+   -> ../../native/INativeObjectArray
+   -> ../../native/INativeString
+   -> ../../native/LibraryApplicationInterface
+   -> ../../native-1.3.15-src/exports-and-bridge
+   -> ../../native-1.3.15-src/COMPLETE-FUNCTIONS
+   -> ../../native-1.3.15-src/COMPLETE-TYPES
+   -> ../../native-1.3.15-src/engine-core
+   -> ../../native-1.3.15-src/network
+   -> ../sdk-overview/
+   -> ../../guide/common-patterns/
+   -> ../../guide/mission-system/
+   -> ../../guide/campaign-system/
+   -> ../../guide/save-system-guide/
+   -> ../sdk-overview
+   -> ../../guide/
+
+## v1.3.15/en/architecture/noise-policy.md  (9)
+   -> ../../api/save-system/SaveManager
+   -> ../../api/save-system/SaveableTypeDefiner
+   -> ../../api/campaign-ext/IDataStore
+   -> ../doc-contract
+   -> ../crash-boundaries
+   -> ../sdk-overview
+   -> ../developer-roadmap
+   -> ../../api/core/MBSubModuleBase
+   -> ../../api/
+
+## v1.3.15/en/architecture/sandbox-native-policy.md  (22)
+   -> ../native-interop
+   -> ../noise-policy
+   -> ../../api/campaign/IssueBase
+   -> ../../api/campaign-ext/QuestBase
+   -> ../../api/campaign-ext/GameModels
+   -> ../../api/campaign-ext/
+   -> ../../api/campaign-ext/actions-index
+   -> ../../api/campaign-ext/DialogFlow
+   -> ../../api/campaign-ext/GameMenu
+   -> ../../native-1.3.15-src/
+   -> ../../api/campaign-ext/ConversationManager
+   -> ../../api/campaign-ext/MenuContext
+   -> ../../api/core-extra/ViewModel
+   -> ../../api/gui/ScreenManager
+   -> ../../api/engine/GauntletLayer
+   -> ../crash-boundaries
+   -> ../doc-contract
+   -> ../sdk-overview
+   -> ../developer-roadmap
+   -> ../module-system
+   -> ../../api/campaign-ext/CampaignEvents
+   -> ../../api/campaign-ext/CampaignEventReceiver
+
+## v1.3.15/en/architecture/sdk-overview.md  (40)
+   -> ../../api/
+   -> ../../guide/
+   -> ../module-system/
+   -> ../save-system/
+   -> ../version-delta/
+   -> ../../api/core/
+   -> ../../api/core-extra/
+   -> ../../api/campaign/
+   -> ../../guide/campaign-system/
+   -> ../../api/mission/
+   -> ../../guide/mission-system/
+   -> ../../api/gui/
+   -> ../../guide/gauntlet-ui/
+   -> ../../api/save-system/
+   -> ../../api/localization/
+   -> ../../guide/localization/
+   -> ../../api/engine/
+   -> ../../api/viewmodel/
+   -> ../../api/campaign/Campaign/
+   -> ../../../../versions/CampaignBehaviorBase/
+   -> ../../../../versions/Hero/
+   -> ../../../../versions/MobileParty/
+   -> ../../../../versions/Kingdom/
+   -> ../../../../versions/Clan/
+   -> ../../../../versions/Settlement/
+   -> ../../../../versions/Town/
+   -> ../../../../versions/Village/
+   -> ../../../../versions/Mission/
+   -> ../../../../versions/MissionBehavior/
+   -> ../../api/mission/Agent/
+   -> ../../../../versions/Formation/
+   -> ../../api/mission/Team/
+   -> ../../../../versions/ItemObject/
+   -> ../../api/campaign-ext/MBObjectManager/
+   -> ../../api/localization/TextObject/
+   -> ../../../../versions/QuestBase/
+   -> ../../../../versions/IssueBase/
+   -> ../../api/core-extra/ViewModel/
+   -> ../../api/gui/GauntletMovie/
+   -> ../../api/save-system/SaveManager/
+
+## v1.3.15/en/architecture/version-delta.md  (2)
+   -> ../sdk-overview/
+   -> ../module-system/
+
+## v1.3.15/en/guide/asset-pipeline.md  (5)
+   -> ../../xml-reference/
+   -> ../../api/campaign-ext/MBObjectManager/
+   -> ../../api/engine/Utilities/
+   -> ../localization/
+   -> ../common-patterns/
+
+## v1.3.15/en/guide/campaign-system.md  (7)
+   -> ../../api/campaign/Campaign/
+   -> ../../api/campaign/MobileParty/
+   -> ../../api/campaign/Kingdom/
+   -> ../../api/campaign/Clan/
+   -> ../../api/campaign/Settlement/
+   -> ../save-system-guide/
+   -> ../mission-system/
+
+## v1.3.15/en/guide/common-patterns.md  (4)
+   -> ../../api/
+   -> ../../architecture/
+   -> ../game-systems-overview/
+   -> ../troubleshooting/
+
+## v1.3.15/en/guide/game-systems-overview.md  (5)
+   -> ../mission-system/
+   -> ../campaign-system/
+   -> ../../architecture/
+   -> ../troubleshooting/
+   -> ../common-patterns/
+
+## v1.3.15/en/guide/gauntlet-ui.md  (6)
+   -> ../../api/gui/GauntletMovie/
+   -> ../../api/gui/
+   -> ../../api/gui/ScreenManager/
+   -> ../../api/viewmodel/
+   -> ../mission-system/
+   -> ../campaign-system/
+
+## v1.3.15/en/guide/localization.md  (5)
+   -> ../../api/localization/MBTextManager/
+   -> ../../api/localization/TextObject/
+   -> ../../api/localization/LanguageData/
+   -> ../common-patterns/
+   -> ../game-systems-overview/
+
+## v1.3.15/en/guide/mission-system.md  (7)
+   -> ../../api/mission/Mission/
+   -> ../../api/mission/MissionBehavior/
+   -> ../../api/mission/Agent/
+   -> ../../api/mission/Formation/
+   -> ../../api/mission/Team/
+   -> ../campaign-system/
+   -> ../gauntlet-ui/
+
+## v1.3.15/en/guide/mod-workflow.md  (10)
+   -> ../save-system-guide
+   -> ../common-patterns/
+   -> ../game-systems-overview/
+   -> ../modder-journey/
+   -> ../../architecture/native-interop/
+   -> ../save-system-guide/
+   -> ../common-patterns
+   -> ../game-systems-overview
+   -> ../modder-journey
+   -> ../../architecture/native-interop
+
+## v1.3.15/en/guide/modder-journey.md  (21)
+   -> ../gauntlet-ui/
+   -> ../campaign-system/
+   -> ../mission-system/
+   -> ../asset-pipeline/
+   -> ../../api/mission/MissionBehavior/
+   -> ../../api/campaign-ext/CampaignBehaviorBase/
+   -> ../../api/core/MBSubModuleBase/
+   -> ../../api/mission/Mission/
+   -> ../../api/campaign/Campaign/
+   -> ../../api/gui/GauntletMovie/
+   -> ../../api/core-extra/ViewModel/
+   -> ../../../../versions/Hero/
+   -> ../../../../versions/MobileParty/
+   -> ../../../../versions/Settlement/
+   -> ../../../../versions/Town/
+   -> ../../../../versions/Village/
+   -> ../../../../versions/ItemObject/
+   -> ../save-system-guide/
+   -> ../common-patterns/
+   -> ../game-systems-overview/
+   -> ../../architecture/sdk-overview/
+
+## v1.3.15/en/guide/save-system-guide.md  (6)
+   -> ../../api/save-system/SaveManager/
+   -> ../../api/save-system/
+   -> ../../api/save-system/AutoGeneratedSaveManager/
+   -> ../../architecture/save-system/
+   -> ../common-patterns/
+   -> ../campaign-system/
+
+## v1.3.15/en/guide/troubleshooting.md  (2)
+   -> ../save-system-guide/
+   -> ../common-patterns/
+
+## v1.3.15/en/native-1.3.15-src/COMPLETE-FUNCTIONS.md  (6)
+   -> ../exports-and-bridge/
+   -> ../../native/EngineMethod/
+   -> ../../native/NativeObject/
+   -> ../../native/INativeArray/
+   -> ../../native/INativeString/
+   -> ../scene/
+
+## v1.3.15/en/native-1.3.15-src/engine-core.md  (1)
+   -> ../exports-and-bridge/
+
+## v1.3.15/en/native-1.3.15-src/exports-and-bridge.md  (8)
+   -> ../../native/
+   -> ../../native/LibraryApplicationInterface/
+   -> ../../native/EngineMethod/
+   -> ../scene/
+   -> ../../native/NativeObject/
+   -> ../../native/INativeArray/
+   -> ../../native/INativeString/
+   -> ../../native/INativeObjectArray/
+
+## v1.3.15/zh/api/campaign-ext/AddCompanionAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/AddHeroToPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/AdoptHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/ApplyHeirSelectionAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/Army.md  (4)
+   -> ../../campaign/Kingdom/
+   -> ../../campaign/MobileParty/
+   -> ../../campaign/Settlement/
+   -> ../CampaignBehaviorBase/
+
+## v1.3.15/zh/api/campaign-ext/BeHostileAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/BreakInOutBesiegedSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/BribeGuardsAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/CampaignBehaviorBase.md  (6)
+   -> ../../campaign/Campaign/
+   -> ../CampaignEvents/
+   -> ../CampaignGameStarter/
+   -> ../../save-system/SaveManager/
+   -> ../QuestBase/
+   -> ../../campaign/IssueBase/
+
+## v1.3.15/zh/api/campaign-ext/CampaignGameStarter.md  (3)
+   -> ../CampaignBehaviorBase
+   -> ../GameModels
+   -> ../../campaign/Campaign
+
+## v1.3.15/zh/api/campaign-ext/CampaignTime.md  (6)
+   -> ../../campaign/Campaign/
+   -> ../../campaign-ext/CampaignBehaviorBase/
+   -> ../../campaign-ext/Army/
+   -> ../../campaign-ext/GameModels/
+   -> ../../campaign/Clan/
+   -> ../../campaign/Hero/
+
+## v1.3.15/zh/api/campaign-ext/ChangeClanInfluenceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/ChangeClanLeaderAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/ChangeCrimeRatingAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/ChangeGovernorAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/ChangeKingdomAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/ChangeOwnerOfSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/ChangeOwnerOfWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/ChangeProductionTypeOfWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/ChangeRelationAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/ChangeRomanticStateAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/ChangeShipOwnerAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/ChangeVillageStateAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/ClaimSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/DeclareWarAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/DestroyClanAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/DestroyKingdomAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/DestroyPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/DestroyShipAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/DisableHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/DisbandArmyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/DisbandPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/EndCaptivityAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/EndMercenaryServiceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/EnterSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/GainKingdomInfluenceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/GainRenownAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/GameModels.md  (4)
+   -> ../CampaignGameStarter
+   -> ../CampaignBehaviorBase
+   -> ../../core-extra/Game/
+   -> ../../campaign/Hero/
+
+## v1.3.15/zh/api/campaign-ext/GatherArmyAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/GiveGoldAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/GiveItemAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/IDataStore.md  (4)
+   -> ../../campaign/Campaign/
+   -> ../CampaignBehaviorBase/
+   -> ../ICampaignBehavior/
+   -> ../../save-system/SaveManager/
+
+## v1.3.15/zh/api/campaign-ext/IncreaseSettlementHealthAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/InitializeWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/IssueBase.md  (4)
+   -> ../QuestBase/
+   -> ../CampaignBehaviorBase/
+   -> ../../campaign/Hero/
+   -> ../../campaign/Settlement/
+
+## v1.3.15/zh/api/campaign-ext/KillCharacterAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/LeaveSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/LiftSiegeAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/MBObjectBase.md  (6)
+   -> ../MBObjectManager
+   -> ../CampaignBehaviorBase
+   -> ../../save-system/SaveableTypeDefiner/
+   -> ../../campaign/Hero/
+   -> ../../core/ItemObject/
+   -> ../../campaign/Campaign/
+
+## v1.3.15/zh/api/campaign-ext/MBObjectManager.md  (5)
+   -> ../MBObjectBase
+   -> ../../core-extra/Game/
+   -> ../../campaign/Campaign/
+   -> ../../campaign/Hero/
+   -> ../../core/ItemObject/
+
+## v1.3.15/zh/api/campaign-ext/MakeHeroFugitiveAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/MakePeaceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/MakePregnantAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/MarriageAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/PayForCrimeAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/QuestBase.md  (5)
+   -> ../CampaignBehaviorBase/
+   -> ../IssueBase/
+   -> ../../campaign/Hero/
+   -> ../../campaign/Settlement/
+   -> ../../campaign/MobileParty/
+
+## v1.3.15/zh/api/campaign-ext/RemoveCompanionAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/RepairShipAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/ScreenBase.md  (5)
+   -> ../../gui/ScreenManager
+   -> ../ScreenLayer
+   -> ../../core-extra/GameStateManager
+   -> ../../engine/GauntletLayer
+   -> ../../core-extra/ViewModel
+
+## v1.3.15/zh/api/campaign-ext/SellGoodsForTradeAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/SellItemsAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/SellPrisonersAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/SetPartyAiAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/SiegeAftermath.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/SiegeAftermathAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/StartBattleAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/StartMercenaryServiceAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/TakePrisonerAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/TeleportHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/TransferPrisonerAction.md  (1)
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign-ext/actions-index.md  (63)
+   -> ../../../architecture/sdk-overview/
+   -> ../BeHostileAction/
+   -> ../BreakInOutBesiegedSettlementAction/
+   -> ../ChangeKingdomAction/
+   -> ../DeclareWarAction/
+   -> ../DestroyKingdomAction/
+   -> ../DisbandArmyAction/
+   -> ../EndMercenaryServiceAction/
+   -> ../GainKingdomInfluenceAction/
+   -> ../GatherArmyAction/
+   -> ../LiftSiegeAction/
+   -> ../MakePeaceAction/
+   -> ../SiegeAftermathAction/
+   -> ../StartBattleAction/
+   -> ../StartMercenaryServiceAction/
+   -> ../AddCompanionAction/
+   -> ../AddHeroToPartyAction/
+   -> ../AdoptHeroAction/
+   -> ../ApplyHeirSelectionAction/
+   -> ../ChangeClanLeaderAction/
+   -> ../ChangePlayerCharacterAction/
+   -> ../ChangeRelationAction/
+   -> ../ChangeRomanticStateAction/
+   -> ../ChangeRulingClanAction/
+   -> ../DisableHeroAction/
+   -> ../EndCaptivityAction/
+   -> ../KillCharacterAction/
+   -> ../MakeHeroFugitiveAction/
+   -> ../MakePregnantAction/
+   -> ../MarriageAction/
+   -> ../RemoveCompanionAction/
+   -> ../SellPrisonersAction/
+   -> ../TakePrisonerAction/
+   -> ../TeleportHeroAction/
+   -> ../TransferPrisonerAction/
+   -> ../BribeGuardsAction/
+   -> ../ChangeClanInfluenceAction/
+   -> ../ChangeCrimeRatingAction/
+   -> ../ChangeOwnerOfWorkshopAction/
+   -> ../ChangeProductionTypeOfWorkshopAction/
+   -> ../ChangeShipOwnerAction/
+   -> ../DestroyShipAction/
+   -> ../GainRenownAction/
+   -> ../GiveGoldAction/
+   -> ../GiveItemAction/
+   -> ../InitializeWorkshopAction/
+   -> ../PayForCrimeAction/
+   -> ../RaftStateChangeAction/
+   -> ../RepairShipAction/
+   -> ../SellGoodsForTradeAction/
+   -> ../SellItemsAction/
+   -> ../ChangeGovernorAction/
+   -> ../ChangeOwnerOfSettlementAction/
+   -> ../ChangeVillageStateAction/
+   -> ../ClaimSettlementAction/
+   -> ../EnterSettlementAction/
+   -> ../IncreaseSettlementHealthAction/
+   -> ../LeaveSettlementAction/
+   -> ../DestroyClanAction/
+   -> ../DestroyPartyAction/
+   -> ../DisbandPartyAction/
+   -> ../SetPartyAiAction/
+   -> ../../campaign/
+
+## v1.3.15/zh/api/campaign/Campaign.md  (7)
+   -> ../../campaign-ext/CampaignBehaviorBase/
+   -> ../../campaign-ext/CampaignGameStarter/
+   -> ../../campaign-ext/CampaignEvents/
+   -> ../../campaign-ext/CampaignTime/
+   -> ../MobileParty/
+   -> ../Hero/
+   -> ../Settlement/
+
+## v1.3.15/zh/api/campaign/CharacterObject.md  (7)
+   -> ../Hero/
+   -> ../Clan/
+   -> ../MobileParty/
+   -> ../../campaign-ext/CultureObject/
+   -> ../../core-extra/Equipment/
+   -> ../../core-extra/SkillObject/
+   -> ../../core/ItemObject/
+
+## v1.3.15/zh/api/campaign/Clan.md  (4)
+   -> ../Kingdom/
+   -> ../Hero/
+   -> ../Settlement/
+   -> ../MobileParty/
+
+## v1.3.15/zh/api/campaign/Hero.md  (6)
+   -> ../CharacterObject/
+   -> ../Clan/
+   -> ../Kingdom/
+   -> ../Settlement/
+   -> ../MobileParty/
+   -> ../../campaign-ext/CampaignBehaviorBase/
+
+## v1.3.15/zh/api/campaign/Kingdom.md  (6)
+   -> ../Clan/
+   -> ../Hero/
+   -> ../Settlement/
+   -> ../../campaign-ext/Army/
+   -> ../../campaign-ext/PolicyObject/
+   -> ../../campaign-ext/KingdomDecision/
+
+## v1.3.15/zh/api/campaign/MobileParty.md  (6)
+   -> ../Settlement/
+   -> ../../campaign-ext/Army/
+   -> ../../campaign-ext/CampaignBehaviorBase/
+   -> ../Hero/
+   -> ../PartyBase/
+   -> ../../campaign-ext/MobilePartyAi/
+
+## v1.3.15/zh/api/campaign/Settlement.md  (7)
+   -> ../../campaign-ext/Town/
+   -> ../Village/
+   -> ../../campaign-ext/CastleEncounter/
+   -> ../MobileParty/
+   -> ../Clan/
+   -> ../../campaign-ext/SiegeEvent/
+   -> ../../campaign-ext/CampaignBehaviorBase/
+
+## v1.3.15/zh/api/core-extra/InformationManager.md  (2)
+   -> ../Game/
+   -> ../../localization/TextObject/
+
+## v1.3.15/zh/api/core/ItemObject.md  (2)
+   -> ../../campaign/MobileParty/
+   -> ../../../architecture/sdk-overview/
+
+## v1.3.15/zh/api/gui/ScreenManager.md  (5)
+   -> ../../engine/EngineScreenManager
+   -> ../../campaign-ext/ScreenBase
+   -> ../../campaign-ext/ScreenLayer
+   -> ../../engine/GauntletLayer
+   -> ../../core-extra/ViewModel
+
+## v1.3.15/zh/api/localization/TextObject.md  (6)
+   -> ../MBTextManager
+   -> ../LocalizedTextManager
+   -> ../../campaign/Hero/
+   -> ../../core/ItemObject/
+   -> ../../core-extra/InformationManager/
+   -> ../../core-extra/Game/
+
+## v1.3.15/zh/api/mission-ext/MBGameManager.md  (8)
+   -> ../../core/MBSubModuleBase/
+   -> ../../core-extra/
+   -> ../../core-extra/Game/
+   -> ../../campaign/Campaign/
+   -> ../../campaign-ext/CampaignGameStarter/
+   -> ../../core-extra/IGameStarter/
+   -> ../../save-system/SaveManager/
+   -> ../../campaign-ext/MBObjectManager/
+
+## v1.3.15/zh/api/mission/Agent.md  (4)
+   -> ../Team/
+   -> ../Formation/
+   -> ../MissionBehavior/
+   -> ../../mission-ext/MissionObject/
+
+## v1.3.15/zh/api/mission/Mission.md  (5)
+   -> ../MissionBehavior/
+   -> ../Agent/
+   -> ../Team/
+   -> ../Formation/
+   -> ../../mission-ext/MissionObject/
+
+## v1.3.15/zh/api/mission/MissionBehavior.md  (4)
+   -> ../Agent/
+   -> ../../campaign-ext/CampaignBehaviorBase/
+   -> ../../mission-ext/MissionLogic/
+   -> ../../mission-ext/MissionObject/
+
+## v1.3.15/zh/api/save-system/AutoGeneratedSaveManager.md  (3)
+   -> ../SaveManager/
+   -> ../../campaign-ext/CampaignBehaviorBase/
+   -> ../DefinitionContext/
+
+## v1.3.15/zh/api/save-system/SaveManager.md  (4)
+   -> ../AutoGeneratedSaveManager/
+   -> ../../campaign-ext/CampaignBehaviorBase/
+   -> ../../campaign/Campaign/
+   -> ../../../architecture/save-system/
+
+## v1.3.15/zh/api/save-system/SaveableFieldAttribute.md  (13)
+   -> ../SaveableTypeDefiner/
+   -> ../DefinitionContext/
+   -> ../ContainerDefinition/
+   -> ../ContainerType/
+   -> ../FieldDefinition/
+   -> ../MemberTypeId/
+   -> ../ObjectLoadData/
+   -> ../SaveManager/
+   -> ../SaveablePropertyAttribute/
+   -> ../TypeDefinition/
+   -> ../../core/MBSubModuleBase/
+   -> ../../../architecture/save-system/
+   -> ../../../architecture/sdk-overview/
+
+## v1.3.15/zh/api/save-system/SaveablePropertyAttribute.md  (6)
+   -> ../SaveableFieldAttribute/
+   -> ../SaveableTypeDefiner/
+   -> ../TypeDefinition/
+   -> ../PropertyDefinition/
+   -> ../SaveManager/
+   -> ../ContainerDefinition/
+
+## v1.3.15/zh/architecture/module-system.md  (16)
+   -> ../sdk-overview/
+   -> ../../api/
+   -> ../save-system/
+   -> ../version-delta/
+   -> ../../../../versions/CampaignBehaviorBase/
+   -> ../../api/campaign/Campaign/
+   -> ../../../../versions/MissionBehavior/
+   -> ../../../../versions/Mission/
+   -> ../../api/core-extra/ViewModel/
+   -> ../../api/gui/GauntletMovie/
+   -> ../../../../versions/QuestBase/
+   -> ../../../../versions/IssueBase/
+   -> ../../guide/gauntlet-ui/
+   -> ../../api/viewmodel/
+   -> ../../guide/campaign-system/
+   -> ../../guide/mission-system/
+
+## v1.3.15/zh/architecture/save-system.md  (7)
+   -> ../sdk-overview/
+   -> ../../api/
+   -> ../module-system/
+   -> ../version-delta/
+   -> ../../api/save-system/
+   -> ../../api/save-system/SaveManager/
+   -> ../../guide/save-system-guide/
+
+## v1.3.15/zh/architecture/sdk-overview.md  (42)
+   -> ../../api/
+   -> ../../guide/
+   -> ../module-system/
+   -> ../save-system/
+   -> ../version-delta/
+   -> ../../api/core/
+   -> ../../api/core-extra/
+   -> ../../api/campaign/
+   -> ../../guide/campaign-system/
+   -> ../../api/mission/
+   -> ../../guide/mission-system/
+   -> ../../api/gui/
+   -> ../../guide/gauntlet-ui/
+   -> ../../api/save-system/
+   -> ../../api/localization/
+   -> ../../guide/localization/
+   -> ../../api/engine/
+   -> ../../api/viewmodel/
+   -> ../../api/campaign-ext/
+   -> ../../api/mission-ext/
+   -> ../../api/campaign/Campaign/
+   -> ../../../../versions/CampaignBehaviorBase/
+   -> ../../../../versions/Hero/
+   -> ../../../../versions/MobileParty/
+   -> ../../../../versions/Kingdom/
+   -> ../../../../versions/Clan/
+   -> ../../../../versions/Settlement/
+   -> ../../../../versions/Town/
+   -> ../../../../versions/Village/
+   -> ../../../../versions/Mission/
+   -> ../../../../versions/MissionBehavior/
+   -> ../../api/mission/Agent/
+   -> ../../../../versions/Formation/
+   -> ../../api/mission/Team/
+   -> ../../../../versions/ItemObject/
+   -> ../../api/campaign-ext/MBObjectManager/
+   -> ../../api/localization/TextObject/
+   -> ../../../../versions/QuestBase/
+   -> ../../../../versions/IssueBase/
+   -> ../../api/core-extra/ViewModel/
+   -> ../../api/gui/GauntletMovie/
+   -> ../../api/save-system/SaveManager/
+
+## v1.3.15/zh/architecture/version-delta.md  (17)
+   -> ../../../../versions/
+   -> ../sdk-overview/
+   -> ../module-system/
+   -> ../save-system/
+   -> ../../../../versions/MobileParty/
+   -> ../../../../versions/Clan/
+   -> ../../../../versions/Kingdom/
+   -> ../../../../versions/Mission/
+   -> ../../../../versions/Formation/
+   -> ../../../../versions/Settlement/
+   -> ../../../../versions/IssueBase/
+   -> ../../../../versions/CampaignBehaviorBase/
+   -> ../../../../versions/QuestBase/
+   -> ../../../../versions/MissionBehavior/
+   -> ../../../../versions/ItemObject/
+   -> ../../../../versions/Town/
+   -> ../../../../versions/Village/
+
+## v1.3.15/zh/guide/asset-pipeline.md  (5)
+   -> ../../xml-reference/
+   -> ../../api/campaign-ext/MBObjectManager/
+   -> ../../api/engine/Utilities/
+   -> ../localization/
+   -> ../common-patterns/
+
+## v1.3.15/zh/guide/campaign-system.md  (7)
+   -> ../../api/campaign/Campaign/
+   -> ../../api/campaign/MobileParty/
+   -> ../../api/campaign/Kingdom/
+   -> ../../api/campaign/Clan/
+   -> ../../api/campaign/Settlement/
+   -> ../save-system-guide/
+   -> ../mission-system/
+
+## v1.3.15/zh/guide/common-patterns.md  (4)
+   -> ../../api/
+   -> ../../architecture/
+   -> ../game-systems-overview/
+   -> ../troubleshooting/
+
+## v1.3.15/zh/guide/game-systems-overview.md  (5)
+   -> ../mission-system/
+   -> ../campaign-system/
+   -> ../../architecture/
+   -> ../troubleshooting/
+   -> ../common-patterns/
+
+## v1.3.15/zh/guide/gauntlet-ui.md  (6)
+   -> ../../api/gui/GauntletMovie/
+   -> ../../api/gui/
+   -> ../../api/gui/ScreenManager/
+   -> ../../api/viewmodel/
+   -> ../mission-system/
+   -> ../campaign-system/
+
+## v1.3.15/zh/guide/localization.md  (5)
+   -> ../../api/localization/MBTextManager/
+   -> ../../api/localization/TextObject/
+   -> ../../api/localization/LanguageData/
+   -> ../common-patterns/
+   -> ../game-systems-overview/
+
+## v1.3.15/zh/guide/mission-system.md  (7)
+   -> ../../api/mission/Mission/
+   -> ../../api/mission/MissionBehavior/
+   -> ../../api/mission/Agent/
+   -> ../../api/mission/Formation/
+   -> ../../api/mission/Team/
+   -> ../campaign-system/
+   -> ../gauntlet-ui/
+
+## v1.3.15/zh/guide/save-system-guide.md  (6)
+   -> ../../api/save-system/SaveManager/
+   -> ../../api/save-system/
+   -> ../../api/save-system/AutoGeneratedSaveManager/
+   -> ../../architecture/save-system/
+   -> ../common-patterns/
+   -> ../campaign-system/
+
+## v1.3.15/zh/guide/troubleshooting.md  (2)
+   -> ../save-system-guide/
+   -> ../common-patterns/
+
+## v1.3.15/zh/native-1.3.15-src/COMPLETE-FUNCTIONS.md  (6)
+   -> ../exports-and-bridge/
+   -> ../../native/EngineMethod/
+   -> ../../native/NativeObject/
+   -> ../../native/INativeArray/
+   -> ../../native/INativeString/
+   -> ../scene/
+
+## v1.3.15/zh/native-1.3.15-src/engine-core.md  (1)
+   -> ../exports-and-bridge/
+
+## v1.3.15/zh/native-1.3.15-src/exports-and-bridge.md  (8)
+   -> ../../native/
+   -> ../../native/LibraryApplicationInterface/
+   -> ../../native/EngineMethod/
+   -> ../scene/
+   -> ../../native/NativeObject/
+   -> ../../native/INativeArray/
+   -> ../../native/INativeString/
+   -> ../../native/INativeObjectArray/
+
+## v1.4.5/en/api/campaign-ext/AddCompanionAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/AddHeroToPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/AdoptHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/ApplyHeirSelectionAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/BeHostileAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/BreakInOutBesiegedSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/BribeGuardsAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/ChangeClanInfluenceAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/ChangeClanLeaderAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/ChangeCrimeRatingAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/ChangeGovernorAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/ChangeKingdomAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/ChangeOwnerOfSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/ChangeOwnerOfWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/ChangeProductionTypeOfWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/ChangeRelationAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/ChangeRomanticStateAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/ChangeShipOwnerAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/ChangeVillageStateAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/ClaimSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/DeclareWarAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/DestroyClanAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/DestroyKingdomAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/DestroyPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/DestroyShipAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/DisableHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/DisbandArmyAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/DisbandPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/EndCaptivityAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/EndMercenaryServiceAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/EnterSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/GainKingdomInfluenceAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/GainRenownAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/GatherArmyAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/GiveGoldAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/GiveItemAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/IncreaseSettlementHealthAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/InitializeWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/KillCharacterAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/LeaveSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/LiftSiegeAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/MakeHeroFugitiveAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/MakePeaceAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/MakePregnantAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/MarriageAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/PayForCrimeAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/RemoveCompanionAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/RepairShipAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/SellGoodsForTradeAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/SellItemsAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/SellPrisonersAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/SetPartyAiAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/SiegeAftermath.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/SiegeAftermathAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/StartBattleAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/StartMercenaryServiceAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/TakePrisonerAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/TeleportHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign-ext/TransferPrisonerAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/en/api/campaign/Campaign.md  (6)
+   -> ../core/MBSubModuleBase.md
+   -> Hero.md
+   -> Settlement.md
+   -> MobileParty.md
+   -> Clan.md
+   -> ../mission/Mission.md
+
+## v1.4.5/en/api/core/Game.md  (4)
+   -> ./MBSubModuleBase.md
+   -> ./MBObjectBase.md
+   -> ../campaign/Campaign.md
+   -> ../mission/Mission.md
+
+## v1.4.5/zh/api/campaign-ext/AddCompanionAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/AddHeroToPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/AdoptHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/ApplyHeirSelectionAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/BeHostileAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/BreakInOutBesiegedSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/BribeGuardsAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/ChangeClanInfluenceAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/ChangeClanLeaderAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/ChangeCrimeRatingAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/ChangeGovernorAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/ChangeKingdomAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/ChangeOwnerOfSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/ChangeOwnerOfWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/ChangeProductionTypeOfWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/ChangeRelationAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/ChangeRomanticStateAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/ChangeShipOwnerAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/ChangeVillageStateAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/ClaimSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/DeclareWarAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/DestroyClanAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/DestroyKingdomAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/DestroyPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/DestroyShipAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/DisableHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/DisbandArmyAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/DisbandPartyAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/EndCaptivityAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/EndMercenaryServiceAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/EnterSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/GainKingdomInfluenceAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/GainRenownAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/GatherArmyAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/GiveGoldAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/GiveItemAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/IncreaseSettlementHealthAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/InitializeWorkshopAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/KillCharacterAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/LeaveSettlementAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/LiftSiegeAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/MakeHeroFugitiveAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/MakePeaceAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/MakePregnantAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/MarriageAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/PayForCrimeAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/RemoveCompanionAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/RepairShipAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/SellGoodsForTradeAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/SellItemsAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/SellPrisonersAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/SetPartyAiAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/SiegeAftermath.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/SiegeAftermathAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/StartBattleAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/StartMercenaryServiceAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/TakePrisonerAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/TeleportHeroAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign-ext/TransferPrisonerAction.md  (1)
+   -> ../../campaign/
+
+## v1.4.5/zh/api/campaign/Campaign.md  (6)
+   -> ../core/MBSubModuleBase.md
+   -> Hero.md
+   -> Settlement.md
+   -> MobileParty.md
+   -> Clan.md
+   -> ../mission/Mission.md
+
+## v1.4.5/zh/api/core/Game.md  (4)
+   -> ./MBSubModuleBase.md
+   -> ./MBObjectBase.md
+   -> ../campaign/Campaign.md
+   -> ../mission/Mission.md

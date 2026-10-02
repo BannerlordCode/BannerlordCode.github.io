@@ -1,0 +1,353 @@
+{
+  "$schema": "internal://v153-nav-spec",
+  "version": "1.0.0",
+  "generatedFor": "content/v1.5.3",
+  "status": "PROPOSAL — no shared file was modified. Lead/Boss applies these patches.",
+
+  "authoritativeInputs": {
+    "dirMap": "tools/_dir-map-canonical.json",
+    "dirMapVersion": "2026-08-24",
+    "sourceTree": "C:/WorkSpace/Bannerlord/bannerlord-1.5.3",
+    "sourceFacts": {
+      "csFiles": 11487,
+      "namespaces": 621,
+      "taleWorldsAssemblyDirs": 68,
+      "ilspyMarkedFiles": 11398
+    },
+    "note": "Slug assignment is NOT invented here. Every bucket below is the output of dirMap.rules[] + entryPointDirs[] applied to the real 1.5.3 namespace set, matched LONGEST-PREFIX-FIRST."
+  },
+
+  "matchingRule": {
+    "strategy": "longest-prefix-first",
+    "why": "dirMap.rules[] is already ordered longest-prefix-first in the canonical file. A naive first-match walk would send TaleWorlds.MountAndBlade.CustomBattle (rule 8, custombattle) into TaleWorlds.MountAndBlade (rule 18, mission-ext). The ordering is correct in the canonical artifact; do not re-sort it in the consumer, and never re-introduce first-match.",
+    "matchTest": "ns === rule.prefix || ns.startsWith(rule.prefix + '.')",
+    "entryPointSemantics": "Re-read from the CURRENT file (2026-08-24, Boss-repaired). entryPointDirs is now a clean TypeName->dir string map with 7 real overrides, applied by exact case-sensitive simple type name AFTER longest-prefix resolution: Mission, MissionState, MissionBehavior, Agent, Formation -> mission; MBSubModuleBase, Module -> core. The four documentation keys (_match, _why, _parityGaps, _noModuleManager) MUST be filtered out before use or they will be misread as overrides. All 7 verified to resolve to their declared bucket."
+  },
+
+  "patchTargets": [
+    {
+      "id": "P1",
+      "file": "data/navigation.json",
+      "priority": "CRITICAL — this is the on/off switch for the whole version",
+      "insertAt": "meta.versions array",
+      "currently": ["v1.3.15", "v1.3.0", "v1.4.5"],
+      "insert": "\"v1.5.3\"",
+      "result": ["v1.3.15", "v1.3.0", "v1.4.5", "v1.5.3"],
+      "why": "templates/macros/sidebar.html line ~20 does `if nav.meta.versions is containing(current_version)`. If v1.5.3 is absent from this array the macro sets root_key=\"\" and falls through to the flat 'Site Navigation' fallback list — the version gets NO tree sidebar at all. This single array member is what makes v1.5.3 a first-class version."
+    },
+    {
+      "id": "P2",
+      "file": "data/navigation.json",
+      "priority": "CRITICAL",
+      "insertAt": "routes[\"/\"].children",
+      "currently": ["/v1.3.0/", "/v1.3.15/", "/v1.4.5/", "/versions/"],
+      "insert": "\"/v1.5.3/\"",
+      "note": "Keep the list's existing lexicographic order; /v1.5.3/ sorts after /v1.4.5/."
+    },
+    {
+      "id": "P3",
+      "file": "data/navigation.json",
+      "priority": "CRITICAL",
+      "insertAt": "routes — new entries (see routesBlock below)",
+      "insert": "<routesBlock>",
+      "note": "Every route object must carry label{zh,en}, group, collapsed, order, parent, children. Shapes copied from the v1.3.15/v1.4.5 entries."
+    },
+    {
+      "id": "P4",
+      "file": "data/section-tree.json",
+      "priority": "HIGH",
+      "insertAt": "byRoute — new entries",
+      "insert": "<sectionTreeBlock>",
+      "note": "section-tree supplies subsections+title+pages for routes that navigation.json does not curate. The sidebar macro merges both (curated children first, then section-tree subsections). Regenerate with `node tools/generate-section-tree.mjs` if that tool discovers the new tree; otherwise hand-add per sectionTreeBlock."
+    },
+    {
+      "id": "P5",
+      "file": "content/_index.md",
+      "priority": "MEDIUM",
+      "insertAt": "'## 选择版本 / Select Version' table — new row",
+      "insert": "| **v1.5.3** | 最新 / Newest | [查看文档 / View Docs](./v1.5.3/) |",
+      "alsoUpdate": [
+        "The '## 版本对比 / Version Comparison' bullet list — add a v1.5.3 subsection",
+        "The <!-- BEGIN SECTION INDEX --> '站点栏目 / Site Sections' list — add '- [Bannerlord v1.5.3 / Bannerlord v1.5.3 Documentation](./v1.5.3/)'"
+      ]
+    },
+    {
+      "id": "P6",
+      "file": "templates/partials/topnav.html",
+      "priority": "HIGH",
+      "insertAt": "the hard-coded version <a>/<li> list",
+      "insert": "<a href=\"/v1.5.3/\">v1.5.3</a>",
+      "note": "Boss measured this as the ONLY template that hard-codes a version. It is not covered by navigation.json, so without this the top nav will still only offer v1.3.15."
+    },
+    {
+      "id": "P7",
+      "file": "data/page-navigation.json",
+      "priority": "MEDIUM",
+      "insertAt": "whole file",
+      "insert": "REGENERATE — do not hand-write",
+      "command": "node tools/generate-page-navigation.mjs",
+      "note": "Builds per-leaf Parent/Previous/Next/Related routes. Must be re-run AFTER content/v1.5.3/** lands, otherwise every v1.5.3 leaf renders with no prev/next."
+    },
+    {
+      "id": "P8",
+      "file": "config.toml",
+      "priority": "NONE",
+      "action": "NO CHANGE REQUIRED",
+      "note": "Boss verified config.toml contains zero version references. It has no [sections] table at all; the content tree is the section tree. Do not add anything here."
+    },
+    {
+      "id": "P9",
+      "file": "templates/macros/sidebar.html",
+      "priority": "NONE",
+      "action": "NO CHANGE REQUIRED",
+      "note": "The brief's assumption that v1.3.15 menus are hard-coded here is OUTDATED. The macro is fully data-driven: it load_data()s navigation.json + section-tree.json and loops nav.routes / nav.groups / nav.meta.versions. Zero version or bucket names appear in the file. A new version needs zero Tera changes."
+    },
+    {
+      "id": "P10",
+      "file": "templates/partials/sidebar.html",
+      "priority": "NONE",
+      "action": "NO CHANGE REQUIRED",
+      "note": "It only imports the macro and derives lang from page.lang. Version dispatch is entirely navigation.json's job. Verify-only: confirm `page.lang` frontmatter is set on content/v1.5.3/{zh,en}/** or lang falls back to config.default_language ('en') and the zh sidebar renders English labels."
+    }
+  ],
+
+  "bucketTaxonomy": {
+    "derivation": "dirMap.rules[] (38 entries) + dirMap.entryPointDirs[] (6 buckets) applied to the 621 real 1.5.3 namespaces, longest-prefix-first.",
+    "defaultDir": "core-extra",
+    "orderingRationale": "Ordered by dependency layer (foundation → campaign → mission → ui → gameplay), matching the existing v1.3.15/v1.4.5 sidebar order so a reader who learned the old site finds the new one in the same place.",
+    "buckets": [
+      { "slug": "core", "zh": "模块入口", "en": "Module Entry", "group": "core", "order": 0, "ruleIds": [], "sourcePrefixes": [], "entryPointOnly": true, "typesAfterOverride": 2, "note": "Has NO rule prefix. Exists only because entryPointDirs.core claims MBSubModuleBase + Module. Both live in TaleWorlds.MountAndBlade (rule 18 -> mission-ext) and are pulled out of it." },
+      { "slug": "core-extra", "zh": "核心扩展", "en": "Core Extra", "group": "core", "order": 1, "ruleIds": [16, 27, 29, 32, 33, 36], "sourcePrefixes": ["TaleWorlds.DotNet", "TaleWorlds.LinQuick", "TaleWorlds.Library", "TaleWorlds.Starter", "TaleWorlds.Core"], "typesAfterOverride": 5157, "namespaces": 132, "foreignNamespaces": 110, "WARNING": "110 of its 132 namespaces are NOT Bannerlord code — they arrive via defaultDir (System.*, Microsoft.*, Newtonsoft.Json.*, Jose.*, StbSharp, Steamworks, psai.*, Messages.*, NetworkMessages.*, Helpers, MBHelpers, ManagedCallbacks, ManagedStarter). Only 22 namespaces here are genuinely TaleWorlds.Core/DotNet/Library/Starter. See openItems.O1. The landed bucket is 570 pages, i.e. the generator correctly did NOT publish the foreign namespaces." },
+      { "slug": "localization", "zh": "本地化", "en": "Localization", "group": "core", "order": 2, "ruleIds": [19], "sourcePrefixes": ["TaleWorlds.Localization"], "typesAfterOverride": 50, "namespaces": 4, "note": "No entry-point override applies. TextObject, MBTextManager and the text processors all stay here. CORRECTED 2026-10-02: an earlier draft of this spec claimed TextObject was pulled to core-extra. That came from a stale entryPointDirs. The canonical _why states explicitly 'TextObject->localization (NOT core-extra)', and TextObject.md is on disk at api/localization/." },
+      { "slug": "system", "zh": "系统", "en": "System", "group": "core", "order": 3, "ruleIds": [23, 35], "sourcePrefixes": ["TaleWorlds.InputSystem", "TaleWorlds.System"], "typesAfterOverride": 20, "namespaces": 1, "note": "TaleWorlds.System matched 0 namespaces in 1.5.3; only TaleWorlds.InputSystem is live." },
+      { "slug": "modulemanager", "zh": "模块管理", "en": "Module Manager", "group": "core", "order": 4, "ruleIds": [17], "sourcePrefixes": ["TaleWorlds.ModuleManager"], "typesAfterOverride": 8, "namespaces": 1, "note": "NOT empty. The namespace TaleWorlds.ModuleManager exists and holds 8 public/internal types (DependedModule, Extensions, IPlatformModuleExtension, ModuleCategory, ModuleHelper, ModuleInfo, ModuleType, SubModuleInfo). There is NO ModuleManager TYPE in any version — verified by full-tree scan — so nothing overrides this bucket. Never synthesize a ModuleManager page." },
+      { "slug": "activitysystem", "zh": "活动系统", "en": "Activity System", "group": "core", "order": 5, "ruleIds": [15], "sourcePrefixes": ["TaleWorlds.ActivitySystem"], "typesAfterOverride": 6, "namespaces": 1 },
+      { "slug": "achievementsystem", "zh": "成就系统", "en": "Achievement System", "group": "core", "order": 6, "ruleIds": [13], "sourcePrefixes": ["TaleWorlds.AchievementSystem"], "typesAfterOverride": 4, "namespaces": 1 },
+      { "slug": "network", "zh": "网络", "en": "Network", "group": "core", "order": 7, "ruleIds": [31], "sourcePrefixes": ["TaleWorlds.Network"], "typesAfterOverride": 38, "namespaces": 1, "note": "NEW domain vs the v1.4.5 tree." },
+      { "slug": "campaign", "zh": "战役核心", "en": "Campaign Core", "group": "campaign", "order": 10, "ruleIds": [16], "sourcePrefixes": ["TaleWorlds.CampaignSystem"], "typesAfterOverride": 700, "namespaces": 39, "note": "The ROOT CampaignSystem namespace only. Sub-domains (CampaignBehaviors/Conversation/GameComponents/ComponentInterfaces/Issues/SandBox/PartyBasedVisitables) are split out to campaign-ext by rules 1,2,4,5,6,7,10,11. GameModels stays here." },
+      { "slug": "campaign-ext", "zh": "战役扩展", "en": "Campaign Ext", "group": "campaign", "order": 11, "ruleIds": [1, 2, 4, 5, 6, 7, 10, 11, 20], "sourcePrefixes": ["TaleWorlds.CampaignSystem.CampaignBehaviors", "TaleWorlds.CampaignSystem.ComponentInterfaces", "TaleWorlds.CampaignSystem.Conversation", "TaleWorlds.CampaignSystem.GameComponents", "TaleWorlds.CampaignSystem.Issues", "TaleWorlds.CampaignSystem.SandBox", "TaleWorlds.ObjectSystem"], "typesAfterOverride": 786, "namespaces": 12, "note": "TaleWorlds.ObjectSystem lands HERE (rule 20), not in a bucket of its own. Per Boss: do not create an objectsystem bucket." },
+      { "slug": "mission", "zh": "任务", "en": "Mission", "group": "mission", "order": 20, "ruleIds": [], "sourcePrefixes": [], "entryPointOnly": true, "typesAfterOverride": 5, "namespaces": 0, "note": "Entry-point-only bucket; owns no namespace of its own. All 5 types are pulled out of TaleWorlds.MountAndBlade (rule 18, mission-ext). Verified landed: exactly Mission, MissionState, MissionBehavior, Agent, Formation." },
+      { "slug": "mission-ext", "zh": "任务扩展", "en": "Mission Ext", "group": "mission", "order": 21, "ruleIds": [18, 30], "sourcePrefixes": ["TaleWorlds.MountAndBlade", "TaleWorlds.Mission"], "typesAfterOverride": 2371, "namespaces": 190, "note": "Largest real bucket. Carries the whole MountAndBlade assembly minus the 5 mission entry points." },
+      { "slug": "gui", "zh": "界面", "en": "GUI", "group": "ui", "order": 30, "ruleIds": [14, 21, 22, 25], "sourcePrefixes": ["TaleWorlds.ScreenSystem", "TaleWorlds.GauntletUI", "TaleWorlds.TwoDimension", "TaleWorlds.Engine.GauntletUI"], "typesAfterOverride": 335, "namespaces": 16, "note": "ScreenSystem is MERGED into gui per Boss ruling — no screensystem bucket. ScreenManager/ScreenBase/ScreenLayer resolve to gui by the prefix rules already, so no override is needed. Note GauntletLayer is NOT here: it lives in TaleWorlds.Engine, hence the engine bucket." },
+      { "slug": "engine", "zh": "引擎", "en": "Engine", "group": "ui", "order": 31, "ruleIds": [12, 28, 34], "sourcePrefixes": ["TaleWorlds.Engine", "TaleWorlds.Engine.InputSystem", "TaleWorlds.Diamond"], "typesAfterOverride": 271, "namespaces": 13, "note": "Holds MBDebug and GauntletLayer (both TaleWorlds.Engine) plus the whole Diamond online-service abstraction. Neither needs an override; the prefix rules already place them here." },
+      { "slug": "save-system", "zh": "存档系统", "en": "Save System", "group": "foundation", "order": 40, "ruleIds": [26], "sourcePrefixes": ["TaleWorlds.SaveSystem"], "typesAfterOverride": 100, "namespaces": 5 },
+      { "slug": "viewmodel", "zh": "视图模型", "en": "ViewModel", "group": "ui", "order": 32, "ruleIds": [3, 4, 9], "sourcePrefixes": ["TaleWorlds.CampaignSystem.ViewModelCollection", "TaleWorlds.MountAndBlade.ViewModelCollection", "TaleWorlds.Core.ViewModelCollection"], "typesAfterOverride": 621, "namespaces": 93 },
+      { "slug": "sandbox", "zh": "沙盒", "en": "SandBox", "group": "gameplay", "order": 50, "ruleIds": [38], "sourcePrefixes": ["SandBox"], "typesAfterOverride": 1289, "namespaces": 82 },
+      { "slug": "storymode", "zh": "剧情模式", "en": "StoryMode", "group": "gameplay", "order": 51, "ruleIds": [37], "sourcePrefixes": ["StoryMode"], "typesAfterOverride": 193, "namespaces": 25 },
+      { "slug": "custombattle", "zh": "自定义战斗", "en": "Custom Battle", "group": "gameplay", "order": 52, "ruleIds": [8], "sourcePrefixes": ["TaleWorlds.MountAndBlade.CustomBattle"], "typesAfterOverride": 41, "namespaces": 5, "note": "Survives ONLY because of longest-prefix-first: rule 8 outranks rule 18 (TaleWorlds.MountAndBlade). Under first-match it would have been swallowed by mission-ext." },
+      { "slug": "boardgames", "zh": "桌游", "en": "Board Games", "group": "gameplay", "order": 53, "ruleIds": [24], "sourcePrefixes": ["TaleWorlds.BoardGames"], "typesAfterOverride": 0, "namespaces": 0, "note": "RULE EXISTS BUT THE NAMESPACE DOES NOT in 1.5.3 (0 matches). Either omit this bucket or ship it empty. Do not fabricate content for it." }
+    ],
+    "groupSummary": [
+      { "group": "core", "labelZh": "核心与基础", "labelEn": "Core & Foundation", "order": 10, "buckets": ["core", "core-extra", "localization", "system", "modulemanager", "activitysystem", "achievementsystem", "network"] },
+      { "group": "campaign", "labelZh": "战役", "labelEn": "Campaign", "order": 20, "buckets": ["campaign", "campaign-ext"] },
+      { "group": "mission", "labelZh": "任务", "labelEn": "Mission", "order": 30, "buckets": ["mission", "mission-ext"] },
+      { "group": "ui", "labelZh": "界面", "labelEn": "UI", "order": 40, "buckets": ["gui", "viewmodel", "engine"] },
+      { "group": "foundation", "labelZh": "持久化", "labelEn": "Persistence", "order": 50, "buckets": ["save-system"] },
+      { "group": "gameplay", "labelZh": "玩法模块", "labelEn": "Gameplay Modules", "order": 60, "buckets": ["sandbox", "storymode", "custombattle", "boardgames"] }
+    ]
+  },
+
+  "bidirectionalSlugTable": {
+    "columns": ["v1.5.3 api bucket slug", "<- source namespace / module", "<- canonical rule id + prefix", "1.4.5 tree directory"],
+    "note": "The 4th column is the LEGACY v1.4.5 page directory that a reader migrating across versions will look in. It is documentation-only: Boss ruled the v1.4.5 tree is NOT a safe source of truth (2199 duplicated type names, 171/513 split namespaces), so 1.5.3 slugs follow dirMap only.",
+    "rows": [
+      ["core", "(entry point only) MBSubModuleBase, Module", "entryPointDirs.core — no rule", "core"],
+      ["core-extra", "TaleWorlds.Core, .DotNet, .Library, .LinQuick, .Starter, .ViewModelCollection(base)", "rules 16/27/29/32/33/36", "core-extra"],
+      ["localization", "TaleWorlds.Localization", "rule 19", "localization"],
+      ["system", "TaleWorlds.InputSystem", "rules 23/35", "system"],
+      ["modulemanager", "TaleWorlds.ModuleManager", "rule 17", "(no 1.4.5 dir)"],
+      ["activitysystem", "TaleWorlds.ActivitySystem", "rule 15", "(no 1.4.5 dir)"],
+      ["achievementsystem", "TaleWorlds.AchievementSystem", "rule 13", "(no 1.4.5 dir)"],
+      ["network", "TaleWorlds.Network", "rule 31", "(no 1.4.5 dir)"],
+      ["campaign", "TaleWorlds.CampaignSystem (root ns only)", "rule 16", "campaign"],
+      ["campaign-ext", "TaleWorlds.CampaignSystem.{CampaignBehaviors,ComponentInterfaces,Conversation,GameComponents,Issues,SandBox} + TaleWorlds.ObjectSystem", "rules 1/2/4/5/6/7/10/11/20", "campaign-ext"],
+      ["mission", "(entry point only) Mission, Agent, Formation", "entryPointDirs.mission — no rule", "mission"],
+      ["mission-ext", "TaleWorlds.MountAndBlade, TaleWorlds.Mission", "rules 18/30", "mission-ext"],
+      ["gui", "TaleWorlds.ScreenSystem, .GauntletUI, .TwoDimension, .Engine.GauntletUI", "rules 14/21/22/25", "gui + campaign-ext(ScreenBase/ScreenLayer dupes)"],
+      ["engine", "TaleWorlds.Engine, .Engine.InputSystem, .Diamond", "rules 12/28/34", "engine"],
+      ["viewmodel", "TaleWorlds.CampaignSystem.ViewModelCollection, .MountAndBlade.ViewModelCollection, .Core.ViewModelCollection", "rules 3/4/9", "viewmodel"],
+      ["save-system", "TaleWorlds.SaveSystem", "rule 26", "save-system"],
+      ["sandbox", "SandBox", "rule 38", "gameplay/sandbox"],
+      ["storymode", "StoryMode", "rule 37", "gameplay/storymode"],
+      ["custombattle", "TaleWorlds.MountAndBlade.CustomBattle", "rule 8", "(no 1.4.5 dir)"],
+      ["boardgames", "TaleWorlds.BoardGames", "rule 24", "(no 1.4.5 dir) — EMPTY in 1.5.3"]
+    ]
+  },
+
+  "leafDerivation": {
+    "principle": "Leaf pages are DERIVED from content/v1.5.3/{lang}/api/**, not enumerated here. This spec has ~20 buckets; the leaf list is in the thousands. Enumerating it would go stale the moment worker-3/worker-4 land a page.",
+    "rule": "For every file content/v1.5.3/{lang}/api/<slug>/<Type>.md there is exactly one Zola route /v1.5.3/{lang}/api/<slug>/<Type>/. The sidebar picks it up automatically because templates/macros/sidebar.html renders tree.byRoute[<bucket>].pages as 'has_children' and the section-tree lists subsections; a leaf needs NO navigation.json entry.",
+    "collisionRule": "If two namespaces mapped to the same bucket export the same simple type name, the file is <NamespaceLeaf>__<TypeName>.md (e.g. Campaign__IFaction.md). Never write two files for one type. Source: dirMap.collisionRule.",
+    "counts": "Per-bucket type counts are in bucketTaxonomy.buckets[].typesAfterOverride; sum = 11989 public/internal types across Bannerlord namespaces."
+  },
+
+  "hierarchy": {
+    "principle": "Every level links UP, DOWN, and SIDEWAYS. No dead ends, no 404. The audit gate is `AUDIT_MODE=url AUDIT_CONTENT_ROOT=content/v1.5.3 node tools/audit-links.mjs` — BROKEN_LINKS must be 0.",
+    "criticalRule": "audit-links.mjs treats each page route as its own DIRECTORY. So from a leaf at /v1.5.3/zh/api/campaign/Hero/ you must write ../campaign/ to reach its bucket, NOT ./campaign/. Step up once, then across. The mirror image: a SECTION INDEX at /v1.5.3/zh/api/campaign/ links to its own children with ./Hero, because its route directory is already api/campaign/. Getting these two backwards is the classic cause of the 'jump once and 404' complaint.",
+    "selfCheck": "Rule of thumb: count how many .md files sit between your page and the bucket you are addressing. A bucket index is 0 levels deep from its bucket, so ./ is right; a leaf is 1 level deep, so ../ is right.",
+    "table": [
+      {
+        "level": "L4 leaf class page",
+        "path": "content/v1.5.3/{lang}/api/<slug>/<Type>.md",
+        "route": "/v1.5.3/{lang}/api/<slug>/<Type>/",
+        "up": {
+          "toParentBucket": "[`<slug>` 目录](../)",
+          "note": "One .. because the leaf's own directory IS the bucket directory. Do NOT write ./ — that resolves to a child of the page."
+        },
+        "down": "none — it is a leaf",
+        "sidewaysPrevNext": {
+          "prev": "[`← <PrevType>`](../<PrevType>)",
+          "next": "[`<NextType> →`](../<NextType>)",
+          "siblingRule": "Same bucket only. Sibling leaf pages use ../<Type> with NO trailing slash. Order is supplied by data/page-navigation.json (regenerate, patch P7) — if a hand-written prev/next is preferred, derive it from the bucket's alphabetically sorted Type list and omit the link entirely for the first/last item rather than emitting an empty or dangling anchor."
+        }
+      },
+      {
+        "level": "L3 bucket index",
+        "path": "content/v1.5.3/{lang}/api/<slug>/_index.md",
+        "route": "/v1.5.3/{lang}/api/<slug>/",
+        "up": { "toApiRoot": "[`API 参考`](../)" },
+        "down": { "toLeaves": "one `[`<Type>`](./<Type>)` per leaf in this bucket", "critical": "LEADING ./ is correct HERE and only here. This page's own route directory IS the bucket directory, so ./<Type> resolves to /v1.5.3/{lang}/api/<slug>/<Type>/. Using ../<Type> here would escape up to api/ and 404." },
+        "sidewaysPrevNext": {
+          "prev": "[`← <PrevBucket>`](../<PrevBucket>/)",
+          "next": "[`<NextBucket> →`](../<NextBucket>/)",
+          "order": "bucketTaxonomy.buckets[] order, flattened across groups in groupSummary order"
+        }
+      },
+      {
+        "level": "L2 api index",
+        "path": "content/v1.5.3/{lang}/api/_index.md",
+        "route": "/v1.5.3/{lang}/api/",
+        "up": { "toVersionHome": "[`v1.5.3 首页`](../)" },
+        "down": { "toBuckets": "one `[`<slug>`](./<slug>/)` per bucket — note the LEADING ./ here, because this page's route directory IS /api/, so ./campaign/ is correct and ../campaign/ would escape to the version root" },
+        "sidewaysPrevNext": "siblings are the version's other top sections (architecture, guide): see L1"
+      },
+      {
+        "level": "L1 version home",
+        "path": "content/v1.5.3/{lang}/_index.md",
+        "route": "/v1.5.3/{lang}/",
+        "up": { "toSiteHome": "[`站点首页`](../../)", "toOtherLang": "[`English`](../../en/)` or `[`中文`](../../zh/)`" },
+        "down": { "toSections": "[`API 参考`](./api/)` · [`架构`](./architecture/)`" },
+        "sidewaysPrevNext": {
+          "prevVersion": "[`← v1.4.5`](../../v1.4.5/)",
+          "nextVersion": "none — v1.5.3 is the newest. OMIT the next link entirely; do not emit an empty anchor.",
+          "crossVersionHub": "[`跨版本类对比`](../../versions/)`"
+        }
+      },
+      {
+        "level": "L0 site home",
+        "path": "content/_index.md",
+        "route": "/",
+        "down": { "toVersions": "one row per version in the 选择版本 table — add v1.5.3 per patch P5" },
+        "sidewaysPrevNext": "[`v1.4.5`](./v1.4.5/) · [`v1.3.15`](./v1.3.15/) · [`v1.3.0`](./v1.3.0/) · [`跨版本`](./versions/)"
+      }
+    ],
+    "workedExamples": [
+      { "from": "content/v1.5.3/zh/api/campaign/Hero.md", "up": "[战役核心](../)", "sibling": "[Clan](../Clan)", "down": "n/a" },
+      { "from": "content/v1.5.3/zh/api/campaign/_index.md", "up": "[API 参考](../)", "down": "[Hero](./Hero) · [Clan](./Clan)  <-- ./ not ../", "side": "[战役扩展](../campaign-ext/) · [任务](../mission/)" },
+      { "from": "content/v1.5.3/zh/api/_index.md", "up": "[v1.5.3 首页](../)", "down": "[战役核心](./campaign/) · [界面](./gui/)", "side": "[架构](../architecture/)" },
+      { "from": "content/v1.5.3/zh/architecture/sdk-overview.md", "up": "[架构总览](../)", "side": "[模块地图](../module-map) · [从 1.4.5 迁移](../migration-from-1.4.5)", "down": "[战役核心](../api/campaign/) · [界面](../api/gui/)" },
+      { "from": "content/v1.5.3/zh/_index.md", "up": "[站点首页](../../)", "side": "[v1.4.5](../../v1.4.5/)", "down": "[API 参考](./api/) · [架构](./architecture/)" }
+    ],
+    "sameFileTrap": "A page must never link to itself via its own route. content/v1.5.3/zh/_index.md links to ./api/ and ./architecture/, never to ./ . tools/fix-breadcrumb-self-links.mjs exists for exactly this class of bug."
+  },
+
+  "landedReality": {
+    "measuredAt": "after worker-3 / worker-4 completed both trees",
+    "zh": { "buckets": 19, "leafPages": 5969 },
+    "en": { "buckets": 19, "leafPages": 5969 },
+    "parity": "zh and en are at exact parity: same 19 buckets, same 5969 leaves. Boss's earlier 20-vs-10 bucket gap has closed.",
+    "mappingValidated": "worker-3's landed zh/api contains EXACTLY the 19 buckets this spec predicted from the canonical rules. The canonical mapping is therefore confirmed correct against a real generation run. boardgames was correctly not created (0 namespaces).",
+    "actualLeavesPerBucket": {
+      "mission-ext": 1762, "campaign-ext": 771, "campaign": 706, "sandbox": 669,
+      "viewmodel": 653, "core-extra": 570, "gui": 299, "storymode": 189, "engine": 158,
+      "save-system": 56, "custombattle": 40, "network": 32, "localization": 20,
+      "system": 19, "modulemanager": 9, "activitysystem": 6, "achievementsystem": 4,
+      "mission": 4, "core": 2
+    },
+    "note": "The `typesAfterOverride` figures in bucketTaxonomy are TYPE counts from a source scan and include entries the generator correctly chose not to publish (notably 109 foreign namespaces in core-extra). Treat them as an upper bound, not a coverage target."
+  },
+
+  "carveOutBuckets": {
+    "status": "DELIVERED by worker-3 in zh (verified). en pending with worker-4.",
+    "rule": "The `mission` and `core` buckets exist ONLY to hold mod-facing entry classes that the bulk rules would otherwise bury. They are intentionally tiny. This is expected layout, not a duplicate-route bug.",
+    "bannerRequiredAt": "top of the bucket's _index.md",
+    "bannerZhMission": "> mod 入口类 [Mission](../mission/Mission)、[Agent](../mission/Agent)、[Formation](../mission/Formation) 被单独抽到 Mission 桶，**预期布局、非重复路由**，一个类型只落盘一次。完整战斗 API 在 [Mission-Ext](../mission-ext/)。",
+    "bannerZhCore": "> **完整 API 在 [Core-Extra](../core-extra/)**：Game、GameStateManager、GameManagerBase、TextObject、ViewModel 等运行时基础类型都在那边。本桶只放模块加载入口，**预期布局、不是重复路由**。",
+    "bidirectional": "The parent bucket (_index.md) must link back down to the carve-out bucket, e.g. mission-ext/_index.md carries a line pointing at ../mission/Mission etc. Verified present in zh.",
+    "carveOutJustification": "v1.4.5/mission/ had 78 pages of which 52 were a hand-written flat list of raw TaleWorlds.MountAndBlade types that the namespace-rule approach cannot reproduce. That is WHY this bucket is deliberately small — it is a correction, not a loss."
+  },
+
+  "parityGaps": [
+    { "gap": "1.4.5 api/gameplay/ 19 URLs have no 1.5.3 counterpart", "action": "Do NOT create the bucket and do NOT fabricate pages. sandboxesandbox/storymode were promoted to top-level. Record as expected." },
+    { "gap": "1.4.5 core/Game.md -> 1.5.3 core-extra/Game", "action": "One reassignment; already reflected in the migration guide section 3.2." },
+    { "gap": "1.4.5 mission/ 78 pages, 52 of them a manual flat list", "action": "Not reproducible from namespace rules. Documented as the reason the mission bucket is small. Do not pad it." },
+    { "gap": "en/api had 10 buckets while zh/api had 20", "action": "RESOLVED. worker-4 completed the tree; both are now 19 buckets / 5969 leaves." }
+  ],
+
+  "ownershipBoundary": {
+    "rule": "worker-5 (me) must not write content/v1.5.3/**/api/** — that tree belongs to worker-3 (zh) and worker-4 (en).",
+    "conflictEncountered": "Boss/lead asked worker-5 to add the mission/core carve-out banners directly to zh/api/mission/_index.md and zh/api/core/_index.md. That would have violated the write boundary and risked clobbering concurrent edits in worker-3's tree.",
+    "resolution": "Did NOT write into api/. Verified that worker-3 had already landed the banners (with bidirectional links) in zh. The exact banner text is recorded in carveOutBuckets above as a spec, and the en mirror is worker-4's to land.",
+    "defectsObservedInWorker3Output": [
+      "zh/api/mission/_index.md: the frontmatter + '模块心智模型' block appears TWICE (duplicated prepend).",
+      "zh/api/mission-ext/_index.md: the same carve-out note is repeated 3 times (lines 24, 37, 50) — looks like a per-group template injected per letter group.",
+      "Both use the odd form './../mission/Mission' where '../mission/Mission' is correct. It resolves, but it is not the house style."
+    ]
+  },
+
+  "openItems": [
+    {
+      "id": "O1",
+      "severity": "HIGH",
+      "status": "MITIGATED IN PRACTICE",
+      "item": "core-extra would be 83% foreign code",
+      "measured": "The defaultDir fallback sends 109 non-Bannerlord namespaces (System.*, Microsoft.*, Newtonsoft.Json.*, Jose.*, StbSharp, Steamworks, psai.*, Messages.*, NetworkMessages.*, Helpers, MBHelpers, ManagedCallbacks, ManagedStarter, FxResources.*) into core-extra, implying 5152 types.",
+      "whatActuallyHappened": "The landed core-extra bucket is 570 pages, not 5152. The generator did not publish the foreign namespaces, which matches Boss's note that unmapped entries are meant to be reported rather than published.",
+      "recommendation": "Still worth an explicit ignore-list in dirMap so the behaviour is guaranteed rather than incidental. Leave the shipped pages alone."
+    },
+    {
+      "id": "O2",
+      "severity": "MEDIUM",
+      "status": "RESOLVED — no bucket created",
+      "item": "boardgames bucket is empty",
+      "measured": "rule 24 maps TaleWorlds.BoardGames -> boardgames, but 0 namespaces in 1.5.3 match. (There IS TaleWorlds.MountAndBlade.GauntletUI.Widgets.BoardGame, which falls under mission-ext via rule 18.)",
+      "recommendation": "Omit the bucket. Confirmed: the landed tree has 19 buckets and boardgames is not one of them."
+    },
+    {
+      "id": "O3",
+      "severity": "—",
+      "status": "RESOLVED by Boss — struck 2026-10-02",
+      "item": "entryPointDirs mixed three vocabularies and could not be applied literally",
+      "was": "Values mixed lowercased type names (hero, clan, savemanager), hyphenated slugs that are neither types nor buckets (campaign-data, map-event, mission-state, isavedriver, mobileparty), and one value with an embedded space plus a typo ('saveablet typedefiner'). 4 of 38 entries matched no type at all.",
+      "now": "entryPointDirs is a clean TypeName->dir string map with 7 real overrides, carrying _match (exact simple type name, case-sensitive, applied AFTER longest-prefix resolution), _why, _parityGaps and _noModuleManager. Empty buckets and the typo are gone. Re-derived against the repaired file: all 7 resolve to their declared bucket.",
+      "action": "None. Consumers must still filter the four `_`-prefixed documentation keys before treating the object as an override map."
+    },
+    {
+      "id": "O4",
+      "severity": "LOW (residual, conditional)",
+      "status": "SUBSTANTIALLY RESOLVED — downgraded 2026-10-02",
+      "item": "override by bare type name can drag a same-named BCL or generated type into a mod-facing bucket",
+      "was": "First-match on simple type name resolved Module -> mscorlib/System/Reflection/Module.cs, LoadContext -> mscorlib/System/Reflection/LoadContext.cs, Campaign -> SandBox/SandBoxGameManager.cs, instead of the intended TaleWorlds.MountAndBlade/Module.cs, TaleWorlds.SaveSystem/Load/LoadContext.cs and TaleWorlds.CampaignSystem/Campaign.cs.",
+      "now": "LoadContext and Campaign are no longer in entryPointDirs at all, so the prefix rules place them correctly (save-system, campaign) and the dead-weight entries are gone.",
+      "residualRisk": "The 7 surviving overrides are matched by BARE, CASE-SENSITIVE type name, not by (namespace, typeName) pair. 4 of them have a same-named type elsewhere in the 1.5.3 tree: Module also exists in mscorlib/System/Reflection; Mission and Agent also exist in TaleWorlds.MountAndBlade.AutoGenerated/ManagedCallbacks; MissionState also exists in StoryMode.Storymode.Missions. If the shared noise gate (which excludes BCL and AutoGenerated namespaces — unmapped dropped 52 -> 1) is ever removed or weakened, those copies would be dragged into core/ and mission/.",
+      "verifiedLanded": "No leakage occurred. api/core/ contains exactly MBSubModuleBase.md + Module.md; api/mission/ contains exactly Mission, MissionState, MissionBehavior, Agent, Formation. Neither mscorlib nor ManagedCallbacks copies were published.",
+      "recommendation": "No action needed now. If the noise gate ever changes, switch the override lookup to an (namespace, typeName) pair match."
+    },
+    {
+      "id": "O5",
+      "severity": "LOW",
+      "status": "RESOLVED",
+      "item": "api leaf coverage",
+      "measured": "zh and en both landed 19 buckets / 5969 leaf pages, at exact parity.",
+      "recommendation": "None. Keep this spec's typesAfterOverride as an upper bound only."
+    },
+    {
+      "id": "O6",
+      "severity": "MEDIUM",
+      "status": "OPEN — assigned to worker-3",
+      "item": "zh cross-bucket sibling links are wrong in 6 api stub pages",
+      "measured": "21 broken links under AUDIT_MODE=url, all in worker-3's api stubs: api/core-extra/GameModels.md, api/engine/GauntletLayer.md, api/gui/ScreenBase.md, api/gui/ScreenManager.md, api/mission/Mission.md, api/mission/MissionState.md. They use the form ../<bucket>/<Type> from a LEAF page, which resolves to api/<ownbucket>/<bucket>/<Type> instead of api/<bucket>/<Type>. Correct form is ../../<bucket>/<Type>.",
+      "recommendation": "One sed pass over those 6 files. Not worker-5's tree to fix."
+    }
+  ]
+}

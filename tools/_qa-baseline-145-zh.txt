@@ -1,0 +1,210 @@
+
+## Warnings: 507
+By category:
+  method-missing-example: 507
+
+First 200 occurrences (use --verbose for full list):
+  api/campaign/Campaign.md [method-missing-example] L80: 世界状态集合（只读，来自 CampaignObjectManager）
+  api/campaign/Campaign.md [method-missing-example] L87: 子系统与入口
+  api/campaign/Campaign.md [method-missing-example] L95: 时间控制
+  api/campaign/Campaign.md [method-missing-example] L99: 生命周期
+  api/campaign/CampaignBehaviorBase.md [method-missing-example] L19: 生命周期与持有者
+  api/campaign/CampaignBehaviorBase.md [method-missing-example] L25: 何时用，何时不用
+  api/campaign/CampaignBehaviorBase.md [method-missing-example] L54: `StringId`
+  api/campaign/CampaignBehaviorBase.md [method-missing-example] L60: `RegisterEvents()`
+  api/campaign/CampaignBehaviorBase.md [method-missing-example] L66: `SyncData(IDataStore dataStore)`
+  api/campaign/CampaignBehaviorBase.md [method-missing-example] L72: `static T GetCampaignBehavior<T>()`
+  api/campaign/CampaignBehaviorManager.md [method-missing-example] L19: 创建、持有和生命周期
+  api/campaign/CampaignBehaviorManager.md [method-missing-example] L25: 什么时候用、什么时候不要用
+  api/campaign/CampaignBehaviorManager.md [method-missing-example] L53: 初始化与事件：`InitializeCampaignBehaviors`、`LoadBehaviorData`、`RegisterEvents`
+  api/campaign/CampaignBehaviorManager.md [method-missing-example] L59: 查询：`GetBehavior<T>` 与 `GetBehaviors<T>`
+  api/campaign/CampaignBehaviorManager.md [method-missing-example] L65: 动态变更：`AddBehavior`、`RemoveBehavior<T>`、`ClearBehaviors`
+  api/campaign/CampaignBehaviorManager.md [method-missing-example] L71: 保存边界：`OnBeforeSave` 与 `CampaignBehaviorDataStore`
+  api/campaign/CampaignEventReceiver.md [method-missing-example] L19: 它是什么
+  api/campaign/CampaignEventReceiver.md [method-missing-example] L25: 何时用，何时不用
+  api/campaign/CampaignEventReceiver.md [method-missing-example] L55: 战役启动和读档
+  api/campaign/CampaignEventReceiver.md [method-missing-example] L59: 时间与 Mission
+  api/campaign/CampaignEventReceiver.md [method-missing-example] L63: 世界与内容回调
+  api/campaign/CampaignEventReceiver.md [method-missing-example] L67: 存档回调
+  api/campaign/CampaignEventReceiver.md [method-missing-example] L71: 结果型回调：`ref bool`
+  api/campaign/CampaignEvents.md [method-missing-example] L19: 它是什么
+  api/campaign/CampaignEvents.md [method-missing-example] L25: 何时用，何时不用
+  api/campaign/CampaignEvents.md [method-missing-example] L55: 订阅契约：`IMbEvent<T...>`
+  api/campaign/CampaignEvents.md [method-missing-example] L72: 结果型事件：`ReferenceIMBEvent<T...>`
+  api/campaign/CampaignEvents.md [method-missing-example] L78: 监听器清理：`RemoveListeners`
+  api/campaign/CampaignGameStarter.md [method-missing-example] L19: 它在哪里、由谁创建
+  api/campaign/CampaignGameStarter.md [method-missing-example] L25: 什么时候用、什么时候不用
+  api/campaign/CampaignGameStarter.md [method-missing-example] L54: 行为集合：`CampaignBehaviors`、`AddBehavior`、移除方法
+  api/campaign/CampaignGameStarter.md [method-missing-example] L60: 模型集合：`Models`、`GetModel<T>`、`AddModel`
+  api/campaign/CampaignGameStarter.md [method-missing-example] L66: 菜单：`GetPresumedGameMenu` 与三个注册入口
+  api/campaign/CampaignGameStarter.md [method-missing-example] L72: 对话：`AddDialogFlow` 与 `Add*Line`
+  api/campaign/CharacterObject.md [method-missing-example] L212: 体格与身体属性
+  api/campaign/CharacterObject.md [method-missing-example] L241: 角色状态与限制
+  api/campaign/ClanTierModel.md [method-missing-example] L27: 什么时候使用
+  api/campaign/ClanTierModel.md [method-missing-example] L33: 什么时候不要使用
+  api/campaign/ClanTierModel.md [method-missing-example] L67: CalculateInitialRenown
+  api/campaign/ClanTierModel.md [method-missing-example] L73: CalculateInitialInfluence
+  api/campaign/ClanTierModel.md [method-missing-example] L79: CalculateTier
+  api/campaign/ClanTierModel.md [method-missing-example] L85: HasUpcomingTier
+  api/campaign/ClanTierModel.md [method-missing-example] L91: GetRequiredRenownForTier
+  api/campaign/ClanTierModel.md [method-missing-example] L97: GetPartyLimitForTier
+  api/campaign/ClanTierModel.md [method-missing-example] L103: GetCompanionLimit
+  api/campaign/ClanTierModel.md [method-missing-example] L168: ↑ 父级
+  api/campaign/ClanTierModel.md [method-missing-example] L173: ↔ 同级与相关类型
+  api/campaign/GameModels.md [method-missing-example] L69: 地图、党派与移动
+  api/campaign/GameModels.md [method-missing-example] L79: 经济、贸易与资源
+  api/campaign/GameModels.md [method-missing-example] L88: 聚落、派系与外交
+  api/campaign/GameModels.md [method-missing-example] L97: 角色、遭遇与战役内容
+  api/campaign/GameModels.md [method-missing-example] L106: 战斗、攻城、船只与表现
+  api/campaign/GameModels.md [method-missing-example] L115: 继承成员
+  api/campaign/ICampaignBehavior.md [method-missing-example] L47: `RegisterEvents()`
+  api/campaign/ICampaignBehaviorManager.md [method-missing-example] L47: 注册与读档
+  api/campaign/ICampaignBehaviorManager.md [method-missing-example] L53: 查找
+  api/campaign/ICampaignBehaviorManager.md [method-missing-example] L58: 运行时变更
+  api/campaign/IssueBase.md [method-missing-example] L112: 1. 创建与生命周期钩子（由引擎在固定时机调用，你必须实现/可重写）
+  api/campaign/IssueBase.md [method-missing-example] L127: 2. 状态与归属（读取与判断，不要直接改内部状态）
+  api/campaign/IssueBase.md [method-missing-example] L136: 3. 三种解法的入口（由对话/UI 在你确认后调用）
+  api/campaign/IssueBase.md [method-missing-example] L142: 4. 完成与结束（结算收口，多数由引擎驱动；也可从 Quest 内回调）
+  api/campaign/IssueBase.md [method-missing-example] L159: 5. 备选方案（派兵）辅助（决定「派哪些兵、派多少、派多久」）
+  api/campaign/IssueBase.md [method-missing-example] L167: 6. 效果与日志
+  api/campaign/IssueBase.md [method-missing-example] L173: 7. 英雄行为门控（事件回调，默认空、按需重写）
+  api/campaign/IssueBase.md [method-missing-example] L189: 8. 必须实现的文本属性（抽象，提供对话与界面文案）
+  api/campaign/ItemRoster.md [method-missing-example] L27: 适合使用
+  api/campaign/ItemRoster.md [method-missing-example] L34: 不要这样用
+  api/campaign/MapEvent.md [method-missing-example] L131: 读取参战关系和力量
+  api/campaign/MapEvent.md [method-missing-example] L135: 模拟与玩家战斗边界
+  api/campaign/MapEvent.md [method-missing-example] L139: 收尾与地图变化
+  api/campaign/PartyBase.md [method-missing-example] L106: 规模与上限
+  api/campaign/PartyBase.md [method-missing-example] L122: 形态、身份与归属
+  api/campaign/PartyBase.md [method-missing-example] L141: 名册（真实数据容器）
+  api/campaign/PartyBase.md [method-missing-example] L157: 地图位置、遭遇与状态
+  api/campaign/Town.md [method-missing-example] L75: 治理与归属
+  api/campaign/Town.md [method-missing-example] L92: 繁荣 / 忠诚 / 安全 / 粮草
+  api/campaign/Town.md [method-missing-example] L112: 每日变化量（只读，来自 Model）
+  api/campaign/Town.md [method-missing-example] L125: 建筑
+  api/campaign/Town.md [method-missing-example] L147: 工坊
+  api/campaign/Town.md [method-missing-example] L155: 市场与价格
+  api/campaign/Town.md [method-missing-example] L166: 村庄 / 补给 / 舰队
+  api/campaign/Town.md [method-missing-example] L180: 查询与静态入口
+  api/campaign/Village.md [method-missing-example] L86: 归属与经济
+  api/campaign/Village.md [method-missing-example] L96: 状态与战斗
+  api/campaign/Village.md [method-missing-example] L102: 生产与繁荣
+  api/campaign/Workshop.md [method-missing-example] L95: 身份与归属
+  api/campaign/Workshop.md [method-missing-example] L112: 经营状态
+  api/campaign/Workshop.md [method-missing-example] L129: 生产进度
+  api/campaign/Workshop.md [method-missing-example] L137: 生命周期与初始化
+  api/campaign/Workshop.md [method-missing-example] L148: 变更操作（多数应走 Action）
+  api/campaign/Workshop.md [method-missing-example] L165: 杂项
+  api/campaign-ext/Alley.md [method-missing-example] L65: 嵌套枚举 `Alley.AreaState`
+  api/campaign-ext/Alley.md [method-missing-example] L100: `public Alley(Settlement settlement, string tag, TextObject name)`
+  api/campaign-ext/Alley.md [method-missing-example] L104: `public void Initialize(Settlement settlement, string tag, TextObject name)`
+  api/campaign-ext/BarterData.md [method-missing-example] L85: 双边身份（只读字段）
+  api/campaign-ext/BarterData.md [method-missing-example] L96: 派生属性
+  api/campaign-ext/BarterManager.md [method-missing-example] L70: 事件（订阅谈判边界）
+  api/campaign-ext/BarterManager.md [method-missing-example] L236: 委托类型
+  api/campaign-ext/BribeGuardsAction.md [method-missing-example] L64: `public static void Apply(Settlement settlement, int gold)`
+  api/campaign-ext/CampaignAgentComponent.md [method-missing-example] L91: `AgentNavigator`
+  api/campaign-ext/CampaignAgentComponent.md [method-missing-example] L95: `OwnerParty`
+  api/campaign-ext/CampaignAgentComponent.md [method-missing-example] L101: `CreateAgentNavigator(LocationCharacter locationCharacter)`
+  api/campaign-ext/CampaignAgentComponent.md [method-missing-example] L107: `CreateAgentNavigator()`
+  api/campaign-ext/CampaignAgentComponent.md [method-missing-example] L113: `OnAgentRemoved(Agent agent)`
+  api/campaign-ext/CampaignAgentComponent.md [method-missing-example] L117: `OnStopUsingGameObject()`
+  api/campaign-ext/CampaignAgentComponent.md [method-missing-example] L121: `OnTick(float dt)`
+  api/campaign-ext/CampaignAgentComponent.md [method-missing-example] L129: `GetMoraleDecreaseConstant()`
+  api/campaign-ext/CampaignAgentComponent.md [method-missing-example] L139: `GetMoraleAddition()`
+  api/campaign-ext/CampaignBehaviorManager.md [method-missing-example] L127: 生命周期与存档
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L41: 创建与持有
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L48: 调度位置
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L57: 推荐用法：订阅 `CampaignEvents`
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L61: 不要把 dispatcher 当作以下东西
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L90: `public static CampaignEventDispatcher Instance { get; }`
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L94: `public override void RemoveListeners(object o)`
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L100: `internal CampaignEventDispatcher(IEnumerable<CampaignEventReceiver>)` 与 `internal void AddCampaignEventReceiver(...)`
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L104: 事件型转发：`OnBeforeHeroKilled`、`OnHeroKilled`、`OnSettlementOwnerChanged`、`OnWarDeclared` 等
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L108: 生命周期转发：`OnNewGameCreated`、`OnGameLoaded`、`OnGameLoadFinished`、`OnSessionStart`、`OnAfterSessionStart`
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L112: tick 转发：`Tick`、`HourlyTick*`、`DailyTick*`、`WeeklyTick`、`TickPartialHourlyAi`
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L183: ↑ Parent
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L188: ↔ Sibling
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L194: Related
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L101: 1. 会话 / 存档生命周期
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L112: 2. 周期 Tick（战役时钟）
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L124: 3. 英雄生命周期
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L135: 4. 据点 / 封地
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L143: 5. 家族 / 王国 / 外交
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L151: 6. 战斗 / 任务 / 场景
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L160: 7. 经济 / 资源
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L165: 8. 询问 / 否决类（`Can*`、`Is*`）
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L180: 其余钩子（模式一致，按需查阅源码）
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L242: 常见反模式（务必避开）
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L22: 它在哪一层、谁持有它
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L29: 发布 / 订阅（pub/sub）全链路
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L38: 两种订阅风格
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L94: Hero（英雄）
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L112: Settlement（据点）
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L126: Party & MobileParty（部队）
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L141: War & Diplomacy（战争与外交）
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L157: Economy & Trade（经济与贸易）
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L171: Recruitment & Volunteer（招募与志愿兵）
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L182: Romance & Pregnancy（恋爱与生育）
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L193: Siege（围城）
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L203: Misc / Lifecycle / Ticks（杂项、生命周期与时钟）
+  api/campaign-ext/CampaignGameStarter.md [method-missing-example] L196: 其它
+  api/campaign-ext/CampaignMission.md [method-missing-example] L37: 1. Campaign 准备输入
+  api/campaign-ext/CampaignMission.md [method-missing-example] L47: 2. 管理器转为具体 Mission
+  api/campaign-ext/CampaignMission.md [method-missing-example] L55: 3. Mission 初始化与 Campaign 适配器建立
+  api/campaign-ext/CampaignMission.md [method-missing-example] L61: 4. 运行与结束
+  api/campaign-ext/CampaignMission.md [method-missing-example] L73: 适合使用
+  api/campaign-ext/CampaignMission.md [method-missing-example] L80: 不适合使用
+  api/campaign-ext/CampaignMission.md [method-missing-example] L98: `ICampaignMission` 状态契约
+  api/campaign-ext/CampaignMission.md [method-missing-example] L115: `Open...` 创建入口的选择
+  api/campaign-ext/CampaignMission.md [method-missing-example] L228: Agent、Mission 与 Save 的风险
+  api/campaign-ext/CampaignMission.md [method-missing-example] L246: ↑ Parent
+  api/campaign-ext/CampaignMission.md [method-missing-example] L251: ↔ Sibling
+  api/campaign-ext/CampaignMission.md [method-missing-example] L258: Related
+  api/campaign-ext/CampaignObjectManager.md [method-missing-example] L107: 谁注册什么
+  api/campaign-ext/CampaignObjectManager.md [method-missing-example] L114: 保存图不是查找图
+  api/campaign-ext/CampaignObjectManager.md [method-missing-example] L142: 与 Settlement、Town、Village 的关系
+  api/campaign-ext/CampaignObjectManager.md [method-missing-example] L146: 与 Behavior、Action、UI 和 Model 的关系
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L40: 初始化（读档完成后）
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L61: `Campaign.Tick(_dt)` 中的真实顺序（来自 `Campaign.cs:960-982`）
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L74: 适合使用 `CreatePeriodicEvent`
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L80: 不适合或禁止的用法
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L120: 公开入口（mod 唯一可用）
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L128: 内部驱动（`internal`，mod 切勿调用）
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L140: 内部类型（不向 mod 暴露）
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L244: ↑ Parent
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L249: ↔ Sibling
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L257: Related
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L31: 新战役与首帧
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L37: 每个实时帧
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L50: 读档与重建
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L58: 没有 mod 可用的缓存查询
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L64: 什么时候会被刷新
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L71: 正确的替代入口
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L80: `CampaignTime` 不是 tick cache
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L90: 缓存不是存档数据
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L147: 上游
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L154: 下游
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L180: ↑ Parent
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L185: ↔ Sibling
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L193: Related / 双向返回
+  api/campaign-ext/CampaignTime.md [method-missing-example] L52: 静态属性
+  api/campaign-ext/CampaignTime.md [method-missing-example] L63: 实例属性（相对"现在"的换算）
+  api/campaign-ext/ChangeClanLeaderAction.md [method-missing-example] L76: 调用方已选定继承人 —— `ApplyWithSelectedNewLeader(Clan clan, Hero newLeader)`
+  api/campaign-ext/ChangeClanLeaderAction.md [method-missing-example] L82: 由本 Action 按原版继承规则选继承人 —— `ApplyWithoutSelectedNewLeader(Clan clan)`
+  api/campaign-ext/ChangeCrimeRatingAction.md [method-missing-example] L77: 变更入口
+  api/campaign-ext/ChangeRomanticStateAction.md [method-missing-example] L73: `Apply(Hero person1, Hero person2, Romance.RomanceLevelEnum toWhat)`
+  api/campaign-ext/ChangeRulingClanAction.md [method-missing-example] L67: `public static void Apply(Kingdom kingdom, Clan clan)`
+  api/campaign-ext/ChangeRulingClanAction.md [method-missing-example] L79: `private static void ApplyInternal(Kingdom kingdom, Clan clan)`
+  api/campaign-ext/CharacterDevelopmentModel.md [method-missing-example] L31: Upstream
+  api/campaign-ext/CharacterDevelopmentModel.md [method-missing-example] L40: Downstream
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L64: `public static void SetHeroRelation(Hero hero1, Hero hero2, int value)`
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L70: `public void AfterLoad()`
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L74: `public void RemoveHero(Hero deadHero)`
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L78: 构造函数与内部成员
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L196: 上游
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L203: 下游
+  ... and 307 more
+
+Scanned 9475 files, 29978 method-purpose lines, 29978 method sections.
+Blockers: 0, Warnings: 507

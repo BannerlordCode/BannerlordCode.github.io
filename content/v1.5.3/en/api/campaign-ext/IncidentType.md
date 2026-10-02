@@ -1,0 +1,23 @@
+---
+title: "IncidentType"
+description: "Auto-generated class reference for IncidentType."
+---
+# IncidentType
+
+**Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public static class IncidentType `
+**Base:** System.Object
+**Source:** TaleWorlds.CampaignSystem/CampaignBehaviors/IncidentsCampaignBehaviour.cs
+
+## Overview
+
+Auto-generated stub for `IncidentType`. Deep documentation is scheduled in a later pass.
+
+## Mental Model
+
+Auto-generated placeholder; to be replaced by the deep-documentation pass.
+
+## See Also
+
+- [Section index](../)

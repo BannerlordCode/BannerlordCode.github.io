@@ -1,0 +1,70 @@
+
+## Warnings: 61
+By category:
+  method-missing-example: 61
+
+First 61 occurrences (use --verbose for full list):
+  api/campaign-ext/Alley.md [method-missing-example] L100: `public Alley(Settlement settlement, string tag, TextObject name)`
+  api/campaign-ext/Alley.md [method-missing-example] L104: `public void Initialize(Settlement settlement, string tag, TextObject name)`
+  api/campaign-ext/BribeGuardsAction.md [method-missing-example] L64: `public static void Apply(Settlement settlement, int gold)`
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L90: `public static CampaignEventDispatcher Instance { get; }`
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L94: `public override void RemoveListeners(object o)`
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L183: ↑ Parent
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L188: ↔ Sibling
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L194: Related
+  api/campaign-ext/CampaignMission.md [method-missing-example] L246: ↑ Parent
+  api/campaign-ext/CampaignMission.md [method-missing-example] L251: ↔ Sibling
+  api/campaign-ext/CampaignMission.md [method-missing-example] L258: Related
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L244: ↑ Parent
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L249: ↔ Sibling
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L257: Related
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L180: ↑ Parent
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L185: ↔ Sibling
+  api/campaign-ext/ChangeRomanticStateAction.md [method-missing-example] L73: `Apply(Hero person1, Hero person2, Romance.RomanceLevelEnum toWhat)`
+  api/campaign-ext/ChangeRulingClanAction.md [method-missing-example] L67: `public static void Apply(Kingdom kingdom, Clan clan)`
+  api/campaign-ext/ChangeRulingClanAction.md [method-missing-example] L79: `private static void ApplyInternal(Kingdom kingdom, Clan clan)`
+  api/campaign-ext/CharacterDevelopmentModel.md [method-missing-example] L31: Upstream
+  api/campaign-ext/CharacterDevelopmentModel.md [method-missing-example] L40: Downstream
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L64: `public static void SetHeroRelation(Hero hero1, Hero hero2, int value)`
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L70: `public void AfterLoad()`
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L74: `public void RemoveHero(Hero deadHero)`
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L219: ↑ Parent
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L224: ↔ Sibling
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L240: ↓ Children
+  api/campaign-ext/CombatSimulationModel.md [method-missing-example] L31: Upstream
+  api/campaign-ext/CombatSimulationModel.md [method-missing-example] L40: Downstream
+  api/campaign-ext/DefaultPartySizeLimitModel.md [method-missing-example] L104: `GetPartyPrisonerSizeLimit`
+  api/campaign-ext/DefaultPartySizeLimitModel.md [method-missing-example] L114: `CalculateGarrisonPartySizeLimit`
+  api/campaign-ext/DefaultPartyWageModel.md [method-missing-example] L81: `GetCharacterWage`
+  api/campaign-ext/DiplomacyModel.md [method-missing-example] L32: Upstream
+  api/campaign-ext/DiplomacyModel.md [method-missing-example] L41: Downstream
+  api/campaign-ext/EncounterManager.md [method-missing-example] L100: `EncounterModel`
+  api/campaign-ext/EncounterManager.md [method-missing-example] L106: `Tick(float dt)`
+  api/campaign-ext/EncounterManager.md [method-missing-example] L112: `HandleEncounterForMobileParty(MobileParty mobileParty, float dt)`
+  api/campaign-ext/EncounterManager.md [method-missing-example] L120: `StartPartyEncounter(PartyBase attackerParty, PartyBase defenderParty)`
+  api/campaign-ext/EncounterManager.md [method-missing-example] L133: `StartSettlementEncounter(MobileParty attackerParty, Settlement settlement)`
+  api/campaign-ext/EncounterManager.md [method-missing-example] L302: ↑ Parent
+  api/campaign-ext/EncounterManager.md [method-missing-example] L308: ↔ Sibling
+  api/campaign-ext/GatherArmyAction.md [method-missing-example] L58: `public static void Apply(MobileParty leaderParty, IMapPoint gatheringPoint)`
+  api/campaign-ext/GatherArmyAction.md [method-missing-example] L67: `private static void ApplyInternal(MobileParty leaderParty, IMapPoint gatheringPoint, float playerInvolvement = 0f)`
+  api/campaign-ext/PartySizeLimitModel.md [method-missing-example] L33: Upstream
+  api/campaign-ext/PartySizeLimitModel.md [method-missing-example] L42: Downstream
+  api/campaign-ext/SiegeEvent.md [method-missing-example] L214: `public override string ToString()`
+  api/gameplay/AgentNavigator.md [method-missing-example] L115: `SetTarget(UsableMachine usableMachine, bool isInitialTarget = false, AIScriptedFrameFlags customFlags = 0)`
+  api/gameplay/AgentNavigator.md [method-missing-example] L121: `SetTargetFrame(WorldPosition position, float rotation, float rangeThreshold = 1f, float rotationThreshold = -10f, AIScr
+  api/gameplay/AgentNavigator.md [method-missing-example] L127: `ClearTarget()`
+  api/gameplay/AgentNavigator.md [method-missing-example] L131: `Tick(float dt, bool isSimulation = false)`
+  api/mission-ext/BaseBattleMissionController.md [method-missing-example] L56: `AfterStart`
+  api/mission-ext/BaseBattleMissionController.md [method-missing-example] L96: `OnMissionTick(float dt)`
+  api/mission-ext/BaseBattleMissionController.md [method-missing-example] L100: `MissionEnded(ref MissionResult)`
+  api/mission-ext/BaseBattleMissionController.md [method-missing-example] L106: `OnEndMissionRequest(out bool canPlayerLeave)`
+  api/mission-ext/BaseBattleMissionController.md [method-missing-example] L112: `OnAgentRemoved`
+  api/mission-ext/SynchedMissionObject.md [method-missing-example] L43: `SynchFlags`
+  api/system/EmbarkDisembarkData.md [method-missing-example] L34: `Invalid`
+  api/system/EmbarkDisembarkData.md [method-missing-example] L40: `IsValidTransition`
+  api/system/EmbarkDisembarkData.md [method-missing-example] L46: `NavMeshEdgePosition`
+  api/system/EmbarkDisembarkData.md [method-missing-example] L61: `IsTargetingTheDeadZone`
+  api/system/EmbarkDisembarkData.md [method-missing-example] L67: `IsTargetingOwnSideOfTheDeadZone`
+
+Scanned 9475 files, 29277 method-purpose lines, 29277 method sections.
+Blockers: 0, Warnings: 61

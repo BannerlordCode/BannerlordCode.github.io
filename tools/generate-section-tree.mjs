@@ -3,6 +3,11 @@
 //   node tools/generate-section-tree.mjs
 //   node tools/generate-section-tree.mjs --check
 //   node tools/generate-section-tree.mjs --content-root <dir> --out <file>
+//
+// data/navigation.json is hand-maintained (no generator owns it; see
+// tools/_regen_nav.mjs and tools/_fix_nav_edges.mjs, both DEPRECATED). So
+// --check also reports navigation.json routes that no longer resolve to a
+// content page: those render as 404 sidebar anchors. Reported, never auto-fixed.
 
 import {
   existsSync,
@@ -18,6 +23,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, '..');
 const DEFAULT_CONTENT_ROOT = join(REPO_ROOT, 'content');
 const DEFAULT_OUT_PATH = join(REPO_ROOT, 'data', 'section-tree.json');
+const NAVIGATION_PATH = join(REPO_ROOT, 'data', 'navigation.json');
 
 function argValue(args, name, fallback) {
   const index = args.indexOf(name);
@@ -116,6 +122,33 @@ export function buildSectionTree(contentRoot) {
   return tree;
 }
 
+function pageExists(contentRoot, route) {
+  const base = join(contentRoot, route.replace(/^\//u, '').replace(/\/$/u, ''));
+  return existsSync(`${base}.md`) || existsSync(join(base, '_index.md'));
+}
+
+// Hand-maintained navigation.json: report, never rewrite. A route key or child
+// edge with no content page behind it is a 404 anchor in the sidebar.
+export function findDeadNavigationRoutes(contentRoot, navigationPath = NAVIGATION_PATH) {
+  if (!existsSync(navigationPath)) return { checked: false, dead: [] };
+  let navigation;
+  try {
+    navigation = JSON.parse(readFileSync(navigationPath, 'utf8'));
+  } catch (error) {
+    return { checked: false, error: error.message, dead: [] };
+  }
+  const dead = new Set();
+  for (const route of Object.keys(navigation.routes || {})) {
+    if (!pageExists(contentRoot, route)) dead.add(route);
+  }
+  for (const [route, node] of Object.entries(navigation.routes || {})) {
+    for (const child of node.children || []) {
+      if (!pageExists(contentRoot, child)) dead.add(`${child}  (child of ${route})`);
+    }
+  }
+  return { checked: true, dead: [...dead].sort() };
+}
+
 function main() {
   const args = process.argv.slice(2);
   if (args.includes('--help')) {
@@ -130,6 +163,17 @@ function main() {
   const rendered = JSON.stringify(tree, null, 2) + '\n';
 
   if (check) {
+    const dead = findDeadNavigationRoutes(contentRoot);
+    if (dead.checked) {
+      if (dead.dead.length === 0) {
+        console.log(`NAVIGATION_ROUTES_OK dead=0 (data/navigation.json)`);
+      } else {
+        console.error(`NAVIGATION_ROUTES_DEAD=${dead.dead.length} (data/navigation.json routes with no content page)`);
+        for (const entry of dead.dead) console.error(`   -> ${entry}`);
+      }
+    } else {
+      console.error(`Could not read data/navigation.json: ${dead.error || 'missing'}`);
+    }
     if (!existsSync(outPath)) {
       console.error(`Section tree is missing: ${outPath}`);
       process.exitCode = 1;

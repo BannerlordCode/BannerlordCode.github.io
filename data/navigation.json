@@ -86,11 +86,2687 @@
       "order": 0,
       "parent": null,
       "children": [
-        "/v1.3.15/",
         "/v1.3.0/",
+        "/v1.3.15/",
         "/v1.4.5/",
         "/versions/"
       ]
+    },
+    "/v1.3.0/": {
+      "label": {
+        "zh": "Bannerlord v1.3.0 文档",
+        "en": "Bannerlord v1.3.0 Documentation"
+      },
+      "group": "start",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/",
+      "children": [
+        "/v1.3.0/en/",
+        "/v1.3.0/zh/"
+      ]
+    },
+    "/v1.3.0/en/": {
+      "label": {
+        "zh": "Bannerlord v1.3.0 Documentation",
+        "en": "Bannerlord v1.3.0 Documentation"
+      },
+      "group": "start",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/v1.3.0/",
+      "children": [
+        "/v1.3.0/en/api/",
+        "/v1.3.0/en/architecture/",
+        "/v1.3.0/en/guide/",
+        "/v1.3.0/en/native/",
+        "/v1.3.0/en/xml-reference/"
+      ]
+    },
+    "/v1.3.0/en/api/": {
+      "label": {
+        "zh": "API Reference",
+        "en": "API Reference"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 2,
+      "parent": "/v1.3.0/en/",
+      "children": [
+        "/v1.3.0/en/api/campaign-ext/",
+        "/v1.3.0/en/api/campaign/",
+        "/v1.3.0/en/api/core-extra/",
+        "/v1.3.0/en/api/core/",
+        "/v1.3.0/en/api/engine/",
+        "/v1.3.0/en/api/gameplay/",
+        "/v1.3.0/en/api/gui/",
+        "/v1.3.0/en/api/localization/",
+        "/v1.3.0/en/api/mission-ext/",
+        "/v1.3.0/en/api/mission/",
+        "/v1.3.0/en/api/system/",
+        "/v1.3.0/en/api/viewmodel/"
+      ]
+    },
+    "/v1.3.0/en/api/campaign/": {
+      "label": {
+        "zh": "Campaign (v1.3.0)",
+        "en": "Campaign (v1.3.0)"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.3.0/en/api/",
+      "children": [
+        "/v1.3.0/en/api/campaign/agentorigins/",
+        "/v1.3.0/en/api/campaign/bartersystem/",
+        "/v1.3.0/en/api/campaign/campaignbehaviors/",
+        "/v1.3.0/en/api/campaign/charactercreationcontent/",
+        "/v1.3.0/en/api/campaign/characterdevelopment/",
+        "/v1.3.0/en/api/campaign/characters/",
+        "/v1.3.0/en/api/campaign/componentinterfaces/",
+        "/v1.3.0/en/api/campaign/conversation/",
+        "/v1.3.0/en/api/campaign/election/",
+        "/v1.3.0/en/api/campaign/encounters/",
+        "/v1.3.0/en/api/campaign/encyclopedia/",
+        "/v1.3.0/en/api/campaign/extensions/",
+        "/v1.3.0/en/api/campaign/gamecomponents/",
+        "/v1.3.0/en/api/campaign/gamemenus/",
+        "/v1.3.0/en/api/campaign/gamestate/",
+        "/v1.3.0/en/api/campaign/heroes/",
+        "/v1.3.0/en/api/campaign/inventory/",
+        "/v1.3.0/en/api/campaign/issues/",
+        "/v1.3.0/en/api/campaign/logentries/",
+        "/v1.3.0/en/api/campaign/map/",
+        "/v1.3.0/en/api/campaign/mapevents/",
+        "/v1.3.0/en/api/campaign/mapnotificationtypes/",
+        "/v1.3.0/en/api/campaign/naval/",
+        "/v1.3.0/en/api/campaign/parties/",
+        "/v1.3.0/en/api/campaign/party/",
+        "/v1.3.0/en/api/campaign/quests/",
+        "/v1.3.0/en/api/campaign/root/",
+        "/v1.3.0/en/api/campaign/roster/",
+        "/v1.3.0/en/api/campaign/savecompability/",
+        "/v1.3.0/en/api/campaign/sceneinformationpopuptypes/",
+        "/v1.3.0/en/api/campaign/settlements/",
+        "/v1.3.0/en/api/campaign/siege/",
+        "/v1.3.0/en/api/campaign/tournamentgames/"
+      ]
+    },
+    "/v1.3.0/en/api/campaign/agentorigins/": {
+      "label": {
+        "zh": "AgentOrigins",
+        "en": "AgentOrigins"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/bartersystem/": {
+      "label": {
+        "zh": "BarterSystem",
+        "en": "BarterSystem"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/campaignbehaviors/": {
+      "label": {
+        "zh": "CampaignBehaviors",
+        "en": "CampaignBehaviors"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/charactercreationcontent/": {
+      "label": {
+        "zh": "CharacterCreationContent",
+        "en": "CharacterCreationContent"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/characterdevelopment/": {
+      "label": {
+        "zh": "CharacterDevelopment",
+        "en": "CharacterDevelopment"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/characters/": {
+      "label": {
+        "zh": "Characters",
+        "en": "Characters"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/componentinterfaces/": {
+      "label": {
+        "zh": "ComponentInterfaces",
+        "en": "ComponentInterfaces"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/conversation/": {
+      "label": {
+        "zh": "Conversation",
+        "en": "Conversation"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/election/": {
+      "label": {
+        "zh": "Election",
+        "en": "Election"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/encounters/": {
+      "label": {
+        "zh": "Encounters",
+        "en": "Encounters"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/encyclopedia/": {
+      "label": {
+        "zh": "Encyclopedia",
+        "en": "Encyclopedia"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/extensions/": {
+      "label": {
+        "zh": "Extensions",
+        "en": "Extensions"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/gamecomponents/": {
+      "label": {
+        "zh": "GameComponents",
+        "en": "GameComponents"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/gamemenus/": {
+      "label": {
+        "zh": "GameMenus",
+        "en": "GameMenus"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/gamestate/": {
+      "label": {
+        "zh": "GameState",
+        "en": "GameState"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/heroes/": {
+      "label": {
+        "zh": "Heroes",
+        "en": "Heroes"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/inventory/": {
+      "label": {
+        "zh": "Inventory",
+        "en": "Inventory"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/issues/": {
+      "label": {
+        "zh": "Issues",
+        "en": "Issues"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/logentries/": {
+      "label": {
+        "zh": "LogEntries",
+        "en": "LogEntries"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/map/": {
+      "label": {
+        "zh": "Map",
+        "en": "Map"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/mapevents/": {
+      "label": {
+        "zh": "MapEvents",
+        "en": "MapEvents"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/mapnotificationtypes/": {
+      "label": {
+        "zh": "MapNotificationTypes",
+        "en": "MapNotificationTypes"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/naval/": {
+      "label": {
+        "zh": "Naval",
+        "en": "Naval"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/parties/": {
+      "label": {
+        "zh": "Parties",
+        "en": "Parties"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/party/": {
+      "label": {
+        "zh": "Party",
+        "en": "Party"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/quests/": {
+      "label": {
+        "zh": "Quests",
+        "en": "Quests"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/roster/": {
+      "label": {
+        "zh": "Roster",
+        "en": "Roster"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/savecompability/": {
+      "label": {
+        "zh": "SaveCompability",
+        "en": "SaveCompability"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/sceneinformationpopuptypes/": {
+      "label": {
+        "zh": "SceneInformationPopupTypes",
+        "en": "SceneInformationPopupTypes"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/settlements/": {
+      "label": {
+        "zh": "Settlements",
+        "en": "Settlements"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/siege/": {
+      "label": {
+        "zh": "Siege",
+        "en": "Siege"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/tournamentgames/": {
+      "label": {
+        "zh": "TournamentGames",
+        "en": "TournamentGames"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign-ext/": {
+      "label": {
+        "zh": "Campaign-Ext",
+        "en": "Campaign-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.3.0/en/api/",
+      "children": [
+        "/v1.3.0/en/api/campaign-ext/actions/",
+        "/v1.3.0/en/api/campaign-ext/global/",
+        "/v1.3.0/en/api/campaign-ext/networkmessages/",
+        "/v1.3.0/en/api/campaign-ext/root/",
+        "/v1.3.0/en/api/campaign-ext/sandbox/",
+        "/v1.3.0/en/api/campaign-ext/storymode/",
+        "/v1.3.0/en/api/campaign-ext/taleworlds/"
+      ]
+    },
+    "/v1.3.0/en/api/campaign-ext/actions/": {
+      "label": {
+        "zh": "Actions",
+        "en": "Actions"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign-ext/global/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign-ext/networkmessages/": {
+      "label": {
+        "zh": "NetworkMessages",
+        "en": "NetworkMessages"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign-ext/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign-ext/sandbox/": {
+      "label": {
+        "zh": "SandBox",
+        "en": "SandBox"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign-ext/storymode/": {
+      "label": {
+        "zh": "StoryMode",
+        "en": "StoryMode"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign-ext/taleworlds/": {
+      "label": {
+        "zh": "TaleWorlds",
+        "en": "TaleWorlds"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/core/": {
+      "label": {
+        "zh": "Core (v1.3.0)",
+        "en": "Core (v1.3.0)"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/",
+      "children": []
+    },
+    "/v1.3.0/en/api/core-extra/": {
+      "label": {
+        "zh": "Core-Extra",
+        "en": "Core-Extra"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 1,
+      "parent": "/v1.3.0/en/api/",
+      "children": [
+        "/v1.3.0/en/api/core-extra/codegeneration/",
+        "/v1.3.0/en/api/core-extra/eventsystem/",
+        "/v1.3.0/en/api/core-extra/graph/",
+        "/v1.3.0/en/api/core-extra/http/",
+        "/v1.3.0/en/api/core-extra/imageidentifiers/",
+        "/v1.3.0/en/api/core-extra/newsmanager/",
+        "/v1.3.0/en/api/core-extra/root/",
+        "/v1.3.0/en/api/core-extra/viewmodelcollection/"
+      ]
+    },
+    "/v1.3.0/en/api/core-extra/codegeneration/": {
+      "label": {
+        "zh": "CodeGeneration",
+        "en": "CodeGeneration"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/core-extra/",
+      "children": []
+    },
+    "/v1.3.0/en/api/core-extra/eventsystem/": {
+      "label": {
+        "zh": "EventSystem",
+        "en": "EventSystem"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/core-extra/",
+      "children": []
+    },
+    "/v1.3.0/en/api/core-extra/graph/": {
+      "label": {
+        "zh": "Graph",
+        "en": "Graph"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/core-extra/",
+      "children": []
+    },
+    "/v1.3.0/en/api/core-extra/http/": {
+      "label": {
+        "zh": "Http",
+        "en": "Http"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/core-extra/",
+      "children": []
+    },
+    "/v1.3.0/en/api/core-extra/imageidentifiers/": {
+      "label": {
+        "zh": "ImageIdentifiers",
+        "en": "ImageIdentifiers"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/core-extra/",
+      "children": []
+    },
+    "/v1.3.0/en/api/core-extra/newsmanager/": {
+      "label": {
+        "zh": "NewsManager",
+        "en": "NewsManager"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/core-extra/",
+      "children": []
+    },
+    "/v1.3.0/en/api/core-extra/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/core-extra/",
+      "children": []
+    },
+    "/v1.3.0/en/api/core-extra/viewmodelcollection/": {
+      "label": {
+        "zh": "ViewModelCollection",
+        "en": "ViewModelCollection"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/core-extra/",
+      "children": []
+    },
+    "/v1.3.0/en/api/engine/": {
+      "label": {
+        "zh": "Engine",
+        "en": "Engine"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 9,
+      "parent": "/v1.3.0/en/api/",
+      "children": [
+        "/v1.3.0/en/api/engine/gauntletui/",
+        "/v1.3.0/en/api/engine/inputsystem/",
+        "/v1.3.0/en/api/engine/options/",
+        "/v1.3.0/en/api/engine/root/"
+      ]
+    },
+    "/v1.3.0/en/api/engine/gauntletui/": {
+      "label": {
+        "zh": "GauntletUI",
+        "en": "GauntletUI"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/engine/",
+      "children": []
+    },
+    "/v1.3.0/en/api/engine/inputsystem/": {
+      "label": {
+        "zh": "InputSystem",
+        "en": "InputSystem"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/engine/",
+      "children": []
+    },
+    "/v1.3.0/en/api/engine/options/": {
+      "label": {
+        "zh": "Options",
+        "en": "Options"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/engine/",
+      "children": []
+    },
+    "/v1.3.0/en/api/engine/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/engine/",
+      "children": []
+    },
+    "/v1.3.0/en/api/gameplay/": {
+      "label": {
+        "zh": "Gameplay",
+        "en": "Gameplay"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 10,
+      "parent": "/v1.3.0/en/api/",
+      "children": [
+        "/v1.3.0/en/api/gameplay/sandbox/",
+        "/v1.3.0/en/api/gameplay/storymode/"
+      ]
+    },
+    "/v1.3.0/en/api/gameplay/sandbox/": {
+      "label": {
+        "zh": "SandBox",
+        "en": "SandBox"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/gameplay/",
+      "children": []
+    },
+    "/v1.3.0/en/api/gameplay/storymode/": {
+      "label": {
+        "zh": "StoryMode",
+        "en": "StoryMode"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/gameplay/",
+      "children": []
+    },
+    "/v1.3.0/en/api/gui/": {
+      "label": {
+        "zh": "GUI",
+        "en": "GUI"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 6,
+      "parent": "/v1.3.0/en/api/",
+      "children": [
+        "/v1.3.0/en/api/gui/basetypes/",
+        "/v1.3.0/en/api/gui/data/",
+        "/v1.3.0/en/api/gui/extrawidgets/",
+        "/v1.3.0/en/api/gui/gamepadnavigation/",
+        "/v1.3.0/en/api/gui/layout/",
+        "/v1.3.0/en/api/gui/prefabsystem/",
+        "/v1.3.0/en/api/gui/root/"
+      ]
+    },
+    "/v1.3.0/en/api/gui/basetypes/": {
+      "label": {
+        "zh": "BaseTypes",
+        "en": "BaseTypes"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/gui/",
+      "children": []
+    },
+    "/v1.3.0/en/api/gui/data/": {
+      "label": {
+        "zh": "Data",
+        "en": "Data"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/gui/",
+      "children": []
+    },
+    "/v1.3.0/en/api/gui/extrawidgets/": {
+      "label": {
+        "zh": "ExtraWidgets",
+        "en": "ExtraWidgets"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/gui/",
+      "children": []
+    },
+    "/v1.3.0/en/api/gui/gamepadnavigation/": {
+      "label": {
+        "zh": "GamepadNavigation",
+        "en": "GamepadNavigation"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/gui/",
+      "children": []
+    },
+    "/v1.3.0/en/api/gui/layout/": {
+      "label": {
+        "zh": "Layout",
+        "en": "Layout"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/gui/",
+      "children": []
+    },
+    "/v1.3.0/en/api/gui/prefabsystem/": {
+      "label": {
+        "zh": "PrefabSystem",
+        "en": "PrefabSystem"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/gui/",
+      "children": []
+    },
+    "/v1.3.0/en/api/gui/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/gui/",
+      "children": []
+    },
+    "/v1.3.0/en/api/localization/": {
+      "label": {
+        "zh": "Localization",
+        "en": "Localization"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 8,
+      "parent": "/v1.3.0/en/api/",
+      "children": [
+        "/v1.3.0/en/api/localization/expressions/",
+        "/v1.3.0/en/api/localization/root/",
+        "/v1.3.0/en/api/localization/textprocessor/"
+      ]
+    },
+    "/v1.3.0/en/api/localization/expressions/": {
+      "label": {
+        "zh": "Expressions",
+        "en": "Expressions"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/localization/",
+      "children": []
+    },
+    "/v1.3.0/en/api/localization/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/localization/",
+      "children": []
+    },
+    "/v1.3.0/en/api/localization/textprocessor/": {
+      "label": {
+        "zh": "TextProcessor",
+        "en": "TextProcessor"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/localization/",
+      "children": []
+    },
+    "/v1.3.0/en/api/mission/": {
+      "label": {
+        "zh": "Mission (v1.3.0)",
+        "en": "Mission (v1.3.0)"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 2,
+      "parent": "/v1.3.0/en/api/",
+      "children": [
+        "/v1.3.0/en/api/mission/root/"
+      ]
+    },
+    "/v1.3.0/en/api/mission/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/mission/",
+      "children": []
+    },
+    "/v1.3.0/en/api/mission-ext/": {
+      "label": {
+        "zh": "Mission-Ext",
+        "en": "Mission-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.3.0/en/api/",
+      "children": [
+        "/v1.3.0/en/api/mission-ext/componentinterfaces/",
+        "/v1.3.0/en/api/mission-ext/gauntletui/",
+        "/v1.3.0/en/api/mission-ext/missionrepresentatives/",
+        "/v1.3.0/en/api/mission-ext/missions/",
+        "/v1.3.0/en/api/mission-ext/missionspawnhandlers/",
+        "/v1.3.0/en/api/mission-ext/network/",
+        "/v1.3.0/en/api/mission-ext/objects/",
+        "/v1.3.0/en/api/mission-ext/options/",
+        "/v1.3.0/en/api/mission-ext/root/",
+        "/v1.3.0/en/api/mission-ext/source/",
+        "/v1.3.0/en/api/mission-ext/view/",
+        "/v1.3.0/en/api/mission-ext/viewmodelcollection/"
+      ]
+    },
+    "/v1.3.0/en/api/mission-ext/componentinterfaces/": {
+      "label": {
+        "zh": "ComponentInterfaces",
+        "en": "ComponentInterfaces"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/mission-ext/gauntletui/": {
+      "label": {
+        "zh": "GauntletUI",
+        "en": "GauntletUI"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/mission-ext/missionrepresentatives/": {
+      "label": {
+        "zh": "MissionRepresentatives",
+        "en": "MissionRepresentatives"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/mission-ext/missions/": {
+      "label": {
+        "zh": "Missions",
+        "en": "Missions"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/mission-ext/missionspawnhandlers/": {
+      "label": {
+        "zh": "MissionSpawnHandlers",
+        "en": "MissionSpawnHandlers"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/mission-ext/network/": {
+      "label": {
+        "zh": "Network",
+        "en": "Network"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/mission-ext/objects/": {
+      "label": {
+        "zh": "Objects",
+        "en": "Objects"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/mission-ext/options/": {
+      "label": {
+        "zh": "Options",
+        "en": "Options"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/mission-ext/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/mission-ext/source/": {
+      "label": {
+        "zh": "Source",
+        "en": "Source"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/mission-ext/view/": {
+      "label": {
+        "zh": "View",
+        "en": "View"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/mission-ext/viewmodelcollection/": {
+      "label": {
+        "zh": "ViewModelCollection",
+        "en": "ViewModelCollection"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/en/api/system/": {
+      "label": {
+        "zh": "System",
+        "en": "System"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 11,
+      "parent": "/v1.3.0/en/api/",
+      "children": []
+    },
+    "/v1.3.0/en/api/viewmodel/": {
+      "label": {
+        "zh": "ViewModel",
+        "en": "ViewModel"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 7,
+      "parent": "/v1.3.0/en/api/",
+      "children": [
+        "/v1.3.0/en/api/viewmodel/armymanagement/",
+        "/v1.3.0/en/api/viewmodel/charactercreation/",
+        "/v1.3.0/en/api/viewmodel/characterdeveloper/",
+        "/v1.3.0/en/api/viewmodel/clanmanagement/",
+        "/v1.3.0/en/api/viewmodel/conversation/",
+        "/v1.3.0/en/api/viewmodel/education/",
+        "/v1.3.0/en/api/viewmodel/encyclopedia/",
+        "/v1.3.0/en/api/viewmodel/gamemenu/",
+        "/v1.3.0/en/api/viewmodel/inventory/",
+        "/v1.3.0/en/api/viewmodel/kingdommanagement/",
+        "/v1.3.0/en/api/viewmodel/map/",
+        "/v1.3.0/en/api/viewmodel/party/",
+        "/v1.3.0/en/api/viewmodel/quests/",
+        "/v1.3.0/en/api/viewmodel/root/",
+        "/v1.3.0/en/api/viewmodel/weaponcrafting/"
+      ]
+    },
+    "/v1.3.0/en/api/viewmodel/armymanagement/": {
+      "label": {
+        "zh": "ArmyManagement",
+        "en": "ArmyManagement"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/en/api/viewmodel/charactercreation/": {
+      "label": {
+        "zh": "CharacterCreation",
+        "en": "CharacterCreation"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/en/api/viewmodel/characterdeveloper/": {
+      "label": {
+        "zh": "CharacterDeveloper",
+        "en": "CharacterDeveloper"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/en/api/viewmodel/clanmanagement/": {
+      "label": {
+        "zh": "ClanManagement",
+        "en": "ClanManagement"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/en/api/viewmodel/conversation/": {
+      "label": {
+        "zh": "Conversation",
+        "en": "Conversation"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/en/api/viewmodel/education/": {
+      "label": {
+        "zh": "Education",
+        "en": "Education"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/en/api/viewmodel/encyclopedia/": {
+      "label": {
+        "zh": "Encyclopedia",
+        "en": "Encyclopedia"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/en/api/viewmodel/gamemenu/": {
+      "label": {
+        "zh": "GameMenu",
+        "en": "GameMenu"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/en/api/viewmodel/inventory/": {
+      "label": {
+        "zh": "Inventory",
+        "en": "Inventory"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/en/api/viewmodel/kingdommanagement/": {
+      "label": {
+        "zh": "KingdomManagement",
+        "en": "KingdomManagement"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/en/api/viewmodel/map/": {
+      "label": {
+        "zh": "Map",
+        "en": "Map"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/en/api/viewmodel/party/": {
+      "label": {
+        "zh": "Party",
+        "en": "Party"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/en/api/viewmodel/quests/": {
+      "label": {
+        "zh": "Quests",
+        "en": "Quests"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/en/api/viewmodel/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/en/api/viewmodel/weaponcrafting/": {
+      "label": {
+        "zh": "WeaponCrafting",
+        "en": "WeaponCrafting"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/en/architecture/": {
+      "label": {
+        "zh": "Architecture (v1.3.0)",
+        "en": "Architecture (v1.3.0)"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/v1.3.0/en/",
+      "children": []
+    },
+    "/v1.3.0/en/guide/": {
+      "label": {
+        "zh": "Getting Started Guide",
+        "en": "Getting Started Guide"
+      },
+      "group": "guide",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/",
+      "children": []
+    },
+    "/v1.3.0/en/native/": {
+      "label": {
+        "zh": "Native Interface (v1.3.0)",
+        "en": "Native Interface (v1.3.0)"
+      },
+      "group": "native",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.3.0/en/",
+      "children": []
+    },
+    "/v1.3.0/en/xml-reference/": {
+      "label": {
+        "zh": "XML Reference (v1.3.0)",
+        "en": "XML Reference (v1.3.0)"
+      },
+      "group": "xml",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.3.0/en/",
+      "children": []
+    },
+    "/v1.3.0/zh/": {
+      "label": {
+        "zh": "Bannerlord v1.3.0 文档",
+        "en": "Bannerlord v1.3.0 Documentation"
+      },
+      "group": "start",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/",
+      "children": [
+        "/v1.3.0/zh/api/",
+        "/v1.3.0/zh/architecture/",
+        "/v1.3.0/zh/guide/",
+        "/v1.3.0/zh/native/",
+        "/v1.3.0/zh/xml-reference/"
+      ]
+    },
+    "/v1.3.0/zh/api/": {
+      "label": {
+        "zh": "API 参考",
+        "en": "API Reference"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 2,
+      "parent": "/v1.3.0/zh/",
+      "children": [
+        "/v1.3.0/zh/api/campaign-ext/",
+        "/v1.3.0/zh/api/campaign/",
+        "/v1.3.0/zh/api/core-extra/",
+        "/v1.3.0/zh/api/core/",
+        "/v1.3.0/zh/api/engine/",
+        "/v1.3.0/zh/api/gameplay/",
+        "/v1.3.0/zh/api/gui/",
+        "/v1.3.0/zh/api/localization/",
+        "/v1.3.0/zh/api/mission-ext/",
+        "/v1.3.0/zh/api/mission/",
+        "/v1.3.0/zh/api/system/",
+        "/v1.3.0/zh/api/viewmodel/"
+      ]
+    },
+    "/v1.3.0/zh/api/campaign/": {
+      "label": {
+        "zh": "Campaign 战役 (v1.3.0)",
+        "en": "Campaign 战役 (v1.3.0)"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.3.0/zh/api/",
+      "children": [
+        "/v1.3.0/zh/api/campaign/agentorigins/",
+        "/v1.3.0/zh/api/campaign/bartersystem/",
+        "/v1.3.0/zh/api/campaign/campaignbehaviors/",
+        "/v1.3.0/zh/api/campaign/charactercreationcontent/",
+        "/v1.3.0/zh/api/campaign/characterdevelopment/",
+        "/v1.3.0/zh/api/campaign/characters/",
+        "/v1.3.0/zh/api/campaign/componentinterfaces/",
+        "/v1.3.0/zh/api/campaign/conversation/",
+        "/v1.3.0/zh/api/campaign/election/",
+        "/v1.3.0/zh/api/campaign/encounters/",
+        "/v1.3.0/zh/api/campaign/encyclopedia/",
+        "/v1.3.0/zh/api/campaign/extensions/",
+        "/v1.3.0/zh/api/campaign/gamecomponents/",
+        "/v1.3.0/zh/api/campaign/gamemenus/",
+        "/v1.3.0/zh/api/campaign/gamestate/",
+        "/v1.3.0/zh/api/campaign/heroes/",
+        "/v1.3.0/zh/api/campaign/inventory/",
+        "/v1.3.0/zh/api/campaign/issues/",
+        "/v1.3.0/zh/api/campaign/logentries/",
+        "/v1.3.0/zh/api/campaign/map/",
+        "/v1.3.0/zh/api/campaign/mapevents/",
+        "/v1.3.0/zh/api/campaign/mapnotificationtypes/",
+        "/v1.3.0/zh/api/campaign/naval/",
+        "/v1.3.0/zh/api/campaign/parties/",
+        "/v1.3.0/zh/api/campaign/party/",
+        "/v1.3.0/zh/api/campaign/quests/",
+        "/v1.3.0/zh/api/campaign/root/",
+        "/v1.3.0/zh/api/campaign/roster/",
+        "/v1.3.0/zh/api/campaign/savecompability/",
+        "/v1.3.0/zh/api/campaign/sceneinformationpopuptypes/",
+        "/v1.3.0/zh/api/campaign/settlements/",
+        "/v1.3.0/zh/api/campaign/siege/",
+        "/v1.3.0/zh/api/campaign/tournamentgames/"
+      ]
+    },
+    "/v1.3.0/zh/api/campaign/agentorigins/": {
+      "label": {
+        "zh": "AgentOrigins",
+        "en": "AgentOrigins"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/bartersystem/": {
+      "label": {
+        "zh": "BarterSystem",
+        "en": "BarterSystem"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/campaignbehaviors/": {
+      "label": {
+        "zh": "CampaignBehaviors",
+        "en": "CampaignBehaviors"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/charactercreationcontent/": {
+      "label": {
+        "zh": "CharacterCreationContent",
+        "en": "CharacterCreationContent"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/characterdevelopment/": {
+      "label": {
+        "zh": "CharacterDevelopment",
+        "en": "CharacterDevelopment"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/characters/": {
+      "label": {
+        "zh": "Characters",
+        "en": "Characters"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/componentinterfaces/": {
+      "label": {
+        "zh": "ComponentInterfaces",
+        "en": "ComponentInterfaces"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/conversation/": {
+      "label": {
+        "zh": "Conversation",
+        "en": "Conversation"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/election/": {
+      "label": {
+        "zh": "Election",
+        "en": "Election"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/encounters/": {
+      "label": {
+        "zh": "Encounters",
+        "en": "Encounters"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/encyclopedia/": {
+      "label": {
+        "zh": "Encyclopedia",
+        "en": "Encyclopedia"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/extensions/": {
+      "label": {
+        "zh": "Extensions",
+        "en": "Extensions"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/gamecomponents/": {
+      "label": {
+        "zh": "GameComponents",
+        "en": "GameComponents"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/gamemenus/": {
+      "label": {
+        "zh": "GameMenus",
+        "en": "GameMenus"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/gamestate/": {
+      "label": {
+        "zh": "GameState",
+        "en": "GameState"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/heroes/": {
+      "label": {
+        "zh": "Heroes",
+        "en": "Heroes"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/inventory/": {
+      "label": {
+        "zh": "Inventory",
+        "en": "Inventory"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/issues/": {
+      "label": {
+        "zh": "Issues",
+        "en": "Issues"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/logentries/": {
+      "label": {
+        "zh": "LogEntries",
+        "en": "LogEntries"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/map/": {
+      "label": {
+        "zh": "Map",
+        "en": "Map"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/mapevents/": {
+      "label": {
+        "zh": "MapEvents",
+        "en": "MapEvents"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/mapnotificationtypes/": {
+      "label": {
+        "zh": "MapNotificationTypes",
+        "en": "MapNotificationTypes"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/naval/": {
+      "label": {
+        "zh": "Naval",
+        "en": "Naval"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/parties/": {
+      "label": {
+        "zh": "Parties",
+        "en": "Parties"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/party/": {
+      "label": {
+        "zh": "Party",
+        "en": "Party"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/quests/": {
+      "label": {
+        "zh": "Quests",
+        "en": "Quests"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/roster/": {
+      "label": {
+        "zh": "Roster",
+        "en": "Roster"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/savecompability/": {
+      "label": {
+        "zh": "SaveCompability",
+        "en": "SaveCompability"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/sceneinformationpopuptypes/": {
+      "label": {
+        "zh": "SceneInformationPopupTypes",
+        "en": "SceneInformationPopupTypes"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/settlements/": {
+      "label": {
+        "zh": "Settlements",
+        "en": "Settlements"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/siege/": {
+      "label": {
+        "zh": "Siege",
+        "en": "Siege"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/tournamentgames/": {
+      "label": {
+        "zh": "TournamentGames",
+        "en": "TournamentGames"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign-ext/": {
+      "label": {
+        "zh": "Campaign-Ext 战役扩展",
+        "en": "Campaign-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.3.0/zh/api/",
+      "children": [
+        "/v1.3.0/zh/api/campaign-ext/actions/",
+        "/v1.3.0/zh/api/campaign-ext/global/",
+        "/v1.3.0/zh/api/campaign-ext/networkmessages/",
+        "/v1.3.0/zh/api/campaign-ext/root/",
+        "/v1.3.0/zh/api/campaign-ext/sandbox/",
+        "/v1.3.0/zh/api/campaign-ext/storymode/",
+        "/v1.3.0/zh/api/campaign-ext/taleworlds/"
+      ]
+    },
+    "/v1.3.0/zh/api/campaign-ext/actions/": {
+      "label": {
+        "zh": "Actions",
+        "en": "Actions"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign-ext/global/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign-ext/networkmessages/": {
+      "label": {
+        "zh": "NetworkMessages",
+        "en": "NetworkMessages"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign-ext/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign-ext/sandbox/": {
+      "label": {
+        "zh": "SandBox",
+        "en": "SandBox"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign-ext/storymode/": {
+      "label": {
+        "zh": "StoryMode",
+        "en": "StoryMode"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign-ext/taleworlds/": {
+      "label": {
+        "zh": "TaleWorlds",
+        "en": "TaleWorlds"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/core/": {
+      "label": {
+        "zh": "Core 核心 (v1.3.0)",
+        "en": "Core 核心 (v1.3.0)"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/core-extra/": {
+      "label": {
+        "zh": "Core-Extra 核心扩展",
+        "en": "Core-Extra 核心扩展"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 1,
+      "parent": "/v1.3.0/zh/api/",
+      "children": [
+        "/v1.3.0/zh/api/core-extra/codegeneration/",
+        "/v1.3.0/zh/api/core-extra/eventsystem/",
+        "/v1.3.0/zh/api/core-extra/graph/",
+        "/v1.3.0/zh/api/core-extra/http/",
+        "/v1.3.0/zh/api/core-extra/imageidentifiers/",
+        "/v1.3.0/zh/api/core-extra/newsmanager/",
+        "/v1.3.0/zh/api/core-extra/root/",
+        "/v1.3.0/zh/api/core-extra/viewmodelcollection/"
+      ]
+    },
+    "/v1.3.0/zh/api/core-extra/codegeneration/": {
+      "label": {
+        "zh": "CodeGeneration",
+        "en": "CodeGeneration"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/core-extra/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/core-extra/eventsystem/": {
+      "label": {
+        "zh": "EventSystem",
+        "en": "EventSystem"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/core-extra/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/core-extra/graph/": {
+      "label": {
+        "zh": "Graph",
+        "en": "Graph"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/core-extra/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/core-extra/http/": {
+      "label": {
+        "zh": "Http",
+        "en": "Http"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/core-extra/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/core-extra/imageidentifiers/": {
+      "label": {
+        "zh": "ImageIdentifiers",
+        "en": "ImageIdentifiers"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/core-extra/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/core-extra/newsmanager/": {
+      "label": {
+        "zh": "NewsManager",
+        "en": "NewsManager"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/core-extra/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/core-extra/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/core-extra/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/core-extra/viewmodelcollection/": {
+      "label": {
+        "zh": "ViewModelCollection",
+        "en": "ViewModelCollection"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/core-extra/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/engine/": {
+      "label": {
+        "zh": "Engine 引擎",
+        "en": "Engine"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 9,
+      "parent": "/v1.3.0/zh/api/",
+      "children": [
+        "/v1.3.0/zh/api/engine/gauntletui/",
+        "/v1.3.0/zh/api/engine/inputsystem/",
+        "/v1.3.0/zh/api/engine/options/",
+        "/v1.3.0/zh/api/engine/root/"
+      ]
+    },
+    "/v1.3.0/zh/api/engine/gauntletui/": {
+      "label": {
+        "zh": "GauntletUI",
+        "en": "GauntletUI"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/engine/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/engine/inputsystem/": {
+      "label": {
+        "zh": "InputSystem",
+        "en": "InputSystem"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/engine/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/engine/options/": {
+      "label": {
+        "zh": "Options",
+        "en": "Options"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/engine/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/engine/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/engine/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/gameplay/": {
+      "label": {
+        "zh": "Gameplay 玩法模块",
+        "en": "Gameplay 玩法模块"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 10,
+      "parent": "/v1.3.0/zh/api/",
+      "children": [
+        "/v1.3.0/zh/api/gameplay/sandbox/",
+        "/v1.3.0/zh/api/gameplay/storymode/"
+      ]
+    },
+    "/v1.3.0/zh/api/gameplay/sandbox/": {
+      "label": {
+        "zh": "SandBox",
+        "en": "SandBox"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/gameplay/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/gameplay/storymode/": {
+      "label": {
+        "zh": "StoryMode",
+        "en": "StoryMode"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/gameplay/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/gui/": {
+      "label": {
+        "zh": "GUI 界面",
+        "en": "GUI 界面"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 6,
+      "parent": "/v1.3.0/zh/api/",
+      "children": [
+        "/v1.3.0/zh/api/gui/basetypes/",
+        "/v1.3.0/zh/api/gui/data/",
+        "/v1.3.0/zh/api/gui/extrawidgets/",
+        "/v1.3.0/zh/api/gui/gamepadnavigation/",
+        "/v1.3.0/zh/api/gui/layout/",
+        "/v1.3.0/zh/api/gui/prefabsystem/",
+        "/v1.3.0/zh/api/gui/root/"
+      ]
+    },
+    "/v1.3.0/zh/api/gui/basetypes/": {
+      "label": {
+        "zh": "BaseTypes",
+        "en": "BaseTypes"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/gui/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/gui/data/": {
+      "label": {
+        "zh": "Data",
+        "en": "Data"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/gui/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/gui/extrawidgets/": {
+      "label": {
+        "zh": "ExtraWidgets",
+        "en": "ExtraWidgets"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/gui/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/gui/gamepadnavigation/": {
+      "label": {
+        "zh": "GamepadNavigation",
+        "en": "GamepadNavigation"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/gui/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/gui/layout/": {
+      "label": {
+        "zh": "Layout",
+        "en": "Layout"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/gui/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/gui/prefabsystem/": {
+      "label": {
+        "zh": "PrefabSystem",
+        "en": "PrefabSystem"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/gui/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/gui/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/gui/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/localization/": {
+      "label": {
+        "zh": "Localization 本地化",
+        "en": "Localization 本地化"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 8,
+      "parent": "/v1.3.0/zh/api/",
+      "children": [
+        "/v1.3.0/zh/api/localization/expressions/",
+        "/v1.3.0/zh/api/localization/root/",
+        "/v1.3.0/zh/api/localization/textprocessor/"
+      ]
+    },
+    "/v1.3.0/zh/api/localization/expressions/": {
+      "label": {
+        "zh": "Expressions",
+        "en": "Expressions"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/localization/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/localization/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/localization/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/localization/textprocessor/": {
+      "label": {
+        "zh": "TextProcessor",
+        "en": "TextProcessor"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/localization/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/mission/": {
+      "label": {
+        "zh": "Mission 任务 (v1.3.0)",
+        "en": "Mission 任务 (v1.3.0)"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 2,
+      "parent": "/v1.3.0/zh/api/",
+      "children": [
+        "/v1.3.0/zh/api/mission/root/"
+      ]
+    },
+    "/v1.3.0/zh/api/mission/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/mission/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/mission-ext/": {
+      "label": {
+        "zh": "Mission-Ext 战斗扩展",
+        "en": "Mission-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.3.0/zh/api/",
+      "children": [
+        "/v1.3.0/zh/api/mission-ext/componentinterfaces/",
+        "/v1.3.0/zh/api/mission-ext/gauntletui/",
+        "/v1.3.0/zh/api/mission-ext/missionrepresentatives/",
+        "/v1.3.0/zh/api/mission-ext/missions/",
+        "/v1.3.0/zh/api/mission-ext/missionspawnhandlers/",
+        "/v1.3.0/zh/api/mission-ext/network/",
+        "/v1.3.0/zh/api/mission-ext/objects/",
+        "/v1.3.0/zh/api/mission-ext/options/",
+        "/v1.3.0/zh/api/mission-ext/root/",
+        "/v1.3.0/zh/api/mission-ext/source/",
+        "/v1.3.0/zh/api/mission-ext/view/",
+        "/v1.3.0/zh/api/mission-ext/viewmodelcollection/"
+      ]
+    },
+    "/v1.3.0/zh/api/mission-ext/componentinterfaces/": {
+      "label": {
+        "zh": "ComponentInterfaces",
+        "en": "ComponentInterfaces"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/mission-ext/gauntletui/": {
+      "label": {
+        "zh": "GauntletUI",
+        "en": "GauntletUI"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/mission-ext/missionrepresentatives/": {
+      "label": {
+        "zh": "MissionRepresentatives",
+        "en": "MissionRepresentatives"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/mission-ext/missions/": {
+      "label": {
+        "zh": "Missions",
+        "en": "Missions"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/mission-ext/missionspawnhandlers/": {
+      "label": {
+        "zh": "MissionSpawnHandlers",
+        "en": "MissionSpawnHandlers"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/mission-ext/network/": {
+      "label": {
+        "zh": "Network",
+        "en": "Network"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/mission-ext/objects/": {
+      "label": {
+        "zh": "Objects",
+        "en": "Objects"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/mission-ext/options/": {
+      "label": {
+        "zh": "Options",
+        "en": "Options"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/mission-ext/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/mission-ext/source/": {
+      "label": {
+        "zh": "Source",
+        "en": "Source"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/mission-ext/view/": {
+      "label": {
+        "zh": "View",
+        "en": "View"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/mission-ext/viewmodelcollection/": {
+      "label": {
+        "zh": "ViewModelCollection",
+        "en": "ViewModelCollection"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/system/": {
+      "label": {
+        "zh": "System 系统层",
+        "en": "System 系统层"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 11,
+      "parent": "/v1.3.0/zh/api/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/viewmodel/": {
+      "label": {
+        "zh": "ViewModel 视图模型",
+        "en": "ViewModel 视图模型"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 7,
+      "parent": "/v1.3.0/zh/api/",
+      "children": [
+        "/v1.3.0/zh/api/viewmodel/armymanagement/",
+        "/v1.3.0/zh/api/viewmodel/charactercreation/",
+        "/v1.3.0/zh/api/viewmodel/characterdeveloper/",
+        "/v1.3.0/zh/api/viewmodel/clanmanagement/",
+        "/v1.3.0/zh/api/viewmodel/conversation/",
+        "/v1.3.0/zh/api/viewmodel/education/",
+        "/v1.3.0/zh/api/viewmodel/encyclopedia/",
+        "/v1.3.0/zh/api/viewmodel/gamemenu/",
+        "/v1.3.0/zh/api/viewmodel/inventory/",
+        "/v1.3.0/zh/api/viewmodel/kingdommanagement/",
+        "/v1.3.0/zh/api/viewmodel/map/",
+        "/v1.3.0/zh/api/viewmodel/party/",
+        "/v1.3.0/zh/api/viewmodel/quests/",
+        "/v1.3.0/zh/api/viewmodel/root/",
+        "/v1.3.0/zh/api/viewmodel/weaponcrafting/"
+      ]
+    },
+    "/v1.3.0/zh/api/viewmodel/armymanagement/": {
+      "label": {
+        "zh": "ArmyManagement",
+        "en": "ArmyManagement"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/viewmodel/charactercreation/": {
+      "label": {
+        "zh": "CharacterCreation",
+        "en": "CharacterCreation"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/viewmodel/characterdeveloper/": {
+      "label": {
+        "zh": "CharacterDeveloper",
+        "en": "CharacterDeveloper"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/viewmodel/clanmanagement/": {
+      "label": {
+        "zh": "ClanManagement",
+        "en": "ClanManagement"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/viewmodel/conversation/": {
+      "label": {
+        "zh": "Conversation",
+        "en": "Conversation"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/viewmodel/education/": {
+      "label": {
+        "zh": "Education",
+        "en": "Education"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/viewmodel/encyclopedia/": {
+      "label": {
+        "zh": "Encyclopedia",
+        "en": "Encyclopedia"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/viewmodel/gamemenu/": {
+      "label": {
+        "zh": "GameMenu",
+        "en": "GameMenu"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/viewmodel/inventory/": {
+      "label": {
+        "zh": "Inventory",
+        "en": "Inventory"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/viewmodel/kingdommanagement/": {
+      "label": {
+        "zh": "KingdomManagement",
+        "en": "KingdomManagement"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/viewmodel/map/": {
+      "label": {
+        "zh": "Map",
+        "en": "Map"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/viewmodel/party/": {
+      "label": {
+        "zh": "Party",
+        "en": "Party"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/viewmodel/quests/": {
+      "label": {
+        "zh": "Quests",
+        "en": "Quests"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/viewmodel/root/": {
+      "label": {
+        "zh": "Root",
+        "en": "Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/viewmodel/weaponcrafting/": {
+      "label": {
+        "zh": "WeaponCrafting",
+        "en": "WeaponCrafting"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/viewmodel/",
+      "children": []
+    },
+    "/v1.3.0/zh/architecture/": {
+      "label": {
+        "zh": "架构",
+        "en": "Architecture (v1.3.0)"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/v1.3.0/zh/",
+      "children": []
+    },
+    "/v1.3.0/zh/guide/": {
+      "label": {
+        "zh": "入门指南",
+        "en": "Getting Started Guide"
+      },
+      "group": "guide",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/",
+      "children": []
+    },
+    "/v1.3.0/zh/native/": {
+      "label": {
+        "zh": "原生接口",
+        "en": "Native Interface (v1.3.0)"
+      },
+      "group": "native",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.3.0/zh/",
+      "children": []
+    },
+    "/v1.3.0/zh/xml-reference/": {
+      "label": {
+        "zh": "XML 参考",
+        "en": "XML Reference (v1.3.0)"
+      },
+      "group": "xml",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.3.0/zh/",
+      "children": []
     },
     "/v1.3.15/": {
       "label": {
@@ -102,360 +2778,9 @@
       "order": 0,
       "parent": "/",
       "children": [
-        "/v1.3.15/zh/",
-        "/v1.3.15/en/"
+        "/v1.3.15/en/",
+        "/v1.3.15/zh/"
       ]
-    },
-    "/v1.3.15/zh/": {
-      "label": {
-        "zh": "Bannerlord v1.3.15 文档",
-        "en": "Bannerlord v1.3.15 Documentation"
-      },
-      "group": "start",
-      "collapsed": false,
-      "order": 0,
-      "parent": "/v1.3.15/",
-      "children": [
-        "/v1.3.15/zh/guide/",
-        "/v1.3.15/zh/architecture/",
-        "/v1.3.15/zh/api/",
-        "/v1.3.15/zh/native/",
-        "/v1.3.15/zh/native-1.3.15-src/",
-        "/v1.3.15/zh/xml-reference/"
-      ]
-    },
-    "/v1.3.15/zh/guide/": {
-      "label": {
-        "zh": "入门指南",
-        "en": "Getting Started Guide"
-      },
-      "group": "guide",
-      "collapsed": false,
-      "order": 0,
-      "parent": "/v1.3.15/zh/",
-      "children": []
-    },
-    "/v1.3.15/zh/architecture/": {
-      "label": {
-        "zh": "架构总览",
-        "en": "Architecture"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 1,
-      "parent": "/v1.3.15/zh/",
-      "children": [
-        "/v1.3.15/zh/architecture/doc-contract/",
-        "/v1.3.15/zh/architecture/sdk-overview/",
-        "/v1.3.15/zh/architecture/module-system/",
-        "/v1.3.15/zh/architecture/save-system/",
-        "/v1.3.15/zh/architecture/version-delta/",
-        "/v1.3.15/zh/architecture/native-interop/",
-        "/v1.3.15/zh/architecture/developer-roadmap/",
-        "/v1.3.15/zh/architecture/crash-boundaries/",
-        "/v1.3.15/zh/architecture/noise-policy/",
-        "/v1.3.15/zh/architecture/sandbox-native-policy/"
-      ]
-    },
-    "/v1.3.15/zh/architecture/doc-contract/": {
-      "label": {
-        "zh": "文档契约",
-        "en": "Doc Contract"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 0,
-      "parent": "/v1.3.15/zh/architecture/",
-      "children": []
-    },
-    "/v1.3.15/zh/architecture/sdk-overview/": {
-      "label": {
-        "zh": "SDK 总览",
-        "en": "SDK Overview"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 1,
-      "parent": "/v1.3.15/zh/architecture/",
-      "children": []
-    },
-    "/v1.3.15/zh/architecture/module-system/": {
-      "label": {
-        "zh": "模块系统",
-        "en": "Module System"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 2,
-      "parent": "/v1.3.15/zh/architecture/",
-      "children": []
-    },
-    "/v1.3.15/zh/architecture/save-system/": {
-      "label": {
-        "zh": "存档系统",
-        "en": "Save System"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 3,
-      "parent": "/v1.3.15/zh/architecture/",
-      "children": []
-    },
-    "/v1.3.15/zh/architecture/version-delta/": {
-      "label": {
-        "zh": "版本差异",
-        "en": "Version Delta"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 4,
-      "parent": "/v1.3.15/zh/architecture/",
-      "children": []
-    },
-    "/v1.3.15/zh/architecture/native-interop/": {
-      "label": {
-        "zh": "托管/原生互操作",
-        "en": "Managed-Native Interop"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 5,
-      "parent": "/v1.3.15/zh/architecture/",
-      "children": []
-    },
-    "/v1.3.15/zh/api/": {
-      "label": {
-        "zh": "API 参考",
-        "en": "API Reference"
-      },
-      "group": "api",
-      "collapsed": false,
-      "order": 2,
-      "parent": "/v1.3.15/zh/",
-      "children": [
-        "/v1.3.15/zh/api/core/",
-        "/v1.3.15/zh/api/core-extra/",
-        "/v1.3.15/zh/api/mission/",
-        "/v1.3.15/zh/api/mission-ext/",
-        "/v1.3.15/zh/api/campaign/",
-        "/v1.3.15/zh/api/campaign-ext/",
-        "/v1.3.15/zh/api/gui/",
-        "/v1.3.15/zh/api/save-system/",
-        "/v1.3.15/zh/api/viewmodel/",
-        "/v1.3.15/zh/api/localization/",
-        "/v1.3.15/zh/api/engine/",
-        "/v1.3.15/zh/api/system/"
-      ]
-    },
-    "/v1.3.15/zh/api/core/": {
-      "label": {
-        "zh": "Core 核心",
-        "en": "Core"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 0,
-      "parent": "/v1.3.15/zh/api/",
-      "children": []
-    },
-    "/v1.3.15/zh/api/core-extra/": {
-      "label": {
-        "zh": "Core-Extra 核心扩展",
-        "en": "Core-Extra"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 1,
-      "parent": "/v1.3.15/zh/api/",
-      "children": []
-    },
-    "/v1.3.15/zh/api/mission/": {
-      "label": {
-        "zh": "Mission 战斗系统",
-        "en": "Mission"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 2,
-      "parent": "/v1.3.15/zh/api/",
-      "children": []
-    },
-    "/v1.3.15/zh/api/mission-ext/": {
-      "label": {
-        "zh": "Mission-Ext 战斗扩展",
-        "en": "Mission-Ext"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 3,
-      "parent": "/v1.3.15/zh/api/",
-      "children": []
-    },
-    "/v1.3.15/zh/api/campaign/": {
-      "label": {
-        "zh": "Campaign 战役系统",
-        "en": "Campaign"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 5,
-      "parent": "/v1.3.15/zh/api/",
-      "children": []
-    },
-    "/v1.3.15/zh/api/campaign-ext/": {
-      "label": {
-        "zh": "Campaign-Ext 战役扩展",
-        "en": "Campaign-Ext"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 6,
-      "parent": "/v1.3.15/zh/api/",
-      "children": [
-        "/v1.3.15/zh/api/campaign-ext/actions/",
-        "/v1.3.15/zh/api/campaign-ext/actions-index/",
-        "/v1.3.15/zh/api/campaign-ext/models/",
-        "/v1.3.15/zh/api/campaign-ext/issues/",
-        "/v1.3.15/zh/api/campaign-ext/quests/",
-        "/v1.3.15/zh/api/campaign-ext/behaviors/",
-        "/v1.3.15/zh/api/campaign-ext/dialogs/",
-        "/v1.3.15/zh/api/campaign-ext/party/",
-        "/v1.3.15/zh/api/campaign-ext/settlements/",
-        "/v1.3.15/zh/api/campaign-ext/mapevents/",
-        "/v1.3.15/zh/api/campaign-ext/gamemenus/"
-      ]
-    },
-    "/v1.3.15/zh/api/campaign-ext/actions/": {
-      "label": {
-        "zh": "Actions 家族手册",
-        "en": "Actions Family Handbook"
-      },
-      "group": "api",
-      "collapsed": false,
-      "order": 6,
-      "parent": "/v1.3.15/zh/api/campaign-ext/",
-      "children": []
-    },
-    "/v1.3.15/zh/api/campaign-ext/actions-index/": {
-      "label": {
-        "zh": "Actions 速查 (61)",
-        "en": "Actions Reference (61)"
-      },
-      "group": "api",
-      "collapsed": false,
-      "order": 7,
-      "parent": "/v1.3.15/zh/api/campaign-ext/",
-      "children": []
-    },
-    "/v1.3.15/zh/api/campaign-ext/models/": {
-      "label": {
-        "zh": "Models 公式家族",
-        "en": "Models Family Handbook"
-      },
-      "group": "api",
-      "collapsed": false,
-      "order": 8,
-      "parent": "/v1.3.15/zh/api/campaign-ext/",
-      "children": []
-    },
-    "/v1.3.15/zh/api/gui/": {
-      "label": {
-        "zh": "GUI 界面系统",
-        "en": "GUI"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 7,
-      "parent": "/v1.3.15/zh/api/",
-      "children": []
-    },
-    "/v1.3.15/zh/api/save-system/": {
-      "label": {
-        "zh": "Save-System 存档系统",
-        "en": "Save-System"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 8,
-      "parent": "/v1.3.15/zh/api/",
-      "children": []
-    },
-    "/v1.3.15/zh/api/viewmodel/": {
-      "label": {
-        "zh": "ViewModel 视图模型",
-        "en": "ViewModel"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 9,
-      "parent": "/v1.3.15/zh/api/",
-      "children": []
-    },
-    "/v1.3.15/zh/api/localization/": {
-      "label": {
-        "zh": "Localization 本地化",
-        "en": "Localization"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 10,
-      "parent": "/v1.3.15/zh/api/",
-      "children": []
-    },
-    "/v1.3.15/zh/api/engine/": {
-      "label": {
-        "zh": "Engine 引擎",
-        "en": "Engine"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 11,
-      "parent": "/v1.3.15/zh/api/",
-      "children": []
-    },
-    "/v1.3.15/zh/api/system/": {
-      "label": {
-        "zh": "System 系统层",
-        "en": "System"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 12,
-      "parent": "/v1.3.15/zh/api/",
-      "children": []
-    },
-    "/v1.3.15/zh/native/": {
-      "label": {
-        "zh": "原生接口",
-        "en": "Native Reference"
-      },
-      "group": "native",
-      "collapsed": true,
-      "order": 3,
-      "parent": "/v1.3.15/zh/",
-      "children": []
-    },
-    "/v1.3.15/zh/native-1.3.15-src/": {
-      "label": {
-        "zh": "Native 1.3.15 源码参考",
-        "en": "Native 1.3.15 Source Reference"
-      },
-      "group": "native",
-      "collapsed": true,
-      "order": 4,
-      "parent": "/v1.3.15/zh/",
-      "children": []
-    },
-    "/v1.3.15/zh/xml-reference/": {
-      "label": {
-        "zh": "XML 参考",
-        "en": "XML Reference"
-      },
-      "group": "xml",
-      "collapsed": true,
-      "order": 5,
-      "parent": "/v1.3.15/zh/",
-      "children": []
     },
     "/v1.3.15/en/": {
       "label": {
@@ -467,112 +2792,13 @@
       "order": 1,
       "parent": "/v1.3.15/",
       "children": [
-        "/v1.3.15/en/guide/",
-        "/v1.3.15/en/architecture/",
         "/v1.3.15/en/api/",
-        "/v1.3.15/en/native/",
+        "/v1.3.15/en/architecture/",
+        "/v1.3.15/en/guide/",
         "/v1.3.15/en/native-1.3.15-src/",
+        "/v1.3.15/en/native/",
         "/v1.3.15/en/xml-reference/"
       ]
-    },
-    "/v1.3.15/en/guide/": {
-      "label": {
-        "zh": "Getting Started Guide",
-        "en": "Getting Started Guide"
-      },
-      "group": "guide",
-      "collapsed": false,
-      "order": 0,
-      "parent": "/v1.3.15/en/",
-      "children": []
-    },
-    "/v1.3.15/en/architecture/": {
-      "label": {
-        "zh": "Architecture",
-        "en": "Architecture"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 1,
-      "parent": "/v1.3.15/en/",
-      "children": [
-        "/v1.3.15/en/architecture/doc-contract/",
-        "/v1.3.15/en/architecture/sdk-overview/",
-        "/v1.3.15/en/architecture/module-system/",
-        "/v1.3.15/en/architecture/save-system/",
-        "/v1.3.15/en/architecture/version-delta/",
-        "/v1.3.15/en/architecture/native-interop/",
-        "/v1.3.15/en/architecture/developer-roadmap/",
-        "/v1.3.15/en/architecture/crash-boundaries/",
-        "/v1.3.15/en/architecture/noise-policy/",
-        "/v1.3.15/en/architecture/sandbox-native-policy/"
-      ]
-    },
-    "/v1.3.15/en/architecture/doc-contract/": {
-      "label": {
-        "zh": "文档契约",
-        "en": "Doc Contract"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 0,
-      "parent": "/v1.3.15/en/architecture/",
-      "children": []
-    },
-    "/v1.3.15/en/architecture/sdk-overview/": {
-      "label": {
-        "zh": "SDK 总览",
-        "en": "SDK Overview"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 1,
-      "parent": "/v1.3.15/en/architecture/",
-      "children": []
-    },
-    "/v1.3.15/en/architecture/module-system/": {
-      "label": {
-        "zh": "模块系统",
-        "en": "Module System"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 2,
-      "parent": "/v1.3.15/en/architecture/",
-      "children": []
-    },
-    "/v1.3.15/en/architecture/save-system/": {
-      "label": {
-        "zh": "存档系统",
-        "en": "Save System"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 3,
-      "parent": "/v1.3.15/en/architecture/",
-      "children": []
-    },
-    "/v1.3.15/en/architecture/version-delta/": {
-      "label": {
-        "zh": "版本差异",
-        "en": "Version Delta"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 4,
-      "parent": "/v1.3.15/en/architecture/",
-      "children": []
-    },
-    "/v1.3.15/en/architecture/native-interop/": {
-      "label": {
-        "zh": "托管/原生互操作",
-        "en": "Managed-Native Interop"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 5,
-      "parent": "/v1.3.15/en/architecture/",
-      "children": []
     },
     "/v1.3.15/en/api/": {
       "label": {
@@ -584,63 +2810,19 @@
       "order": 2,
       "parent": "/v1.3.15/en/",
       "children": [
-        "/v1.3.15/en/api/core/",
-        "/v1.3.15/en/api/core-extra/",
-        "/v1.3.15/en/api/mission/",
-        "/v1.3.15/en/api/mission-ext/",
-        "/v1.3.15/en/api/campaign/",
         "/v1.3.15/en/api/campaign-ext/",
-        "/v1.3.15/en/api/gui/",
-        "/v1.3.15/en/api/save-system/",
-        "/v1.3.15/en/api/viewmodel/",
-        "/v1.3.15/en/api/localization/",
+        "/v1.3.15/en/api/campaign/",
+        "/v1.3.15/en/api/core-extra/",
+        "/v1.3.15/en/api/core/",
         "/v1.3.15/en/api/engine/",
-        "/v1.3.15/en/api/system/"
+        "/v1.3.15/en/api/gui/",
+        "/v1.3.15/en/api/localization/",
+        "/v1.3.15/en/api/mission-ext/",
+        "/v1.3.15/en/api/mission/",
+        "/v1.3.15/en/api/save-system/",
+        "/v1.3.15/en/api/system/",
+        "/v1.3.15/en/api/viewmodel/"
       ]
-    },
-    "/v1.3.15/en/api/core/": {
-      "label": {
-        "zh": "Core 核心",
-        "en": "Core"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 0,
-      "parent": "/v1.3.15/en/api/",
-      "children": []
-    },
-    "/v1.3.15/en/api/core-extra/": {
-      "label": {
-        "zh": "Core-Extra 核心扩展",
-        "en": "Core-Extra"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 1,
-      "parent": "/v1.3.15/en/api/",
-      "children": []
-    },
-    "/v1.3.15/en/api/mission/": {
-      "label": {
-        "zh": "Mission 战斗系统",
-        "en": "Mission"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 2,
-      "parent": "/v1.3.15/en/api/",
-      "children": []
-    },
-    "/v1.3.15/en/api/mission-ext/": {
-      "label": {
-        "zh": "Mission-Ext 战斗扩展",
-        "en": "Mission-Ext"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 3,
-      "parent": "/v1.3.15/en/api/",
-      "children": []
     },
     "/v1.3.15/en/api/campaign/": {
       "label": {
@@ -664,16 +2846,23 @@
       "parent": "/v1.3.15/en/api/",
       "children": [
         "/v1.3.15/en/api/campaign-ext/actions/",
-        "/v1.3.15/en/api/campaign-ext/actions-index/",
-        "/v1.3.15/en/api/campaign-ext/models/",
-        "/v1.3.15/en/api/campaign-ext/issues/",
-        "/v1.3.15/en/api/campaign-ext/quests/",
+        "/v1.3.15/en/api/campaign-ext/behaviors-priority/",
         "/v1.3.15/en/api/campaign-ext/behaviors/",
+        "/v1.3.15/en/api/campaign-ext/campaign-behaviors-tail/",
+        "/v1.3.15/en/api/campaign-ext/campaign-tail/",
+        "/v1.3.15/en/api/campaign-ext/character-development/",
         "/v1.3.15/en/api/campaign-ext/dialogs/",
-        "/v1.3.15/en/api/campaign-ext/party/",
-        "/v1.3.15/en/api/campaign-ext/settlements/",
+        "/v1.3.15/en/api/campaign-ext/encounters/",
+        "/v1.3.15/en/api/campaign-ext/gamemenus/",
+        "/v1.3.15/en/api/campaign-ext/helpers/",
+        "/v1.3.15/en/api/campaign-ext/issues-tail/",
+        "/v1.3.15/en/api/campaign-ext/issues/",
         "/v1.3.15/en/api/campaign-ext/mapevents/",
-        "/v1.3.15/en/api/campaign-ext/gamemenus/"
+        "/v1.3.15/en/api/campaign-ext/models/",
+        "/v1.3.15/en/api/campaign-ext/party/",
+        "/v1.3.15/en/api/campaign-ext/quests/",
+        "/v1.3.15/en/api/campaign-ext/sandbox-content/",
+        "/v1.3.15/en/api/campaign-ext/settlements/"
       ]
     },
     "/v1.3.15/en/api/campaign-ext/actions/": {
@@ -687,14 +2876,135 @@
       "parent": "/v1.3.15/en/api/campaign-ext/",
       "children": []
     },
-    "/v1.3.15/en/api/campaign-ext/actions-index/": {
+    "/v1.3.15/en/api/campaign-ext/behaviors/": {
       "label": {
-        "zh": "Actions 速查 (61)",
-        "en": "Actions Reference (61)"
+        "zh": "Behaviors 行为家族",
+        "en": "Behaviors Family"
       },
       "group": "api",
       "collapsed": false,
-      "order": 7,
+      "order": 11,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/behaviors-priority/": {
+      "label": {
+        "zh": "Priority Behavior Types",
+        "en": "Priority Behavior Types"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/campaign-behaviors-tail/": {
+      "label": {
+        "zh": "Campaign behavior long-tail family",
+        "en": "Campaign behavior long-tail family"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/campaign-tail/": {
+      "label": {
+        "zh": "CampaignSystem namespace long tail",
+        "en": "CampaignSystem namespace long tail"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/character-development/": {
+      "label": {
+        "zh": "Character Development Family Handbook",
+        "en": "Character Development Family Handbook"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/dialogs/": {
+      "label": {
+        "zh": "Dialogs 对话家族",
+        "en": "Dialogs Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 12,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/encounters/": {
+      "label": {
+        "zh": "Encounters Family",
+        "en": "Encounters Family"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/gamemenus/": {
+      "label": {
+        "zh": "GameMenus 菜单家族",
+        "en": "GameMenus Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 16,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/helpers/": {
+      "label": {
+        "zh": "Helpers Family Handbook",
+        "en": "Helpers Family Handbook"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/issues/": {
+      "label": {
+        "zh": "Issues 委托家族",
+        "en": "Issues Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 9,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/issues-tail/": {
+      "label": {
+        "zh": "Issue long-tail family",
+        "en": "Issue long-tail family"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/mapevents/": {
+      "label": {
+        "zh": "MapEvents 地图事件",
+        "en": "MapEvents Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 15,
       "parent": "/v1.3.15/en/api/campaign-ext/",
       "children": []
     },
@@ -709,6 +3019,96 @@
       "parent": "/v1.3.15/en/api/campaign-ext/",
       "children": []
     },
+    "/v1.3.15/en/api/campaign-ext/party/": {
+      "label": {
+        "zh": "Party 部队家族",
+        "en": "Party Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 13,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/quests/": {
+      "label": {
+        "zh": "Quests 任务家族",
+        "en": "Quests Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 10,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/sandbox-content/": {
+      "label": {
+        "zh": "SandBox content family",
+        "en": "SandBox content family"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/settlements/": {
+      "label": {
+        "zh": "Settlements 据点家族",
+        "en": "Settlements Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 14,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/core/": {
+      "label": {
+        "zh": "Core 核心",
+        "en": "Core"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 0,
+      "parent": "/v1.3.15/en/api/",
+      "children": []
+    },
+    "/v1.3.15/en/api/core-extra/": {
+      "label": {
+        "zh": "Core-Extra 核心扩展",
+        "en": "Core-Extra"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 1,
+      "parent": "/v1.3.15/en/api/",
+      "children": [
+        "/v1.3.15/en/api/core-extra/platform-tail/"
+      ]
+    },
+    "/v1.3.15/en/api/core-extra/platform-tail/": {
+      "label": {
+        "zh": "Core, Library, and Engine platform long tail",
+        "en": "Core, Library, and Engine platform long tail"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/en/api/core-extra/",
+      "children": []
+    },
+    "/v1.3.15/en/api/engine/": {
+      "label": {
+        "zh": "Engine 引擎",
+        "en": "Engine"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 11,
+      "parent": "/v1.3.15/en/api/",
+      "children": []
+    },
     "/v1.3.15/en/api/gui/": {
       "label": {
         "zh": "GUI 界面系统",
@@ -717,28 +3117,6 @@
       "group": "api",
       "collapsed": true,
       "order": 7,
-      "parent": "/v1.3.15/en/api/",
-      "children": []
-    },
-    "/v1.3.15/en/api/save-system/": {
-      "label": {
-        "zh": "Save-System 存档系统",
-        "en": "Save-System"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 8,
-      "parent": "/v1.3.15/en/api/",
-      "children": []
-    },
-    "/v1.3.15/en/api/viewmodel/": {
-      "label": {
-        "zh": "ViewModel 视图模型",
-        "en": "ViewModel"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 9,
       "parent": "/v1.3.15/en/api/",
       "children": []
     },
@@ -753,14 +3131,61 @@
       "parent": "/v1.3.15/en/api/",
       "children": []
     },
-    "/v1.3.15/en/api/engine/": {
+    "/v1.3.15/en/api/mission/": {
       "label": {
-        "zh": "Engine 引擎",
-        "en": "Engine"
+        "zh": "Mission 战斗系统",
+        "en": "Mission"
       },
       "group": "api",
       "collapsed": true,
-      "order": 11,
+      "order": 2,
+      "parent": "/v1.3.15/en/api/",
+      "children": []
+    },
+    "/v1.3.15/en/api/mission-ext/": {
+      "label": {
+        "zh": "Mission-Ext 战斗扩展",
+        "en": "Mission-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.3.15/en/api/",
+      "children": [
+        "/v1.3.15/en/api/mission-ext/mountandblade-tail/",
+        "/v1.3.15/en/api/mission-ext/source-handlers/"
+      ]
+    },
+    "/v1.3.15/en/api/mission-ext/mountandblade-tail/": {
+      "label": {
+        "zh": "MountAndBlade managed long tail",
+        "en": "MountAndBlade managed long tail"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/en/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/mission-ext/source-handlers/": {
+      "label": {
+        "zh": "Source mission handlers family",
+        "en": "Source mission handlers family"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/en/api/mission-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/save-system/": {
+      "label": {
+        "zh": "Save-System 存档系统",
+        "en": "Save-System"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 8,
       "parent": "/v1.3.15/en/api/",
       "children": []
     },
@@ -773,6 +3198,52 @@
       "collapsed": true,
       "order": 12,
       "parent": "/v1.3.15/en/api/",
+      "children": [
+        "/v1.3.15/en/api/system/runtime-tail/"
+      ]
+    },
+    "/v1.3.15/en/api/system/runtime-tail/": {
+      "label": {
+        "zh": "Managed runtime long tail",
+        "en": "Managed runtime long tail"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/en/api/system/",
+      "children": []
+    },
+    "/v1.3.15/en/api/viewmodel/": {
+      "label": {
+        "zh": "ViewModel 视图模型",
+        "en": "ViewModel"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 9,
+      "parent": "/v1.3.15/en/api/",
+      "children": []
+    },
+    "/v1.3.15/en/architecture/": {
+      "label": {
+        "zh": "Architecture",
+        "en": "Architecture"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/v1.3.15/en/",
+      "children": []
+    },
+    "/v1.3.15/en/guide/": {
+      "label": {
+        "zh": "Getting Started Guide",
+        "en": "Getting Started Guide"
+      },
+      "group": "guide",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/en/",
       "children": []
     },
     "/v1.3.15/en/native/": {
@@ -808,60 +3279,25 @@
       "parent": "/v1.3.15/en/",
       "children": []
     },
-    "/v1.3.0/": {
+    "/v1.3.15/zh/": {
       "label": {
-        "zh": "Bannerlord v1.3.0 文档",
-        "en": "Bannerlord v1.3.0 Documentation"
-      },
-      "group": "start",
-      "collapsed": false,
-      "order": 1,
-      "parent": "/",
-      "children": [
-        "/v1.3.0/zh/",
-        "/v1.3.0/en/"
-      ]
-    },
-    "/v1.3.0/zh/": {
-      "label": {
-        "zh": "Bannerlord v1.3.0 文档",
-        "en": "Bannerlord v1.3.0 Documentation"
+        "zh": "Bannerlord v1.3.15 文档",
+        "en": "Bannerlord v1.3.15 Documentation"
       },
       "group": "start",
       "collapsed": false,
       "order": 0,
-      "parent": "/v1.3.0/",
+      "parent": "/v1.3.15/",
       "children": [
-        "/v1.3.0/zh/guide/",
-        "/v1.3.0/zh/architecture/",
-        "/v1.3.0/zh/api/",
-        "/v1.3.0/zh/native/",
-        "/v1.3.0/zh/xml-reference/"
+        "/v1.3.15/zh/api/",
+        "/v1.3.15/zh/architecture/",
+        "/v1.3.15/zh/guide/",
+        "/v1.3.15/zh/native-1.3.15-src/",
+        "/v1.3.15/zh/native/",
+        "/v1.3.15/zh/xml-reference/"
       ]
     },
-    "/v1.3.0/zh/guide/": {
-      "label": {
-        "zh": "入门指南",
-        "en": "Getting Started Guide"
-      },
-      "group": "guide",
-      "collapsed": false,
-      "order": 0,
-      "parent": "/v1.3.0/zh/",
-      "children": []
-    },
-    "/v1.3.0/zh/architecture/": {
-      "label": {
-        "zh": "架构",
-        "en": "Architecture (v1.3.0)"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 1,
-      "parent": "/v1.3.0/zh/",
-      "children": []
-    },
-    "/v1.3.0/zh/api/": {
+    "/v1.3.15/zh/api/": {
       "label": {
         "zh": "API 参考",
         "en": "API Reference"
@@ -869,56 +3305,341 @@
       "group": "api",
       "collapsed": false,
       "order": 2,
-      "parent": "/v1.3.0/zh/",
+      "parent": "/v1.3.15/zh/",
       "children": [
-        "/v1.3.0/zh/api/core/",
-        "/v1.3.0/zh/api/core-extra/",
-        "/v1.3.0/zh/api/mission/",
-        "/v1.3.0/zh/api/mission-ext/",
-        "/v1.3.0/zh/api/campaign/",
-        "/v1.3.0/zh/api/campaign-ext/",
-        "/v1.3.0/zh/api/gui/",
-        "/v1.3.0/zh/api/viewmodel/",
-        "/v1.3.0/zh/api/localization/",
-        "/v1.3.0/zh/api/engine/",
-        "/v1.3.0/zh/api/gameplay/",
-        "/v1.3.0/zh/api/system/"
+        "/v1.3.15/zh/api/campaign-ext/",
+        "/v1.3.15/zh/api/campaign/",
+        "/v1.3.15/zh/api/core-extra/",
+        "/v1.3.15/zh/api/core/",
+        "/v1.3.15/zh/api/engine/",
+        "/v1.3.15/zh/api/gui/",
+        "/v1.3.15/zh/api/localization/",
+        "/v1.3.15/zh/api/mission-ext/",
+        "/v1.3.15/zh/api/mission/",
+        "/v1.3.15/zh/api/save-system/",
+        "/v1.3.15/zh/api/system/",
+        "/v1.3.15/zh/api/viewmodel/"
       ]
     },
-    "/v1.3.0/zh/api/core/": {
+    "/v1.3.15/zh/api/campaign/": {
       "label": {
-        "zh": "Core 核心 (v1.3.0)",
-        "en": "Core 核心 (v1.3.0)"
+        "zh": "Campaign 战役系统",
+        "en": "Campaign"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.3.15/zh/api/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/": {
+      "label": {
+        "zh": "Campaign-Ext 战役扩展",
+        "en": "Campaign-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 6,
+      "parent": "/v1.3.15/zh/api/",
+      "children": [
+        "/v1.3.15/zh/api/campaign-ext/actions/",
+        "/v1.3.15/zh/api/campaign-ext/behaviors-priority/",
+        "/v1.3.15/zh/api/campaign-ext/behaviors/",
+        "/v1.3.15/zh/api/campaign-ext/campaign-behaviors-tail/",
+        "/v1.3.15/zh/api/campaign-ext/campaign-tail/",
+        "/v1.3.15/zh/api/campaign-ext/character-development/",
+        "/v1.3.15/zh/api/campaign-ext/dialogs/",
+        "/v1.3.15/zh/api/campaign-ext/encounters/",
+        "/v1.3.15/zh/api/campaign-ext/gamemenus/",
+        "/v1.3.15/zh/api/campaign-ext/helpers/",
+        "/v1.3.15/zh/api/campaign-ext/issues-tail/",
+        "/v1.3.15/zh/api/campaign-ext/issues/",
+        "/v1.3.15/zh/api/campaign-ext/mapevents/",
+        "/v1.3.15/zh/api/campaign-ext/models/",
+        "/v1.3.15/zh/api/campaign-ext/party/",
+        "/v1.3.15/zh/api/campaign-ext/quests/",
+        "/v1.3.15/zh/api/campaign-ext/sandbox-content/",
+        "/v1.3.15/zh/api/campaign-ext/settlements/"
+      ]
+    },
+    "/v1.3.15/zh/api/campaign-ext/actions/": {
+      "label": {
+        "zh": "Actions 家族手册",
+        "en": "Actions Family Handbook"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 6,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/behaviors/": {
+      "label": {
+        "zh": "Behaviors 行为家族",
+        "en": "Behaviors Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 11,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/behaviors-priority/": {
+      "label": {
+        "zh": "Behaviors 优先类型",
+        "en": "Behaviors 优先类型"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/campaign-behaviors-tail/": {
+      "label": {
+        "zh": "Campaign Behavior long-tail family",
+        "en": "Campaign Behavior long-tail family"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/campaign-tail/": {
+      "label": {
+        "zh": "CampaignSystem namespace long tail",
+        "en": "CampaignSystem namespace long tail"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/character-development/": {
+      "label": {
+        "zh": "Character Development 家族手册",
+        "en": "Character Development 家族手册"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/dialogs/": {
+      "label": {
+        "zh": "Dialogs 对话家族",
+        "en": "Dialogs Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 12,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/encounters/": {
+      "label": {
+        "zh": "Encounters 遭遇家族",
+        "en": "Encounters 遭遇家族"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/gamemenus/": {
+      "label": {
+        "zh": "GameMenus 菜单家族",
+        "en": "GameMenus Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 16,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/helpers/": {
+      "label": {
+        "zh": "Helpers 家族手册",
+        "en": "Helpers 家族手册"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/issues/": {
+      "label": {
+        "zh": "Issues 委托家族",
+        "en": "Issues Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 9,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/issues-tail/": {
+      "label": {
+        "zh": "Issue long-tail family",
+        "en": "Issue long-tail family"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/mapevents/": {
+      "label": {
+        "zh": "MapEvents 地图事件",
+        "en": "MapEvents Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 15,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/models/": {
+      "label": {
+        "zh": "Models 公式家族",
+        "en": "Models Family Handbook"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 8,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/party/": {
+      "label": {
+        "zh": "Party 部队家族",
+        "en": "Party Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 13,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/quests/": {
+      "label": {
+        "zh": "Quests 任务家族",
+        "en": "Quests Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 10,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/sandbox-content/": {
+      "label": {
+        "zh": "SandBox 内容家族",
+        "en": "SandBox 内容家族"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/settlements/": {
+      "label": {
+        "zh": "Settlements 据点家族",
+        "en": "Settlements Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 14,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/core/": {
+      "label": {
+        "zh": "Core 核心",
+        "en": "Core"
       },
       "group": "api",
       "collapsed": true,
       "order": 0,
-      "parent": "/v1.3.0/zh/api/",
+      "parent": "/v1.3.15/zh/api/",
       "children": []
     },
-    "/v1.3.0/zh/api/core-extra/": {
+    "/v1.3.15/zh/api/core-extra/": {
       "label": {
         "zh": "Core-Extra 核心扩展",
-        "en": "Core-Extra 核心扩展"
+        "en": "Core-Extra"
       },
       "group": "api",
       "collapsed": true,
       "order": 1,
-      "parent": "/v1.3.0/zh/api/",
+      "parent": "/v1.3.15/zh/api/",
+      "children": [
+        "/v1.3.15/zh/api/core-extra/platform-tail/"
+      ]
+    },
+    "/v1.3.15/zh/api/core-extra/platform-tail/": {
+      "label": {
+        "zh": "Core、Library、Engine 平台长尾",
+        "en": "Core、Library、Engine 平台长尾"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/zh/api/core-extra/",
       "children": []
     },
-    "/v1.3.0/zh/api/mission/": {
+    "/v1.3.15/zh/api/engine/": {
       "label": {
-        "zh": "Mission 任务 (v1.3.0)",
-        "en": "Mission 任务 (v1.3.0)"
+        "zh": "Engine 引擎",
+        "en": "Engine"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 11,
+      "parent": "/v1.3.15/zh/api/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/gui/": {
+      "label": {
+        "zh": "GUI 界面系统",
+        "en": "GUI"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 7,
+      "parent": "/v1.3.15/zh/api/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/localization/": {
+      "label": {
+        "zh": "Localization 本地化",
+        "en": "Localization"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 10,
+      "parent": "/v1.3.15/zh/api/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/mission/": {
+      "label": {
+        "zh": "Mission 战斗系统",
+        "en": "Mission"
       },
       "group": "api",
       "collapsed": true,
       "order": 2,
-      "parent": "/v1.3.0/zh/api/",
+      "parent": "/v1.3.15/zh/api/",
       "children": []
     },
-    "/v1.3.0/zh/api/mission-ext/": {
+    "/v1.3.15/zh/api/mission-ext/": {
       "label": {
         "zh": "Mission-Ext 战斗扩展",
         "en": "Mission-Ext"
@@ -926,334 +3647,133 @@
       "group": "api",
       "collapsed": true,
       "order": 3,
-      "parent": "/v1.3.0/zh/api/",
-      "children": []
+      "parent": "/v1.3.15/zh/api/",
+      "children": [
+        "/v1.3.15/zh/api/mission-ext/mountandblade-tail/",
+        "/v1.3.15/zh/api/mission-ext/source-handlers/"
+      ]
     },
-    "/v1.3.0/zh/api/campaign/": {
+    "/v1.3.15/zh/api/mission-ext/mountandblade-tail/": {
       "label": {
-        "zh": "Campaign 战役 (v1.3.0)",
-        "en": "Campaign 战役 (v1.3.0)"
+        "zh": "MountAndBlade 托管长尾",
+        "en": "MountAndBlade 托管长尾"
       },
-      "group": "api",
-      "collapsed": true,
-      "order": 4,
-      "parent": "/v1.3.0/zh/api/",
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/zh/api/mission-ext/",
       "children": []
     },
-    "/v1.3.0/zh/api/campaign-ext/": {
+    "/v1.3.15/zh/api/mission-ext/source-handlers/": {
       "label": {
-        "zh": "Campaign-Ext 战役扩展",
-        "en": "Campaign-Ext"
+        "zh": "Source Mission Handlers 源码家族",
+        "en": "Source Mission Handlers 源码家族"
       },
-      "group": "api",
-      "collapsed": true,
-      "order": 5,
-      "parent": "/v1.3.0/zh/api/",
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/zh/api/mission-ext/",
       "children": []
     },
-    "/v1.3.0/zh/api/gui/": {
+    "/v1.3.15/zh/api/save-system/": {
       "label": {
-        "zh": "GUI 界面",
-        "en": "GUI 界面"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 6,
-      "parent": "/v1.3.0/zh/api/",
-      "children": []
-    },
-    "/v1.3.0/zh/api/viewmodel/": {
-      "label": {
-        "zh": "ViewModel 视图模型",
-        "en": "ViewModel 视图模型"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 7,
-      "parent": "/v1.3.0/zh/api/",
-      "children": []
-    },
-    "/v1.3.0/zh/api/localization/": {
-      "label": {
-        "zh": "Localization 本地化",
-        "en": "Localization 本地化"
+        "zh": "Save-System 存档系统",
+        "en": "Save-System"
       },
       "group": "api",
       "collapsed": true,
       "order": 8,
-      "parent": "/v1.3.0/zh/api/",
+      "parent": "/v1.3.15/zh/api/",
       "children": []
     },
-    "/v1.3.0/zh/api/engine/": {
+    "/v1.3.15/zh/api/system/": {
       "label": {
-        "zh": "Engine 引擎",
-        "en": "Engine"
+        "zh": "System 系统层",
+        "en": "System"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 12,
+      "parent": "/v1.3.15/zh/api/",
+      "children": [
+        "/v1.3.15/zh/api/system/runtime-tail/"
+      ]
+    },
+    "/v1.3.15/zh/api/system/runtime-tail/": {
+      "label": {
+        "zh": "Managed runtime long tail",
+        "en": "Managed runtime long tail"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/zh/api/system/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/viewmodel/": {
+      "label": {
+        "zh": "ViewModel 视图模型",
+        "en": "ViewModel"
       },
       "group": "api",
       "collapsed": true,
       "order": 9,
-      "parent": "/v1.3.0/zh/api/",
+      "parent": "/v1.3.15/zh/api/",
       "children": []
     },
-    "/v1.3.0/zh/api/gameplay/": {
+    "/v1.3.15/zh/architecture/": {
       "label": {
-        "zh": "Gameplay 玩法模块",
-        "en": "Gameplay 玩法模块"
+        "zh": "架构总览",
+        "en": "Architecture"
       },
-      "group": "api",
-      "collapsed": true,
-      "order": 10,
-      "parent": "/v1.3.0/zh/api/",
-      "children": []
-    },
-    "/v1.3.0/zh/api/system/": {
-      "label": {
-        "zh": "System 系统层",
-        "en": "System 系统层"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 11,
-      "parent": "/v1.3.0/zh/api/",
-      "children": []
-    },
-    "/v1.3.0/zh/native/": {
-      "label": {
-        "zh": "原生接口",
-        "en": "Native Interface (v1.3.0)"
-      },
-      "group": "native",
-      "collapsed": true,
-      "order": 3,
-      "parent": "/v1.3.0/zh/",
-      "children": []
-    },
-    "/v1.3.0/zh/xml-reference/": {
-      "label": {
-        "zh": "XML 参考",
-        "en": "XML Reference (v1.3.0)"
-      },
-      "group": "xml",
-      "collapsed": true,
-      "order": 4,
-      "parent": "/v1.3.0/zh/",
-      "children": []
-    },
-    "/v1.3.0/en/": {
-      "label": {
-        "zh": "Bannerlord v1.3.0 Documentation",
-        "en": "Bannerlord v1.3.0 Documentation"
-      },
-      "group": "start",
+      "group": "architecture",
       "collapsed": false,
       "order": 1,
-      "parent": "/v1.3.0/",
-      "children": [
-        "/v1.3.0/en/guide/",
-        "/v1.3.0/en/architecture/",
-        "/v1.3.0/en/api/",
-        "/v1.3.0/en/native/",
-        "/v1.3.0/en/xml-reference/"
-      ]
+      "parent": "/v1.3.15/zh/",
+      "children": []
     },
-    "/v1.3.0/en/guide/": {
+    "/v1.3.15/zh/guide/": {
       "label": {
-        "zh": "Getting Started Guide",
+        "zh": "入门指南",
         "en": "Getting Started Guide"
       },
       "group": "guide",
       "collapsed": false,
       "order": 0,
-      "parent": "/v1.3.0/en/",
+      "parent": "/v1.3.15/zh/",
       "children": []
     },
-    "/v1.3.0/en/architecture/": {
+    "/v1.3.15/zh/native/": {
       "label": {
-        "zh": "Architecture (v1.3.0)",
-        "en": "Architecture (v1.3.0)"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 1,
-      "parent": "/v1.3.0/en/",
-      "children": []
-    },
-    "/v1.3.0/en/api/": {
-      "label": {
-        "zh": "API Reference",
-        "en": "API Reference"
-      },
-      "group": "api",
-      "collapsed": false,
-      "order": 2,
-      "parent": "/v1.3.0/en/",
-      "children": [
-        "/v1.3.0/en/api/core/",
-        "/v1.3.0/en/api/core-extra/",
-        "/v1.3.0/en/api/mission/",
-        "/v1.3.0/en/api/mission-ext/",
-        "/v1.3.0/en/api/campaign/",
-        "/v1.3.0/en/api/campaign-ext/",
-        "/v1.3.0/en/api/gui/",
-        "/v1.3.0/en/api/viewmodel/",
-        "/v1.3.0/en/api/localization/",
-        "/v1.3.0/en/api/engine/",
-        "/v1.3.0/en/api/gameplay/",
-        "/v1.3.0/en/api/system/"
-      ]
-    },
-    "/v1.3.0/en/api/core/": {
-      "label": {
-        "zh": "Core (v1.3.0)",
-        "en": "Core (v1.3.0)"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 0,
-      "parent": "/v1.3.0/en/api/",
-      "children": []
-    },
-    "/v1.3.0/en/api/core-extra/": {
-      "label": {
-        "zh": "Core-Extra",
-        "en": "Core-Extra"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 1,
-      "parent": "/v1.3.0/en/api/",
-      "children": []
-    },
-    "/v1.3.0/en/api/mission/": {
-      "label": {
-        "zh": "Mission (v1.3.0)",
-        "en": "Mission (v1.3.0)"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 2,
-      "parent": "/v1.3.0/en/api/",
-      "children": []
-    },
-    "/v1.3.0/en/api/mission-ext/": {
-      "label": {
-        "zh": "Mission-Ext",
-        "en": "Mission-Ext"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 3,
-      "parent": "/v1.3.0/en/api/",
-      "children": []
-    },
-    "/v1.3.0/en/api/campaign/": {
-      "label": {
-        "zh": "Campaign (v1.3.0)",
-        "en": "Campaign (v1.3.0)"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 4,
-      "parent": "/v1.3.0/en/api/",
-      "children": []
-    },
-    "/v1.3.0/en/api/campaign-ext/": {
-      "label": {
-        "zh": "Campaign-Ext",
-        "en": "Campaign-Ext"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 5,
-      "parent": "/v1.3.0/en/api/",
-      "children": []
-    },
-    "/v1.3.0/en/api/gui/": {
-      "label": {
-        "zh": "GUI",
-        "en": "GUI"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 6,
-      "parent": "/v1.3.0/en/api/",
-      "children": []
-    },
-    "/v1.3.0/en/api/viewmodel/": {
-      "label": {
-        "zh": "ViewModel",
-        "en": "ViewModel"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 7,
-      "parent": "/v1.3.0/en/api/",
-      "children": []
-    },
-    "/v1.3.0/en/api/localization/": {
-      "label": {
-        "zh": "Localization",
-        "en": "Localization"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 8,
-      "parent": "/v1.3.0/en/api/",
-      "children": []
-    },
-    "/v1.3.0/en/api/engine/": {
-      "label": {
-        "zh": "Engine",
-        "en": "Engine"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 9,
-      "parent": "/v1.3.0/en/api/",
-      "children": []
-    },
-    "/v1.3.0/en/api/gameplay/": {
-      "label": {
-        "zh": "Gameplay",
-        "en": "Gameplay"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 10,
-      "parent": "/v1.3.0/en/api/",
-      "children": []
-    },
-    "/v1.3.0/en/api/system/": {
-      "label": {
-        "zh": "System",
-        "en": "System"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 11,
-      "parent": "/v1.3.0/en/api/",
-      "children": []
-    },
-    "/v1.3.0/en/native/": {
-      "label": {
-        "zh": "Native Interface (v1.3.0)",
-        "en": "Native Interface (v1.3.0)"
+        "zh": "原生接口",
+        "en": "Native Reference"
       },
       "group": "native",
       "collapsed": true,
       "order": 3,
-      "parent": "/v1.3.0/en/",
+      "parent": "/v1.3.15/zh/",
       "children": []
     },
-    "/v1.3.0/en/xml-reference/": {
+    "/v1.3.15/zh/native-1.3.15-src/": {
       "label": {
-        "zh": "XML Reference (v1.3.0)",
-        "en": "XML Reference (v1.3.0)"
+        "zh": "Native 1.3.15 源码参考",
+        "en": "Native 1.3.15 Source Reference"
+      },
+      "group": "native",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.3.15/zh/",
+      "children": []
+    },
+    "/v1.3.15/zh/xml-reference/": {
+      "label": {
+        "zh": "XML 参考",
+        "en": "XML Reference"
       },
       "group": "xml",
       "collapsed": true,
-      "order": 4,
-      "parent": "/v1.3.0/en/",
+      "order": 5,
+      "parent": "/v1.3.15/zh/",
       "children": []
     },
     "/v1.4.5/": {
@@ -1266,205 +3786,9 @@
       "order": 2,
       "parent": "/",
       "children": [
-        "/v1.4.5/zh/",
-        "/v1.4.5/en/"
+        "/v1.4.5/en/",
+        "/v1.4.5/zh/"
       ]
-    },
-    "/v1.4.5/zh/": {
-      "label": {
-        "zh": "Bannerlord v1.4.5",
-        "en": "Bannerlord v1.4.5"
-      },
-      "group": "start",
-      "collapsed": false,
-      "order": 0,
-      "parent": "/v1.4.5/",
-      "children": [
-        "/v1.4.5/zh/guide/",
-        "/v1.4.5/zh/architecture/",
-        "/v1.4.5/zh/api/",
-        "/v1.4.5/zh/native/",
-        "/v1.4.5/zh/xml-reference/"
-      ]
-    },
-    "/v1.4.5/zh/architecture/": {
-      "label": {
-        "zh": "v1.4.5 架构总览",
-        "en": "Architecture"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 0,
-      "parent": "/v1.4.5/zh/",
-      "children": []
-    },
-    "/v1.4.5/zh/api/": {
-      "label": {
-        "zh": "API 参考",
-        "en": "API Reference"
-      },
-      "group": "api",
-      "collapsed": false,
-      "order": 1,
-      "parent": "/v1.4.5/zh/",
-      "children": [
-        "/v1.4.5/zh/api/core/",
-        "/v1.4.5/zh/api/core-extra/",
-        "/v1.4.5/zh/api/mission/",
-        "/v1.4.5/zh/api/mission-ext/",
-        "/v1.4.5/zh/api/campaign/",
-        "/v1.4.5/zh/api/campaign-ext/",
-        "/v1.4.5/zh/api/gui/",
-        "/v1.4.5/zh/api/save-system/",
-        "/v1.4.5/zh/api/viewmodel/",
-        "/v1.4.5/zh/api/localization/",
-        "/v1.4.5/zh/api/engine/",
-        "/v1.4.5/zh/api/gameplay/",
-        "/v1.4.5/zh/api/system/"
-      ]
-    },
-    "/v1.4.5/zh/api/core/": {
-      "label": {
-        "zh": "Core 核心",
-        "en": "Core 核心"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 0,
-      "parent": "/v1.4.5/zh/api/",
-      "children": []
-    },
-    "/v1.4.5/zh/api/core-extra/": {
-      "label": {
-        "zh": "Core-Extra 核心扩展",
-        "en": "Core-Extra"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 1,
-      "parent": "/v1.4.5/zh/api/",
-      "children": []
-    },
-    "/v1.4.5/zh/api/mission/": {
-      "label": {
-        "zh": "Mission 任务系统",
-        "en": "Mission 任务系统"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 2,
-      "parent": "/v1.4.5/zh/api/",
-      "children": []
-    },
-    "/v1.4.5/zh/api/mission-ext/": {
-      "label": {
-        "zh": "Mission-Ext 战斗扩展",
-        "en": "Mission-Ext"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 3,
-      "parent": "/v1.4.5/zh/api/",
-      "children": []
-    },
-    "/v1.4.5/zh/api/campaign/": {
-      "label": {
-        "zh": "Campaign 战役系统",
-        "en": "Campaign 战役系统"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 4,
-      "parent": "/v1.4.5/zh/api/",
-      "children": []
-    },
-    "/v1.4.5/zh/api/campaign-ext/": {
-      "label": {
-        "zh": "Campaign-Ext 战役扩展",
-        "en": "Campaign-Ext"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 5,
-      "parent": "/v1.4.5/zh/api/",
-      "children": []
-    },
-    "/v1.4.5/zh/api/gui/": {
-      "label": {
-        "zh": "GUI 界面",
-        "en": "GUI 界面"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 6,
-      "parent": "/v1.4.5/zh/api/",
-      "children": []
-    },
-    "/v1.4.5/zh/api/save-system/": {
-      "label": {
-        "zh": "Save System 存档系统",
-        "en": "Save System 存档系统"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 7,
-      "parent": "/v1.4.5/zh/api/",
-      "children": []
-    },
-    "/v1.4.5/zh/api/viewmodel/": {
-      "label": {
-        "zh": "ViewModel 数据视图模型",
-        "en": "ViewModel 数据视图模型"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 8,
-      "parent": "/v1.4.5/zh/api/",
-      "children": []
-    },
-    "/v1.4.5/zh/api/localization/": {
-      "label": {
-        "zh": "Localization 本地化",
-        "en": "Localization 本地化"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 9,
-      "parent": "/v1.4.5/zh/api/",
-      "children": []
-    },
-    "/v1.4.5/zh/api/engine/": {
-      "label": {
-        "zh": "Engine 引擎",
-        "en": "Engine 引擎"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 10,
-      "parent": "/v1.4.5/zh/api/",
-      "children": []
-    },
-    "/v1.4.5/zh/api/gameplay/": {
-      "label": {
-        "zh": "Gameplay 玩法模块",
-        "en": "Gameplay 玩法模块"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 11,
-      "parent": "/v1.4.5/zh/api/",
-      "children": []
-    },
-    "/v1.4.5/zh/api/system/": {
-      "label": {
-        "zh": "System 系统层",
-        "en": "System 系统层"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 12,
-      "parent": "/v1.4.5/zh/api/",
-      "children": []
     },
     "/v1.4.5/en/": {
       "label": {
@@ -1476,23 +3800,12 @@
       "order": 1,
       "parent": "/v1.4.5/",
       "children": [
-        "/v1.4.5/en/guide/",
-        "/v1.4.5/en/architecture/",
         "/v1.4.5/en/api/",
+        "/v1.4.5/en/architecture/",
+        "/v1.4.5/en/guide/",
         "/v1.4.5/en/native/",
         "/v1.4.5/en/xml-reference/"
       ]
-    },
-    "/v1.4.5/en/architecture/": {
-      "label": {
-        "zh": "v1.4.5 Architecture",
-        "en": "v1.4.5 Architecture"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 0,
-      "parent": "/v1.4.5/en/",
-      "children": []
     },
     "/v1.4.5/en/api/": {
       "label": {
@@ -1504,20 +3817,43 @@
       "order": 1,
       "parent": "/v1.4.5/en/",
       "children": [
-        "/v1.4.5/en/api/core/",
-        "/v1.4.5/en/api/core-extra/",
-        "/v1.4.5/en/api/mission/",
-        "/v1.4.5/en/api/mission-ext/",
-        "/v1.4.5/en/api/campaign/",
         "/v1.4.5/en/api/campaign-ext/",
-        "/v1.4.5/en/api/gui/",
-        "/v1.4.5/en/api/save-system/",
-        "/v1.4.5/en/api/viewmodel/",
-        "/v1.4.5/en/api/localization/",
+        "/v1.4.5/en/api/campaign/",
+        "/v1.4.5/en/api/core-extra/",
+        "/v1.4.5/en/api/core/",
         "/v1.4.5/en/api/engine/",
+        "/v1.4.5/en/api/final/",
         "/v1.4.5/en/api/gameplay/",
-        "/v1.4.5/en/api/system/"
+        "/v1.4.5/en/api/gui/",
+        "/v1.4.5/en/api/localization/",
+        "/v1.4.5/en/api/mission-ext/",
+        "/v1.4.5/en/api/mission/",
+        "/v1.4.5/en/api/save-system/",
+        "/v1.4.5/en/api/system/",
+        "/v1.4.5/en/api/viewmodel/"
       ]
+    },
+    "/v1.4.5/en/api/campaign/": {
+      "label": {
+        "zh": "Campaign",
+        "en": "Campaign"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/api/campaign-ext/": {
+      "label": {
+        "zh": "Campaign-Ext",
+        "en": "Campaign-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
     },
     "/v1.4.5/en/api/core/": {
       "label": {
@@ -1538,6 +3874,534 @@
       "group": "api",
       "collapsed": true,
       "order": 1,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/api/engine/": {
+      "label": {
+        "zh": "Engine",
+        "en": "Engine"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 10,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/actions/": {
+      "label": {
+        "zh": "TaleWorlds.CampaignSystem.Actions — Campaign Actions",
+        "en": "TaleWorlds.CampaignSystem.Actions — Campaign Actions"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/campaign-behaviors/": {
+      "label": {
+        "zh": "TaleWorlds.CampaignSystem.CampaignBehaviors — Campaign Behaviors",
+        "en": "TaleWorlds.CampaignSystem.CampaignBehaviors — Campaign Behaviors"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/campaign-vm/": {
+      "label": {
+        "zh": "TaleWorlds.CampaignSystem.ViewModelCollection.* — Campaign View-Models",
+        "en": "TaleWorlds.CampaignSystem.ViewModelCollection.* — Campaign View-Models"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/campaignsystem-misc/": {
+      "label": {
+        "zh": "TaleWorlds.CampaignSystem.* — Campaign System (misc)",
+        "en": "TaleWorlds.CampaignSystem.* — Campaign System (misc)"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/component-interfaces/": {
+      "label": {
+        "zh": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+        "en": "TaleWorlds.CampaignSystem.ComponentInterfaces"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/conversation/": {
+      "label": {
+        "zh": "Conversation Types (CampaignSystem.Conversation & SandBox.Conversation)",
+        "en": "Conversation Types (CampaignSystem.Conversation & SandBox.Conversation)"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/core-lib/": {
+      "label": {
+        "zh": "TaleWorlds.Core / Library / DotNet / ObjectSystem / ModuleManager",
+        "en": "TaleWorlds.Core / Library / DotNet / ObjectSystem / ModuleManager"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/custombattle/": {
+      "label": {
+        "zh": "CustomBattle Types",
+        "en": "CustomBattle Types"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/dedicated-server/": {
+      "label": {
+        "zh": "DedicatedCustomServer.ClientHelper",
+        "en": "DedicatedCustomServer.ClientHelper"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/engine/": {
+      "label": {
+        "zh": "TaleWorlds.Engine.* — Engine Bridge",
+        "en": "TaleWorlds.Engine.* — Engine Bridge"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/game-components/": {
+      "label": {
+        "zh": "GameComponents (CampaignSystem / SandBox / StoryMode)",
+        "en": "GameComponents (CampaignSystem / SandBox / StoryMode)"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/gauntletui/": {
+      "label": {
+        "zh": "TaleWorlds.GauntletUI.* — Gauntlet UI Framework",
+        "en": "TaleWorlds.GauntletUI.* — Gauntlet UI Framework"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/input-screen/": {
+      "label": {
+        "zh": "InputSystem & ScreenSystem",
+        "en": "InputSystem & ScreenSystem"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/issues/": {
+      "label": {
+        "zh": "Issue Types (CampaignSystem.Issues & SandBox.Issues)",
+        "en": "Issue Types (CampaignSystem.Issues & SandBox.Issues)"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/localization/": {
+      "label": {
+        "zh": "TaleWorlds.Localization.* — Localization",
+        "en": "TaleWorlds.Localization.* — Localization"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/log-entries/": {
+      "label": {
+        "zh": "TaleWorlds.CampaignSystem.LogEntries",
+        "en": "TaleWorlds.CampaignSystem.LogEntries"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/misc/": {
+      "label": {
+        "zh": "Miscellaneous Business Types",
+        "en": "Miscellaneous Business Types"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/mnb-battlescore/": {
+      "label": {
+        "zh": "TaleWorlds.MountAndBlade.Missions.BattleScore — Battle Scoring",
+        "en": "TaleWorlds.MountAndBlade.Missions.BattleScore — Battle Scoring"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/mnb-gauntlet/": {
+      "label": {
+        "zh": "TaleWorlds.MountAndBlade.GauntletUI.* — Core Gauntlet UI",
+        "en": "TaleWorlds.MountAndBlade.GauntletUI.* — Core Gauntlet UI"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/mnb-platform/": {
+      "label": {
+        "zh": "TaleWorlds.MountAndBlade PC Platform Bridge",
+        "en": "TaleWorlds.MountAndBlade PC Platform Bridge"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/mnb-root/": {
+      "label": {
+        "zh": "TaleWorlds.MountAndBlade — Core Assembly Root",
+        "en": "TaleWorlds.MountAndBlade — Core Assembly Root"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/mnb-view/": {
+      "label": {
+        "zh": "TaleWorlds.MountAndBlade.View.* — Core Views",
+        "en": "TaleWorlds.MountAndBlade.View.* — Core Views"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/mnb-view-missionviews/": {
+      "label": {
+        "zh": "TaleWorlds.MountAndBlade.View.MissionViews.* — Mission Views",
+        "en": "TaleWorlds.MountAndBlade.View.MissionViews.* — Mission Views"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/mnb-view-scripts/": {
+      "label": {
+        "zh": "TaleWorlds.MountAndBlade.View.Scripts — Screen Scripts",
+        "en": "TaleWorlds.MountAndBlade.View.Scripts — Screen Scripts"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/mnb-vm/": {
+      "label": {
+        "zh": "TaleWorlds.MountAndBlade.ViewModelCollection.* — Core View-Models",
+        "en": "TaleWorlds.MountAndBlade.ViewModelCollection.* — Core View-Models"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/network/": {
+      "label": {
+        "zh": "Network Types (Network & MountAndBlade.Network)",
+        "en": "Network Types (Network & MountAndBlade.Network)"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/network-perks-conditions/": {
+      "label": {
+        "zh": "Network Perks.Conditions — MP Perk Conditions",
+        "en": "Network Perks.Conditions — MP Perk Conditions"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/sandbox/": {
+      "label": {
+        "zh": "SandBox.* — SandBox Module (misc)",
+        "en": "SandBox.* — SandBox Module (misc)"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/sandbox-ai/": {
+      "label": {
+        "zh": "SandBox.AI — SandBox AI",
+        "en": "SandBox.AI — SandBox AI"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/sandbox-boardgames/": {
+      "label": {
+        "zh": "SandBox.BoardGames.* — Board Games",
+        "en": "SandBox.BoardGames.* — Board Games"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/sandbox-gauntlet/": {
+      "label": {
+        "zh": "SandBox.GauntletUI.* — SandBox Gauntlet UI",
+        "en": "SandBox.GauntletUI.* — SandBox Gauntlet UI"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/sandbox-missionlogics/": {
+      "label": {
+        "zh": "SandBox.Missions.MissionLogics.* — SandBox Mission Logics",
+        "en": "SandBox.Missions.MissionLogics.* — SandBox Mission Logics"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/sandbox-missions/": {
+      "label": {
+        "zh": "SandBox.Missions — SandBox Mission Base & Support",
+        "en": "SandBox.Missions — SandBox Mission Base & Support"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/sandbox-objects/": {
+      "label": {
+        "zh": "SandBox.Objects.* — SandBox Scene Objects",
+        "en": "SandBox.Objects.* — SandBox Scene Objects"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/sandbox-root/": {
+      "label": {
+        "zh": "SandBox Root & MBHelpers",
+        "en": "SandBox Root & MBHelpers"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/sandbox-tournaments/": {
+      "label": {
+        "zh": "SandBox.Tournaments — Tournament Types",
+        "en": "SandBox.Tournaments — Tournament Types"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/sandbox-view/": {
+      "label": {
+        "zh": "SandBox.View.* — SandBox Scene Views",
+        "en": "SandBox.View.* — SandBox Scene Views"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/sandbox-view-map/": {
+      "label": {
+        "zh": "SandBox.View.Map — Campaign Map Views",
+        "en": "SandBox.View.Map — Campaign Map Views"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/sandbox-vm/": {
+      "label": {
+        "zh": "SandBox.ViewModelCollection.* — SandBox View-Models",
+        "en": "SandBox.ViewModelCollection.* — SandBox View-Models"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/savesystem/": {
+      "label": {
+        "zh": "TaleWorlds.SaveSystem.* — Save System",
+        "en": "TaleWorlds.SaveSystem.* — Save System"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/storymode/": {
+      "label": {
+        "zh": "StoryMode.* — Main-Story Module",
+        "en": "StoryMode.* — Main-Story Module"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/storymode-quests/": {
+      "label": {
+        "zh": "StoryMode.Quests.* — Main-Story Quests",
+        "en": "StoryMode.Quests.* — Main-Story Quests"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/storymode-tutorial/": {
+      "label": {
+        "zh": "StoryMode.GauntletUI.Tutorial",
+        "en": "StoryMode.GauntletUI.Tutorial"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/twodim/": {
+      "label": {
+        "zh": "TaleWorlds.TwoDimension.* — 2D Standalone Runtime",
+        "en": "TaleWorlds.TwoDimension.* — 2D Standalone Runtime"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/final/",
+      "children": []
+    },
+    "/v1.4.5/en/api/gameplay/": {
+      "label": {
+        "zh": "Gameplay",
+        "en": "Gameplay"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 11,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/api/gui/": {
+      "label": {
+        "zh": "GUI",
+        "en": "GUI"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 6,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/api/localization/": {
+      "label": {
+        "zh": "Localization",
+        "en": "Localization"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 9,
       "parent": "/v1.4.5/en/api/",
       "children": []
     },
@@ -1563,39 +4427,6 @@
       "parent": "/v1.4.5/en/api/",
       "children": []
     },
-    "/v1.4.5/en/api/campaign/": {
-      "label": {
-        "zh": "Campaign",
-        "en": "Campaign"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 4,
-      "parent": "/v1.4.5/en/api/",
-      "children": []
-    },
-    "/v1.4.5/en/api/campaign-ext/": {
-      "label": {
-        "zh": "Campaign-Ext",
-        "en": "Campaign-Ext"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 5,
-      "parent": "/v1.4.5/en/api/",
-      "children": []
-    },
-    "/v1.4.5/en/api/gui/": {
-      "label": {
-        "zh": "GUI",
-        "en": "GUI"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 6,
-      "parent": "/v1.4.5/en/api/",
-      "children": []
-    },
     "/v1.4.5/en/api/save-system/": {
       "label": {
         "zh": "Save System",
@@ -1604,50 +4435,6 @@
       "group": "api",
       "collapsed": true,
       "order": 7,
-      "parent": "/v1.4.5/en/api/",
-      "children": []
-    },
-    "/v1.4.5/en/api/viewmodel/": {
-      "label": {
-        "zh": "ViewModel",
-        "en": "ViewModel"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 8,
-      "parent": "/v1.4.5/en/api/",
-      "children": []
-    },
-    "/v1.4.5/en/api/localization/": {
-      "label": {
-        "zh": "Localization",
-        "en": "Localization"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 9,
-      "parent": "/v1.4.5/en/api/",
-      "children": []
-    },
-    "/v1.4.5/en/api/engine/": {
-      "label": {
-        "zh": "Engine",
-        "en": "Engine"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 10,
-      "parent": "/v1.4.5/en/api/",
-      "children": []
-    },
-    "/v1.4.5/en/api/gameplay/": {
-      "label": {
-        "zh": "Gameplay",
-        "en": "Gameplay"
-      },
-      "group": "api",
-      "collapsed": true,
-      "order": 11,
       "parent": "/v1.4.5/en/api/",
       "children": []
     },
@@ -1662,48 +4449,26 @@
       "parent": "/v1.4.5/en/api/",
       "children": []
     },
-    "/versions/": {
+    "/v1.4.5/en/api/viewmodel/": {
       "label": {
-        "zh": "跨版本类对比",
-        "en": "Cross-Version Class Comparison"
+        "zh": "ViewModel",
+        "en": "ViewModel"
       },
-      "group": "cross-version",
+      "group": "api",
+      "collapsed": true,
+      "order": 8,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/architecture/": {
+      "label": {
+        "zh": "v1.4.5 Architecture",
+        "en": "v1.4.5 Architecture"
+      },
+      "group": "architecture",
       "collapsed": false,
       "order": 0,
-      "parent": "/",
-      "children": []
-    },
-    "/v1.4.5/zh/guide/": {
-      "label": {
-        "zh": "入门指南",
-        "en": "Getting Started Guide"
-      },
-      "group": "guide",
-      "collapsed": false,
-      "order": 0,
-      "parent": "/v1.4.5/zh/",
-      "children": []
-    },
-    "/v1.4.5/zh/native/": {
-      "label": {
-        "zh": "原生接口",
-        "en": "Native Reference"
-      },
-      "group": "native",
-      "collapsed": true,
-      "order": 3,
-      "parent": "/v1.4.5/zh/",
-      "children": []
-    },
-    "/v1.4.5/zh/xml-reference/": {
-      "label": {
-        "zh": "XML 参考",
-        "en": "XML Reference"
-      },
-      "group": "xml",
-      "collapsed": true,
-      "order": 5,
-      "parent": "/v1.4.5/zh/",
+      "parent": "/v1.4.5/en/",
       "children": []
     },
     "/v1.4.5/en/guide/": {
@@ -1739,269 +4504,1199 @@
       "parent": "/v1.4.5/en/",
       "children": []
     },
-    "/v1.3.15/zh/architecture/developer-roadmap/": {
+    "/v1.4.5/zh/": {
       "label": {
-        "zh": "开发者任务路线图",
-        "en": "Developer Roadmap"
+        "zh": "Bannerlord v1.4.5",
+        "en": "Bannerlord v1.4.5"
       },
-      "group": "architecture",
+      "group": "start",
       "collapsed": false,
-      "order": 20,
-      "parent": "/v1.3.15/zh/architecture/",
-      "children": []
+      "order": 0,
+      "parent": "/v1.4.5/",
+      "children": [
+        "/v1.4.5/zh/api/",
+        "/v1.4.5/zh/architecture/",
+        "/v1.4.5/zh/guide/",
+        "/v1.4.5/zh/native-1.3.15-src/",
+        "/v1.4.5/zh/native/",
+        "/v1.4.5/zh/xml-reference/"
+      ]
     },
-    "/v1.3.15/zh/architecture/crash-boundaries/": {
+    "/v1.4.5/zh/api/": {
       "label": {
-        "zh": "崩溃与存档边界",
-        "en": "Crash Boundaries"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 21,
-      "parent": "/v1.3.15/zh/architecture/",
-      "children": []
-    },
-    "/v1.3.15/zh/architecture/noise-policy/": {
-      "label": {
-        "zh": "噪声与非业务类型政策",
-        "en": "Noise Policy"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 22,
-      "parent": "/v1.3.15/zh/architecture/",
-      "children": []
-    },
-    "/v1.3.15/zh/architecture/sandbox-native-policy/": {
-      "label": {
-        "zh": "SandBox/StoryMode/Native 阅读政策",
-        "en": "SandBox/StoryMode/Native Policy"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 23,
-      "parent": "/v1.3.15/zh/architecture/",
-      "children": []
-    },
-    "/v1.3.15/en/architecture/developer-roadmap/": {
-      "label": {
-        "zh": "开发者任务路线图",
-        "en": "Developer Roadmap"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 20,
-      "parent": "/v1.3.15/en/architecture/",
-      "children": []
-    },
-    "/v1.3.15/en/architecture/crash-boundaries/": {
-      "label": {
-        "zh": "崩溃与存档边界",
-        "en": "Crash Boundaries"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 21,
-      "parent": "/v1.3.15/en/architecture/",
-      "children": []
-    },
-    "/v1.3.15/en/architecture/noise-policy/": {
-      "label": {
-        "zh": "噪声与非业务类型政策",
-        "en": "Noise Policy"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 22,
-      "parent": "/v1.3.15/en/architecture/",
-      "children": []
-    },
-    "/v1.3.15/en/architecture/sandbox-native-policy/": {
-      "label": {
-        "zh": "SandBox/StoryMode/Native 阅读政策",
-        "en": "SandBox/StoryMode/Native Policy"
-      },
-      "group": "architecture",
-      "collapsed": false,
-      "order": 23,
-      "parent": "/v1.3.15/en/architecture/",
-      "children": []
-    },
-    "/v1.3.15/zh/api/campaign-ext/issues/": {
-      "label": {
-        "zh": "Issues 委托家族",
-        "en": "Issues Family"
+        "zh": "API 参考",
+        "en": "API Reference"
       },
       "group": "api",
       "collapsed": false,
-      "order": 9,
-      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "order": 1,
+      "parent": "/v1.4.5/zh/",
+      "children": [
+        "/v1.4.5/zh/api/boardgames/",
+        "/v1.4.5/zh/api/campaign-ext/",
+        "/v1.4.5/zh/api/campaign/",
+        "/v1.4.5/zh/api/core-extra/",
+        "/v1.4.5/zh/api/core/",
+        "/v1.4.5/zh/api/custombattle/",
+        "/v1.4.5/zh/api/engine/",
+        "/v1.4.5/zh/api/final/",
+        "/v1.4.5/zh/api/gameplay/",
+        "/v1.4.5/zh/api/gui/",
+        "/v1.4.5/zh/api/localization/",
+        "/v1.4.5/zh/api/mission-ext/",
+        "/v1.4.5/zh/api/mission/",
+        "/v1.4.5/zh/api/perks/",
+        "/v1.4.5/zh/api/sandbox/",
+        "/v1.4.5/zh/api/save-system/",
+        "/v1.4.5/zh/api/storymode/",
+        "/v1.4.5/zh/api/system/",
+        "/v1.4.5/zh/api/view/",
+        "/v1.4.5/zh/api/viewmodel/"
+      ]
+    },
+    "/v1.4.5/zh/api/boardgames/": {
+      "label": {
+        "zh": "BoardGames 家族手册（SandBox.BoardGames）",
+        "en": "BoardGames 家族手册（SandBox.BoardGames）"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/",
+      "children": [
+        "/v1.4.5/zh/api/boardgames/cluster/"
+      ]
+    },
+    "/v1.4.5/zh/api/boardgames/cluster/": {
+      "label": {
+        "zh": "SandBox.BoardGames 桌面游戏",
+        "en": "SandBox.BoardGames 桌面游戏"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/boardgames/",
       "children": []
     },
-    "/v1.3.15/zh/api/campaign-ext/quests/": {
+    "/v1.4.5/zh/api/campaign/": {
       "label": {
-        "zh": "Quests 任务家族",
-        "en": "Quests Family"
+        "zh": "Campaign 战役系统",
+        "en": "Campaign 战役系统"
       },
       "group": "api",
-      "collapsed": false,
-      "order": 10,
-      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.4.5/zh/api/",
       "children": []
     },
-    "/v1.3.15/zh/api/campaign-ext/behaviors/": {
+    "/v1.4.5/zh/api/campaign-ext/": {
       "label": {
-        "zh": "Behaviors 行为家族",
-        "en": "Behaviors Family"
+        "zh": "Campaign-Ext 战役扩展",
+        "en": "Campaign-Ext"
       },
       "group": "api",
-      "collapsed": false,
-      "order": 11,
-      "parent": "/v1.3.15/zh/api/campaign-ext/",
-      "children": []
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.4.5/zh/api/",
+      "children": [
+        "/v1.4.5/zh/api/campaign-ext/MapView/",
+        "/v1.4.5/zh/api/campaign-ext/SandBoxCampaignBehaviors/",
+        "/v1.4.5/zh/api/campaign-ext/SandBoxObjects/",
+        "/v1.4.5/zh/api/campaign-ext/Tutorial/",
+        "/v1.4.5/zh/api/campaign-ext/actions/",
+        "/v1.4.5/zh/api/campaign-ext/behaviors-priority/",
+        "/v1.4.5/zh/api/campaign-ext/behaviors/",
+        "/v1.4.5/zh/api/campaign-ext/campaign-behaviors-tail/",
+        "/v1.4.5/zh/api/campaign-ext/campaign-tail/",
+        "/v1.4.5/zh/api/campaign-ext/character-development/",
+        "/v1.4.5/zh/api/campaign-ext/dialogs/",
+        "/v1.4.5/zh/api/campaign-ext/encounters/",
+        "/v1.4.5/zh/api/campaign-ext/gamemenus/",
+        "/v1.4.5/zh/api/campaign-ext/helpers/",
+        "/v1.4.5/zh/api/campaign-ext/issues-tail/",
+        "/v1.4.5/zh/api/campaign-ext/issues/",
+        "/v1.4.5/zh/api/campaign-ext/mapevents/",
+        "/v1.4.5/zh/api/campaign-ext/models/",
+        "/v1.4.5/zh/api/campaign-ext/party/",
+        "/v1.4.5/zh/api/campaign-ext/quests/",
+        "/v1.4.5/zh/api/campaign-ext/sandbox-content/",
+        "/v1.4.5/zh/api/campaign-ext/settlements/"
+      ]
     },
-    "/v1.3.15/en/api/campaign-ext/issues/": {
+    "/v1.4.5/zh/api/campaign-ext/actions/": {
       "label": {
-        "zh": "Issues 委托家族",
-        "en": "Issues Family"
+        "zh": "Actions 家族手册",
+        "en": "Actions 家族手册"
       },
-      "group": "api",
+      "group": null,
       "collapsed": false,
-      "order": 9,
-      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
       "children": []
     },
-    "/v1.3.15/en/api/campaign-ext/quests/": {
+    "/v1.4.5/zh/api/campaign-ext/behaviors/": {
       "label": {
-        "zh": "Quests 任务家族",
-        "en": "Quests Family"
+        "zh": "Behaviors 家族",
+        "en": "Behaviors 家族"
       },
-      "group": "api",
+      "group": null,
       "collapsed": false,
-      "order": 10,
-      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
       "children": []
     },
-    "/v1.3.15/en/api/campaign-ext/behaviors/": {
+    "/v1.4.5/zh/api/campaign-ext/behaviors-priority/": {
       "label": {
-        "zh": "Behaviors 行为家族",
-        "en": "Behaviors Family"
+        "zh": "Behaviors 优先类型",
+        "en": "Behaviors 优先类型"
       },
-      "group": "api",
+      "group": null,
       "collapsed": false,
-      "order": 11,
-      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
       "children": []
     },
-    "/v1.3.15/zh/api/campaign-ext/dialogs/": {
+    "/v1.4.5/zh/api/campaign-ext/campaign-behaviors-tail/": {
+      "label": {
+        "zh": "Campaign Behavior long-tail family",
+        "en": "Campaign Behavior long-tail family"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/campaign-tail/": {
+      "label": {
+        "zh": "CampaignSystem namespace long tail",
+        "en": "CampaignSystem namespace long tail"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/character-development/": {
+      "label": {
+        "zh": "Character Development 家族手册",
+        "en": "Character Development 家族手册"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/dialogs/": {
       "label": {
         "zh": "Dialogs 对话家族",
-        "en": "Dialogs Family"
+        "en": "Dialogs 对话家族"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/encounters/": {
+      "label": {
+        "zh": "Encounters 遭遇家族",
+        "en": "Encounters 遭遇家族"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/gamemenus/": {
+      "label": {
+        "zh": "GameMenus 家族",
+        "en": "GameMenus 家族"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/helpers/": {
+      "label": {
+        "zh": "Helpers 家族手册",
+        "en": "Helpers 家族手册"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/issues/": {
+      "label": {
+        "zh": "Issues 家族",
+        "en": "Issues 家族"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/issues-tail/": {
+      "label": {
+        "zh": "Issue long-tail family",
+        "en": "Issue long-tail family"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/mapevents/": {
+      "label": {
+        "zh": "MapEvents 地图事件家族",
+        "en": "MapEvents 地图事件家族"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/MapView/": {
+      "label": {
+        "zh": "地图视图家族手册（SandBox.View.Map）",
+        "en": "地图视图家族手册（SandBox.View.Map）"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/models/": {
+      "label": {
+        "zh": "Models 家族手册",
+        "en": "Models 家族手册"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/party/": {
+      "label": {
+        "zh": "Party 家族",
+        "en": "Party 家族"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/quests/": {
+      "label": {
+        "zh": "Quests 家族",
+        "en": "Quests 家族"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/sandbox-content/": {
+      "label": {
+        "zh": "SandBox 内容家族",
+        "en": "SandBox 内容家族"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/SandBoxCampaignBehaviors/": {
+      "label": {
+        "zh": "SandBox CampaignBehaviors 家族手册（SandBox.CampaignBehaviors）",
+        "en": "SandBox CampaignBehaviors 家族手册（SandBox.CampaignBehaviors）"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/SandBoxObjects/": {
+      "label": {
+        "zh": "SandBox.Objects 场景对象",
+        "en": "SandBox.Objects 场景对象"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/settlements/": {
+      "label": {
+        "zh": "Settlements 家族",
+        "en": "Settlements 家族"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/Tutorial/": {
+      "label": {
+        "zh": "教学提示家族手册（StoryMode.GauntletUI.Tutorial）",
+        "en": "教学提示家族手册（StoryMode.GauntletUI.Tutorial）"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/core/": {
+      "label": {
+        "zh": "Core 核心",
+        "en": "Core 核心"
       },
       "group": "api",
+      "collapsed": true,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/core-extra/": {
+      "label": {
+        "zh": "Core-Extra 核心扩展",
+        "en": "Core-Extra"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 1,
+      "parent": "/v1.4.5/zh/api/",
+      "children": [
+        "/v1.4.5/zh/api/core-extra/platform-tail/"
+      ]
+    },
+    "/v1.4.5/zh/api/core-extra/platform-tail/": {
+      "label": {
+        "zh": "Core、Library、Engine 平台长尾",
+        "en": "Core、Library、Engine 平台长尾"
+      },
+      "group": null,
       "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/core-extra/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/custombattle/": {
+      "label": {
+        "zh": "CustomBattle 家族手册（TaleWorlds.MountAndBlade.CustomBattle）",
+        "en": "CustomBattle 家族手册（TaleWorlds.MountAndBlade.CustomBattle）"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/engine/": {
+      "label": {
+        "zh": "Engine 引擎",
+        "en": "Engine 引擎"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 10,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/campaignsystem-misc/": {
+      "label": {
+        "zh": "TaleWorlds.CampaignSystem.* 战役系统补充类型",
+        "en": "TaleWorlds.CampaignSystem.* 战役系统补充类型"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/core-lib/": {
+      "label": {
+        "zh": "TaleWorlds.Core / TaleWorlds.Library 基础设施",
+        "en": "TaleWorlds.Core / TaleWorlds.Library 基础设施"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/custombattle/": {
+      "label": {
+        "zh": "CustomBattle 自定义战斗类型",
+        "en": "CustomBattle 自定义战斗类型"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/dedicated-server/": {
+      "label": {
+        "zh": "DedicatedCustomServer.ClientHelper 专用服务器客户端辅助",
+        "en": "DedicatedCustomServer.ClientHelper 专用服务器客户端辅助"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/misc/": {
+      "label": {
+        "zh": "杂项业务类型（其它命名空间）",
+        "en": "杂项业务类型（其它命名空间）"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/mnb-battlescore/": {
+      "label": {
+        "zh": "TaleWorlds.MountAndBlade.Missions.BattleScore 战斗计分",
+        "en": "TaleWorlds.MountAndBlade.Missions.BattleScore 战斗计分"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/mnb-gauntlet-misc/": {
+      "label": {
+        "zh": "TaleWorlds.MountAndBlade.GauntletUI 杂项界面",
+        "en": "TaleWorlds.MountAndBlade.GauntletUI 杂项界面"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/mnb-platform/": {
+      "label": {
+        "zh": "TaleWorlds.MountAndBlade 的 PC 平台（Platform PC）桥接类型",
+        "en": "TaleWorlds.MountAndBlade 的 PC 平台（Platform PC）桥接类型"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/mnb-root/": {
+      "label": {
+        "zh": "TaleWorlds.MountAndBlade 根命名空间类型",
+        "en": "TaleWorlds.MountAndBlade 根命名空间类型"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/mnb-view/": {
+      "label": {
+        "zh": "TaleWorlds.MountAndBlade.View.* 核心视图类型",
+        "en": "TaleWorlds.MountAndBlade.View.* 核心视图类型"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/mnb-vm/": {
+      "label": {
+        "zh": "TaleWorlds.MountAndBlade.ViewModelCollection.* 核心视图模型",
+        "en": "TaleWorlds.MountAndBlade.ViewModelCollection.* 核心视图模型"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/network-perks-conditions/": {
+      "label": {
+        "zh": "Network Perks.Conditions  perk 条件",
+        "en": "Network Perks.Conditions  perk 条件"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-ai/": {
+      "label": {
+        "zh": "SandBox.AI 沙盒 AI 类型",
+        "en": "SandBox.AI 沙盒 AI 类型"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-conversation/": {
+      "label": {
+        "zh": "SandBox.Conversation 对话类型",
+        "en": "SandBox.Conversation 对话类型"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-gamecomponents/": {
+      "label": {
+        "zh": "SandBox.GameComponents 沙盒游戏组件",
+        "en": "SandBox.GameComponents 沙盒游戏组件"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-gauntlet-ui/": {
+      "label": {
+        "zh": "SandBox.GauntletUI.* 沙盒界面",
+        "en": "SandBox.GauntletUI.* 沙盒界面"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-issues-tasks/": {
+      "label": {
+        "zh": "SandBox.Issues.IssueQuestTasks 领地事务任务",
+        "en": "SandBox.Issues.IssueQuestTasks 领地事务任务"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-missionlogics/": {
+      "label": {
+        "zh": "SandBox.Missions.MissionLogics.* 沙盒任务逻辑",
+        "en": "SandBox.Missions.MissionLogics.* 沙盒任务逻辑"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-missions/": {
+      "label": {
+        "zh": "SandBox.Missions 沙盒任务基础与配套",
+        "en": "SandBox.Missions 沙盒任务基础与配套"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-tournaments/": {
+      "label": {
+        "zh": "SandBox.Tournaments 锦标赛类型",
+        "en": "SandBox.Tournaments 锦标赛类型"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-view/": {
+      "label": {
+        "zh": "SandBox.View.* 沙盒场景视图",
+        "en": "SandBox.View.* 沙盒场景视图"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/sandbox-vm/": {
+      "label": {
+        "zh": "SandBox.ViewModelCollection.* 沙盒视图模型集合",
+        "en": "SandBox.ViewModelCollection.* 沙盒视图模型集合"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/storymode-missions/": {
+      "label": {
+        "zh": "Storymode.Missions 主线任务",
+        "en": "Storymode.Missions 主线任务"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/final/twodim/": {
+      "label": {
+        "zh": "TaleWorlds.TwoDimension.Standalone 二维独立运行时",
+        "en": "TaleWorlds.TwoDimension.Standalone 二维独立运行时"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/final/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/gameplay/": {
+      "label": {
+        "zh": "Gameplay 玩法模块",
+        "en": "Gameplay 玩法模块"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 11,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/gui/": {
+      "label": {
+        "zh": "GUI 界面",
+        "en": "GUI 界面"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 6,
+      "parent": "/v1.4.5/zh/api/",
+      "children": [
+        "/v1.4.5/zh/api/gui/Nameplates/",
+        "/v1.4.5/zh/api/gui/gauntlet-ui-map/",
+        "/v1.4.5/zh/api/gui/gauntlet-ui-missions/",
+        "/v1.4.5/zh/api/gui/gauntlet-ui/",
+        "/v1.4.5/zh/api/gui/texture-providers/"
+      ]
+    },
+    "/v1.4.5/zh/api/gui/gauntlet-ui/": {
+      "label": {
+        "zh": "核心 Gauntlet UI 家族手册（TaleWorlds.MountAndBlade.GauntletUI）",
+        "en": "核心 Gauntlet UI 家族手册（TaleWorlds.MountAndBlade.GauntletUI）"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/gui/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/gui/gauntlet-ui-map/": {
+      "label": {
+        "zh": "SandBox.GauntletUI.Map 地图界面",
+        "en": "SandBox.GauntletUI.Map 地图界面"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/gui/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/gui/gauntlet-ui-missions/": {
+      "label": {
+        "zh": "GauntletUI.Mission 战斗界面",
+        "en": "GauntletUI.Mission 战斗界面"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/gui/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/gui/Nameplates/": {
+      "label": {
+        "zh": "Nameplates 家族手册（SandBox.ViewModelCollection.Nameplate）",
+        "en": "Nameplates 家族手册（SandBox.ViewModelCollection.Nameplate）"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/gui/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/gui/texture-providers/": {
+      "label": {
+        "zh": "GauntletUI.TextureProviders 纹理提供者",
+        "en": "GauntletUI.TextureProviders 纹理提供者"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/gui/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/localization/": {
+      "label": {
+        "zh": "Localization 本地化",
+        "en": "Localization 本地化"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 9,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/mission/": {
+      "label": {
+        "zh": "Mission 任务系统",
+        "en": "Mission 任务系统"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 2,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/mission-ext/": {
+      "label": {
+        "zh": "Mission-Ext 战斗扩展",
+        "en": "Mission-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.4.5/zh/api/",
+      "children": [
+        "/v1.4.5/zh/api/mission-ext/AgentBehaviors/",
+        "/v1.4.5/zh/api/mission-ext/MissionLogics/",
+        "/v1.4.5/zh/api/mission-ext/SandBoxViewMissions/",
+        "/v1.4.5/zh/api/mission-ext/mountandblade-tail/",
+        "/v1.4.5/zh/api/mission-ext/source-handlers/"
+      ]
+    },
+    "/v1.4.5/zh/api/mission-ext/AgentBehaviors/": {
+      "label": {
+        "zh": "Agent Behaviors 家族手册（SandBox.Missions.AgentBehaviors）",
+        "en": "Agent Behaviors 家族手册（SandBox.Missions.AgentBehaviors）"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/mission-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/mission-ext/MissionLogics/": {
+      "label": {
+        "zh": "Mission Logics 家族手册（SandBox.Missions.MissionLogics）",
+        "en": "Mission Logics 家族手册（SandBox.Missions.MissionLogics）"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/mission-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/mission-ext/mountandblade-tail/": {
+      "label": {
+        "zh": "MountAndBlade 托管长尾",
+        "en": "MountAndBlade 托管长尾"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/mission-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/mission-ext/SandBoxViewMissions/": {
+      "label": {
+        "zh": "SandBox.View.Missions 沙盒任务视图",
+        "en": "SandBox.View.Missions 沙盒任务视图"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/mission-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/mission-ext/source-handlers/": {
+      "label": {
+        "zh": "Source Mission Handlers 源码家族",
+        "en": "Source Mission Handlers 源码家族"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/mission-ext/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/perks/PerkEffects/": {
+      "label": {
+        "zh": "Perk Effects 家族手册（Perks.Effects）",
+        "en": "Perk Effects 家族手册（Perks.Effects）"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/perks/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/sandbox/": {
+      "label": {
+        "zh": "SandBox 根命名空间杂项类型",
+        "en": "SandBox 根命名空间杂项类型"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/save-system/": {
+      "label": {
+        "zh": "Save System 存档系统",
+        "en": "Save System 存档系统"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 7,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/storymode/": {
+      "label": {
+        "zh": "StoryMode 主线模块类型",
+        "en": "StoryMode 主线模块类型"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/",
+      "children": [
+        "/v1.4.5/zh/api/storymode/GameComponents/",
+        "/v1.4.5/zh/api/storymode/Quests/"
+      ]
+    },
+    "/v1.4.5/zh/api/storymode/GameComponents/": {
+      "label": {
+        "zh": "StoryMode GameComponents 家族手册（StoryMode.GameComponents）",
+        "en": "StoryMode GameComponents 家族手册（StoryMode.GameComponents）"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/storymode/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/storymode/Quests/": {
+      "label": {
+        "zh": "StoryMode.Quests 主线任务",
+        "en": "StoryMode.Quests 主线任务"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/storymode/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/system/": {
+      "label": {
+        "zh": "System 系统层",
+        "en": "System 系统层"
+      },
+      "group": "api",
+      "collapsed": true,
       "order": 12,
-      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "parent": "/v1.4.5/zh/api/",
+      "children": [
+        "/v1.4.5/zh/api/system/runtime-tail/"
+      ]
+    },
+    "/v1.4.5/zh/api/system/runtime-tail/": {
+      "label": {
+        "zh": "Managed runtime long tail",
+        "en": "Managed runtime long tail"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/system/",
       "children": []
     },
-    "/v1.3.15/zh/api/campaign-ext/party/": {
+    "/v1.4.5/zh/api/view/": {
       "label": {
-        "zh": "Party 部队家族",
-        "en": "Party Family"
+        "zh": "原生视图与任务视图家族手册（TaleWorlds.MountAndBlade.View / .View.MissionViews）",
+        "en": "原生视图与任务视图家族手册（TaleWorlds.MountAndBlade.View / .View.MissionViews）"
       },
-      "group": "api",
+      "group": null,
       "collapsed": false,
-      "order": 13,
-      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/",
+      "children": [
+        "/v1.4.5/zh/api/view/MissionViews/",
+        "/v1.4.5/zh/api/view/Screens/",
+        "/v1.4.5/zh/api/view/Scripts/",
+        "/v1.4.5/zh/api/view/Tableaus/"
+      ]
+    },
+    "/v1.4.5/zh/api/view/MissionViews/": {
+      "label": {
+        "zh": "MissionViews 单玩家战斗视图",
+        "en": "MissionViews 单玩家战斗视图"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/view/",
       "children": []
     },
-    "/v1.3.15/zh/api/campaign-ext/settlements/": {
+    "/v1.4.5/zh/api/view/Screens/": {
       "label": {
-        "zh": "Settlements 据点家族",
-        "en": "Settlements Family"
+        "zh": "Screens 家族手册（TaleWorlds.MountAndBlade.View.Screens）",
+        "en": "Screens 家族手册（TaleWorlds.MountAndBlade.View.Screens）"
       },
-      "group": "api",
+      "group": null,
       "collapsed": false,
-      "order": 14,
-      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/view/",
       "children": []
     },
-    "/v1.3.15/zh/api/campaign-ext/mapevents/": {
+    "/v1.4.5/zh/api/view/Scripts/": {
       "label": {
-        "zh": "MapEvents 地图事件",
-        "en": "MapEvents Family"
+        "zh": "View.Scripts 场景脚本",
+        "en": "View.Scripts 场景脚本"
       },
-      "group": "api",
+      "group": null,
       "collapsed": false,
-      "order": 15,
-      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/view/",
       "children": []
     },
-    "/v1.3.15/zh/api/campaign-ext/gamemenus/": {
+    "/v1.4.5/zh/api/view/Tableaus/": {
       "label": {
-        "zh": "GameMenus 菜单家族",
-        "en": "GameMenus Family"
+        "zh": "Tableaus 与缩略图家族手册（View.Tableaus / Thumbnails）",
+        "en": "Tableaus 与缩略图家族手册（View.Tableaus / Thumbnails）"
       },
-      "group": "api",
+      "group": null,
       "collapsed": false,
-      "order": 16,
-      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/view/",
       "children": []
     },
-    "/v1.3.15/en/api/campaign-ext/dialogs/": {
+    "/v1.4.5/zh/api/viewmodel/": {
       "label": {
-        "zh": "Dialogs 对话家族",
-        "en": "Dialogs Family"
+        "zh": "ViewModel 数据视图模型",
+        "en": "ViewModel 数据视图模型"
       },
       "group": "api",
-      "collapsed": false,
-      "order": 12,
-      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "collapsed": true,
+      "order": 8,
+      "parent": "/v1.4.5/zh/api/",
       "children": []
     },
-    "/v1.3.15/en/api/campaign-ext/party/": {
+    "/v1.4.5/zh/architecture/": {
       "label": {
-        "zh": "Party 部队家族",
-        "en": "Party Family"
+        "zh": "v1.4.5 架构总览",
+        "en": "Architecture"
       },
-      "group": "api",
+      "group": "architecture",
       "collapsed": false,
-      "order": 13,
-      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "order": 0,
+      "parent": "/v1.4.5/zh/",
       "children": []
     },
-    "/v1.3.15/en/api/campaign-ext/settlements/": {
+    "/v1.4.5/zh/guide/": {
       "label": {
-        "zh": "Settlements 据点家族",
-        "en": "Settlements Family"
+        "zh": "入门指南",
+        "en": "Getting Started Guide"
       },
-      "group": "api",
+      "group": "guide",
       "collapsed": false,
-      "order": 14,
-      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "order": 0,
+      "parent": "/v1.4.5/zh/",
       "children": []
     },
-    "/v1.3.15/en/api/campaign-ext/mapevents/": {
+    "/v1.4.5/zh/native/": {
       "label": {
-        "zh": "MapEvents 地图事件",
-        "en": "MapEvents Family"
+        "zh": "原生接口",
+        "en": "Native Reference"
       },
-      "group": "api",
-      "collapsed": false,
-      "order": 15,
-      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "group": "native",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.4.5/zh/",
       "children": []
     },
-    "/v1.3.15/en/api/campaign-ext/gamemenus/": {
+    "/v1.4.5/zh/native-1.3.15-src/": {
       "label": {
-        "zh": "GameMenus 菜单家族",
-        "en": "GameMenus Family"
+        "zh": "Native 1.3.15 源码参考 / Native 1.3.15 Source Reference",
+        "en": "Native 1.3.15 源码参考 / Native 1.3.15 Source Reference"
       },
-      "group": "api",
+      "group": null,
       "collapsed": false,
-      "order": 16,
-      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "order": 0,
+      "parent": "/v1.4.5/zh/",
       "children": []
+    },
+    "/v1.4.5/zh/xml-reference/": {
+      "label": {
+        "zh": "XML 参考",
+        "en": "XML Reference"
+      },
+      "group": "xml",
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.4.5/zh/",
+      "children": []
+    },
+    "/versions/": {
+      "label": {
+        "zh": "跨版本类对比",
+        "en": "Cross-Version Class Comparison"
+      },
+      "group": "cross-version",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/",
+      "children": []
+    },
+    "/v1.4.5/en/api/final/": {
+      "label": {
+        "zh": "final",
+        "en": "final"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/",
+      "children": [
+        "/v1.4.5/en/api/final/actions/",
+        "/v1.4.5/en/api/final/campaign-behaviors/",
+        "/v1.4.5/en/api/final/campaign-vm/",
+        "/v1.4.5/en/api/final/campaignsystem-misc/",
+        "/v1.4.5/en/api/final/component-interfaces/",
+        "/v1.4.5/en/api/final/conversation/",
+        "/v1.4.5/en/api/final/core-lib/",
+        "/v1.4.5/en/api/final/custombattle/",
+        "/v1.4.5/en/api/final/dedicated-server/",
+        "/v1.4.5/en/api/final/engine/",
+        "/v1.4.5/en/api/final/game-components/",
+        "/v1.4.5/en/api/final/gauntletui/",
+        "/v1.4.5/en/api/final/input-screen/",
+        "/v1.4.5/en/api/final/issues/",
+        "/v1.4.5/en/api/final/localization/",
+        "/v1.4.5/en/api/final/log-entries/",
+        "/v1.4.5/en/api/final/misc/",
+        "/v1.4.5/en/api/final/mnb-battlescore/",
+        "/v1.4.5/en/api/final/mnb-gauntlet/",
+        "/v1.4.5/en/api/final/mnb-platform/",
+        "/v1.4.5/en/api/final/mnb-root/",
+        "/v1.4.5/en/api/final/mnb-view-missionviews/",
+        "/v1.4.5/en/api/final/mnb-view-scripts/",
+        "/v1.4.5/en/api/final/mnb-view/",
+        "/v1.4.5/en/api/final/mnb-vm/",
+        "/v1.4.5/en/api/final/network-perks-conditions/",
+        "/v1.4.5/en/api/final/network/",
+        "/v1.4.5/en/api/final/sandbox-ai/",
+        "/v1.4.5/en/api/final/sandbox-boardgames/",
+        "/v1.4.5/en/api/final/sandbox-gauntlet/",
+        "/v1.4.5/en/api/final/sandbox-missionlogics/",
+        "/v1.4.5/en/api/final/sandbox-missions/",
+        "/v1.4.5/en/api/final/sandbox-objects/",
+        "/v1.4.5/en/api/final/sandbox-root/",
+        "/v1.4.5/en/api/final/sandbox-tournaments/",
+        "/v1.4.5/en/api/final/sandbox-view-map/",
+        "/v1.4.5/en/api/final/sandbox-view/",
+        "/v1.4.5/en/api/final/sandbox-vm/",
+        "/v1.4.5/en/api/final/sandbox/",
+        "/v1.4.5/en/api/final/savesystem/",
+        "/v1.4.5/en/api/final/storymode-quests/",
+        "/v1.4.5/en/api/final/storymode-tutorial/",
+        "/v1.4.5/en/api/final/storymode/",
+        "/v1.4.5/en/api/final/twodim/"
+      ]
+    },
+    "/v1.4.5/zh/api/final/": {
+      "label": {
+        "zh": "final",
+        "en": "final"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/",
+      "children": [
+        "/v1.4.5/zh/api/final/campaignsystem-misc/",
+        "/v1.4.5/zh/api/final/core-lib/",
+        "/v1.4.5/zh/api/final/custombattle/",
+        "/v1.4.5/zh/api/final/dedicated-server/",
+        "/v1.4.5/zh/api/final/misc/",
+        "/v1.4.5/zh/api/final/mnb-battlescore/",
+        "/v1.4.5/zh/api/final/mnb-gauntlet-misc/",
+        "/v1.4.5/zh/api/final/mnb-platform/",
+        "/v1.4.5/zh/api/final/mnb-root/",
+        "/v1.4.5/zh/api/final/mnb-view/",
+        "/v1.4.5/zh/api/final/mnb-vm/",
+        "/v1.4.5/zh/api/final/network-perks-conditions/",
+        "/v1.4.5/zh/api/final/sandbox-ai/",
+        "/v1.4.5/zh/api/final/sandbox-conversation/",
+        "/v1.4.5/zh/api/final/sandbox-gamecomponents/",
+        "/v1.4.5/zh/api/final/sandbox-gauntlet-ui/",
+        "/v1.4.5/zh/api/final/sandbox-issues-tasks/",
+        "/v1.4.5/zh/api/final/sandbox-missionlogics/",
+        "/v1.4.5/zh/api/final/sandbox-missions/",
+        "/v1.4.5/zh/api/final/sandbox-tournaments/",
+        "/v1.4.5/zh/api/final/sandbox-view/",
+        "/v1.4.5/zh/api/final/sandbox-vm/",
+        "/v1.4.5/zh/api/final/storymode-missions/",
+        "/v1.4.5/zh/api/final/twodim/"
+      ]
+    },
+    "/v1.4.5/zh/api/perks/": {
+      "label": {
+        "zh": "perks",
+        "en": "perks"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/",
+      "children": [
+        "/v1.4.5/zh/api/perks/PerkEffects/"
+      ]
     }
   }
 }

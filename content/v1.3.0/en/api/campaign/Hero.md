@@ -1,7 +1,8 @@
 ---
 title: "Hero"
-description: "Auto-generated class reference for Hero."
+description: "A campaign character: identity, skills, attributes, traits, perks, wounds, relations, family, party membership and map position."
 ---
+
 # Hero
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -12,797 +13,329 @@ description: "Auto-generated class reference for Hero."
 
 ## Overview
 
-`Hero` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`Hero` is the campaign-layer character aggregate. It is **not** a `CharacterObject`: a `CharacterObject` is the template (the "what"), while a `Hero` is a living instance of it with a name, a map position, skills, a family, a party and a state machine.
+
+The state machine is the part that matters most. `Hero.CharacterStates` drives a dozen boolean views (`IsDead`, `IsFugitive`, `IsPrisoner`, `IsReleased`, `IsActive`, `IsNotSpawned`, `IsDisabled`, `IsTraveling`, `IsWounded`, `IsAlive`), and every state change runs a different set of vanilla side effects — party removal, prisoner transfer, death handling, book-keeping. `ChangeState` is the sanctioned entry point; setting the underlying state directly skips all of it.
+
+The second thing to internalise is the split between **capability flags** (`CanBecomePrisoner`, `CanMarry`, `CanLeadParty`, `CanDie`, `CanMoveToSettlement`, `CanHaveCampaignIssues`) and **current facts** (`IsPrisoner`, `IsWounded`, ...). Mods that check only one of the two get different answers depending on whether the hero is the player, a lord, a notable or a template.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+`Hero` hangs off `Campaign` and is referenced by [Clan](../Clan), [Kingdom](../Kingdom), [MobileParty](../MobileParty) and [Settlement](../Settlement):
 
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `StaticBodyProperties` | `public StaticBodyProperties StaticBodyProperties { get; set; }` |
-| `Weight` | `public float Weight { get; set; }` |
-| `Build` | `public float Build { get; set; }` |
-| `BodyProperties` | `public BodyProperties BodyProperties { get; }` |
-| `PassedTimeAtHomeSettlement` | `public float PassedTimeAtHomeSettlement { get; set; }` |
-| `CanHaveRecruits` | `public bool CanHaveRecruits { get; }` |
-| `CharacterObject` | `public CharacterObject CharacterObject { get; }` |
-| `FirstName` | `public TextObject FirstName { get; }` |
-| `Name` | `public TextObject Name { get; }` |
-| `EncyclopediaText` | `public TextObject EncyclopediaText { get; set; }` |
-| `EncyclopediaLink` | `public string EncyclopediaLink { get; }` |
-| `EncyclopediaLinkWithName` | `public TextObject EncyclopediaLinkWithName { get; set; }` |
-| `IsFemale` | `public bool IsFemale { get; set; }` |
-| `BattleEquipment` | `public Equipment BattleEquipment { get; }` |
-| `CivilianEquipment` | `public Equipment CivilianEquipment { get; }` |
-| `StealthEquipment` | `public Equipment StealthEquipment { get; set; }` |
-| `CaptivityStartTime` | `public CampaignTime CaptivityStartTime { get; }` |
-| `PreferredUpgradeFormation` | `public FormationClass PreferredUpgradeFormation { get; }` |
-| `HeroState` | `public Hero.CharacterStates HeroState { get; }` |
-| `CharacterAttributes` | `public IReadOnlyPropertyOwner<CharacterAttribute> CharacterAttributes { get; set; }` |
-| `IsMinorFactionHero` | `public bool IsMinorFactionHero { get; }` |
-| `Issue` | `public IssueBase Issue { get; }` |
-| `WoundedHealthLimit` | `public int WoundedHealthLimit { get; }` |
-| `IsNoncombatant` | `public bool IsNoncombatant { get; set; }` |
-| `CompanionOf` | `public Clan CompanionOf { get; set; }` |
-| `CompanionsInParty` | `public IEnumerable<Hero> CompanionsInParty { get; }` |
-| `Occupation` | `public Occupation Occupation { get; }` |
-| `Template` | `public CharacterObject Template { get; }` |
-| `IsDead` | `public bool IsDead { get; }` |
-| `IsFugitive` | `public bool IsFugitive { get; }` |
-| `IsPrisoner` | `public bool IsPrisoner { get; }` |
-| `IsReleased` | `public bool IsReleased { get; }` |
-| `IsActive` | `public bool IsActive { get; }` |
-| `IsNotSpawned` | `public bool IsNotSpawned { get; }` |
-| `IsDisabled` | `public bool IsDisabled { get; }` |
-| `IsTraveling` | `public bool IsTraveling { get; }` |
-| `IsAlive` | `public bool IsAlive { get; }` |
-| `DeathMark` | `public KillCharacterAction.KillCharacterActionDetail DeathMark { get; }` |
-| `DeathMarkKillerHero` | `public Hero DeathMarkKillerHero { get; }` |
-| `LastKnownClosestSettlement` | `public Settlement LastKnownClosestSettlement { get; }` |
-| `IsWanderer` | `public bool IsWanderer { get; }` |
-| `IsTemplate` | `public bool IsTemplate { get; }` |
-| `IsWounded` | `public bool IsWounded { get; }` |
-| `IsPlayerCompanion` | `public bool IsPlayerCompanion { get; }` |
-| `IsMerchant` | `public bool IsMerchant { get; }` |
-| `IsPreacher` | `public bool IsPreacher { get; }` |
-| `IsHeadman` | `public bool IsHeadman { get; }` |
-| `IsGangLeader` | `public bool IsGangLeader { get; }` |
-| `IsArtisan` | `public bool IsArtisan { get; }` |
-| `IsRuralNotable` | `public bool IsRuralNotable { get; }` |
-| `IsUrbanNotable` | `public bool IsUrbanNotable { get; }` |
-| `IsSpecial` | `public bool IsSpecial { get; }` |
-| `IsRebel` | `public bool IsRebel { get; }` |
-| `IsCommander` | `public bool IsCommander { get; }` |
-| `IsPartyLeader` | `public bool IsPartyLeader { get; }` |
-| `IsNotable` | `public bool IsNotable { get; }` |
-| `IsLord` | `public bool IsLord { get; }` |
-| `MaxHitPoints` | `public int MaxHitPoints { get; set; }` |
-| `HitPoints` | `public int HitPoints { get; set; }` |
-| `BirthDay` | `public CampaignTime BirthDay { get; }` |
-| `DeathDay` | `public CampaignTime DeathDay { get; }` |
-| `Age` | `public float Age { get; }` |
-| `IsChild` | `public bool IsChild { get; }` |
-| `Power` | `public float Power { get; }` |
-| `ClanBanner` | `public Banner ClanBanner { get; set; }` |
-| `LastExaminedLogEntryID` | `public long LastExaminedLogEntryID { get; set; }` |
-| `Clan` | `public Clan Clan { get; set; }` |
-| `SupporterOf` | `public Clan SupporterOf { get; set; }` |
-| `GovernorOf` | `public Town GovernorOf { get; set; }` |
-| `MapFaction` | `public IFaction MapFaction { get; }` |
-| `OwnedAlleys` | `public List<Alley> OwnedAlleys { get; }` |
-| `IsFactionLeader` | `public bool IsFactionLeader { get; }` |
-| `IsKingdomLeader` | `public bool IsKingdomLeader { get; }` |
-| `IsClanLeader` | `public bool IsClanLeader { get; }` |
-| `OwnedCaravans` | `public List<CaravanPartyComponent> OwnedCaravans { get; }` |
-| `PartyBelongedTo` | `public MobileParty PartyBelongedTo { get; }` |
-| `PartyBelongedToAsPrisoner` | `public PartyBase PartyBelongedToAsPrisoner { get; }` |
-| `StayingInSettlement` | `public Settlement StayingInSettlement { get; set; }` |
-| `IsHumanPlayerCharacter` | `public bool IsHumanPlayerCharacter { get; set; }` |
-| `IsKnownToPlayer` | `public bool IsKnownToPlayer { get; set; }` |
-| `HasMet` | `public bool HasMet { get; }` |
-| `LastMeetingTimeWithPlayer` | `public CampaignTime LastMeetingTimeWithPlayer { get; set; }` |
-| `BornSettlement` | `public Settlement BornSettlement { get; set; }` |
-| `HomeSettlement` | `public Settlement HomeSettlement { get; }` |
-| `PowerModifier` | `public float PowerModifier { get; }` |
-| `CurrentSettlement` | `public Settlement CurrentSettlement { get; }` |
-| `Gold` | `public int Gold { get; }` |
-| `RandomValue` | `public int RandomValue { get; }` |
-| `BannerItem` | `public EquipmentElement BannerItem { get; set; }` |
-| `ProbabilityOfDeath` | `public float ProbabilityOfDeath { get; }` |
-| `Father` | `public Hero Father { get; set; }` |
-| `Mother` | `public Hero Mother { get; set; }` |
-| `ExSpouses` | `public MBReadOnlyList<Hero> ExSpouses { get; set; }` |
-| `Spouse` | `public Hero Spouse { get; set; }` |
-| `Children` | `public MBList<Hero> Children { get; }` |
-| `Siblings` | `public IEnumerable<Hero> Siblings { get; }` |
-| `HeroDeveloper` | `public HeroDeveloper HeroDeveloper { get; }` |
-| `OwnedWorkshops` | `public MBReadOnlyList<Workshop> OwnedWorkshops { get; }` |
-| `AllAliveHeroes` | `public static MBReadOnlyList<Hero> AllAliveHeroes { get; }` |
-| `DeadOrDisabledHeroes` | `public static MBReadOnlyList<Hero> DeadOrDisabledHeroes { get; }` |
-| `MainHero` | `public static Hero MainHero { get; }` |
-| `OneToOneConversationHero` | `public static Hero OneToOneConversationHero { get; }` |
-| `IsMainHeroIll` | `public static bool IsMainHeroIll { get; }` |
-
-## Key Methods
-
-### GetName
-`public override TextObject GetName()`
-
-**Purpose:** Reads and returns the name value held by the this instance.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.GetName();
+```
+CharacterObject (template: body, gear, troop tier)
+        │  Hero.CharacterObject
+        ▼
+Hero ──.Clan──► Clan        ──.PartyBelongedTo──► MobileParty
+  │   ──.CompanionOf──► Clan
+  │   ──.Spouse / .Father / .Mother / .Children──► Hero
+  │   ──.GovernorOf──► Town
+  │   ──.CurrentSettlement / .StayingInSettlement──► Settlement
+  └── HeroState : CharacterStates ──► IsDead / IsPrisoner / IsActive / ...
 ```
 
-### SetName
-`public void SetName(TextObject fullName, TextObject firstName)`
+Typical call order:
 
-**Purpose:** Assigns a new value to name and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.SetName(fullName, firstName);
+```
+MBSubModuleBase.OnCampaignStart
+    Hero.MainHero is live
+CampaignBehaviorBase.RegisterEvents()
+    CampaignEvents.HeroWounded / HeroKilledEvent / HeroCreated
+DailyTick
+    hero.HitPoints and other state read
+    hero.AddSkillXp(...) / hero.ChangeState(...) mutate
+    the matching CampaignEvents fire afterwards
 ```
 
-### OnIssueCreatedForHero
-`public void OnIssueCreatedForHero(IssueBase issue)`
+Traps that bite in practice:
 
-**Purpose:** Invoked when the issue created for hero event is raised.
+- **Do not construct heroes directly.** `new Hero()` and `new Hero(stringId, characterObject, birthDay)` exist for the object manager, but a manually created hero is not registered, does not appear in `Hero.AllAliveHeroes`, and is never saved. The supported path is `MBObjectManager.Instance.AddObject<Hero>(...)` or a campaign behaviour that creates through the object manager.
+- **`ChangeState` is not idempotent.** Moving an already-dead hero to `Dead` re-runs the death path: log entries, clan lord lists, faction membership cleanup. Guard on the current `HeroState` first.
+- **`IsActive` and `IsAlive` are different.** A prisoner is alive but not active; a fugitive is active but not `IsFactionLeader`-eligible. Never collapse them into one "available" test.
+- **`KillCharacterAction` detail matters.** `CanDie(causeOfDeath)` and `AddDeathMark(killer, detail)` branch on the detail enum. Passing `None` when you meant a combat death skips the wounded/death bookkeeping the log expects.
+- **`GetRelation` is signed and asymmetric.** Use `GetRelation(other)` for the pair and `SetPersonalRelation` to write; `GetBaseHeroRelation` strips modifiers and is not what UI shows.
+- **Cached views lag.** `CompanionsInParty`, `Siblings`, `Children` are recomputed on family events, not on every read. Do not mutate a `Hero.Children` list while iterating it.
 
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.OnIssueCreatedForHero(issue);
-```
+## Dependencies
 
-### OnIssueDeactivatedForHero
-`public void OnIssueDeactivatedForHero()`
+| Direction | Type | Relationship |
+|-----------|------|--------------|
+| Store | `MBObjectBase` | `Id` / `StringId`, many `[SaveableProperty]` fields |
+| Template | `CharacterObject` | `Hero.CharacterObject` is the underlying body |
+| Clan | [Clan](../Clan), [Kingdom](../Kingdom) | `Clan`, `MapFaction`, `SupporterOf`, `IsFactionLeader` |
+| Party | [MobileParty](../MobileParty), [PartyBase](../PartyBase) | `PartyBelongedTo`, `PartyBelongedToAsPrisoner` |
+| Place | [Settlement](../Settlement), [Town](../Town) | `CurrentSettlement`, `StayingInSettlement`, `GovernorOf` |
+| Skills | `SkillObject`, `CharacterAttribute`, `TraitObject`, `PerkObject` | Skill / attribute / trait / perk storage |
+| Actions | `KillCharacterAction` | Death and wounding cause detail |
+| Events | [CampaignEvents](../CampaignEvents) | `HeroWounded`, `HeroKilledEvent`, `HeroCreated`, `HeroRelationChanged` |
 
-**Purpose:** Invoked when the issue deactivated for hero event is raised.
+## Key members
 
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.OnIssueDeactivatedForHero();
-```
+### Identity
 
-### ToString
-`public override string ToString()`
+#### `public CharacterObject CharacterObject`
 
-**Purpose:** Returns a human-readable string representation of the this instance.
+The template this hero was created from. Two heroes can share a `CharacterObject` and differ in every other way.
 
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.ToString();
-```
+#### `public TextObject Name` / `public TextObject FirstName`
 
-### UpdateLastKnownClosestSettlement
-`public void UpdateLastKnownClosestSettlement(Settlement settlement)`
+Localized display names. `SetName(fullName, firstName)` writes both.
 
-**Purpose:** Recalculates and stores the latest representation of last known closest settlement.
+#### `public static Hero MainHero`
 
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.UpdateLastKnownClosestSettlement(settlement);
-```
+The player character. Null in editor and while a campaign is being torn down.
 
-### SetNewOccupation
-`public void SetNewOccupation(Occupation occupation)`
+#### `public static Hero Find(string stringId)` / `FindFirst(Func<Hero,bool>)` / `FindAll(Func<Hero,bool>)`
 
-**Purpose:** Assigns a new value to new occupation and updates the object's internal state.
+Lookup helpers. `FindAll` walks the full hero list — cache the result if you call it per tick.
 
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.SetNewOccupation(occupation);
-```
+#### `public static MBReadOnlyList<Hero> AllAliveHeroes` / `DeadOrDisabledHeroes`
 
-### SetBirthDay
-`public void SetBirthDay(CampaignTime birthday)`
+Cached partitions, mirrored by `Campaign.Current.AliveHeroes`.
 
-**Purpose:** Assigns a new value to birth day and updates the object's internal state.
+### State
 
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.SetBirthDay(birthday);
-```
+#### `public Hero.CharacterStates HeroState`
 
-### SetDeathDay
-`public void SetDeathDay(CampaignTime deathDay)`
+The raw enum behind every `Is*` state boolean. Read it when you need a switch; read the booleans otherwise.
 
-**Purpose:** Assigns a new value to death day and updates the object's internal state.
+#### `public void ChangeState(Hero.CharacterStates newState)`
 
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.SetDeathDay(deathDay);
-```
+The only supported way to move a hero between states. Runs vanilla fixups for party removal, prisoner rosters, faction membership and log entries. Check `HeroState != newState` before calling.
 
-### AddPower
-`public void AddPower(float value)`
+#### `public bool IsDead` / `IsFugitive` / `IsPrisoner` / `IsReleased` / `IsActive` / `IsNotSpawned` / `IsDisabled` / `IsWounded` / `IsTraveling` / `IsAlive`
 
-**Purpose:** Adds power to the current collection or state.
+Derived views over `HeroState`. Cheap and safe to read.
 
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.AddPower(0);
-```
+#### `public void MakeWounded(Hero killerHero = null, KillCharacterAction.KillCharacterActionDetail deathMarkDetail = ...)` / `public void AddDeathMark(...)`
 
-### SetHasMet
-`public void SetHasMet()`
+Damage and death entry points. `AddDeathMark` moves the hero to `Dead`; `MakeWounded` only lowers health.
 
-**Purpose:** Assigns a new value to has met and updates the object's internal state.
+### Health and power
 
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.SetHasMet();
-```
+#### `public int HitPoints` / `public int MaxHitPoints` / `public int WoundedHealthLimit`
 
-### UpdatePowerModifier
-`public void UpdatePowerModifier()`
+Current, maximum and wounding threshold. Set through `Heal(int, bool)`, not by writing the field.
 
-**Purpose:** Recalculates and stores the latest representation of power modifier.
+#### `public void Heal(int healAmount, bool addXp = false)`
 
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.UpdatePowerModifier();
-```
+Restores health, clamped to `MaxHitPoints`. With `addXp: true` it also grants skill XP through the leveling manager.
 
-### UpdateHomeSettlement
-`public void UpdateHomeSettlement()`
+#### `public void AddPower(float value)` / `public void UpdatePowerModifier()`
 
-**Purpose:** Recalculates and stores the latest representation of home settlement.
+Renown-scale political power used for AI weightings. Recompute after renown or clan changes.
 
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.UpdateHomeSettlement();
-```
+#### `public bool IsHealthFull()`
 
-### GetSkillValue
-`public int GetSkillValue(SkillObject skill)`
+Convenience for "no need to heal".
 
-**Purpose:** Reads and returns the skill value value held by the this instance.
+### Skills, attributes, traits, perks
 
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.GetSkillValue(skill);
-```
+#### `public int GetSkillValue(SkillObject skill)` / `public void SetSkillValue(SkillObject skill, int value)`
 
-### SetSkillValue
-`public void SetSkillValue(SkillObject skill, int value)`
+Direct skill read/write. Writing bypasses the XP path, so progression history in the save does not match.
 
-**Purpose:** Assigns a new value to skill value and updates the object's internal state.
+#### `public void AddSkillXp(SkillObject skill, float xpAmount)`
 
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.SetSkillValue(skill, 0);
-```
+The XP path. Goes through the skill leveling manager, so perks and attribute gains on level-up fire normally.
 
-### ClearSkills
-`public void ClearSkills()`
+#### `public IReadOnlyPropertyOwner<CharacterAttribute> CharacterAttributes`
 
-**Purpose:** Removes all skills from the this instance.
+Attribute owner. Read with `GetAttributeValue(CharacterAttribute)`.
 
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.ClearSkills();
-```
+#### `public int GetTraitLevel(TraitObject trait)` / `public void SetTraitLevel(TraitObject trait, int value)`
 
-### AddSkillXp
-`public void AddSkillXp(SkillObject skill, float xpAmount)`
+Trait levels. Vanilla gates many behaviours on specific trait values; change them only if you also want those behaviours to change.
 
-**Purpose:** Adds skill xp to the current collection or state.
+#### `public bool HasPerk(PerkObject perk, bool checkSecondaryRole = false)` (on `MobileParty`) and `public bool GetPerkValue(PerkObject perk)`
 
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.AddSkillXp(skill, 0);
-```
+Hero perk check vs. party perk check. `MobileParty.HasPerk` with `checkSecondaryRole: true` also considers the quartermaster/engineer, which is what AI weightings use.
 
-### GetAttributeValue
-`public int GetAttributeValue(CharacterAttribute charAttribute)`
+### Relations
 
-**Purpose:** Reads and returns the attribute value value held by the this instance.
+#### `public int GetRelation(Hero otherHero)` / `public float GetRelationWithPlayer()`
+
+Signed personal relation. Positive is friendly. `GetRelationWithPlayer` is the value shown in UI.
+
+#### `public void SetPersonalRelation(Hero otherHero, int value)`
+
+Writes the pair relation. There is no symmetric setter — write once, both directions see it.
+
+#### `public bool IsEnemy(Hero otherHero)` / `IsFriend` / `IsNeutral`
+
+Thresholded views over `GetRelation`.
+
+#### `public bool CanMarry()` / `CanBecomePrisoner()` / `CanLeadParty()` / `CanDie(...)` / `CanMoveToSettlement()` / `CanHaveCampaignIssues()` / `CanBeGovernorOrHavePartyRole()` / `CanHeroEquipmentBeChanged()` / `CanHaveRecruits`
+
+Capability predicates. Each returns `false` for the player hero, templates and heroes in an incompatible state. Check the capability before attempting the action.
+
+### Family and placement
+
+#### `public Clan Clan` / `public Clan CompanionOf`
+
+Noble clan, or the clan this hero serves as a companion. A companion has `CompanionOf` set and is not a clan lord.
+
+#### `public MobileParty PartyBelongedTo` / `public Settlement CurrentSettlement` / `public Settlement StayingInSettlement`
+
+Where the hero is right now. `PartyBelongedTo` is null while the hero is inside a settlement.
+
+#### `public Hero GovernorOf`
+
+The town this hero governs, or null.
+
+#### `public Hero Father` / `Mother` / `Spouse` / `ExSpouses` / `Children` / `Siblings`
+
+Family graph. Back-references are maintained by the family behaviour, so read-only from a mod.
+
+### Money and goods
+
+#### `public void ChangeHeroGold(int changeAmount)`
+
+Adds (or removes) gold. Negative amounts are clamped at zero; this is the method clan wallets ultimately use.
+
+#### `public int Gold`
+
+Current gold. Vanilla recalculates wages here on the daily tick.
+
+#### `public MBList<ItemObject> SpecialItems`
+
+Hero-bound items that follow the hero rather than a roster.
+
+## Real examples
+
+### Example 1: award skill XP through the real progression path
 
 ```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.GetAttributeValue(charAttribute);
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Extensions;
+using TaleWorlds.Core;
+
+public sealed class HeroTrainingBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, OnDailyTick);
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+    }
+
+    private void OnDailyTick()
+    {
+        Campaign campaign = Campaign.Current;
+        if (campaign == null || Hero.MainHero == null)
+        {
+            return;
+        }
+
+        SkillObject athletics = Skills.All.FirstOrDefault(s => s.StringId == "Athletics");
+        if (athletics == null)
+        {
+            return;
+        }
+
+        Hero.MainHero.AddSkillXp(athletics, 5f);
+        InformationManager.DisplayMessage(
+            new InformationMessage($"Athletics now {Hero.MainHero.GetSkillValue(athletics)}"));
+    }
+}
 ```
 
-### ClearAttributes
-`public void ClearAttributes()`
-
-**Purpose:** Removes all attributes from the this instance.
+### Example 2: safe wounding and death
 
 ```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.ClearAttributes();
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+
+public static void WoundOrKill(Hero hero, Hero killer)
+{
+    if (hero == null || hero.IsDead || hero.IsMainPlayerCharacter)
+    {
+        return;
+    }
+
+    if (!hero.CanDie(KillCharacterAction.KillCharacterActionDetail.DiedInBattle))
+    {
+        return;
+    }
+
+    if (hero.HitPoints > hero.WoundedHealthLimit)
+    {
+        hero.MakeWounded(killer, KillCharacterAction.KillCharacterActionDetail.WoundedInBattle);
+        return;
+    }
+
+    hero.AddDeathMark(killer, KillCharacterAction.KillCharacterActionDetail.DiedInBattle);
+}
 ```
 
-### SetTraitLevel
-`public void SetTraitLevel(TraitObject trait, int value)`
-
-**Purpose:** Assigns a new value to trait level and updates the object's internal state.
+### Example 3: change a relation pair safely
 
 ```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.SetTraitLevel(trait, 0);
+using TaleWorlds.CampaignSystem;
+
+public static void Befriend(Hero a, Hero b, int delta)
+{
+    if (a == null || b == null || a == b)
+    {
+        return;
+    }
+
+    if (!a.IsAlive || !b.IsAlive)
+    {
+        return;
+    }
+
+    a.SetPersonalRelation(b, a.GetRelation(b) + delta);
+    InformationManager.DisplayMessage(
+        new InformationMessage($"{a.Name.Name} ↔ {b.Name.Name}: {a.GetRelation(b)}"));
+}
 ```
 
-### GetTraitLevel
-`public int GetTraitLevel(TraitObject trait)`
-
-**Purpose:** Reads and returns the trait level value held by the this instance.
+### Example 4: iterate every living lord without re-scanning per frame
 
 ```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.GetTraitLevel(trait);
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+
+public static int CountLordsAtWarWithPlayer()
+{
+    Campaign campaign = Campaign.Current;
+    if (campaign == null)
+    {
+        return 0;
+    }
+
+    return campaign.AliveHeroes.Count(h => h.IsLord && h.Clan != null && h.Clan.IsAtWarWith(Clan.PlayerClan));
+}
 ```
 
-### ClearTraits
-`public void ClearTraits()`
-
-**Purpose:** Removes all traits from the this instance.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.ClearTraits();
-```
-
-### GetPerkValue
-`public bool GetPerkValue(PerkObject perk)`
-
-**Purpose:** Reads and returns the perk value value held by the this instance.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.GetPerkValue(perk);
-```
-
-### ClearPerks
-`public void ClearPerks()`
-
-**Purpose:** Removes all perks from the this instance.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.ClearPerks();
-```
-
-### ChangeState
-`public void ChangeState(Hero.CharacterStates newState)`
-
-**Purpose:** Executes the ChangeState logic.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.ChangeState(newState);
-```
-
-### IsHealthFull
-`public bool IsHealthFull()`
-
-**Purpose:** Determines whether the this instance is in the health full state or condition.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.IsHealthFull();
-```
-
-### Heal
-`public void Heal(int healAmount, bool addXp = false)`
-
-**Purpose:** Executes the Heal logic.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.Heal(0, false);
-```
-
-### Deserialize
-`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
-
-**Purpose:** Restores the this instance from serialized data.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.Deserialize(objectManager, node);
-```
-
-### CanLeadParty
-`public bool CanLeadParty()`
-
-**Purpose:** Checks whether the this instance meets the preconditions for lead party.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.CanLeadParty();
-```
-
-### SetHeroEncyclopediaTextAndLinks
-`public static TextObject SetHeroEncyclopediaTextAndLinks(Hero o)`
-
-**Purpose:** Assigns a new value to hero encyclopedia text and links and updates the object's internal state.
-
-```csharp
-// Static call; no instance required
-Hero.SetHeroEncyclopediaTextAndLinks(o);
-```
-
-### CanHeroEquipmentBeChanged
-`public bool CanHeroEquipmentBeChanged()`
-
-**Purpose:** Checks whether the this instance meets the preconditions for hero equipment be changed.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.CanHeroEquipmentBeChanged();
-```
-
-### CanMarry
-`public bool CanMarry()`
-
-**Purpose:** Checks whether the this instance meets the preconditions for marry.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.CanMarry();
-```
-
-### CanBeGovernorOrHavePartyRole
-`public bool CanBeGovernorOrHavePartyRole()`
-
-**Purpose:** Checks whether the this instance meets the preconditions for be governor or have party role.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.CanBeGovernorOrHavePartyRole();
-```
-
-### CanDie
-`public bool CanDie(KillCharacterAction.KillCharacterActionDetail causeOfDeath)`
-
-**Purpose:** Checks whether the this instance meets the preconditions for die.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.CanDie(causeOfDeath);
-```
-
-### CanBecomePrisoner
-`public bool CanBecomePrisoner()`
-
-**Purpose:** Checks whether the this instance meets the preconditions for become prisoner.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.CanBecomePrisoner();
-```
-
-### CanMoveToSettlement
-`public bool CanMoveToSettlement()`
-
-**Purpose:** Checks whether the this instance meets the preconditions for move to settlement.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.CanMoveToSettlement();
-```
-
-### CanHaveCampaignIssues
-`public bool CanHaveCampaignIssues()`
-
-**Purpose:** Checks whether the this instance meets the preconditions for have campaign issues.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.CanHaveCampaignIssues();
-```
-
-### AddInfluenceWithKingdom
-`public void AddInfluenceWithKingdom(float additionalInfluence)`
-
-**Purpose:** Adds influence with kingdom to the current collection or state.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.AddInfluenceWithKingdom(0);
-```
-
-### GetRelationWithPlayer
-`public float GetRelationWithPlayer()`
-
-**Purpose:** Reads and returns the relation with player value held by the this instance.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.GetRelationWithPlayer();
-```
-
-### GetUnmodifiedClanLeaderRelationshipWithPlayer
-`public float GetUnmodifiedClanLeaderRelationshipWithPlayer()`
-
-**Purpose:** Reads and returns the unmodified clan leader relationship with player value held by the this instance.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.GetUnmodifiedClanLeaderRelationshipWithPlayer();
-```
-
-### SetTextVariables
-`public void SetTextVariables()`
-
-**Purpose:** Assigns a new value to text variables and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.SetTextVariables();
-```
-
-### SetPersonalRelation
-`public void SetPersonalRelation(Hero otherHero, int value)`
-
-**Purpose:** Assigns a new value to personal relation and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.SetPersonalRelation(otherHero, 0);
-```
-
-### GetRelation
-`public int GetRelation(Hero otherHero)`
-
-**Purpose:** Reads and returns the relation value held by the this instance.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.GetRelation(otherHero);
-```
-
-### GetBaseHeroRelation
-`public int GetBaseHeroRelation(Hero otherHero)`
-
-**Purpose:** Reads and returns the base hero relation value held by the this instance.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.GetBaseHeroRelation(otherHero);
-```
-
-### IsEnemy
-`public bool IsEnemy(Hero otherHero)`
-
-**Purpose:** Determines whether the this instance is in the enemy state or condition.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.IsEnemy(otherHero);
-```
-
-### IsFriend
-`public bool IsFriend(Hero otherHero)`
-
-**Purpose:** Determines whether the this instance is in the friend state or condition.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.IsFriend(otherHero);
-```
-
-### IsNeutral
-`public bool IsNeutral(Hero otherHero)`
-
-**Purpose:** Determines whether the this instance is in the neutral state or condition.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.IsNeutral(otherHero);
-```
-
-### ModifyHair
-`public void ModifyHair(int hair, int beard, int tattoo)`
-
-**Purpose:** Executes the ModifyHair logic.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.ModifyHair(0, 0, 0);
-```
-
-### AddOwnedWorkshop
-`public void AddOwnedWorkshop(Workshop workshop)`
-
-**Purpose:** Adds owned workshop to the current collection or state.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.AddOwnedWorkshop(workshop);
-```
-
-### RemoveOwnedWorkshop
-`public void RemoveOwnedWorkshop(Workshop workshop)`
-
-**Purpose:** Removes owned workshop from the current collection or state.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.RemoveOwnedWorkshop(workshop);
-```
-
-### FindFirst
-`public static Hero FindFirst(Func<Hero, bool> predicate)`
-
-**Purpose:** Looks up the matching first in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-Hero.FindFirst(func<Hero, false);
-```
-
-### Find
-`public static Hero Find(string stringId)`
-
-**Purpose:** Finds the matching entry in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-Hero.Find("example");
-```
-
-### FindAll
-`public static IEnumerable<Hero> FindAll(Func<Hero, bool> predicate)`
-
-**Purpose:** Looks up the matching all in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-Hero.FindAll(func<Hero, false);
-```
-
-### MakeWounded
-`public void MakeWounded(Hero killerHero = null, KillCharacterAction.KillCharacterActionDetail deathMarkDetail = KillCharacterAction.KillCharacterActionDetail.None)`
-
-**Purpose:** Executes the MakeWounded logic.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.MakeWounded(null, killCharacterAction.KillCharacterActionDetail.None);
-```
-
-### AddDeathMark
-`public void AddDeathMark(Hero killerHero = null, KillCharacterAction.KillCharacterActionDetail deathMarkDetail = KillCharacterAction.KillCharacterActionDetail.None)`
-
-**Purpose:** Adds death mark to the current collection or state.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.AddDeathMark(null, killCharacterAction.KillCharacterActionDetail.None);
-```
-
-### GetPositionAsVec3
-`public Vec3 GetPositionAsVec3()`
-
-**Purpose:** Reads and returns the position as vec3 value held by the this instance.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.GetPositionAsVec3();
-```
-
-### GetCampaignPosition
-`public CampaignVec2 GetCampaignPosition()`
-
-**Purpose:** Reads and returns the campaign position value held by the this instance.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.GetCampaignPosition();
-```
-
-### GetMapPoint
-`public IMapPoint GetMapPoint()`
-
-**Purpose:** Reads and returns the map point value held by the this instance.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-var result = hero.GetMapPoint();
-```
-
-### ResetEquipments
-`public void ResetEquipments()`
-
-**Purpose:** Returns equipments to its default or initial condition.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.ResetEquipments();
-```
-
-### ChangeHeroGold
-`public void ChangeHeroGold(int changeAmount)`
-
-**Purpose:** Executes the ChangeHeroGold logic.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.ChangeHeroGold(0);
-```
-
-### CheckInvalidEquipmentsAndReplaceIfNeeded
-`public void CheckInvalidEquipmentsAndReplaceIfNeeded()`
-
-**Purpose:** Verifies whether invalid equipments and replace if needed holds true for the this instance.
-
-```csharp
-// Obtain an instance of Hero from the subsystem API first
-Hero hero = ...;
-hero.CheckInvalidEquipmentsAndReplaceIfNeeded();
-```
-
-## Usage Example
-
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-Hero hero = ...;
-hero.GetName();
-```
+## Risks and crash boundaries
+
+1. **Unregistered heroes vanish.** `new Hero(...)` bypasses `MBObjectManager`; it will not appear in `AllAliveHeroes`, will not be saved, and any party or clan reference to it will be a dangling ID after load. Create through the object manager.
+2. **`ChangeState` re-entry.** Calling it with the state a hero is already in re-runs the whole transition (log entries, clan lists, roster writes). Guard with `if (hero.HeroState != newState)`.
+3. **`Hero.MainHero` null in menus.** Any static or module-load code that touches it must guard for `null` as well as for `Campaign.Current`.
+4. **`SetSkillValue` vs `AddSkillXp`.** Writing a skill level directly does not award attribute points on level-up and leaves XP progress inconsistent; use the XP path unless you deliberately want a flat override.
+5. **Save coupling.** `HitPoints`, `HeroState`, `IsFemale`, skills, attributes, traits, `Gold` and family links are all saved. Renumbering or reordering `SaveableProperty` ids breaks existing saves — see [save-system](../../../architecture/save-system).
+6. **Prisoner consistency.** `PartyBelongedToAsPrisoner` is repaired by `PartyBase.AfterLoad`. Manually moving a hero into or out of a prison roster without the official action produces a save that only breaks after reload.
+7. **Cross-domain dependency on parties.** Reading `PartyBelongedTo` inside a mission callback is legal, but mutating it during a battle write-back will desync `PartyBase.MemberRoster`.
+8. **Per-tick scans.** `Hero.FindAll` over the whole hero list per tick, per behavior, is expensive at scale. Prefer `CampaignEvents.DailyTickHeroEvent` / `HourlyTickEvent`, which hand you the subject directly.
+
+## Cross-version notes
+
+- The member list is the 1.3.0 decompiled surface. `Hero` gained a few navigation-related and convoy fields in later 1.3.x patches, but the state machine, skill and relation APIs are unchanged.
+- `ChangeState`, `AddDeathMark`, `MakeWounded` and `KillCharacterAction` detail enums keep the same shape through 1.4.x, so behavior code written against them loads on newer saves.
 
 ## See Also
 
-- [Area Index](../)
+- [Clan](../Clan) — noble family the hero belongs to
+- [Kingdom](../Kingdom) — realm the hero's clan serves
+- [MobileParty](../MobileParty) — the party the hero leads or joins
+- [PartyBase](../PartyBase) — the roster the hero's party exposes
+- [Settlement](../Settlement) — where the hero currently is
+- [Campaign](../Campaign) — hero registries and the campaign clock
+- [Save system](../../../architecture/save-system) — saveable property discipline
+- [Campaign basics](../../../guide/campaign-basics) — task-first walkthrough

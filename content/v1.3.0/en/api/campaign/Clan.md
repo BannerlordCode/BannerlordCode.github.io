@@ -1,7 +1,8 @@
 ---
 title: "Clan"
-description: "Auto-generated class reference for Clan."
+description: "Faction and family aggregate on the campaign map: lords, fiefs, influence, gold, wars, kingdom membership and mercenary service."
 ---
+
 # Clan
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -12,421 +13,324 @@ description: "Auto-generated class reference for Clan."
 
 ## Overview
 
-`Clan` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`Clan` is the campaign's political aggregate. One clan is a family line plus the fiefs, notables, wars, wallet and social capital attached to it — and it is also one of the two implementations of `IFaction` (the other is [Kingdom](../Kingdom)).
+
+A clan owns or claims three distinct things at once:
+
+- **People.** `Heroes`, `AliveLords`, `DeadLords`, `Companions`, `SupporterNotables` are `Hero` objects whose `Clan` field points back.
+- **Land.** `Fiefs` (towns and castles), `Villages` and the flattened `Settlements` list. Ownership lives on the [Settlement](../Settlement) / [Town](../Town) side; the clan list is a cached index.
+- **Politics.** `Influence`, `Renown`, `Tier`, `Aggressiveness`, `IsAtWarWith` / `FactionsAtWarWith`, `Kingdom` membership and mercenary service state.
+
+Some clans exist only as "minor factions" — bandit, mercenary, rebel, mafia, sect templates — with no members and no fiefs. That is why `Clan.All` is far larger than `Campaign.Current.Kingdoms`-backed nobility.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+`Clan` sits one level below `Campaign`, alongside `Hero`, and one level above the settlements it owns. Both `Hero` and `Settlement` hold a back-reference to the owning `Clan`, so ownership is bidirectional in data but asymmetric in practice: **you change ownership through the settlement's owner-change action, and the clan list updates afterwards.**
 
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `Name` | `public TextObject Name { get; }` |
-| `InformalName` | `public TextObject InformalName { get; }` |
-| `Culture` | `public CultureObject Culture { get; set; }` |
-| `LastFactionChangeTime` | `public CampaignTime LastFactionChangeTime { get; set; }` |
-| `DefaultPartyTemplate` | `public PartyTemplateObject DefaultPartyTemplate { get; }` |
-| `HasNavalNavigationCapability` | `public bool HasNavalNavigationCapability { get; set; }` |
-| `AutoRecruitmentExpenses` | `public int AutoRecruitmentExpenses { get; }` |
-| `EncyclopediaText` | `public TextObject EncyclopediaText { get; }` |
-| `IsNoble` | `public bool IsNoble { get; set; }` |
-| `IsEliminated` | `public bool IsEliminated { get; }` |
-| `MinorFactionCharacterTemplates` | `public IList<CharacterObject> MinorFactionCharacterTemplates { get; }` |
-| `EncyclopediaLink` | `public string EncyclopediaLink { get; }` |
-| `EncyclopediaLinkWithName` | `public TextObject EncyclopediaLinkWithName { get; set; }` |
-| `Kingdom` | `public Kingdom Kingdom { get; set; }` |
-| `DungeonPrisonersOfClan` | `public IEnumerable<CharacterObject> DungeonPrisonersOfClan { get; }` |
-| `Fiefs` | `public MBReadOnlyList<Town> Fiefs { get; }` |
-| `Villages` | `public MBReadOnlyList<Village> Villages { get; }` |
-| `Settlements` | `public MBReadOnlyList<Settlement> Settlements { get; }` |
-| `SupporterNotables` | `public MBReadOnlyList<Hero> SupporterNotables { get; }` |
-| `AliveLords` | `public MBReadOnlyList<Hero> AliveLords { get; }` |
-| `DeadLords` | `public MBReadOnlyList<Hero> DeadLords { get; }` |
-| `Heroes` | `public MBReadOnlyList<Hero> Heroes { get; }` |
-| `Companions` | `public MBReadOnlyList<Hero> Companions { get; }` |
-| `WarPartyComponents` | `public MBReadOnlyList<WarPartyComponent> WarPartyComponents { get; set; }` |
-| `Influence` | `public float Influence { get; set; }` |
-| `InfluenceChangeExplained` | `public ExplainedNumber InfluenceChangeExplained { get; }` |
-| `CurrentTotalStrength` | `public float CurrentTotalStrength { get; }` |
-| `MercenaryAwardMultiplier` | `public int MercenaryAwardMultiplier { get; }` |
-| `IsMapFaction` | `public bool IsMapFaction { get; }` |
-| `InitialHomeSettlement` | `public Settlement InitialHomeSettlement { get; }` |
-| `IsRebelClan` | `public bool IsRebelClan { get; }` |
-| `IsMinorFaction` | `public bool IsMinorFaction { get; }` |
-| `IsOutlaw` | `public bool IsOutlaw { get; }` |
-| `IsNomad` | `public bool IsNomad { get; }` |
-| `IsMafia` | `public bool IsMafia { get; }` |
-| `IsClanTypeMercenary` | `public bool IsClanTypeMercenary { get; }` |
-| `IsSect` | `public bool IsSect { get; }` |
-| `IsUnderMercenaryService` | `public bool IsUnderMercenaryService { get; }` |
-| `ShouldStayInKingdomUntil` | `public CampaignTime ShouldStayInKingdomUntil { get; set; }` |
-| `Color` | `public uint Color { get; set; }` |
-| `Color2` | `public uint Color2 { get; set; }` |
-| `FactionMidSettlement` | `public Settlement FactionMidSettlement { get; set; }` |
-| `BasicTroop` | `public CharacterObject BasicTroop { get; set; }` |
-| `PlayerClan` | `public static Clan PlayerClan { get; }` |
-| `Leader` | `public Hero Leader { get; }` |
-| `Gold` | `public int Gold { get; }` |
-| `Banner` | `public Banner Banner { get; set; }` |
-| `ClanOriginalBanner` | `public Banner ClanOriginalBanner { get; }` |
-| `IsBanditFaction` | `public bool IsBanditFaction { get; }` |
-| `IsClan` | `public bool IsClan { get; set; }` |
-| `Renown` | `public float Renown { get; set; }` |
-| `MainHeroCrimeRating` | `public float MainHeroCrimeRating { get; set; }` |
-| `DailyCrimeRatingChange` | `public float DailyCrimeRatingChange { get; }` |
-| `DailyCrimeRatingChangeExplained` | `public ExplainedNumber DailyCrimeRatingChangeExplained { get; }` |
-| `Tier` | `public int Tier { get; }` |
-| `MapFaction` | `public IFaction MapFaction { get; set; }` |
-| `NotAttackableByPlayerUntilTime` | `public CampaignTime NotAttackableByPlayerUntilTime { get; set; }` |
-| `Aggressiveness` | `public float Aggressiveness { get; set; }` |
-| `TributeWallet` | `public int TributeWallet { get; }` |
-| `HomeSettlement` | `public Settlement HomeSettlement { get; }` |
-| `DebtToKingdom` | `public int DebtToKingdom { get; set; }` |
-| `FactionsAtWarWith` | `public MBReadOnlyList<IFaction> FactionsAtWarWith { get; }` |
-| `RenownRequirementForNextTier` | `public int RenownRequirementForNextTier { get; }` |
-| `CompanionLimit` | `public int CompanionLimit { get; }` |
-| `DistanceToClosestNonAllyFortification` | `public float DistanceToClosestNonAllyFortification { get; }` |
-| `CommanderLimit` | `public int CommanderLimit { get; }` |
-| `All` | `public static MBReadOnlyList<Clan> All { get; }` |
-| `NonBanditFactions` | `public static IEnumerable<Clan> NonBanditFactions { get; }` |
-| `BanditFactions` | `public static IEnumerable<Clan> BanditFactions { get; }` |
-
-## Key Methods
-
-### UpdateFactionsAtWarWith
-`public void UpdateFactionsAtWarWith()`
-
-**Purpose:** Recalculates and stores the latest representation of factions at war with.
-
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-clan.UpdateFactionsAtWarWith();
+```
+Clan
+ ├─ Heroes / AliveLords / Companions      (Hero.Clan → back-reference)
+ ├─ Fiefs (Town) / Villages (Village)     (Settlement.Owner → back-reference)
+ ├─ Influence / Renown / Gold / Banner
+ ├─ Kingdom (null when independent or a minor faction)
+ └─ IFaction: FactionsAtWarWith, IsAtWarWith, GetStanceWith
 ```
 
-### UpdateCurrentStrength
-`public void UpdateCurrentStrength()`
+Typical call order:
 
-**Purpose:** Recalculates and stores the latest representation of current strength.
-
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-clan.UpdateCurrentStrength();
+```
+MBSubModuleBase.OnCampaignStart
+    Clan.PlayerClan is live
+    CampaignBehaviorBase.RegisterEvents -> CampaignEvents.ClanTierIncrease
+DailyTick
+    clan.Influence / clan.Renown read
+    clan.ChangeClanName(...) or clan.AddRenown(...) mutate
+    CampaignEvents.ClanTierIncrease fires only when Tier actually moves
 ```
 
-### IsAtWarWith
-`public bool IsAtWarWith(IFaction other)`
+Traps that bite in practice:
 
-**Purpose:** Determines whether the this instance is in the at war with state or condition.
+- **`Gold` is read-only and leader-backed.** The getter forwards to `Leader.Gold` and returns `0` when `Leader` is null. To pay a clan you must change the leader's gold (`Hero.ChangeHeroGold`), not the clan.
+- **`Influence` setter has a side effect.** Assigning a *lower* value calls `SkillLevelingManager.OnInfluenceSpent(this.Leader, delta)`. Writing influence from a behavior with a null `Leader` silently skips the skill path but still writes the field, which desynchronises skill progression from influence spend.
+- **`Fiefs`/`Villages`/`Settlements` are cached views.** They refresh when the object manager notifies, not instantly after you assign `Settlement.OwnerClan`. Never treat them as the authority.
+- **Tier is derived.** `Tier` and `RenownRequirementForNextTier` come from the campaign configuration. Do not cache them; they change with progression rules.
+- **`FindFirst` / `FindAll` scan every clan.** Both are `O(n)` over the full clan list and are called in tight loops in vanilla. Cache your own list if you scan per tick.
 
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-var result = clan.IsAtWarWith(other);
-```
+## Dependencies
 
-### CreateClan
-`public static Clan CreateClan(string stringID)`
+| Direction | Type | Relationship |
+|-----------|------|--------------|
+| Store | `MBObjectBase` | Identified by `Id` / `StringId`, saveable |
+| Faction contract | `IFaction` | Shared diplomacy surface with [Kingdom](../Kingdom) |
+| People | [Hero](../Hero) | `Heroes`, `AliveLords`, `Companions`; `Hero.Clan` |
+| Land | [Town](../Town), [Village](../Village), [Settlement](../Settlement) | `Fiefs`, `Villages`, `Settlements` |
+| Realm | [Kingdom](../Kingdom) | `Kingdom` property, `ClanLeaveKingdom` |
+| Managers | [FactionManager](../FactionManager) | War and stance resolution for `IFaction` |
+| Events | [CampaignEvents](../CampaignEvents), [MbEvent](../MbEvent) | `ClanTierIncrease`, `OnClanCreatedEvent`, `OnClanChangedKingdomEvent` |
 
-**Purpose:** Constructs a new clan entity and returns it to the caller.
+## Key members
 
-```csharp
-// Static call; no instance required
-Clan.CreateClan("example");
-```
+### Identity and classification
 
-### Deserialize
-`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+#### `public static MBReadOnlyList<Clan> All`
 
-**Purpose:** Restores the this instance from serialized data.
+Every clan, including minor-faction templates and the player's clan. Large — hundreds of entries.
 
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-clan.Deserialize(objectManager, node);
-```
+#### `public static Clan PlayerClan`
 
-### GetRelationWithClan
-`public int GetRelationWithClan(Clan other)`
+The player's own clan. `null` in campaigns where the player has not been placed (editor, some story-mode states).
 
-**Purpose:** Reads and returns the relation with clan value held by the this instance.
+#### `public static Clan CreateClan(string stringID)`
 
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-var result = clan.GetRelationWithClan(other);
-```
+Engine factory. Returns a registered clan and is the only supported way to add one; a manually `new Clan()` is never added to `All` and will be lost on save.
 
-### SetLeader
-`public void SetLeader(Hero leader)`
+#### `public bool IsNoble { get; set; }` / `public bool IsMinorFaction` / `public bool IsOutlaw` / `public bool IsBanditFaction` / `public bool IsRebelClan` / `public bool IsClan`
 
-**Purpose:** Assigns a new value to leader and updates the object's internal state.
+Classification flags. `IsMinorFaction` has a private setter; `IsNoble`, `IsRebelClan`, `IsOutlaw` are saveable and settable.
 
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-clan.SetLeader(leader);
-```
+#### `public bool IsMapFaction`
 
-### SetInitialHomeSettlement
-`public void SetInitialHomeSettlement(Settlement initialHomeSettlement)`
+`true` when this clan appears on the campaign map as an independent political entity (players can own it, it can be at war). Bandit and minor factions return `false`.
 
-**Purpose:** Assigns a new value to initial home settlement and updates the object's internal state.
+### People
 
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-clan.SetInitialHomeSettlement(initialHomeSettlement);
-```
+#### `public MBReadOnlyList<Hero> Heroes` / `AliveLords` / `DeadLords` / `Companions`
 
-### ConsiderAndUpdateHomeSettlement
-`public void ConsiderAndUpdateHomeSettlement()`
+Cached member views. `Heroes` includes everyone alive and dead; `AliveLords` filters to active, alive, non-companion members.
 
-**Purpose:** Executes the ConsiderAndUpdateHomeSettlement logic.
+#### `public Hero Leader`
 
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-clan.ConsiderAndUpdateHomeSettlement();
-```
+The clan leader. `null` for player-less minor factions, which is why `Clan.Gold` returns `0` there.
 
-### GetName
-`public override TextObject GetName()`
+#### `public void SetLeader(Hero leader)`
 
-**Purpose:** Reads and returns the name value held by the this instance.
+Writes the leader. Vanilla does this through the change-clan-leader action, which also moves influence, fires log entries and updates the kingdom.
 
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-var result = clan.GetName();
-```
+#### `public static Clan FindFirst(Predicate<Clan> predicate)` / `public static IEnumerable<Clan> FindAll(Predicate<Clan> predicate)`
 
-### ChangeClanName
-`public void ChangeClanName(TextObject name, TextObject informalName)`
+Linear scans over `Clan.All`. `FindFirst` short-circuits; `FindAll` always walks everything.
 
-**Purpose:** Executes the ChangeClanName logic.
+### Land and value
 
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-clan.ChangeClanName(name, informalName);
-```
+#### `public MBReadOnlyList<Town> Fiefs` / `public MBReadOnlyList<Village> Villages` / `public MBReadOnlyList<Settlement> Settlements`
 
-### ToString
-`public override string ToString()`
+Indexed ownership views. `Settlements` is the union of `Fiefs` and `Villages`.
 
-**Purpose:** Returns a human-readable string representation of the this instance.
+#### `public float CalculateTotalSettlementValueForFaction(Kingdom kingdom)`
 
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-var result = clan.ToString();
-```
+Values the clan's holdings **as seen by that kingdom**, including the kingdom's own settlement value model. Pass the owning kingdom, not `null`, when you want consistent numbers.
 
-### GetStanceWith
-`public StanceLink GetStanceWith(IFaction other)`
+#### `public float CalculateTotalSettlementBaseValue()`
 
-**Purpose:** Reads and returns the stance with value held by the this instance.
+Raw sum without a faction perspective. Cheaper, and the right choice when you only need a relative weight.
 
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-var result = clan.GetStanceWith(other);
-```
+#### `public Settlement HomeSettlement` / `public void ConsiderAndUpdateHomeSettlement()` / `public void SetInitialHomeSettlement(Settlement initialHomeSettlement)`
 
-### ClanLeaveKingdom
-`public void ClanLeaveKingdom(bool giveBackFiefs = false)`
+The clan's seat. Changing it affects where the leader lives, where the party goes, and map politics.
 
-**Purpose:** Executes the ClanLeaveKingdom logic.
+### Money, influence, renown
 
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-clan.ClanLeaveKingdom(false);
-```
+#### `public float Influence { get; set; }`
 
-### CalculateTotalSettlementBaseValue
-`public float CalculateTotalSettlementBaseValue()`
+Social capital. Assigning a lower value triggers `SkillLevelingManager.OnInfluenceSpent` for the leader — see the trap above.
 
-**Purpose:** Calculates the current value or result of total settlement base value.
+#### `public void AddRenown(float value, bool shouldNotify = true)`
 
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-var result = clan.CalculateTotalSettlementBaseValue();
-```
+Adds renown and, by default, notifies the player. Pass `false` for bulk or silent changes.
 
-### StartMercenaryService
-`public void StartMercenaryService()`
+#### `public int RenownRequirementForNextTier`
 
-**Purpose:** Starts the mercenary service flow or state machine.
+Configuration-derived. Read it instead of hard-coding tier thresholds.
 
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-clan.StartMercenaryService();
-```
+#### `public int Tier`
 
-### ResetPlayerHomeAndFactionMidSettlement
-`public void ResetPlayerHomeAndFactionMidSettlement()`
+Current rank, derived from renown and the tier rules. Not saveable on its own.
 
-**Purpose:** Returns player home and faction mid settlement to its default or initial condition.
+#### `public int Gold`
+
+Read-only, forwarding to `Leader.Gold`. Returns `0` for leader-less clans.
+
+#### `public int TributeWallet` / `public int DebtToKingdom`
+
+Kingdom-level ledger attached to the clan when it is a vassal.
+
+### Diplomacy
+
+#### `public bool IsAtWarWith(IFaction other)`
+
+Convenience over `FactionManager.IsAtWarAgainstFaction`.
+
+#### `public MBReadOnlyList<IFaction> FactionsAtWarWith`
+
+Cached war set. Refreshed by `UpdateFactionsAtWarWith()`.
+
+#### `public StanceLink GetStanceWith(IFaction other)`
+
+The low-level stance value (hostile, wary, neutral, friendly). This is the primitive behind the `Is*` helpers.
+
+#### `public void UpdateFactionsAtWarWith()` / `public void UpdateCurrentStrength()`
+
+Recompute the cached war set and cached `CurrentTotalStrength`. Vanilla calls these after ownership or roster changes.
+
+### Kingdom membership
+
+#### `public Kingdom Kingdom`
+
+Owning kingdom, or `null` when independent or a minor faction.
+
+#### `public void ClanLeaveKingdom(bool giveBackFiefs = false)`
+
+Severs kingdom membership. With `giveBackFiefs: true` the settlements are released — this is irreversible from the clan's side.
+
+#### `public void StartMercenaryService()` / `public void EndMercenaryService(bool isByLeavingKingdom)`
+
+Toggles mercenary state. Ending by leaving the kingdom is a different code path with different consequences.
+
+#### `public void ResetPlayerHomeAndFactionMidSettlement()`
+
+Player-clan special case used after story-mode setup.
+
+### Lifecycle
+
+#### `protected override void AfterLoad()` / `protected override void PreAfterLoad()`
+
+Save-repair hooks. They fix broken cross-references after deserialization, which is why hand-editing clan's serialized fields produces "impossible" states only visible later.
+
+## Real examples
+
+### Example 1: a daily influence + renown ledger behavior
 
 ```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-clan.ResetPlayerHomeAndFactionMidSettlement();
+using TaleWorlds.CampaignSystem;
+
+public sealed class ClanLedgerBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        CampaignEvents.DailyTickClanEvent.AddNonSerializedListener(this, OnDailyTickClan);
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+    }
+
+    private void OnDailyTickClan(Clan clan)
+    {
+        Campaign campaign = Campaign.Current;
+        if (campaign == null)
+        {
+            return;
+        }
+
+        if (!clan.IsNoble)
+        {
+            return;
+        }
+
+        // Gold is leader-backed and read-only; influence is the writable score.
+        int clanGold = clan.Gold;
+        float influence = clan.Influence;
+        _ = clanGold;
+        _ = influence;
+    }
+}
 ```
 
-### FindFirst
-`public static Clan FindFirst(Predicate<Clan> predicate)`
-
-**Purpose:** Looks up the matching first in the current collection or scope.
+### Example 2: pay the player clan (gold lives on the leader)
 
 ```csharp
-// Static call; no instance required
-Clan.FindFirst(predicate);
+using TaleWorlds.CampaignSystem;
+
+public static void PayPlayerClan(int amount)
+{
+    Clan clan = Clan.PlayerClan;
+    if (clan == null || amount <= 0)
+    {
+        return;
+    }
+
+    Hero leader = clan.Leader;
+    if (leader == null)
+    {
+        return;
+    }
+
+    leader.ChangeHeroGold(amount);
+    InformationManager.DisplayMessage(
+        new InformationMessage($"{clan.Name.Name} now holds {leader.Gold} gold"));
+}
 ```
 
-### EndMercenaryService
-`public void EndMercenaryService(bool isByLeavingKingdom)`
-
-**Purpose:** Executes the EndMercenaryService logic.
+### Example 3: rank a minor faction's total land value per kingdom
 
 ```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-clan.EndMercenaryService(false);
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+
+public static string RichestVassalReport(Kingdom kingdom)
+{
+    Clan best = null;
+    float bestValue = -1f;
+
+    foreach (Clan clan in kingdom.Clans)
+    {
+        float value = clan.CalculateTotalSettlementValueForFaction(kingdom);
+        if (value > bestValue)
+        {
+            bestValue = value;
+            best = clan;
+        }
+    }
+
+    return best == null
+        ? "no vassals"
+        : $"{best.Name.Name}: {bestValue:0}";
+}
 ```
 
-### FindAll
-`public static IEnumerable<Clan> FindAll(Predicate<Clan> predicate)`
-
-**Purpose:** Looks up the matching all in the current collection or scope.
+### Example 4: leaving a kingdom with its fiefs
 
 ```csharp
-// Static call; no instance required
-Clan.FindAll(predicate);
+using TaleWorlds.CampaignSystem;
+
+public static void GrantIndependence(Clan clan)
+{
+    if (clan.Kingdom == null)
+    {
+        return;
+    }
+
+    // giveBackFiefs: true releases every fief — irreversible without a settlement-owner action.
+    clan.ClanLeaveKingdom(true);
+    clan.UpdateFactionsAtWarWith();
+    InformationManager.DisplayMessage(
+        new InformationMessage($"{clan.Name.Name} is independent again"));
+}
 ```
 
-### CalculateTotalSettlementValueForFaction
-`public float CalculateTotalSettlementValueForFaction(Kingdom kingdom)`
+## Risks and crash boundaries
 
-**Purpose:** Calculates the current value or result of total settlement value for faction.
+1. **`Gold` is not writable.** `Clan.Gold` forwards to `Leader.Gold`; if you reach for `clan.Gold = n` it will not compile, and if you work around it by mutating a roster you break the wage system. Use `Hero.ChangeHeroGold`.
+2. **`Leader` can be null.** Every member that dereferences `Leader` (`Gold`, influence-spend skill path, clan banner) must guard. Minor-faction clans always have a null leader.
+3. **`CreateClan` is the only safe constructor.** `new Clan()` produces an object that is not registered, does not appear in `All`, and is never serialized.
+4. **Influence writes have skill side effects.** Lowering `Influence` outside a leader context skips `OnInfluenceSpent`, leaving leader skills inconsistent with influence spend across saves.
+5. **Save stability.** `Name`, `Culture`, `Tier`-driving `Renown`, `IsNoble`, `IsOutlaw`, `Color` and `InitialHomeSettlement` are `[SaveableProperty]` values. Renumbering them invalidates existing saves — see [save-system](../../../architecture/save-system).
+6. **Cross-domain dependency on settlements.** `Fiefs` is maintained by the settlement owner-change path. Writing `Settlement.OwnerClan` directly desynchronises the clan index until the next owner-change event.
+7. **Ownership transfer is not symmetric.** `Clan.CalculateTotalSettlementValueForFaction` reads live settlement state; calling it mid-transfer can observe a half-updated ownership set.
+8. **Hot-loop cost.** Scanning `Clan.All` per daily tick across many behaviors is a real frame cost. Subscribe to `CampaignEvents.DailyTickClanEvent` instead of rescanning, and cache if you need a filtered set.
 
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-var result = clan.CalculateTotalSettlementValueForFaction(kingdom);
-```
+## Cross-version notes
 
-### OnHeroChangedState
-`public void OnHeroChangedState(Hero hero, Hero.CharacterStates oldState)`
-
-**Purpose:** Invoked when the hero changed state event is raised.
-
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-clan.OnHeroChangedState(hero, oldState);
-```
-
-### AddRenown
-`public void AddRenown(float value, bool shouldNotify = true)`
-
-**Purpose:** Adds renown to the current collection or state.
-
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-clan.AddRenown(0, false);
-```
-
-### ResetClanRenown
-`public void ResetClanRenown()`
-
-**Purpose:** Returns clan renown to its default or initial condition.
-
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-clan.ResetClanRenown();
-```
-
-### OnSupportedByClan
-`public void OnSupportedByClan(Clan supporterClan)`
-
-**Purpose:** Invoked when the supported by clan event is raised.
-
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-clan.OnSupportedByClan(supporterClan);
-```
-
-### CreateSettlementRebelClan
-`public static Clan CreateSettlementRebelClan(Settlement settlement, Hero owner, int iconMeshId = -1)`
-
-**Purpose:** Constructs a new settlement rebel clan entity and returns it to the caller.
-
-```csharp
-// Static call; no instance required
-Clan.CreateSettlementRebelClan(settlement, owner, 0);
-```
-
-### CalculateMidSettlement
-`public void CalculateMidSettlement()`
-
-**Purpose:** Calculates the current value or result of mid settlement.
-
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-clan.CalculateMidSettlement();
-```
-
-### CreateCompanionToLordClan
-`public static Clan CreateCompanionToLordClan(Hero hero, Settlement settlement, TextObject clanName, int newClanIconId)`
-
-**Purpose:** Constructs a new companion to lord clan entity and returns it to the caller.
-
-```csharp
-// Static call; no instance required
-Clan.CreateCompanionToLordClan(hero, settlement, clanName, 0);
-```
-
-### GetHeirApparents
-`public Dictionary<Hero, int> GetHeirApparents()`
-
-**Purpose:** Reads and returns the heir apparents value held by the this instance.
-
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-var result = clan.GetHeirApparents();
-```
-
-### UpdateBannerColor
-`public void UpdateBannerColor(uint backgroundColor, uint iconColor)`
-
-**Purpose:** Recalculates and stores the latest representation of banner color.
-
-```csharp
-// Obtain an instance of Clan from the subsystem API first
-Clan clan = ...;
-clan.UpdateBannerColor(0, 0);
-```
-
-## Usage Example
-
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-Clan clan = ...;
-clan.UpdateFactionsAtWarWith();
-```
+- The 1.3.0 surface above matches 1.3.x. Later builds keep `Influence`, `Renown`, `Tier`, `CalculateTotalSettlementValueForFaction` and `ClanLeaveKingdom` stable.
+- `IsBanditFaction` is a saveable private-set flag here; some 1.4.x builds add more minor-faction flags (`IsCult`) without changing the setters used by mods.
 
 ## See Also
 
-- [Area Index](../)
+- [Kingdom](../Kingdom) — the realm above the clan
+- [Hero](../Hero) — the people inside the clan
+- [FactionManager](../FactionManager) — war and stance resolution
+- [Settlement](../Settlement) — the land the clan owns
+- [Town](../Town) — fiefs a noble clan can hold
+- [Campaign](../Campaign) — where `Clan.All` is exposed
+- [Campaign basics](../../../guide/campaign-basics) — task-first walkthrough
+- [SDK overview](../../../architecture/sdk-overview) — module lifecycle ordering

@@ -1,0 +1,73 @@
+{
+  "generatedAt": "2026-08-12T11:11:11.541Z",
+  "scanRoot": "content/v1.3.15/zh/api/engine",
+  "totalFiles": 205,
+  "counts": {
+    "stub": 202,
+    "deep_pass": 1,
+    "family_entry_pass": 1,
+    "noise": 1,
+    "missing": 0
+  },
+  "classLikeApprox": 203,
+  "deep_pass_paths": [
+    "content/v1.3.15/zh/api/engine/GauntletLayer.md"
+  ],
+  "stub_sample_paths": [
+    "content/v1.3.15/zh/api/engine/AnimResult.md",
+    "content/v1.3.15/zh/api/engine/ApplicationHealthChecker.md",
+    "content/v1.3.15/zh/api/engine/ApplicationInterfaceBase.md",
+    "content/v1.3.15/zh/api/engine/AsyncTask.md",
+    "content/v1.3.15/zh/api/engine/BillboardType.md",
+    "content/v1.3.15/zh/api/engine/BodyFlags.md",
+    "content/v1.3.15/zh/api/engine/BoundingBox.md",
+    "content/v1.3.15/zh/api/engine/Camera.md",
+    "content/v1.3.15/zh/api/engine/CapsuleData.md",
+    "content/v1.3.15/zh/api/engine/CheatsHotKeyCategory.md",
+    "content/v1.3.15/zh/api/engine/ClothSimulatorComponent.md",
+    "content/v1.3.15/zh/api/engine/ColorStyle.md",
+    "content/v1.3.15/zh/api/engine/ComponentType.md",
+    "content/v1.3.15/zh/api/engine/CompositeComponent.md",
+    "content/v1.3.15/zh/api/engine/ConfigQuality.md",
+    "content/v1.3.15/zh/api/engine/CrashInformation.md",
+    "content/v1.3.15/zh/api/engine/CrashInformationCollector.md",
+    "content/v1.3.15/zh/api/engine/CrashInformationProvider.md",
+    "content/v1.3.15/zh/api/engine/DebugHotKeyCategory.md",
+    "content/v1.3.15/zh/api/engine/Decal.md",
+    "content/v1.3.15/zh/api/engine/DecalAtlasGroup.md",
+    "content/v1.3.15/zh/api/engine/EditDataPolicy.md",
+    "content/v1.3.15/zh/api/engine/EditorVisibleScriptComponentVariable.md",
+    "content/v1.3.15/zh/api/engine/EngineApplicationInterface.md",
+    "content/v1.3.15/zh/api/engine/EngineCallback.md",
+    "content/v1.3.15/zh/api/engine/EngineController.md",
+    "content/v1.3.15/zh/api/engine/EngineExtensions.md",
+    "content/v1.3.15/zh/api/engine/EngineFilePaths.md",
+    "content/v1.3.15/zh/api/engine/EngineInputManager.md",
+    "content/v1.3.15/zh/api/engine/EngineManaged.md",
+    "content/v1.3.15/zh/api/engine/EngineRenderDisplayMode.md",
+    "content/v1.3.15/zh/api/engine/EngineScreenManager.md",
+    "content/v1.3.15/zh/api/engine/EngineTexture.md",
+    "content/v1.3.15/zh/api/engine/EntityFlags.md",
+    "content/v1.3.15/zh/api/engine/EntityVisibilityFlags.md",
+    "content/v1.3.15/zh/api/engine/Extensions__TaleWorlds_Engine_GauntletUI.md",
+    "content/v1.3.15/zh/api/engine/Face.md",
+    "content/v1.3.15/zh/api/engine/FaceCorner.md",
+    "content/v1.3.15/zh/api/engine/FloaterVolumeDynamicUpAxis.md",
+    "content/v1.3.15/zh/api/engine/ForceMode.md"
+  ],
+  "family_entry_sample_paths": [
+    "content/v1.3.15/zh/api/engine/_index.md"
+  ],
+  "noise_sample_paths": [
+    "content/v1.3.15/zh/api/engine/TwoDimensionEnginePlatform.md"
+  ],
+  "meta": {
+    "scope": "content/v1.3.15/zh/api/engine",
+    "version": "1.3.15",
+    "language": "zh",
+    "sourceFingerprint": "50666e7a877f6f170b8c7d904f7e142966094f94ea888a346672aa48dd3ffd22",
+    "gitSha": "4b84d6e58a26cf46f62485b9fda9b8c0f855eeee",
+    "command": "C:\\WorkSpace\\Bannerlord\\BannerlordCode.github.io\\tools\\handwritten-coverage.mjs --root content/v1.3.15/zh/api/engine --out tools/data/cov-engine-zh.json"
+  },
+  "note": "Phase 1 classifies existing markdown only. `missing` reserved for inventory-vs-docs comparison (not run here). deep_pass requires real mental model (>80 chars), 依赖/参见 with ≥2 links, real csharp example, and non-boilerplate overview."
+}

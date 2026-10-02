@@ -1,0 +1,29 @@
+---
+title: "SPGeneralKillNotificationItemVM"
+description: "SPGeneralKillNotificationItemVM 的自动生成类参考。"
+---
+# SPGeneralKillNotificationItemVM
+
+**Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.General
+**Module:** TaleWorlds.MountAndBlade.ViewModelCollection
+**Type:** `public class SPGeneralKillNotificationItemVM : ViewModel `
+**Base:** ViewModel
+**Source:** TaleWorlds.MountAndBlade.ViewModelCollection/HUD/KillFeed/General/SPGeneralKillNotificationItemVM.cs
+
+## 概述
+
+`SPGeneralKillNotificationItemVM` 的自动生成类参考页面。声明来自 `TaleWorlds.MountAndBlade.ViewModelCollection/HUD/KillFeed/General/SPGeneralKillNotificationItemVM.cs`（ILSpy 反编译产物，已剥离 Token/RVA 注释）。
+
+## 心智模型
+
+自动生成的初始占位段落，后续由深写波次替换。
+
+## 主要方法
+
+### ExecuteRemove
+`public void ExecuteRemove() `
+
+## 参见
+
+- [本区域目录](../)
+- [API 参考](../../)

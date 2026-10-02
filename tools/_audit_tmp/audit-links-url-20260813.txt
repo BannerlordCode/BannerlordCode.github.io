@@ -1,0 +1,72 @@
+FILES=36253
+TOTAL_LINKS=110231
+AUDIT_MODE=url
+BROKEN_LINKS=71
+RESOLVE_OK_URL=110023
+RESOLVE_OK_FILE=94280
+RESOLVE_OK_EITHER=110088
+RESOLVE_OK_BOTH=94215
+RESOLVE_URL_ONLY=15808
+RESOLVE_FILE_ONLY=65
+RESOLVE_NEITHER=6
+FILES_WITH_BROKEN=8
+
+## v1.3.15/en/api/campaign-ext/SettlementLoyaltyModel.md  (1)
+   -> ../../../guide/campaign-system.md
+
+## v1.3.15/zh/api/campaign-ext/ConversationManager.md  (2)
+   -> DialogFlow.md
+   -> ConversationSentenceOption.md
+
+## v1.3.15/zh/api/campaign-ext/GameMenuOption.md  (1)
+   -> GameMenu.md
+
+## v1.3.15/zh/api/campaign-ext/KingdomDecision.md  (2)
+   -> DecisionOutcome
+   -> Supporter
+
+## v1.3.15/zh/guide/sandbox-custom-model.md  (2)
+   -> ./sandbox-extension-example/
+   -> ./sandbox-gamemenu-dialog/
+
+## v1.3.15/zh/guide/sandbox-gamemenu-dialog.md  (2)
+   -> ./sandbox-extension-example/
+   -> ./sandbox-custom-model/
+
+## v1.4.5/en/api/mission-ext/AgentComponent.md  (17)
+   -> ../mission/MissionBehavior
+   -> ./MissionLogic
+   -> ../campaign/CampaignBehaviorBase
+   -> ../core/MBSubModuleBase
+   -> ../mission/Agent
+   -> ../mission/Mission
+   -> ./CommonAIComponent
+   -> ./HumanAIComponent
+   -> ../campaign-ext/CampaignAgentComponent
+   -> ./MPPerksAgentComponent
+   -> ./VictoryComponent
+   -> ./ScriptedMovementComponent
+   -> ./MissionObject
+   -> ../gameplay/AgentNavigator
+   -> ./AgentComponentExtensions
+   -> ../../architecture/crash-boundary
+   -> ../../architecture/sdk-overview
+
+## v1.4.5/zh/api/mission-ext/AgentComponent.md  (17)
+   -> ../mission/MissionBehavior
+   -> ./MissionLogic
+   -> ../campaign/CampaignBehaviorBase
+   -> ../core/MBSubModuleBase
+   -> ../mission/Agent
+   -> ../mission/Mission
+   -> ./CommonAIComponent
+   -> ./HumanAIComponent
+   -> ../campaign-ext/CampaignAgentComponent
+   -> ./MPPerksAgentComponent
+   -> ./VictoryComponent
+   -> ./ScriptedMovementComponent
+   -> ./MissionObject
+   -> ../gameplay/AgentNavigator
+   -> ./AgentComponentExtensions
+   -> ../../architecture/crash-boundary
+   -> ../../architecture/sdk-overview

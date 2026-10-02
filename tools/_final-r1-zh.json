@@ -1,0 +1,367 @@
+{
+  "generatedAt": "2026-08-03T09:13:02.351Z",
+  "version": "1.3.15",
+  "lang": "zh",
+  "apiRoot": "content/v1.3.15/zh/api",
+  "formula": "r1Target (inventory business − R1-extra noise) − (deep_pass page OR handwritten family purpose entry) = remaining gap",
+  "totalInventoryBusiness": 5483,
+  "r1Target": 4796,
+  "noiseExcludedExtra": 687,
+  "totalBusiness": 4796,
+  "coveredDeep": 64,
+  "coveredFamily": 1930,
+  "covered": 1994,
+  "gap": 2802,
+  "coverageRate": 0.415763,
+  "gapSample": [
+    {
+      "typeName": "BannerHelper",
+      "namespace": "MBHelpers",
+      "kind": "class"
+    },
+    {
+      "typeName": "ActionSetCode",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "AgentAttackType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum"
+    },
+    {
+      "typeName": "AgentControllerType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum"
+    },
+    {
+      "typeName": "AgentData",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "AgentFlag",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum"
+    },
+    {
+      "typeName": "AgentMovementMode",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum"
+    },
+    {
+      "typeName": "AgentOriginUtilities",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "AgentSaveData",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct"
+    },
+    {
+      "typeName": "AgentState",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum"
+    },
+    {
+      "typeName": "ArmorComponent",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "ArmorMaterialTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum"
+    },
+    {
+      "typeName": "AtmosphereState",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "BannerColor",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct"
+    },
+    {
+      "typeName": "BannerComponent",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "BannerData",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "BannerEffect",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "BannerExtensions",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "BannerIconData",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct"
+    },
+    {
+      "typeName": "BannerIconGroup",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "BannerManager",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "BasicCharacterObject",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "BasicCultureObject",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "BasicGameModels",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "BattleSideEnum",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum"
+    },
+    {
+      "typeName": "BattleSideEnumExtensions",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "BattleState",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum"
+    },
+    {
+      "typeName": "BeardCoverTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum"
+    },
+    {
+      "typeName": "BladeData",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "BodyDeformTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum"
+    },
+    {
+      "typeName": "BodyMeshMaturityType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum"
+    },
+    {
+      "typeName": "BodyMeshTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum"
+    },
+    {
+      "typeName": "BodyProperties",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct"
+    },
+    {
+      "typeName": "BodyPropertiesJsonConverter",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "CampaignSaveMetaDataArgs",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct"
+    },
+    {
+      "typeName": "CharacterAttribute",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "CharacterCode",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "ChoiceTag",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct"
+    },
+    {
+      "typeName": "CombatStatCalculator",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "Crafting",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "CraftingMaterials",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum"
+    },
+    {
+      "typeName": "CraftingPiece",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "CraftingStatData",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct"
+    },
+    {
+      "typeName": "CraftingStatTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum"
+    },
+    {
+      "typeName": "CraftingTemplate",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "DamageTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum"
+    },
+    {
+      "typeName": "DefaultBannerEffects",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "DefaultCharacterAttributes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "DefaultItemCategories",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    },
+    {
+      "typeName": "DefaultItemCategorySelector",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class"
+    }
+  ],
+  "sTierMiss": [],
+  "sTierInScope": 62,
+  "sTierCovered": 62,
+  "gapCategoriesTop": [
+    {
+      "prefix": "TaleWorlds.MountAndBlade",
+      "count": 1486
+    },
+    {
+      "prefix": "TaleWorlds.Core",
+      "count": 318
+    },
+    {
+      "prefix": "TaleWorlds.Library",
+      "count": 201
+    },
+    {
+      "prefix": "TaleWorlds.Engine",
+      "count": 192
+    },
+    {
+      "prefix": "TaleWorlds.GauntletUI",
+      "count": 185
+    },
+    {
+      "prefix": "TaleWorlds.TwoDimension",
+      "count": 123
+    },
+    {
+      "prefix": "TaleWorlds.SaveSystem",
+      "count": 102
+    },
+    {
+      "prefix": "TaleWorlds.Localization",
+      "count": 52
+    },
+    {
+      "prefix": "TaleWorlds.DotNet",
+      "count": 47
+    },
+    {
+      "prefix": "TaleWorlds.Network",
+      "count": 38
+    },
+    {
+      "prefix": "TaleWorlds.InputSystem",
+      "count": 20
+    },
+    {
+      "prefix": "TaleWorlds.ObjectSystem",
+      "count": 17
+    },
+    {
+      "prefix": "TaleWorlds.ModuleManager",
+      "count": 9
+    },
+    {
+      "prefix": "TaleWorlds.ScreenSystem",
+      "count": 6
+    },
+    {
+      "prefix": "TaleWorlds.LinQuick",
+      "count": 3
+    },
+    {
+      "prefix": "TaleWorlds.Starter",
+      "count": 2
+    },
+    {
+      "prefix": "MBHelpers",
+      "count": 1
+    }
+  ],
+  "meta": {
+    "scope": "content/v1.3.15/zh/api",
+    "version": "1.3.15",
+    "language": "zh",
+    "sourceFingerprint": "8f859d300165558c0be9962aaba3916b4174e2f0db7eff50719d9806391d2b5a",
+    "gitSha": "fdcbc28dbd6f87e9447f91edf92e4bd598161410",
+    "command": "C:\\WorkSpace\\Bannerlord\\BannerlordCode.github.io\\tools\\r1-coverage-report.mjs --version 1.3.15 --lang zh --api-root content/v1.3.15/zh/api --out tools/_final-r1-zh.json --gap-out tools/_final-r1-gaps-zh.json",
+    "inventorySkippedNoise": 140,
+    "inventorySkippedBaseNoise": 140,
+    "noiseExcludedExtra": 687,
+    "totalInventoryBusiness": 5483,
+    "r1Target": 4796,
+    "previousTotalBusiness": 5483,
+    "pageClassCounts": {
+      "stub": 5521,
+      "deep_pass": 64,
+      "family_entry_pass": 20,
+      "noise": 21
+    },
+    "deepPassPages": 64,
+    "familyEntryPages": 20,
+    "familyPurposeTypeNames": 1982,
+    "deepPassTypeNames": 64,
+    "r1ExtraNoise": "NetworkMessages.*; Messages.From*/To*/BattleServer*/CustomBattleServer*/Lobby* (+ remaining Messages.*); top-level BattleServer*/CustomBattleServer*/Lobby*; psai.*; type IMB*/BattleServer*/CustomBattleServer*/Lobby*",
+    "note": "COVERED if an R1-target inventory identity has a deep_pass page declaring the same qualified (version, language, namespace, typeName) identity OR a qualified handwritten family entry. Unqualified family entries count only when the simple name is unique in inventory. Formulaic purposes do not count. S-tier requires standalone deep pages. R1-extra noise stays inventory-listable but is out of the denominator."
+  }
+}

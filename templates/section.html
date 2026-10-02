@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% import "macros/breadcrumb.html" as breadcrumb %}
+{% import "macros/page-navigation.html" as page_navigation %}
 
 {% block title %}{{ section.title | default(value=config.title) }}{% endblock %}
 {% block description %}{{ section.description | default(value=config.description) }}{% endblock %}
@@ -20,4 +21,5 @@
     <li><a href="{{ subsection.permalink }}">{{ subsection.title | default(value=subsection.components | last) }}</a></li>
   {% endfor %}
 </ul>
+{{ page_navigation::render(current_url=section.path, lang=lang) }}
 {% endblock %}

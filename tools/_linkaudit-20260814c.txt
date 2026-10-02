@@ -1,0 +1,21 @@
+# audit-links — 2026-08-14 cycle C (after Issues+Tutorial family indexes)
+# Command: node tools/audit-links.mjs
+# Mode: url
+
+FILES=38551
+TOTAL_LINKS=122551
+AUDIT_MODE=url
+BROKEN_LINKS=0
+RESOLVE_OK_URL=122391
+RESOLVE_OK_FILE=101634
+RESOLVE_OK_EITHER=122391
+RESOLVE_OK_BOTH=101634
+RESOLVE_URL_ONLY=20757
+RESOLVE_FILE_ONLY=0
+RESOLVE_NEITHER=0
+FILES_WITH_BROKEN=0
+
+Conclusion: BROKEN_LINKS=0. New pages:
+  - content/v1.4.5/zh/api/campaign-ext/Tutorial/_index.md (69-entry family index, Type cells backtick-only, dep section links to existing ../_index, ../../campaign/Campaign, ../CampaignEvents)
+  - content/v1.4.5/zh/api/campaign-ext/issues/_index.md (appended SandBox.Issues 31-entry table, backtick-only Type cells)
+No broken links introduced.

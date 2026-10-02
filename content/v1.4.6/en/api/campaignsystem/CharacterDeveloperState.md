@@ -1,0 +1,40 @@
+---
+title: "CharacterDeveloperState"
+description: "CharacterDeveloperState: a public class in TaleWorlds.CampaignSystem, inheriting GameState; 5 exposed members (0 methods, 3 properties, 0 fields). Source: TaleWorlds.CampaignSystem/GameState/CharacterDeveloperState.cs."
+---
+# CharacterDeveloperState
+
+**Namespace:** `TaleWorlds.CampaignSystem.GameState`
+**Module:** `TaleWorlds.CampaignSystem`
+**Type:** `public class CharacterDeveloperState : GameState`
+**File:** `TaleWorlds.CampaignSystem/GameState/CharacterDeveloperState.cs`
+
+## Overview
+
+CharacterDeveloperState lives in the TaleWorlds.CampaignSystem module, source file TaleWorlds.CampaignSystem/GameState/CharacterDeveloperState.cs. It is a public class, implementing/inheriting GameState; the inheritance chain is CharacterDeveloperState → GameState. It exposes 5 public/protected members: 3 properties, 2 constructors.
+
+> Batch first draft: every signature is taken verbatim from the decompiled bannerlord-1.4.6 source. What each method actually does, when to call it and where it breaks must be read from the method body in the source file.
+
+## Mental Model
+
+Structural facts: CharacterDeveloperState is a top-level type in TaleWorlds.CampaignSystem, namespace differing from (TaleWorlds.CampaignSystem.GameState) the module directory; inheritance chain CharacterDeveloperState → GameState. The surface is property-led (properties 3/5, methods 0/5), so it mostly exposes state for reading. GameState on the chain live outside this module, so part of the behaviour is delegated to a cross-module base type. This page lists real signatures only: what each method does, when to call it and where it breaks must be read from TaleWorlds.CampaignSystem/GameState/CharacterDeveloperState.cs or the deep page for this type.
+
+## Key Members
+
+| 成员 | 签名 | 种类 |
+| --- | --- | --- |
+| `IsMenuState` | `public override bool IsMenuState` | property |
+| `InitialSelectedHero` | `public Hero InitialSelectedHero` | property |
+| `CharacterDeveloperState` | `public CharacterDeveloperState()` | constructor |
+| `CharacterDeveloperState` | `public CharacterDeveloperState(Hero initialSelectedHero)` | constructor |
+| `Handler` | `public ICharacterDeveloperStateHandler Handler` | property |
+
+## See Also
+
+- [↑ campaignsystem module index](../)
+- [↑ API reference](../../)
+- [↑ Version home](../../../)
+- [same namespace BannerEditorState](../BannerEditorState)
+- [same namespace BarberState](../BarberState)
+- [same namespace ClanState](../ClanState)
+- [same namespace CraftingState](../CraftingState)

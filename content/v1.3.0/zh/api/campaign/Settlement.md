@@ -1,7 +1,8 @@
 ---
 title: "Settlement"
-description: "Settlement 的自动生成类参考。"
+description: "地图地点聚合体：城镇、城堡、村庄与藏身处，含所有者、守备军、城墙、攻城状态、绑定村庄与忙碌仲裁。"
 ---
+
 # Settlement
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
@@ -12,504 +13,336 @@ description: "Settlement 的自动生成类参考。"
 
 ## 概述
 
-`Settlement` 位于 `TaleWorlds.CampaignSystem.Settlements`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`Settlement` 是地图侧的地点对象。每一个有人居住的地方都由一个 `Settlement` 实例表示：一座 [Town](../Town)（城镇或城堡）、一个 [Village](../Village)，或一个藏身处。专门化的数据存放在多态的 `SettlementComponent` 中——`Town`、`Village`、`Hideout`——通过 `SettlementComponent` 访问。
+
+一个聚落拥有：
+
+- **身份与位置。** `Name`、`Position`、`GetPosition2D()`、`Culture`、`IsActive`。
+- **政治。** `Owner`（一个 [Hero](../Hero)）、`OwnerClan`（一个 [Clan](../Clan)）、`MapFaction`、`InRebelliousState`。
+- **武力。** `Party`（守备 [PartyBase](../PartyBase)）、`MilitiaPartyComponent`、民兵数值、`PatrolParty`、城墙耐久与 `SiegeEvent`。
+- **经济。** `ItemRoster`、`Stash`、组件上的 `TradeTaxAccumulated` 以及组件上的 `MarketData`。
+- **地理。** `BoundVillages`（城镇与城堡）、`LocationComplex`、`GatePosition`、`PortPosition`、`HasPort`。
+
+它还提供一套小型仲裁服务：`IsSettlementBusy(asker)` / `GetSettlementBusynessPriority(asker)` 决定某个部队此刻能否在此聚落做某件事。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.CampaignSystem.Settlements` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+`Settlement` 是把部队、英雄、氏族与地图场景连接起来的枢纽：
 
-## 主要属性
-
-| Name | Signature |
-|------|-----------|
-| `Party` | `public PartyBase Party { get; }` |
-| `NumberOfLordPartiesAt` | `public int NumberOfLordPartiesAt { get; set; }` |
-| `BribePaid` | `public int BribePaid { get; set; }` |
-| `SiegeEvent` | `public SiegeEvent SiegeEvent { get; set; }` |
-| `IsActive` | `public bool IsActive { get; set; }` |
-| `Owner` | `public Hero Owner { get; }` |
-| `Banner` | `public Banner Banner { get; }` |
-| `IsVisible` | `public bool IsVisible { get; set; }` |
-| `IsInspected` | `public bool IsInspected { get; set; }` |
-| `WallSectionCount` | `public int WallSectionCount { get; set; }` |
-| `NearbyLandThreatIntensity` | `public float NearbyLandThreatIntensity { get; set; }` |
-| `NearbyNavalThreatIntensity` | `public float NearbyNavalThreatIntensity { get; set; }` |
-| `NearbyLandAllyIntensity` | `public float NearbyLandAllyIntensity { get; set; }` |
-| `NearbyNavalAllyIntensity` | `public float NearbyNavalAllyIntensity { get; set; }` |
-| `RandomValue` | `public int RandomValue { get; }` |
-| `GetPosition2D` | `public Vec2 GetPosition2D { get; }` |
-| `Militia` | `public float Militia { get; }` |
-| `SettlementWallSectionHitPointsRatioList` | `public MBReadOnlyList<float> SettlementWallSectionHitPointsRatioList { get; }` |
-| `SettlementTotalWallHitPoints` | `public float SettlementTotalWallHitPoints { get; }` |
-| `MaxHitPointsOfOneWallSection` | `public float MaxHitPointsOfOneWallSection { get; }` |
-| `SettlementHitPoints` | `public float SettlementHitPoints { get; set; }` |
-| `MaxWallHitPoints` | `public float MaxWallHitPoints { get; }` |
-| `Parties` | `public MBReadOnlyList<MobileParty> Parties { get; }` |
-| `PatrolParty` | `public PatrolPartyComponent PatrolParty { get; }` |
-| `HeroesWithoutParty` | `public MBReadOnlyList<Hero> HeroesWithoutParty { get; }` |
-| `Notables` | `public MBReadOnlyList<Hero> Notables { get; }` |
-| `SettlementComponent` | `public SettlementComponent SettlementComponent { get; }` |
-| `GatePosition` | `public CampaignVec2 GatePosition { get; }` |
-| `PortPosition` | `public CampaignVec2 PortPosition { get; }` |
-| `CurrentNavigationFace` | `public PathFaceRecord CurrentNavigationFace { get; }` |
-| `Position` | `public CampaignVec2 Position { get; }` |
-| `HasPort` | `public bool HasPort { get; }` |
-| `MapFaction` | `public IFaction MapFaction { get; }` |
-| `Name` | `public TextObject Name { get; }` |
-| `EncyclopediaText` | `public TextObject EncyclopediaText { get; }` |
-| `EncyclopediaLink` | `public string EncyclopediaLink { get; }` |
-| `EncyclopediaLinkWithName` | `public TextObject EncyclopediaLinkWithName { get; }` |
-| `GarrisonWagePaymentLimit` | `public int GarrisonWagePaymentLimit { get; }` |
-| `ItemRoster` | `public ItemRoster ItemRoster { get; }` |
-| `BoundVillages` | `public MBReadOnlyList<Village> BoundVillages { get; set; }` |
-| `LastAttackerParty` | `public MobileParty LastAttackerParty { get; set; }` |
-| `LastThreatTime` | `public CampaignTime LastThreatTime { get; }` |
-| `SiegeEngines` | `public SiegeEvent.SiegeEnginesContainer SiegeEngines { get; }` |
-| `SiegeEngineMissiles` | `public MBReadOnlyList<SiegeEvent.SiegeEngineMissile> SiegeEngineMissiles { get; }` |
-| `BattleSide` | `public BattleSideEnum BattleSide { get; }` |
-| `NumberOfTroopsKilledOnSide` | `public int NumberOfTroopsKilledOnSide { get; }` |
-| `SiegeStrategy` | `public SiegeStrategy SiegeStrategy { get; }` |
-| `Alleys` | `public List<Alley> Alleys { get; }` |
-| `IsTown` | `public bool IsTown { get; }` |
-| `IsCastle` | `public bool IsCastle { get; }` |
-| `IsFortification` | `public bool IsFortification { get; }` |
-| `IsVillage` | `public bool IsVillage { get; }` |
-| `IsHideout` | `public bool IsHideout { get; }` |
-| `IsStarving` | `public bool IsStarving { get; }` |
-| `IsRaided` | `public bool IsRaided { get; }` |
-| `InRebelliousState` | `public bool InRebelliousState { get; }` |
-| `IsUnderRaid` | `public bool IsUnderRaid { get; }` |
-| `IsUnderSiege` | `public bool IsUnderSiege { get; }` |
-| `LocationComplex` | `public LocationComplex LocationComplex { get; }` |
-| `CurrentSettlement` | `public static Settlement CurrentSettlement { get; }` |
-| `All` | `public static MBReadOnlyList<Settlement> All { get; }` |
-| `GetFirst` | `public static Settlement GetFirst { get; }` |
-| `CurrentSiegeState` | `public Settlement.SiegeState CurrentSiegeState { get; }` |
-| `OwnerClan` | `public Clan OwnerClan { get; }` |
-
-## 主要方法
-
-### SetWallSectionHitPointsRatioAtIndex
-`public void SetWallSectionHitPointsRatioAtIndex(int index, float hitPointsRatio)`
-
-**用途 / Purpose:** 为 wall section hit points ratio at index 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.SetWallSectionHitPointsRatioAtIndex(0, 0);
+```
+Settlement
+ ├─ SettlementComponent ─► Town（城镇 / 城堡）或 Village 或 Hideout
+ │      ├─ Prosperity / Loyalty / Security / Militia / Workshops（Town）
+ │      └─ Hearth / VillageState / bound 与 trade-bound（Village）
+ ├─ Party (PartyBase)  ── 守备名册，IsSettlement = true
+ ├─ Owner (Hero) ──► Clan (OwnerClan) ──► Kingdom
+ ├─ SiegeEvent / SiegeEngines / SiegeState / BattleSide
+ ├─ BoundVillages（绑定到该封地的村庄）
+ └─ Position ──► SettlementVisual（地图场景）
 ```
 
-### GetPositionAsVec3
-`public Vec3 GetPositionAsVec3()`
+典型调用顺序：
 
-**用途 / Purpose:** 读取并返回当前对象中 position as vec3 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-var result = settlement.GetPositionAsVec3();
+```
+MBSubModuleBase.OnCampaignStart
+    Settlement.All 已填充；SettlementComponent.OnInit 已执行
+CampaignBehaviorBase.RegisterEvents()
+    CampaignEvents.SettlementEntered / DailyTickSettlementEvent / OnSiegeEventStartedEvent
+DailyTick / HourlyTick
+    读取 settlement.Party.MemberRoster、settlement.Owner、settlement.SiegeEvent
+    通过 settlement.AddGarrisonParty() / settlement.OnPartyInteraction(party) 修改
+    CampaignEvents.DailyTickSettlementEvent 会逐个聚落触发，对象直接传给你
 ```
 
-### SetGarrisonWagePaymentLimit
-`public void SetGarrisonWagePaymentLimit(int limit)`
+实际开发中最容易踩的坑：
 
-**用途 / Purpose:** 为 garrison wage payment limit 赋新值，并同步更新对象内部状态。
+- **读取城镇 / 村庄字段前先确认组件类型。** 对村庄来说 `settlement.Town` 为 null，对封地来说 `settlement.Village` 为 null。用 `settlement.IsVillage` / `IsTown` / `IsFortification`，或者对 `SettlementComponent` 做分支。
+- **`IsSettlementBusy` 不是锁。** 它报告当前在该聚落上被占用的最高优先级。先调用再立刻执行是竞态的；把它当作过滤器，而不是预约。
+- **`Position` 是 `CampaignVec2`，不是 `Vec2`。** `Settlement.Position` 与 `GetPosition2D()` 类型不同，地图实体代码期望前者。混用会悄悄破坏距离计算。
+- **`Owner` 是英雄而不是氏族。** `Owner` 是本地总督 / 军阀，`OwnerClan` 才是政治所有者。改其中一个不会连带改另一个。
+- **`GarrisonWagePaymentLimit` 与 `SettlementHitPoints` 的 setter 受限。** 分别是 `private set` 与 `internal set`。请用 `SetGarrisonWagePaymentLimit` 与攻城模型。
+- **战争迷雾属于视图层问题。** `IsVisible` 与 `IsInspected` 会随玩家视野变化；mod 若为一个未被侦察的聚落读取 `settlement.Party.MemberRoster`，就是在读玩家还没挣到的数据。
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.SetGarrisonWagePaymentLimit(0);
-```
+## 依赖关系
 
-### GetInvolvedPartiesForEventType
-`public IEnumerable<PartyBase> GetInvolvedPartiesForEventType(MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
+| 方向 | 类型 | 关系 |
+|-----------|------|--------------|
+| 存储 | `MBObjectBase` | 通过 `ISettlementDataHolder` 存档 |
+| 组件 | `SettlementComponent` | `Town`、`Village`、`Hideout` 载荷 |
+| 部队 | [PartyBase](../PartyBase)、[MobileParty](../MobileParty) | `Party` 守备军、`Parties`、巡逻、民兵 |
+| 人物 | [Hero](../Hero) | `Owner`、`Notables`、`HeroesWithoutParty` |
+| 政治 | [Clan](../Clan)、[Kingdom](../Kingdom) | `OwnerClan`、`MapFaction` |
+| 攻城 | `SiegeEvent`、`SiegeEventManager` | `SiegeEvent`、`SiegeEngines`、`BattleSide`、`CurrentSiegeState` |
+| 地图场景 | [SettlementVisual](../../campaign-ext/SettlementVisual) | 聚落的视觉对应物 |
+| 事件 | [CampaignEvents](../CampaignEvents) | `SettlementEntered`、`DailyTickSettlementEvent`、`OnSiegeEventStartedEvent`、`SiegeCompletedEvent` |
 
-**用途 / Purpose:** 读取并返回当前对象中 involved parties for event type 的结果。
+## 主要成员
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-var result = settlement.GetInvolvedPartiesForEventType(mapEvent.BattleTypes.Siege);
-```
+### 身份与位置
 
-### GetNextInvolvedPartyForEventType
-`public PartyBase GetNextInvolvedPartyForEventType(ref int partyIndex, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
+#### `public TextObject Name` / `public override TextObject GetName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 next involved party for event type 的结果。
+本地化显示名。`GetName()` 是 `MBObjectBase` 的重写；两者返回同一个值。
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-var result = settlement.GetNextInvolvedPartyForEventType(partyIndex, mapEvent.BattleTypes.Siege);
-```
+#### `public CampaignVec2 Position` / `public Vec2 GetPosition2D()`
 
-### HasInvolvedPartyForEventType
-`public bool HasInvolvedPartyForEventType(PartyBase party, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
+地图位置。`Position` 是战役层使用的战役空间类型；`GetPosition2D()` 为旧调用点返回普通 `Vec2`。
 
-**用途 / Purpose:** 判断当前对象是否已经持有 involved party for event type。
+#### `public static Settlement CurrentSettlement`
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-var result = settlement.HasInvolvedPartyForEventType(party, mapEvent.BattleTypes.Siege);
-```
+玩家当前所在的聚落。在战役地图与菜单中为 `null`。
 
-### IsUnderRebellionAttack
-`public bool IsUnderRebellionAttack()`
+#### `public static MBReadOnlyList<Settlement> All`
 
-**用途 / Purpose:** 判断当前对象是否处于 under rebellion attack 状态或条件。
+全部聚落。活动视图，不是快照。
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-var result = settlement.IsUnderRebellionAttack();
-```
+#### `public static Settlement Find(string idString)` / `FindFirst(Func<Settlement,bool>)` / `FindAll(Func<Settlement,bool>)`
 
-### GetSettlementValueForEnemyHero
-`public float GetSettlementValueForEnemyHero(Hero hero)`
+查找辅助方法。`FindAll` 会遍历所有聚落——避免在逐 tick 循环里使用。
 
-**用途 / Purpose:** 读取并返回当前对象中 settlement value for enemy hero 的结果。
+#### `public static LocatableSearchData<Settlement> StartFindingLocatablesAroundPosition(Vec2 position, float radius)`
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-var result = settlement.GetSettlementValueForEnemyHero(hero);
-```
+空间查询的起点。返回一个不透明游标；反复喂给 `FindNextLocatable(ref data)` 直到不再产出。这是“不扫全表地查询某个位置附近有什么”的受支持方式。
 
-### IsSettlementBusy
-`public bool IsSettlementBusy(object asker)`
+### 类型判别
 
-**用途 / Purpose:** 判断当前对象是否处于 settlement busy 状态或条件。
+#### `public bool IsTown` / `IsCastle` / `IsFortification` / `IsVillage` / `IsHideout`
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-var result = settlement.IsSettlementBusy(asker);
-```
+类型标志。`IsFortification` 对城镇和城堡都为真，是“有没有城墙”的正确判据。
 
-### IsSettlementBusy
-`public bool IsSettlementBusy(object asker, int limitingPriority)`
+#### `public SettlementComponent SettlementComponent { get; private set; }`
 
-**用途 / Purpose:** 判断当前对象是否处于 settlement busy 状态或条件。
+多态载荷。只有在 `OnInit` 失败的对象上才为 `null`。
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-var result = settlement.IsSettlementBusy(asker, 0);
-```
+#### `public Town Town` / `public Village Village` / `public Hideout Hideout`
 
-### GetSettlementBusynessPriority
-`public int GetSettlementBusynessPriority(object asker)`
+类型化快捷方式。除非聚落就是该类型，否则各自为 `null`。
 
-**用途 / Purpose:** 读取并返回当前对象中 settlement busyness priority 的结果。
+### 所有权与政治
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-var result = settlement.GetSettlementBusynessPriority(asker);
-```
+#### `public Hero Owner`
 
-### GetValue
-`public float GetValue(Hero hero = null, bool countAlsoBoundedSettlements = true)`
+在本地拥有该聚落的英雄。叛军控制下的聚落与藏身处为 `null`。
 
-**用途 / Purpose:** 读取并返回当前对象中 value 的结果。
+#### `public Clan OwnerClan`
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-var result = settlement.GetValue(null, false);
-```
+拥有该聚落的氏族。AI 与王国政治使用的就是这个值。
 
-### GetName
-`public override TextObject GetName()`
+#### `public IFaction MapFaction`
 
-**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+控制该聚落的派系——通常是 `OwnerClan`，但会经过叛乱状态解析。
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-var result = settlement.GetName();
-```
+#### `public bool InRebelliousState` / `public bool IsStarving` / `public bool IsRaided` / `public bool IsUnderRaid` / `public bool IsUnderSiege`
 
-### GetSettlementValueForFaction
-`public float GetSettlementValueForFaction(IFaction faction)`
+状态标志。`IsStarving` 由聚落的食物模型计算，其余是战役状态。
 
-**用途 / Purpose:** 读取并返回当前对象中 settlement value for faction 的结果。
+### 守备军与民兵
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-var result = settlement.GetSettlementValueForFaction(faction);
-```
+#### `public PartyBase Party { get; private set; }`
 
-### ToString
-`public override string ToString()`
+守备军。它上面 `IsSettlement` 为真，这正是通用部队代码区分守备队与机动部队的方式。
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+#### `public float Militia` / `public MilitiaPartyComponent MilitiaPartyComponent`
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-var result = settlement.ToString();
-```
+城镇民兵池。数值来自民兵模型，组件则是可生成的部队。
 
-### OnPartyInteraction
-`public void OnPartyInteraction(MobileParty engagingParty)`
+#### `public MBReadOnlyList<MobileParty> Parties` / `public PatrolPartyComponent PatrolParty`
 
-**用途 / Purpose:** 在 party interaction 事件触发时调用此回调。
+当前位于该聚落的部队，以及聚落自身的巡逻队。
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.OnPartyInteraction(engagingParty);
-```
+#### `public MBReadOnlyList<Hero> Notables` / `HeroesWithoutParty`
 
-### Deserialize
-`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+名士角色，以及没有部队的名士。
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+#### `public void AddGarrisonParty()`
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.Deserialize(objectManager, node);
-```
+按守备模型填充守备军。应在聚落创建后调用，或在你确实想重建守备军时调用——对已有守备军的聚落反复调用会让名册翻倍。
 
-### OnFinishLoadState
-`public void OnFinishLoadState()`
+### 城墙、攻城与战斗
 
-**用途 / Purpose:** 在 finish load state 事件触发时调用此回调。
+#### `public float SettlementHitPoints { get; internal set; }` / `public float SettlementTotalWallHitPoints` / `public int WallSectionCount`
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.OnFinishLoadState();
-```
+城墙耐久。`internal set` 意味着 mod 不能直接写总值，请用 `SetWallSectionHitPointsRatioAtIndex`。
 
-### OnGameCreated
-`public void OnGameCreated()`
+#### `public void SetWallSectionHitPointsRatioAtIndex(int index, float hitPointsRatio)`
 
-**用途 / Purpose:** 在 game created 事件触发时调用此回调。
+破坏指定城墙段的唯一受支持方式。比值范围 0..1；越界索引会抛异常。
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.OnGameCreated();
-```
+#### `public SiegeEvent SiegeEvent { get; set; }` / `public bool IsUnderSiege`
 
-### OnSessionStart
-`public void OnSessionStart()`
+当前攻城。`SiegeEvent` 有公开 setter，但在攻城进行中赋值会绕过攻城管理器的记账——请通过攻城管理器发起攻城。
 
-**用途 / Purpose:** 在 session start 事件触发时调用此回调。
+#### `public Settlement.SiegeState CurrentSiegeState` / `public void SetNextSiegeState()` / `public void ResetSiegeState()`
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.OnSessionStart();
-```
+攻城阶段状态机（Outside、BeforeBattle、Ongoing、Completed、Broken……）。`SetNextSiegeState` 推进它；`ResetSiegeState` 回到空闲。
 
-### CheckPositionsForMapChangeAndUpdateIfNeeded
-`public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
+#### `public SiegeStrategy SiegeStrategy { get; private set; } / public void SetSiegeStrategy(SiegeStrategy strategy)`
 
-**用途 / Purpose:** 检查positions for map change and update if needed在当前对象中是否成立。
+AI 选定的攻城方案。读它可以预测行为，写它要走 setter。
 
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.CheckPositionsForMapChangeAndUpdateIfNeeded();
-```
+#### `public BattleSideEnum BattleSide`
 
-### Find
-`public static Settlement Find(string idString)`
+战斗中聚落守备军所属的阵营。
 
-**用途 / Purpose:** 在当前集合/范围内查找匹配项。
+### 位置与忙碌仲裁
 
-```csharp
-// 静态调用，不需要实例
-Settlement.Find("example");
-```
+#### `public LocationComplex LocationComplex { get; private set; }`
 
-### FindFirst
-`public static Settlement FindFirst(Func<Settlement, bool> predicate)`
+进入聚落时在任务侧使用的位置图。
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的first。
+#### `public bool IsSettlementBusy(object asker)` / `IsSettlementBusy(object asker, int limitingPriority)` / `public int GetSettlementBusynessPriority(object asker)`
 
-```csharp
-// 静态调用，不需要实例
-Settlement.FindFirst(func<Settlement, false);
-```
+需要占用聚落的动作（休息、攻城、AI 对话）的优先级仲裁。常量见 `SettlementBusynessPriority`。
 
-### FindAll
-`public static IEnumerable<Settlement> FindAll(Func<Settlement, bool> predicate)`
+### 生命周期
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的all。
+#### `public void OnSessionStart()` / `public void OnGameCreated()` / `public void OnFinishLoadState()`
 
-```csharp
-// 静态调用，不需要实例
-Settlement.FindAll(func<Settlement, false);
-```
+会话、战役创建与反序列化之后的钩子。官方会调用它们；手动创建聚落的 mod 必须按相同顺序调用，否则聚落将没有组件、没有名册、也没有价格模型。
 
-### StartFindingLocatablesAroundPosition
-`public static LocatableSearchData<Settlement> StartFindingLocatablesAroundPosition(Vec2 position, float radius)`
+#### `protected override void AfterLoad()`
 
-**用途 / Purpose:** 启动finding locatables around position流程或状态机。
-
-```csharp
-// 静态调用，不需要实例
-Settlement.StartFindingLocatablesAroundPosition(position, 0);
-```
-
-### FindNextLocatable
-`public static Settlement FindNextLocatable(ref LocatableSearchData<Settlement> data)`
-
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的next locatable。
-
-```csharp
-// 静态调用，不需要实例
-Settlement.FindNextLocatable(data);
-```
-
-### OnPlayerEncounterFinish
-`public void OnPlayerEncounterFinish()`
-
-**用途 / Purpose:** 在 player encounter finish 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.OnPlayerEncounterFinish();
-```
-
-### GetPosition
-`public Vec3 GetPosition()`
-
-**用途 / Purpose:** 读取并返回当前对象中 position 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-var result = settlement.GetPosition();
-```
-
-### SetNextSiegeState
-`public void SetNextSiegeState()`
-
-**用途 / Purpose:** 为 next siege state 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.SetNextSiegeState();
-```
-
-### ResetSiegeState
-`public void ResetSiegeState()`
-
-**用途 / Purpose:** 将 siege state 重置回默认或初始状态。
-
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.ResetSiegeState();
-```
-
-### AddGarrisonParty
-`public void AddGarrisonParty()`
-
-**用途 / Purpose:** 将 garrison party 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.AddGarrisonParty();
-```
-
-### SetSiegeStrategy
-`public void SetSiegeStrategy(SiegeStrategy strategy)`
-
-**用途 / Purpose:** 为 siege strategy 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.SetSiegeStrategy(strategy);
-```
-
-### InitializeSiegeEventSide
-`public void InitializeSiegeEventSide()`
-
-**用途 / Purpose:** 为 siege event side 初始化必要的资源、状态或绑定。
-
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.InitializeSiegeEventSide();
-```
-
-### OnTroopsKilledOnSide
-`public void OnTroopsKilledOnSide(int killCount)`
-
-**用途 / Purpose:** 在 troops killed on side 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.OnTroopsKilledOnSide(0);
-```
-
-### AddSiegeEngineMissile
-`public void AddSiegeEngineMissile(SiegeEvent.SiegeEngineMissile missile)`
-
-**用途 / Purpose:** 将 siege engine missile 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.AddSiegeEngineMissile(missile);
-```
-
-### RemoveDeprecatedMissiles
-`public void RemoveDeprecatedMissiles()`
-
-**用途 / Purpose:** 从当前容器或状态中移除 deprecated missiles。
-
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.RemoveDeprecatedMissiles();
-```
-
-### GetAttackTarget
-`public void GetAttackTarget(ISiegeEventSide siegeEventSide, SiegeEngineType siegeEngine, int siegeEngineSlot, out SiegeBombardTargets targetType, out int targetIndex)`
-
-**用途 / Purpose:** 读取并返回当前对象中 attack target 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.GetAttackTarget(siegeEventSide, siegeEngine, 0, targetType, targetIndex);
-```
-
-### FinalizeSiegeEvent
-`public void FinalizeSiegeEvent()`
-
-**用途 / Purpose:** 调用 FinalizeSiegeEvent 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Settlement 实例
-Settlement settlement = ...;
-settlement.FinalizeSiegeEvent();
-```
+存档修复钩子。手改聚落字段之所以只在重载后才出问题，就是因为它。
 
 ## 使用示例
 
+### 示例 1：用正确的事件形状响应进入聚落
+
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-Settlement settlement = ...;
-settlement.SetWallSectionHitPointsRatioAtIndex(0, 0);
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
+
+public sealed class SettlementGreeterBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        // IMbEvent<MobileParty, Settlement, Hero>
+        CampaignEvents.SettlementEntered.AddNonSerializedListener(this, OnSettlementEntered);
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+    }
+
+    private void OnSettlementEntered(MobileParty party, Settlement settlement, Hero hero)
+    {
+        if (settlement == null || !party.IsMainParty)
+        {
+            return;
+        }
+
+        PartyBase garrison = settlement.Party;
+        InformationManager.DisplayMessage(
+            new InformationMessage($"{settlement.Name}：守备军 {garrison.NumberOfAllMembers}"));
+    }
+}
 ```
+
+### 示例 2：不必扫描 `Settlement.All` 也能遍历附近聚落
+
+```csharp
+using TaleWorlds.CampaignSystem.Settlements;
+using TaleWorlds.Core;
+
+public static int CountSettlementsNear(Vec2 position, float radius)
+{
+    LocatableSearchData<Settlement> data =
+        Settlement.StartFindingLocatablesAroundPosition(position, radius);
+
+    int found = 0;
+    for (Settlement s = Settlement.FindNextLocatable(ref data);
+         s != null;
+         s = Settlement.FindNextLocatable(ref data))
+    {
+        found++;
+        if (s.Village != null)
+        {
+            float hearth = s.Village.Hearth;
+            _ = hearth;
+        }
+        else if (s.Town != null)
+        {
+            float prosperity = s.Town.Prosperity;
+            _ = prosperity;
+        }
+    }
+
+    return found;
+}
+```
+
+### 示例 3：以受支持的方式破坏一段城墙
+
+```csharp
+using TaleWorlds.CampaignSystem.Settlements;
+
+public static void BreachFirstWallSegment(Settlement settlement)
+{
+    if (settlement == null || !settlement.IsFortification || settlement.WallSectionCount <= 0)
+    {
+        return;
+    }
+
+    settlement.SetWallSectionHitPointsRatioAtIndex(0, 0f);
+    InformationManager.DisplayMessage(
+        new InformationMessage($"{settlement.Name} 城墙耐久：{settlement.SettlementTotalWallHitPoints:0}"));
+}
+```
+
+### 示例 4：有意识地重建守备军
+
+```csharp
+using TaleWorlds.CampaignSystem.Settlements;
+
+public static void EnsureGarrison(Settlement settlement)
+{
+    if (settlement == null)
+    {
+        return;
+    }
+
+    PartyBase garrison = settlement.Party;
+    if (garrison == null || !garrison.IsSettlement)
+    {
+        return;
+    }
+
+    if (garrison.NumberOfAllMembers > 0)
+    {
+        return;
+    }
+
+    // 只在守备军为空时调用；AddGarrisonParty 是追加而非重置。
+    settlement.AddGarrisonParty();
+}
+```
+
+## 风险与崩溃边界
+
+1. **组件为 null。** `SettlementComponent`、`Town`、`Village` 在 `OnInit` 执行前为 null，在类型不匹配时也为 null。对村庄读 `settlement.Town.Prosperity` 会抛异常。
+2. **手动构建聚落。** `new Settlement(name, locationComplex, pt)` 会跳过 `OnGameCreated`、`OnSessionStart` 与 `AfterLoad`，留下一个没有价格、没有民兵、没有名册的聚落。请走战役自身的聚落创建流程。
+3. **`SetWallSectionHitPointsRatioAtIndex` 的边界。** `index` 超出 `0..WallSectionCount-1` 会抛异常；`hitPointsRatio` 超出 0..1 会破坏城墙计算。
+4. **直接赋值 `SiegeEvent`。** setter 存在，但攻城管理器维护着自己的状态；手动赋值会让管理器、攻城阵营列表与城墙耐久三方不一致。
+5. **`Owner` 与 `OwnerClan`。** 只改 `Owner` 不会改变王国政治；只改 `OwnerClan` 会让总督身份不一致。请走聚落易主动作。
+6. **与存档耦合。** `IsActive`、`SettlementHitPoints`、`BribePaid`、`SiegeEvent` 引用与 `ItemRoster` 全部通过 `ISettlementDataHolder` 序列化。重新编号存档 id 会破坏已有存档，参见 [存档系统](../../../architecture/save-system)。
+7. **对任务的跨域依赖。** `LocationComplex` 只在任务内部有效。在每日 tick 处理器里读它没问题，在那里创建任务对象则不行。
+8. **可见性门控。** `IsVisible` / `IsInspected` 随玩家视野变化；通过通知泄露守备军规模等于绕过了游戏本就该有的战争迷雾模型。
+
+## 跨版本提示
+
+- 上面列出的 1.3.0 接口面与 1.3.x 一致。后续 1.3.x / 1.4.x 构建在港口路径上增加了海军相关属性，并为征服机制重做添加了额外状态标志，但 `Owner`、`OwnerClan`、`Party`、`SettlementComponent` 与城墙 API 形状不变。
+- `SetWallSectionHitPointsRatioAtIndex` 与 `StartFindingLocatablesAroundPosition` 在 1.4.x 中未变，因此针对它们写的行为代码可以在新存档上加载。
 
 ## 参见
 
-- [本区域目录](../)
+- [Town](../Town) — 含繁荣、忠诚与工坊的封地组件
+- [Village](../Village) — 含火炉与状态的村庄组件
+- [PartyBase](../PartyBase) — 守备名册对象
+- [MobileParty](../MobileParty) — 造访聚落的部队
+- [Clan](../Clan) — 政治所有者
+- [Hero](../Hero) — `Owner` 与名士
+- [FactionManager](../FactionManager) — `MapFaction` 背后的战争状态
+- [SettlementVisual](../../campaign-ext/SettlementVisual) — 地图场景对象
+- [存档系统](../../../architecture/save-system) — Saveable 属性纪律
+- [战役基础](../../../guide/campaign-basics) — 以任务为导向的上手指南

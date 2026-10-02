@@ -1,0 +1,23 @@
+FILES=5683
+TOTAL_LINKS=20787
+AUDIT_MODE=url
+BROKEN_LINKS=5
+RESOLVE_OK_URL=20751
+RESOLVE_OK_FILE=16604
+RESOLVE_OK_EITHER=20753
+RESOLVE_OK_BOTH=16602
+RESOLVE_URL_ONLY=4149
+RESOLVE_FILE_ONLY=2
+RESOLVE_NEITHER=3
+FILES_WITH_BROKEN=3
+
+## api/campaign-ext/ConversationManager.md  (2)
+   -> DialogFlow.md
+   -> ConversationSentenceOption.md
+
+## api/campaign-ext/GameMenuOption.md  (1)
+   -> GameMenu.md
+
+## api/campaign-ext/KingdomDecision.md  (2)
+   -> DecisionOutcome
+   -> Supporter

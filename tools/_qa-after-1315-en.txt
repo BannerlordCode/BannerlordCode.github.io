@@ -1,0 +1,210 @@
+
+## Warnings: 523
+By category:
+  method-missing-example: 523
+
+First 200 occurrences (use --verbose for full list):
+  api/campaign/Campaign.md [method-missing-example] L36: Upstream and ownership
+  api/campaign/Campaign.md [method-missing-example] L41: Downstream services
+  api/campaign/CampaignBehaviorDataStore.md [method-missing-example] L51: `CampaignBehaviorDataStore`
+  api/campaign/CampaignBehaviorDataStore.md [method-missing-example] L61: `BehaviorSaveData : IDataStore`
+  api/campaign/CharacterObject.md [method-missing-example] L76: Identity: Hero card vs Troop template
+  api/campaign/CharacterObject.md [method-missing-example] L91: Culture, Occupation, and basic traits
+  api/campaign/CharacterObject.md [method-missing-example] L105: Equipment and combat profiles
+  api/campaign/CharacterObject.md [method-missing-example] L116: Skills, traits, and perks
+  api/campaign/CharacterObject.md [method-missing-example] L123: Power and upgrades
+  api/campaign/CharacterObject.md [method-missing-example] L129: Cloning and modification
+  api/campaign/CharacterObject.md [method-missing-example] L135: Body properties
+  api/campaign/Clan.md [method-missing-example] L46: When to use
+  api/campaign/Clan.md [method-missing-example] L54: When not to use / do not write fields directly
+  api/campaign/Clan.md [method-missing-example] L68: Upstream
+  api/campaign/Clan.md [method-missing-example] L78: Downstream
+  api/campaign/Clan.md [method-missing-example] L87: Events / Actions / Models / Save
+  api/campaign/Clan.md [method-missing-example] L134: Identity and type
+  api/campaign/Clan.md [method-missing-example] L148: Assets and political capital
+  api/campaign/Hero.md [method-missing-example] L35: Ownership and political context
+  api/campaign/Hero.md [method-missing-example] L41: Mutations and observation
+  api/campaign/Kingdom.md [method-missing-example] L41: When to use
+  api/campaign/Kingdom.md [method-missing-example] L49: When not to use / do not write fields directly
+  api/campaign/Kingdom.md [method-missing-example] L62: Upstream
+  api/campaign/Kingdom.md [method-missing-example] L71: Downstream
+  api/campaign/Kingdom.md [method-missing-example] L80: Events / Actions / Models / Save
+  api/campaign/Kingdom.md [method-missing-example] L128: Composition and assets
+  api/campaign/Kingdom.md [method-missing-example] L141: Diplomacy and policy
+  api/campaign/MapEvent.md [method-missing-example] L21: What it is / is not
+  api/campaign/MapEvent.md [method-missing-example] L26: Lifecycle (engine-driven — do not replay manually)
+  api/campaign/MapEvent.md [method-missing-example] L34: Who creates / who holds
+  api/campaign/MapEvent.md [method-missing-example] L39: Layer
+  api/campaign/MapEvent.md [method-missing-example] L102: Sides and factions
+  api/campaign/MapEvent.md [method-missing-example] L112: Outcome and battle state
+  api/campaign/MapEvent.md [method-missing-example] L123: Map position and settlement
+  api/campaign/MapEvent.md [method-missing-example] L131: Participant enumeration and contribution
+  api/campaign/MapEvent.md [method-missing-example] L139: Control (use with care)
+  api/campaign/MobileParty.md [method-missing-example] L36: Ownership and movement
+  api/campaign/MobileParty.md [method-missing-example] L43: Army and encounter boundaries
+  api/campaign/PartyBase.md [method-missing-example] L45: When to use
+  api/campaign/PartyBase.md [method-missing-example] L52: When not to use
+  api/campaign/PartyBase.md [method-missing-example] L129: Identity and host
+  api/campaign/PartyBase.md [method-missing-example] L144: Rosters and counts
+  api/campaign/PartyBase.md [method-missing-example] L159: Map, events, and strength
+  api/campaign/Settlement.md [method-missing-example] L35: Persistent components
+  api/campaign/Settlement.md [method-missing-example] L41: Battle and siege boundaries
+  api/campaign/Town.md [method-missing-example] L78: Governance and ownership
+  api/campaign/Town.md [method-missing-example] L95: Prosperity / Loyalty / Security / Food
+  api/campaign/Town.md [method-missing-example] L115: Daily deltas (read-only, from Models)
+  api/campaign/Town.md [method-missing-example] L128: Buildings
+  api/campaign/Town.md [method-missing-example] L150: Workshops
+  api/campaign/Town.md [method-missing-example] L158: Market and prices
+  api/campaign/Town.md [method-missing-example] L169: Villages / supply / fleet
+  api/campaign/Town.md [method-missing-example] L183: Queries and static entry points
+  api/campaign/Village.md [method-missing-example] L87: Ownership & Economy
+  api/campaign/Village.md [method-missing-example] L97: State & Combat
+  api/campaign/Village.md [method-missing-example] L103: Production & Prosperity
+  api/campaign/Workshop.md [method-missing-example] L78: Identity and ownership
+  api/campaign/Workshop.md [method-missing-example] L95: Operating state
+  api/campaign/Workshop.md [method-missing-example] L112: Production progress
+  api/campaign/Workshop.md [method-missing-example] L120: Lifecycle and initialization
+  api/campaign/Workshop.md [method-missing-example] L131: Mutation operations (most should go through an Action)
+  api/campaign/Workshop.md [method-missing-example] L148: Misc
+  api/campaign/Workshop.md [method-missing-example] L242: 2. Tune the economy with a custom `WorkshopModel`
+  api/campaign/Workshop.md [method-missing-example] L253: 3. Place a workshop at runtime
+  api/campaign-ext/Army.md [method-missing-example] L42: When to use
+  api/campaign-ext/Army.md [method-missing-example] L50: When not to use / do not write fields directly
+  api/campaign-ext/Army.md [method-missing-example] L63: Upstream
+  api/campaign-ext/Army.md [method-missing-example] L72: Downstream
+  api/campaign-ext/Army.md [method-missing-example] L80: Events / Actions / Models / Save
+  api/campaign-ext/Army.md [method-missing-example] L102: Identity and composition
+  api/campaign-ext/Army.md [method-missing-example] L116: Morale, cohesion, strength
+  api/campaign-ext/BuildingConstructionModel.md [method-missing-example] L26: Lifecycle and registration
+  api/campaign-ext/BuildingConstructionModel.md [method-missing-example] L39: Upstream
+  api/campaign-ext/BuildingConstructionModel.md [method-missing-example] L48: Downstream
+  api/campaign-ext/BuildingConstructionModel.md [method-missing-example] L57: Related and save boundary
+  api/campaign-ext/BuildingModel.md [method-missing-example] L28: Lifecycle and Registration
+  api/campaign-ext/BuildingModel.md [method-missing-example] L34: Upstream
+  api/campaign-ext/BuildingModel.md [method-missing-example] L43: Downstream
+  api/campaign-ext/BuildingModel.md [method-missing-example] L52: Actions, Events, and Save Boundary
+  api/campaign-ext/CampaignBehaviorBase.md [method-missing-example] L34: Registration and events
+  api/campaign-ext/CampaignBehaviorBase.md [method-missing-example] L40: Persistence and downstream state
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L39: Creation and ownership
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L46: Where dispatch comes from
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L55: Recommended: subscribe to `CampaignEvents`
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L59: Do not treat the dispatcher as these things
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L88: `public static CampaignEventDispatcher Instance { get; }`
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L92: `public override void RemoveListeners(object o)`
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L98: `internal CampaignEventDispatcher(IEnumerable<CampaignEventReceiver>)` and `internal void AddCampaignEventReceiver(...)`
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L102: Event forwarding: `OnBeforeHeroKilled`, `OnHeroKilled`, `OnSettlementOwnerChanged`, `OnWarDeclared`, and others
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L106: Lifecycle forwarding: `OnNewGameCreated`, `OnGameLoaded`, `OnGameLoadFinished`, `OnSessionStart`, and `OnAfterSessionSta
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L110: Tick forwarding: `Tick`, `HourlyTick*`, `DailyTick*`, `WeeklyTick`, and `TickPartialHourlyAi`
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L181: ↑ Parent
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L186: ↔ Sibling
+  api/campaign-ext/CampaignEventDispatcher.md [method-missing-example] L192: Related
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L100: 1. Session / save lifecycle
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L111: 2. Periodic ticks (the campaign clock)
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L123: 3. Hero lifecycle
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L134: 4. Settlement / fief
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L142: 5. Clan / kingdom / diplomacy
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L150: 6. Battle / quest / scene
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L159: 7. Economy / resources
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L164: 8. Query / veto hooks (`Can*`, `Is*`)
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L179: Remaining hooks (same pattern, consult source as needed)
+  api/campaign-ext/CampaignEventReceiver.md [method-missing-example] L241: Common anti-patterns (avoid these)
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L27: The publish/subscribe pipeline
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L36: Two subscription styles
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L60: Hero
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L69: Settlement
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L77: War & Diplomacy
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L86: Party & MobileParty
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L94: Siege & Map Battles
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L102: Periodic Ticks (highest frequency)
+  api/campaign-ext/CampaignEvents.md [method-missing-example] L106: Lifecycle / Save
+  api/campaign-ext/CampaignGameStarter.md [method-missing-example] L62: Behavior registration
+  api/campaign-ext/CampaignGameStarter.md [method-missing-example] L75: Model registration and lookup
+  api/campaign-ext/CampaignGameStarter.md [method-missing-example] L90: Menu content registration (at campaign start)
+  api/campaign-ext/CampaignGameStarter.md [method-missing-example] L105: Conversation content registration (at campaign start)
+  api/campaign-ext/CampaignGameStarter.md [method-missing-example] L112: Other
+  api/campaign-ext/CampaignInformationManager.md [method-missing-example] L64: Creation, registration, and load
+  api/campaign-ext/CampaignInformationManager.md [method-missing-example] L71: Map notices
+  api/campaign-ext/CampaignInformationManager.md [method-missing-example] L77: Log and dialog bridges
+  api/campaign-ext/CampaignMission.md [method-missing-example] L37: 1. Campaign prepares the inputs
+  api/campaign-ext/CampaignMission.md [method-missing-example] L47: 2. The manager becomes a concrete Mission
+  api/campaign-ext/CampaignMission.md [method-missing-example] L55: 3. Mission initialization creates the campaign adapter
+  api/campaign-ext/CampaignMission.md [method-missing-example] L61: 4. Running and ending
+  api/campaign-ext/CampaignMission.md [method-missing-example] L73: Appropriate uses
+  api/campaign-ext/CampaignMission.md [method-missing-example] L80: Inappropriate uses
+  api/campaign-ext/CampaignMission.md [method-missing-example] L98: `ICampaignMission` state contract
+  api/campaign-ext/CampaignMission.md [method-missing-example] L115: Choosing an `Open...` creation entry
+  api/campaign-ext/CampaignMission.md [method-missing-example] L228: Agent, Mission, and save risks
+  api/campaign-ext/CampaignMission.md [method-missing-example] L246: ↑ Parent
+  api/campaign-ext/CampaignMission.md [method-missing-example] L251: ↔ Sibling
+  api/campaign-ext/CampaignMission.md [method-missing-example] L258: Related
+  api/campaign-ext/CampaignObjectManager.md [method-missing-example] L99: Who registers what
+  api/campaign-ext/CampaignObjectManager.md [method-missing-example] L106: The save graph is not the lookup graph
+  api/campaign-ext/CampaignObjectManager.md [method-missing-example] L134: Settlement, Town, and Village
+  api/campaign-ext/CampaignObjectManager.md [method-missing-example] L138: Behavior, Action, UI, and Model dependencies
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L35: Initialization and built-in tickers
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L56: Order inside `Campaign.Tick()`
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L67: Good reasons to use `CreatePeriodicEvent`
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L73: Inappropriate or dangerous uses
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L104: `public static MBCampaignEvent CreatePeriodicEvent(CampaignTime triggerPeriod, CampaignTime initialWait)`
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L114: `MBCampaignEvent` timing and side effects
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L203: ↑ Parent
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L208: ↔ Sibling
+  api/campaign-ext/CampaignPeriodicEventManager.md [method-missing-example] L214: Related
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L31: New campaign and first frame
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L37: Each real-time frame
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L50: Save loading and rebuild
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L58: There is no mod-facing cache query
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L64: When it refreshes
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L71: Supported alternatives
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L80: `CampaignTime` is not the tick cache
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L90: The cache is not save data
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L147: Upstream
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L154: Downstream
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L180: ↑ Parent
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L185: ↔ Siblings
+  api/campaign-ext/CampaignTickCacheDataStore.md [method-missing-example] L193: Related / bidirectional return
+  api/campaign-ext/CampaignTime.md [method-missing-example] L93: Static properties
+  api/campaign-ext/CampaignTime.md [method-missing-example] L104: Instance properties (conversions relative to "now")
+  api/campaign-ext/CharacterDevelopmentModel.md [method-missing-example] L36: Upstream
+  api/campaign-ext/CharacterDevelopmentModel.md [method-missing-example] L45: Downstream
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L64: `public static void SetHeroRelation(Hero hero1, Hero hero2, int value)`
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L70: `public void AfterLoad()`
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L74: `public void RemoveHero(Hero deadHero)`
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L78: Constructor and internal members
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L196: Upstream
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L203: Downstream
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L219: ↑ Parent
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L224: ↔ Siblings
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L232: Related / bidirectional return
+  api/campaign-ext/CharacterRelationManager.md [method-missing-example] L240: ↓ Children
+  api/campaign-ext/CombatSimulationModel.md [method-missing-example] L36: Upstream
+  api/campaign-ext/CombatSimulationModel.md [method-missing-example] L45: Downstream
+  api/campaign-ext/CombatXpModel.md [method-missing-example] L35: Lifecycle & Registration
+  api/campaign-ext/CombatXpModel.md [method-missing-example] L41: Upstream
+  api/campaign-ext/CombatXpModel.md [method-missing-example] L52: Downstream
+  api/campaign-ext/CombatXpModel.md [method-missing-example] L61: Actions, Events & Save Boundaries
+  api/campaign-ext/ConversationManager.md [method-missing-example] L78: Conversation flow & lifecycle
+  api/campaign-ext/ConversationManager.md [method-missing-example] L140: Sentence & option management
+  api/campaign-ext/ConversationManager.md [method-missing-example] L187: Agents & conversation start
+  api/campaign-ext/ConversationManager.md [method-missing-example] L224: Tags & text variation
+  api/campaign-ext/ConversationManager.md [method-missing-example] L241: Persuasion (static)
+  api/campaign-ext/ConversationManager.md [method-missing-example] L280: Public events (hooks)
+  api/campaign-ext/CultureObject.md [method-missing-example] L41: Upstream (created / owned / saved)
+  api/campaign-ext/CultureObject.md [method-missing-example] L48: Downstream (consumers of this config)
+  api/campaign-ext/CultureObject.md [method-missing-example] L57: Behaviors / Models (real call sites)
+  api/campaign-ext/CultureObject.md [method-missing-example] L63: Save point
+  api/campaign-ext/CultureObject.md [method-missing-example] L77: Identity & appearance (inherited from `BasicCultureObject`)
+  api/campaign-ext/CultureObject.md [method-missing-example] L89: Basic troops & militia (`CharacterObject`)
+  api/campaign-ext/CultureObject.md [method-missing-example] L98: Town / civilian / artisan NPC templates (`CharacterObject`)
+  api/campaign-ext/CultureObject.md [method-missing-example] L106: Name / lord / clan template collections
+  api/campaign-ext/CultureObject.md [method-missing-example] L114: Equipment rosters (`MBEquipmentRoster`)
+  api/campaign-ext/CultureObject.md [method-missing-example] L122: Party templates (`PartyTemplateObject`)
+  api/campaign-ext/CultureObject.md [method-missing-example] L130: Traits / policies / values / misc
+  api/campaign-ext/DeclareWarAction.md [method-missing-example] L50: Apply vs ApplyInternal
+  api/campaign-ext/DeclareWarAction.md [method-missing-example] L104: Nested enum list
+  api/campaign-ext/DeclareWarAction.md [method-missing-example] L108: Private
+  api/campaign-ext/DefaultPartyHealingModel.md [method-missing-example] L32: Use it when
+  ... and 323 more
+
+Scanned 5677 files, 17653 method-purpose lines, 17653 method sections.
+Blockers: 0, Warnings: 523

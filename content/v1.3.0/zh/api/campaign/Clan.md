@@ -1,7 +1,8 @@
 ---
 title: "Clan"
-description: "Clan 的自动生成类参考。"
+description: "战役地图上的氏族与阵营聚合体：领主、封地、影响力、金币、战争、王国归属与雇佣兵服役状态。"
 ---
+
 # Clan
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -12,421 +13,319 @@ description: "Clan 的自动生成类参考。"
 
 ## 概述
 
-`Clan` 位于 `TaleWorlds.CampaignSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`Clan` 是战役层的政治聚合体。一个氏族既是一条家族血脉，也连带着它的封地、名士、战争状态、金库与社会资本；同时它还是 `IFaction` 的两个实现之一（另一个是 [Kingdom](../Kingdom)）。
+
+一个氏族同时拥有三类互不相同的东西：
+
+- **人。** `Heroes`、`AliveLords`、`DeadLords`、`Companions`、`SupporterNotables` 都是 `Hero` 对象，它们的 `Clan` 字段反向指回氏族。
+- **地。** `Fiefs`（城镇与城堡）、`Villages` 以及拍平后的 `Settlements`。所有权实际存放在 [Settlement](../Settlement) / [Town](../Town) 侧，氏族列表只是缓存索引。
+- **政治。** `Influence`、`Renown`、`Tier`、`Aggressiveness`、`IsAtWarWith` / `FactionsAtWarWith`、`Kingdom` 归属以及雇佣兵服役状态。
+
+有一部分氏族仅仅作为“小型派系”存在——强盗、雇佣兵、叛军、黑帮、教派模板——既无成员也无封地。这也是 `Clan.All` 远大于受王国庇护的贵族数量的原因。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.CampaignSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+`Clan` 位于 `Campaign` 之下、`Hero` 这一层，与 `Settlement` 同级。`Hero` 与 `Settlement` 都持有指向所属 `Clan` 的反向引用，因此所有权在数据上是双向的，但在实践中不对称：**变更所有权要走聚落的易主动作，氏族列表随后才更新。**
 
-## 主要属性
-
-| Name | Signature |
-|------|-----------|
-| `Name` | `public TextObject Name { get; }` |
-| `InformalName` | `public TextObject InformalName { get; }` |
-| `Culture` | `public CultureObject Culture { get; set; }` |
-| `LastFactionChangeTime` | `public CampaignTime LastFactionChangeTime { get; set; }` |
-| `DefaultPartyTemplate` | `public PartyTemplateObject DefaultPartyTemplate { get; }` |
-| `HasNavalNavigationCapability` | `public bool HasNavalNavigationCapability { get; set; }` |
-| `AutoRecruitmentExpenses` | `public int AutoRecruitmentExpenses { get; }` |
-| `EncyclopediaText` | `public TextObject EncyclopediaText { get; }` |
-| `IsNoble` | `public bool IsNoble { get; set; }` |
-| `IsEliminated` | `public bool IsEliminated { get; }` |
-| `MinorFactionCharacterTemplates` | `public IList<CharacterObject> MinorFactionCharacterTemplates { get; }` |
-| `EncyclopediaLink` | `public string EncyclopediaLink { get; }` |
-| `EncyclopediaLinkWithName` | `public TextObject EncyclopediaLinkWithName { get; set; }` |
-| `Kingdom` | `public Kingdom Kingdom { get; set; }` |
-| `DungeonPrisonersOfClan` | `public IEnumerable<CharacterObject> DungeonPrisonersOfClan { get; }` |
-| `Fiefs` | `public MBReadOnlyList<Town> Fiefs { get; }` |
-| `Villages` | `public MBReadOnlyList<Village> Villages { get; }` |
-| `Settlements` | `public MBReadOnlyList<Settlement> Settlements { get; }` |
-| `SupporterNotables` | `public MBReadOnlyList<Hero> SupporterNotables { get; }` |
-| `AliveLords` | `public MBReadOnlyList<Hero> AliveLords { get; }` |
-| `DeadLords` | `public MBReadOnlyList<Hero> DeadLords { get; }` |
-| `Heroes` | `public MBReadOnlyList<Hero> Heroes { get; }` |
-| `Companions` | `public MBReadOnlyList<Hero> Companions { get; }` |
-| `WarPartyComponents` | `public MBReadOnlyList<WarPartyComponent> WarPartyComponents { get; set; }` |
-| `Influence` | `public float Influence { get; set; }` |
-| `InfluenceChangeExplained` | `public ExplainedNumber InfluenceChangeExplained { get; }` |
-| `CurrentTotalStrength` | `public float CurrentTotalStrength { get; }` |
-| `MercenaryAwardMultiplier` | `public int MercenaryAwardMultiplier { get; }` |
-| `IsMapFaction` | `public bool IsMapFaction { get; }` |
-| `InitialHomeSettlement` | `public Settlement InitialHomeSettlement { get; }` |
-| `IsRebelClan` | `public bool IsRebelClan { get; }` |
-| `IsMinorFaction` | `public bool IsMinorFaction { get; }` |
-| `IsOutlaw` | `public bool IsOutlaw { get; }` |
-| `IsNomad` | `public bool IsNomad { get; }` |
-| `IsMafia` | `public bool IsMafia { get; }` |
-| `IsClanTypeMercenary` | `public bool IsClanTypeMercenary { get; }` |
-| `IsSect` | `public bool IsSect { get; }` |
-| `IsUnderMercenaryService` | `public bool IsUnderMercenaryService { get; }` |
-| `ShouldStayInKingdomUntil` | `public CampaignTime ShouldStayInKingdomUntil { get; set; }` |
-| `Color` | `public uint Color { get; set; }` |
-| `Color2` | `public uint Color2 { get; set; }` |
-| `FactionMidSettlement` | `public Settlement FactionMidSettlement { get; set; }` |
-| `BasicTroop` | `public CharacterObject BasicTroop { get; set; }` |
-| `PlayerClan` | `public static Clan PlayerClan { get; }` |
-| `Leader` | `public Hero Leader { get; }` |
-| `Gold` | `public int Gold { get; }` |
-| `Banner` | `public Banner Banner { get; set; }` |
-| `ClanOriginalBanner` | `public Banner ClanOriginalBanner { get; }` |
-| `IsBanditFaction` | `public bool IsBanditFaction { get; }` |
-| `IsClan` | `public bool IsClan { get; set; }` |
-| `Renown` | `public float Renown { get; set; }` |
-| `MainHeroCrimeRating` | `public float MainHeroCrimeRating { get; set; }` |
-| `DailyCrimeRatingChange` | `public float DailyCrimeRatingChange { get; }` |
-| `DailyCrimeRatingChangeExplained` | `public ExplainedNumber DailyCrimeRatingChangeExplained { get; }` |
-| `Tier` | `public int Tier { get; }` |
-| `MapFaction` | `public IFaction MapFaction { get; set; }` |
-| `NotAttackableByPlayerUntilTime` | `public CampaignTime NotAttackableByPlayerUntilTime { get; set; }` |
-| `Aggressiveness` | `public float Aggressiveness { get; set; }` |
-| `TributeWallet` | `public int TributeWallet { get; }` |
-| `HomeSettlement` | `public Settlement HomeSettlement { get; }` |
-| `DebtToKingdom` | `public int DebtToKingdom { get; set; }` |
-| `FactionsAtWarWith` | `public MBReadOnlyList<IFaction> FactionsAtWarWith { get; }` |
-| `RenownRequirementForNextTier` | `public int RenownRequirementForNextTier { get; }` |
-| `CompanionLimit` | `public int CompanionLimit { get; }` |
-| `DistanceToClosestNonAllyFortification` | `public float DistanceToClosestNonAllyFortification { get; }` |
-| `CommanderLimit` | `public int CommanderLimit { get; }` |
-| `All` | `public static MBReadOnlyList<Clan> All { get; }` |
-| `NonBanditFactions` | `public static IEnumerable<Clan> NonBanditFactions { get; }` |
-| `BanditFactions` | `public static IEnumerable<Clan> BanditFactions { get; }` |
-
-## 主要方法
-
-### UpdateFactionsAtWarWith
-`public void UpdateFactionsAtWarWith()`
-
-**用途 / Purpose:** 重新计算并更新 factions at war with 的最新表示。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.UpdateFactionsAtWarWith();
+```
+Clan
+ ├─ Heroes / AliveLords / Companions      (Hero.Clan → 反向引用)
+ ├─ Fiefs (Town) / Villages (Village)     (Settlement.Owner → 反向引用)
+ ├─ Influence / Renown / Gold / Banner
+ ├─ Kingdom（独立或小型派系时为 null）
+ └─ IFaction: FactionsAtWarWith、IsAtWarWith、GetStanceWith
 ```
 
-### UpdateCurrentStrength
-`public void UpdateCurrentStrength()`
+典型调用顺序：
 
-**用途 / Purpose:** 重新计算并更新 current strength 的最新表示。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.UpdateCurrentStrength();
+```
+MBSubModuleBase.OnCampaignStart
+    Clan.PlayerClan 已可用
+CampaignBehaviorBase.RegisterEvents -> CampaignEvents.ClanTierIncrease
+DailyTick
+    读取 clan.Influence / clan.Renown
+    通过 clan.ChangeClanName(...) 或 clan.AddRenown(...) 修改
+    只有当 Tier 真正变化时才会触发 CampaignEvents.ClanTierIncrease
 ```
 
-### IsAtWarWith
-`public bool IsAtWarWith(IFaction other)`
+实际开发中最容易踩的坑：
 
-**用途 / Purpose:** 判断当前对象是否处于 at war with 状态或条件。
+- **`Gold` 是只读的，且由领袖代理。** getter 转发到 `Leader.Gold`，`Leader` 为 null 时返回 `0`。要给氏族付款必须改领袖的金币（`Hero.ChangeHeroGold`），而不是改氏族。
+- **`Influence` 的 setter 有副作用。** 赋值更小的值会调用 `SkillLevelingManager.OnInfluenceSpent(this.Leader, delta)`。在 `Leader` 为 null 的行为里写影响力，会跳过技能路径却仍写入字段，导致技能成长与花费永久不同步。
+- **`Fiefs`/`Villages`/`Settlements` 是缓存视图。** 它们在对象管理器通知时刷新，而不是在你赋值 `Settlement.OwnerClan` 的瞬间。永远不要把它们当权威来源。
+- **`Tier` 是推导值。** `Tier` 与 `RenownRequirementForNextTier` 来自战役配置。不要缓存，它们会随进度规则变化。
+- **`FindFirst` / `FindAll` 会扫描全部氏族。** 两者对完整氏族列表都是 `O(n)`，而官方代码在紧循环里反复调用。如果你逐 tick 扫描，请自己缓存列表。
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-var result = clan.IsAtWarWith(other);
-```
+## 依赖关系
 
-### CreateClan
-`public static Clan CreateClan(string stringID)`
+| 方向 | 类型 | 关系 |
+|-----------|------|--------------|
+| 存储 | `MBObjectBase` | 由 `Id` / `StringId` 标识，可存档 |
+| 阵营契约 | `IFaction` | 与 [Kingdom](../Kingdom) 共享的外交接口 |
+| 人 | [Hero](../Hero) | `Heroes`、`AliveLords`、`Companions`；`Hero.Clan` |
+| 地 | [Town](../Town)、[Village](../Village)、[Settlement](../Settlement) | `Fiefs`、`Villages`、`Settlements` |
+| 王国 | [Kingdom](../Kingdom) | `Kingdom` 属性、`ClanLeaveKingdom` |
+| 管理器 | [FactionManager](../FactionManager) | `IFaction` 的战争与立场解析 |
+| 事件 | [CampaignEvents](../CampaignEvents) | `ClanTierIncrease`、`OnClanCreatedEvent`、`OnClanChangedKingdomEvent` |
 
-**用途 / Purpose:** 构建一个新的 clan 实体并返回给调用方。
+## 主要成员
 
-```csharp
-// 静态调用，不需要实例
-Clan.CreateClan("example");
-```
+### 身份与分类
 
-### Deserialize
-`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+#### `public static MBReadOnlyList<Clan> All`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+全部氏族，包含小型派系模板与玩家氏族。数量很大——数百条。
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.Deserialize(objectManager, node);
-```
+#### `public static Clan PlayerClan`
 
-### GetRelationWithClan
-`public int GetRelationWithClan(Clan other)`
+玩家自己的氏族。在玩家尚未被安置的战役里（编辑器、部分剧情模式状态）为 `null`。
 
-**用途 / Purpose:** 读取并返回当前对象中 relation with clan 的结果。
+#### `public static Clan CreateClan(string stringID)`
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-var result = clan.GetRelationWithClan(other);
-```
+引擎工厂。返回一个已注册的氏族，也是唯一受支持的添加方式；手动 `new Clan()` 永远不会出现在 `All` 中，也不会被存档。
 
-### SetLeader
-`public void SetLeader(Hero leader)`
+#### `public bool IsNoble { get; set; }` / `public bool IsMinorFaction` / `public bool IsOutlaw` / `public bool IsBanditFaction` / `public bool IsRebelClan` / `public bool IsClan`
 
-**用途 / Purpose:** 为 leader 赋新值，并同步更新对象内部状态。
+分类标志。`IsMinorFaction` 是私有 setter；`IsNoble`、`IsRebelClan`、`IsOutlaw` 可存档且可写。
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.SetLeader(leader);
-```
+#### `public bool IsMapFaction`
 
-### SetInitialHomeSettlement
-`public void SetInitialHomeSettlement(Settlement initialHomeSettlement)`
+当这个氏族作为独立政治实体出现在战役地图上时为 `true`（玩家可以拥有它，它可以宣战）。强盗与小型派系返回 `false`。
 
-**用途 / Purpose:** 为 initial home settlement 赋新值，并同步更新对象内部状态。
+### 人
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.SetInitialHomeSettlement(initialHomeSettlement);
-```
+#### `public MBReadOnlyList<Hero> Heroes` / `AliveLords` / `DeadLords` / `Companions`
 
-### ConsiderAndUpdateHomeSettlement
-`public void ConsiderAndUpdateHomeSettlement()`
+成员缓存视图。`Heroes` 包含存活与已死者；`AliveLords` 过滤出在场、存活且非同伴的成员。
 
-**用途 / Purpose:** 调用 ConsiderAndUpdateHomeSettlement 对应的操作。
+#### `public Hero Leader`
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.ConsiderAndUpdateHomeSettlement();
-```
+氏族领袖。小型派系没有玩家时为 `null`，这正是 `Clan.Gold` 在那里返回 `0` 的原因。
 
-### GetName
-`public override TextObject GetName()`
+#### `public void SetLeader(Hero leader)`
 
-**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+写入领袖。官方通过“更换氏族领袖”动作完成这件事，同时还会转移影响力、写日志并更新王国。
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-var result = clan.GetName();
-```
+#### `public static Clan FindFirst(Predicate<Clan> predicate)` / `public static IEnumerable<Clan> FindAll(Predicate<Clan> predicate)`
 
-### ChangeClanName
-`public void ChangeClanName(TextObject name, TextObject informalName)`
+对 `Clan.All` 的线性扫描。`FindFirst` 会短路返回；`FindAll` 总是走完全部。
 
-**用途 / Purpose:** 调用 ChangeClanName 对应的操作。
+### 土地与价值
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.ChangeClanName(name, informalName);
-```
+#### `public MBReadOnlyList<Town> Fiefs` / `public MBReadOnlyList<Village> Villages` / `public MBReadOnlyList<Settlement> Settlements`
 
-### ToString
-`public override string ToString()`
+索引化的所有权视图。`Settlements` 是 `Fiefs` 与 `Villages` 的并集。
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+#### `public float CalculateTotalSettlementValueForFaction(Kingdom kingdom)`
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-var result = clan.ToString();
-```
+**以该王国的视角**评估氏族领地价值，包含王国自身的聚落价值模型。需要一致数字时，请传实际拥有方王国而不是 `null`。
 
-### GetStanceWith
-`public StanceLink GetStanceWith(IFaction other)`
+#### `public float CalculateTotalSettlementBaseValue()`
 
-**用途 / Purpose:** 读取并返回当前对象中 stance with 的结果。
+不做派系视角修正的原始总和。更廉价，只比较相对权重时应当用它。
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-var result = clan.GetStanceWith(other);
-```
+#### `public Settlement HomeSettlement` / `public void ConsiderAndUpdateHomeSettlement()` / `public void SetInitialHomeSettlement(Settlement initialHomeSettlement)`
 
-### ClanLeaveKingdom
-`public void ClanLeaveKingdom(bool giveBackFiefs = false)`
+氏族驻地。改变它会影响领袖住在哪里、部队开往何处，以及地图政治。
 
-**用途 / Purpose:** 调用 ClanLeaveKingdom 对应的操作。
+### 金币、影响力与声望
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.ClanLeaveKingdom(false);
-```
+#### `public float Influence { get; set; }`
 
-### CalculateTotalSettlementBaseValue
-`public float CalculateTotalSettlementBaseValue()`
+社会资本。赋值更小的值会为领袖触发 `SkillLevelingManager.OnInfluenceSpent`——见上面的坑。
 
-**用途 / Purpose:** 计算total settlement base value的当前值或结果。
+#### `public void AddRenown(float value, bool shouldNotify = true)`
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-var result = clan.CalculateTotalSettlementBaseValue();
-```
+增加声望，默认会通知玩家。做批量或静默修改时传 `false`。
 
-### StartMercenaryService
-`public void StartMercenaryService()`
+#### `public int RenownRequirementForNextTier`
 
-**用途 / Purpose:** 启动mercenary service流程或状态机。
+配置推导值。读它而不是把阶级门槛写死。
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.StartMercenaryService();
-```
+#### `public int Tier`
 
-### ResetPlayerHomeAndFactionMidSettlement
-`public void ResetPlayerHomeAndFactionMidSettlement()`
+当前等级，由声望与阶级规则推导。它本身不存档。
 
-**用途 / Purpose:** 将 player home and faction mid settlement 重置回默认或初始状态。
+#### `public int Gold`
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.ResetPlayerHomeAndFactionMidSettlement();
-```
+只读，转发到 `Leader.Gold`。无领袖的氏族返回 `0`。
 
-### FindFirst
-`public static Clan FindFirst(Predicate<Clan> predicate)`
+#### `public int TributeWallet` / `public int DebtToKingdom`
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的first。
+作为附庸时挂在氏族上的王国账目。
 
-```csharp
-// 静态调用，不需要实例
-Clan.FindFirst(predicate);
-```
+### 外交
 
-### EndMercenaryService
-`public void EndMercenaryService(bool isByLeavingKingdom)`
+#### `public bool IsAtWarWith(IFaction other)`
 
-**用途 / Purpose:** 调用 EndMercenaryService 对应的操作。
+`FactionManager.IsAtWarAgainstFaction` 的便捷包装。
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.EndMercenaryService(false);
-```
+#### `public MBReadOnlyList<IFaction> FactionsAtWarWith`
 
-### FindAll
-`public static IEnumerable<Clan> FindAll(Predicate<Clan> predicate)`
+缓存的战争集合。由 `UpdateFactionsAtWarWith()` 刷新。
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的all。
+#### `public StanceLink GetStanceWith(IFaction other)`
 
-```csharp
-// 静态调用，不需要实例
-Clan.FindAll(predicate);
-```
+底层立场值（敌对、戒备、中立、友好）。各 `Is*` 便捷方法都是它的阈值化封装。
 
-### CalculateTotalSettlementValueForFaction
-`public float CalculateTotalSettlementValueForFaction(Kingdom kingdom)`
+#### `public void UpdateFactionsAtWarWith()` / `public void UpdateCurrentStrength()`
 
-**用途 / Purpose:** 计算total settlement value for faction的当前值或结果。
+重算缓存的战争集合与缓存的 `CurrentTotalStrength`。官方在所有权或名册变化后会调用它们。
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-var result = clan.CalculateTotalSettlementValueForFaction(kingdom);
-```
+### 王国归属
 
-### OnHeroChangedState
-`public void OnHeroChangedState(Hero hero, Hero.CharacterStates oldState)`
+#### `public Kingdom Kingdom`
 
-**用途 / Purpose:** 在 hero changed state 事件触发时调用此回调。
+所属王国，独立或小型派系时为 `null`。
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.OnHeroChangedState(hero, oldState);
-```
+#### `public void ClanLeaveKingdom(bool giveBackFiefs = false)`
 
-### AddRenown
-`public void AddRenown(float value, bool shouldNotify = true)`
+切断王国归属。传 `giveBackFiefs: true` 会释放所有封地——从氏族一侧看这是不可逆的。
 
-**用途 / Purpose:** 将 renown 添加到当前容器或状态中。
+#### `public void StartMercenaryService()` / `public void EndMercenaryService(bool isByLeavingKingdom)`
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.AddRenown(0, false);
-```
+切换雇佣兵状态。“通过脱离王国结束”与普通结束走的是不同代码路径，后果也不同。
 
-### ResetClanRenown
-`public void ResetClanRenown()`
+#### `public void ResetPlayerHomeAndFactionMidSettlement()`
 
-**用途 / Purpose:** 将 clan renown 重置回默认或初始状态。
+剧情模式初始化之后针对玩家氏族的特例处理。
 
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.ResetClanRenown();
-```
+### 生命周期
 
-### OnSupportedByClan
-`public void OnSupportedByClan(Clan supporterClan)`
+#### `protected override void AfterLoad()` / `protected override void PreAfterLoad()`
 
-**用途 / Purpose:** 在 supported by clan 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.OnSupportedByClan(supporterClan);
-```
-
-### CreateSettlementRebelClan
-`public static Clan CreateSettlementRebelClan(Settlement settlement, Hero owner, int iconMeshId = -1)`
-
-**用途 / Purpose:** 构建一个新的 settlement rebel clan 实体并返回给调用方。
-
-```csharp
-// 静态调用，不需要实例
-Clan.CreateSettlementRebelClan(settlement, owner, 0);
-```
-
-### CalculateMidSettlement
-`public void CalculateMidSettlement()`
-
-**用途 / Purpose:** 计算mid settlement的当前值或结果。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.CalculateMidSettlement();
-```
-
-### CreateCompanionToLordClan
-`public static Clan CreateCompanionToLordClan(Hero hero, Settlement settlement, TextObject clanName, int newClanIconId)`
-
-**用途 / Purpose:** 构建一个新的 companion to lord clan 实体并返回给调用方。
-
-```csharp
-// 静态调用，不需要实例
-Clan.CreateCompanionToLordClan(hero, settlement, clanName, 0);
-```
-
-### GetHeirApparents
-`public Dictionary<Hero, int> GetHeirApparents()`
-
-**用途 / Purpose:** 读取并返回当前对象中 heir apparents 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-var result = clan.GetHeirApparents();
-```
-
-### UpdateBannerColor
-`public void UpdateBannerColor(uint backgroundColor, uint iconColor)`
-
-**用途 / Purpose:** 重新计算并更新 banner color 的最新表示。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.UpdateBannerColor(0, 0);
-```
+存档修复钩子。它们在反序列化后修复断裂的交叉引用，这也是手改氏族序列化字段只会在“重新读档之后”才暴露问题的原因。
 
 ## 使用示例
 
+### 示例 1：每日影响力与声望账本行为
+
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
-Clan clan = ...;
-clan.UpdateFactionsAtWarWith();
+using TaleWorlds.CampaignSystem;
+
+public sealed class ClanLedgerBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        CampaignEvents.DailyTickClanEvent.AddNonSerializedListener(this, OnDailyTickClan);
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+    }
+
+    private void OnDailyTickClan(Clan clan)
+    {
+        Campaign campaign = Campaign.Current;
+        if (campaign == null || !clan.IsNoble)
+        {
+            return;
+        }
+
+        // 金币由领袖持有且只读；影响力才是可写分数。
+        int clanGold = clan.Gold;
+        float influence = clan.Influence;
+        _ = clanGold;
+        _ = influence;
+    }
+}
 ```
+
+### 示例 2：给玩家氏族付款（金币挂在领袖身上）
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+public static void PayPlayerClan(int amount)
+{
+    Clan clan = Clan.PlayerClan;
+    if (clan == null || amount <= 0)
+    {
+        return;
+    }
+
+    Hero leader = clan.Leader;
+    if (leader == null)
+    {
+        return;
+    }
+
+    leader.ChangeHeroGold(amount);
+    InformationManager.DisplayMessage(
+        new InformationMessage($"{clan.Name.Name} 现有金币 {leader.Gold}"));
+}
+```
+
+### 示例 3：按王国视角统计小型派系领地总价值
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+public static string RichestVassalReport(Kingdom kingdom)
+{
+    Clan best = null;
+    float bestValue = -1f;
+
+    foreach (Clan clan in kingdom.Clans)
+    {
+        float value = clan.CalculateTotalSettlementValueForFaction(kingdom);
+        if (value > bestValue)
+        {
+            bestValue = value;
+            best = clan;
+        }
+    }
+
+    return best == null
+        ? "无附庸"
+        : $"{best.Name.Name}：{bestValue:0}";
+}
+```
+
+### 示例 4：脱离王国并交出封地
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+public static void GrantIndependence(Clan clan)
+{
+    if (clan == null || clan.Kingdom == null)
+    {
+        return;
+    }
+
+    // giveBackFiefs: true 会释放所有封地 —— 之后只能靠易主动作改回来。
+    clan.ClanLeaveKingdom(true);
+    clan.UpdateFactionsAtWarWith();
+    InformationManager.DisplayMessage(
+        new InformationMessage($"{clan.Name.Name} 重获独立"));
+}
+```
+
+## 风险与崩溃边界
+
+1. **`Gold` 不可写。** `Clan.Gold` 转发到 `Leader.Gold`；想写 `clan.Gold = n` 根本无法编译，而绕过它去改名册又会破坏薪饷系统。请用 `Hero.ChangeHeroGold`。
+2. **`Leader` 可能为 null。** 所有解引用 `Leader` 的成员（`Gold`、影响力花费的技能路径、氏族旗帜）都必须判空。小型派系氏族的领袖恒为 null。
+3. **`CreateClan` 是唯一安全的构造方式。** `new Clan()` 产出的对象没有注册、不出现在 `All` 中、也永远不会被序列化。
+4. **写影响力会带出技能副作用。** 在无领袖语境下调低 `Influence` 会跳过 `OnInfluenceSpent`，使领袖技能与影响力花费在存档之间长期不一致。
+5. **存档稳定性。** `Name`、`Culture`、由 `Renown` 驱动的 `Tier`、`IsNoble`、`IsOutlaw`、`Color` 与 `InitialHomeSettlement` 都是 `[SaveableProperty]`。重新编号会破坏已有存档，参见 [存档系统](../../../architecture/save-system)。
+6. **对聚落的跨域依赖。** `Fiefs` 由聚落易主路径维护。直接写 `Settlement.OwnerClan` 会让氏族索引在下一次易主事件之前一直不同步。
+7. **易主不是对称操作。** `Clan.CalculateTotalSettlementValueForFaction` 读取聚落实时状态，在转移过程中调用可能观察到只更新了一半的所有权集合。
+8. **热循环开销。** 在 `DailyTickEvent` 上对 `Clan.All` 做 `FindAll`，在多个行为叠加时是实打实的帧成本。改用 `CampaignEvents.DailyTickClanEvent`，或缓存需要过滤的列表。
+
+## 跨版本提示
+
+- 上面列出的 1.3.0 接口面与 1.3.x 一致。后续构建保持 `Influence`、`Renown`、`Tier`、`CalculateTotalSettlementValueForFaction` 与 `ClanLeaveKingdom` 稳定。
+- 这里的 `IsBanditFaction` 是可存档的私有 setter 标志；部分 1.4.x 构建新增了更多小型派系标志（如 `IsCult`），但没有改动 mod 使用的 setter。
 
 ## 参见
 
-- [本区域目录](../)
+- [Kingdom](../Kingdom) — 氏族之上的王国
+- [Hero](../Hero) — 氏族里的人
+- [FactionManager](../FactionManager) — 战争与立场解析
+- [Settlement](../Settlement) — 氏族拥有的土地
+- [Town](../Town) — 贵族氏族可以持有的封地
+- [Campaign](../Campaign) — 暴露 `Clan.All` 的地方
+- [存档系统](../../../architecture/save-system) — Saveable 属性纪律
+- [SDK 总览](../../../architecture/sdk-overview) — 模块生命周期顺序
+- [战役基础](../../../guide/campaign-basics) — 以任务为导向的上手指南

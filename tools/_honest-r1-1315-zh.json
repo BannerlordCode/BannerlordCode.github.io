@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-08-17T13:55:59.683Z",
+  "scope": "r1-1315-zh",
+  "sourceAudit": "tools/_strict-audit-1315-api-20260817.txt",
+  "totalApiPages": 5632,
+  "stubPages": 5358,
+  "cleanPages": 274,
+  "honestPct": 4.87,
+  "byCategory": {
+    "autogen-description": 5358,
+    "formulaic-overview-stub": 4114,
+    "placeholder-assignment-example": 17930,
+    "double-i-fake-type": 317
+  },
+  "structuralR1": {
+    "r1Target": 4796,
+    "structuralCovered": 4796,
+    "structuralGap": 0,
+    "deepPassPages": 174,
+    "familyEntryPages": 24,
+    "structuralStubPages": 5414
+  },
+  "note": "HONEST coverage = pages with ZERO of the 4 content-integrity stub markers (autogen-description / formulaic-overview-stub / placeholder-assignment-example / double-i-fake-type). Structural r1-coverage-report counts family entries + deep_pass as covered; this report exposes the true handwritten gap. Honest R1 coverage cannot exceed cleanPages (every clean page would have to be an R1 target). Genuine deep handwritten pages ~= structuralR1.deepPassPages (verify each is in cleanPages)."
+}

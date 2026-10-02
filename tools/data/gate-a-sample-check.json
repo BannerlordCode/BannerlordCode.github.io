@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T19:28:04.112Z",
+  "generatedAt": "2026-08-13T16:04:17.051Z",
   "gateA": {
     "generatorsRetired": true,
     "retiredStatus": [
@@ -9,7 +9,7 @@
       },
       {
         "name": "bulk-fix-mental-models.mjs",
-        "status": "guarded"
+        "status": "missing"
       },
       {
         "name": "enhance-stubs.mjs",
@@ -25,7 +25,7 @@
       },
       {
         "name": "populate-curated-content.mjs",
-        "status": "guarded"
+        "status": "missing"
       },
       {
         "name": "regenerate-method-purposes.mjs",
@@ -33,61 +33,61 @@
       }
     ],
     "deepPassBanSample": {
-      "pool": 74,
+      "pool": 174,
       "sampled": 50,
       "banHits": 0,
       "hitDetails": [],
       "samplePaths": [
-        "content/v1.3.15/zh/api/mission-ext/MBGameManager.md",
-        "content/v1.3.15/zh/api/campaign-ext/GameModels.md",
-        "content/v1.3.15/zh/api/campaign-ext/DeclareWarAction.md",
-        "content/v1.3.15/zh/api/campaign-ext/ConversationSentence.md",
-        "content/v1.3.15/zh/api/campaign-ext/MBObjectManager.md",
-        "content/v1.3.15/zh/api/campaign-ext/TroopRoster.md",
-        "content/v1.3.15/zh/api/campaign-ext/MenuContext.md",
-        "content/v1.3.15/zh/api/campaign-ext/ItemRoster.md",
-        "content/v1.3.15/zh/api/campaign-ext/AddHeroToPartyAction.md",
-        "content/v1.3.15/zh/api/gui/ScreenManager.md",
-        "content/v1.3.15/zh/api/campaign-ext/CampaignBehaviorBase.md",
-        "content/v1.3.15/zh/api/save-system/SaveableTypeDefiner.md",
-        "content/v1.3.15/zh/api/campaign-ext/CampaignMission.md",
-        "content/v1.3.15/zh/api/mission-ext/MissionLogic.md",
-        "content/v1.3.15/zh/api/campaign-ext/CampaignEvents.md",
-        "content/v1.3.15/zh/api/campaign/Kingdom.md",
-        "content/v1.3.15/zh/api/engine/GauntletLayer.md",
-        "content/v1.3.15/zh/api/campaign-ext/CampaignTime.md",
-        "content/v1.3.15/zh/api/save-system/SaveManager.md",
-        "content/v1.3.15/zh/api/campaign-ext/DialogFlow.md",
-        "content/v1.3.15/zh/api/campaign-ext/Army.md",
-        "content/v1.3.15/zh/api/campaign-ext/GameMenu.md",
-        "content/v1.3.15/zh/api/campaign/Village.md",
-        "content/v1.3.15/zh/api/campaign-ext/ConversationManager.md",
-        "content/v1.3.15/zh/api/mission/Mission.md",
-        "content/v1.3.15/zh/api/campaign-ext/KillCharacterAction.md",
-        "content/v1.3.15/zh/api/core-extra/ViewModel.md",
-        "content/v1.3.15/zh/api/save-system/SaveablePropertyAttribute.md",
-        "content/v1.3.15/zh/api/campaign-ext/CultureObject.md",
-        "content/v1.3.15/zh/api/core/MBSubModuleBase.md",
-        "content/v1.3.15/zh/api/campaign/CharacterObject.md",
-        "content/v1.3.15/zh/api/campaign-ext/MakePeaceAction.md",
-        "content/v1.3.15/zh/api/campaign-ext/GiveGoldAction.md",
-        "content/v1.3.15/zh/api/core-extra/Equipment.md",
-        "content/v1.3.15/zh/api/campaign-ext/MapEvent.md",
-        "content/v1.3.15/zh/api/save-system/SaveableFieldAttribute.md",
-        "content/v1.3.15/zh/api/campaign-ext/TakePrisonerAction.md",
-        "content/v1.3.15/zh/api/campaign-ext/MarriageAction.md",
-        "content/v1.3.15/zh/api/campaign/Hero.md",
-        "content/v1.3.15/zh/api/campaign/Workshop.md",
-        "content/v1.3.15/zh/api/campaign/Settlement.md",
-        "content/v1.3.15/zh/api/campaign-ext/GauntletView.md",
-        "content/v1.3.15/zh/api/core-extra/InformationManager.md",
-        "content/v1.3.15/zh/api/gui/GauntletMovie.md",
-        "content/v1.3.15/zh/api/campaign/MobileParty.md",
-        "content/v1.3.15/zh/api/campaign-ext/MBObjectBase.md",
-        "content/v1.3.15/zh/api/campaign-ext/DestroyPartyAction.md",
+        "content/v1.3.15/zh/api/campaign-ext/SiegeEventModel.md",
+        "content/v1.3.15/zh/api/campaign-ext/CampaignInformationManager.md",
         "content/v1.3.15/zh/api/localization/TextObject.md",
-        "content/v1.3.15/zh/api/core-extra/Game.md",
-        "content/v1.3.15/zh/api/campaign-ext/Town.md"
+        "content/v1.3.15/zh/api/core-extra/WeaponDesign.md",
+        "content/v1.3.15/zh/api/engine/GauntletLayer.md",
+        "content/v1.3.15/zh/api/campaign-ext/KingdomManager.md",
+        "content/v1.3.15/zh/api/campaign-ext/CampaignBehaviorManager.md",
+        "content/v1.3.15/zh/api/campaign-ext/ChangeRelationAction.md",
+        "content/v1.3.15/zh/api/mission-ext/MissionLogic.md",
+        "content/v1.3.15/zh/api/gui/SpriteFromTexture.md",
+        "content/v1.3.15/zh/api/campaign-ext/FactionManager.md",
+        "content/v1.3.15/zh/api/campaign-ext/MBObjectManager.md",
+        "content/v1.3.15/zh/api/campaign-ext/CultureObject.md",
+        "content/v1.3.15/zh/api/campaign-ext/IDataStore.md",
+        "content/v1.3.15/zh/api/campaign-ext/PartyNavigationModel.md",
+        "content/v1.3.15/zh/api/campaign-ext/QuestBase.md",
+        "content/v1.3.15/zh/api/campaign-ext/CombatXpModel.md",
+        "content/v1.3.15/zh/api/campaign-ext/SettlementGarrisonModel.md",
+        "content/v1.3.15/zh/api/campaign-ext/Workshop.md",
+        "content/v1.3.15/zh/api/campaign-ext/PartySizeLimitModel.md",
+        "content/v1.3.15/zh/api/campaign-ext/TournamentManager.md",
+        "content/v1.3.15/zh/api/campaign/PartyBase.md",
+        "content/v1.3.15/zh/api/campaign/Campaign.md",
+        "content/v1.3.15/zh/api/campaign-ext/SettlementAccessModel.md",
+        "content/v1.3.15/zh/api/campaign-ext/CombatSimulationModel.md",
+        "content/v1.3.15/zh/api/campaign-ext/SandBoxManager.md",
+        "content/v1.3.15/zh/api/campaign-ext/ChangeKingdomAction.md",
+        "content/v1.3.15/zh/api/campaign-ext/MobilePartyMoraleModel.md",
+        "content/v1.3.15/zh/api/core-extra/ItemCategory.md",
+        "content/v1.3.15/zh/api/save-system/SaveableFieldAttribute.md",
+        "content/v1.3.15/zh/api/campaign-ext/ChangeRomanticStateAction.md",
+        "content/v1.3.15/zh/api/campaign-ext/PolicyObject.md",
+        "content/v1.3.15/zh/api/campaign-ext/DefaultSettlementMilitiaModel.md",
+        "content/v1.3.15/zh/api/campaign-ext/PartyTransitionModel.md",
+        "content/v1.3.15/zh/api/campaign-ext/ClanFinanceModel.md",
+        "content/v1.3.15/zh/api/save-system/SaveablePropertyAttribute.md",
+        "content/v1.3.15/zh/api/campaign/CharacterObject.md",
+        "content/v1.3.15/zh/api/campaign-ext/WorkshopModel.md",
+        "content/v1.3.15/zh/api/campaign-ext/PartyDesertionModel.md",
+        "content/v1.3.15/zh/api/core-extra/Crafting.md",
+        "content/v1.3.15/zh/api/campaign-ext/ChangeClanInfluenceAction.md",
+        "content/v1.3.15/zh/api/campaign-ext/ChangeVillageStateAction.md",
+        "content/v1.3.15/zh/api/campaign-ext/TeleportHeroAction.md",
+        "content/v1.3.15/zh/api/campaign-ext/MobilePartyFoodConsumptionModel.md",
+        "content/v1.3.15/zh/api/save-system/SaveManager.md",
+        "content/v1.3.15/zh/api/campaign/Workshop.md",
+        "content/v1.3.15/zh/api/core/MBSubModuleBase.md",
+        "content/v1.3.15/zh/api/campaign-ext/RaidModel.md",
+        "content/v1.3.15/zh/api/campaign/Town.md",
+        "content/v1.3.15/zh/api/campaign-ext/CampaignPeriodicEventManager.md"
       ],
       "pass": true
     },
@@ -96,29 +96,29 @@
       "fail": 0,
       "purposeOk": [
         {
-          "rel": "content/v1.3.15/zh/api/core-extra/graph/_index.md",
-          "type": "GraphLinePointVM",
-          "purpose": "曲线上一点的 VM：横/纵数值与显示用字符串，供 Gauntlet 绑定绘制。"
+          "rel": "content/v1.3.15/zh/api/campaign-ext/campaign-tail/_index.md",
+          "type": "CraftingOrder",
+          "purpose": "说明 crafting state 的状态与协调；世界变更仍由 Action 或已注册 Behavior 负责。"
         },
         {
-          "rel": "content/v1.3.15/zh/api/core-extra/graph/_index.md",
-          "type": "GraphLineVM",
-          "purpose": "单条曲线的 VM：名称、点集与样式相关绑定属性，挂在 GraphVM.Lines 下。"
+          "rel": "content/v1.3.15/zh/api/campaign-ext/campaign-tail/_index.md",
+          "type": "OverrideEncyclopediaModel",
+          "purpose": "说明 encyclopedia queries 的状态与协调；世界变更仍由 Action 或已注册 Behavior 负责。"
         },
         {
-          "rel": "content/v1.3.15/zh/api/core-extra/graph/_index.md",
-          "type": "GraphVM",
-          "purpose": "折线/多线图表 ViewModel：持有 GraphLineVM 列表与轴标签，Draw 时按点集计算范围并刷新绑定列表。"
+          "rel": "content/v1.3.15/zh/api/campaign-ext/campaign-tail/_index.md",
+          "type": "ICustomSystemManager",
+          "purpose": "说明 campaign handlers 的状态与协调；世界变更仍由 Action 或已注册 Behavior 负责。"
         },
         {
-          "rel": "content/v1.3.15/zh/api/campaign-ext/inventory/_index.md",
-          "type": "FakeInventoryListener",
-          "purpose": "空操作/测试用 Listener：不接真实金库，适合预览或无金币副作用的转移"
+          "rel": "content/v1.3.15/zh/api/campaign-ext/campaign-tail/_index.md",
+          "type": "ChangeCommonAreaOwnerQuestTask",
+          "purpose": "说明 issue and quest eligibility 的状态与协调；世界变更仍由 Action 或已注册 Behavior 负责。"
         },
         {
-          "rel": "content/v1.3.15/zh/api/campaign-ext/inventory/_index.md",
-          "type": "InventoryListener",
-          "purpose": "抽象监听：对接对方金主、成交时扣/加钱与收尾；商店实现挂在此"
+          "rel": "content/v1.3.15/zh/api/campaign-ext/campaign-tail/_index.md",
+          "type": "VillageStateChangedLogEntry",
+          "purpose": "说明 campaign log entries 的状态与协调；世界变更仍由 Action 或已注册 Behavior 负责。"
         }
       ],
       "purposeFail": [],
@@ -141,7 +141,7 @@
         "content/v1.3.15/en/api/campaign-ext/GameModels.md",
         "content/v1.3.15/en/api/campaign-ext/EnterSettlementAction.md",
         "content/v1.3.15/en/api/save-system/SaveableTypeDefiner.md",
-        "content/v1.3.15/en/api/campaign/CampaignBehaviorBase.md",
+        "content/v1.3.15/en/api/campaign-ext/CampaignBehaviorBase.md",
         "content/v1.3.15/en/api/core-extra/ViewModel.md",
         "content/v1.3.15/en/api/campaign-ext/AddHeroToPartyAction.md",
         "content/v1.3.15/en/api/campaign-ext/ChangeOwnerOfSettlementAction.md",
@@ -166,7 +166,7 @@
         "content/v1.3.15/en/api/mission-ext/MissionLogic.md",
         "content/v1.3.15/en/api/campaign-ext/ScreenBase.md",
         "content/v1.3.15/en/api/campaign-ext/CampaignEventReceiver.md",
-        "content/v1.3.15/en/api/campaign-ext/Town.md",
+        "content/v1.3.15/en/api/campaign/Town.md",
         "content/v1.3.15/en/api/campaign-ext/TroopRoster.md",
         "content/v1.3.15/en/api/campaign/Kingdom.md",
         "content/v1.3.15/en/api/campaign-ext/TakePrisonerAction.md",
@@ -179,7 +179,7 @@
         "content/v1.3.15/en/api/campaign-ext/CampaignEvents.md",
         "content/v1.3.15/en/api/campaign-ext/ChangeKingdomAction.md",
         "content/v1.3.15/en/api/campaign-ext/MBObjectManager.md",
-        "content/v1.3.15/en/api/campaign-ext/MapEvent.md"
+        "content/v1.3.15/en/api/campaign/MapEvent.md"
       ],
       "inventorySummary": {
         "ok": 62,

@@ -1,0 +1,38 @@
+---
+title: "VisualOrderFactory"
+description: "VisualOrderFactory: a public class in TaleWorlds.MountAndBlade.ViewModelCollection; 3 exposed members (3 methods, 0 properties, 0 fields). Source: TaleWorlds.MountAndBlade.ViewModelCollection/Order/Visual/VisualOrderFactory.cs."
+---
+# VisualOrderFactory
+
+**Namespace:** `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual`
+**Module:** `TaleWorlds.MountAndBlade.ViewModelCollection`
+**Type:** `public static class VisualOrderFactory`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Order/Visual/VisualOrderFactory.cs`
+
+## Overview
+
+VisualOrderFactory lives in the TaleWorlds.MountAndBlade.ViewModelCollection module, source file TaleWorlds.MountAndBlade.ViewModelCollection/Order/Visual/VisualOrderFactory.cs. It is a public class; the inheritance chain is VisualOrderFactory. It exposes 3 public/protected members: 3 methods.
+
+> Batch first draft: every signature is taken verbatim from the decompiled bannerlord-1.4.6 source. What each method actually does, when to call it and where it breaks must be read from the method body in the source file.
+
+## Mental Model
+
+Structural facts: VisualOrderFactory is a top-level type in TaleWorlds.MountAndBlade.ViewModelCollection, namespace differing from (TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual) the module directory; inheritance chain VisualOrderFactory. The surface is method-led (methods 3/3, properties 0/3), so it mostly exposes operations. This page lists real signatures only: what each method does, when to call it and where it breaks must be read from TaleWorlds.MountAndBlade.ViewModelCollection/Order/Visual/VisualOrderFactory.cs or the deep page for this type.
+
+## Key Members
+
+| 成员 | 签名 | 种类 |
+| --- | --- | --- |
+| `RegisterProvider` | `public static void RegisterProvider(VisualOrderProvider provider)` | method |
+| `UnregisterProvider` | `public static void UnregisterProvider(VisualOrderProvider provider)` | method |
+| `MBReadOnlyList` | `public static MBReadOnlyList<VisualOrderSet>GetOrders()` | method |
+
+## See Also
+
+- [↑ mountandblade-viewmodelcollection module index](../)
+- [↑ API reference](../../)
+- [↑ Version home](../../../)
+- [same namespace ActionVisualOrder](../ActionVisualOrder)
+- [same namespace OrderState](../OrderState)
+- [same namespace ReturnVisualOrder](../ReturnVisualOrder)
+- [same namespace TransferTroopsVisualOrder](../TransferTroopsVisualOrder)

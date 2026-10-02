@@ -1,6 +1,6 @@
 ---
 title: "campaign-ext 桶：战役的扩展契约与对象身份"
-description: "TaleWorlds.ObjectSystem 与 TaleWorlds.CampaignSystem 的五个子命名空间（CampaignBehaviors / ComponentInterfaces / GameComponents / Conversation / Issues）落在这个桶：Behavior 管理器、模型接口与默认实现、对话与议题系统、对象注册表。已手写 2 张类页。"
+description: "TaleWorlds.ObjectSystem 与 TaleWorlds.CampaignSystem 的五个子命名空间（CampaignBehaviors / ComponentInterfaces / GameComponents / Conversation / Issues）落在这个桶：Behavior 管理器、模型接口与默认实现、对话与议题系统、对象注册表。已手写 3 张类页。"
 ---
 # campaign-ext 桶：战役的扩展契约与对象身份
 
@@ -10,10 +10,11 @@ description: "TaleWorlds.ObjectSystem 与 TaleWorlds.CampaignSystem 的五个子
 
 **为什么源码目录叫 `CampaignSystem`、文档桶却叫 `campaign-ext`**：因为 mod 作者真正在这块干的事只有两类——**实现一个接口**（自己的 `ICampaignBehavior`、自己的 `PartySizeLimitModel`、自己的 `IssueBase`）或者**读懂一个接口在做什么**（游戏为什么这么判、这个默认值从哪来）。这两件事的入口类型几乎全在这个桶，而它们的数据结构在 campaign 桶。
 
-## 已手写的类页（2 张）
+## 已手写的类页（3 张）
 
 - [MBObjectBase](./MBObjectBase) — 所有可保存实体的公共基类：持有 `StringId` / `Id`，承载注册、初始化与读档三段回调。`Hero`、`Settlement` 都由它派生，扩展点也主要长在它身上。
 - [MBObjectManager](./MBObjectManager) — 全局对象注册表：按类型与 StringId 登记所有 `MBObjectBase` 实例，负责 XML 定义加载、引用解析与读档后的对象图重建。
+- [MBGUID](./MBGUID) — 对象系统在存档里认出「这是同一个对象」的唯一凭据：一个 32 位无符号整数，被刻意切成两段，低位是类型内的递增序号、高位是类型编号。它同时被三个体系依赖——对象系统拿它当字典键、存档系统把它注册成基础类型、实体基类把标识属性声明成这个类型，于是**跨对象引用在存档里存的是一个 4 字节整数而不是对象内容**。
 
 ## 尚未撰写的部分
 
@@ -21,7 +22,7 @@ description: "TaleWorlds.ObjectSystem 与 TaleWorlds.CampaignSystem 的五个子
 
 | 命名空间 | 待写类型 | mod 什么时候需要 |
 | --- | --- | --- |
-| `TaleWorlds.ObjectSystem` | `MBGUID`、`SaveableObjectSystemTypeDefiner`、`MbObjectXmlInformation`、`ObjectSystemException`、`MBTypeNotRegisteredException`、`MBTypeMismatchException`、`MBIllegalRegisterException`、`MBInvalidReferenceException`、`MBOutOfRangeException`、`MBTooManyRegisteredTypesException`、`MBCanNotCreatePresumedObjectException` | 用 `MBGUID` 跨存档引用对象；动态注册可加载类型；读懂对象系统抛的每一种异常 |
+| `TaleWorlds.ObjectSystem` | `SaveableObjectSystemTypeDefiner`、`MbObjectXmlInformation`、`ObjectSystemException`、`MBTypeNotRegisteredException`、`MBTypeMismatchException`、`MBIllegalRegisterException`、`MBInvalidReferenceException`、`MBOutOfRangeException`、`MBTooManyRegisteredTypesException`、`MBCanNotCreatePresumedObjectException` | 动态注册可加载类型；读懂对象系统抛的每一种异常 |
 | `.CampaignBehaviors` | `CampaignBehaviorManager` | 想知道 Behavior 的注册顺序与优先级规则时；诊断「我的 Behavior 没被调用」 |
 | `.ComponentInterfaces` | `PartySizeLimitModel`、`ClanTierModel`、`PartyNavigationModel`、`SettlementFoodModel`（同命名空间另有 122 个同类接口） | 要改数值规则时，先读懂对应接口的语义再实现 |
 | `.GameComponents` | `DefaultPartySizeLimitModel`（同命名空间另有 123 个 `Default*Model` 实现） | 想知道游戏默认值怎么算出来的 |

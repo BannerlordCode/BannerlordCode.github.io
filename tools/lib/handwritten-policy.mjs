@@ -142,7 +142,9 @@ function hasRealCsharpExample(text) {
     ) {
       return true;
     }
-    if (code.split(/\n/).length >= 3 && /\.\w+\s*\(/.test(code)) return true;
+    // generic calls like `.SyncData<T>(` are real calls; also allow word-boundary-free type mentions
+    // (`CampaignBehaviorBase` contains `Campaign` but has no boundary after it).
+    if (code.split(/\n/).length >= 3 && /\.[A-Za-z_]\w*(?:<[^>]*>)?\s*\(/.test(code)) return true;
   }
   return false;
 }

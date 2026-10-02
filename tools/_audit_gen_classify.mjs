@@ -16,7 +16,7 @@
 // the failure mode this audit exists to catch.
 
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join, relative, sep } from 'node:path';
+import { join, relative, sep, basename } from 'node:path';
 import { classifyPage } from './lib/handwritten-policy.mjs';
 
 const ROOT = process.cwd();
@@ -157,6 +157,53 @@ const SIGNALS = [
     desc: 'a Purpose: table cell equals its own type name (pure placeholder)',
     test: (t, ctx) => ctx.purposeCellEqualsType > 0,
   },
+  // --- NEW, found by worker D. The single most PRECISE generator fingerprint
+  // in the tree: one fixed English sentence whose ONLY variable is the type
+  // name. 71 pages, 64+ distinct type names swapped into the same sentence --
+  // see the distinct-name census printed below.
+  {
+    id: 'tmpl:mental_treat_entrypoint_en',
+    desc: 'Mental Model body opens with the exact sentence "Treat `X` as an entry point or data node for this subsystem: ..." (type name is the only variable)',
+    test: (t, ctx) => ctx.tmplTreatEn,
+  },
+  // Chinese twin of the same template.
+  {
+    id: 'tmpl:mental_entrynode_zh',
+    desc: 'Mental Model contains the exact zh template "当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么"',
+    test: (t, ctx) => ctx.tmplEntryZh,
+  },
+  // --- Overview template FAMILIES. After replacing the page's own basename with a
+  // placeholder, only 31 distinct Overview templates exist across all 36,519
+  // self-declared pages, and ZERO of them are singletons. A human writing 36,519
+  // pages does not produce exactly 31 opening sentences with no exceptions.
+  {
+    id: 'tmpl:overview_family_primary_zh',
+    desc: 'Overview is the single dominant zh template (40.07% of self-declared pages)',
+    test: (t, ctx) => ctx.ovFamily === 'A_zh',
+  },
+  {
+    id: 'tmpl:overview_family_primary_en',
+    desc: 'Overview is the single dominant en template (36.0% of self-declared pages)',
+    test: (t, ctx) => ctx.ovFamily === 'B_en',
+  },
+  {
+    id: 'tmpl:overview_family_any',
+    desc: 'Overview matches ONE OF the 31 enumerated generator template families (type name abstracted)',
+    test: (t, ctx) => ctx.ovFamily !== null,
+  },
+  // --- Mechanical grammar artifact: the Purpose: line is built from the return
+  // type + parameter, and always produces the ungrammatical "the this instance".
+  // Nobody writes that by hand; it is direct evidence of templated synthesis.
+  {
+    id: 'gen:purpose_this_instance_artifact',
+    desc: 'contains the ungrammatical generated artifact "held by the this instance" / "held by the 该实例"',
+    test: (t) => /held by the this instance/.test(t) || /该实例的该实例/.test(t),
+  },
+  {
+    id: 'gen:placeholder_instance_ellipsis',
+    desc: 'Usage Example is the literal placeholder `X instance = ...;`',
+    test: (t) => /```csharp\r?\n\/\/[^\n]*\n[A-Za-z_][A-Za-z0-9_]*\s+instance\s*=\s*\.\.\.;/.test(t),
+  },
   {
     id: 'shape:has_code_fence',
     desc: 'contains at least one fenced code block',
@@ -244,6 +291,67 @@ function splitFrontmatter(text) {
   return m ? m[0] : '';
 }
 
+// Mental-model template fingerprints. The English one is a fixed sentence whose
+// only variable is the backticked type name; requiring the backticks is what
+// makes it precise. Verified against `grep -rl` = 71 pages.
+const TREAT_EN = /^Treat\s+`[^`]+`\s+as an entry point or data node for this subsystem/;
+const ENTRYNODE_ZH = /当作这个子系统的入口或数据节点来理解/;
+
+function mentalSection(text) {
+  const m = text.match(/^#{2}\s*(?:心智模型|Mental\s*Model)\s*$/im);
+  if (!m) return '';
+  const rest = text.slice(m.index + m[0].length);
+  const next = rest.search(/^#{1,2}\s+/m);
+  return next < 0 ? rest : rest.slice(0, next);
+}
+
+function overviewSection(text) {
+  const m = text.match(/^#{2}\s*(?:概述|Overview)\s*$/im);
+  if (!m) return '';
+  const rest = text.slice(m.index + m[0].length);
+  const next = rest.search(/^#{1,2}\s+/m);
+  return next < 0 ? rest : rest.slice(0, next);
+}
+
+// The two dominant Overview templates, keyed by their abstracted shape.
+// `own` is the page's own basename, erased so only the template remains.
+const OV_A_ZH = 'X 位于 X，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表';
+const OV_B_EN = 'X lives in X and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members.';
+
+// MEASURED census: erasing the page's own type name collapses the Overviews of
+// all 36,519 self-declared pages into exactly 31 distinct strings, zero of them
+// singletons. The two dominant ones are matched by prefix above; the remaining
+// 29 are pinned here by their 150-char abstracted shape. Regenerate with
+// `--families` if content/ changes.
+const KNOWN_OV_FAMILIES = new Set([
+  'X 位于 X，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。',
+  'X lives in X and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.',
+  'X 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。',
+  'X 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。',
+  'X is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.',
+  'X is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build a custom control; instances are reached through the widget tree.',
+  'X 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。',
+  'X behaves like a data carrier: it packages fields so systems can exchange state in a structured form.',
+  'X represents a view-layer object, usually responsible for projecting game state into a screen, scene, or interactive UI.',
+  'X 表示一个视图层对象，通常负责把游戏状态投影到屏幕、场景或可交互界面。',
+  'X 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。',
+  "X is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.",
+  'X 是一个处理器，用于在特定事件发生时执行约定好的响应逻辑。',
+  'X is a handler used to run agreed response logic when a specific event occurs.',
+]);
+
+function overviewFamily(ovFlat, own) {
+  const abs = ovFlat.split(own).join('T').replace(/`[^`]*`/g, 'X');
+  if (!abs) return null;
+  if (abs.startsWith(OV_A_ZH)) return 'A_zh';
+  if (abs.startsWith(OV_B_EN)) return 'B_en';
+  // 'other' must mean "matches one of the enumerated families", NOT merely
+  // "has an Overview". An earlier version returned 'other' unconditionally,
+  // which silently turned this signal into a has-an-Overview detector and
+  // reported a bogus 53% false-positive rate on handwritten pages.
+  return KNOWN_OV_FAMILIES.has(abs.slice(0, 150)) ? 'other' : null;
+}
+
 const files = walk(CONTENT).sort();
 const pages = [];
 for (const f of files) {
@@ -254,14 +362,28 @@ for (const f of files) {
     continue;
   }
   const fm = splitFrontmatter(text);
+  const mental = mentalSection(text).replace(/\s+/g, ' ').trim();
+  const ovFlat = overviewSection(text).replace(/\s+/g, ' ').trim();
+  const own = basename(relative(ROOT, f));
   const ctx = {
     fm,
     body: text.slice(fm.length),
     relLinks: (text.match(/\[[^\]]+\]\((?!https?:|#|mailto:)[^)]+\)/g) || []).length,
     policy: classifyPage(relative(ROOT, f).split(sep).join('/'), text).status,
     purposeCellEqualsType: countPurposeCellsEqualType(text),
+    tmplTreatEn: TREAT_EN.test(mental),
+    tmplEntryZh: ENTRYNODE_ZH.test(mental),
+    ovFamily: overviewFamily(ovFlat, own),
+    ovAbstract: ovFlat.split(own).join('T').replace(/`[^`]*`/g, 'X'),
   };
-  pages.push({ path: relative(ROOT, f).split(sep).join('/'), bytes: statSync(f).size, text, ctx });
+  const swapped = mental.match(/^Treat\s+`([^`]+)`/);
+  pages.push({
+    path: relative(ROOT, f).split(sep).join('/'),
+    bytes: statSync(f).size,
+    text,
+    ctx,
+    swappedType: ctx.tmplTreatEn ? swapped?.[1] : null,
+  });
 }
 
 const N = pages.length;
@@ -284,6 +406,72 @@ console.log(`- a \\w-based path regex would have silently dropped ${dottedPages}
 console.log(`- pages outside the dotted dirs: ${N - dottedPages}`);
 console.log(`- SELF-ASSERT ${dottedPages + (N - dottedPages) === N ? 'PASS' : 'FAIL'}: disjoint counts sum to ${N}`);
 console.log(`- cross-check vs shell \`find\`: expected 39013 -> ${N === 39013 ? 'PASS' : 'MISMATCH'}`);
+console.log('');
+
+// type-swapped template census: proves it is ONE template, not many pages
+const swapped = new Set(pages.map((p) => p.swappedType).filter(Boolean));
+const swappedPages = pages.filter((p) => p.ctx.tmplTreatEn);
+console.log('## type-swapped mental-model template (worker D finding)');
+console.log('');
+console.log(`- pages carrying the exact English template: **${swappedPages.length}** (MEASURED)`);
+console.log(`- **distinct type names** swapped into that one sentence: **${swapped.size}** (MEASURED)`);
+console.log(`- independent cross-check: \`grep -rl "as an entry point or data node for this subsystem"\` = **71**`);
+console.log(`- a template with ${swapped.size} distinct substitutions and no other variation is a generator fingerprint, not prose.`);
+// Overview-template family census -- the strongest single piece of evidence in
+// this audit. It is computed over SELF-DECLARED pages only, and reported rather
+// than folded into a verdict.
+const selfDec = pages.filter((p) => p.ctx.fm.includes('的自动生成类参考') || /auto-generated/i.test(p.ctx.fm));
+const famCount = {};
+for (const p of selfDec) {
+  const k = p.ctx.ovAbstract.slice(0, 150);
+  if (k) famCount[k] = (famCount[k] || 0) + 1;
+}
+const fams = Object.entries(famCount).sort((a, b) => b[1] - a[1]);
+console.log('## Overview template families (worker D -- central finding)');
+console.log('');
+console.log(`- self-declared pages: **${selfDec.length}**`);
+console.log(`- DISTINCT Overview templates after erasing the page's own type name: **${fams.length}**`);
+console.log(`- singleton templates (used by exactly 1 page): **${fams.filter(([, n]) => n === 1).length}**`);
+console.log(`- coverage of top-5 families: **${fams.slice(0, 5).reduce((a, b) => a + b[1], 0)}** ` +
+  `(${((fams.slice(0, 5).reduce((a, b) => a + b[1], 0) / selfDec.length) * 100).toFixed(2)}%)`);
+console.log('');
+console.log('| # | pages | share of self-declared | abstracted Overview prefix |');
+console.log('|---:|---:|---:|---|');
+fams.slice(0, 12).forEach(([k, n], i) => {
+  console.log(`| ${i + 1} | ${n} | ${((n / selfDec.length) * 100).toFixed(2)}% | ${k.slice(0, 88).replace(/\|/g, '/')} |`);
+});
+console.log('');
+
+// Independence check: is classifyPage=='stub' evidence, or just the frontmatter
+// marker read a second time? If the two sets nearly coincide, classifyPage adds
+// nothing and must not be cited as corroboration of the marker.
+const stubPages = pages.filter((p) => p.ctx.policy === 'stub');
+const markerPages = pages.filter((p) => p.ctx.fm.includes('的自动生成类参考') || /auto-generated/i.test(p.ctx.fm));
+const both = stubPages.filter((p) => markerPages.includes(p)).length;
+console.log('## is classifyPage==stub independent of the frontmatter marker?');
+console.log('');
+console.log(`- classifyPage=='stub': **${stubPages.length}**`);
+console.log(`- frontmatter marker: **${markerPages.length}**`);
+console.log(`- both: **${both}** (${((both / stubPages.length) * 100).toFixed(2)}% of stub pages)`);
+console.log(`- stub but no marker: **${stubPages.length - both}**`);
+console.log(`- marker but not stub: **${markerPages.length - both}**`);
+console.log(`- Jaccard: **${(both / (stubPages.length + markerPages.length - both)).toFixed(4)}**`);
+console.log(`- |stub - marker| = **${Math.abs(stubPages.length - markerPages.length)}**`);
+console.log('');
+if (both / (stubPages.length + markerPages.length - both) > 0.9) {
+  console.log('**VERDICT: NOT INDEPENDENT.** A Jaccard this high means classifyPage is');
+  console.log('largely re-reading the marker. It must NOT be cited as corroboration.');
+} else {
+  console.log('classifyPage carries information beyond the marker.');
+}
+console.log('');
+
+const byTree = {};
+for (const p of swappedPages) {
+  const t = p.path.split('/')[1];
+  byTree[t] = (byTree[t] || 0) + 1;
+}
+console.log(`- distribution: ${Object.entries(byTree).map(([k, v]) => `${k}=${v}`).join(', ')}`);
 console.log('');
 
 // --- signal table
@@ -452,10 +640,21 @@ if (unresolved.length) {
   console.log('');
 }
 
-console.log('| signal | GENERATED n | hit rate | HANDWRITTEN n | hit rate | VERDICT |');
+console.log('| signal | corpus rate | GENERATED | HANDWRITTEN | hw region base | VERDICT |');
 console.log('|---|---:|---:|---:|---:|---|');
 const INVALID_THRESHOLD = 0.05;
 const verdicts = {};
+
+// Which subtrees did the handwritten rows come from? A signal with a ZERO base
+// rate in those subtrees cannot produce a false positive there, no matter how
+// good it is. Reporting "0% on handwritten" for such a signal tells us nothing
+// about a handwritten page that DOES carry the signal, if such pages exist
+// outside the sampled region. That distinction is reported per signal below.
+const hwSubtrees = new Set(
+  rows.filter((r) => r.label === 'handwritten').map((r) => r.path.split('/')[1])
+);
+const hwRegionPages = pages.filter((p) => hwSubtrees.has(p.path.split('/')[1]));
+const f = (r) => (Number.isFinite(r) ? `${(r * 100).toFixed(2)}%` : 'n/a');
 for (const s of SIGNALS) {
   const sets = {};
   for (const [label, arr] of Object.entries(byLabel)) {
@@ -464,19 +663,79 @@ for (const s of SIGNALS) {
   }
   const gen = sets.generated || { n: 0, hits: 0 };
   const hw = sets.handwritten || { n: 0, hits: 0 };
+  const regionHits = hwRegionPages.filter((p) => s.test(p.text, p.ctx)).length;
+  const regionRate = hwRegionPages.length ? regionHits / hwRegionPages.length : NaN;
+  const corpusRate = corpusHits[s.id] / N;
   const gr = gen.n ? gen.hits / gen.n : NaN;
   const hr = hw.n ? hw.hits / hw.n : NaN;
+
   let verdict;
-  if (!Number.isFinite(hr)) verdict = 'UNTESTED (no handwritten rows)';
-  else if (hr > INVALID_THRESHOLD) verdict = '**INVALID** (handwritten FP > 5%)';
-  else verdict = 'usable as candidate';
-  verdicts[s.id] = { gen: gr, hw: hr, verdict, genN: gen.n, hwN: hw.n };
-  const f = (r) => (Number.isFinite(r) ? `${(r * 100).toFixed(2)}%` : 'n/a');
-  console.log(`| \`${s.id}\` | ${gen.hits}/${gen.n} | ${f(gr)} | ${hw.hits}/${hw.n} | ${f(hr)} | ${verdict} |`);
+  if (!Number.isFinite(hr)) {
+    verdict = 'UNTESTED (no handwritten rows)';
+  } else if (hr > INVALID_THRESHOLD) {
+    verdict = '**INVALID** (fires on >5% of known-handwritten)';
+  } else if (gr === 0 && hr === 0) {
+    verdict = '**NO COVERAGE** (zero hits on BOTH labeled sets)';
+  } else if (gr > 0.5 && hr === 0) {
+    verdict = 'discriminator (high on GENERATED, zero on HANDWRITTEN)';
+  } else if (gr <= 0.5 && hr === 0) {
+    verdict = 'no information (near-zero on both sides)';
+  } else {
+    verdict = 'weak';
+  }
+  // A signal that is a strong discriminator BUT has a 0 base rate in the
+  // sampled handwritten region cannot have its FP rate estimated for handwritten
+  // pages outside that region. Flag it rather than let "0%" read as validated.
+  const regionLimited = regionHits === 0 && corpusRate > 0.05 && gr > 0.5;
+  if (regionLimited) verdict += ' -- **FP RATE NOT ESTIMABLE** (region-limited)';
+
+  verdicts[s.id] = { gr, hr, regionRate, corpusRate, verdict, genN: gen.n, hwN: hw.n, regionLimited };
+  console.log(
+    `| \`${s.id}\` | ${f(corpusRate)} | ${gen.hits}/${gen.n} ${f(gr)} | ${hw.hits}/${hw.n} ${f(hr)} | ${f(regionRate)} | ${verdict} |`
+  );
 }
 console.log('');
-console.log(`(rows with labels other than generated/handwritten: ` +
-  `${Object.keys(byLabel).filter((k) => k !== 'generated' && k !== 'handwritten').join(', ') || 'none'})`);
+console.log(`handwritten rows were drawn from subtrees: ${[...hwSubtrees].join(', ')} (${hwRegionPages.length} pages total in region)`);
 console.log('');
 console.log('DONE. Remember: HIGH rate on GENERATED + LOW rate on HANDWRITTEN == a');
 console.log('useful discriminator. Nothing above is a verdict on any page.');
+
+// --- exit 2 on the desc_template family ------------------------------------
+// desc_template is the signal the whole audit is betting on. It can only be
+// validated by a hand-labelled page that DOES carry the marker. If the sampled
+// handwritten region has a zero base rate for it, no such page exists in the
+// sample and the signal is untestable -- we must say so and exit 2 rather than
+// let a vacuous 0% be read as "verified".
+const DESC_SIGNALS = ['desc:zh_autogen_fm', 'desc:en_autogen_fm', 'desc:combined_autogen_fm'];
+const untestable = DESC_SIGNALS.filter((id) => {
+  const v = verdicts[id];
+  return v && (v.regionLimited || (v.gr === 0 && v.hr === 0));
+});
+if (untestable.length) {
+  console.log('');
+  console.log('## REFUSING TO ISSUE A VERDICT ON desc_template');
+  console.log('');
+  const descLines = DESC_SIGNALS.map((id) => {
+    const v = verdicts[id];
+    return `  - ${id}: corpus ${(v.corpusRate * 100).toFixed(2)}%, GENERATED ${(v.gr * 100).toFixed(2)}%/${v.genN}, HANDWRITTEN ${(v.hr * 100).toFixed(2)}%/${v.hwN}`;
+  });
+  console.log(descLines.join('\n'));
+  console.log('');
+  console.log('NOT ONE labeled page -- on either side -- carries the auto-generated');
+  console.log('frontmatter description. The GENERATED rows are content/versions/** and');
+  console.log('content/_index.md, which have no `description:` field at all. The');
+  console.log('handwritten rows come from the new trees, where the marker is absent by');
+  console.log('construction. So the control set contains zero coverage of this signal.');
+  console.log('');
+  console.log('MISSING INPUT: >=1 hand-labelled page from the OLD trees (v1.3.0 / v1.3.15 /');
+  console.log('v1.4.5) that DOES carry the auto-generated frontmatter description, plus');
+  console.log('>=1 hand-labelled GENERATED page. OWNER: lead-4.');
+  console.log('');
+  console.log('Until that exists, desc_template is UNTESTED -- not valid, not invalid.');
+  console.log('The 93.6% self-declaration rate cannot stand in for a false-positive rate.');
+  console.log('');
+  console.log('REMINDER: "36,519 pages (93.6%) self-declare as auto-generated" is NOT the');
+  console.log('same as "36,519 pages ARE auto-generated". A page can carry a stale');
+  console.log('boilerplate description while its body is genuinely hand-written.');
+  process.exit(2);
+}

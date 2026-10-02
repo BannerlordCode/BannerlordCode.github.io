@@ -51,7 +51,7 @@ description: "角色体型数据：动态参数（年龄/体重/体型）+ 8 个
 | `ClampForMultiplayer` | `public BodyProperties ClampForMultiplayer()` | 返回**新**结构体：年龄 `MathF.Clamp(Age, 22f, 128f)`，体重与体型**直接重置为 0.5f/0.5f**（原值丢弃），静态部分走 `ClampHeightMultiplierFaceKey` 把高度乘数位段（起始位 19、宽度 6）夹进 0.25–0.75，越界则强写 0.5。**不可逆：原始体型信息丢失。** |
 | `ToString` | `public override string ToString()` | 拼出 `<BodyProperties version="4" {DynamicProperties} {StaticProperties} />`。用 `MBStringBuilder(150, "ToString")`。输出的串**可以被 `FromString` 读回**。 |
 | `Equals` | `public override bool Equals(object obj)` | `obj is BodyProperties` 为假直接返回 false；否则逐字段 `EqualityComparer<T>.Default.Equals` 比较两个子结构。 |
-| `GetHashCode` | `public override int GetHashCode()` | `(2041866711 * -1521134295 + DynamicHash) * -1521134295 + StaticHash`。**与 `Equals` 配套，可安全用作字典键。** |
+| `GetHashCode` | `public override int GetHashCode()` | `(2041866711 * -1521134295 + EqualityComparer<DynamicBodyProperties>.Default.GetHashCode(_dynamicBodyProperties)) * -1521134295 + EqualityComparer<StaticBodyProperties>.Default.GetHashCode(_staticBodyProperties)`。**与 `Equals` 配套，可安全用作字典键。** |
 | `operator ==` | `public static bool operator ==(BodyProperties a, BodyProperties b)` | `a == b || (a != null && b != null && a._staticBodyProperties == b._staticBodyProperties && a._dynamicBodyProperties == b._dynamicBodyProperties)`。对值类型 `a != null` 恒真，实际等价于两字段比较。 |
 | `operator !=` | `public static bool operator !=(BodyProperties a, BodyProperties b)` | `!(a == b)`。 |
 

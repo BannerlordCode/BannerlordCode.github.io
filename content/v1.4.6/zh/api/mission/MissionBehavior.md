@@ -19,7 +19,7 @@ description: "任务内扩展的抽象基类：60+ 个 OnXxx 钩子覆盖 Agent 
 
 ## 心智模型
 
-一个 Behavior 在任务里的时序大致是：`Mission` 构造（`AddBehavior`）→ `MissionBehavior.OnCreated()` → `MissionBehavior.OnBehaviorInitialize()` → `OnAfterMissionCreated()` → `OnMissionScreenPreLoad()`（进战场画面之前）→ 部署阶段 `OnDeploymentFinished` / `OnAfterDeploymentFinished` / `OnTeamDeployed` / `OnBattleSideDeployed` → 战斗阶段循环 `OnPreMissionTick` → `OnMissionTick` → `OnPostDisplayMissionTick` → 每帧固定步长时 `OnFixedMissionTick` → `OnEndMissionInternal()` → `OnEndMission()`（protected）→ `OnRemoveBehavior()`。
+一个 Behavior 在任务里的时序大致是：`Mission` 构造（`AddBehavior`）→ `MissionBehavior.OnCreated()` → `MissionBehavior.OnBehaviorInitialize()` → `OnAfterMissionCreated()` → `OnMissionScreenPreLoad()`（进战场画面之前）→ 部署阶段 `OnDeploymentFinished` / `OnAfterDeploymentFinished` / `OnTeamDeployed` / `OnBattleSideDeployed` → 战斗阶段循环 `OnPreMissionTick` → `OnPreDisplayMissionTick` → `OnMissionTick`，另有独立固定步长的 `OnFixedMissionTick` → `OnEndMissionInternal()` → `OnEndMission()`（protected）→ `OnRemoveBehavior()`。
 
 Agent 的生命周期钩子另成一条线：`OnAgentCreated` → `OnAgentBuild`（挂上 Banner 特效）→ `OnAgentTeamChanged` → `OnAgentControllerSetToPlayer` → 战斗中的 `OnAgentHit` / `OnScoreHit` / `OnMissileHit` / `OnMeleeHit` → 阵亡时的 `OnEarlyAgentRemoved` → `OnAgentRemoved` → 实体真正销毁后的 `OnAgentDeleted`。
 

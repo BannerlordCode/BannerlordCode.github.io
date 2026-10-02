@@ -15,7 +15,7 @@ description: "sealed 的定居点实体：城镇/城堡/村庄/据点统一容�
 
 它是 `sealed` 的，且实现了 `ISiegeEventSide`：作为防守方参与围城时，`BattleSide`、`SiegeEvent`、`SiegeStrategy`、`SiegeEngines` 都挂在它上面。因此「给某聚落加一批攻城器械」这类需求必须先确认 `settlement.IsUnderSiege`。
 
-它的静态入口 `Settlement.CurrentSettlement` 是玩家当前所在定居点，`Settlement.All` 是全部定居点，`Find(string)` / `FindFirst` / `FindAll` 是查询；另有三个 `Locatable` 相关的静态方法做「按位置搜附近聚落」，这是路径查找里高频用到的一组。
+它的静态入口 `Settlement.CurrentSettlement` 是玩家当前所在定居点，`Settlement.All` 是全部定居点，`Find(string)` / `FindFirst` / `FindAll` 是查询；按位置搜附近聚落靠 `StartFindingLocatablesAroundPosition(Vec2, float)` 与 `FindNextLocatable(ref LocatableSearchData<Settlement>)` 这一对静态方法（`Settlement` 实现的是 `ILocatable<Settlement>` 接口，位置搜索的游标类型是 `LocatableSearchData<Settlement>`），这是路径查找里高频用到的一组。
 
 ## 心智模型
 
@@ -69,7 +69,7 @@ description: "sealed 的定居点实体：城镇/城堡/村庄/据点统一容�
 
 | 成员 | 签名 | 作用 |
 | --- | --- | --- |
-| `Party` | `public PartyBase Party { get; private set; }` | 驻军部队。要看具体队伍就往下转型到 `GarrisonParty` / `MilitiaParty` |
+| `Party` | `public PartyBase Party { get; private set; }` | 驻军部队。要看具体队伍就往下转型到 `GarrisonPartyComponent` / `MilitiaPartyComponent`（两者都是 `PartyComponent` 子类，取实体用它们的 `MobileParty` 属性） |
 | `PatrolParty` | `public PatrolPartyComponent PatrolParty { get; private set; }` | 驻军部队的组件 |
 | `MilitiaPartyComponent` | `public MilitiaPartyComponent MilitiaPartyComponent` | 民兵组件 |
 | `Militia` | `public float Militia` | 民兵数量（浮点） |

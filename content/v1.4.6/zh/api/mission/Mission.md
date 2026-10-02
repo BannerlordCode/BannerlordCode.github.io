@@ -382,7 +382,7 @@ description: "sealed 的任务运行时根对象：Current 单例持有场景、
 | `IsMainAgentObjectInteractionEnabled` / `IsMainAgentItemInteractionEnabled` | 各自 `public bool` | 主 Agent 是否可与场景物体/物品交互 |
 | `IsInventoryAccessAllowed` / `IsInventoryAccessible` / `IsQuestScreenAccessAllowed` / `IsQuestScreenAccessible` / `IsCharacterWindowAccessAllowed` / `IsCharacterWindowAccessible` / `IsPartyWindowAccessAllowed` / `IsPartyWindowAccessible` / `IsKingdomWindowAccessAllowed` / `IsKingdomWindowAccessible` / `IsClanWindowAccessAllowed` / `IsClanWindowAccessible` / `IsEncyclopediaWindowAccessAllowed` / `IsEncyclopediaWindowAccessible` / `IsBannerWindowAccessAllowed` / `IsBannerWindowAccessible` | 各自 `public bool`（`Accessible` 侧是 `{ get; private set; }`） | 任务中各类界面是否允许访问。`Allowed` 是策略，`Accessible` 是当前实际状态 |
 | `FocusableObjectInformationProvider` | `public MissionFocusableObjectInformationProvider FocusableObjectInformationProvider { get; private set; }` | 可聚焦对象的信息提供器 |
-| `GetMissionCombatDifficulty` 辅助 | 见伤害段 | 不重复列 |
+| `GetDamageMultiplierOfCombatDifficulty` / `GetShootDifficulty` | 见上文伤害段 | 难度相关的两个计算入口，不重复列 |
 
 ### 调试与作弊命令
 

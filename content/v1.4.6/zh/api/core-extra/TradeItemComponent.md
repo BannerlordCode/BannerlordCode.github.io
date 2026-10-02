@@ -13,7 +13,7 @@ description: "贸易品与食品组件：唯一由 InitializeTradeGood 程序化
 
 ## 概述
 
-`TradeItemComponent` 是贸易品与食物在 [ItemObject](../ItemObject) 单槽上的行为插件，全部源码 54 行，只带一个数据成员：`MoraleBonus`（XML 属性 `morale_bonus`，代表「让队伍士兵开心」的那类商品）。它在整个组件体系里的地位特殊：**它是六个派生类里唯一一个能被官方 API 程序化挂上去的**——[ItemObject](../ItemObject) 的静态工厂 `InitializeTradeGood(...)` 的固定收尾动作就是 `item.ItemComponent = new TradeItemComponent(); item.AfterInitialized(); item.ItemFlags |= ItemFlags.Civilian;`。它同时也是 [ItemObject](../ItemObject) 的 `FoodComponent` 属性返回的类型（**名字叫 Food，类型是 TradeItem**），以及 XML 里 `<Trade>` 标签的落点。
+`TradeItemComponent` 是贸易品与食物在 [ItemObject](../ItemObject) 单槽上的行为插件，全部源码 54 行，只带一个数据成员：`MoraleBonus`（XML 属性 `morale_bonus`，代表「让队伍士兵开心」的那类商品）。它在整个组件体系里的地位特殊：**它是六个派生类里唯一一个能被官方 API 程序化挂上去的**——[ItemObject](../ItemObject) 的静态工厂 `InitializeTradeGood(...)` 的固定收尾动作就是 `item.ItemComponent = new TradeItemComponent(); item.AfterInitialized(); item.ItemFlags |= ItemFlags.Civilian;`。它同时也是 [ItemObject](../ItemObject) 的 `FoodComponent` 属性返回的类型（**属性名叫 `FoodComponent`，返回类型是 `TradeItemComponent`**），以及 XML 里 `<Trade>` 标签的落点。
 
 ## 心智模型
 

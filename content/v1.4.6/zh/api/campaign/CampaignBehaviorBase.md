@@ -30,7 +30,7 @@ description: "战役 Behavior 的抽象基类：RegisterEvents 挂事件、SyncD
 | `StringId` | `public readonly string StringId` | 构造时确定的行为标识，日志与调试工具用它区分实例。不参与存档，也不参与去重 |
 | 构造函数 | `public CampaignBehaviorBase(string stringId)` | 显式指定标识。多个 Behavior 共用同一字符串时不会有任何冲突检查，命名唯一性靠你自己保证 |
 | 构造函数 | `public CampaignBehaviorBase()` | 把 `GetType().Name` 赋给 `StringId`。两个同名嵌套 Behavior 会得到相同标识 |
-| `RegisterEvents` | `public abstract void RegisterEvents()` | 战役装配完成后被调一次。订阅 `CampaignEvents.*`、`Clan.PlayerClanChanged` 等；返回值无意义，被子类忽略 |
+| `RegisterEvents` | `public abstract void RegisterEvents()` | 战役装配完成后被调一次。订阅 `CampaignEvents.*` 等战役级事件；`Clan` 上并没有「玩家家族已变更」这类成员属性，判断当前玩家家族请读静态属性 `Clan.PlayerClan`；返回值无意义，被子类忽略 |
 | `SyncData` | `public abstract void SyncData(IDataStore dataStore)` | 存/读档双向回调。`dataStore.IsSaving` 为 true 时把字段写出去，false 时按 key 读回来；返回值 void，成功与否由实现负责 |
 | `GetCampaignBehavior<T>` | `public static T GetCampaignBehavior<T>()` | 转发到 `Campaign.Current.GetCampaignBehavior<T>()`。返回第一个匹配类型的已注册实例，找不到时返回 `default(T)` 而不是抛异常 |
 

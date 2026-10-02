@@ -86,7 +86,7 @@ description: "所有界面的抽象基类：持有一组 ScreenLayer 与 ScreenC
 | 成员 | 签名 | 作用 |
 | --- | --- | --- |
 | `OnLayerAddedEvent` | `public delegate void OnLayerAddedEvent(ScreenLayer addedLayer)` | `OnAddLayer` 事件的委托签名 |
-| `OnLayerRemovedEvent` | `public delegate void OnRemoveLayerEvent(ScreenLayer removedLayer)` | `OnRemoveLayer` 事件的委托签名 |
+| `OnLayerRemovedEvent` | `public delegate void OnLayerRemovedEvent(ScreenLayer removedLayer)` | `OnRemoveLayer` 事件的委托签名 |
 
 ## 真实示例
 

@@ -22,7 +22,7 @@ description: "标注一个私有字段参与序列化，告诉保存系统这个
 
 1. **局部编号（LocalSaveId）**——本类型内部字段的槽位号，`short` 范围。它的作用域是**声明它的那个类**，不是全局；不同类型都用 `[SaveableField(1)]` 完全没问题。
 2. **类型定义（TypeDefinition）**——由 [SaveableTypeDefiner](../SaveableTypeDefiner) 的 `AddClassDefinition(typeof(YourType), 100)` 建立，把「槽位号 → 字段名」固定下来。
-3. **序列化格式**——1.4.6 里写死 `CurrentVersion = 1`，字段的读写走 `ISaveTypeSerializer` 的按序号访问器。
+3. **序列化格式**——1.4.6 里写死 `CurrentVersion = 1`，字段的读写最终走 `SaveManager.Save(object, MetaData, string, ISaveDriver)` / `SaveManager.Load(...)` 这条路径（`ISaveDriver` 只管存档文件与存档名），按 `LocalSaveId` 取字段的逻辑在存档系统内部，并没有对外的「按类型序列化器」接口。
 
 典型顺序：给字段加特性 → 在 definer 里登记这个类型 → 确认该字段的类型本身也有 definer（否则存的是引用 id 也会失败）。
 

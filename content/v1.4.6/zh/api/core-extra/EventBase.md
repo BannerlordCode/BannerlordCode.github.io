@@ -22,7 +22,7 @@ description: "事件系统的事件类型标记基类：EventManager 只接受�
 
 典型使用顺序只有两步，因为没有第三步：
 
-1. **声明事件类型**：`public class InventoryOpenedEvent : EventBase { public InventoryScreen Screen; }`。它就是纯数据载体，不需要任何方法。
+1. **声明事件类型**：`public class InventoryTransferItemEvent : EventBase { public ItemObject Item { get; private set; } public bool IsBuyForPlayer { get; private set; } }`（源码 `TaleWorlds.CampaignSystem/Inventory/InventoryTransferItemEvent.cs`，构造函数 `(ItemObject item, bool isBuyForPlayer)`）。它就是纯数据载体，不需要任何方法。
 2. **注册 / 触发**：持有 [EventManager](../EventManager) 的那一侧（通常是 [Game](../Game) 的 `EventManager` 属性）在初始化时 `RegisterEvent<MyEvent>(handler)`；生产侧 `TriggerEvent(new MyEvent { ... })`。
 
 `EventManager` 内部是 `DictionaryByType`，键是事件类型，值是 `Action<T>` 的集合。`TriggerEvent<T>(T eventObj)` 走 `_eventsByType.InvokeActions<T>(eventObj)`——**按事件的运行时类型分发**，所以传基类实例不会触发子类的处理器（这里没有多态回退逻辑）。

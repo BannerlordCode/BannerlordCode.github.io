@@ -23,7 +23,7 @@ description: "战役全局事件总线：275 个抛出方法与 250+ 个静态�
 
 会话时序：`OnNewGameCreatedEvent` → `OnGameEarlyLoadedEvent` → `OnGameLoadedEvent`（或读档路径的 `OnGameLoadFinishedEvent`）→ `OnSessionLaunchedEvent` → `OnAfterSessionLaunchedEvent`。读档不会重发 `OnNewGameCreatedEvent`。
 
-tick 家族按粒度分层：`TickEvent(float dt)` 与 `MissionTickEvent(float dt)` 是每帧；`QuarterHourlyTickEvent` 是每刻钟；`HourlyTickEvent` 每小时；`DailyTickEvent` 每天；`WeeklyTickEvent` 每周。再往下还有按实体拆分的版本（`HourlyTickHeroEvent`、`DailyTickPartyEvent`、`DailyTickClanEvent`、`DailyTickSettlementEvent`、`DailyTickTownEvent`、`OnQuarterDailyPartyTick`），它们由游戏遍历所有实体逐个触发——**这才是做「每实体维护缓存」的正确位置**，全局 `DailyTickEvent` 里遍历 `Campaign.Current.Heroes` 是常见且昂贵的错误写法。
+tick 家族按粒度分层：`TickEvent(float dt)` 与 `MissionTickEvent(float dt)` 是每帧；`QuarterHourlyTickEvent` 是每刻钟；`HourlyTickEvent` 每小时；`DailyTickEvent` 每天；`WeeklyTickEvent` 每周。再往下还有按实体拆分的版本（`DailyTickHeroEvent`、`DailyTickPartyEvent`、`DailyTickClanEvent`、`DailyTickSettlementEvent`、`DailyTickTownEvent`、`OnQuarterDailyPartyTick`；注意按领主 / 按部队 / 按家族 / 按定居点还各有一个 `HourlyTickXxxEvent`，但按领主只有每天一档，没有每小时一档），它们由游戏遍历所有实体逐个触发——**这才是做「每实体维护缓存」的正确位置**，全局 `DailyTickEvent` 里遍历 `Campaign.Current.Heroes` 是常见且昂贵的错误写法。
 
 三个常见误用。一是**在 `HourlyTickEvent` 里做重活**：它每游戏小时触发一次，但玩家推进时间时可能一帧内触发多次，游戏时间与真实帧率不同步。二是**忘记退订**：Behavior 被移除后订阅还在，回调访问已释放的字段会抛异常；而 `RemoveListeners(object obj)` 虽是 `public override`，它操作的 `Instance` 属性是 `private static`，外部拿不到实例，所以退订只能手动逐个 `-=`。三是**在否决事件里返回 true 却不做任何事**：`CanHeroDieEvent` 的 `ref bool` 初值由游戏设为 true，你若不修改就没影响；真正的坑是误把它当通知来订阅，白白跑一遍逻辑。
 
@@ -67,10 +67,11 @@ tick 家族按粒度分层：`TickEvent(float dt)` 与 `MissionTickEvent(float d
 
 ### 按实体的周期 tick
 
+注意：1.4.6 的 `CampaignEvents` **没有**按领主每小时的事件或抛出方法（每个领主只有每天一档）。按领主 / 按部队 / 按家族 / 按定居点各有每小时一档，按城镇只有每天一档。
+
 | 成员 | 签名 | 作用 |
 | --- | --- | --- |
-| `HourlyTickHeroEvent` | `IMbEvent<Hero> HourlyTickHeroEvent` | 每个领主每小时一次。做按领主缓存维护的正确位置 |
-| `DailyTickHeroEvent` | `IMbEvent<Hero> DailyTickHeroEvent` | 每个领主每天一次 |
+| `DailyTickHeroEvent` | `IMbEvent<Hero> DailyTickHeroEvent` | 每个领主每天一次。做按领主缓存维护的正确位置 |
 | `HourlyTickPartyEvent` | `IMbEvent<MobileParty> HourlyTickPartyEvent` | 每支部队每小时 |
 | `DailyTickPartyEvent` | `IMbEvent<MobileParty> DailyTickPartyEvent` | 每支部队每天 |
 | `HourlyTickClanEvent` | `IMbEvent<Clan> HourlyTickClanEvent` | 每个家族每小时 |
@@ -249,7 +250,7 @@ tick 家族按粒度分层：`TickEvent(float dt)` 与 `MissionTickEvent(float d
 | `TournamentFinished` | `IMbEvent<CharacterObject, MBReadOnlyList<CharacterObject>, Town, ItemObject> TournamentFinished` | 赛事结束，含冠军、参赛者、城镇与奖品 |
 | `OnPlayerJoinedTournamentEvent` | `IMbEvent<Town, bool> OnPlayerJoinedTournamentEvent` | 玩家报名，第二参数表示是否已成为参赛者 |
 | `PlayerStartedTournamentMatch` | `IMbEvent<Town> PlayerStartedTournamentMatch` | 玩家进入比赛回合 |
-| `OnPlayerEliminatedFromTournament` | `IMbEvent<int, Town> OnPlayerEliminatedFromTournament` | 玩家被淘汰，参数含轮次 |
+| `PlayerEliminatedFromTournament` | `IMbEvent<int, Town> PlayerEliminatedFromTournament` | 玩家被淘汰，参数含轮次 |
 | `PlayerDesertedBattleEvent` | `IMbEvent<int> PlayerDesertedBattleEvent` | 玩家在战斗中脱队，参数是被抛弃的士兵数 |
 | `MercenaryNumberChangedInTown` | `IMbEvent<Town, int, int> MercenaryNumberChangedInTown` | 城镇佣兵数量变化 |
 | `MercenaryTroopChangedInTown` | `IMbEvent<Town, CharacterObject, CharacterObject> MercenaryTroopChangedInTown` | 城镇佣兵兵种替换 |
@@ -270,7 +271,7 @@ tick 家族按粒度分层：`TickEvent(float dt)` 与 `MissionTickEvent(float d
 | `OnNewItemCraftedEvent` | `IMbEvent<ItemObject, ItemModifier, bool> OnNewItemCraftedEvent` | 锻造完成，含被覆盖的词条与是否订单物品 |
 | `CraftingPartUnlockedEvent` | `IMbEvent<CraftingPiece> CraftingPartUnlockedEvent` | 解锁锻造部件 |
 | `OnFigureheadUnlockedEvent` | `IMbEvent<Figurehead> OnFigureheadUnlockedEvent` | 解锁船首像 |
-| `OnItemsLooted` | `IMbEvent<MobileParty, ItemRoster> OnItemsLooted` | 战利品被装入某部队 |
+| `ItemsLooted` | `IMbEvent<MobileParty, ItemRoster> ItemsLooted` | 战利品被装入某部队 |
 | `OnCollectLootsItemsEvent` | `IMbEvent<PartyBase, ItemRoster> OnCollectLootsItemsEvent` | 战利品被收集 |
 | `OnLootDistributedToPartyEvent` | `IMbEvent<PartyBase, PartyBase, ItemRoster> OnLootDistributedToPartyEvent` | 战利品分给部队 |
 | `OnItemSoldEvent` | `IMbEvent<PartyBase, PartyBase, ItemRosterElement, int, Settlement> OnItemSoldEvent` | 成交一笔买卖 |
@@ -281,13 +282,13 @@ tick 家族按粒度分层：`TickEvent(float dt)` 与 `MissionTickEvent(float d
 | `OnPlayerEarnedGoldFromAssetEvent` | `IMbEvent<DefaultClanFinanceModel.AssetIncomeType, int> OnPlayerEarnedGoldFromAssetEvent` | 家族资产收益 |
 | `OnPlayerTradeProfitEvent` | `IMbEvent<int> OnPlayerTradeProfitEvent` | 玩家贸易利润结算 |
 | `OnTradeRumorIsTakenEvent` | `IMbEvent<List<TradeRumor>, Settlement> OnTradeRumorIsTakenEvent` | 贸易传闻被获取 |
-| `OnPlayerStartRecruitmentEvent` | `IMbEvent<CharacterObject> OnPlayerStartRecruitmentEvent` | 玩家开始招募 |
+| `PlayerStartRecruitmentEvent` | `IMbEvent<CharacterObject> PlayerStartRecruitmentEvent` | 玩家开始招募 |
 | `OnUnitRecruitedEvent` | `IMbEvent<CharacterObject, int> OnUnitRecruitedEvent` | 招募完成 |
 | `OnTroopRecruitedEvent` | `IMbEvent<Hero, Settlement, Hero, CharacterObject, int> OnTroopRecruitedEvent` | 领主视角的招募，含招募者、聚落、来源英雄、兵种与数量 |
 | `OnTroopGivenToSettlementEvent` | `IMbEvent<Hero, Settlement, TroopRoster> OnTroopGivenToSettlementEvent` | 向聚落赠送士兵 |
 | `PlayerUpgradedTroopsEvent` | `IMbEvent<CharacterObject, CharacterObject, int> PlayerUpgradedTroopsEvent` | 玩家升级兵种 |
 | `OnPlayerPartyKnockedOrKilledTroopEvent` | `IMbEvent<CharacterObject> OnPlayerPartyKnockedOrKilledTroopEvent` | 玩家部下被击伤或击杀 |
-| `OnCharacterPortraitPopUpOpenedEvent` | `IMbEvent<CharacterObject> OnCharacterPortraitPopUpOpenedEvent` | 角色立绘弹窗打开 |
+| `CharacterPortraitPopUpOpenedEvent` | `IMbEvent<CharacterObject> CharacterPortraitPopUpOpenedEvent` | 角色立绘弹窗打开 |
 | `CharacterPortraitPopUpClosedEvent` | `IMbEvent CharacterPortraitPopUpClosedEvent` | 立绘弹窗关闭 |
 
 ### 战斗、地图事件与攻城
@@ -301,7 +302,7 @@ tick 家族按粒度分层：`TickEvent(float dt)` 与 `MissionTickEvent(float d
 | `OnMissionStartedEvent` | `IMbEvent<IMission> OnMissionStartedEvent` | 任务开始 |
 | `AfterMissionStarted` | `IMbEvent<IMission> AfterMissionStarted` | 任务启动完成之后 |
 | `OnMissionEndedEvent` | `IMbEvent<IMission> OnMissionEndedEvent` | 任务结束 |
-| `OnMissionStateActivatedEvent` 关联项 | 见 `MissionState` 相关 | 见 [MissionBehavior](../../mission/MissionBehavior) 的同名钩子 |
+| （无对应事件） | 见 [MissionBehavior](../../mission/MissionBehavior) 的 `OnMissionStateActivated()` | 本类没有「任务状态激活」这条战役事件。该钩子是 `MissionBehavior` 上的 `public virtual void OnMissionStateActivated()`，只能在任务内覆写 |
 | `OnSiegeEventStartedEvent` | `IMbEvent<SiegeEvent> OnSiegeEventStartedEvent` | 围城开始 |
 | `OnSiegeEventEndedEvent` | `IMbEvent<SiegeEvent> OnSiegeEventEndedEvent` | 围城结束 |
 | `OnBlockadeActivatedEvent` | `IMbEvent<SiegeEvent> OnBlockadeActivatedEvent` | 封锁启动 |
@@ -350,7 +351,7 @@ tick 家族按粒度分层：`TickEvent(float dt)` 与 `MissionTickEvent(float d
 | `GameMenuOptionSelectedEvent` | `IMbEvent<GameMenu, GameMenuOption> GameMenuOptionSelectedEvent` | 菜单项被选中 |
 | `OnPlayerBoardGameOverEvent` | `IMbEvent<Hero, BoardGameHelper.BoardGameState> OnPlayerBoardGameOverEvent` | 棋盘游戏结束 |
 | `OnPlayerBodyPropertiesChangedEvent` | `IMbEvent OnPlayerBodyPropertiesChangedEvent` | 玩家体型属性改变，需要重建身体模型 |
-| `OnPlayerTraitChangedEvent` | `IMbEvent<TraitObject, int> OnPlayerTraitChangedEvent` | 玩家特质变化，参数含旧等级 |
+| `PlayerTraitChangedEvent` | `IMbEvent<TraitObject, int> PlayerTraitChangedEvent` | 玩家特质变化，参数含旧等级 |
 
 ### 抛出侧（游戏调用的 275 个 `public override` 方法）
 
@@ -389,7 +390,6 @@ tick 家族按粒度分层：`TickEvent(float dt)` 与 `MissionTickEvent(float d
 | `HourlyTick` | `public override void HourlyTick()` | 每小时 |
 | `DailyTick` | `public override void DailyTick()` | 每天 |
 | `WeeklyTick` | `public override void WeeklyTick()` | 每周 |
-| `HourlyTickHero` | `public override void HourlyTickHero(Hero hero)` | 每领主每小时 |
 | `DailyTickHero` | `public override void DailyTickHero(Hero hero)` | 每领主每天 |
 | `HourlyTickParty` | `public override void HourlyTickParty(MobileParty mobileParty)` | 每部队每小时 |
 | `DailyTickParty` | `public override void DailyTickParty(MobileParty mobileParty)` | 每部队每天 |
@@ -409,7 +409,7 @@ tick 家族按粒度分层：`TickEvent(float dt)` 与 `MissionTickEvent(float d
 
 **领主相关抛出**
 
-`OnHeroCreated(Hero, bool)`、`OnHeroLevelledUp(Hero, bool)`、`OnHeroGainedSkill(Hero, SkillObject, int, bool)`、`OnPerkOpened(Hero, PerkObject)`、`OnPerkReset(Hero, PerkObject)`、`OnHeroWounded(Hero)`、`OnHeroActivated(Hero, Hero.CharacterStates)`、`OnHeroOccupationChanged(Hero, Occupation)`、`OnHeroChangedClan(Hero, Clan)`、`OnClanLeaderChanged(Hero, Hero)`、`OnHeroRelationChanged(Hero, Hero, int, bool, ChangeRelationAction.ChangeRelationDetail, Hero, Hero)`、`OnHeroJoinedParty(Hero, MobileParty)`、`OnRenownGained(Hero, int, bool)`、`OnHeroCombatHit(CharacterObject, CharacterObject, PartyBase, WeaponComponentData, bool, int)`、`OnPlayerMetHero(Hero)`、`OnPlayerLearnsAboutHero(Hero)`、`OnPlayerCharacterChanged(Hero, Hero, MobileParty, bool)`、`OnBeforePlayerCharacterChanged(Hero, Hero)`、`OnBeforeHeroKilled(Hero, Hero, KillCharacterAction.KillCharacterActionDetail, bool)`、`OnHeroKilled(Hero, Hero, KillCharacterAction.KillCharacterActionDetail, bool)`、`OnBeforeMainCharacterDied(Hero, Hero, KillCharacterAction.KillCharacterActionDetail, bool)`、`OnHeroPrisonerTaken(PartyBase, Hero)`、`OnHeroPrisonerReleased(Hero, PartyBase, IFaction, EndCaptivationDetail, bool)`、`OnRansomOfferedToPlayer(Hero)`、`OnRansomOfferCancelled(Hero)`、`OnCharacterDefeated(Hero, Hero)`、`OnCharacterBecameFugitive(Hero, bool)`、`OnHeroGetsBusy(Hero, HeroGetsBusyReasons)`、`OnHeroSharedFoodWithAnother(Hero, Hero, float)`、`OnHeroTeleportationRequested(Hero, Settlement, MobileParty, TeleportHeroAction.TeleportationDetail)`、`OnHeroUnregistered(Hero)`、`OnRomanticStateChanged(Hero, Hero, Romance.RomanceLevelEnum)`、`OnBeforeHeroesMarried(Hero, Hero, bool)`、`OnMarriageOfferedToPlayer(Hero, Hero)`、`OnMarriageOfferCanceled(Hero, Hero)`、`OnGivenBirth(Hero, List<Hero>, int)`、`OnChildConceived(Hero)`、`OnHeroComesOfAge(Hero)`、`OnHeroReachesTeenAge(Hero)`、`OnHeroGrowsOutOfInfancy(Hero)`、`OnChildEducationCompleted(Hero, int)`、`OnHeirSelectionRequested(Dictionary<Hero, int>)`、`OnHeirSelectionOver(Hero)`、`OnNewCompanionAdded(Hero)`、`OnCompanionRemoved(Hero, RemoveCompanionAction.RemoveCompanionDetail)`、`OnCheckForIssue(Hero)`、`PlayerStartTalkFromMenu(Hero)`、`OnItemsRefined(Hero, Crafting.RefiningFormula)`、`OnEquipmentSmeltedByHero(Hero, EquipmentElement)`、`OnItemsDiscardedByPlayer(ItemRoster)`、`OnPlayerStartRecruitment(CharacterObject)`、`OnUnitRecruited(CharacterObject, int)`、`OnTroopRecruited(Hero, Settlement, Hero, CharacterObject, int)`、`OnTroopGivenToSettlement(Hero, Settlement, TroopRoster)`、`PlayerUpgradedTroops(CharacterObject, CharacterObject, int)`、`OnPlayerPartyKnockedOrKilledTroop(CharacterObject)`、`OnCharacterPortraitPopUpOpened(CharacterObject)`、`OnCharacterPortraitPopUpClosed()`、`OnPlayerDesertedBattle(int)`。
+`OnHeroCreated(Hero, bool)`、`OnHeroLevelledUp(Hero, bool)`、`OnHeroGainedSkill(Hero, SkillObject, int, bool)`、`OnPerkOpened(Hero, PerkObject)`、`OnPerkReset(Hero, PerkObject)`、`OnHeroWounded(Hero)`、`OnHeroActivated(Hero, Hero.CharacterStates)`、`OnHeroOccupationChanged(Hero, Occupation)`、`OnHeroChangedClan(Hero, Clan)`、`OnClanLeaderChanged(Hero, Hero)`、`OnHeroRelationChanged(Hero, Hero, int, bool, ChangeRelationAction.ChangeRelationDetail, Hero, Hero)`、`OnHeroJoinedParty(Hero, MobileParty)`、`OnRenownGained(Hero, int, bool)`、`OnHeroCombatHit(CharacterObject, CharacterObject, PartyBase, WeaponComponentData, bool, int)`、`OnPlayerMetHero(Hero)`、`OnPlayerLearnsAboutHero(Hero)`、`OnPlayerCharacterChanged(Hero, Hero, MobileParty, bool)`、`OnBeforePlayerCharacterChanged(Hero, Hero)`、`OnBeforeHeroKilled(Hero, Hero, KillCharacterAction.KillCharacterActionDetail, bool)`、`OnHeroKilled(Hero, Hero, KillCharacterAction.KillCharacterActionDetail, bool)`、`OnBeforeMainCharacterDied(Hero, Hero, KillCharacterAction.KillCharacterActionDetail, bool)`、`OnHeroPrisonerTaken(PartyBase, Hero)`、`OnHeroPrisonerReleased(Hero, PartyBase, IFaction, EndCaptivityDetail, bool)`、`OnRansomOfferedToPlayer(Hero)`、`OnRansomOfferCancelled(Hero)`、`OnCharacterDefeated(Hero, Hero)`、`OnCharacterBecameFugitive(Hero, bool)`、`OnHeroGetsBusy(Hero, HeroGetsBusyReasons)`、`OnHeroSharedFoodWithAnother(Hero, Hero, float)`、`OnHeroTeleportationRequested(Hero, Settlement, MobileParty, TeleportHeroAction.TeleportationDetail)`、`OnHeroUnregistered(Hero)`、`OnRomanticStateChanged(Hero, Hero, Romance.RomanceLevelEnum)`、`OnBeforeHeroesMarried(Hero, Hero, bool)`、`OnMarriageOfferedToPlayer(Hero, Hero)`、`OnMarriageOfferCanceled(Hero, Hero)`、`OnGivenBirth(Hero, List<Hero>, int)`、`OnChildConceived(Hero)`、`OnHeroComesOfAge(Hero)`、`OnHeroReachesTeenAge(Hero)`、`OnHeroGrowsOutOfInfancy(Hero)`、`OnChildEducationCompleted(Hero, int)`、`OnHeirSelectionRequested(Dictionary<Hero, int>)`、`OnHeirSelectionOver(Hero)`、`OnNewCompanionAdded(Hero)`、`OnCompanionRemoved(Hero, RemoveCompanionAction.RemoveCompanionDetail)`、`OnCheckForIssue(Hero)`、`OnPlayerStartTalkFromMenu(Hero)`、`OnItemsRefined(Hero, Crafting.RefiningFormula)`、`OnEquipmentSmeltedByHero(Hero, EquipmentElement)`、`OnItemsDiscardedByPlayer(ItemRoster)`、`OnPlayerStartRecruitment(CharacterObject)`、`OnUnitRecruited(CharacterObject, int)`、`OnTroopRecruited(Hero, Settlement, Hero, CharacterObject, int)`、`OnTroopGivenToSettlement(Hero, Settlement, TroopRoster)`、`OnPlayerUpgradedTroops(CharacterObject, CharacterObject, int)`、`OnPlayerPartyKnockedOrKilledTroop(CharacterObject)`、`OnCharacterPortraitPopUpOpened(CharacterObject)`、`OnCharacterPortraitPopUpClosed()`、`OnPlayerDesertedBattle(int)`。
 
 **否决点抛出**
 
@@ -425,7 +425,7 @@ tick 家族按粒度分层：`TickEvent(float dt)` 与 `MissionTickEvent(float d
 
 **定居点、城镇、工坊与物资抛出**
 
-`OnBeforeSettlementEntered(MobileParty, Settlement, Hero)`、`OnSettlementEntered(MobileParty, Settlement, Hero)`、`OnAfterSettlementEntered(MobileParty, Settlement, Hero)`、`OnSettlementLeft(MobileParty, Settlement)`、`OnSettlementOwnerChanged(Settlement, bool, Hero, Hero, Hero, ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail)`、`OnRebellionFinished(Settlement, Clan)`、`OnRebelliousClanDisbandedAtSettlement(Settlement, Clan)`、`OnVillageStateChanged(Village, Village.VillageStates, Village.VillageStates, MobileParty)`、`OnVillageBeingRaided(Village)`、`OnVillageLooted(Village)`、`OnVillageBecomeNormal(Village)`、`OnBuildingLevelChanged(Town, Building, int)`、`OnGovernorChanged(Town, Hero, Hero)`、`TownRebelliousStateChanged(Town, bool)`、`OnTournamentStarted(Town)`、`OnTournamentCancelled(Town)`、`OnTournamentFinished(CharacterObject, MBReadOnlyList<CharacterObject>, Town, ItemObject)`、`OnPlayerJoinedTournament(Town, bool)`、`OnPlayerStartedTournamentMatch(Town)`、`OnPlayerEliminatedFromTournament(int, Town)`、`OnMercenaryNumberChangedInTown(Town, int, int)`、`OnMercenaryTroopChangedInTown(Town, CharacterObject, CharacterObject)`、`OnWorkshopInitialized(Workshop)`、`OnWorkshopTypeChanged(Workshop)`、`OnWorkshopOwnerChanged(Workshop, Hero)`、`PrisonersChangeInSettlement(Settlement, FlattenedTroopRoster, Hero, bool)`、`OnPrisonerTaken(FlattenedTroopRoster)`、`OnPrisonerReleased(FlattenedTroopRoster)`、`OnPrisonerSold(PartyBase, PartyBase, TroopRoster)`、`OnPrisonerDonatedToSettlement(MobileParty, FlattenedTroopRoster, Settlement)`、`OnMainPartyPrisonerRecruited(FlattenedTroopRoster)`、`OnAlleyOwnerChanged(Alley, Hero, Hero)`、`OnAlleyOccupiedByPlayer(Alley, TroopRoster)`、`OnAlleyClearedByPlayer(Alley)`、`OnItemProduced(ItemObject, Settlement, int)`、`OnItemConsumed(ItemObject, Settlement, int)`、`OnNewItemCrafted(ItemObject, ItemModifier, bool)`、`CraftingPartUnlocked(CraftingPiece)`、`OnFigureheadUnlocked(Figurehead)`、`OnItemsLooted(MobileParty, ItemRoster)`、`OnCollectLootItems(PartyBase, ItemRoster)`、`OnLootDistributedToParty(PartyBase, PartyBase, ItemRoster)`、`OnItemSold(PartyBase, PartyBase, ItemRosterElement, int, Settlement)`、`OnPlayerInventoryExchange(List<ValueTuple<ItemRosterElement, int>>, List<ValueTuple<ItemRosterElement, int>>, bool)`、`OnPlayerEarnedGoldFromAsset(DefaultClanFinanceModel.AssetIncomeType, int)`、`OnPlayerTradeProfit(int)`、`OnTradeRumorIsTaken(List<TradeRumor>, Settlement)`、`OnCraftingOrderCompleted(Town, CraftingOrder, ItemObject, Hero)`。
+`OnBeforeSettlementEntered(MobileParty, Settlement, Hero)`、`OnSettlementEntered(MobileParty, Settlement, Hero)`、`OnAfterSettlementEntered(MobileParty, Settlement, Hero)`、`OnSettlementLeft(MobileParty, Settlement)`、`OnSettlementOwnerChanged(Settlement, bool, Hero, Hero, Hero, ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail)`、`OnRebellionFinished(Settlement, Clan)`、`OnRebelliousClanDisbandedAtSettlement(Settlement, Clan)`、`OnVillageStateChanged(Village, Village.VillageStates, Village.VillageStates, MobileParty)`、`OnVillageBeingRaided(Village)`、`OnVillageLooted(Village)`、`OnVillageBecomeNormal(Village)`、`OnBuildingLevelChanged(Town, Building, int)`、`OnGovernorChanged(Town, Hero, Hero)`、`TownRebelliousStateChanged(Town, bool)`、`OnTournamentStarted(Town)`、`OnTournamentCancelled(Town)`、`OnTournamentFinished(CharacterObject, MBReadOnlyList<CharacterObject>, Town, ItemObject)`、`OnPlayerJoinedTournament(Town, bool)`、`OnPlayerStartedTournamentMatch(Town)`、`OnPlayerEliminatedFromTournament(int, Town)`、`OnMercenaryNumberChangedInTown(Town, int, int)`、`OnMercenaryTroopChangedInTown(Town, CharacterObject, CharacterObject)`、`OnWorkshopInitialized(Workshop)`、`OnWorkshopTypeChanged(Workshop)`、`OnWorkshopOwnerChanged(Workshop, Hero)`、`OnPrisonersChangeInSettlement(Settlement, FlattenedTroopRoster, Hero, bool)`、`OnPrisonerTaken(FlattenedTroopRoster)`、`OnPrisonerReleased(FlattenedTroopRoster)`、`OnPrisonerSold(PartyBase, PartyBase, TroopRoster)`、`OnPrisonerDonatedToSettlement(MobileParty, FlattenedTroopRoster, Settlement)`、`OnMainPartyPrisonerRecruited(FlattenedTroopRoster)`、`OnAlleyOwnerChanged(Alley, Hero, Hero)`、`OnAlleyOccupiedByPlayer(Alley, TroopRoster)`、`OnAlleyClearedByPlayer(Alley)`、`OnItemProduced(ItemObject, Settlement, int)`、`OnItemConsumed(ItemObject, Settlement, int)`、`OnNewItemCrafted(ItemObject, ItemModifier, bool)`、`CraftingPartUnlocked(CraftingPiece)`、`OnFigureheadUnlocked(Figurehead)`、`OnItemsLooted(MobileParty, ItemRoster)`、`OnCollectLootItems(PartyBase, ItemRoster)`、`OnLootDistributedToParty(PartyBase, PartyBase, ItemRoster)`、`OnItemSold(PartyBase, PartyBase, ItemRosterElement, int, Settlement)`、`OnPlayerInventoryExchange(List<ValueTuple<ItemRosterElement, int>>, List<ValueTuple<ItemRosterElement, int>>, bool)`、`OnPlayerEarnedGoldFromAsset(DefaultClanFinanceModel.AssetIncomeType, int)`、`OnPlayerTradeProfit(int)`、`OnTradeRumorIsTaken(List<TradeRumor>, Settlement)`、`OnCraftingOrderCompleted(Town, CraftingOrder, ItemObject, Hero)`。
 
 **战斗、攻城、任务与地图抛出**
 
@@ -446,7 +446,7 @@ public class LedgerCampaignBehavior : CampaignBehaviorBase
 
     public override void RegisterEvents()
     {
-        CampaignEvents.HourlyTickHeroEvent += OnHourlyPerHero;
+        CampaignEvents.DailyTickHeroEvent += OnHourlyPerHero;
         CampaignEvents.HeroRelationChanged += OnRelationChanged;
         CampaignEvents.OnSettlementOwnerChangedEvent += OnOwnerChanged;
         // 否决点：这里可以真的把 ref bool 改掉
@@ -462,7 +462,7 @@ public class LedgerCampaignBehavior : CampaignBehaviorBase
     public override void OnRemoveBehavior()
     {
         // CampaignEvents.Instance 是 private static，外部拿不到，只能对称退订
-        CampaignEvents.HourlyTickHeroEvent -= OnHourlyPerHero;
+        CampaignEvents.DailyTickHeroEvent -= OnHourlyPerHero;
         CampaignEvents.HeroRelationChanged -= OnRelationChanged;
         CampaignEvents.OnSettlementOwnerChangedEvent -= OnOwnerChanged;
         CampaignEvents.CanHeroDieEvent -= OnCanHeroDie;
@@ -524,7 +524,7 @@ public class LedgerCampaignBehavior : CampaignBehaviorBase
 - **静态订阅泄漏**：`CampaignEvents` 的事件是静态的，Behavior 消失后订阅仍在。`RemoveListeners` 帮不上忙（`Instance` 私有），必须把所有 `+=` 集中在一处、销毁时对称 `-=`。
 - **订阅时机**：`RegisterEvents()` 之前战役未建立，那时读 `Campaign.Current.Heroes` 会拿到空集合。所有实体查询都应该延到事件回调里再做。
 - **tick 与游戏时间不同步**：玩家推进一天可能在一帧内触发 24 次 `HourlyTickEvent`。把「一天一次」的重活放 `DailyTickEvent`，并自己保证幂等。
-- **按实体 tick 会被对象数量放大**：`HourlyTickHeroEvent` 在有 200 个领主时一小时触发 200 次，单个回调必须便宜。按领主建字典缓存是常见且正确的做法。
+- **按实体 tick 会被对象数量放大**：`DailyTickHeroEvent` 在有 200 个领主时每天触发 200 次，单个回调必须便宜。按领主建字典缓存是常见且正确的做法。
 - **否决点会连锁**：`CanHeroDieEvent` 订阅者多时，任何一个把 `result` 置 false 都会生效；顺序不定，不要假设自己一定是最后一个。
 - **销毁后仍会收到事件**：`OnHeroUnregisteredEvent`、`OnClanDestroyedEvent`、`OnPartyRemovedEvent` 之后对象引用失效，回调里再读属性会抛异常。
 - **`OnBeforeSaveEvent` 与 `OnSaveStartedEvent` 的差别**：前者适合改数据（还来得及写进本次存档），后者适合清理运行时状态。往已开始的存档里改数据不会生效。

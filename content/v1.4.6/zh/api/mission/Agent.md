@@ -392,7 +392,6 @@ AI 侧走 `AIStateFlags`（同样是位域，`AlarmStateMask = 3` 用来取警�
 | `SetFormationBanner` | `public void SetFormationBanner(ItemObject banner)` | 设置阵型旗帜 |
 | `SetAgentFlags` / `GetAgentFlags` | `public void SetAgentFlags(AgentFlag agentFlags)` / `public AgentFlag GetAgentFlags()` | 外观相关的实体标志 |
 | `SetNativeFormationNo` | `public void SetNativeFormationNo(int formationNo)` | 设置底层阵型编号（模型 LOD） |
-| `IsMale`（对应） | 见 `IsFemale` | `public bool IsFemale { get; set; }` 是性别属性 |
 | `SetAgentExcludeStateForFaceGroupId` | `public void SetAgentExcludeStateForFaceGroupId(int faceGroupId, bool isExcluded)` | 表情组排除 |
 | `SetAgentFacialAnimation` | `public void SetAgentFacialAnimation(Agent.FacialAnimChannel channel, string animationName, bool loop)` | 播放面部动画 |
 | `GetAgentFacialAnimation` | `public string GetAgentFacialAnimation()` | 读当前面部动画名 |

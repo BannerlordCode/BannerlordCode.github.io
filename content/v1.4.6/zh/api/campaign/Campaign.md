@@ -81,7 +81,7 @@ description: "战役运行时根对象：Current 单例持有全部管理器、�
 | `LordParties` / `CaravanParties` / `MilitiaParties` / `GarrisonParties` / `VillagerParties` / `PatrolParties` / `BanditParties` | 各自 `public MBReadOnlyList<MobileParty> ...` | 按职能分类的部队子集。命名即语义，不用自己过滤 |
 | `CustomParties` | `public MBReadOnlyList<MobileParty> CustomParties` | 玩家自定义创建的部队 |
 | `PartiesWithoutPartyComponent` | `public MBReadOnlyList<MobileParty> PartiesWithoutPartyComponent` | 没有 `PartyComponent` 的部队，通常是尚未装配完的 |
-| `Workshops` | `public MBReadOnlyList<WorkshopType> WorkshopWorkshops`（实际名 `Workshops`） | 全部工坊类型 |
+| `Workshops` | `public MBReadOnlyList<WorkshopType> Workshops` | 全部工坊类型 |
 | `ItemModifiers` | `public MBReadOnlyList<ItemModifier> ItemModifiers` | 全部物品词条 |
 | `ItemModifierGroups` | `public MBReadOnlyList<ItemModifierGroup> ItemModifierGroups` | 全部词条组 |
 | `Concepts` | `public MBReadOnlyList<Concept> Concepts` | 百科条目概念 |

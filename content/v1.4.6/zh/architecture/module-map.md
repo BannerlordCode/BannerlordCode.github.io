@@ -30,7 +30,7 @@ bannerlord-1.4.6/
 | --- | --- | --- |
 | `TaleWorlds.Core` / `TaleWorlds.Library` / `TaleWorlds.DotNet` | [core-extra](../../api/core-extra/Game) · 17 页 | 前缀直落；`MBSubModuleBase` / `Module` 由类型名覆写改到 [core](../../api/core/MBSubModuleBase) |
 | `TaleWorlds.CampaignSystem` | [campaign](../../api/campaign/Campaign) · 7 页 | 前缀直落；`FastMode` 等子域继承同一桶 |
-| `TaleWorlds.CampaignSystem.*`（Behaviors / GameComponents / ComponentInterfaces / Conversation / Issues / SandBox / PartyBasedVisitables） | [campaign-ext](../../api/campaign-ext/MBObjectManager) · 2 页 | 子域各自一条更长前缀规则 |
+| `TaleWorlds.CampaignSystem.*`（CampaignBehaviors / GameComponents / ComponentInterfaces / Conversation / Issues） | [campaign-ext](../../api/campaign-ext/MBObjectManager) · 2 页 | 子域各自一条更长前缀规则；权威映射里另有两条指向 `TaleWorlds.CampaignSystem` 下不存在子命名空间的前缀规则（1.4.6 全树 grep 0 命中，实际不落任何类型） |
 | `TaleWorlds.ObjectSystem` | [campaign-ext](../../api/campaign-ext/MBObjectBase) | 源码目录名与文档桶名不同：它落在 campaign-ext，不另开一个「对象系统」桶 |
 | `TaleWorlds.MountAndBlade*` | `mission-ext` · **0 页**；`Mission` / `Agent` / `MissionBehavior` / `Formation` 由类型名覆写改到 [mission](../../api/mission/Mission) · 4 页；`CustomBattle` → `custombattle` · **0 页** | 前缀直落 + 类型名覆写 |
 | `*.ViewModelCollection`（Core / CampaignSystem / MountAndBlade） | `viewmodel` · **0 页** | 更长前缀优先于父前缀 |
@@ -69,7 +69,7 @@ bannerlord-1.4.6/
 | 模块目录 | 文档桶现状 | 关键类型（命名空间已核实） | mod 什么时候碰到它 |
 | --- | --- | --- | --- |
 | `TaleWorlds.CampaignSystem` | campaign 已手写（[Campaign](../../api/campaign/Campaign) · [CampaignBehaviorBase](../../api/campaign/CampaignBehaviorBase) · [CampaignEvents](../../api/campaign/CampaignEvents) · [CampaignGameStarter](../../api/campaign/CampaignGameStarter) · [Hero](../../api/campaign/Hero) · [Settlement](../../api/campaign/Settlement) · [IDataStore](../../api/campaign/IDataStore)）；待补 `GameModels`、`CharacterObject` | `Campaign`、`CampaignBehaviorBase`、`CampaignEvents`、`CampaignGameStarter`、`GameModels`、`CharacterObject`（`TaleWorlds.CampaignSystem`） | 战役世界的一切：英雄、家族、聚落、部队、行为、事件总线、计算模型 |
-| `TaleWorlds.CampaignSystem.*`（Behaviors / GameComponents / ComponentInterfaces / Conversation / Issues / SandBox / PartyBasedVisitables） | campaign-ext 已手写（[MBObjectManager](../../api/campaign-ext/MBObjectManager) · [MBObjectBase](../../api/campaign-ext/MBObjectBase)）；行为、组件接口、对话等子域类型**待补** | 行为、组件接口、对话、事务、议题等子域类型 | 写行为实现、组件接口、对话流程时 |
+| `TaleWorlds.CampaignSystem.*`（CampaignBehaviors / GameComponents / ComponentInterfaces / Conversation / Issues） | campaign-ext 已手写（[MBObjectManager](../../api/campaign-ext/MBObjectManager) · [MBObjectBase](../../api/campaign-ext/MBObjectBase)）；行为、组件接口、对话等子域类型**待补** | 行为、组件接口、对话、事务、议题等子域类型 | 写行为实现、组件接口、对话流程时 |
 | `*.ViewModelCollection`（`TaleWorlds.CampaignSystem` / `.Core` / `.MountAndBlade`） | `viewmodel` · **0 页待补**（`BattleResultVM`、`CharacterViewModel`、`ControlCharacterCreationStage`） | 界面数据类（CampaignSystem 下 352 个） | 地图界面、外交、部队管理类界面 |
 | `TaleWorlds.CampaignSystem.FastMode` | campaign 桶；`FastModeSubModule`、`FastModeOptionsProvider` **待补**（1.4.6 里只有 3 个文件） | `FastModeSubModule`、`FastModeOptionsProvider` | 只在你明确支持快速模式时 |
 | `TaleWorlds.CampaignSystem.ViewModelCollection.BirthAndDeath` | `viewmodel` · **0 页待补** | 生育/继承相关界面数据 | 极少，通常不用碰 |

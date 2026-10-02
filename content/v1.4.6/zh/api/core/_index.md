@@ -6,7 +6,7 @@ description: "v1.4.6 的 core 桶只承载 TaleWorlds.MountAndBlade 里被类型
 
 这个桶不是 `TaleWorlds.Core` 的缩写。**桶名 `core` 在 v1.4.6 里只对应两个类型**：`TaleWorlds.MountAndBlade` 命名空间下的 `MBSubModuleBase` 和 `Module`。它们之所以落在这里而不是跟着命名空间走，是权威映射 `tools/_dir-map-canonical.json` 里的**类型名覆写**（`entryPointDirs`）把这两个名字从 `mission-ext` 抢过来单独成桶——理由很实际：mod 作者 100% 会碰这两个入口，但 1.4.6 的 `TaleWorlds.MountAndBlade` 有 1100 多个公开类型，绝大多数是战斗内部实现，把入口单独拎出来才找得到。
 
-**mod 作者在什么场景碰到它**：写一个 mod 的第一份代码就是继承 `MBSubModuleBase` 并覆写 `OnSubModuleLoad`——模块清单扫描、程序集注册、行为注入、任务和自定义存档都在这几个回调里做。`Module` 通常只被读：想拿全局状态栈（`Module.CurrentModule.GameStateManager`）、想查询模块是否安装（`Module.GetSubModuleClass` 路径）、想在启动参数里插一条自有选项时才会直接碰到它。换句话说，**这一桶是「mod 的第一站和最后一站」**：入口在这里，具体业务在 [core-extra](../core-extra/Game)、[campaign](../campaign/Campaign)、[mission](../mission/Mission)。
+**mod 作者在什么场景碰到它**：写一个 mod 的第一份代码就是继承 `MBSubModuleBase` 并覆写 `OnSubModuleLoad`——模块清单扫描、程序集注册、行为注入、任务和自定义存档都在这几个回调里做。`Module` 通常只被读：想拿全局状态栈（`Module.CurrentModule.GameStateManager`）、想查询模块是否安装（`Module.GetSubModuleType(string name)` 路径，真名以 `SubModuleInfo.SubModuleClassTypeName` 为键，见 `bannerlord-1.4.6/TaleWorlds.MountAndBlade/Module.cs:1185`）、想在启动参数里插一条自有选项时才会直接碰到它。换句话说，**这一桶是「mod 的第一站和最后一站」**：入口在这里，具体业务在 [core-extra](../core-extra/Game)、[campaign](../campaign/Campaign)、[mission](../mission/Mission)。
 
 注意 1.4.6 的一处纠偏：`MBSubModuleBase` 和 `Module` 属于 `TaleWorlds.MountAndBlade`，不是 `TaleWorlds.Core`。旧版文档把它们记到 Core 目录下是错的，grep 源码时按 `TaleWorlds.MountAndBlade` 找。
 

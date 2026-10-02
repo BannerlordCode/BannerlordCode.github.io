@@ -3,6 +3,14 @@
 日期：2026-08-22 · 工作目录：`C:\WorkSpace\Bannerlord\BannerlordCode.github.io`
 源码根：`C:\WorkSpace\Bannerlord\bannerlord-1.4.6\`（顶层即模块目录，目录名 ≈ 命名空间）
 
+**跨版本对照源（已实测存在，路径必须精确到双层嵌套）**
+```
+C:\WorkSpace\Bannerlord\bannerlord-1.4.5\Bannerlord.Source\bin\<Assembly>\<Assembly>\<Type>.cs
+例：...\bin\TaleWorlds.CampaignSystem\TaleWorlds.CampaignSystem\Campaign.cs
+1.4.5 共 8,574 个 .cs（1.4.6 顶层为单层目录）。
+```
+**不要因为只扫了一层就断言「1.4.5 没有 C# 源码」** —— 本会话已因此错判一次并写进 24 页内容。核实不到就写「未核对」，但先确认路径层数。
+
 `content/v1.4.6/` 从零建。禁止改共享文件（`config.toml`、`templates/**`、`data/**`、`content/_index.md`、`content/versions/**`、其它版本目录）——共享文件只交「补丁规格」。
 禁止 `git add` / `git commit`；禁止全量 `zola build`（3.6 万页，本机 I/O 极慢）。
 
@@ -43,6 +51,15 @@ grep -n   'content/'                    <你的页>   # 仓库根相对泄漏。
 ### 跨版本链接
 
 回到站点根需要的 `../` 数 == 页面自身 route 的段数；语言段必须匹配**目标树**不是源树。
+
+## 0.3 内容判据（与门禁并列，违反即内容错误）
+
+1. **`internal` 类型不建页。** 面向 mod 作者的文档只写 mod 能引用的东西。若某个 `internal` 类型与某个 `public` 类型同名（不同可见性），把说明写进**那个 `public` 类型的页里**，不要给 `internal` 的单独建页。
+2. **占位符式命名与 `SomeValue` 同罪，正文裸名也算。** 禁止 `OnXxx` / `GetActionForXxx` / `I*StateHandler` / `XxxModel` 这类形态出现在正文裸名里；只用源码里真实存在的名字。
+3. **签名表只写到参数类型，语义放到「作用」列用中文描述。** 散文反查器不做词边界判断，lowerCamel 形参名里的大写段会被切出来误报（`lastKeysPressed`→`KeysPressed`）。**唯一干净的纠正法是不提那个 token。**
+4. **每个数字必须带单位与口径。** `BROKEN_LINKS`（按 occurrence）与表头（按文件内去重目标）是两个数，**不可相减、不可互相校准**。
+5. **桶索引必须与类页同批同步。** 新增类页若不进所属桶 `_index.md` 的「已手写类页」清单，它就是**孤儿页** —— 链接层面完全看不出来（断链是 0），只有 `node tools/_v146_orphan_check.mjs` 看得见。**每批收尾必跑 orphan 并要求归零。**
+6. **反例句不要提及不存在的名字。** 写「某版本未核对」时若在反引号里写了那个假名，检查器会扫到并再报一条 miss。写「未核对」即可，不提具体名字。
 
 ## 0.2 派单纪律
 

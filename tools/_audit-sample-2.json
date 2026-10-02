@@ -1,0 +1,345 @@
+[
+ {
+  "rel": "zh/guide/save-system-guide.md",
+  "size": 5884,
+  "lang": "zh",
+  "subdir": "zh/guide",
+  "bucket": "3-8KB"
+ },
+ {
+  "rel": "zh/guide/modder-journey.md",
+  "size": 10153,
+  "lang": "zh",
+  "subdir": "zh/guide",
+  "bucket": "8-20KB"
+ },
+ {
+  "rel": "zh/guide/mission-system.md",
+  "size": 10291,
+  "lang": "zh",
+  "subdir": "zh/guide",
+  "bucket": "8-20KB"
+ },
+ {
+  "rel": "zh/architecture/_index.md",
+  "size": 5994,
+  "lang": "zh",
+  "subdir": "zh/architecture",
+  "bucket": "3-8KB"
+ },
+ {
+  "rel": "zh/architecture/module-system.md",
+  "size": 7338,
+  "lang": "zh",
+  "subdir": "zh/architecture",
+  "bucket": "3-8KB"
+ },
+ {
+  "rel": "zh/architecture/scenario-acceptance-E.md",
+  "size": 13635,
+  "lang": "zh",
+  "subdir": "zh/architecture",
+  "bucket": "8-20KB"
+ },
+ {
+  "rel": "zh/native/EngineMethod.md",
+  "size": 6893,
+  "lang": "zh",
+  "subdir": "zh/native",
+  "bucket": "3-8KB"
+ },
+ {
+  "rel": "zh/native-1.3.15-src/COMPLETE-TYPES.md",
+  "size": 28641,
+  "lang": "zh",
+  "subdir": "zh/native-1.3.15-src",
+  "bucket": ">20KB"
+ },
+ {
+  "rel": "zh/native-1.3.15-src/_index.md",
+  "size": 8529,
+  "lang": "zh",
+  "subdir": "zh/native-1.3.15-src",
+  "bucket": "8-20KB"
+ },
+ {
+  "rel": "zh/native-1.3.15-src/mission.md",
+  "size": 1903,
+  "lang": "zh",
+  "subdir": "zh/native-1.3.15-src",
+  "bucket": "1.2-3KB"
+ },
+ {
+  "rel": "en/architecture/noise-policy.md",
+  "size": 5354,
+  "lang": "en",
+  "subdir": "en/architecture",
+  "bucket": "3-8KB"
+ },
+ {
+  "rel": "en/native/_index.md",
+  "size": 846,
+  "lang": "en",
+  "subdir": "en/native",
+  "bucket": "<1.2KB"
+ },
+ {
+  "rel": "en/guide/_index.md",
+  "size": 1416,
+  "lang": "en",
+  "subdir": "en/guide",
+  "bucket": "1.2-3KB"
+ },
+ {
+  "rel": "en/xml-reference/_index.md",
+  "size": 832,
+  "lang": "en",
+  "subdir": "en/xml-reference",
+  "bucket": "<1.2KB"
+ },
+ {
+  "rel": "zh/xml-reference/bugs.md",
+  "size": 11960,
+  "lang": "zh",
+  "subdir": "zh/xml-reference",
+  "bucket": "8-20KB"
+ },
+ {
+  "rel": "zh/api/campaign-ext/MapSettlementNameplateView.md",
+  "size": 866,
+  "lang": "zh",
+  "subdir": "zh/api",
+  "bucket": "<1.2KB"
+ },
+ {
+  "rel": "zh/api/mission-ext/MovementStateEnum.md",
+  "size": 966,
+  "lang": "zh",
+  "subdir": "zh/api",
+  "bucket": "<1.2KB"
+ },
+ {
+  "rel": "zh/api/gui/PixelFormatDescriptorPixelTypes.md",
+  "size": 1181,
+  "lang": "zh",
+  "subdir": "zh/api",
+  "bucket": "<1.2KB"
+ },
+ {
+  "rel": "zh/api/campaign-ext/SiegeMoraleChangeMessage.md",
+  "size": 1376,
+  "lang": "zh",
+  "subdir": "zh/api",
+  "bucket": "1.2-3KB"
+ },
+ {
+  "rel": "zh/api/core-extra/ResourceDepotLocation.md",
+  "size": 2057,
+  "lang": "zh",
+  "subdir": "zh/api",
+  "bucket": "1.2-3KB"
+ },
+ {
+  "rel": "zh/api/campaign/BodyPropertiesModel.md",
+  "size": 2278,
+  "lang": "zh",
+  "subdir": "zh/api",
+  "bucket": "1.2-3KB"
+ },
+ {
+  "rel": "zh/api/viewmodel/SPScoreboardSkillItemVM.md",
+  "size": 2435,
+  "lang": "zh",
+  "subdir": "zh/api",
+  "bucket": "1.2-3KB"
+ },
+ {
+  "rel": "zh/api/mission-ext/MPLobbyRecentGamesVM.md",
+  "size": 3930,
+  "lang": "zh",
+  "subdir": "zh/api",
+  "bucket": "3-8KB"
+ },
+ {
+  "rel": "zh/api/core-extra/MissionResult.md",
+  "size": 6407,
+  "lang": "zh",
+  "subdir": "zh/api",
+  "bucket": "3-8KB"
+ },
+ {
+  "rel": "zh/api/viewmodel/DecisionOptionVM.md",
+  "size": 3829,
+  "lang": "zh",
+  "subdir": "zh/api",
+  "bucket": "3-8KB"
+ },
+ {
+  "rel": "zh/api/mission-ext/AgentVisualsData.md",
+  "size": 11413,
+  "lang": "zh",
+  "subdir": "zh/api",
+  "bucket": "8-20KB"
+ },
+ {
+  "rel": "zh/api/campaign/LocationEncounter.md",
+  "size": 11622,
+  "lang": "zh",
+  "subdir": "zh/api",
+  "bucket": "8-20KB"
+ },
+ {
+  "rel": "zh/api/campaign/CharacterObject.md",
+  "size": 24390,
+  "lang": "zh",
+  "subdir": "zh/api",
+  "bucket": ">20KB"
+ },
+ {
+  "rel": "en/api/mission-ext/ScreenFadeState.md",
+  "size": 1073,
+  "lang": "en",
+  "subdir": "en/api",
+  "bucket": "<1.2KB"
+ },
+ {
+  "rel": "en/api/core-extra/HorseTailCoverTypes.md",
+  "size": 1037,
+  "lang": "en",
+  "subdir": "en/api",
+  "bucket": "<1.2KB"
+ },
+ {
+  "rel": "en/api/campaign-ext/TcpStatus.md",
+  "size": 992,
+  "lang": "en",
+  "subdir": "en/api",
+  "bucket": "<1.2KB"
+ },
+ {
+  "rel": "en/api/campaign-ext/ThreadedClient.md",
+  "size": 1663,
+  "lang": "en",
+  "subdir": "en/api",
+  "bucket": "1.2-3KB"
+ },
+ {
+  "rel": "en/api/gui/WidgetAttributeValueType.md",
+  "size": 2340,
+  "lang": "en",
+  "subdir": "en/api",
+  "bucket": "1.2-3KB"
+ },
+ {
+  "rel": "en/api/campaign/VillageEventOptionData.md",
+  "size": 1450,
+  "lang": "en",
+  "subdir": "en/api",
+  "bucket": "1.2-3KB"
+ },
+ {
+  "rel": "en/api/viewmodel/ItemWoundedComparer.md",
+  "size": 1741,
+  "lang": "en",
+  "subdir": "en/api",
+  "bucket": "1.2-3KB"
+ },
+ {
+  "rel": "en/api/campaign-ext/PressLeaveToReturnFromMissionTutorial1.md",
+  "size": 3295,
+  "lang": "en",
+  "subdir": "en/api",
+  "bucket": "3-8KB"
+ },
+ {
+  "rel": "en/api/campaign/PersuasionModel.md",
+  "size": 4241,
+  "lang": "en",
+  "subdir": "en/api",
+  "bucket": "3-8KB"
+ },
+ {
+  "rel": "en/api/viewmodel/PersuasionOptionVM.md",
+  "size": 3773,
+  "lang": "en",
+  "subdir": "en/api",
+  "bucket": "3-8KB"
+ },
+ {
+  "rel": "en/api/mission-ext/MPPerkEffectBase.md",
+  "size": 9624,
+  "lang": "en",
+  "subdir": "en/api",
+  "bucket": "8-20KB"
+ },
+ {
+  "rel": "en/api/campaign/DeclareWarDecision.md",
+  "size": 8930,
+  "lang": "en",
+  "subdir": "en/api",
+  "bucket": "8-20KB"
+ },
+ {
+  "rel": "en/api/final/issues/_index.md",
+  "size": 45353,
+  "lang": "en",
+  "subdir": "en/api",
+  "bucket": ">20KB"
+ },
+ {
+  "rel": "en/api/engine/WeakGameEntity.md",
+  "size": 74673,
+  "lang": "en",
+  "subdir": "en/api",
+  "bucket": ">20KB"
+ },
+ {
+  "rel": "zh/api/engine/ISceneView.md",
+  "size": 6236,
+  "lang": "zh",
+  "subdir": "zh/api",
+  "bucket": "3-8KB"
+ },
+ {
+  "rel": "zh/api/save-system/MemberSaveData.md",
+  "size": 1609,
+  "lang": "zh",
+  "subdir": "zh/api",
+  "bucket": "1.2-3KB"
+ },
+ {
+  "rel": "zh/api/mission/IAdminPanelOptionInternal.md",
+  "size": 1179,
+  "lang": "zh",
+  "subdir": "zh/api",
+  "bucket": "<1.2KB"
+ },
+ {
+  "rel": "zh/api/final/sandbox-vm/_index.md",
+  "size": 26232,
+  "lang": "zh",
+  "subdir": "zh/api",
+  "bucket": ">20KB"
+ },
+ {
+  "rel": "en/api/save-system/SaveManager.md",
+  "size": 7662,
+  "lang": "en",
+  "subdir": "en/api",
+  "bucket": "3-8KB"
+ },
+ {
+  "rel": "en/api/mission/AdminPanelMultiSelectionItem.md",
+  "size": 2589,
+  "lang": "en",
+  "subdir": "en/api",
+  "bucket": "1.2-3KB"
+ },
+ {
+  "rel": "en/api/system/INativeArray.md",
+  "size": 1009,
+  "lang": "en",
+  "subdir": "en/api",
+  "bucket": "<1.2KB"
+ }
+]

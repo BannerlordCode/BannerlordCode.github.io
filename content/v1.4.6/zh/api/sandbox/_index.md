@@ -42,7 +42,7 @@ description: "sandbox 桶收拢 SandBox 前缀的全部命名空间（官方沙�
 
 模块入口与加载：
 
-- `SandBoxSubModule` — 沙盒玩法的 `MBSubModuleBase` 子类，**本桶最值得写一页的类型**。要理解「沙盒挂了哪些 CampaignBehavior、按什么顺序」，从这里读起。写法与 [core](../core) 的 `Module` 同源
+- `SandBoxSubModule` — 沙盒玩法的 `MBSubModuleBase` 子类，**本桶最值得写一页的类型**。要理解「沙盒挂了哪些 `CampaignBehaviorBase` 派生类、按什么顺序」，从这里读起。写法与 [core](../core) 的 `Module` 同源
 - `SandBoxMissions` — 沙盒相关的 mission 创建入口
 - `SandBoxSaveManager` — 沙盒的存档类型注册
 

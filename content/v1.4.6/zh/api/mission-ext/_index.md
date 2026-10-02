@@ -36,10 +36,10 @@ mission-ext 是剩下的部分。它们大致分三类：
 
 典型触发场景，按发生频率：
 
-1. **「我怎么拿到玩家队伍里的所有 agent」** → 需要 `Side` / `Team` / `TeamCollection` 来从 `Mission` 走到具体单位。`Mission.GetActiveTeams()` 给的是 `Team`，不是 `Agent`，这一步转换在本桶
+1. **「我怎么拿到玩家队伍里的所有 agent」** → 需要 `Side` / `Team` / `TeamCollection` 来从 `Mission` 走到具体单位。`Mission.GetTeamsOfSide(BattleSideEnum side)` 给的是 `Team`，不是 `Agent`，这一步转换在本桶
 2. **「战斗什么时候结束 / 哪一方赢了」** → `MBGameManager` 或 `MissionLogic` 上的回调，而不是 `Mission` 的属性
 3. **「攻城里我要控制某个器械」** → `SiegeWeapon` / `SiegeLadder` 这一族
-4. **「我加的生成点怎么算」** → `MissionSpawnHandler` 相关类型
+4. **「我加的生成点怎么算」** → `CustomMissionSpawnHandler` / `MissionSpawnSettings` 这一族（同命名空间 `TaleWorlds.MountAndBlade.MissionSpawnHandlers`）
 5. **「我加的单位血量/属性怎么结算」** → `AgentHelper` / `AgentStatCalculateModel` 这类计算模型
 
 **心智模型**：mission-ext 是「一局战斗的机器内部」。mission 桶给你的是**接口面**（你能拿到什么、能注册什么行为），mission-ext 给的是**机械面**（引擎自己怎么转）。判断一个需求属于哪边，问一句：我是要「拿到一个东西并改它」，还是「要知道引擎下一步要干什么」？前者看 [mission](../mission)，后者看本桶。

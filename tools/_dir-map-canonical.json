@@ -5,10 +5,6 @@
   "matchSemantics": "longest-prefix-wins. Do NOT use first-match. The array below is ALSO physically sorted so that first-match and longest-match give the same answer; if you add a rule, keep it sorted by descending prefix length. Rationale: TaleWorlds.MountAndBlade.CustomBattle and TaleWorlds.*.ViewModelCollection must beat their shorter parent prefixes.",
   "rules": [
     {
-      "prefix": "TaleWorlds.CampaignSystem.PartyBasedVisitables",
-      "dir": "campaign-ext"
-    },
-    {
       "prefix": "TaleWorlds.CampaignSystem.ComponentInterfaces",
       "dir": "campaign-ext"
     },
@@ -39,10 +35,6 @@
     {
       "prefix": "TaleWorlds.Core.ViewModelCollection",
       "dir": "viewmodel"
-    },
-    {
-      "prefix": "TaleWorlds.CampaignSystem.SandBox",
-      "dir": "campaign-ext"
     },
     {
       "prefix": "TaleWorlds.CampaignSystem.Issues",
@@ -285,8 +277,8 @@
       "decision": "do not create an empty bucket; a rule that can never match plus a permanently empty bucket is exactly the silent failure the non-empty assertion exists to catch"
     }
   ],
-  "schemaVersion": 3,
-  "_parseContract": "FAIL-CLOSED. Consumers MUST assert schemaVersion===3 and MUST error on any unknown shape. Never silently ignore an unrecognised key: entryPointDirs changed from {dir:[slugArray]} to {exactTypeName:dir} in v2 and a consumer that only understood the old shape dropped the whole override layer silently (mission/ and core/ went to 0 buckets) with no error. An unrecognised shape must abort, not degrade. v3 adds linkRules refinements; shape unchanged from v2 apart from the new forbidden/allowed/popToSiteRoot keys.",
+  "schemaVersion": 4,
+  "_parseContract": "FAIL-CLOSED. Consumers MUST assert schemaVersion===4 and MUST error on any unknown shape. Never silently ignore an unrecognised key. v4 removes two rules that matched zero namespaces in any version tree (see _deadRulesRemoved).",
   "linkRules": {
     "_principle": "Links are resolved ROUTE-relative: every page route is its own directory, so one '..' pops exactly one path segment. fs.existsSync on the joined path is NOT a valid check - wrong-level links exist as files.",
     "leafToSibling": "../<Name>",
@@ -323,5 +315,20 @@
     "  if (entryPointDirs[typeName]) dir = entryPointDirs[typeName]; // step 3 - ALWAYS runs",
     "  return dir; }"
   ],
-  "_resolutionWarning": "Step 3 must NOT be guarded by 'only if step 2 found nothing'. An implementation that returns as soon as a prefix rule matches will silently produce mission=0 and core=0, because the rule TaleWorlds.MountAndBlade -> mission-ext claims all 7 override targets first. Overrides are consulted on every type, so both 'override-first' and 'prefix-then-override' produce identical output; the documented order is kept only because override-first is name-based and will misroute the day a second Agent or Module appears in another namespace. Expected result: mission=5, core=2."
+  "_resolutionWarning": "Step 3 must NOT be guarded by 'only if step 2 found nothing'. An implementation that returns as soon as a prefix rule matches will silently produce mission=0 and core=0, because the rule TaleWorlds.MountAndBlade -> mission-ext claims all 7 override targets first. Overrides are consulted on every type, so both 'override-first' and 'prefix-then-override' produce identical output; the documented order is kept only because override-first is name-based and will misroute the day a second Agent or Module appears in another namespace. Expected result: mission=5, core=2.",
+  "_deadRulesRemoved": [
+    {
+      "prefix": "TaleWorlds.CampaignSystem.PartyBasedVisitables",
+      "removedFrom": "campaign-ext",
+      "verified": "grep `namespace TaleWorlds.CampaignSystem.PartyBasedVisitables` -> 0 hits across all 6 version trees (1.3.0/1.3.15/1.4.5/1.4.6/1.4.7/1.5.3)",
+      "foundBy": "lead-1 worker-43, cross-checked by lead-4 sampling, independently re-verified by Boss",
+      "consequence": "it routed nothing; any page still claiming a campaign-ext `PartyBasedVisitables` namespace was mis-bucketed. NOTE bare `SandBox` -> sandbox is a SEPARATE, LIVE rule and was kept."
+    },
+    {
+      "prefix": "TaleWorlds.CampaignSystem.SandBox",
+      "removedFrom": "campaign-ext",
+      "verified": "grep `namespace TaleWorlds.CampaignSystem.SandBox` -> 0 hits across all 6 version trees",
+      "consequence": "same as above; the real namespaces are `StoryMode.Missions`, `StoryMode.Quests.*`, `StoryMode.GameComponents`, and `SandBox.*` (top-level, covered by the live `SandBox` rule)."
+    }
+  ]
 }

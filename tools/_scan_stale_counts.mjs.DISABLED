@@ -1,0 +1,34 @@
+import fs from 'node:fs';
+import path from 'node:path';
+
+function walk(d, a = []) {
+  for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+    const p = path.join(d, e.name);
+    if (e.isDirectory()) walk(p, a);
+    else if (e.name.endsWith('.md')) a.push(p);
+  }
+  return a;
+}
+
+const pats = [
+  /\b8 (?:API )?class pages\b/i,
+  /\beight pages\b/i,
+  /three buckets/i,
+  /no `save-system` directory/i,
+  /Chinese tree only/,
+  /Buckets that have pages \(3/,
+  /currently hold 0 pages \(13\)/,
+  /Buckets with pages \(8\)/,
+  /zh\/api\/save-system/,
+  /save-system/,
+];
+
+const roots = walk('content/v1.4.7/en');
+for (const extra of ['content/v1.4.7/GAPS.md', 'content/GAPS.md']) {
+  if (fs.existsSync(extra)) roots.push(extra);
+}
+for (const p of roots) {
+  const t = fs.readFileSync(p, 'utf8');
+  const hits = pats.filter((r) => r.test(t));
+  if (hits.length) console.log(p.split(path.sep).join('/') + '   matches=' + hits.length);
+}

@@ -1,10 +1,12 @@
 ---
 title: "campaign-ext 桶：战役的扩展契约与对象身份"
-description: "TaleWorlds.ObjectSystem 与 TaleWorlds.CampaignSystem 的七个子命名空间（Behaviors / ComponentInterfaces / GameComponents / Conversation / Issues / SandBox / PartyBasedVisitables）落在这个桶：Behavior 管理器、模型接口与默认实现、对话与议题系统、对象注册表。已手写 2 张类页。"
+description: "TaleWorlds.ObjectSystem 与 TaleWorlds.CampaignSystem 的五个子命名空间（CampaignBehaviors / ComponentInterfaces / GameComponents / Conversation / Issues）落在这个桶：Behavior 管理器、模型接口与默认实现、对话与议题系统、对象注册表。已手写 2 张类页。"
 ---
 # campaign-ext 桶：战役的扩展契约与对象身份
 
-这个桶对应两类源码命名空间。一是 `bannerlord-1.4.6/TaleWorlds.ObjectSystem/`——整个对象系统只有 15 个文件，但它决定了一切战役实体怎么被登记、怎么跨存档引用。二是 `TaleWorlds.CampaignSystem` 的七个子命名空间：`CampaignBehaviors`（167 个文件）、`ComponentInterfaces`（126）、`GameComponents`（124）、`Conversation`（117）、`Issues`（49）、`SandBox`、`PartyBasedVisitables`。这七条更长前缀规则写在权威映射 `tools/_dir-map-canonical.json` 里，作用是把**契约与官方实现**从 [campaign](../campaign/) 的数据与运行时里剥出来。
+这个桶对应两类源码命名空间。一是 `bannerlord-1.4.6/TaleWorlds.ObjectSystem/`——整个对象系统只有 15 个文件，但它决定了一切战役实体怎么被登记、怎么跨存档引用。二是 `TaleWorlds.CampaignSystem` 的五个子命名空间：`CampaignBehaviors`（167 个文件）、`ComponentInterfaces`（126）、`GameComponents`（124）、`Conversation`（117）、`Issues`（49）。这五条更长前缀规则写在权威映射 `tools/_dir-map-canonical.json` 里，作用是把**契约与官方实现**从 [campaign](../campaign/) 的数据与运行时里剥出来。
+
+> 纠偏：权威映射里还留着两条指向 `TaleWorlds.CampaignSystem` 下**并不存在的子命名空间**的前缀规则，1.4.6 源码全树 grep 0 命中，所以本页不把它们算进桶。沙盒的行为在顶层 `SandBox` 程序集里（走 [sandbox](../sandbox) 桶），不在 `TaleWorlds.CampaignSystem` 命名空间下。
 
 **为什么源码目录叫 `CampaignSystem`、文档桶却叫 `campaign-ext`**：因为 mod 作者真正在这块干的事只有两类——**实现一个接口**（自己的 `ICampaignBehavior`、自己的 `PartySizeLimitModel`、自己的 `IssueBase`）或者**读懂一个接口在做什么**（游戏为什么这么判、这个默认值从哪来）。这两件事的入口类型几乎全在这个桶，而它们的数据结构在 campaign 桶。
 

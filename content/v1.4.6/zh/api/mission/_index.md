@@ -11,7 +11,7 @@ description: "mission 是有意的入口类 carve-out，只收 mod 真正会继�
 ## 已手写的类页（4 张）
 
 - [Mission](./Mission) — 任务运行时根对象：`Mission.Current` 单例持有场景、队伍、Agent 与投射物集合，并提供生成、伤害、寻路、相机与事件钩子。进入战斗先拿它。
-- [MissionBehavior](./MissionBehavior) — 战斗内逻辑的官方抽象基类：数十个 `OnXxx` 钩子覆盖 Agent 生死、命中判定、部署阶段与每帧 tick，`Mission` 属性指回所属任务。绝大多数战斗 mod 的代码就落在这一个类里。
+- [MissionBehavior](./MissionBehavior) — 战斗内逻辑的官方抽象基类：数十个 `OnXxx` 钩子覆盖 Agent 生死、命中判定、部署阶段与每帧 tick，`Mission` 属性指回所属任务。绝大多数战斗 mod 的代码就落在这一个类里。（`OnXxx` 是钩子族的简写，不是类型名；实际覆写的是 `MissionBehavior` 上以 `On` 开头的虚方法。）
 - [Agent](./Agent) — 战场单位：`Agent.Main` 单例代表一个人或一匹马，承载动作通道、AI 状态、装备、外观、命中累计与阵型归属。
 - [Formation](./Formation) — 战斗阵型：把一批 Agent 组织成有序队列，管理移动 / 朝向 / 阵形 / 骑乘 / 射击命令与缓存统计。
 

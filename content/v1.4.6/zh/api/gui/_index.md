@@ -11,7 +11,7 @@ description: "TaleWorlds.ScreenSystem、TaleWorlds.GauntletUI（含 .BaseTypes /
 ## 已手写的类页（2 张）
 
 - [ScreenManager](./ScreenManager) — 全局静态屏幕栈：`PushScreen` / `PopScreen` 决定界面顺序，每帧驱动所有 `ScreenBase` 的 tick 与输入分发，并处理焦点。自定义界面流程从它开始。
-- [ScreenBase](./ScreenBase) — 所有界面的抽象基类：持有一组 `ScreenLayer` 与 `ScreenComponent`，把引擎的推送 / 暂停 / 帧循环翻译成 `OnXxx` 虚方法。`SandBox` 与 `StoryMode` 的大量官方界面继承它。
+- [ScreenBase](./ScreenBase) — 所有界面的抽象基类：持有一组 `ScreenLayer` 与 `ScreenComponent`，把引擎的推送 / 暂停 / 帧循环翻译成 `OnXxx` 虚方法。`SandBox` 与 `StoryMode` 的大量官方界面继承它。（`OnXxx` 是钩子族的简写，不是类型名；真实类型是各个 `*Layer` / `*Component` / `*Screen` 子类。）
 
 ## 尚未撰写的部分
 

@@ -35,7 +35,7 @@ description: "storymode 桶收拢 StoryMode 前缀的全部命名空间，实测
 
 1. **插入点关系。** 和 sandbox 完全一样：你的行为会和故事模式自带的几百个行为一起被加进战役。要挂行为本身写 [campaign](../campaign) 的 `CampaignBehaviorBase` + `CampaignGameStarter`；要知道你在跟谁抢位置，读本桶。
 2. **事件监听（唯一的真实入口）。** `StoryModeEvents` 是一个继承 `CampaignEventReceiver` 的事件总线，暴露了一组 `IMbEvent<T>` 静态属性。已核实的成员包括 `OnMainStoryLineSideChosenEvent`（`IMbEvent<MainStoryLineSide>`），以及 `RemoveListeners` 里清理的那批：`OnStoryModeTutorialEndedEvent`、`OnStealthTutorialActivatedEvent`、`OnBannerPieceCollectedEvent`、`OnConspiracyActivatedEvent`、`OnTravelToVillageTutorialQuestStartedEvent`。**想做「主线选了哪一边」「某个阴谋被激活」这类反应的 mod，就订阅这里。** 这是本桶最值得先写一页的类型。
-3. **教学阶段参考。** 故事模式带了一整套内置教学（`TutorialPhase` 及其大量 `*Tutorial` / `*Step1Tutorial` 类）。做新手引导 mod 时参考这一套；否则完全不用碰。
+3. **教学阶段参考。** 故事模式带了一整套内置教学：入口是 `TutorialPhase`（`StoryMode/StoryModePhases/TutorialPhase.cs`），由 `TutorialPhaseCampaignBehavior` 驱动，具体关卡是 `FindHideoutTutorialQuest` / `TalkToTheHeadmanTutorialQuest` / `RecruitTroopsTutorialQuest` 一族教程任务。做新手引导 mod 时参考这一套；否则完全不用碰。
 
 **心智模型**：把 `StoryMode` 想成「官方发布的第二个大 mod」——它和你的 mod 做同样的事（挂行为、加任务、注册模型、接管界面），只是它是官方的、随游戏一起装的。所以读它的正确姿势是对照，不是继承。
 
@@ -52,7 +52,7 @@ description: "storymode 桶收拢 StoryMode 前缀的全部命名空间，实测
 
 模块入口与全局状态：
 
-- `StoryModeSubModule` — 故事模式的 `MBSubModuleBase` 子类，**想知道「故事模式挂了哪些 CampaignBehavior」就从这里读起**
+- `StoryModeSubModule` — 故事模式的 `MBSubModuleBase` 子类，**想知道「故事模式挂了哪些 `CampaignBehaviorBase` 派生类」就从这里读起**
 - `StoryModeGauntletUISubModule` — 故事模式界面子模块
 - `CampaignStoryMode` — 继承 `Campaign` 的战役实现，见上面的纠错
 - `StoryModeManager` — 故事模式的全局状态持有者；`StoryModeEvents.Instance` 就是从 `StoryModeManager.Current.StoryModeEvents` 取的，所以它非空才有事件可用

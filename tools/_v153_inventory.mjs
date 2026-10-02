@@ -25,9 +25,11 @@ const OUT = resolve(REPO_ROOT, arg('--out', 'tools/_v153_inventory.json'));
 
 // Boss-owned 权威映射；不硬编码副本，直接读 tools/_dir-map-canonical.json。
 // FAIL-CLOSED：schemaVersion 不认就报错退出，绝不静默降级。
+// 期望值不写死在这里 —— 从 artifact 自己的 _parseContract 读（_dir_map_contract.mjs）。
 // entryPointDirs 在 v2 从 {dir:[slugArray]} 变成 {exactTypeName:dir}，当时只懂旧形状的
 // 解析器静默丢掉了整个覆写层（mission/ 与 core/ 归零）且不报错——这是本断言存在的原因。
-const DIR_MAP_SCHEMA = 3;
+import { expectedDirMapSchema } from './_dir_map_contract.mjs';
+
 const DIR_MAP_PATH = resolve(REPO_ROOT, 'tools/_dir-map-canonical.json');
 
 function loadDirMap() {
@@ -35,6 +37,7 @@ function loadDirMap() {
     throw new Error('canonical 映射表缺失：' + DIR_MAP_PATH + '（拒绝回退到内置默认，避免映射与源码静默脱节）');
   }
   const m = JSON.parse(readFileSync(DIR_MAP_PATH, 'utf8'));
+  const DIR_MAP_SCHEMA = expectedDirMapSchema(m);
 
   if (m.schemaVersion !== DIR_MAP_SCHEMA) {
     throw new Error(

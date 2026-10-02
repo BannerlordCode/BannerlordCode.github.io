@@ -26,7 +26,16 @@ const SRC = join(ROOT, '..', 'bannerlord-1.4.7');
 
 // artifact-owned noise gate (resolutionOrder step 1: excludeNamespaces +
 // excludeSuffixes + sourceTypoNamespaces — a hard skip, no page, counted)
+// FAIL-CLOSED gate: 期望值从 artifact 自己的 _parseContract 读，不写死在这里。
+import { expectedDirMapSchema } from './_dir_map_contract.mjs';
 const CANON0 = JSON.parse(readFileSync(join(__dirname, '_dir-map-canonical.json'), 'utf8'));
+if (CANON0.schemaVersion !== expectedDirMapSchema(CANON0)) {
+  console.error(
+    'ARTIFACT_SHAPE_CHANGED: _dir-map-canonical.json 自报 schemaVersion=' + CANON0.schemaVersion +
+    '，与其 _parseContract 不符。FAIL-CLOSED 退出。'
+  );
+  process.exit(1);
+}
 const EXCL_NS = CANON0.excludeNamespaces || [];
 const EXCL_SUFFIX = CANON0.excludeSuffixes || [];
 const EXCL_TYPO = CANON0.sourceTypoNamespaces || [];
@@ -84,6 +93,14 @@ function excludedByArtifact(ns) {
 import { readFileSync as _rfs } from 'node:fs';
 
 export const CANON = JSON.parse(readFileSync(join(__dirname, '_dir-map-canonical.json'), 'utf8'));
+// 同一 artifact 的第二次读入：同样 fail-closed（模块级 export，进程早期就炸）。
+if (CANON.schemaVersion !== expectedDirMapSchema(CANON)) {
+  console.error(
+    'ARTIFACT_SHAPE_CHANGED: _dir-map-canonical.json 自报 schemaVersion=' + CANON.schemaVersion +
+    '，与其 _parseContract 不符。FAIL-CLOSED 退出。'
+  );
+  process.exit(1);
+}
 
 // type name (lowercased, whitespace-stripped) -> human-facing bucket
 // The artifact's entryPointDirs shape has changed once already; accept both:

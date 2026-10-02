@@ -1,8 +1,9 @@
 {
  "stats": {
   "sourceRoot": "C:/WorkSpace/Bannerlord/bannerlord-1.4.6",
-  "dirMap": "tools/_dir-map-canonical.json schemaVersion=3 version=2026-08-24",
+  "dirMap": "tools/_dir-map-canonical.json schemaVersion=5 version=2026-08-24",
   "moduleDirs": 91,
+  "csFilesScannedScope": "bannerlord-1.4.6 全树，排除目录 Properties|obj|bin（= 90 个 Properties/AssemblyInfo.cs，0 个类型声明）。与 find 的 11385 差 90 个文件，差在口径而非时间。",
   "csFilesScanned": 11295,
   "typesParsed": 16216,
   "pagedPublicTopLevelTypes": 5987,

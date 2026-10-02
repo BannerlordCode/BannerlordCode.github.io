@@ -3,6 +3,17 @@
 // 37-page whitelist into _withdrawn/v1.5.3/<lang>/<original path> and writes a
 // manifest recording source / target / bytes / basis. Nothing is deleted.
 //
+// !! HANDWRITTEN / the keep-snapshot are a FROZEN SNAPSHOT, not a live rule !!
+//   This script's move set = everything on disk that is NOT whitelisted. Every
+//   time a new hand-written page lands you MUST sync both tables, or a re-run
+//   will treat the new page as generator output and move it into _withdrawn/.
+//     1) HANDWRITTEN below  — the human-verified provenance list (per page)
+//     2) tools/_v153_keep_whitelist.txt — the complete frozen inventory of
+//        what currently exists under content/v1.5.3
+//   The reverse integrity check below exists to enforce exactly that: when the
+//   disk holds a page that is not whitelisted, ABORT and move nothing, rather
+//   than silently moving it out.
+//
 // Usage: node tools/_v153_withdraw.mjs            (move)
 //        node tools/_v153_withdraw.mjs --dry      (report only)
 import { mkdirSync, renameSync, readdirSync, readFileSync, statSync, writeFileSync, existsSync } from 'node:fs';
@@ -22,7 +33,8 @@ const HANDWRITTEN = [
   'zh/api/campaign/CampaignGameMode.md','zh/api/campaign/CampaignEventDispatcher.md','zh/api/campaign/CampaignEventReceiver.md',
   'zh/api/campaign/CampaignPeriodicEventManager.md','zh/api/campaign/MBCampaignEvent.md','zh/api/campaign/CampaignEvents.md',
   'zh/api/campaign/CampaignBehaviorBase.md','zh/api/campaign/GameModels.md',
-  'zh/api/campaign-ext/ICampaignBehavior.md','zh/api/campaign-ext/CampaignBehaviorManager.md',
+  'zh/api/campaign/ICampaignBehavior.md', // rebucketed out of campaign-ext/ in df15c2ff8e — keep this path in sync
+  'zh/api/campaign-ext/CampaignBehaviorManager.md',
   'zh/api/campaign-ext/DefaultSettlementProsperityModel.md',
   'zh/api/core-extra/GameModel.md','zh/api/core-extra/MBGameModel.md','zh/api/core-extra/GameModelsManager.md',
   'zh/api/core/MBSubModuleBase.md','zh/api/mission/Mission.md','zh/api/mission/MissionState.md',
@@ -36,7 +48,22 @@ for (const lang of ['zh', 'en']) {
     HANDWRITTEN.push(`${lang}/architecture/${a}.md`);
   }
 }
-const KEEP = new Set(HANDWRITTEN.map((p) => posix.join(SRC_ROOT, p)));
+// Frozen keep-snapshot: every page that currently exists under SRC_ROOT
+// (relative paths, posix separators). Unioned with HANDWRITTEN above —
+// HANDWRITTEN records provenance, the snapshot records what is actually here.
+// If either is stale the move set is wrong, so both are loaded up front.
+const KEEP_SNAPSHOT = 'tools/_v153_keep_whitelist.txt';
+const snapshot = existsSync(join(REPO, KEEP_SNAPSHOT))
+  ? readFileSync(join(REPO, KEEP_SNAPSHOT), 'utf8').split(/\r?\n/).map((s) => s.trim()).filter(Boolean)
+  : [];
+if (!snapshot.length) {
+  console.error(`ABORT: frozen keep-snapshot missing or empty: ${KEEP_SNAPSHOT}\n  Refusing to run — without it every unlisted page would be treated as generator output.`);
+  process.exit(1);
+}
+const KEEP = new Set([
+  ...HANDWRITTEN.map((p) => posix.join(SRC_ROOT, p)),
+  ...snapshot.map((p) => posix.join(SRC_ROOT, p)),
+]);
 
 // A whitelist page that is actually a stub would mean the roster drifted.
 const GEN_FINGERPRINTS = [
@@ -75,6 +102,27 @@ if (problems.length) {
 
 const move = all.filter((f) => !KEEP.has(f));
 const keep = all.filter((f) => KEEP.has(f));
+
+// --- reverse integrity check: disk holds pages the whitelist does not know --
+// The check above only validates pages that ARE whitelisted. Without this half,
+// a page added after the withdrawal (and never added to the snapshot) would be
+// silently moved into _withdrawn/ as "generated".
+if (move.length) {
+  const rel = (f) => relative(SRC_ROOT, f).replace(/\\/g, '/');
+  const isClassPage = (f) => {
+    const r = rel(f);
+    return !r.endsWith('_index.md') && !r.includes('/architecture/') && r !== '_index.md';
+  };
+  const classes = move.filter(isClassPage);
+  console.error(
+    `ABORT: keep-snapshot is stale. ${move.length} page(s) on disk are NOT in HANDWRITTEN ∪ snapshot.\n` +
+    `  class pages at risk: ${classes.length}\n  ` +
+    move.map((f) => `  UNLISTED: ${rel(f)}`).join('\n  ') +
+    `\n  Fix: add these paths to ${KEEP_SNAPSHOT} (and to HANDWRITTEN above if they are new hand-written pages).\n` +
+    `  Nothing moved. Re-run after syncing.`
+  );
+  process.exit(1);
+}
 console.log(`total=${all.length}  keep=${keep.length}  withdraw=${move.length}${DRY ? '  (DRY RUN)' : ''}`);
 
 if (!DRY) {

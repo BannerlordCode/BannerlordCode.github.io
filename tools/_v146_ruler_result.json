@@ -157,7 +157,7 @@
      4
     ]
    },
-   "negFP": 0,
+   "negFP": 6,
    "negByShape": {
     "TYPES": [
      0,
@@ -168,30 +168,30 @@
      7
     ],
     "NOISE": [
-     0,
+     6,
      6
     ]
    },
    "camelDiagnostic_hit": 0,
    "camelTotal": 4,
-   "corpusMissing": 128
+   "corpusMissing": 20
   }
  },
  "corpus": {
   "M0": {
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\achievementsystem\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\achievementsystem\\_index.md": {
     "n": 1,
     "ids": [
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\activitysystem\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\activitysystem\\_index.md": {
     "n": 1,
     "ids": [
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\Campaign.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\Campaign.md": {
     "n": 6,
     "ids": [
      "ECS",
@@ -202,14 +202,14 @@
      "EstimatedAverage"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignBehaviorBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignBehaviorBase.md": {
     "n": 2,
     "ids": [
      "MyBehavior",
      "PlayerClanChanged"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignEvents.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignEvents.md": {
     "n": 15,
     "ids": [
      "OnXxx",
@@ -229,7 +229,7 @@
      "XxxEvent"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignGameStarter.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignGameStarter.md": {
     "n": 9,
     "ids": [
      "MyBehavior",
@@ -243,15 +243,15 @@
      "FaceAnimId"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\CharacterObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\CharacterObject.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\Clan.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\Clan.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\Hero.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\Hero.md": {
     "n": 4,
     "ids": [
      "MarkDetail",
@@ -260,11 +260,11 @@
      "CanXxx"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\IDataStore.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\IDataStore.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\Settlement.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\Settlement.md": {
     "n": 6,
     "ids": [
      "Locatable",
@@ -275,21 +275,21 @@
      "EngineSlot"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBGUID.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBGUID.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBObjectBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBObjectBase.md": {
     "n": 1,
     "ids": [
      "FindObject"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBObjectManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBObjectManager.md": {
     "n": 12,
     "ids": [
      "ListPrefix",
@@ -306,11 +306,11 @@
      "POCO"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core\\MBSubModuleBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core\\MBSubModuleBase.md": {
     "n": 3,
     "ids": [
      "StarterObject",
@@ -318,7 +318,7 @@
      "LINQ"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core\\Module.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core\\Module.md": {
     "n": 8,
     "ids": [
      "ModuleBases",
@@ -331,13 +331,13 @@
      "MeshNames"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core\\_index.md": {
     "n": 1,
     "ids": [
      "PointDirs"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ArmorComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ArmorComponent.md": {
     "n": 8,
     "ids": [
      "CoverType",
@@ -350,14 +350,14 @@
      "UpperBody"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Banner.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Banner.md": {
     "n": 2,
     "ids": [
      "DataList",
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BannerComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BannerComponent.md": {
     "n": 4,
     "ids": [
      "NRE",
@@ -366,11 +366,11 @@
      "ModifierGroup"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BannerEffect.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BannerEffect.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BasicCharacterObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BasicCharacterObject.md": {
     "n": 3,
     "ids": [
      "NRE",
@@ -378,7 +378,7 @@
      "FormationGroup"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BindingPath.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BindingPath.md": {
     "n": 3,
     "ids": [
      "SubPanel",
@@ -386,11 +386,11 @@
      "Item10"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BladeData.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BladeData.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BodyProperties.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BodyProperties.md": {
     "n": 6,
     "ids": [
      "PropertiesMin",
@@ -401,14 +401,14 @@
      "KeyPartN"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BodyPropertiesJsonConverter.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BodyPropertiesJsonConverter.md": {
     "n": 2,
     "ids": [
      "NRE",
      "SerializeNulls"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Crafting.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Crafting.md": {
     "n": 7,
     "ids": [
      "ReCreate",
@@ -420,7 +420,7 @@
      "WeightOf"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\CraftingPiece.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\CraftingPiece.md": {
     "n": 3,
     "ids": [
      "NRE",
@@ -428,7 +428,7 @@
      "NPE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\CraftingTemplate.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\CraftingTemplate.md": {
     "n": 4,
     "ids": [
      "DataValues",
@@ -437,15 +437,15 @@
      "DescriptionId"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\DefaultSkills.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\DefaultSkills.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\DynamicBodyProperties.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\DynamicBodyProperties.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Equipment.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Equipment.md": {
     "n": 13,
     "ids": [
      "Human",
@@ -463,7 +463,7 @@
      "ABI"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\EquipmentElement.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\EquipmentElement.md": {
     "n": 6,
     "ids": [
      "GetModified",
@@ -474,11 +474,11 @@
      "ModifyXxx"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\EquipmentIndex.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\EquipmentIndex.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\EventBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\EventBase.md": {
     "n": 3,
     "ids": [
      "MyEvent",
@@ -486,7 +486,7 @@
      "ByType"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\EventManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\EventManager.md": {
     "n": 4,
     "ids": [
      "ByType",
@@ -495,7 +495,7 @@
      "ObjType"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\FaceGen.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\FaceGen.md": {
     "n": 5,
     "ids": [
      "PropertiesMin",
@@ -505,7 +505,7 @@
      "MonsterSuffix"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Game.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Game.md": {
     "n": 4,
     "ids": [
      "UniqueTroopSeed",
@@ -514,21 +514,21 @@
      "ActiveSaveData"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameManagerBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameManagerBase.md": {
     "n": 2,
     "ids": [
      "NRE",
      "ManagerLoadingStep"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameModel.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameModel.md": {
     "n": 2,
     "ids": [
      "OnXxx",
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameModelsManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameModelsManager.md": {
     "n": 4,
     "ids": [
      "ModelManagers",
@@ -537,18 +537,18 @@
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameState.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameState.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameStateManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameStateManager.md": {
     "n": 2,
     "ids": [
      "TopGameState",
      "StateManagerType"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\HorseComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\HorseComponent.md": {
     "n": 4,
     "ids": [
      "NRE",
@@ -557,11 +557,11 @@
      "ModifyMount"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\IGameStarter.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\IGameStarter.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\InformationManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\InformationManager.md": {
     "n": 3,
     "ids": [
      "GameActiveState",
@@ -569,7 +569,7 @@
      "AnyTooltipExtended"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemComponent.md": {
     "n": 4,
     "ids": [
      "XxxComponent",
@@ -578,11 +578,11 @@
      "HasXxxComponent"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemModifier.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemModifier.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemModifierGroup.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemModifierGroup.md": {
     "n": 5,
     "ids": [
      "DropItemModifierScores",
@@ -592,7 +592,7 @@
      "GetModified"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemObject.md": {
     "n": 9,
     "ids": [
      "NRE",
@@ -606,15 +606,15 @@
      "InvalidId"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\MBList.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\MBList.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Monster.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Monster.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ParameterContainer.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ParameterContainer.md": {
     "n": 3,
     "ids": [
      "TryGetParameterAsXxx",
@@ -622,28 +622,28 @@
      "CAS"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\PropertyObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\PropertyObject.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\SaddleComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\SaddleComponent.md": {
     "n": 2,
     "ids": [
      "GetXxx",
      "MySaddleComponent"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\SkeletonScale.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\SkeletonScale.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\SkillObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\SkillObject.md": {
     "n": 1,
     "ids": [
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\StaticBodyProperties.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\StaticBodyProperties.md": {
     "n": 7,
     "ids": [
      "KeyPartN",
@@ -655,14 +655,14 @@
      "AutoGeneratedGetMemberValueKeyPartN"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\TradeItemComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\TradeItemComponent.md": {
     "n": 2,
     "ids": [
      "TradeItem",
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ViewModel.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ViewModel.md": {
     "n": 3,
     "ids": [
      "ViewModelProperties",
@@ -670,18 +670,18 @@
      "OnFoo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponComponent.md": {
     "n": 2,
     "ids": [
      "ModifierGroup",
      "ComponentData"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponComponentData.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponComponentData.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponDesign.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponDesign.md": {
     "n": 4,
     "ids": [
      "PivotDistances",
@@ -690,7 +690,7 @@
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponDesignElement.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponDesignElement.md": {
     "n": 6,
     "ids": [
      "Scaled",
@@ -701,17 +701,17 @@
      "NPE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\custombattle\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\custombattle\\_index.md": {
     "n": 1,
     "ids": [
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\engine\\GauntletLayer.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\engine\\GauntletLayer.md": {
     "n": 5,
     "ids": [
      "MyScreen",
@@ -721,15 +721,15 @@
      "LoadedMovies"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\engine\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\engine\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\GauntletMovie.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\GauntletMovie.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenBase.md": {
     "n": 5,
     "ids": [
      "OnXxx",
@@ -739,15 +739,15 @@
      "OnRemoveLayerEvent"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenComponent.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenLayer.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenLayer.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenManager.md": {
     "n": 3,
     "ids": [
      "MyScreen",
@@ -755,13 +755,13 @@
      "TypeEnum"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\_index.md": {
     "n": 1,
     "ids": [
      "OnXxx"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\localization\\TextObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\localization\\TextObject.md": {
     "n": 7,
     "ids": [
      "SomeKey",
@@ -773,13 +773,13 @@
      "ABI"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\localization\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\localization\\_index.md": {
     "n": 1,
     "ids": [
      "MyKey"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\Agent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\Agent.md": {
     "n": 66,
     "ids": [
      "IndexCache",
@@ -850,7 +850,7 @@
      "ForwardUnlimitedSpeed"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\Formation.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\Formation.md": {
     "n": 20,
     "ids": [
      "DesiredFileCount",
@@ -875,7 +875,7 @@
      "MaxUnlimitedSpeedExcludeFarAgents"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\Mission.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\Mission.md": {
     "n": 74,
     "ids": [
      "MemoryCleanup",
@@ -954,7 +954,7 @@
      "NetworkHelper"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\MissionBehavior.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\MissionBehavior.md": {
     "n": 7,
     "ids": [
      "OnXxx",
@@ -966,7 +966,7 @@
      "Interactable"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\_index.md": {
     "n": 3,
     "ids": [
      "PointDirs",
@@ -974,42 +974,42 @@
      "OnXxx"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission-ext\\ItemType.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission-ext\\ItemType.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission-ext\\MBGameManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission-ext\\MBGameManager.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission-ext\\Team.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission-ext\\Team.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\modulemanager\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\modulemanager\\_index.md": {
     "n": 1,
     "ids": [
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\network\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\network\\_index.md": {
     "n": 1,
     "ids": [
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\sandbox\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\sandbox\\_index.md": {
     "n": 2,
     "ids": [
      "Dependency",
      "TypoNamespaces"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\ISaveDriver.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\ISaveDriver.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveableFieldAttribute.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveableFieldAttribute.md": {
     "n": 4,
     "ids": [
      "UniqueTroopSeed",
@@ -1018,13 +1018,13 @@
      "ABI"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveablePropertyAttribute.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveablePropertyAttribute.md": {
     "n": 1,
     "ids": [
      "ABI"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveableTypeDefiner.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveableTypeDefiner.md": {
     "n": 4,
     "ids": [
      "Define",
@@ -1033,39 +1033,39 @@
      "ConstructGeneric"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveManager.md": {
     "n": 2,
     "ids": [
      "AsLateInitialize",
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\storymode\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\storymode\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\system\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\system\\_index.md": {
     "n": 1,
     "ids": [
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\viewmodel\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\viewmodel\\_index.md": {
     "n": 2,
     "ids": [
      "EncyclopediaVM",
      "BaseVM"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\architecture\\module-map.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\architecture\\module-map.md": {
     "n": 3,
     "ids": [
      "AutoGenerate",
@@ -1073,26 +1073,26 @@
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\architecture\\sdk-overview.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\architecture\\sdk-overview.md": {
     "n": 1,
     "ids": [
      "StarterObject"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\architecture\\version-delta.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\architecture\\version-delta.md": {
     "n": 2,
     "ids": [
      "AssemblyInfo",
      "AutoGenerate"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\architecture\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\architecture\\_index.md": {
     "n": 1,
     "ids": [
      "Sibling"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\_index.md": {
     "n": 1,
     "ids": [
      "Sibling"
@@ -1100,19 +1100,19 @@
    }
   },
   "M1": {
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\achievementsystem\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\achievementsystem\\_index.md": {
     "n": 1,
     "ids": [
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\activitysystem\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\activitysystem\\_index.md": {
     "n": 1,
     "ids": [
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\Campaign.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\Campaign.md": {
     "n": 4,
     "ids": [
      "ECS",
@@ -1121,14 +1121,14 @@
      "EstimatedAverage"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignBehaviorBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignBehaviorBase.md": {
     "n": 2,
     "ids": [
      "MyBehavior",
      "PlayerClanChanged"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignEvents.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignEvents.md": {
     "n": 11,
     "ids": [
      "OnXxx",
@@ -1144,53 +1144,53 @@
      "XxxEvent"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignGameStarter.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignGameStarter.md": {
     "n": 1,
     "ids": [
      "MyBehavior"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\CharacterObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\CharacterObject.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\Clan.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\Clan.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\Hero.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\Hero.md": {
     "n": 2,
     "ids": [
      "IsXxx",
      "CanXxx"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\IDataStore.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\IDataStore.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\Settlement.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\Settlement.md": {
     "n": 2,
     "ids": [
      "Locatable",
      "MilitiaParty"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBGUID.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBGUID.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBObjectBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBObjectBase.md": {
     "n": 1,
     "ids": [
      "FindObject"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBObjectManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBObjectManager.md": {
     "n": 4,
     "ids": [
      "XSD",
@@ -1199,28 +1199,28 @@
      "POCO"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core\\MBSubModuleBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core\\MBSubModuleBase.md": {
     "n": 2,
     "ids": [
      "NRE",
      "LINQ"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core\\Module.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core\\Module.md": {
     "n": 1,
     "ids": [
      "ImGui"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ArmorComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ArmorComponent.md": {
     "n": 7,
     "ids": [
      "CoverType",
@@ -1232,30 +1232,30 @@
      "UpperBody"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Banner.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Banner.md": {
     "n": 1,
     "ids": [
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BannerComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BannerComponent.md": {
     "n": 1,
     "ids": [
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BannerEffect.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BannerEffect.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BasicCharacterObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BasicCharacterObject.md": {
     "n": 2,
     "ids": [
      "NRE",
      "FormationGroup"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BindingPath.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BindingPath.md": {
     "n": 3,
     "ids": [
      "SubPanel",
@@ -1263,11 +1263,11 @@
      "Item10"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BladeData.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BladeData.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BodyProperties.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BodyProperties.md": {
     "n": 3,
     "ids": [
      "DynamicHash",
@@ -1275,21 +1275,21 @@
      "KeyPartN"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BodyPropertiesJsonConverter.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BodyPropertiesJsonConverter.md": {
     "n": 2,
     "ids": [
      "NRE",
      "SerializeNulls"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Crafting.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Crafting.md": {
     "n": 2,
     "ids": [
      "NRE",
      "WeightOf"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\CraftingPiece.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\CraftingPiece.md": {
     "n": 3,
     "ids": [
      "NRE",
@@ -1297,21 +1297,21 @@
      "NPE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\CraftingTemplate.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\CraftingTemplate.md": {
     "n": 1,
     "ids": [
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\DefaultSkills.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\DefaultSkills.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\DynamicBodyProperties.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\DynamicBodyProperties.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Equipment.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Equipment.md": {
     "n": 3,
     "ids": [
      "WithoutAgent",
@@ -1319,7 +1319,7 @@
      "ABI"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\EquipmentElement.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\EquipmentElement.md": {
     "n": 5,
     "ids": [
      "GetModified",
@@ -1329,65 +1329,65 @@
      "ModifyXxx"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\EquipmentIndex.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\EquipmentIndex.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\EventBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\EventBase.md": {
     "n": 2,
     "ids": [
      "MyEvent",
      "InventoryOpenedEvent"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\EventManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\EventManager.md": {
     "n": 2,
     "ids": [
      "MyEvent",
      "OnMyEvent"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\FaceGen.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\FaceGen.md": {
     "n": 1,
     "ids": [
      "MonsterSuffix"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Game.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Game.md": {
     "n": 1,
     "ids": [
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameManagerBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameManagerBase.md": {
     "n": 1,
     "ids": [
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameModel.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameModel.md": {
     "n": 2,
     "ids": [
      "OnXxx",
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameModelsManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameModelsManager.md": {
     "n": 2,
     "ids": [
      "XxxModel",
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameState.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameState.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameStateManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameStateManager.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\HorseComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\HorseComponent.md": {
     "n": 3,
     "ids": [
      "NRE",
@@ -1395,15 +1395,15 @@
      "ModifyMount"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\IGameStarter.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\IGameStarter.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\InformationManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\InformationManager.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemComponent.md": {
     "n": 3,
     "ids": [
      "XxxComponent",
@@ -1411,11 +1411,11 @@
      "HasXxxComponent"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemModifier.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemModifier.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemModifierGroup.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemModifierGroup.md": {
     "n": 3,
     "ids": [
      "LINQ",
@@ -1423,7 +1423,7 @@
      "GetModified"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemObject.md": {
     "n": 7,
     "ids": [
      "NRE",
@@ -1435,43 +1435,43 @@
      "InvalidId"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\MBList.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\MBList.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Monster.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Monster.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ParameterContainer.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ParameterContainer.md": {
     "n": 2,
     "ids": [
      "TryGetParameterAsXxx",
      "CAS"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\PropertyObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\PropertyObject.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\SaddleComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\SaddleComponent.md": {
     "n": 2,
     "ids": [
      "GetXxx",
      "MySaddleComponent"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\SkeletonScale.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\SkeletonScale.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\SkillObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\SkillObject.md": {
     "n": 1,
     "ids": [
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\StaticBodyProperties.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\StaticBodyProperties.md": {
     "n": 3,
     "ids": [
      "KeyPartN",
@@ -1479,34 +1479,34 @@
      "AutoGeneratedGetMemberValueKeyPartN"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\TradeItemComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\TradeItemComponent.md": {
     "n": 2,
     "ids": [
      "TradeItem",
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ViewModel.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ViewModel.md": {
     "n": 1,
     "ids": [
      "OnFoo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponComponent.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponComponentData.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponComponentData.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponDesign.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponDesign.md": {
     "n": 1,
     "ids": [
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponDesignElement.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponDesignElement.md": {
     "n": 5,
     "ids": [
      "Scaled",
@@ -1516,17 +1516,17 @@
      "NPE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\custombattle\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\custombattle\\_index.md": {
     "n": 1,
     "ids": [
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\engine\\GauntletLayer.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\engine\\GauntletLayer.md": {
     "n": 3,
     "ids": [
      "MyScreen",
@@ -1534,15 +1534,15 @@
      "MyViewModel"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\engine\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\engine\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\GauntletMovie.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\GauntletMovie.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenBase.md": {
     "n": 3,
     "ids": [
      "OnXxx",
@@ -1550,27 +1550,27 @@
      "OnRemoveLayerEvent"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenComponent.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenLayer.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenLayer.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenManager.md": {
     "n": 1,
     "ids": [
      "MyScreen"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\_index.md": {
     "n": 1,
     "ids": [
      "OnXxx"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\localization\\TextObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\localization\\TextObject.md": {
     "n": 4,
     "ids": [
      "SomeKey",
@@ -1579,13 +1579,13 @@
      "ABI"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\localization\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\localization\\_index.md": {
     "n": 1,
     "ids": [
      "MyKey"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\Agent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\Agent.md": {
     "n": 3,
     "ids": [
      "LOD",
@@ -1593,11 +1593,11 @@
      "CanXxxObject"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\Formation.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\Formation.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\Mission.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\Mission.md": {
     "n": 4,
     "ids": [
      "SetXxxModifier",
@@ -1606,52 +1606,52 @@
      "NetworkHelper"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\MissionBehavior.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\MissionBehavior.md": {
     "n": 2,
     "ids": [
      "OnXxx",
      "OnPostDisplayMissionTick"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\_index.md": {
     "n": 1,
     "ids": [
      "OnXxx"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission-ext\\ItemType.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission-ext\\ItemType.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission-ext\\MBGameManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission-ext\\MBGameManager.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission-ext\\Team.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission-ext\\Team.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\modulemanager\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\modulemanager\\_index.md": {
     "n": 1,
     "ids": [
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\network\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\network\\_index.md": {
     "n": 1,
     "ids": [
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\sandbox\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\sandbox\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\ISaveDriver.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\ISaveDriver.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveableFieldAttribute.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveableFieldAttribute.md": {
     "n": 3,
     "ids": [
      "YourType",
@@ -1659,13 +1659,13 @@
      "ABI"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveablePropertyAttribute.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveablePropertyAttribute.md": {
     "n": 1,
     "ids": [
      "ABI"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveableTypeDefiner.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveableTypeDefiner.md": {
     "n": 4,
     "ids": [
      "Define",
@@ -1674,62 +1674,62 @@
      "ConstructGeneric"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveManager.md": {
     "n": 1,
     "ids": [
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\storymode\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\storymode\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\system\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\system\\_index.md": {
     "n": 1,
     "ids": [
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\viewmodel\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\viewmodel\\_index.md": {
     "n": 2,
     "ids": [
      "EncyclopediaVM",
      "BaseVM"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\architecture\\module-map.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\architecture\\module-map.md": {
     "n": 2,
     "ids": [
      "AutoGenerate",
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\architecture\\sdk-overview.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\architecture\\sdk-overview.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\architecture\\version-delta.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\architecture\\version-delta.md": {
     "n": 2,
     "ids": [
      "AssemblyInfo",
      "AutoGenerate"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\architecture\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\architecture\\_index.md": {
     "n": 1,
     "ids": [
      "Sibling"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\_index.md": {
     "n": 1,
     "ids": [
      "Sibling"
@@ -1737,19 +1737,19 @@
    }
   },
   "M2": {
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\achievementsystem\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\achievementsystem\\_index.md": {
     "n": 1,
     "ids": [
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\activitysystem\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\activitysystem\\_index.md": {
     "n": 1,
     "ids": [
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\Campaign.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\Campaign.md": {
     "n": 4,
     "ids": [
      "ECS",
@@ -1758,14 +1758,14 @@
      "EstimatedAverage"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignBehaviorBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignBehaviorBase.md": {
     "n": 2,
     "ids": [
      "MyBehavior",
      "PlayerClanChanged"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignEvents.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignEvents.md": {
     "n": 11,
     "ids": [
      "OnXxx",
@@ -1781,52 +1781,52 @@
      "XxxEvent"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignGameStarter.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignGameStarter.md": {
     "n": 1,
     "ids": [
      "MyBehavior"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\CharacterObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\CharacterObject.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\Clan.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\Clan.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\Hero.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\Hero.md": {
     "n": 1,
     "ids": [
      "IsXxx"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\IDataStore.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\IDataStore.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\Settlement.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\Settlement.md": {
     "n": 2,
     "ids": [
      "Locatable",
      "MilitiaParty"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBGUID.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBGUID.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBObjectBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBObjectBase.md": {
     "n": 1,
     "ids": [
      "FindObject"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBObjectManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBObjectManager.md": {
     "n": 4,
     "ids": [
      "XSD",
@@ -1835,28 +1835,28 @@
      "POCO"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core\\MBSubModuleBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core\\MBSubModuleBase.md": {
     "n": 2,
     "ids": [
      "NRE",
      "LINQ"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core\\Module.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core\\Module.md": {
     "n": 1,
     "ids": [
      "ImGui"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ArmorComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ArmorComponent.md": {
     "n": 6,
     "ids": [
      "CoverType",
@@ -1867,30 +1867,30 @@
      "UpperBody"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Banner.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Banner.md": {
     "n": 1,
     "ids": [
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BannerComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BannerComponent.md": {
     "n": 1,
     "ids": [
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BannerEffect.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BannerEffect.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BasicCharacterObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BasicCharacterObject.md": {
     "n": 2,
     "ids": [
      "NRE",
      "FormationGroup"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BindingPath.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BindingPath.md": {
     "n": 3,
     "ids": [
      "SubPanel",
@@ -1898,11 +1898,11 @@
      "Item10"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BladeData.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BladeData.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BodyProperties.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BodyProperties.md": {
     "n": 3,
     "ids": [
      "DynamicHash",
@@ -1910,20 +1910,20 @@
      "KeyPartN"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BodyPropertiesJsonConverter.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BodyPropertiesJsonConverter.md": {
     "n": 2,
     "ids": [
      "NRE",
      "SerializeNulls"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Crafting.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Crafting.md": {
     "n": 1,
     "ids": [
      "WeightOf"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\CraftingPiece.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\CraftingPiece.md": {
     "n": 3,
     "ids": [
      "NRE",
@@ -1931,28 +1931,28 @@
      "NPE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\CraftingTemplate.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\CraftingTemplate.md": {
     "n": 1,
     "ids": [
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\DefaultSkills.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\DefaultSkills.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\DynamicBodyProperties.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\DynamicBodyProperties.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Equipment.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Equipment.md": {
     "n": 2,
     "ids": [
      "WithoutAgent",
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\EquipmentElement.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\EquipmentElement.md": {
     "n": 4,
     "ids": [
      "GetModified",
@@ -1961,73 +1961,73 @@
      "GetModifiedMount"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\EquipmentIndex.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\EquipmentIndex.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\EventBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\EventBase.md": {
     "n": 1,
     "ids": [
      "MyEvent"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\EventManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\EventManager.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\FaceGen.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\FaceGen.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Game.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Game.md": {
     "n": 1,
     "ids": [
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameManagerBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameManagerBase.md": {
     "n": 1,
     "ids": [
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameModel.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameModel.md": {
     "n": 1,
     "ids": [
      "OnXxx"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameModelsManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameModelsManager.md": {
     "n": 2,
     "ids": [
      "XxxModel",
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameState.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameState.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameStateManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameStateManager.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\HorseComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\HorseComponent.md": {
     "n": 2,
     "ids": [
      "NRE",
      "ModifyMount"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\IGameStarter.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\IGameStarter.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\InformationManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\InformationManager.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemComponent.md": {
     "n": 3,
     "ids": [
      "XxxComponent",
@@ -2035,11 +2035,11 @@
      "HasXxxComponent"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemModifier.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemModifier.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemModifierGroup.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemModifierGroup.md": {
     "n": 3,
     "ids": [
      "LINQ",
@@ -2047,7 +2047,7 @@
      "GetModified"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemObject.md": {
     "n": 7,
     "ids": [
      "NRE",
@@ -2059,43 +2059,43 @@
      "InvalidId"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\MBList.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\MBList.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Monster.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Monster.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ParameterContainer.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ParameterContainer.md": {
     "n": 2,
     "ids": [
      "TryGetParameterAsXxx",
      "CAS"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\PropertyObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\PropertyObject.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\SaddleComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\SaddleComponent.md": {
     "n": 2,
     "ids": [
      "GetXxx",
      "MySaddleComponent"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\SkeletonScale.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\SkeletonScale.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\SkillObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\SkillObject.md": {
     "n": 1,
     "ids": [
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\StaticBodyProperties.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\StaticBodyProperties.md": {
     "n": 3,
     "ids": [
      "KeyPartN",
@@ -2103,34 +2103,34 @@
      "AutoGeneratedGetMemberValueKeyPartN"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\TradeItemComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\TradeItemComponent.md": {
     "n": 2,
     "ids": [
      "TradeItem",
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ViewModel.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ViewModel.md": {
     "n": 1,
     "ids": [
      "OnFoo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponComponent.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponComponentData.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponComponentData.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponDesign.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponDesign.md": {
     "n": 1,
     "ids": [
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponDesignElement.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponDesignElement.md": {
     "n": 4,
     "ids": [
      "ScaledXxx",
@@ -2139,17 +2139,17 @@
      "NPE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\custombattle\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\custombattle\\_index.md": {
     "n": 1,
     "ids": [
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\engine\\GauntletLayer.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\engine\\GauntletLayer.md": {
     "n": 3,
     "ids": [
      "MyScreen",
@@ -2157,15 +2157,15 @@
      "MyViewModel"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\engine\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\engine\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\GauntletMovie.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\GauntletMovie.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenBase.md": {
     "n": 3,
     "ids": [
      "OnXxx",
@@ -2173,25 +2173,25 @@
      "OnRemoveLayerEvent"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenComponent.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenLayer.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenLayer.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenManager.md": {
     "n": 1,
     "ids": [
      "MyScreen"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\localization\\TextObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\localization\\TextObject.md": {
     "n": 4,
     "ids": [
      "SomeKey",
@@ -2200,13 +2200,13 @@
      "ABI"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\localization\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\localization\\_index.md": {
     "n": 1,
     "ids": [
      "MyKey"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\Agent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\Agent.md": {
     "n": 3,
     "ids": [
      "LOD",
@@ -2214,11 +2214,11 @@
      "CanXxxObject"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\Formation.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\Formation.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\Mission.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\Mission.md": {
     "n": 4,
     "ids": [
      "SetXxxModifier",
@@ -2227,48 +2227,48 @@
      "NetworkHelper"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\MissionBehavior.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\MissionBehavior.md": {
     "n": 2,
     "ids": [
      "OnXxx",
      "OnPostDisplayMissionTick"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission-ext\\ItemType.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission-ext\\ItemType.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission-ext\\MBGameManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission-ext\\MBGameManager.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission-ext\\Team.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission-ext\\Team.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\modulemanager\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\modulemanager\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\network\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\network\\_index.md": {
     "n": 1,
     "ids": [
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\sandbox\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\sandbox\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\ISaveDriver.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\ISaveDriver.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveableFieldAttribute.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveableFieldAttribute.md": {
     "n": 3,
     "ids": [
      "YourType",
@@ -2276,13 +2276,13 @@
      "ABI"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveablePropertyAttribute.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveablePropertyAttribute.md": {
     "n": 1,
     "ids": [
      "ABI"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveableTypeDefiner.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveableTypeDefiner.md": {
     "n": 3,
     "ids": [
      "Define",
@@ -2290,61 +2290,61 @@
      "YourType"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveManager.md": {
     "n": 1,
     "ids": [
      "NRE"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\storymode\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\storymode\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\system\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\system\\_index.md": {
     "n": 1,
     "ids": [
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\viewmodel\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\viewmodel\\_index.md": {
     "n": 2,
     "ids": [
      "EncyclopediaVM",
      "BaseVM"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\architecture\\module-map.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\architecture\\module-map.md": {
     "n": 2,
     "ids": [
      "AutoGenerate",
      "AssemblyInfo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\architecture\\sdk-overview.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\architecture\\sdk-overview.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\architecture\\version-delta.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\architecture\\version-delta.md": {
     "n": 1,
     "ids": [
      "AutoGenerate"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\architecture\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\architecture\\_index.md": {
     "n": 1,
     "ids": [
      "Sibling"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\_index.md": {
     "n": 1,
     "ids": [
      "Sibling"
@@ -2352,601 +2352,451 @@
    }
   },
   "M3": {
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\achievementsystem\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\achievementsystem\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\activitysystem\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\activitysystem\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\Campaign.md": {
-    "n": 4,
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\Campaign.md": {
+    "n": 1,
     "ids": [
-     "ECS",
-     "WorkshopWorkshops",
-     "ICustomManager",
-     "EstimatedAverage"
+     "WorkshopWorkshops"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignBehaviorBase.md": {
-    "n": 2,
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignBehaviorBase.md": {
+    "n": 1,
     "ids": [
-     "MyBehavior",
      "PlayerClanChanged"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignEvents.md": {
-    "n": 11,
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignEvents.md": {
+    "n": 7,
     "ids": [
-     "OnXxx",
      "HourlyTickHeroEvent",
-     "Rebellios",
      "OnPlayerStartRecruitmentEvent",
      "OnCharacterPortraitPopUpOpenedEvent",
      "OnMissionStateActivatedEvent",
      "OnPlayerTraitChangedEvent",
      "HourlyTickHero",
-     "EndCaptivationDetail",
-     "PlayerUpgradedTroops",
-     "XxxEvent"
+     "EndCaptivationDetail"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignGameStarter.md": {
-    "n": 1,
-    "ids": [
-     "MyBehavior"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\CharacterObject.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\CampaignGameStarter.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\Clan.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\CharacterObject.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\Hero.md": {
-    "n": 1,
-    "ids": [
-     "IsXxx"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\IDataStore.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\Clan.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\Settlement.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\Hero.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\IDataStore.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\Settlement.md": {
     "n": 2,
     "ids": [
      "Locatable",
      "MilitiaParty"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBGUID.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBGUID.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBObjectBase.md": {
-    "n": 1,
-    "ids": [
-     "FindObject"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBObjectManager.md": {
-    "n": 4,
-    "ids": [
-     "XSD",
-     "XSLT",
-     "DOM",
-     "POCO"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBObjectBase.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core\\MBSubModuleBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\MBObjectManager.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\campaign-ext\\_index.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core\\MBSubModuleBase.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core\\Module.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core\\_index.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ArmorComponent.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Banner.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BannerComponent.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BannerEffect.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BasicCharacterObject.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BindingPath.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BladeData.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BodyProperties.md": {
     "n": 2,
-    "ids": [
-     "NRE",
-     "LINQ"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core\\Module.md": {
-    "n": 1,
-    "ids": [
-     "ImGui"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core\\_index.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ArmorComponent.md": {
-    "n": 6,
-    "ids": [
-     "CoverType",
-     "XxxVisible",
-     "Bover",
-     "NRE",
-     "Combined",
-     "UpperBody"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Banner.md": {
-    "n": 1,
-    "ids": [
-     "NRE"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BannerComponent.md": {
-    "n": 1,
-    "ids": [
-     "NRE"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BannerEffect.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BasicCharacterObject.md": {
-    "n": 2,
-    "ids": [
-     "NRE",
-     "FormationGroup"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BindingPath.md": {
-    "n": 3,
-    "ids": [
-     "SubPanel",
-     "NRE",
-     "Item10"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BladeData.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BodyProperties.md": {
-    "n": 3,
     "ids": [
      "DynamicHash",
-     "StaticHash",
-     "KeyPartN"
+     "StaticHash"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\BodyPropertiesJsonConverter.md": {
-    "n": 2,
-    "ids": [
-     "NRE",
-     "SerializeNulls"
-    ]
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\BodyPropertiesJsonConverter.md": {
+    "n": 0,
+    "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Crafting.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Crafting.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\CraftingPiece.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\CraftingTemplate.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\DefaultSkills.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\DynamicBodyProperties.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Equipment.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\EquipmentElement.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\EquipmentIndex.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\EventBase.md": {
     "n": 1,
     "ids": [
-     "WeightOf"
+     "InventoryOpenedEvent"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\CraftingPiece.md": {
-    "n": 3,
-    "ids": [
-     "NRE",
-     "XxxBonus",
-     "NPE"
-    ]
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\EventManager.md": {
+    "n": 0,
+    "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\CraftingTemplate.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\FaceGen.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Game.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameManagerBase.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameModel.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameModelsManager.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameState.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameStateManager.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\HorseComponent.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\IGameStarter.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\InformationManager.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemComponent.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemModifier.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemModifierGroup.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemObject.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\MBList.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\Monster.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ParameterContainer.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\PropertyObject.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\SaddleComponent.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\SkeletonScale.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\SkillObject.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\StaticBodyProperties.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\TradeItemComponent.md": {
     "n": 1,
     "ids": [
-     "NRE"
+     "TradeItem"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\DefaultSkills.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\ViewModel.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\DynamicBodyProperties.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponComponent.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Equipment.md": {
-    "n": 2,
-    "ids": [
-     "WithoutAgent",
-     "NRE"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\EquipmentElement.md": {
-    "n": 4,
-    "ids": [
-     "GetModified",
-     "ForUsage",
-     "NRE",
-     "GetModifiedMount"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\EquipmentIndex.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponComponentData.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\EventBase.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponDesign.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponDesignElement.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\core-extra\\_index.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\custombattle\\_index.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\engine\\GauntletLayer.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\engine\\_index.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\GauntletMovie.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenBase.md": {
     "n": 1,
     "ids": [
-     "MyEvent"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\EventManager.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\FaceGen.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Game.md": {
-    "n": 1,
-    "ids": [
-     "NRE"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameManagerBase.md": {
-    "n": 1,
-    "ids": [
-     "NRE"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameModel.md": {
-    "n": 1,
-    "ids": [
-     "OnXxx"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameModelsManager.md": {
-    "n": 2,
-    "ids": [
-     "XxxModel",
-     "NRE"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameState.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\GameStateManager.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\HorseComponent.md": {
-    "n": 2,
-    "ids": [
-     "NRE",
-     "ModifyMount"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\IGameStarter.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\InformationManager.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemComponent.md": {
-    "n": 3,
-    "ids": [
-     "XxxComponent",
-     "NRE",
-     "HasXxxComponent"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemModifier.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemModifierGroup.md": {
-    "n": 3,
-    "ids": [
-     "LINQ",
-     "GetRandom",
-     "GetModified"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ItemObject.md": {
-    "n": 7,
-    "ids": [
-     "NRE",
-     "XxxComponent",
-     "LOD",
-     "AirFriction",
-     "BallistaBolt",
-     "HasXxxComponent",
-     "InvalidId"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\MBList.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\Monster.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ParameterContainer.md": {
-    "n": 2,
-    "ids": [
-     "TryGetParameterAsXxx",
-     "CAS"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\PropertyObject.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\SaddleComponent.md": {
-    "n": 2,
-    "ids": [
-     "GetXxx",
-     "MySaddleComponent"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\SkeletonScale.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\SkillObject.md": {
-    "n": 1,
-    "ids": [
-     "NRE"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\StaticBodyProperties.md": {
-    "n": 3,
-    "ids": [
-     "KeyPartN",
-     "FNV",
-     "AutoGeneratedGetMemberValueKeyPartN"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\TradeItemComponent.md": {
-    "n": 2,
-    "ids": [
-     "TradeItem",
-     "NRE"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\ViewModel.md": {
-    "n": 1,
-    "ids": [
-     "OnFoo"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponComponent.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponComponentData.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponDesign.md": {
-    "n": 1,
-    "ids": [
-     "NRE"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\WeaponDesignElement.md": {
-    "n": 4,
-    "ids": [
-     "ScaledXxx",
-     "Xxx",
-     "NRE",
-     "NPE"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\core-extra\\_index.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\custombattle\\_index.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\engine\\GauntletLayer.md": {
-    "n": 3,
-    "ids": [
-     "MyScreen",
-     "MyLayer",
-     "MyViewModel"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\engine\\_index.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\GauntletMovie.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenBase.md": {
-    "n": 3,
-    "ids": [
-     "OnXxx",
-     "HandleXxx",
      "OnRemoveLayerEvent"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenComponent.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenComponent.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenLayer.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenLayer.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\ScreenManager.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\gui\\_index.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\localization\\TextObject.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\localization\\_index.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\Agent.md": {
     "n": 1,
     "ids": [
-     "MyScreen"
+     "IsMale"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\gui\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\Formation.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\localization\\TextObject.md": {
-    "n": 4,
-    "ids": [
-     "SomeKey",
-     "MyKey",
-     "NRE",
-     "ABI"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\localization\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\Mission.md": {
     "n": 1,
     "ids": [
-     "MyKey"
+     "GetMissionCombatDifficulty"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\Agent.md": {
-    "n": 3,
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\MissionBehavior.md": {
+    "n": 1,
     "ids": [
-     "LOD",
-     "IsMale",
-     "CanXxxObject"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\Formation.md": {
-    "n": 0,
-    "ids": []
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\Mission.md": {
-    "n": 4,
-    "ids": [
-     "SetXxxModifier",
-     "SetCustomCameraXxx",
-     "GetMissionCombatDifficulty",
-     "NetworkHelper"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\MissionBehavior.md": {
-    "n": 2,
-    "ids": [
-     "OnXxx",
      "OnPostDisplayMissionTick"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission-ext\\ItemType.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission-ext\\ItemType.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission-ext\\MBGameManager.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission-ext\\MBGameManager.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\mission-ext\\Team.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\mission-ext\\Team.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\modulemanager\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\modulemanager\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\network\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\network\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\sandbox\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\sandbox\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\ISaveDriver.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\ISaveDriver.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveableFieldAttribute.md": {
-    "n": 3,
-    "ids": [
-     "YourType",
-     "ISaveTypeSerializer",
-     "ABI"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveablePropertyAttribute.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveableFieldAttribute.md": {
     "n": 1,
     "ids": [
-     "ABI"
+     "ISaveTypeSerializer"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveableTypeDefiner.md": {
-    "n": 3,
-    "ids": [
-     "Define",
-     "NRE",
-     "YourType"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveManager.md": {
-    "n": 1,
-    "ids": [
-     "NRE"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\save-system\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveablePropertyAttribute.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\storymode\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveableTypeDefiner.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\system\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\SaveManager.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\viewmodel\\_index.md": {
-    "n": 2,
-    "ids": [
-     "EncyclopediaVM",
-     "BaseVM"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\api\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\save-system\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\architecture\\module-map.md": {
-    "n": 1,
-    "ids": [
-     "AutoGenerate"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\architecture\\sdk-overview.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\storymode\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\architecture\\version-delta.md": {
-    "n": 1,
-    "ids": [
-     "AutoGenerate"
-    ]
-   },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\architecture\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\system\\_index.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\corpus\\v1.4.6\\zh\\_index.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\viewmodel\\_index.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\api\\_index.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\architecture\\module-map.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\architecture\\sdk-overview.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\architecture\\version-delta.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\architecture\\_index.md": {
+    "n": 0,
+    "ids": []
+   },
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\corpus\\v1.4.6\\zh\\_index.md": {
     "n": 0,
     "ids": []
    }
@@ -3064,121 +2914,121 @@
  },
  "posDetail": {
   "M0": {
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-01.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-01.md": {
     "n": 1,
     "ids": [
      "FakeWidget"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-02.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-02.md": {
     "n": 1,
     "ids": [
      "NotARealType"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-03.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-03.md": {
     "n": 1,
     "ids": [
      "ZzzBogus9"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-04.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-04.md": {
     "n": 1,
     "ids": [
      "PhantomRegistry"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-05.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-05.md": {
     "n": 1,
     "ids": [
      "GhostCampaign"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-06.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-06.md": {
     "n": 1,
     "ids": [
      "UnicornSaveManager"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-07.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-07.md": {
     "n": 1,
     "ids": [
      "NullMissionBehavior"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-08.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-08.md": {
     "n": 1,
     "ids": [
      "BogusVisualEntity"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-09.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-09.md": {
     "n": 1,
     "ids": [
      "DemoOnlyWrapper"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-10.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-10.md": {
     "n": 1,
     "ids": [
      "QuantumSettlement"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-11.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-11.md": {
     "n": 1,
     "ids": [
      "ImaginaryKingdom"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-12.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-12.md": {
     "n": 1,
     "ids": [
      "FictionalTradeService"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-13.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-13.md": {
     "n": 1,
     "ids": [
      "SampleTroopTree"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-14.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-14.md": {
     "n": 1,
     "ids": [
      "TestOnlyBridge"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-15.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-15.md": {
     "n": 1,
     "ids": [
      "WobblyFrameRate"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-16.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-16.md": {
     "n": 1,
     "ids": [
      "GizmoOverlay"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-17.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-17.md": {
     "n": 1,
     "ids": [
      "PseudoDiplomacyModel"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-18.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-18.md": {
     "n": 1,
     "ids": [
      "ZenithAchievementHub"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-19.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-19.md": {
     "n": 1,
     "ids": [
      "MinimalExampleUtil"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-20.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-20.md": {
     "n": 1,
     "ids": [
      "HandmadeScenario"
@@ -3186,121 +3036,121 @@
    }
   },
   "M1": {
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-01.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-01.md": {
     "n": 1,
     "ids": [
      "FakeWidget"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-02.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-02.md": {
     "n": 1,
     "ids": [
      "NotARealType"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-03.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-03.md": {
     "n": 1,
     "ids": [
      "ZzzBogus9"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-04.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-04.md": {
     "n": 1,
     "ids": [
      "PhantomRegistry"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-05.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-05.md": {
     "n": 1,
     "ids": [
      "GhostCampaign"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-06.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-06.md": {
     "n": 1,
     "ids": [
      "UnicornSaveManager"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-07.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-07.md": {
     "n": 1,
     "ids": [
      "NullMissionBehavior"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-08.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-08.md": {
     "n": 1,
     "ids": [
      "BogusVisualEntity"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-09.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-09.md": {
     "n": 1,
     "ids": [
      "DemoOnlyWrapper"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-10.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-10.md": {
     "n": 1,
     "ids": [
      "QuantumSettlement"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-11.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-11.md": {
     "n": 1,
     "ids": [
      "ImaginaryKingdom"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-12.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-12.md": {
     "n": 1,
     "ids": [
      "FictionalTradeService"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-13.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-13.md": {
     "n": 1,
     "ids": [
      "SampleTroopTree"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-14.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-14.md": {
     "n": 1,
     "ids": [
      "TestOnlyBridge"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-15.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-15.md": {
     "n": 1,
     "ids": [
      "WobblyFrameRate"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-16.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-16.md": {
     "n": 1,
     "ids": [
      "GizmoOverlay"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-17.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-17.md": {
     "n": 1,
     "ids": [
      "PseudoDiplomacyModel"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-18.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-18.md": {
     "n": 1,
     "ids": [
      "ZenithAchievementHub"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-19.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-19.md": {
     "n": 1,
     "ids": [
      "MinimalExampleUtil"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-20.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-20.md": {
     "n": 1,
     "ids": [
      "HandmadeScenario"
@@ -3308,121 +3158,121 @@
    }
   },
   "M2": {
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-01.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-01.md": {
     "n": 1,
     "ids": [
      "FakeWidget"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-02.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-02.md": {
     "n": 1,
     "ids": [
      "NotARealType"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-03.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-03.md": {
     "n": 1,
     "ids": [
      "ZzzBogus9"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-04.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-04.md": {
     "n": 1,
     "ids": [
      "PhantomRegistry"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-05.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-05.md": {
     "n": 1,
     "ids": [
      "GhostCampaign"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-06.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-06.md": {
     "n": 1,
     "ids": [
      "UnicornSaveManager"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-07.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-07.md": {
     "n": 1,
     "ids": [
      "NullMissionBehavior"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-08.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-08.md": {
     "n": 1,
     "ids": [
      "BogusVisualEntity"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-09.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-09.md": {
     "n": 1,
     "ids": [
      "DemoOnlyWrapper"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-10.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-10.md": {
     "n": 1,
     "ids": [
      "QuantumSettlement"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-11.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-11.md": {
     "n": 1,
     "ids": [
      "ImaginaryKingdom"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-12.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-12.md": {
     "n": 1,
     "ids": [
      "FictionalTradeService"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-13.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-13.md": {
     "n": 1,
     "ids": [
      "SampleTroopTree"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-14.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-14.md": {
     "n": 1,
     "ids": [
      "TestOnlyBridge"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-15.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-15.md": {
     "n": 1,
     "ids": [
      "WobblyFrameRate"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-16.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-16.md": {
     "n": 1,
     "ids": [
      "GizmoOverlay"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-17.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-17.md": {
     "n": 1,
     "ids": [
      "PseudoDiplomacyModel"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-18.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-18.md": {
     "n": 1,
     "ids": [
      "ZenithAchievementHub"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-19.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-19.md": {
     "n": 1,
     "ids": [
      "MinimalExampleUtil"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-20.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-20.md": {
     "n": 1,
     "ids": [
      "HandmadeScenario"
@@ -3430,121 +3280,121 @@
    }
   },
   "M3": {
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-01.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-01.md": {
     "n": 1,
     "ids": [
      "FakeWidget"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-02.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-02.md": {
     "n": 1,
     "ids": [
      "NotARealType"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-03.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-03.md": {
     "n": 1,
     "ids": [
      "ZzzBogus9"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-04.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-04.md": {
     "n": 1,
     "ids": [
      "PhantomRegistry"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-05.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-05.md": {
     "n": 1,
     "ids": [
      "GhostCampaign"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-06.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-06.md": {
     "n": 1,
     "ids": [
      "UnicornSaveManager"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-07.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-07.md": {
     "n": 1,
     "ids": [
      "NullMissionBehavior"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-08.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-08.md": {
     "n": 1,
     "ids": [
      "BogusVisualEntity"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-09.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-09.md": {
     "n": 1,
     "ids": [
      "DemoOnlyWrapper"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-10.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-10.md": {
     "n": 1,
     "ids": [
      "QuantumSettlement"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-11.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-11.md": {
     "n": 1,
     "ids": [
      "ImaginaryKingdom"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-12.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-12.md": {
     "n": 1,
     "ids": [
      "FictionalTradeService"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-13.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-13.md": {
     "n": 1,
     "ids": [
      "SampleTroopTree"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-14.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-14.md": {
     "n": 1,
     "ids": [
      "TestOnlyBridge"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-15.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-15.md": {
     "n": 1,
     "ids": [
      "WobblyFrameRate"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-16.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-16.md": {
     "n": 1,
     "ids": [
      "GizmoOverlay"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-17.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-17.md": {
     "n": 1,
     "ids": [
      "PseudoDiplomacyModel"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-18.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-18.md": {
     "n": 1,
     "ids": [
      "ZenithAchievementHub"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-19.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-19.md": {
     "n": 1,
     "ids": [
      "MinimalExampleUtil"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\positive\\pos-20.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\positive\\pos-20.md": {
     "n": 1,
     "ids": [
      "HandmadeScenario"
@@ -3554,81 +3404,81 @@
  },
  "negDetail": {
   "M0": {
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-01.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-01.md": {
     "n": 1,
     "ids": [
      "AccountID"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-02.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-02.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-03.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-03.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-04.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-04.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-05.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-05.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-06.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-06.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-07.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-07.md": {
     "n": 2,
     "ids": [
      "AddAppDependencyResult",
      "AddUGCDependencyResult"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-08.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-08.md": {
     "n": 1,
     "ids": [
      "ToBeCloseTo"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-09.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-09.md": {
     "n": 2,
     "ids": [
      "ActiveBeaconsUpdated",
      "FullLobbies"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-10.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-10.md": {
     "n": 1,
     "ids": [
      "AvatarCriteria"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-11.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-11.md": {
     "n": 1,
     "ids": [
      "AddAppDependencyResult"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-12.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-12.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-13.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-13.md": {
     "n": 1,
     "ids": [
      "AppTicketSize"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-14.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-14.md": {
     "n": 1,
     "ids": [
      "BufferLen"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-15.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-15.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3639,7 +3489,7 @@
      "Gaps"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-16.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-16.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3650,7 +3500,7 @@
      "Gaps"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-17.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-17.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3661,7 +3511,7 @@
      "Gaps"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-18.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-18.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3672,7 +3522,7 @@
      "Gaps"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-19.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-19.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3683,7 +3533,7 @@
      "Gaps"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-20.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-20.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3696,63 +3546,63 @@
    }
   },
   "M1": {
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-01.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-01.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-02.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-02.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-03.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-03.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-04.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-04.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-05.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-05.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-06.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-06.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-07.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-07.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-08.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-08.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-09.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-09.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-10.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-10.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-11.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-11.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-12.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-12.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-13.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-13.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-14.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-14.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-15.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-15.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3763,7 +3613,7 @@
      "Gaps"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-16.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-16.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3774,7 +3624,7 @@
      "Gaps"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-17.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-17.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3785,7 +3635,7 @@
      "Gaps"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-18.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-18.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3796,7 +3646,7 @@
      "Gaps"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-19.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-19.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3807,7 +3657,7 @@
      "Gaps"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-20.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-20.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3820,63 +3670,63 @@
    }
   },
   "M2": {
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-01.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-01.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-02.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-02.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-03.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-03.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-04.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-04.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-05.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-05.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-06.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-06.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-07.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-07.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-08.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-08.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-09.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-09.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-10.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-10.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-11.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-11.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-12.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-12.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-13.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-13.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-14.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-14.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-15.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-15.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3887,7 +3737,7 @@
      "Gaps"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-16.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-16.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3898,7 +3748,7 @@
      "Gaps"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-17.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-17.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3909,7 +3759,7 @@
      "Gaps"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-18.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-18.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3920,7 +3770,7 @@
      "Gaps"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-19.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-19.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3931,7 +3781,7 @@
      "Gaps"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-20.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-20.md": {
     "n": 6,
     "ids": [
      "AssemblyInfo",
@@ -3944,112 +3794,142 @@
    }
   },
   "M3": {
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-01.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-01.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-02.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-02.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-03.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-03.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-04.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-04.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-05.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-05.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-06.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-06.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-07.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-07.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-08.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-08.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-09.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-09.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-10.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-10.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-11.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-11.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-12.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-12.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-13.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-13.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-14.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-14.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-15.md": {
-    "n": 0,
-    "ids": []
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-15.md": {
+    "n": 4,
+    "ids": [
+     "Suffixes",
+     "TypoNamespaces",
+     "PointDirs",
+     "Gaps"
+    ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-16.md": {
-    "n": 0,
-    "ids": []
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-16.md": {
+    "n": 4,
+    "ids": [
+     "Suffixes",
+     "TypoNamespaces",
+     "PointDirs",
+     "Gaps"
+    ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-17.md": {
-    "n": 0,
-    "ids": []
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-17.md": {
+    "n": 4,
+    "ids": [
+     "Suffixes",
+     "TypoNamespaces",
+     "PointDirs",
+     "Gaps"
+    ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-18.md": {
-    "n": 0,
-    "ids": []
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-18.md": {
+    "n": 4,
+    "ids": [
+     "Suffixes",
+     "TypoNamespaces",
+     "PointDirs",
+     "Gaps"
+    ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-19.md": {
-    "n": 0,
-    "ids": []
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-19.md": {
+    "n": 4,
+    "ids": [
+     "Suffixes",
+     "TypoNamespaces",
+     "PointDirs",
+     "Gaps"
+    ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\negative\\neg-20.md": {
-    "n": 0,
-    "ids": []
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\negative\\neg-20.md": {
+    "n": 4,
+    "ids": [
+     "Suffixes",
+     "TypoNamespaces",
+     "PointDirs",
+     "Gaps"
+    ]
    }
   }
  },
  "camDetail": {
   "M0": {
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\camel\\camel-1.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\camel\\camel-1.md": {
     "n": 2,
     "ids": [
      "FakeWidgetEnabled",
      "FakeWidgetActive"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\camel\\camel-2.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\camel\\camel-2.md": {
     "n": 2,
     "ids": [
      "NotARealTypeEnabled",
      "NotARealTypeActive"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\camel\\camel-3.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\camel\\camel-3.md": {
     "n": 2,
     "ids": [
      "ZzzBogus9Enabled",
      "ZzzBogus9Active"
     ]
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\camel\\camel-4.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\camel\\camel-4.md": {
     "n": 2,
     "ids": [
      "PhantomRegistryEnabled",
@@ -4058,55 +3938,55 @@
    }
   },
   "M1": {
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\camel\\camel-1.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\camel\\camel-1.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\camel\\camel-2.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\camel\\camel-2.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\camel\\camel-3.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\camel\\camel-3.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\camel\\camel-4.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\camel\\camel-4.md": {
     "n": 0,
     "ids": []
    }
   },
   "M2": {
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\camel\\camel-1.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\camel\\camel-1.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\camel\\camel-2.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\camel\\camel-2.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\camel\\camel-3.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\camel\\camel-3.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\camel\\camel-4.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\camel\\camel-4.md": {
     "n": 0,
     "ids": []
    }
   },
   "M3": {
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\camel\\camel-1.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\camel\\camel-1.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\camel\\camel-2.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\camel\\camel-2.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\camel\\camel-3.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\camel\\camel-3.md": {
     "n": 0,
     "ids": []
    },
-   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-tmQkbR\\camel\\camel-4.md": {
+   "C:\\Users\\ModerRAS\\AppData\\Local\\Temp\\v146-ruler-Y1dNtJ\\camel\\camel-4.md": {
     "n": 0,
     "ids": []
    }
@@ -7343,178 +7223,10 @@
  ],
  "ctx_M3": [
   {
-   "id": "NRE",
-   "n": 24,
-   "page": "v1.4.6/zh/api/core/MBSubModuleBase.md",
-   "ctx": "常见误用：**在 `OnSubModuleLoad` 里访问 `Game.Current` 或 `Campaign.Current`**——那时 GameManager 甚至还没建，必 NRE。第二个是**在 `OnGameStart` 里假定 `Campaign.Current` 非 null**——战役模式下这时可"
-  },
-  {
-   "id": "OnXxx",
-   "n": 4,
-   "page": "v1.4.6/zh/api/campaign/CampaignEvents.md",
-   "ctx": "`CampaignEvents` 是战役层的全局事件总线。它继承 `CampaignEventReceiver`——游戏代码调用 receiver 上的 `OnXxx(...)` 抛出方法，方法内部再转发到本类的静态事件属性；`CampaignEvents` 持有的那个实例是 `Campaign.Current.Cam"
-  },
-  {
-   "id": "ABI",
-   "n": 3,
-   "page": "v1.4.6/zh/api/localization/TextObject.md",
-   "ctx": "- **存档兼容靠 `Value` 原文与 `Attributes` 的 tag。** 改了 tag 名，旧档里的变量就丢了；改了 `{=key}` 的 key，旧档找不到翻译只显示 `}` 后面那段兜底原文。tag 是存档 ABI。"
-  },
-  {
-   "id": "AutoGenerate",
-   "n": 2,
-   "page": "v1.4.6/zh/architecture/module-map.md",
-   "ctx": "| `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.AutoGenerate` | 84 | 多人界面预制体生成物；1.4.5 里同名目录写作 `AutoGenerated` |"
-  },
-  {
-   "id": "GetModified",
-   "n": 2,
-   "page": "v1.4.6/zh/api/core-extra/EquipmentElement.md",
-   "ctx": "`EquipmentElement` 是「一个装备槽里装了什么」的完整答案。它是**结构体**（值语义），内部装四样东西：`Item`（本体，[ItemObject](../ItemObject)）、`ItemModifier`（品质词缀，可空）、`IsQuestItem`（任务物品标记）、`CosmeticItem`"
-  },
-  {
-   "id": "HasXxxComponent",
-   "n": 2,
-   "page": "v1.4.6/zh/api/core-extra/ItemComponent.md",
-   "ctx": "读一个物品的组件，按派生类型分支（**先判 `HasXxxComponent` 再用**）："
-  },
-  {
-   "id": "KeyPartN",
-   "n": 2,
-   "page": "v1.4.6/zh/api/core-extra/BodyProperties.md",
-   "ctx": "- **结构体不可变。** `Age` / `Weight` / `Build` / `KeyPartN` 全是只读属性。要改必须 `new BodyProperties(new DynamicBodyProperties(...), modifiedStatic)`。`StaticBodyProperties` 的位"
-  },
-  {
-   "id": "LINQ",
-   "n": 2,
-   "page": "v1.4.6/zh/api/core/MBSubModuleBase.md",
-   "ctx": "- **`OnApplicationTick` 每帧执行且无 dt 节流。** 在里面做 LINQ、反射、分配都会直接影响帧率。把它当「检查 flag，需要时触发」用。"
-  },
-  {
-   "id": "LOD",
-   "n": 2,
-   "page": "v1.4.6/zh/api/core-extra/ItemObject.md",
-   "ctx": "| `LodAtlasIndex` | `public int LodAtlasIndex { get; private set; }` | LOD 图集索引。 |"
-  },
-  {
-   "id": "MyBehavior",
-   "n": 2,
-   "page": "v1.4.6/zh/api/campaign/CampaignBehaviorBase.md",
-   "ctx": "典型顺序是：`MBSubModuleBase.OnGameStart(Game game, IGameStarter gameStarter)` → 强转成 `CampaignGameStarter` → `AddBehavior(new MyBehavior())` → 战役对象建立 → 游戏对每个 Behavior"
-  },
-  {
-   "id": "MyKey",
-   "n": 2,
-   "page": "v1.4.6/zh/api/localization/TextObject.md",
-   "ctx": "- `new TextObject(\"{=MyKey}Hello\")` —— 本地化文本。`ToString()` 时 `MBTextManager.GetLocalizedText` 会去语言文件里找 `MyKey`；找不到就用 `}` 后面那段原文兜底。"
-  },
-  {
-   "id": "MyScreen",
-   "n": 2,
-   "page": "v1.4.6/zh/api/engine/GauntletLayer.md",
-   "ctx": "它不是抽象类，但绝大多数用法都是继承它并加一个 `ViewModel`。一个完整界面通常长这样：`class MyScreen : ScreenBase` 持有 `MyLayer : GauntletLayer`，`MyLayer` 再持有 `MyViewModel`，movie XML 通过 `ViewModel` "
-  },
-  {
-   "id": "NPE",
-   "n": 2,
-   "page": "v1.4.6/zh/api/core-extra/CraftingPiece.md",
-   "ctx": "| `BladeData` | `public BladeData BladeData { get; private set; }` | 刀刃几何数据，**只在有 `<BladeData>` 子节点时非 null**。非刀刃零件读它 → NPE。 |"
-  },
-  {
-   "id": "XxxComponent",
-   "n": 2,
-   "page": "v1.4.6/zh/api/core-extra/ItemComponent.md",
-   "ctx": "在物品体系里它承担的是**能力**这一环。[ItemObject](../ItemObject) 存的是**静态数据**（mesh 名、数值、标志位），组件存的是**行为**。`ItemObject.WeaponComponent` / `ArmorComponent` / `HorseComponent` / `Ba"
-  },
-  {
-   "id": "YourType",
-   "n": 2,
-   "page": "v1.4.6/zh/api/save-system/SaveableFieldAttribute.md",
-   "ctx": "2. **类型定义（TypeDefinition）**——由 [SaveableTypeDefiner](../SaveableTypeDefiner) 的 `AddClassDefinition(typeof(YourType), 100)` 建立，把「槽位号 → 字段名」固定下来。"
-  },
-  {
-   "id": "AirFriction",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/ItemObject.md",
-   "ctx": "| `GetAirFrictionConstant` | `public static float GetAirFrictionConstant(WeaponClass weaponClass, WeaponFlags weaponFlags)` | 从 `ManagedParameters.Instance.GetM"
-  },
-  {
-   "id": "AutoGeneratedGetMemberValueKeyPartN",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/StaticBodyProperties.md",
-   "ctx": "| `AutoGeneratedGetMemberValueKeyPartN` | `internal static object AutoGeneratedGetMemberValueKeyPartN(object o)`（N = 1..8） | 存档系统按成员名反射取值用的内部钩子，**`internal`，外部程"
-  },
-  {
-   "id": "BallistaBolt",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/ItemObject.md",
-   "ctx": "| `GetAirFrictionConstant` | `public static float GetAirFrictionConstant(WeaponClass weaponClass, WeaponFlags weaponFlags)` | 从 `ManagedParameters.Instance.GetM"
-  },
-  {
-   "id": "BaseVM",
-   "n": 1,
-   "page": "v1.4.6/zh/api/viewmodel/_index.md",
-   "ctx": "2. **632 个类型没有统一心智模型。** 官方 ViewModel 之间几乎不共享基类（除了少数几个 `*BaseVM`；`*BaseVM` 是 `CharacterCreationStageBaseVM` 这类基类名的后缀简写，不是类型名），逐个写页会产出 600 多张互不相干的签名罗列，对读者没有增量信息。真"
-  },
-  {
-   "id": "Bover",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/ArmorComponent.md",
-   "ctx": "| `BeardCoverType` | `public ArmorComponent.BeardCoverTypes BeardCoverType { get; private set; }` | 胡须遮挡形态。对应 `beard_cover_type`，缺失为 `None`。枚举里有拼写错误的哨兵 `NumBear"
-  },
-  {
-   "id": "CanXxxObject",
-   "n": 1,
-   "page": "v1.4.6/zh/api/mission/Agent.md",
-   "ctx": "| `CanUseObject` / `CanReachObject` / `CanReachObjectFromPosition` / `CanReachAndUseObject` | 各自 `public bool CanXxxObject(...)` | 能否使用/触及场景物体 |"
-  },
-  {
-   "id": "CAS",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/ParameterContainer.md",
-   "ctx": "- **`AddParameterConcurrent` 不是真原子。** 复制-修改-赋回把窗口缩小了，但最后那一步引用赋值仍不是 CAS。多线程高频写同一 `ParameterContainer` 依然有丢更新风险。"
-  },
-  {
-   "id": "Combined",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/ArmorComponent.md",
-   "ctx": "- **`MeshesMask` 的语义是「可见」。** 想遮住头就得让 `covers_head=\"true\"`；`SkinMask` 不是 `[Flags]`，枚举名里没有 `Combined` 之类的组合值。"
-  },
-  {
-   "id": "CoverType",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/ArmorComponent.md",
-   "ctx": "`ArmorComponent` 回答「这件东西穿上身之后，能挡多少伤害、盖住哪块身体、网格怎么变形」。它挂在 [ItemObject](../ItemObject) 的单槽上，由物品 XML 里 `<ItemComponent><Armor .../></ItemComponent>` 装配，是 [ItemCompo"
-  },
-  {
-   "id": "Define",
-   "n": 1,
-   "page": "v1.4.6/zh/api/save-system/SaveableTypeDefiner.md",
-   "ctx": "这是 mod 接入 Bannerlord 存档系统的**唯一正规入口**。保存系统不硬编码任何类型表：它扫描 AppDomain 里所有引用了 `TaleWorlds.SaveSystem` 的程序集，找出所有 `SaveableTypeDefiner` 的**非抽象子类**，用 `Activator.CreateIn"
-  },
-  {
-   "id": "DOM",
-   "n": 1,
-   "page": "v1.4.6/zh/api/campaign-ext/MBObjectManager.md",
-   "ctx": "| `ToXDocument` / `ToXmlDocument` | `public static XDocument ToXDocument(XmlDocument xml)` / `public static XmlDocument ToXmlDocument(XDocument xDocument)` | `S"
-  },
-  {
    "id": "DynamicHash",
    "n": 1,
    "page": "v1.4.6/zh/api/core-extra/BodyProperties.md",
    "ctx": "| `GetHashCode` | `public override int GetHashCode()` | `(2041866711 * -1521134295 + DynamicHash) * -1521134295 + StaticHash`。**与 `Equals` 配套，可安全用作字典键。** |"
-  },
-  {
-   "id": "ECS",
-   "n": 1,
-   "page": "v1.4.6/zh/api/campaign/Campaign.md",
-   "ctx": "它提供两个官方扩展位：`AddCustomManager<T>()` / `GetCustomManager<T>()` 用于挂自定义系统管理器，`AddEntityComponent<TComponent>()` / `GetEntityComponent<TComponent>()` 用于挂实体组件。前者按类型唯一"
-  },
-  {
-   "id": "EncyclopediaVM",
-   "n": 1,
-   "page": "v1.4.6/zh/api/viewmodel/_index.md",
-   "ctx": "- `EncyclopediaViewModel` — 百科主界面（注意类名是 `EncyclopediaViewModel`，不是 `EncyclopediaVM`；同一区域还有 `EncyclopediaHomeVM` / `EncyclopediaHeroPageVM` / `EncyclopediaFactio"
   },
   {
    "id": "EndCaptivationDetail",
@@ -7523,64 +7235,10 @@
    "ctx": "`OnHeroCreated(Hero, bool)`、`OnHeroLevelledUp(Hero, bool)`、`OnHeroGainedSkill(Hero, SkillObject, int, bool)`、`OnPerkOpened(Hero, PerkObject)`、`OnPerkReset(Hero,"
   },
   {
-   "id": "EstimatedAverage",
-   "n": 1,
-   "page": "v1.4.6/zh/api/campaign/Campaign.md",
-   "ctx": "- **速度估算字段可写**：`EstimatedAverage*` 系列是 `public get; set;`，改它们能全局改变 AI 与经济节奏。默认值由 `InitializeParameters` 设定，覆盖太早会被冲掉。"
-  },
-  {
-   "id": "FindObject",
-   "n": 1,
-   "page": "v1.4.6/zh/api/campaign-ext/MBObjectBase.md",
-   "ctx": "| `StringId` | `public string StringId { get; set; }`（`[SaveableProperty(1)]`） | 人类可读的稳定标识，也是 XML 定义与 `MBObjectManager.FindObject<T>(string)` 的键。会进存档，改名等于换对象 |"
-  },
-  {
-   "id": "FNV",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/StaticBodyProperties.md",
-   "ctx": "**最坑的一条：`GetHashCode()` 只混入了 `KeyPart8` 的高 32 位。** 折叠循环第一段对 `KeyPart1`…`KeyPart8` 各取 `(uint)((uint)KeyPartN << 32)` 参与 FNV 式混合——`ulong` 左移 32 位后强制转 `uint` 拿到的是*"
-  },
-  {
-   "id": "FormationGroup",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/BasicCharacterObject.md",
-   "ctx": "| `DefaultFormationGroup` | `public int DefaultFormationGroup { get; set; }` | 默认阵型组号，XML 的 `FormationGroup` 解析。 |"
-  },
-  {
-   "id": "ForUsage",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/EquipmentElement.md",
-   "ctx": "第一个必须记住的边界是**几乎每个成员都假设 `Item != null`**。`GetModifiedHeadArmor` / `GetModifiedBodyArmor` / `GetModifiedLegArmor` / `GetModifiedArmArmor` / `GetModifiedStealthFac"
-  },
-  {
    "id": "GetMissionCombatDifficulty",
    "n": 1,
    "page": "v1.4.6/zh/api/mission/Mission.md",
    "ctx": "| `GetMissionCombatDifficulty` 辅助 | 见伤害段 | 不重复列 |"
-  },
-  {
-   "id": "GetModifiedMount",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/EquipmentElement.md",
-   "ctx": "第五个是 `GetModifiedMount*` 的双重词缀叠加。`GetModifiedMountManeuver(in harness)` 先取 `this.Item.HorseComponent.Maneuver`，`+` 掉 `harness.Item.ArmorComponent.ManeuverBonus`"
-  },
-  {
-   "id": "GetRandom",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/ItemModifierGroup.md",
-   "ctx": "- **`AddItemModifier` 在 `Deserialize` 之后无效于权重表。** 权重表只由 `InitializeDropScoreLists()` 构造一次。加完的词缀 `ItemModifiers` 里有、`GetRandom*` 抽不到。"
-  },
-  {
-   "id": "GetXxx",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/SaddleComponent.md",
-   "ctx": "第四个是**它没有任何数据，所以调它的任何方法都没有意义**。没有 `GetXxx()`、没有数值、没有外观属性。想让鞍具有数值，只能自己派生："
-  },
-  {
-   "id": "HandleXxx",
-   "n": 1,
-   "page": "v1.4.6/zh/api/gui/ScreenBase.md",
-   "ctx": "注意所有 `HandleXxx` 与 `FrameTick` / `IdleTick` / `Update` 都是 `internal`，mod 无法手动调用它们。正确做法是用 `ScreenManager.PushScreen(this)` 让引擎来驱动。类里的两个公开转发方法 `Activate()` 与 `Dea"
   },
   {
    "id": "HourlyTickHero",
@@ -7595,22 +7253,10 @@
    "ctx": "tick 家族按粒度分层：`TickEvent(float dt)` 与 `MissionTickEvent(float dt)` 是每帧；`QuarterHourlyTickEvent` 是每刻钟；`HourlyTickEvent` 每小时；`DailyTickEvent` 每天；`WeeklyTickEvent` "
   },
   {
-   "id": "ICustomManager",
+   "id": "InventoryOpenedEvent",
    "n": 1,
-   "page": "v1.4.6/zh/api/campaign/Campaign.md",
-   "ctx": "- **`Current` 的 setter 是 private**：mod 无法手动替换或清空它。测试里想造一个假 `Campaign` 是不可能的，只能改用 `ICustomManager` 之类的接口隔离依赖。"
-  },
-  {
-   "id": "ImGui",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core/Module.md",
-   "ctx": "| `ImguiProfilerTick` | `public event Action ImguiProfilerTick` | ImGui 分析器每帧 tick 事件。调试用。 |"
-  },
-  {
-   "id": "InvalidId",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/ItemObject.md",
-   "ctx": "- **空物品的 `GetHashCode` 恒为 0。** `Id` 是 `MBGUID`（含 `uint InternalValue` 与 `uint SubId`），未注册时是 `default(MBGUID)`，`SubId` 为 0。多个未注册物品当字典键会互相覆盖。**源码里不存在 `InvalidId` "
+   "page": "v1.4.6/zh/api/core-extra/EventBase.md",
+   "ctx": "1. **声明事件类型**：`public class InventoryOpenedEvent : EventBase { public InventoryScreen Screen; }`。它就是纯数据载体，不需要任何方法。"
   },
   {
    "id": "ISaveTypeSerializer",
@@ -7625,18 +7271,6 @@
    "ctx": "| `IsMale`（对应） | 见 `IsFemale` | `public bool IsFemale { get; set; }` 是性别属性 |"
   },
   {
-   "id": "IsXxx",
-   "n": 1,
-   "page": "v1.4.6/zh/api/campaign/Hero.md",
-   "ctx": "| `IsEnemy` / `IsFriend` / `IsNeutral` | 各自 `public bool IsXxx(Hero otherHero)` | 关系档位判定。阈值来自游戏模型 |"
-  },
-  {
-   "id": "Item10",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/BindingPath.md",
-   "ctx": "| `IsRelatedWith` | `public bool IsRelatedWith(BindingPath referencePath)` | `IsRelatedWithPath(this.Path, referencePath)`，即 `referencePath.Path.StartsWith(this"
-  },
-  {
    "id": "Locatable",
    "n": 1,
    "page": "v1.4.6/zh/api/campaign/Settlement.md",
@@ -7649,52 +7283,10 @@
    "ctx": "| `Party` | `public PartyBase Party { get; private set; }` | 驻军部队。要看具体队伍就往下转型到 `GarrisonParty` / `MilitiaParty` |"
   },
   {
-   "id": "ModifyMount",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/HorseComponent.md",
-   "ctx": "- 词缀：[ItemModifierGroup](../ItemModifierGroup) 与 `ItemModifier.ModifyMount*`"
-  },
-  {
-   "id": "MyEvent",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/EventBase.md",
-   "ctx": "也就是说，事件总线的\"钥匙孔\"就是 `EventBase`。你写一个 `class MyEvent : EventBase`，它就自动获得被 `RegisterEvent` / `TriggerEvent` 接受��资格；你写一个不继承它的类，调用会被拒绝并打断言。注意断言**不 return**——`Register"
-  },
-  {
-   "id": "MyLayer",
-   "n": 1,
-   "page": "v1.4.6/zh/api/engine/GauntletLayer.md",
-   "ctx": "它不是抽象类，但绝大多数用法都是继承它并加一个 `ViewModel`。一个完整界面通常长这样：`class MyScreen : ScreenBase` 持有 `MyLayer : GauntletLayer`，`MyLayer` 再持有 `MyViewModel`，movie XML 通过 `ViewModel` "
-  },
-  {
-   "id": "MySaddleComponent",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/SaddleComponent.md",
-   "ctx": "public class MySaddleComponent : SaddleComponent"
-  },
-  {
-   "id": "MyViewModel",
-   "n": 1,
-   "page": "v1.4.6/zh/api/engine/GauntletLayer.md",
-   "ctx": "它不是抽象类，但绝大多数用法都是继承它并加一个 `ViewModel`。一个完整界面通常长这样：`class MyScreen : ScreenBase` 持有 `MyLayer : GauntletLayer`，`MyLayer` 再持有 `MyViewModel`，movie XML 通过 `ViewModel` "
-  },
-  {
-   "id": "NetworkHelper",
-   "n": 1,
-   "page": "v1.4.6/zh/api/mission/Mission.md",
-   "ctx": "| `Mission.NetworkHelper`（`MissionNetworkHelper`） | `public static class`，成员 `GetAgentFromIndex(int, bool canBeNull = false)` / `GetMBTeamFromTeamIndex(int)` / "
-  },
-  {
    "id": "OnCharacterPortraitPopUpOpenedEvent",
    "n": 1,
    "page": "v1.4.6/zh/api/campaign/CampaignEvents.md",
    "ctx": "| `OnCharacterPortraitPopUpOpenedEvent` | `IMbEvent<CharacterObject> OnCharacterPortraitPopUpOpenedEvent` | 角色立绘弹窗打开 |"
-  },
-  {
-   "id": "OnFoo",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/ViewModel.md",
-   "ctx": "- **命令重载会被吞。** 缓存方法表用 `if (!dictionary2.ContainsKey(methodInfo.Name))` 只保留第一个同名方法。`OnFoo(int)` 和 `OnFoo(string)` 同时存在时，只有一个能通过命令名调，另一个只能走基类链碰运气。"
   },
   {
    "id": "OnMissionStateActivatedEvent",
@@ -7733,64 +7325,10 @@
    "ctx": "| `RegisterEvents` | `public abstract void RegisterEvents()` | 战役装配完成后被调一次。订阅 `CampaignEvents.*`、`Clan.PlayerClanChanged` 等；返回值无意义，被子类忽略 |"
   },
   {
-   "id": "PlayerUpgradedTroops",
-   "n": 1,
-   "page": "v1.4.6/zh/api/campaign/CampaignEvents.md",
-   "ctx": "`OnHeroCreated(Hero, bool)`、`OnHeroLevelledUp(Hero, bool)`、`OnHeroGainedSkill(Hero, SkillObject, int, bool)`、`OnPerkOpened(Hero, PerkObject)`、`OnPerkReset(Hero,"
-  },
-  {
-   "id": "POCO",
-   "n": 1,
-   "page": "v1.4.6/zh/api/campaign-ext/MBObjectManager.md",
-   "ctx": "- **只管理 `MBObjectBase` 派生类**：`RegisterObject<T>` 的泛型约束会让其它类型编译不过；运行时 POCO 请用自己的容器。"
-  },
-  {
-   "id": "Rebellios",
-   "n": 1,
-   "page": "v1.4.6/zh/api/campaign/CampaignEvents.md",
-   "ctx": "| `TownRebelliosStateChanged` | `IMbEvent<Town, bool> TownRebelliosStateChanged` | 城镇叛乱状态翻转（事件名 `Rebellios` 是源码原样拼写） |"
-  },
-  {
-   "id": "ScaledXxx",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/WeaponDesignElement.md",
-   "ctx": "它把「一个零件 + 一个缩放百分比」这个组合封成对象，让 [WeaponDesign](../WeaponDesign) 可以把几何计算全部写成 `piece.ScaledXxx` 的一串无分支表达式。全部 10 个 `Scaled*` 属性都是同一个模式：**`IsPieceScaled` 为 false 就原样返回"
-  },
-  {
-   "id": "SerializeNulls",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/BodyPropertiesJsonConverter.md",
-   "ctx": "第二条：**这个类有 `CanWrite => true`，但没有任何 `null` 保护。** Newtonsoft 在遇到 `null` 值时，默认不会调 `WriteJson`（除非 `serializer.SerializeNulls` 打开）——**一旦打开，`((BodyProperties)value)`"
-  },
-  {
-   "id": "SetCustomCameraXxx",
-   "n": 1,
-   "page": "v1.4.6/zh/api/mission/Mission.md",
-   "ctx": "| `CustomCameraLocalOffset` / `CustomCameraLocalOffset2` / `CustomCameraTargetLocalOffset` / `CustomCameraGlobalOffset` / `CustomCameraLocalRotationalOffset` | "
-  },
-  {
-   "id": "SetXxxModifier",
-   "n": 1,
-   "page": "v1.4.6/zh/api/mission/Mission.md",
-   "ctx": "| `SetBowMissileSpeedModifier` / `SetCrossbowMissileSpeedModifier` / `SetThrowingMissileSpeedModifier` / `SetMissileRangeModifier` | 各自 `public void SetXxxModif"
-  },
-  {
-   "id": "SomeKey",
-   "n": 1,
-   "page": "v1.4.6/zh/api/localization/TextObject.md",
-   "ctx": "它是 Bannerlord 本地化系统的最小单元，也是 mod 界面和物品/角色数据里出现频率最高的类型。结构极简：**`Value` 是一个 `public` 字段**（`[SaveableField(1)]`），里面装的是**未解析的原文**，典型形态是 `{=SomeKey}后面的默认文本`；**`Attribu"
-  },
-  {
    "id": "StaticHash",
    "n": 1,
    "page": "v1.4.6/zh/api/core-extra/BodyProperties.md",
    "ctx": "| `GetHashCode` | `public override int GetHashCode()` | `(2041866711 * -1521134295 + DynamicHash) * -1521134295 + StaticHash`。**与 `Equals` 配套，可安全用作字典键。** |"
-  },
-  {
-   "id": "SubPanel",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/BindingPath.md",
-   "ctx": "GauntletUI 绑定系统里描述「从根 ViewModel 走到某个属性」的一段路径。分隔符是**反斜杠 `\\`**（不是斜杠），例如 `SubPanel.Item0.Name`。构造时把字符串按 `\\` 切成 `Nodes` 数组；反过来 `Nodes` 构造时用 `MBStringBuilder` 拼回带 `\\"
   },
   {
    "id": "TradeItem",
@@ -7799,76 +7337,10 @@
    "ctx": "`TradeItemComponent` 是贸易品与食物在 [ItemObject](../ItemObject) 单槽上的行为插件，全部源码 54 行，只带一个数据成员：`MoraleBonus`（XML 属性 `morale_bonus`，代表「让队伍士兵开心」的那类商品）。它在整个组件体系里的地位特殊：**它是六"
   },
   {
-   "id": "TryGetParameterAsXxx",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/ParameterContainer.md",
-   "ctx": "整个类的内部状态只有一个 `Dictionary<string, string> _parameters`——**所有值都是字符串，类型转换在读取时做**。它提供两组入口：`AddParameter` 系列写入，`TryGetParameterAsXxx` 系列按目标类型读出。`TryGet*` 的语义统一是「key "
-  },
-  {
-   "id": "UpperBody",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/ArmorComponent.md",
-   "ctx": "- **`BodyMeshType` / `BodyDeformType` 走手写字符串比较，不走 `Enum.Parse`。** 写 `\"UpperBody\"`（大写 B）会静默回落成 `Normal`，不报错。"
-  },
-  {
-   "id": "WeightOf",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/Crafting.md",
-   "ctx": "`bannerlord-1.3.15/` 与 `bannerlord-1.4.6/` 的 `TaleWorlds.Core/Crafting.cs` 逐行比对，**public 表面完全一致**：3 个构造器路径、全部属性、19 个方法、6 个 `WeightOf*` 常量、嵌套类 `RefiningFormula` "
-  },
-  {
-   "id": "WithoutAgent",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/Equipment.md",
-   "ctx": "常见误用：以为 `Clone()` 是深拷贝（槽位元素是**共享的同一个 `EquipmentElement` 引用**——`Clone` 走 `SetItem(i, this[i])` 没有 new）；对空 `Equipment` 调 `GetHeadArmorSum()` 之类区间方法（内部逐槽 `!IsEmpty"
-  },
-  {
    "id": "WorkshopWorkshops",
    "n": 1,
    "page": "v1.4.6/zh/api/campaign/Campaign.md",
    "ctx": "| `Workshops` | `public MBReadOnlyList<WorkshopType> WorkshopWorkshops`（实际名 `Workshops`） | 全部工坊类型 |"
-  },
-  {
-   "id": "XSD",
-   "n": 1,
-   "page": "v1.4.6/zh/api/campaign-ext/MBObjectManager.md",
-   "ctx": "| `LoadOneXmlFromFile` | `public void LoadOneXmlFromFile(string xmlPath, string xsdPath, bool skipValidation = false)` | 从单个文件路径加载定义并做 XSD 校验 |"
-  },
-  {
-   "id": "XSLT",
-   "n": 1,
-   "page": "v1.4.6/zh/api/campaign-ext/MBObjectManager.md",
-   "ctx": "| `CreateMergedXmlFile` | `public static XmlDocument CreateMergedXmlFile(List<Tuple<string, string>> toBeMerged, List<string> xsltList, bool skipValidation)` | "
-  },
-  {
-   "id": "Xxx",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/WeaponDesignElement.md",
-   "ctx": "它把「一个零件 + 一个缩放百分比」这个组合封成对象，让 [WeaponDesign](../WeaponDesign) 可以把几何计算全部写成 `piece.ScaledXxx` 的一串无分支表达式。全部 10 个 `Scaled*` 属性都是同一个模式：**`IsPieceScaled` 为 false 就原样返回"
-  },
-  {
-   "id": "XxxBonus",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/CraftingPiece.md",
-   "ctx": "| `ArmorBonus` / `HandlingBonus` / `SwingDamageBonus` / `SwingSpeedBonus` / `ThrustDamageBonus` / `ThrustSpeedBonus` / `AccuracyBonus` | `public int XxxBonus { "
-  },
-  {
-   "id": "XxxEvent",
-   "n": 1,
-   "page": "v1.4.6/zh/api/campaign/CampaignEvents.md",
-   "ctx": "1.4.5 的参考源位于 `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/`。1.4.6 相对它把事件类型从早期的大量独立委托改成了泛型化的 `IMbEvent<...>` 与 `ReferenceIMBEvent<...>`，并新增了"
-  },
-  {
-   "id": "XxxModel",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/GameModelsManager.md",
-   "ctx": "典型调用顺序：`OnGameStart` 里 `gameStarterObject.AddModel(...)` → 游戏侧收拢 → `Game.AddGameModelsManager` 反射建管理器 → 之后各处 `BasicModels.XxxModel` 取用。"
-  },
-  {
-   "id": "XxxVisible",
-   "n": 1,
-   "page": "v1.4.6/zh/api/core-extra/ArmorComponent.md",
-   "ctx": "`MeshesMask` 的推导方向和直觉相反：它**不是**「遮住哪里」，而是「哪里看得见」。`Deserialize` 读四个 `covers_head` / `covers_body` / `covers_hands` / `covers_legs` 属性，凡是**没有**写的部位就 `|= SkinMask.X"
   }
  ]
 }

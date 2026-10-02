@@ -1,5 +1,14 @@
 // v1.4.6 生成页移出（move-out，非删除）+ 可逆性 manifest
 // 白名单是「逐页人工确认过的手写页」，不靠任何模式匹配判定。
+//
+// !! WHITELIST 是【冻结快照】，不是活规则 !!
+//   本脚本的移出集 = 磁盘上不在白名单里的一切。任何一次新增手写页，
+//   都必须同步下面两个表，否则重跑会把新页当成生成页移进 _withdrawn/。
+//     1) 本文件内的 WHITELIST（逐页人工确认过的历史来源页）
+//     2) tools/_v146_keep_whitelist.txt（当前 content/v1.4.6 的完整冻结清单）
+//   「反向完整性检查」就是为这条纪律兜底的：磁盘出现白名单里没有的页时
+//   直接 ABORT，一个都不移，而不是默默把它们移走。
+//
 // 用法：node tools/_v146_withdraw.mjs          # 预演
 //       node tools/_v146_withdraw.mjs --apply   # 执行
 import fs from 'node:fs';
@@ -53,7 +62,20 @@ function walk(dir, acc = []) {
 }
 
 const all = walk(SRC_ROOT).map((f) => path.relative(SRC_ROOT, f).split(path.sep).join('/'));
-const wl = new Set(WHITELIST);
+
+// 冻结快照：当前树上应保留的全部页面（相对 SRC_ROOT，posix 分隔）。
+// 与上面的 WHITELIST 取并集 —— WHITELIST 记录「当初人工确认过的来源页」，
+// 快照记录「现在确实存在的全部页」，两者缺一都会让移出集算错。
+const KEEP_SNAPSHOT = 'tools/_v146_keep_whitelist.txt';
+const snapshot = fs.existsSync(KEEP_SNAPSHOT)
+  ? fs.readFileSync(KEEP_SNAPSHOT, 'utf8').split(/\r?\n/).map((s) => s.trim()).filter(Boolean)
+  : [];
+if (!snapshot.length) {
+  console.error(`ABORT: frozen keep-snapshot missing or empty: ${KEEP_SNAPSHOT}\n  Refusing to run — without it every unlisted page would be treated as generator output.`);
+  process.exit(1);
+}
+
+const wl = new Set([...WHITELIST, ...snapshot]);
 
 // —— 第 1 步：白名单逐页核验 ——
 const wlMissing = [];
@@ -68,6 +90,25 @@ for (const rel of wl) {
 
 // —— 第 2 步：待移出清单（= 非白名单的一切）——
 const toMove = all.filter((rel) => !wl.has(rel));
+
+// —— 反向完整性检查：磁盘上不在白名单里的页 = 冻结快照已过期 ——
+// 原脚本只做了单向检查（白名单页丢失 → 报告），没有做这一半：
+// 新增手写页而没同步白名单时，旧脚本会默默把它们当生成页移走。
+if (toMove.length) {
+  const isClassPage = (rel) =>
+    !rel.endsWith('_index.md') &&
+    !rel.includes(`architecture${path.sep}`) &&
+    rel !== '_index.md';
+  const classes = toMove.filter(isClassPage);
+  console.error(
+    `ABORT: keep-snapshot is stale. ${toMove.length} page(s) on disk are NOT in WHITELIST ∪ snapshot.\n` +
+    `  class pages at risk: ${classes.length}\n  ` +
+    toMove.map((r) => `  UNLISTED: ${r}`).join('\n  ') +
+    `\n  Fix: add these paths to ${KEEP_SNAPSHOT} (and to WHITELIST above if they are new hand-written pages).\n` +
+    `  Nothing moved. Re-run after syncing.`
+  );
+  process.exit(1);
+}
 
 console.log(`MODE=${APPLY ? 'APPLY' : 'DRY-RUN'}`);
 console.log(`whitelist=${wl.size}  missing=${wlMissing.length}  suspect=${wlSuspect.length}`);

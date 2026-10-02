@@ -1,4 +1,6 @@
-// 判别力实测台：tools/_v146_prose_name_check.mjs 的多口径版本 + 一次性词表索引。
+// 判别力实测台：已删除的 tools/_v146_prose_name_check.mjs 的多口径版本 + 一次性词表索引。
+// ⚠️ 本文件是**判别力实测的物证，不是门禁**。结论：该尺无判别力，已删除、勿重建同形。
+//    报告见 _V146_PROSE_NAME_CHECKER_VERDICT.md，墓碑见 _V146_PROSE_NAME_CHECKER_TOMBSTONE.md。
 // 目的不是替代原检查器，而是量它的灵敏度/误报率，并把「提取口径」做成可切换的档位。
 //   node tools/_v146_prose_name_ruler.mjs --mode=M0|M1|M2|M3 <file...>
 // M0 = 现状（原脚本口径，逐字复制）
@@ -72,7 +74,7 @@ function check(file, mode) {
       if (id.length < 3 || ALLOW.has(id) || seen.has(id) || !/^[A-Z]/.test(id)) continue;
       seen.add(id);
       if (TOKENS.has(id)) continue;
-      if ((mode === 'M2' || mode === 'M3')) {
+      if (mode === 'M2') { // 只给 M2；之前写成 'M2'||'M3'，M3 偷继承了否定句过滤，与声明口径不符
         const s = sentenceAround(text, m.index);
         if (NEGATION.test(s) || PATHY.test(s)) continue;
       }
